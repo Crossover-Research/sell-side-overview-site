@@ -1,3 +1,4 @@
+'use client';
 import type { EngagementCard as EngagementCardType } from '../lib/types';
 
 interface EngagementCardProps {
@@ -6,21 +7,24 @@ interface EngagementCardProps {
 
 export function EngagementCard({ card }: EngagementCardProps) {
   return (
-    <div className="engagement-card">
+    <div className="engagement-card" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
       <div className="engagement-header">
         <span className="engagement-label">{card.label}</span>
         <div className="engagement-type">{card.type}</div>
       </div>
-      <div className="engagement-body">
+      <div className="engagement-body" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
         <div className="engagement-desc">{card.desc}</div>
-        <ul className="engagement-steps">
+        <ul className="engagement-steps" style={{ flex: 1 }}>
           {card.steps.map((step, i) => (
             <li key={i}><span className="step-dot" />{step}</li>
           ))}
         </ul>
         <a
           href={card.ctaHref}
+          target={card.ctaTarget || undefined}
+          rel={card.ctaTarget === '_blank' ? 'noopener noreferrer' : undefined}
           className={`cta-btn${card.ctaStyle === 'outline' ? ' outline' : ''}`}
+          style={{ marginTop: '20px', height: '44px', boxSizing: 'border-box' as const }}
         >
           {card.ctaText}
         </a>
