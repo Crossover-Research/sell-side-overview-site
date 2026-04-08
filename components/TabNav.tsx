@@ -1,45 +1,41 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { Tab } from '../lib/types';
+import type { Tab } from '../lib/types';
 
 interface TabNavProps {
   activeTab: Tab;
 }
 
+const TABS: { id: Tab; label: string; className?: string }[] = [
+  { id: 'thesis',  label: 'Red Canary \u2014 The Thesis' },
+  { id: 'vendor',  label: 'Red Canary \u2014 Vendor Intel' },
+  { id: 'voice',   label: 'Red Canary \u2014 Customer Voice' },
+  { id: 'bluecat', label: 'BlueCat Networks', className: 'tab-asset' },
+  { id: 'partner', label: 'Work With Us',     className: 'tab-sep' },
+];
+
 export function TabNav({ activeTab }: TabNavProps) {
   const router = useRouter();
 
-  const handleTabClick = (tab: Tab) => {
-    if (tab === 'thesis') {
-      router.push('/');
-    } else {
-      router.push(`/${tab}`);
-    }
+  const handleClick = (tab: Tab) => {
+    router.push(tab === 'thesis' ? '/' : `/${tab}`);
   };
 
-  const tabs = [
-    { id: 'thesis' as Tab, label: 'Red Canary — The Thesis' },
-    { id: 'vendor' as Tab, label: 'Red Canary — Vendor Intel' },
-    { id: 'voice' as Tab, label: 'Red Canary — Customer Voice' },
-    { id: 'bluecat' as Tab, label: 'BlueCat Networks', isAsset: true },
-    { id: 'partner' as Tab, label: 'Work With Us', hasSeparator: true }
-  ];
-
   return (
-    <div className={"tabNavWrap"}>
-      <div className={"tabNav"}>
-        {tabs.map((tab) => (
+    <div className="tab-nav-wrap">
+      <div className="tab-nav">
+        {TABS.map(({ id, label, className }) => (
           <button
-            key={tab.id}
-            className={`${"tabBtn"} ${
-              activeTab === tab.id ? "active" : ''
-            } ${tab.isAsset ? "tabAsset" : ''} ${
-              tab.hasSeparator ? "tabSep" : ''
-            }`}
-            onClick={() => handleTabClick(tab.id)}
+            key={id}
+            className={[
+              'tab-btn',
+              className,
+              activeTab === id ? 'active' : '',
+            ].filter(Boolean).join(' ')}
+            onClick={() => handleClick(id)}
           >
-            {tab.label}
+            {label}
           </button>
         ))}
       </div>

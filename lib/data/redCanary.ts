@@ -1,41 +1,11 @@
 import { MetricCell, ICCard, CompetitorRow, VerbatimCard, VendorSpotlightData, ChartDataset } from '../types';
 
 export const RED_CANARY_METRICS: MetricCell[] = [
-  {
-    label: 'NPS Score',
-    value: '9.0',
-    sub: 'Top-tier MDR',
-    delta: '+12%',
-    deltaStyle: 'positive'
-  },
-  {
-    label: 'Replication Difficulty',
-    value: '8.8',
-    sub: '/ 10 score',
-    delta: 'vs 8.4 avg',
-    deltaStyle: 'positive'
-  },
-  {
-    label: 'Cost Advantage',
-    value: '84%',
-    sub: 'customers report savings',
-    delta: 'vs alternatives',
-    deltaStyle: 'positive'
-  },
-  {
-    label: 'Security Posture',
-    value: '8.6',
-    sub: '/ 10 improvement',
-    delta: '#3 ranked',
-    deltaStyle: 'positive'
-  },
-  {
-    label: 'Consolidation Preference',
-    value: '5.5',
-    sub: '/ 10 score',
-    delta: 'vs 3.6 Microsoft',
-    deltaStyle: 'positive'
-  }
+  { label: 'Red Canary NPS', value: '9.0', sub: '/10', delta: 'Top-tier MDR' },
+  { label: 'Red Canary ARR Growth', value: '40%', delta: 'Best in MDR peer group' },
+  { label: 'BlueCat Mission Criticality', value: '9.0', sub: '/10', delta: 'Category-leading' },
+  { label: 'BlueCat Switching Intent', value: '1.9', sub: '/10', delta: 'Near-zero churn', deltaStyle: { background: 'rgba(15,123,85,.35)', color: '#5be4ac' } },
+  { label: 'BlueCat Net Retention', value: '98.5', sub: '%', delta: 'Best-in-class' },
 ];
 
 export const IC_CARDS_RED_CANARY: ICCard[] = [
