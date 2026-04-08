@@ -4,16 +4,218 @@ import { EngagementCard } from '../components/EngagementCard';
 import { ContactStrip } from '../components/ContactStrip';
 import { TRACK_STATS, ADVANTAGE_CARDS, ENGAGEMENT_OPTIONS, CONTACT_INFO } from '../lib/data/partner';
 
+// ── J.P. Morgan quote ─────────────────────────────────────────────────────────
+function JPMorganQuote() {
+  return (
+    <div style={{
+      background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%)',
+      borderRadius: 'var(--radius-lg)',
+      padding: '40px 48px',
+      marginBottom: '40px',
+      position: 'relative',
+    }}>
+      <div style={{
+        fontFamily: 'var(--font-body)',
+        fontSize: '22px',
+        fontWeight: 300,
+        color: '#fff',
+        lineHeight: 1.55,
+        fontStyle: 'italic',
+        marginBottom: '24px',
+        maxWidth: '820px',
+      }}>
+        &ldquo;Having a Voice of Customer document was seen as a differentiator by the client.
+        The findings from your report were a key part of the equity story materials we presented.&rdquo;
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        <div style={{ width: '32px', height: '1px', background: 'rgba(255,255,255,.4)' }} />
+        <div>
+          <div style={{ fontSize: '13px', fontWeight: 700, color: '#fff', letterSpacing: '.04em' }}>
+            Executive Director, J.P. Morgan
+          </div>
+          <div style={{ fontSize: '11px', color: 'rgba(255,255,255,.5)', marginTop: '2px', letterSpacing: '.04em', textTransform: 'uppercase' as const }}>
+            Sell-side mandate &bull; $10B transaction
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Without / With comparison table ──────────────────────────────────────────
+const WITHOUT_WITH_ROWS = [
+  {
+    without: 'Pitch alongside 3-5 identical banks. Hope relationship wins.',
+    with: 'Walk in with customer evidence no competing bank has. The room is already yours.',
+  },
+  {
+    without: 'Assemble standard deck. Recycle public comps and industry reports.',
+    with: 'Customer-validated equity story no competing bank can replicate.',
+  },
+  {
+    without: "Hope buyers don't find the gaps before you do.",
+    with: 'Know every buyer objection before they ask it. Have the answer ready.',
+  },
+  {
+    without: 'Win on relationship, not insight.',
+    with: 'Win on substance. Independent evidence cannot be copied overnight.',
+  },
+];
+
+function WithoutWithTable() {
+  return (
+    <div style={{ marginBottom: '40px' }}>
+      <div className="section-header" style={{ marginBottom: '20px' }}>
+        <div className="section-eyebrow">The Difference</div>
+        <h2 className="section-title">What Changes When You Walk In With Crossover</h2>
+        <p className="section-lead">From underprepared and reactive to evidence-backed and already ahead.</p>
+      </div>
+      <div className="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style={{ width: '50%' }}>Without Crossover</th>
+              <th style={{ width: '50%', textAlign: 'left' }}>With Crossover</th>
+            </tr>
+          </thead>
+          <tbody>
+            {WITHOUT_WITH_ROWS.map((row, i) => (
+              <tr key={i}>
+                <td style={{ color: 'var(--slate-500)', fontFamily: 'var(--font-body)', textAlign: 'left' }}>
+                  {row.without}
+                </td>
+                <td style={{ color: 'var(--text-primary)', fontWeight: 500, fontFamily: 'var(--font-body)', textAlign: 'left' }}>
+                  <span style={{ color: 'var(--green)', marginRight: '6px' }}>&#10003;</span>
+                  {row.with}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="insight" style={{ marginTop: '16px' }}>
+        <div className="insight-icon" />
+        <div className="insight-text">
+          <strong>50% sell-side mandate win rate.</strong> Not because of better relationships. Because Crossover-backed pitches are built from what customers actually say, not what management wants them to hear. No competing bank can walk in with that.
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Product timelines ─────────────────────────────────────────────────────────
+const PRODUCTS = [
+  {
+    audience: 'Banker',
+    audienceColor: 'var(--navy)',
+    title: 'Mandate Pitch Deck',
+    desc: 'Customer proof points that no competing bank walks in with. Win the mandate on substance.',
+    timeline: '2-3 weeks',
+    customers: '20-30',
+    idealFor: 'Mandate pursuit',
+    value: 'The banker enters the room knowing exactly what buyers will flag. And exactly how to answer it.',
+  },
+  {
+    audience: 'Operator',
+    audienceColor: 'var(--amber)',
+    title: 'VoC-Enhanced CIM',
+    desc: 'What customers actually think, surfaced before buyers use it against you. Every vulnerable claim pre-defended.',
+    timeline: '4-5 weeks',
+    customers: '30-50',
+    idealFor: 'Sell-side process',
+    value: 'Operators stop reacting to diligence questions and start shaping the conversation before it begins.',
+  },
+  {
+    audience: 'Investor',
+    audienceColor: 'var(--green)',
+    title: 'Customer Diligence Report',
+    desc: 'Build conviction on the asset before the teaser drops. Arrive at the first call already ahead of every other bidder.',
+    timeline: '5-7 weeks',
+    customers: '50-100+',
+    idealFor: 'Investment diligence',
+    value: "Independent evidence the sell-side can't curate. Bid with conviction, not on the same compressed timeline as everyone else.",
+  },
+];
+
+function ProductTimelines() {
+  return (
+    <div style={{ marginBottom: '40px' }}>
+      <div className="section-header">
+        <div className="section-eyebrow">What You Get</div>
+        <h2 className="section-title">One Methodology. Three Outputs.</h2>
+        <p className="section-lead">Each written in the language its audience trusts. All drawn from the same independent source.</p>
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
+        {PRODUCTS.map((p, i) => (
+          <div key={i} className="card" style={{ display: 'flex', flexDirection: 'column' }}>
+            {/* Header */}
+            <div style={{ marginBottom: '16px' }}>
+              <span style={{
+                display: 'inline-block',
+                fontSize: '10px', fontWeight: 700, letterSpacing: '.1em',
+                textTransform: 'uppercase' as const,
+                padding: '3px 10px', borderRadius: 'var(--radius-sm)',
+                background: p.audienceColor === 'var(--navy)' ? 'var(--navy-surface)' : p.audienceColor === 'var(--amber)' ? 'var(--amber-light)' : 'var(--green-light)',
+                color: p.audienceColor,
+                marginBottom: '12px',
+              }}>
+                {p.audience}
+              </span>
+              <div className="card-title" style={{ marginBottom: '8px' }}>{p.title}</div>
+              <div style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: 1.65 }}>{p.desc}</div>
+            </div>
+            {/* Timeline metrics */}
+            <div style={{
+              display: 'grid', gridTemplateColumns: '1fr 1fr 1fr',
+              gap: '12px', padding: '16px', marginBottom: '16px',
+              background: 'var(--slate-100)', borderRadius: 'var(--radius)',
+            }}>
+              {[
+                { label: 'Timeline', value: p.timeline },
+                { label: 'Customers', value: p.customers },
+                { label: 'Ideal For', value: p.idealFor },
+              ].map((stat, j) => (
+                <div key={j} style={{ textAlign: 'center' }}>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', fontWeight: 600, color: 'var(--navy)', lineHeight: 1.2, marginBottom: '4px' }}>
+                    {stat.value}
+                  </div>
+                  <div style={{ fontSize: '10px', fontWeight: 600, letterSpacing: '.07em', textTransform: 'uppercase' as const, color: 'var(--slate-500)' }}>
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+            {/* Value proposition */}
+            <div style={{ fontSize: '13px', color: 'var(--slate-700)', lineHeight: 1.6, fontStyle: 'italic', marginTop: 'auto' }}>
+              {p.value}
+            </div>
+          </div>
+        ))}
+      </div>
+      <div style={{ textAlign: 'center', marginTop: '20px', fontSize: '13px', color: 'var(--text-secondary)' }}>
+        Pricing available on request. Flat fee or outcome-based, structured around your transaction milestone.
+      </div>
+    </div>
+  );
+}
+
+// ── Main tab ──────────────────────────────────────────────────────────────────
 export function PartnerTab() {
   return (
     <div>
       <TrackRecord stats={TRACK_STATS} />
+
+      <JPMorganQuote />
+
+      <WithoutWithTable />
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px', marginBottom: '40px' }}>
         {ADVANTAGE_CARDS.map((card, i) => (
           <AdvantageCard key={i} card={card} />
         ))}
       </div>
+
+      <ProductTimelines />
 
       <div className="divider" />
 
