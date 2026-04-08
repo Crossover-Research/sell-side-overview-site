@@ -47,6 +47,7 @@ export interface EngagementCard {
   ctaText: string;
   ctaHref: string;
   ctaStyle?: 'outline' | 'solid';
+  ctaTarget?: string;
 }
 
 export interface CompetitorRow {

@@ -42,7 +42,7 @@ function JPMorganQuote() {
   );
 }
 
-// ── Without / With comparison table ──────────────────────────────────────────
+// ── Without / With comparison table ─────────────────────────────────────────
 const WITHOUT_WITH_ROWS = [
   {
     without: 'Pitch alongside 3-5 identical banks. Hope relationship wins.',
@@ -65,38 +65,95 @@ const WITHOUT_WITH_ROWS = [
 function WithoutWithTable() {
   return (
     <div style={{ marginBottom: '40px' }}>
-      <div className="section-header" style={{ marginBottom: '20px' }}>
+      <div className="section-header" style={{ marginBottom: '24px' }}>
         <div className="section-eyebrow">The Difference</div>
         <h2 className="section-title">What Changes When You Walk In With Crossover</h2>
         <p className="section-lead">From underprepared and reactive to evidence-backed and already ahead.</p>
       </div>
-      <div className="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th style={{ width: '50%' }}>Without Crossover</th>
-              <th style={{ width: '50%', textAlign: 'left' }}>With Crossover</th>
-            </tr>
-          </thead>
-          <tbody>
-            {WITHOUT_WITH_ROWS.map((row, i) => (
-              <tr key={i}>
-                <td style={{ color: 'var(--slate-500)', fontFamily: 'var(--font-body)', textAlign: 'left' }}>
-                  {row.without}
-                </td>
-                <td style={{ color: 'var(--text-primary)', fontWeight: 500, fontFamily: 'var(--font-body)', textAlign: 'left' }}>
-                  <span style={{ color: 'var(--green)', marginRight: '6px' }}>&#10003;</span>
-                  {row.with}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+
+      {/* Column headers */}
+      <div style={{
+        display: 'grid', gridTemplateColumns: '1fr 1fr',
+        gap: '2px', marginBottom: '2px',
+      }}>
+        <div style={{
+          background: 'var(--slate-100)',
+          borderRadius: 'var(--radius-sm) var(--radius-sm) 0 0',
+          padding: '12px 20px',
+          fontSize: '12px', fontWeight: 700, letterSpacing: '.08em',
+          textTransform: 'uppercase' as const, color: 'var(--slate-500)',
+        }}>
+          Without Crossover
+        </div>
+        <div style={{
+          background: 'var(--navy)',
+          borderRadius: 'var(--radius-sm) var(--radius-sm) 0 0',
+          padding: '12px 20px',
+          fontSize: '12px', fontWeight: 700, letterSpacing: '.08em',
+          textTransform: 'uppercase' as const, color: 'rgba(255,255,255,.85)',
+        }}>
+          With Crossover
+        </div>
       </div>
+
+      {/* Rows */}
+      {WITHOUT_WITH_ROWS.map((row, i) => (
+        <div key={i} style={{
+          display: 'grid', gridTemplateColumns: '1fr 1fr',
+          gap: '2px', marginBottom: '2px',
+        }}>
+          {/* Without cell */}
+          <div style={{
+            background: i % 2 === 0 ? '#fafafa' : 'var(--white)',
+            border: '1px solid var(--border)',
+            borderRight: 'none',
+            padding: '18px 20px',
+            display: 'flex', alignItems: 'flex-start', gap: '12px',
+            ...(i === WITHOUT_WITH_ROWS.length - 1 ? { borderRadius: '0 0 0 var(--radius-sm)' } : {}),
+          }}>
+            <span style={{
+              flexShrink: 0, marginTop: '2px',
+              width: '18px', height: '18px',
+              borderRadius: '50%',
+              background: 'rgba(232,51,74,.08)',
+              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+              fontSize: '11px', color: 'var(--red)', fontWeight: 700,
+            }}>✕</span>
+            <span style={{ fontSize: '14px', color: 'var(--slate-500)', lineHeight: 1.6 }}>
+              {row.without}
+            </span>
+          </div>
+          {/* With cell */}
+          <div style={{
+            background: i % 2 === 0 ? 'rgba(30,58,95,.03)' : 'var(--white)',
+            border: '1px solid var(--border)',
+            borderLeft: '3px solid var(--navy)',
+            padding: '18px 20px',
+            display: 'flex', alignItems: 'flex-start', gap: '12px',
+            ...(i === WITHOUT_WITH_ROWS.length - 1 ? { borderRadius: '0 0 var(--radius-sm) 0' } : {}),
+          }}>
+            <span style={{
+              flexShrink: 0, marginTop: '2px',
+              width: '18px', height: '18px',
+              borderRadius: '50%',
+              background: 'var(--green-light)',
+              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+              fontSize: '11px', color: 'var(--green)', fontWeight: 700,
+            }}>✓</span>
+            <span style={{ fontSize: '14px', color: 'var(--text-primary)', fontWeight: 500, lineHeight: 1.6 }}>
+              {row.with}
+            </span>
+          </div>
+        </div>
+      ))}
+
+      {/* Callout */}
       <div className="insight" style={{ marginTop: '16px' }}>
         <div className="insight-icon" />
         <div className="insight-text">
-          <strong>50% sell-side mandate win rate.</strong> Not because of better relationships. Because Crossover-backed pitches are built from what customers actually say, not what management wants them to hear. No competing bank can walk in with that.
+          <strong>50% sell-side mandate win rate.</strong> Not because of better relationships.
+          Because Crossover-backed pitches are built from what customers actually say, not what
+          management wants them to hear. No competing bank can walk in with that.
         </div>
       </div>
     </div>

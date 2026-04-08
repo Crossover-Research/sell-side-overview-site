@@ -87,7 +87,8 @@ export const ENGAGEMENT_OPTIONS: EngagementCard[] = [
       "Get immediate answer: is your target already covered?"
     ],
     ctaText: "Book a Call",
-    ctaHref: "mailto:ian@crossoverresearch.com"
+    ctaHref: "https://book.crossoverresearch.com/#/crossoverresearch",
+    ctaTarget: "_blank"
   }
 ];
 
