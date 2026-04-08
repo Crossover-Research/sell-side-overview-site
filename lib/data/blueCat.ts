@@ -1,40 +1,11 @@
 import { MetricCell, ICCard, VerbatimCard } from '../types';
 
 export const BLUECAT_METRICS: MetricCell[] = [
-  {
-    label: 'NPS Score',
-    value: '64',
-    delta: 'Strong B2B infra',
-    deltaStyle: 'positive'
-  },
-  {
-    label: 'Mission Criticality',
-    value: '9.0',
-    sub: '/10',
-    delta: 'Category-leading',
-    deltaStyle: 'neutral'
-  },
-  {
-    label: 'Renewal Intent',
-    value: '8.8',
-    sub: '/10',
-    delta: 'Structurally sticky',
-    deltaStyle: 'neutral'
-  },
-  {
-    label: 'Switching Intent',
-    value: '1.9',
-    sub: '/10',
-    delta: 'Near-zero churn',
-    deltaStyle: 'positive'
-  },
-  {
-    label: 'Net Retention Est.',
-    value: '98.5',
-    sub: '%',
-    delta: 'Best-in-class',
-    deltaStyle: 'neutral'
-  }
+  { label: 'NPS Score', value: '64', delta: 'Strong B2B infra', deltaStyle: { background: 'rgba(15,123,85,.4)', color: '#5be4ac' } },
+  { label: 'Mission Criticality', value: '9.0', sub: '/10', delta: 'Category-leading' },
+  { label: 'Renewal Intent', value: '8.8', sub: '/10', delta: 'Structurally sticky' },
+  { label: 'Switching Intent', value: '1.9', sub: '/10', delta: 'Near-zero churn', deltaStyle: { background: 'rgba(15,123,85,.4)', color: '#5be4ac' } },
+  { label: 'Net Retention Est.', value: '98.5', sub: '%', delta: 'Best-in-class' },
 ];
 
 export const IC_CARDS_BLUECAT: ICCard[] = [

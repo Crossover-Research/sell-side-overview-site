@@ -1,9 +1,11 @@
+import type React from 'react';
+
 export interface MetricCell {
   label: string;
   value: string;
   sub?: string;
   delta?: string;
-  deltaStyle?: 'positive' | 'negative' | 'neutral';
+  deltaStyle?: React.CSSProperties;
 }
 
 export interface ICCard {

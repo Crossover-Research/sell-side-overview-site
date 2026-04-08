@@ -81,7 +81,7 @@ export const ENGAGEMENT_OPTIONS: EngagementCard[] = [
     type: "20-Minute Call",
     desc: "You want to understand how Crossover data fits into your process. We walk through sample outputs and scoping options.",
     steps: [
-      "Schedule 20-minute call with Ian McAllister",
+      "Schedule a 20-minute call",
       "See live examples of Catalyst reports",
       "Understand custom study options and timelines",
       "Get immediate answer: is your target already covered?"
@@ -92,7 +92,7 @@ export const ENGAGEMENT_OPTIONS: EngagementCard[] = [
 ];
 
 export const CONTACT_INFO = {
-  name: "Ian McAllister",
-  title: "Partner",
+  name: "Ian McArdle",
+  title: "Head of Strategic Partnerships • Crossover Research",
   email: "ian@crossoverresearch.com"
 };
