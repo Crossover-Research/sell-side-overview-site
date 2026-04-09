@@ -120,7 +120,8 @@ body::before {
 /* ── HERO ────────────────────────────────────────────────────────────────────── */
 .hero {
   background: linear-gradient(165deg, rgba(8,21,38,.97) 0%, rgba(12,29,52,.92) 100%);
-  padding: 28px var(--content-pad) 0;
+  padding: 0 var(--content-pad) 0;
+  padding-top: calc(50px + 36px);
   position: relative;
   z-index: 1;
   border-bottom: 1px solid var(--br-lo);
