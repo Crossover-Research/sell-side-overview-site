@@ -42,6 +42,7 @@ function JPMorganQuote() {
   );
 }
 
+// ── Without / With comparison table ──────────────────────────────────────────
 // ── Without / With comparison table ─────────────────────────────────────────
 const WITHOUT_WITH_ROWS = [
   {
@@ -65,11 +66,39 @@ const WITHOUT_WITH_ROWS = [
 function WithoutWithTable() {
   return (
     <div style={{ marginBottom: '40px' }}>
+      <div className="section-header" style={{ marginBottom: '20px' }}>
       <div className="section-header" style={{ marginBottom: '24px' }}>
         <div className="section-eyebrow">The Difference</div>
         <h2 className="section-title">What Changes When You Walk In With Crossover</h2>
         <p className="section-lead">From underprepared and reactive to evidence-backed and already ahead.</p>
       </div>
+      <div className="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style={{ width: '50%' }}>Without Crossover</th>
+              <th style={{ width: '50%', textAlign: 'left' }}>With Crossover</th>
+            </tr>
+          </thead>
+          <tbody>
+            {WITHOUT_WITH_ROWS.map((row, i) => (
+              <tr key={i}>
+                <td style={{ color: 'var(--slate-500)', fontFamily: 'var(--font-body)', textAlign: 'left' }}>
+                  {row.without}
+                </td>
+                <td style={{ color: 'var(--text-primary)', fontWeight: 500, fontFamily: 'var(--font-body)', textAlign: 'left' }}>
+                  <span style={{ color: 'var(--green)', marginRight: '6px' }}>&#10003;</span>
+                  {row.with}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="insight" style={{ marginTop: '16px' }}>
+        <div className="insight-icon" />
+        <div className="insight-text">
+          <strong>50% sell-side mandate win rate.</strong> Not because of better relationships. Because Crossover-backed pitches are built from what customers actually say, not what management wants them to hear. No competing bank can walk in with that.
 
       {/* Bordered table container */}
       <div style={{
