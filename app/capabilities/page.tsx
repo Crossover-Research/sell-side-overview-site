@@ -172,7 +172,7 @@ export default function CapabilitiesPage() {
             {[
               { num: '01', label: 'Intelligence Brief', detail: 'Scope the thesis questions, target customer profile, competitive set, and buyer universe priorities' },
               { num: '02', label: 'Customer Discovery', detail: 'Build the verified respondent universe across 30+ public signal sources — no management-provided references' },
-              { num: '03', label: 'VoC Collection', detail: '50–100+ verified customers surveyed across Core 9 dimensions with competitive benchmarking and Van Westendorp pricing' },
+              { num: '03', label: 'VoC Collection', detail: '30–100+ verified customers surveyed across Core 9 dimensions with competitive benchmarking and Van Westendorp pricing' },
               { num: '04', label: 'IC Simulation', detail: 'Run attack surface mapping and buyer-specific IC simulation before management\'s first process meeting' },
               { num: '05', label: 'Portal Delivery', detail: 'Hosted queryable intelligence portal, IC-ready writeup, buyer outreach campaign, and CIM evidence layer — simultaneously' },
               { num: '06', label: 'Live Support', detail: 'Active process support: buyer question responses, additional simulations, and competitive intelligence updates through close' },

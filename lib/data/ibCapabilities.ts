@@ -8,8 +8,8 @@ export const IB_TRACK_RECORD = {
 };
 
 export const IB_WORKFLOW_STAGES = [
-  { num: '01', label: 'Mandate Pursuit',   desc: 'Evidence in the room before competing banks arrive' },
-  { num: '02', label: 'Equity Narrative',   desc: 'Customer-backed claims no buyer can challenge' },
+  { num: '01', label: 'Mandate Pitch',      desc: 'Evidence in the room before competing banks arrive' },
+  { num: '02', label: 'CIM Enhancement',   desc: 'Customer-backed claims no buyer can challenge' },
   { num: '03', label: 'Buyer Intelligence', desc: 'Know conviction levels before the first call' },
   { num: '04', label: 'Process Execution',  desc: 'Compress diligence, accelerate buyer conviction' },
   { num: '05', label: 'Management Prep',    desc: 'Simulate buyer IC before the real meeting' },
@@ -33,7 +33,7 @@ export interface IBCapabilityData {
 
 export const IB_CAP_DATA: Record<IBCap, IBCapabilityData> = {
   mandate: {
-    label: 'Mandate Pursuit',
+    label: 'Mandate Pitch',
     headline: 'Win the mandate before the pitch meeting starts',
     body: 'Before you pitch alongside five competing banks with identical decks, we deliver pre-engagement intelligence no other bank has. Verified customer universe, ARR proxy, and competitive snapshot — in under 48 hours for any B2B software target.',
     bankerProblem: 'You are pitching alongside 4 other banks with identical decks and identical relationship narratives. The client has no rational basis to choose you.',
@@ -55,7 +55,7 @@ export const IB_CAP_DATA: Record<IBCap, IBCapabilityData> = {
   },
 
   narrative: {
-    label: 'Equity Narrative',
+    label: 'CIM Enhancement',
     headline: 'Customer evidence that survives LP scrutiny',
     body: 'The most scrutinized pages in any CIM make claims about customer loyalty, market position, and competitive differentiation. Buyers discount management-sourced evidence before the first page turn. Crossover replaces assertion with independently sourced primary research from verified customers the sell-side did not select.',
     bankerProblem: 'Your CIM has claims like "best-in-class NPS" and "category-leading retention." Sophisticated buyers know these come from management. They discount them before the first page turn.',
