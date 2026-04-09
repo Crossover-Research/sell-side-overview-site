@@ -1,39 +1,45 @@
 'use client';
-
 import { useRouter } from 'next/navigation';
 import type { Tab } from '../lib/types';
 
-interface TabNavProps {
-  activeTab: Tab;
-}
+interface TabNavProps { activeTab: Tab; }
 
-const TABS: { id: Tab; label: string; className?: string }[] = [
-  { id: 'thesis',  label: 'Red Canary \u2014 The Thesis' },
-  { id: 'vendor',  label: 'Red Canary \u2014 Vendor Intel' },
-  { id: 'voice',   label: 'Red Canary \u2014 Customer Voice' },
-  { id: 'bluecat', label: 'BlueCat Networks', className: 'tab-asset' },
-  { id: 'partner', label: 'Work With Us',     className: 'tab-sep' },
+const PRIMARY: { id: Tab; label: string }[] = [
+  { id: 'partner', label: 'Work With Us' },
+];
+
+const RESEARCH: { id: Tab; label: string }[] = [
+  { id: 'thesis',  label: 'Red Canary — The Thesis' },
+  { id: 'vendor',  label: 'Red Canary — Vendor Intel' },
+  { id: 'voice',   label: 'Red Canary — Customer Voice' },
+  { id: 'bluecat', label: 'BlueCat Networks' },
 ];
 
 export function TabNav({ activeTab }: TabNavProps) {
   const router = useRouter();
-
-  const handleClick = (tab: Tab) => {
-    router.push(tab === 'thesis' ? '/' : `/${tab}`);
-  };
+  const go = (tab: Tab) => router.push(`/${tab}`);
 
   return (
     <div className="tab-nav-wrap">
       <div className="tab-nav">
-        {TABS.map(({ id, label, className }) => (
+        {PRIMARY.map(({ id, label }) => (
           <button
             key={id}
-            className={[
-              'tab-btn',
-              className,
-              activeTab === id ? 'active' : '',
-            ].filter(Boolean).join(' ')}
-            onClick={() => handleClick(id)}
+            className={`tab-btn tab-primary${activeTab === id ? ' active' : ''}`}
+            onClick={() => go(id)}
+          >
+            {label}
+          </button>
+        ))}
+
+        <div className="tab-nav-divider" />
+        <span className="tab-nav-group-label">Research</span>
+
+        {RESEARCH.map(({ id, label }) => (
+          <button
+            key={id}
+            className={`tab-btn tab-research${activeTab === id ? ' active' : ''}`}
+            onClick={() => go(id)}
           >
             {label}
           </button>
