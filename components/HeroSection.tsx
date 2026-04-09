@@ -21,20 +21,12 @@ export function HeroSection({ metrics }: HeroSectionProps) {
         <h1 className="hero-title">
           Two Assets. Independent Evidence. <span>IC-Ready.</span>
         </h1>
-
-        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: '32px' }}>
+        <div className="hero-actions">
           <a
             href="https://yvkbfmdugujhxerdopcm.supabase.co/storage/v1/object/public/public-assets/red-canary-catalyst.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              display: 'inline-flex', alignItems: 'center', gap: '8px',
-              padding: '10px 20px',
-              background: 'rgba(255,255,255,.1)', border: '1px solid rgba(255,255,255,.25)',
-              borderRadius: 'var(--radius)', color: '#fff',
-              fontFamily: 'var(--font-body)', fontSize: '13px', fontWeight: 600,
-              textDecoration: 'none',
-            }}
+            className="hero-action-btn"
           >
             <DownloadIcon />
             Red Canary Sample Report
@@ -43,20 +35,12 @@ export function HeroSection({ metrics }: HeroSectionProps) {
             href="https://yvkbfmdugujhxerdopcm.supabase.co/storage/v1/object/public/public-assets/bluecat-catalyst.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              display: 'inline-flex', alignItems: 'center', gap: '8px',
-              padding: '10px 20px',
-              background: 'rgba(255,255,255,.1)', border: '1px solid rgba(255,255,255,.25)',
-              borderRadius: 'var(--radius)', color: '#fff',
-              fontFamily: 'var(--font-body)', fontSize: '13px', fontWeight: 600,
-              textDecoration: 'none',
-            }}
+            className="hero-action-btn"
           >
             <DownloadIcon />
             BlueCat Networks Sample Report
           </a>
         </div>
-
         <div className="metric-strip">
           {metrics.map((m, i) => (
             <div key={i} className="metric-cell">

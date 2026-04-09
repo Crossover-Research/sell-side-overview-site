@@ -42,7 +42,7 @@ function JPMorganQuote() {
   );
 }
 
-// ── Without / With comparison table ─────────────────────────────────────────
+// ── Without / With comparison table ──────────────────────────────────────────
 const WITHOUT_WITH_ROWS = [
   {
     without: 'Pitch alongside 3-5 identical banks. Hope relationship wins.',
@@ -71,89 +71,13 @@ function WithoutWithTable() {
         <p className="section-lead">From underprepared and reactive to evidence-backed and already ahead.</p>
       </div>
 
-      {/* Column headers */}
-      <div style={{
-        display: 'grid', gridTemplateColumns: '1fr 1fr',
-        gap: '2px', marginBottom: '2px',
-      }}>
-        <div style={{
-          background: 'var(--slate-100)',
-          borderRadius: 'var(--radius-sm) var(--radius-sm) 0 0',
-          padding: '12px 20px',
-          fontSize: '12px', fontWeight: 700, letterSpacing: '.08em',
-          textTransform: 'uppercase' as const, color: 'var(--slate-500)',
-        }}>
-          Without Crossover
-        </div>
-        <div style={{
-          background: 'var(--navy)',
-          borderRadius: 'var(--radius-sm) var(--radius-sm) 0 0',
-          padding: '12px 20px',
-          fontSize: '12px', fontWeight: 700, letterSpacing: '.08em',
-          textTransform: 'uppercase' as const, color: 'rgba(255,255,255,.85)',
-        }}>
-          With Crossover
-        </div>
-      </div>
-
-      {/* Rows */}
-      {WITHOUT_WITH_ROWS.map((row, i) => (
-        <div key={i} style={{
-          display: 'grid', gridTemplateColumns: '1fr 1fr',
-          gap: '2px', marginBottom: '2px',
-        }}>
-          {/* Without cell */}
-          <div style={{
-            background: i % 2 === 0 ? '#fafafa' : 'var(--white)',
-            border: '1px solid var(--border)',
-            borderRight: 'none',
-            padding: '18px 20px',
-            display: 'flex', alignItems: 'flex-start', gap: '12px',
-            ...(i === WITHOUT_WITH_ROWS.length - 1 ? { borderRadius: '0 0 0 var(--radius-sm)' } : {}),
-          }}>
-            <span style={{
-              flexShrink: 0, marginTop: '2px',
-              width: '18px', height: '18px',
-              borderRadius: '50%',
-              background: 'rgba(232,51,74,.08)',
-              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-              fontSize: '11px', color: 'var(--red)', fontWeight: 700,
-            }}>✕</span>
-            <span style={{ fontSize: '14px', color: 'var(--slate-500)', lineHeight: 1.6 }}>
-              {row.without}
-            </span>
-          </div>
-          {/* With cell */}
-          <div style={{
-            background: i % 2 === 0 ? 'rgba(30,58,95,.03)' : 'var(--white)',
-            border: '1px solid var(--border)',
-            borderLeft: '3px solid var(--navy)',
-            padding: '18px 20px',
-            display: 'flex', alignItems: 'flex-start', gap: '12px',
-            ...(i === WITHOUT_WITH_ROWS.length - 1 ? { borderRadius: '0 0 var(--radius-sm) 0' } : {}),
-          }}>
-            <span style={{
-              flexShrink: 0, marginTop: '2px',
-              width: '18px', height: '18px',
-              borderRadius: '50%',
-              background: 'var(--green-light)',
-              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-              fontSize: '11px', color: 'var(--green)', fontWeight: 700,
-            }}>✓</span>
-            <span style={{ fontSize: '14px', color: 'var(--text-primary)', fontWeight: 500, lineHeight: 1.6 }}>
-              {row.with}
-            </span>
-          </div>
-        </div>
-      ))}
-
-      {/* Callout */}
-      {/* Bordered table container */}
+      {/* Bordered comparison table */}
       <div style={{
         border: '1px solid var(--border)',
         borderRadius: 'var(--radius-lg)',
         overflow: 'hidden',
         boxShadow: 'var(--shadow-sm)',
+        marginBottom: '16px',
       }}>
         {/* Column headers */}
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
@@ -245,7 +169,7 @@ function WithoutWithTable() {
       </div>
 
       {/* 50% callout */}
-      <div className="insight" style={{ marginTop: '16px' }}>
+      <div className="insight">
         <div className="insight-icon" />
         <div className="insight-text">
           <strong>50% sell-side mandate win rate.</strong> Not because of better relationships.
@@ -262,6 +186,7 @@ const PRODUCTS = [
   {
     audience: 'Banker',
     audienceColor: 'var(--navy)',
+    audienceBg: 'var(--navy-surface)',
     title: 'Mandate Pitch Deck',
     desc: 'Customer proof points that no competing bank walks in with. Win the mandate on substance.',
     timeline: '2-3 weeks',
@@ -272,6 +197,7 @@ const PRODUCTS = [
   {
     audience: 'Operator',
     audienceColor: 'var(--amber)',
+    audienceBg: 'var(--amber-light)',
     title: 'VoC-Enhanced CIM',
     desc: 'What customers actually think, surfaced before buyers use it against you. Every vulnerable claim pre-defended.',
     timeline: '4-5 weeks',
@@ -282,6 +208,7 @@ const PRODUCTS = [
   {
     audience: 'Investor',
     audienceColor: 'var(--green)',
+    audienceBg: 'var(--green-light)',
     title: 'Customer Diligence Report',
     desc: 'Build conviction on the asset before the teaser drops. Arrive at the first call already ahead of every other bidder.',
     timeline: '5-7 weeks',
@@ -302,14 +229,13 @@ function ProductTimelines() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
         {PRODUCTS.map((p, i) => (
           <div key={i} className="card" style={{ display: 'flex', flexDirection: 'column' }}>
-            {/* Header */}
             <div style={{ marginBottom: '16px' }}>
               <span style={{
                 display: 'inline-block',
                 fontSize: '10px', fontWeight: 700, letterSpacing: '.1em',
                 textTransform: 'uppercase' as const,
                 padding: '3px 10px', borderRadius: 'var(--radius-sm)',
-                background: p.audienceColor === 'var(--navy)' ? 'var(--navy-surface)' : p.audienceColor === 'var(--amber)' ? 'var(--amber-light)' : 'var(--green-light)',
+                background: p.audienceBg,
                 color: p.audienceColor,
                 marginBottom: '12px',
               }}>
@@ -318,16 +244,15 @@ function ProductTimelines() {
               <div className="card-title" style={{ marginBottom: '8px' }}>{p.title}</div>
               <div style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: 1.65 }}>{p.desc}</div>
             </div>
-            {/* Timeline metrics */}
             <div style={{
               display: 'grid', gridTemplateColumns: '1fr 1fr 1fr',
               gap: '12px', padding: '16px', marginBottom: '16px',
               background: 'var(--slate-100)', borderRadius: 'var(--radius)',
             }}>
               {[
-                { label: 'Timeline', value: p.timeline },
-                { label: 'Customers', value: p.customers },
-                { label: 'Ideal For', value: p.idealFor },
+                { label: 'Timeline',   value: p.timeline },
+                { label: 'Customers',  value: p.customers },
+                { label: 'Ideal For',  value: p.idealFor },
               ].map((stat, j) => (
                 <div key={j} style={{ textAlign: 'center' }}>
                   <div style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', fontWeight: 600, color: 'var(--navy)', lineHeight: 1.2, marginBottom: '4px' }}>
@@ -339,7 +264,6 @@ function ProductTimelines() {
                 </div>
               ))}
             </div>
-            {/* Value proposition */}
             <div style={{ fontSize: '13px', color: 'var(--slate-700)', lineHeight: 1.6, fontStyle: 'italic', marginTop: 'auto' }}>
               {p.value}
             </div>
@@ -378,7 +302,7 @@ export function PartnerTab() {
         <h3 className="section-title" style={{ fontSize: '18px' }}>Aligned to Where You Are in the Process</h3>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px', marginBottom: '32px', alignItems: 'stretch' }}>
+      <div className="engagement-grid">
         {ENGAGEMENT_OPTIONS.map((card, i) => (
           <EngagementCard key={i} card={card} />
         ))}

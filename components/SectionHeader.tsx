@@ -1,8 +1,10 @@
+import type { CSSProperties } from 'react';
+
 interface SectionHeaderProps {
-  eyebrow?: string
-  title: string
-  lead?: string
-  eyebrowStyle?: React.CSSProperties
+  eyebrow?: string;
+  title: string;
+  lead?: string;
+  eyebrowStyle?: CSSProperties;
 }
 
 export function SectionHeader({ eyebrow, title, lead, eyebrowStyle }: SectionHeaderProps) {
@@ -12,5 +14,5 @@ export function SectionHeader({ eyebrow, title, lead, eyebrowStyle }: SectionHea
       <h2 className="section-title">{title}</h2>
       {lead && <p className="section-lead">{lead}</p>}
     </div>
-  )
+  );
 }
