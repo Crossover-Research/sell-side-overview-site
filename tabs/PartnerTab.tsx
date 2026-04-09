@@ -66,7 +66,6 @@ const WITHOUT_WITH_ROWS = [
 function WithoutWithTable() {
   return (
     <div style={{ marginBottom: '40px' }}>
-      <div className="section-header" style={{ marginBottom: '20px' }}>
       <div className="section-header" style={{ marginBottom: '24px' }}>
         <div className="section-eyebrow">The Difference</div>
         <h2 className="section-title">What Changes When You Walk In With Crossover</h2>
