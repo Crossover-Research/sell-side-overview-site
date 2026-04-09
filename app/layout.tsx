@@ -4,7 +4,7 @@ import { Footer } from '../components/Footer'
 import './globals.css'
 
 export const metadata = {
-  title: 'Red Canary & BlueCat Networks - VoC Intelligence | Crossover Research',
+  title: 'Crossover Research — Sell-Side Intelligence',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -20,10 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <Topbar
-          title="Red Canary & BlueCat Networks - VoC Intelligence"
-          subtitle="Banker Intelligence"
-        />
+        <Topbar />
         <main>{children}</main>
         <Footer />
       </body>

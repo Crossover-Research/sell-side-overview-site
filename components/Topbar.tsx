@@ -1,6 +1,19 @@
-interface TopbarProps { title: string; subtitle: string; }
+'use client';
+import { usePathname } from 'next/navigation';
 
-export function Topbar({ title, subtitle }: TopbarProps) {
+const SUBTITLES: Record<string, string> = {
+  '/partner':      'Sell-Side Intelligence Portal',
+  '/thesis':       'Red Canary — VoC Research',
+  '/vendor':       'Red Canary — Vendor Intel',
+  '/voice':        'Red Canary — Customer Voice',
+  '/bluecat':      'BlueCat Networks — VoC Research',
+  '/capabilities': 'Intelligence Platform',
+};
+
+export function Topbar() {
+  const path = usePathname();
+  const subtitle = SUBTITLES[path] ?? 'Sell-Side Intelligence Portal';
+
   return (
     <div className="topbar">
       <div className="topbar-left">
@@ -11,8 +24,7 @@ export function Topbar({ title, subtitle }: TopbarProps) {
         />
         <div className="topbar-divider" />
         <div className="topbar-title">
-          <h1>{title}</h1>
-          <p>{subtitle}</p>
+          <h1>{subtitle}</h1>
         </div>
       </div>
       <div className="topbar-right">

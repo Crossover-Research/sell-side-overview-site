@@ -1,7 +1,5 @@
 'use client';
 import { useState } from 'react';
-import { Topbar } from '../../components/Topbar';
-import { Footer } from '../../components/Footer';
 import {
   IB_TRACK_RECORD, IB_WORKFLOW_STAGES, IB_CAPS, IB_CAP_DATA,
   IB_DIFFERENTIATORS, type IBCap,
@@ -13,12 +11,8 @@ export default function CapabilitiesPage() {
 
   return (
     <>
-      <Topbar
-        title="Intelligence Platform"
-        subtitle="Investment Banking Capabilities"
-      />
-
-      {/* HERO */}
+{/* HERO */}
+{/* HERO */}
       <section className="ib-hero">
         <div className="ib-inner">
           <div className="ib-eyebrow">Crossover Research · Sell-Side Intelligence Platform</div>
@@ -274,8 +268,6 @@ export default function CapabilitiesPage() {
           </div>
         </div>
       </section>
-
-      <Footer />
-    </>
+</>
   );
 }
