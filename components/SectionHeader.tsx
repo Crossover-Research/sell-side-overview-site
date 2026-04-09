@@ -1,10 +1,7 @@
 import type { CSSProperties } from 'react';
 
 interface SectionHeaderProps {
-  eyebrow?: string;
-  title: string;
-  lead?: string;
-  eyebrowStyle?: CSSProperties;
+  eyebrow?: string; title: string; lead?: string; eyebrowStyle?: CSSProperties;
 }
 
 export function SectionHeader({ eyebrow, title, lead, eyebrowStyle }: SectionHeaderProps) {

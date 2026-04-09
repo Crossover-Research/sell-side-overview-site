@@ -1,27 +1,27 @@
 import type { VendorSpotlightData } from '../lib/types';
 
-interface VendorSpotlightProps {
-  data: VendorSpotlightData;
-}
+interface Props { data: VendorSpotlightData; }
 
-export function VendorSpotlight({ data }: VendorSpotlightProps) {
+export function VendorSpotlight({ data }: Props) {
   return (
-    <div className="vendor-spotlight">
-      <div>
-        <div className="vs-name">{data.name}</div>
-        <div className="vs-descriptor">{data.descriptor}</div>
+    <div className="research-header" style={{ marginBottom: 'var(--sp-5)' }}>
+      <div className="research-brand">
+        <div>
+          <div className="research-title">{data.name}</div>
+          <div className="research-sub">{data.descriptor}</div>
+        </div>
       </div>
-      <div className="vs-scores">
-        {data.scores.map((score, i) => (
-          <div key={i} className="vs-score-item">
-            <div className="vs-score-val">{score.val}</div>
-            <div className="vs-score-lbl">{score.lbl}</div>
+      <div className="research-kpis">
+        {data.scores.map((s, i) => (
+          <div key={i} style={{ textAlign: 'right' }}>
+            <div className="research-kpi-val">{s.val}</div>
+            <div className="research-kpi-lbl">{s.lbl}</div>
           </div>
         ))}
-      </div>
-      <div className="vs-rank-badge">
-        <div className="vs-rank-num">{data.rankNum}</div>
-        <div className="vs-rank-lbl">{data.rankLbl}</div>
+        <div style={{ textAlign: 'right' }}>
+          <div className="research-kpi-val">{data.rankNum}</div>
+          <div className="research-kpi-lbl">{data.rankLbl}</div>
+        </div>
       </div>
     </div>
   );
