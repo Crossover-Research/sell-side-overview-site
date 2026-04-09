@@ -17,11 +17,11 @@ export function generateStaticParams() {
 }
 
 interface PageProps {
-  params: { tab: string };
+  params: Promise<{ tab: string }>;
 }
 
-export default function TabPage({ params }: PageProps) {
-  const { tab } = params;
+export default async function TabPage({ params }: PageProps) {
+  const { tab } = await params;
   if (!validTabs.includes(tab as Tab)) notFound();
   const typedTab = tab as Tab;
 
