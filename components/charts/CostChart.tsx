@@ -1,74 +1,41 @@
 'use client';
-
+import type { ChartInstance } from '../../lib/chartTypes';
 import { useEffect, useRef } from 'react';
-import { ChartDataset } from '../../lib/types';
 
 interface CostChartProps {
-  costData: {
-    labels: string[];
-    data: number[];
-    colors: string[];
-  };
+  labels: string[];
+  data: number[];
+  colors: string[];
 }
 
-export function CostChart({ costData }: CostChartProps) {
-  const chartRef = useRef<HTMLCanvasElement>(null);
-  const chartInstance = useRef<any>(null);
+export function CostChart({ labels, data, colors }: CostChartProps) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const chartRef  = useRef<ChartInstance | null>(null);
 
   useEffect(() => {
-    if (!chartRef.current || typeof window === 'undefined' || !window.Chart) return;
-
-    const ctx = chartRef.current.getContext('2d');
+    if (!canvasRef.current || typeof window === 'undefined' || !window.Chart) return;
+    const ctx = canvasRef.current.getContext('2d');
     if (!ctx) return;
+    chartRef.current?.destroy();
 
-    if (chartInstance.current) {
-      chartInstance.current.destroy();
-    }
-
-    const dataset: ChartDataset = {
-      data: costData.data,
-      backgroundColor: costData.colors,
-      borderWidth: 0,
-      cutout: '68%'
-    };
-
-    chartInstance.current = new window.Chart(ctx, {
+    chartRef.current = new window.Chart(ctx, {
       type: 'doughnut',
       data: {
-        labels: costData.labels,
-        datasets: [dataset]
+        labels,
+        datasets: [{ data, backgroundColor: colors, borderWidth: 0, hoverOffset: 6 }],
       },
       options: {
         responsive: true,
         maintainAspectRatio: false,
+        cutout: '68%',
         plugins: {
-          legend: {
-            display: true,
-            position: 'bottom',
-            labels: {
-              usePointStyle: true,
-              padding: 20,
-              font: {
-                family: 'var(--font-body)',
-                size: 13
-              },
-              color: 'var(--text-secondary)'
-            }
-          }
-        }
-      }
+          legend: { display: true, position: 'bottom', labels: { font: { size: 11 }, padding: 12, boxWidth: 10, usePointStyle: true, color: 'rgba(255,255,255,.55)' } },
+          tooltip: { callbacks: { label: (c: { label: string; raw: number }) => ` ${c.label}: ${c.raw}%` } },
+        },
+      },
     });
+    return () => { chartRef.current?.destroy(); };
+  }, [labels, data, colors]);
 
-    return () => {
-      if (chartInstance.current) {
-        chartInstance.current.destroy();
-      }
-    };
-  }, [costData]);
-
-  return (
-    <div style={{ height: '240px', width: '100%' }}>
-      <canvas ref={chartRef}></canvas>
-    </div>
-  );
+  return <div style={{ height: 280, position: 'relative' }}><canvas ref={canvasRef} /></div>;
 }
