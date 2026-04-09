@@ -25,8 +25,6 @@ export default async function TabPage({ params }: PageProps) {
   if (!validTabs.includes(tab as Tab)) notFound();
   const typedTab = tab as Tab;
 
-  const isPartner = typedTab === 'partner';
-
   const content = {
     thesis:  <ThesisTab />,
     vendor:  <VendorTab />,
@@ -43,12 +41,6 @@ export default async function TabPage({ params }: PageProps) {
         {content}
       </div>
       <ChartInit />
-      {isPartner ? (
-        <div className="content-wrap">{content}</div>
-      ) : (
-        // Content tabs render their own content-wrap from the BMO HTML
-        content
-      )}
     </>
   );
 }

@@ -1,8 +1,9 @@
 import type { VerbatimCard as VerbatimCardType } from '../lib/types';
+import type { CSSProperties } from 'react';
 
 interface Props {
   card: VerbatimCardType;
-  themeStyle?: React.CSSProperties;
+  themeStyle?: CSSProperties;
 }
 
 export function VerbatimCard({ card, themeStyle }: Props) {

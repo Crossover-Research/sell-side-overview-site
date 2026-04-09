@@ -1,5 +1,5 @@
-import React from 'react';
-import { CompetitorRow } from '../lib/types';
+
+import type { CompetitorRow } from '../lib/types';
 
 interface ComparisonTableProps {
   rows: CompetitorRow[];
