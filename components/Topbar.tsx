@@ -1,7 +1,4 @@
-interface TopbarProps {
-  title: string;
-  subtitle: string;
-}
+interface TopbarProps { title: string; subtitle: string; }
 
 export function Topbar({ title, subtitle }: TopbarProps) {
   return (

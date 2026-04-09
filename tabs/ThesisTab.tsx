@@ -1,63 +1,19 @@
 'use client';
+import { ICAccordion } from '../components/ICCard';
+import { IC_CARDS_RED_CANARY } from '../lib/data/redCanary';
 
 export function ThesisTab() {
   return (
-    <div
-      dangerouslySetInnerHTML={{
-        __html: `<div class="thesis-banner">
-      <div>
-        <h2>The Investment Thesis in Four IC Questions</h2>
-        <p>Every buyer IC asks the same questions. This data answers them independently. The findings below are sourced from verified Red Canary customers &mdash; not management, not projections, not analyst estimates.</p>
+    <div>
+      <div className="section-header">
+        <div className="section-eyebrow">Investment Thesis</div>
+        <h2 className="section-title">IC Case in Four Questions</h2>
+        <p className="section-lead">
+          Verified customer data answering the four questions every IC will ask.
+          Not management, not projections — sourced from verified Red Canary customers.
+        </p>
       </div>
-      <div class="thesis-score-box">
-        <div class="thesis-score-num">9.0</div>
-        <div class="thesis-score-label">NPS Score</div>
-        <div class="thesis-score-context">Top-tier MDR</div>
-      </div>
+      <ICAccordion cards={IC_CARDS_RED_CANARY} theme="navy" />
     </div>
-    <div class="ic-grid">
-      <div class="ic-card fade-up">
-        <div class="ic-card-header"><div class="ic-num">01</div><div class="ic-question">Can a buyer or portfolio company replicate this capability in-house?</div></div>
-        <div class="ic-card-body">
-          <div class="ic-verdict"><div class="verdict-dot"></div><div class="verdict-text">Structurally impossible to replicate at equivalent cost</div></div>
-          <div class="ic-stat-row"><div class="ic-stat-num">8.8</div><div class="ic-stat-label">/ 10 average replication difficulty score</div></div>
-          <p class="ic-finding">Red Canary scores 8.8/10 on replication difficulty, exceeding CrowdStrike (8.5) and SentinelOne (8.0). Customers cite the combination of analyst coverage, ML detection, and EDR integrations as structurally impossible to rebuild internally.</p>
-          <div class="ic-quote">"Building equivalent in-house would require 8&ndash;10 senior analysts...spend 4x what we pay Red Canary."<cite>VP of IT Security &bull; Mid-Market Financial Services &bull; 800 employees</cite></div>
-          <div class="comp-pills"><span class="comp-pill win">Red Canary 8.8</span><span class="comp-pill">CrowdStrike 8.5</span><span class="comp-pill">SentinelOne 8.0</span><span class="comp-pill">Peer avg 8.4</span></div>
-        </div>
-      </div>
-      <div class="ic-card fade-up">
-        <div class="ic-card-header"><div class="ic-num">02</div><div class="ic-question">How sticky is the customer base? What are switching costs?</div></div>
-        <div class="ic-card-body">
-          <div class="ic-verdict"><div class="verdict-dot"></div><div class="verdict-text">Deeply embedded; institutional knowledge prevents switching</div></div>
-          <div class="ic-stat-row"><div class="ic-stat-num">9.0</div><div class="ic-stat-label">/ 10 likelihood to recommend</div></div>
-          <p class="ic-finding">9.0/10 recommendation score places Red Canary among the top purpose-built MDR vendors, well ahead of legacy alternatives. Security posture improvement rated 8.6/10. Zero percent of customers reported the platform as significantly more expensive than alternatives.</p>
-          <div class="ic-quote">"Red Canary's team knows our environment as well as we do at this point...embedded capability, not a vendor relationship."<cite>CISO &bull; B2B SaaS &bull; 1,200 employees</cite></div>
-          <div class="comp-pills"><span class="comp-pill win">Red Canary 9.0</span><span class="comp-pill">CrowdStrike 8.8</span><span class="comp-pill">SentinelOne 8.7</span><span class="comp-pill">Microsoft 7.4</span></div>
-        </div>
-      </div>
-      <div class="ic-card fade-up">
-        <div class="ic-card-header"><div class="ic-num">03</div><div class="ic-question">Does CrowdStrike or Microsoft represent a displacement threat?</div></div>
-        <div class="ic-card-body">
-          <div class="ic-verdict"><div class="verdict-dot"></div><div class="verdict-text">Complementary to CrowdStrike; Microsoft is not a credible substitute</div></div>
-          <div class="ic-stat-row"><div class="ic-stat-num">5.5x</div><div class="ic-stat-label">vendor consolidation preference vs. Microsoft (3.6)</div></div>
-          <p class="ic-finding">Red Canary outperforms on recommendation (9.0 vs. Microsoft 7.4) and vendor consolidation preference (5.5 vs. Microsoft 3.6), indicating customers actively choose Red Canary over platform bundling. CrowdStrike coexistence is the dominant pattern.</p>
-          <div class="ic-quote">"We have CrowdStrike for endpoint. Red Canary actually monitors it...not going anywhere. Anyone saying Red Canary loses doesn't understand tool usage."<cite>Head of Security Operations &bull; Regional Health System</cite></div>
-          <div class="comp-pills"><span class="comp-pill win">Consolidation pref 5.5</span><span class="comp-pill">CrowdStrike 5.8</span><span class="comp-pill">Microsoft 3.6</span></div>
-        </div>
-      </div>
-      <div class="ic-card fade-up">
-        <div class="ic-card-header"><div class="ic-num">04</div><div class="ic-question">Are adoption drivers durable or cyclical? Will this reverse?</div></div>
-        <div class="ic-card-body">
-          <div class="ic-verdict"><div class="verdict-dot"></div><div class="verdict-text">Structural secular tailwinds, not cyclical demand</div></div>
-          <div class="ic-stat-row"><div class="ic-stat-num">81%</div><div class="ic-stat-label">cite 24/7 monitoring as primary adoption driver</div></div>
-          <p class="ic-finding">81% cite 24/7 monitoring need as primary driver &mdash; a structural, ongoing requirement. 77% cite limited internal security staff. Both are secular tailwinds tied to the expanding threat landscape and structural talent shortage.</p>
-          <div class="ic-quote">"Threat landscape more complex every year since onboarding...Red Canary more essential, not less. Can't imagine a scenario where we reduce reliance."<cite>Director of IT &bull; Manufacturing Enterprise &bull; 3,400 employees</cite></div>
-          <div class="comp-pills"><span class="comp-pill win">24/7 monitoring need 81%</span><span class="comp-pill">Staff shortage 77%</span><span class="comp-pill">Faster detection 65%</span></div>
-        </div>
-      </div>
-    </div>`
-      }}
-    />
   );
 }

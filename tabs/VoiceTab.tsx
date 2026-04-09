@@ -1,27 +1,24 @@
-'use client';
+import { VERBATIMS_RED_CANARY } from '../lib/data/redCanary';
 
 export function VoiceTab() {
   return (
-    <div
-      dangerouslySetInnerHTML={{
-        __html: `<div class="section-header">
-      <div class="section-eyebrow">Verbatim Customer Evidence</div>
-      <h2 class="section-title">Direct from the Customer Base</h2>
-      <p class="section-lead">All quotes independently sourced from verified Red Canary customers. Attribution anonymized per research protocol. No quotes were provided, reviewed, or influenced by Red Canary management.</p>
+    <div>
+      <div className="section-header">
+        <div className="section-eyebrow">Customer Voice</div>
+        <h2 className="section-title">Verbatim Evidence</h2>
+        <p className="section-lead">
+          Unedited. From verified customers. Every quote sourced and attributed.
+        </p>
+      </div>
+      <div className="verbatim-grid">
+        {VERBATIMS_RED_CANARY.map((card, i) => (
+          <div key={i} className="verbatim-cell">
+            <div className="verbatim-theme">{card.theme}</div>
+            <div className="verbatim-text">{card.text}</div>
+            <div className="verbatim-attr">{card.attr}</div>
+          </div>
+        ))}
+      </div>
     </div>
-    <div class="verbatim-grid">
-      <div class="verbatim-card"><span class="verbatim-theme">Switching Costs</span><div class="verbatim-text">"Red Canary deeply embedded into security operations. Replacing would mean starting detection baseline from zero, lose months of behavioral context."</div><div class="verbatim-attr">Director of Information Security &bull; Enterprise Software &bull; 2,800 employees</div></div>
-      <div class="verbatim-card"><span class="verbatim-theme">In-House Economics</span><div class="verbatim-text">"In-house equivalent requires 8&ndash;10 senior analysts...spend 4x Red Canary cost, not match detection fidelity. Economics don't work even with talent."</div><div class="verbatim-attr">VP of IT Security &bull; Mid-Market Financial Services &bull; 800 employees</div></div>
-      <div class="verbatim-card"><span class="verbatim-theme">Detection Quality</span><div class="verbatim-text">"False positive rate dropped 90% with Red Canary. Previous MSSP generated noise, Red Canary generates signal. Completely different operating model."</div><div class="verbatim-attr">CISO &bull; Fintech Platform &bull; Series C</div></div>
-      <div class="verbatim-card"><span class="verbatim-theme">vs. CrowdStrike</span><div class="verbatim-text">"CrowdStrike for endpoint. Red Canary actually monitors it. Relationship not going anywhere &mdash; complementary, not competitive."</div><div class="verbatim-attr">Head of Security Operations &bull; Regional Health System</div></div>
-      <div class="verbatim-card"><span class="verbatim-theme">Response Speed</span><div class="verbatim-text">"Red Canary contained threat in 4 minutes last quarter. Previous provider had a 4-hour SLA. Difference between a contained incident and a material breach."</div><div class="verbatim-attr">IT Director &bull; Manufacturing Enterprise &bull; 3,400 employees</div></div>
-      <div class="verbatim-card"><span class="verbatim-theme">Platform Embeddedness</span><div class="verbatim-text">"Red Canary team knows our environment as well as we do. Embedded capability, not a vendor relationship. Institutional knowledge is not transferable."</div><div class="verbatim-attr">CISO &bull; B2B SaaS Company &bull; 1,200 employees</div></div>
-      <div class="verbatim-card"><span class="verbatim-theme">Demand Durability</span><div class="verbatim-text">"Threat landscape more complex every year since onboarding. Red Canary more essential, not less. Can't imagine a scenario where we reduce reliance."</div><div class="verbatim-attr">VP of Technology &bull; Logistics and Supply Chain &bull; 6,000 employees</div></div>
-      <div class="verbatim-card"><span class="verbatim-theme">Cost vs. Value</span><div class="verbatim-text">"Red Canary costs significantly less than a SOC team. Coverage is better. Ran the math twice. No version where we go in-house."</div><div class="verbatim-attr">CFO &bull; Technology Company &bull; 450 employees</div></div>
-      <div class="verbatim-card"><span class="verbatim-theme">Peer Recommendation</span><div class="verbatim-text">"Recommended Red Canary to three peers over two years. Not asked, because it's the only honest answer."</div><div class="verbatim-attr">Director of Cybersecurity &bull; Professional Services &bull; 900 employees</div></div>
-    </div>
-    <div class="insight" style="margin-top:8px"><div class="insight-icon"></div><div class="insight-text"><strong>Red Canary scores 9.0/10 on likelihood to recommend</strong> &mdash; placing it among the top tier of all MDR vendors surveyed and well ahead of legacy alternatives like Microsoft Defender (7.4) and Secureworks (5.5). On security posture, Red Canary ranks 4th in a 9-vendor field, ahead of every mass-market alternative.</div></div>`
-      }}
-    />
   );
 }

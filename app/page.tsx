@@ -1,5 +1,2 @@
 import { redirect } from 'next/navigation';
-
-export default function Home() {
-  redirect('/thesis');
-}
+export default function Home() { redirect('/partner'); }

@@ -1,8 +1,6 @@
 import type { TrackStatItem } from '../lib/types';
 
-interface TrackRecordProps {
-  stats: TrackStatItem[];
-}
+interface TrackRecordProps { stats: TrackStatItem[]; }
 
 export function TrackRecord({ stats }: TrackRecordProps) {
   return (

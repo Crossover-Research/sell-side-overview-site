@@ -1,53 +1,88 @@
 import type { MetricCell } from '../lib/types';
+import type { Tab } from '../lib/types';
 
 interface HeroSectionProps {
   metrics: MetricCell[];
+  tab?: Tab;
 }
 
 const DownloadIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-    <polyline points="14 2 14 8 20 8"/>
-    <line x1="12" y1="18" x2="12" y2="12"/>
-    <polyline points="9 15 12 18 15 15"/>
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
   </svg>
 );
 
-export function HeroSection({ metrics }: HeroSectionProps) {
+export function HeroSection({ metrics, tab }: HeroSectionProps) {
+  const isPartner = !tab || tab === 'partner';
+
   return (
     <div className="hero">
       <div className="hero-inner">
-        <div className="hero-eyebrow">Voice of Customer Intelligence &bull; Cyber + Infrastructure Portfolio</div>
-        <h1 className="hero-title">
-          Two Assets. Independent Evidence. <span>IC-Ready.</span>
-        </h1>
-        <div className="hero-actions">
-          <a
-            href="https://yvkbfmdugujhxerdopcm.supabase.co/storage/v1/object/public/public-assets/red-canary-catalyst.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hero-action-btn"
-          >
-            <DownloadIcon />
-            Red Canary Sample Report
-          </a>
-          <a
-            href="https://yvkbfmdugujhxerdopcm.supabase.co/storage/v1/object/public/public-assets/bluecat-catalyst.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hero-action-btn"
-          >
-            <DownloadIcon />
-            BlueCat Networks Sample Report
-          </a>
-        </div>
+        {isPartner ? (
+          <div className="hero-grid">
+            <div>
+              <div className="hero-eyebrow">Institutional Research · Sell-Side Intelligence</div>
+              <h1 className="hero-title">
+                Independent customer evidence<br />
+                <span>no competing bank can replicate.</span>
+              </h1>
+              <p className="hero-subtitle">
+                Voice of Customer intelligence that changes the mandate conversation from
+                &ldquo;trust us&rdquo; to &ldquo;here&rsquo;s what customers actually said.&rdquo;
+                Verified data, not management projections.
+              </p>
+              <div className="hero-actions">
+                <a href="/partner" className="hero-cta-primary">Start a Mandate →</a>
+                <a href="/thesis" className="hero-cta-secondary">View Research ↓</a>
+              </div>
+              <div className="hero-dl-row">
+                <a
+                  href="https://yvkbfmdugujhxerdopcm.supabase.co/storage/v1/object/public/public-assets/red-canary-catalyst.pdf"
+                  target="_blank" rel="noopener noreferrer"
+                  className="hero-dl-btn"
+                >
+                  <DownloadIcon /> Red Canary Sample
+                </a>
+                <a
+                  href="https://yvkbfmdugujhxerdopcm.supabase.co/storage/v1/object/public/public-assets/bluecat-catalyst.pdf"
+                  target="_blank" rel="noopener noreferrer"
+                  className="hero-dl-btn"
+                >
+                  <DownloadIcon /> BlueCat Sample
+                </a>
+              </div>
+            </div>
+            <div className="hero-proof">
+              <div className="hero-proof-quote">
+                &ldquo;Having a Voice of Customer document was seen as a differentiator by the
+                client. The findings from your report were a key part of the equity story
+                materials we presented.&rdquo;
+              </div>
+              <div className="hero-proof-rule" />
+              <div className="hero-proof-name">Executive Director, J.P. Morgan</div>
+              <div className="hero-proof-role">Sell-side mandate · $10B transaction</div>
+            </div>
+          </div>
+        ) : (
+          <div style={{ paddingBottom: '4px' }}>
+            <div className="hero-eyebrow">Voice of Customer Intelligence · {
+              tab === 'bluecat' ? 'BlueCat Networks' : 'Red Canary'
+            }</div>
+            <h1 className="hero-title" style={{ fontSize: '18px', marginBottom: '0' }}>
+              {tab === 'thesis'  && 'The IC Case in Four Questions'}
+              {tab === 'vendor'  && '9-Vendor Competitive Benchmark'}
+              {tab === 'voice'   && 'Verbatim Customer Evidence'}
+              {tab === 'bluecat' && 'DDI — Mission-Critical Infrastructure'}
+            </h1>
+          </div>
+        )}
         <div className="metric-strip">
           {metrics.map((m, i) => (
             <div key={i} className="metric-cell">
               <div className="metric-label">{m.label}</div>
               <div className="metric-value">
                 {m.value}
-                {m.sub && <small style={{ fontSize: '14px', opacity: 0.6 }}>{m.sub}</small>}
+                {m.sub && <small style={{ fontSize: '13px', opacity: 0.5 }}>{m.sub}</small>}
               </div>
               {m.delta && (
                 <div className="metric-sub">

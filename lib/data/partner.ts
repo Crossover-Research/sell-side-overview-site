@@ -97,3 +97,11 @@ export const CONTACT_INFO = {
   title: "Head of Strategic Partnerships • Crossover Research",
   email: "ian@crossoverresearch.com"
 };
+import type { MetricCell } from '../types';
+
+export const PARTNER_METRICS: MetricCell[] = [
+  { label: 'Mandate Win Rate',        value: '50%',  delta: 'With Crossover research' },
+  { label: 'J.P. Morgan Engagements', value: '22+',  delta: 'Completed' },
+  { label: 'Transaction Value',       value: '$25B+', delta: 'Total supported' },
+  { label: 'Coverage',                value: 'PE/IB', delta: 'Buy + sell-side' },
+];

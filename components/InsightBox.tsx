@@ -1,9 +1,6 @@
 import type { ReactNode, CSSProperties } from 'react';
 
-interface InsightBoxProps {
-  children: ReactNode;
-  style?: CSSProperties;
-}
+interface InsightBoxProps { children: ReactNode; style?: CSSProperties; }
 
 export function InsightBox({ children, style }: InsightBoxProps) {
   return (
