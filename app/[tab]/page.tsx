@@ -39,6 +39,9 @@ export default function TabPage({ params }: PageProps) {
     <>
       <HeroSection metrics={RED_CANARY_METRICS} />
       <TabNav activeTab={typedTab} />
+      <div className="content-wrap">
+        {content}
+      </div>
       <ChartInit />
       {isPartner ? (
         <div className="content-wrap">{content}</div>
