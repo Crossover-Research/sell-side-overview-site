@@ -121,7 +121,7 @@ body::before {
 .hero {
   background: linear-gradient(165deg, rgba(8,21,38,.97) 0%, rgba(12,29,52,.92) 100%);
   padding: 0 var(--content-pad) 0;
-  padding-top: calc(50px + 36px);
+  padding-top: calc(50px + 42px + 32px);
   position: relative;
   z-index: 1;
   border-bottom: 1px solid var(--br-lo);
@@ -224,7 +224,7 @@ body::before {
 
 /* ── TAB NAV ─────────────────────────────────────────────────────────────────── */
 .tab-nav-wrap {
-  background: rgba(6,14,28,.9);
+  background: rgba(5,11,22,.96);
   backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
   border-bottom: 1px solid var(--br-lo);
   padding: 0 var(--content-pad);
@@ -257,8 +257,8 @@ body::before {
   backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
   border-right: 1px solid var(--br-lo);
   padding: 18px 0;
-  position: sticky; top: 102px;
-  height: calc(100vh - 102px); overflow-y: auto;
+  position: sticky; top: 92px;
+  height: calc(100vh - 92px); overflow-y: auto;
 }
 .sidebar-group  { font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--t3); padding: 10px 16px 4px; }
 .sidebar-item {
@@ -596,7 +596,7 @@ body::before {
 .ib-hero {
   background: linear-gradient(168deg, #05101f 0%, #0a1e38 55%, #0e2545 100%);
   padding: 60px 0 0;
-  padding-top: calc(50px + 60px);
+  padding-top: calc(50px + 42px + 40px);
   position: relative; z-index: 1;
   border-bottom: 1px solid var(--br-lo);
 }
