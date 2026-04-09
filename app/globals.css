@@ -512,15 +512,7 @@ body::before {
 .chart-card-title { font-size: 11px; font-weight: 700; color: var(--t0); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 14px; }
 
 /* ── FOOTER ──────────────────────────────────────────────────────────────────── */
-.page-footer {
-  background: rgba(4,10,20,.92);
-  border-top: 1px solid var(--br-lo);
-  color: var(--t4); font-size: 9px; text-align: center;
-  padding: 12px var(--content-pad); letter-spacing: .1em; text-transform: uppercase;
-  position: relative; z-index: 1;
-}
-.page-footer a { color: var(--t3); text-decoration: none; margin: 0 6px; }
-.page-footer a:hover { color: var(--t1); }
+/* .page-footer — see FOOTER BRAND BLOCK section below */
 
 /* ── ANIMATIONS ───────────────────────────────────────────────────────────────── */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
@@ -817,3 +809,72 @@ body::before {
 }
 .tab-dropdown-item:hover { background: rgba(255,255,255,.06); color: var(--t0); }
 .tab-dropdown-item.active { color: rgba(130,175,255,.95); font-weight: 600; }
+
+/* ── FOOTER BRAND BLOCK ──────────────────────────────────────────────────── */
+.page-footer {
+  background: #071120;
+  border-top: 1px solid var(--br-lo);
+  padding: 36px var(--content-pad) 24px;
+  position: relative; z-index: 1;
+}
+.footer-brand-block {
+  text-align: center;
+  padding-bottom: 24px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--br-lo);
+}
+.footer-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  margin-bottom: 14px;
+}
+.footer-rule {
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.15), transparent);
+  margin: 0 auto 16px;
+}
+.footer-powered {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.footer-powered-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.30);
+}
+.footer-logo {
+  height: 20px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: .75;
+  display: none; /* use text treatment instead for reliability */
+}
+.footer-brand-text {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.80);
+}
+.footer-brand-accent {
+  color: #4a8fe8;
+}
+.footer-meta {
+  text-align: center;
+  font-size: 10px;
+  color: rgba(255,255,255,.22);
+  letter-spacing: .06em;
+}
+.footer-meta a {
+  color: rgba(255,255,255,.30);
+  text-decoration: none;
+  margin-left: 6px;
+}
+.footer-meta a:hover { color: rgba(255,255,255,.55); }
