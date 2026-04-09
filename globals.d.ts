@@ -1,7 +1,17 @@
-// Chart.js loaded via CDN — declare it on window
+import type { ChartInstance } from './lib/chartTypes';
+
 declare global {
   interface Window {
-    Chart: any;
+    Chart: {
+      new (ctx: CanvasRenderingContext2D, config: object): ChartInstance;
+      defaults: {
+        font: { family: string };
+        color: string;
+        plugins: { legend: { display: boolean } };
+      };
+    };
+    __crossoverChartsInit?: boolean;
   }
 }
+
 export {};

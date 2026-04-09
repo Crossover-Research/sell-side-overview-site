@@ -1,113 +1,52 @@
 'use client';
-
+import type { ChartInstance } from '../../lib/chartTypes';
 import { useEffect, useRef } from 'react';
-import { ChartDataset } from '../../lib/types';
 
 interface NpsChartProps {
-  npsData: {
-    labels: string[];
-    data: number[];
-  };
+  labels: string[];
+  data: number[];
+  highlightIndex?: number;
 }
 
-export const NpsChart = ({ npsData }: NpsChartProps) => {
+export function NpsChart({ labels, data, highlightIndex = 2 }: NpsChartProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const chartRef = useRef<any>(null);
+  const chartRef  = useRef<ChartInstance | null>(null);
 
   useEffect(() => {
-    if (!canvasRef.current || typeof window === 'undefined' || !window.Chart) {
-      return;
-    }
-
-    if (chartRef.current) {
-      chartRef.current.destroy();
-    }
-
+    if (!canvasRef.current || typeof window === 'undefined' || !window.Chart) return;
     const ctx = canvasRef.current.getContext('2d');
     if (!ctx) return;
-
-    const backgroundColors = npsData.data.map((value, index) => {
-      if (index === 2) return '#e8334a';
-      if (value >= 9) return '#1e3a5f';
-      return '#d1d5db';
-    });
+    chartRef.current?.destroy();
 
     chartRef.current = new window.Chart(ctx, {
       type: 'bar',
       data: {
-        labels: npsData.labels,
+        labels,
         datasets: [{
-          data: npsData.data,
-          backgroundColor: backgroundColors,
-          borderRadius: 4,
+          data,
+          backgroundColor: data.map((_, i) =>
+            i === highlightIndex ? 'rgba(255,77,94,.85)' : i < 3 ? 'rgba(130,175,255,.6)' : 'rgba(255,255,255,.12)'
+          ),
+          borderRadius: 3,
           borderSkipped: false,
-        }]
+        }],
       },
       options: {
+        indexAxis: 'y',
         responsive: true,
         maintainAspectRatio: false,
-        indexAxis: 'y',
         plugins: {
-          legend: {
-            display: false
-          },
-          tooltip: {
-            backgroundColor: '#374151',
-            titleColor: '#ffffff',
-            bodyColor: '#ffffff',
-            borderColor: '#6b7280',
-            borderWidth: 1,
-            cornerRadius: 8,
-            displayColors: false
-          }
+          legend: { display: false },
+          tooltip: { callbacks: { label: (c: { raw: number }) => ` ${c.raw.toFixed(1)} / 10` } },
         },
         scales: {
-          x: {
-            beginAtZero: true,
-            max: 10,
-            grid: {
-              color: '#e5e7eb'
-            },
-            ticks: {
-              color: '#6b7280',
-              font: {
-                family: 'IBM Plex Sans'
-              }
-            }
-          },
-          y: {
-            grid: {
-              display: false
-            },
-            ticks: {
-              color: '#6b7280',
-              font: {
-                family: 'IBM Plex Sans'
-              }
-            }
-          }
+          x: { min: 0, max: 10, grid: { color: 'rgba(255,255,255,.07)' }, ticks: { color: 'rgba(255,255,255,.4)', font: { family: "'JetBrains Mono',monospace", size: 11 } } },
+          y: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,.55)', font: { size: 12 } } },
         },
-        layout: {
-          padding: {
-            top: 20,
-            right: 20,
-            bottom: 20,
-            left: 20
-          }
-        }
-      }
+      },
     });
+    return () => { chartRef.current?.destroy(); };
+  }, [labels, data, highlightIndex]);
 
-    return () => {
-      if (chartRef.current) {
-        chartRef.current.destroy();
-      }
-    };
-  }, [npsData]);
-
-  return (
-    <div style={{ height: '300px', width: '100%' }}>
-      <canvas ref={canvasRef} />
-    </div>
-  );
-};
+  return <div style={{ height: 280, position: 'relative' }}><canvas ref={canvasRef} /></div>;
+}

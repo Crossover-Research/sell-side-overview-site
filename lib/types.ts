@@ -68,7 +68,7 @@ export interface TrackStatItem {
 export interface ChartDataset {
   label?: string;
   data: number[];
-  backgroundColor: string | string[] | ((c: any) => string);
+  backgroundColor: string | string[] | ((c: { dataIndex: number; raw: number }) => string);
   borderRadius?: number;
   borderSkipped?: boolean | string;
   hoverOffset?: number;
