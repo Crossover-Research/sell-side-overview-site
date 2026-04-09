@@ -71,6 +71,83 @@ function WithoutWithTable() {
         <p className="section-lead">From underprepared and reactive to evidence-backed and already ahead.</p>
       </div>
 
+      {/* Column headers */}
+      <div style={{
+        display: 'grid', gridTemplateColumns: '1fr 1fr',
+        gap: '2px', marginBottom: '2px',
+      }}>
+        <div style={{
+          background: 'var(--slate-100)',
+          borderRadius: 'var(--radius-sm) var(--radius-sm) 0 0',
+          padding: '12px 20px',
+          fontSize: '12px', fontWeight: 700, letterSpacing: '.08em',
+          textTransform: 'uppercase' as const, color: 'var(--slate-500)',
+        }}>
+          Without Crossover
+        </div>
+        <div style={{
+          background: 'var(--navy)',
+          borderRadius: 'var(--radius-sm) var(--radius-sm) 0 0',
+          padding: '12px 20px',
+          fontSize: '12px', fontWeight: 700, letterSpacing: '.08em',
+          textTransform: 'uppercase' as const, color: 'rgba(255,255,255,.85)',
+        }}>
+          With Crossover
+        </div>
+      </div>
+
+      {/* Rows */}
+      {WITHOUT_WITH_ROWS.map((row, i) => (
+        <div key={i} style={{
+          display: 'grid', gridTemplateColumns: '1fr 1fr',
+          gap: '2px', marginBottom: '2px',
+        }}>
+          {/* Without cell */}
+          <div style={{
+            background: i % 2 === 0 ? '#fafafa' : 'var(--white)',
+            border: '1px solid var(--border)',
+            borderRight: 'none',
+            padding: '18px 20px',
+            display: 'flex', alignItems: 'flex-start', gap: '12px',
+            ...(i === WITHOUT_WITH_ROWS.length - 1 ? { borderRadius: '0 0 0 var(--radius-sm)' } : {}),
+          }}>
+            <span style={{
+              flexShrink: 0, marginTop: '2px',
+              width: '18px', height: '18px',
+              borderRadius: '50%',
+              background: 'rgba(232,51,74,.08)',
+              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+              fontSize: '11px', color: 'var(--red)', fontWeight: 700,
+            }}>✕</span>
+            <span style={{ fontSize: '14px', color: 'var(--slate-500)', lineHeight: 1.6 }}>
+              {row.without}
+            </span>
+          </div>
+          {/* With cell */}
+          <div style={{
+            background: i % 2 === 0 ? 'rgba(30,58,95,.03)' : 'var(--white)',
+            border: '1px solid var(--border)',
+            borderLeft: '3px solid var(--navy)',
+            padding: '18px 20px',
+            display: 'flex', alignItems: 'flex-start', gap: '12px',
+            ...(i === WITHOUT_WITH_ROWS.length - 1 ? { borderRadius: '0 0 var(--radius-sm) 0' } : {}),
+          }}>
+            <span style={{
+              flexShrink: 0, marginTop: '2px',
+              width: '18px', height: '18px',
+              borderRadius: '50%',
+              background: 'var(--green-light)',
+              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+              fontSize: '11px', color: 'var(--green)', fontWeight: 700,
+            }}>✓</span>
+            <span style={{ fontSize: '14px', color: 'var(--text-primary)', fontWeight: 500, lineHeight: 1.6 }}>
+              {row.with}
+            </span>
+          </div>
+        </div>
+      ))}
+
+      {/* Callout */}
       {/* Bordered table container */}
       <div style={{
         border: '1px solid var(--border)',
