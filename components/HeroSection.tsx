@@ -6,12 +6,6 @@ interface HeroSectionProps {
   tab?: Tab;
 }
 
-const DownloadIcon = () => (
-  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
-  </svg>
-);
-
 export function HeroSection({ metrics, tab }: HeroSectionProps) {
   const isPartner = !tab || tab === 'partner';
 
@@ -34,22 +28,7 @@ export function HeroSection({ metrics, tab }: HeroSectionProps) {
               <div className="hero-actions">
                 <a href="/partner" className="hero-cta-primary">Start a Mandate →</a>
                 <a href="/thesis" className="hero-cta-secondary">View Research ↓</a>
-              </div>
-              <div className="hero-dl-row">
-                <a
-                  href="https://yvkbfmdugujhxerdopcm.supabase.co/storage/v1/object/public/public-assets/red-canary-catalyst.pdf"
-                  target="_blank" rel="noopener noreferrer"
-                  className="hero-dl-btn"
-                >
-                  <DownloadIcon /> Red Canary Sample
-                </a>
-                <a
-                  href="https://yvkbfmdugujhxerdopcm.supabase.co/storage/v1/object/public/public-assets/bluecat-catalyst.pdf"
-                  target="_blank" rel="noopener noreferrer"
-                  className="hero-dl-btn"
-                >
-                  <DownloadIcon /> BlueCat Sample
-                </a>
+                <a href="/capabilities" className="hero-cta-secondary">Intelligence Platform ↗</a>
               </div>
             </div>
             <div className="hero-proof">

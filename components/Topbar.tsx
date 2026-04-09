@@ -16,6 +16,7 @@ export function Topbar({ title, subtitle }: TopbarProps) {
         </div>
       </div>
       <div className="topbar-right">
+        <a href="/capabilities" className="topbar-cap-link">Intelligence Platform</a>
         <div className="badge-confidential">Confidential</div>
       </div>
     </div>

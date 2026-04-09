@@ -5,10 +5,10 @@ interface ResearchSidebarProps { tab: Tab; }
 
 const NAV: Record<string, Array<{ label: string; badge?: string }>> = {
   thesis: [
-    { label: 'IC 01 — Replication', badge: '8.8' },
-    { label: 'IC 02 — Stickiness',  badge: '9.0' },
-    { label: 'IC 03 — Competition', badge: '5.5×' },
-    { label: 'IC 04 — Durability',  badge: '81%' },
+    { label: 'Replication', badge: '8.8' },
+    { label: 'Stickiness',  badge: '9.0' },
+    { label: 'Competition', badge: '5.5×' },
+    { label: 'Durability',  badge: '81%' },
   ],
   vendor: [
     { label: '9-Vendor Benchmark' },
@@ -16,38 +16,38 @@ const NAV: Record<string, Array<{ label: string; badge?: string }>> = {
     { label: 'Adoption Drivers' },
   ],
   voice: [
-    { label: '9 Verbatims' },
+    { label: 'Customer Verbatims' },
     { label: 'Switching Costs' },
     { label: 'Detection Quality' },
   ],
   bluecat: [
-    { label: 'IC 01 — Replication', badge: '9.0' },
-    { label: 'IC 02 — Stickiness',  badge: '98.5%' },
-    { label: 'IC 03 — Competition', badge: '3–4×' },
-    { label: 'IC 04 — Durability',  badge: 'NPS 64' },
-    { label: 'Verbatim Evidence' },
-    { label: 'Study Intelligence' },
+    { label: 'Replication', badge: '9.0' },
+    { label: 'Stickiness',  badge: '98.5%' },
+    { label: 'Competition', badge: '3–4×' },
+    { label: 'Durability',  badge: 'NPS 64' },
+    { label: 'Verbatims' },
+    { label: 'Study Intel' },
   ],
 };
 
-const TITLES: Record<string, string> = {
-  thesis: 'Red Canary', vendor: 'Red Canary', voice: 'Red Canary', bluecat: 'BlueCat Networks',
+const GROUP_LABEL: Record<string, string> = {
+  thesis: 'IC Framework', vendor: 'Benchmarking', voice: 'Evidence', bluecat: 'IC Framework',
 };
 
 export function ResearchSidebar({ tab }: ResearchSidebarProps) {
   const items = NAV[tab] || [];
   return (
     <nav className="research-sidebar">
-      <div className="sidebar-group">{TITLES[tab] || 'Research'}</div>
+      <div className="sidebar-group">{GROUP_LABEL[tab] || 'Research'}</div>
       {items.map((item, i) => (
         <div key={i} className={`sidebar-item${i === 0 ? ' active' : ''}`}>
           {item.label}
           {item.badge && <span className="sidebar-badge">{item.badge}</span>}
         </div>
       ))}
-      <div className="sidebar-group" style={{ marginTop: 12 }}>Downloads</div>
-      <div className="sidebar-item">
-        {tab === 'bluecat' ? 'BlueCat Sample Report' : 'Red Canary Sample Report'}
+      <div className="sidebar-group" style={{ marginTop: 16 }}>Resources</div>
+      <div className="sidebar-item" style={{ fontSize: 11 }}>
+        {tab === 'bluecat' ? 'BlueCat Sample' : 'Red Canary Sample'}
       </div>
     </nav>
   );
