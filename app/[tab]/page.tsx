@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { TabNav } from '../../components/TabNav';
 import { HeroSection } from '../../components/HeroSection';
+import { ChartInit } from '../../components/ChartInit';
 import { ThesisTab } from '../../tabs/ThesisTab';
 import { VendorTab } from '../../tabs/VendorTab';
 import { VoiceTab } from '../../tabs/VoiceTab';
@@ -24,6 +25,8 @@ export default function TabPage({ params }: PageProps) {
   if (!validTabs.includes(tab as Tab)) notFound();
   const typedTab = tab as Tab;
 
+  const isPartner = typedTab === 'partner';
+
   const content = {
     thesis:  <ThesisTab />,
     vendor:  <VendorTab />,
@@ -39,6 +42,13 @@ export default function TabPage({ params }: PageProps) {
       <div className="content-wrap">
         {content}
       </div>
+      <ChartInit />
+      {isPartner ? (
+        <div className="content-wrap">{content}</div>
+      ) : (
+        // Content tabs render their own content-wrap from the BMO HTML
+        content
+      )}
     </>
   );
 }
