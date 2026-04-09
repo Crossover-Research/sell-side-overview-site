@@ -167,6 +167,8 @@ function WithoutWithTable() {
         ))}
       </div>
 
+      </div>
+
       {/* Column headers */}
       <div style={{
         display: 'grid', gridTemplateColumns: '1fr 1fr',
