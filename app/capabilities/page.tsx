@@ -1,5 +1,8 @@
 'use client';
 import { useState } from 'react';
+import { AnimatedMetrics } from '../../components/AnimatedMetrics';
+import { FlywheelDiagram } from '../../components/FlywheelDiagram';
+import { MultiSidedDiagram } from '../../components/MultiSidedDiagram';
 import {
   IB_TRACK_RECORD, IB_CAPS, IB_CAP_DATA, IB_DIFFERENTIATORS,
   type IBCap,
@@ -27,6 +30,11 @@ export default function CapabilitiesPage() {
             not just the deal.
           </p>
 
+          <AnimatedMetrics metrics={[
+            { val: IB_TRACK_RECORD.winRateWithCrossover, label: 'Mandate win rate with Crossover' },
+            { val: IB_TRACK_RECORD.jpmEngagements,        label: 'J.P. Morgan engagements completed' },
+            { val: IB_TRACK_RECORD.totalTransactionValue, label: 'Transaction value supported' },
+          ]} />
           <div className="ib-metrics">
             <div className="ib-metric">
               <div className="ib-metric-val">{IB_TRACK_RECORD.winRateWithCrossover}</div>
@@ -79,6 +87,8 @@ export default function CapabilitiesPage() {
             findings. The diligence held.{' '}
             <strong style={{ color: '#fff' }}>$500M Series C at $1B+ valuation.</strong>
           </p>
+          <div style={{ marginTop: 24, padding: '20px 0' }}>
+            <FlywheelDiagram />
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 0, borderTop: '1px solid rgba(255,255,255,.1)', marginTop: 24 }}>
             {[
               { step: '01', label: 'Sell-Side Mandate', desc: 'J.P. Morgan engages Crossover' },
@@ -128,6 +138,14 @@ export default function CapabilitiesPage() {
             &ldquo;Most research firms confirm the thesis. Crossover surfaces the gaps — using independent respondents who
             weren&rsquo;t handpicked, findings that include the friction and the complaints. Research that includes
             limitations is the highest-credibility format available in private markets.&rdquo;
+          </div>
+
+          {/* Multi-sided diagram */}
+          <div style={{ marginTop: 32, borderTop: '1px solid rgba(255,255,255,.07)', paddingTop: 28 }}>
+            <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,.3)', marginBottom: 16, textAlign: 'center' }}>
+              One Independent Source · Three Audiences · Zero Extraction Incentive
+            </div>
+            <MultiSidedDiagram />
           </div>
         </div>
       </section>

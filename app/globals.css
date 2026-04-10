@@ -1084,3 +1084,42 @@ body::before {
 /* Hide trigger stat when body is expanded — shown in body instead */
 .ic-accordion-row.open .ic-trigger > div:first-child { display: none; }
 .ic-accordion-row.open .ic-trigger { grid-template-columns: 1fr auto; }
+
+/* ── FOOTER CONTACT STRIP ────────────────────────────────────────────────── */
+.site-footer-contact {
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  padding: 20px var(--content-pad);
+}
+.site-footer-contact-inner {
+  max-width: var(--content-max); margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+}
+.site-footer-contact-name { font-size: 15px; font-weight: 700; color: rgba(255,255,255,.88); margin-bottom: 3px; }
+.site-footer-contact-title { font-size: 11px; color: rgba(255,255,255,.38); margin-bottom: 5px; }
+.site-footer-contact-email { font-size: 11px; color: rgba(130,175,255,.7); text-decoration: none; }
+.site-footer-contact-email:hover { color: rgba(130,175,255,1); }
+.site-footer-contact-actions { display: flex; gap: 8px; flex-shrink: 0; }
+
+/* ── SCROLL REVEAL ───────────────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .5s var(--ease-s), transform .5s var(--ease-s);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+.reveal-delay-1 { transition-delay: .08s; }
+.reveal-delay-2 { transition-delay: .16s; }
+.reveal-delay-3 { transition-delay: .24s; }
+.reveal-delay-4 { transition-delay: .32s; }
+.reveal-delay-5 { transition-delay: .40s; }
+
+/* ── ANIMATED COUNTER ────────────────────────────────────────────────────── */
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+.counter-val { display: inline-block; }
+.counter-val.counting { animation: count-up .4s var(--ease-s) both; }

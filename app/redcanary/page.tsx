@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { Core9Chart } from '../../components/Core9Chart';
 import { ResearchSidebar } from '../../components/ResearchSidebar';
 import { ResearchHeader } from '../../components/ResearchHeader';
 import { ICAccordion } from '../../components/ICCard';
@@ -75,6 +76,7 @@ export default function RedCanaryPage() {
                   providers and platform alternatives.
                 </p>
               </div>
+              <Core9Chart title="Red Canary" />
               <ComparisonTable rows={COMPETITOR_ROWS} />
               <div className="divider" />
               <div className="charts-grid">

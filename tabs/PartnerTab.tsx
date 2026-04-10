@@ -1,6 +1,5 @@
 import { TrackRecord } from '../components/TrackRecord';
 import { EngagementCard } from '../components/EngagementCard';
-import { ContactStrip } from '../components/ContactStrip';
 import { TRACK_STATS, ENGAGEMENT_OPTIONS, CONTACT_INFO } from '../lib/data/partner';
 
 const WITHOUT_WITH = [
@@ -177,9 +176,6 @@ export function PartnerTab() {
         ))}
       </div>
 
-      <div className="divider" />
-
-      <ContactStrip name={CONTACT_INFO.name} title={CONTACT_INFO.title} email={CONTACT_INFO.email} />
     </div>
   );
 }
