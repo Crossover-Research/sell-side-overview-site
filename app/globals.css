@@ -885,3 +885,100 @@ body::before {
   margin-left: 6px;
 }
 .footer-meta a:hover { color: rgba(255,255,255,.55); }
+
+/* ── RED CANARY UNIFIED PAGE — SECTION TABS ─────────────────────────────── */
+.rc-section-tabs {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--br-lo);
+  padding-bottom: 0;
+}
+.rc-section-tab {
+  all: unset;
+  cursor: pointer;
+  padding: 10px 18px 9px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--t3);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color .15s, border-color .15s;
+  white-space: nowrap;
+}
+.rc-section-tab:hover { color: var(--t1); }
+.rc-section-tab.active {
+  color: var(--t0);
+  border-bottom-color: rgba(255,255,255,.65);
+  font-weight: 600;
+}
+.rc-section { animation: fadeUp .2s var(--ease-s) both; }
+
+/* ── PROFESSIONAL FOOTER ─────────────────────────────────────────────────── */
+.site-footer {
+  background: #04090f;
+  border-top: 1px solid rgba(255,255,255,.07);
+  padding: 40px var(--content-pad) 32px;
+  position: relative; z-index: 1;
+}
+.site-footer-inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+.site-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.site-footer-logo {
+  height: 20px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: .55;
+}
+.site-footer-name {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.60);
+}
+.site-footer-accent { color: #4a8fe8; }
+
+.site-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 0;
+}
+.site-footer-links a {
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255,255,255,.32);
+  text-decoration: none;
+  padding: 4px 14px;
+  border-right: 1px solid rgba(255,255,255,.1);
+  letter-spacing: .03em;
+  transition: color .15s;
+}
+.site-footer-links a:last-child { border-right: none; }
+.site-footer-links a:hover { color: rgba(255,255,255,.65); }
+
+.site-footer-legal {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  color: rgba(255,255,255,.18);
+  letter-spacing: .05em;
+}
+.site-footer-dot { opacity: .4; }
+
+@media (max-width: 600px) {
+  .site-footer-links { gap: 4px; }
+  .site-footer-links a { border-right: none; padding: 4px 10px; }
+}

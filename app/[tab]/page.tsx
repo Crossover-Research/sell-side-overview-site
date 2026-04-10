@@ -1,4 +1,4 @@
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import { HeroSection } from '../../components/HeroSection';
 import { ChartInit } from '../../components/ChartInit';
 import { ResearchSidebar } from '../../components/ResearchSidebar';
@@ -22,6 +22,10 @@ interface PageProps { params: Promise<{ tab: string }>; }
 export default async function TabPage({ params }: PageProps) {
   const { tab } = await params;
   if (!validTabs.includes(tab as Tab)) notFound();
+  // Consolidated: thesis/vendor/voice now live at /redcanary
+  if (['thesis', 'vendor', 'voice'].includes(tab)) {
+    redirect('/redcanary');
+  }
   const typedTab = tab as Tab;
   const isResearch = typedTab !== 'partner';
 
