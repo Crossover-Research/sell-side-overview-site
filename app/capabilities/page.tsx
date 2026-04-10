@@ -17,6 +17,7 @@ export default function CapabilitiesPage() {
       {/* HERO */}
       <section className="ib-hero">
         <div className="ib-inner">
+          <div className="ib-eyebrow">Crossover Research &middot; Multi-Sided Intelligence Platform</div>
           <div className="ib-eyebrow">Crossover Research · Multi-Sided Intelligence Platform</div>
           <h1 className="ib-title">
             Stockpicking private markets.<br />
@@ -61,8 +62,8 @@ export default function CapabilitiesPage() {
             </div>
             <div className="ib-inline-quote-attr">
               <span className="ib-inline-quote-name">Executive Director, J.P. Morgan</span>
-              <span className="ib-inline-quote-sep"> · </span>
-              <span className="ib-inline-quote-role">Sell-side mandate · $10B transaction</span>
+              <span className="ib-inline-quote-sep"> &middot; </span>
+              <span className="ib-inline-quote-role">Sell-side mandate &middot; $10B transaction</span>
             </div>
           </div>
         </div>
@@ -80,6 +81,35 @@ export default function CapabilitiesPage() {
             Crossover line of sight into an asset the PE market hadn&rsquo;t yet evaluated. We formed a
             preliminary fundamental view from the primary research: high-conviction story. We alerted select
             funds that fit the thesis profile.
+          </p>
+          <p className="ib-section-desc" style={{ color: 'rgba(255,255,255,.72)', marginTop: '-12px' }}>
+            General Atlantic took a 30-minute call. The mandate research briefed them on a fully-formed thesis
+            in a single meeting. They commissioned Crossover for secondary diligence to validate the initial
+            findings. The diligence held.{' '}
+            <strong style={{ color: '#fff' }}>$500M Series C at $1B+ valuation.</strong>
+          </p>
+          <div style={{ marginTop: 24, padding: '20px 0' }}>
+            <FlywheelDiagram />
+          </div>
+          <div style={{ marginTop: 20, padding: '13px 18px', background: 'rgba(255,255,255,.05)', borderLeft: '3px solid rgba(130,175,255,.35)', fontSize: 12, color: 'rgba(255,255,255,.55)', fontStyle: 'italic', lineHeight: 1.6 }}>
+            Sell-side line of sight. Proprietary primary research. Original fundamental view. Buy-side match.
+            The same infrastructure that wins mandates for bankers identifies the next great asset for funds.
+            It only works because the data is never curated for either side.
+          </div>
+        </div>
+      </section>
+
+      {/* WHY CROSSOVER — differentiators */}
+      <section className="ib-section" id="why">
+        <div className="ib-inner">
+          <div className="ib-section-eyebrow">Why Crossover</div>
+          <h2 className="ib-section-title">Not a Consulting Firm. Not an Expert Network.</h2>
+          <p className="ib-section-desc">
+            In media, advertisers and networks both rely on Nielsen because neither can accept audience data the
+            other produced. Private markets had no equivalent. Crossover is the independent measurement layer
+            both sides of a transaction can use — because neither side chooses the respondents and verbatim
+            quotes cannot be curated without being changed.
+          </p>
           </p>
           <p className="ib-section-desc" style={{ color: 'rgba(255,255,255,.72)', marginTop: '-12px' }}>
             General Atlantic took a 30-minute call. The mandate research briefed them on a fully-formed thesis
@@ -143,6 +173,7 @@ export default function CapabilitiesPage() {
           {/* Multi-sided diagram */}
           <div style={{ marginTop: 32, borderTop: '1px solid rgba(255,255,255,.07)', paddingTop: 28 }}>
             <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,.3)', marginBottom: 16, textAlign: 'center' }}>
+              One Independent Source &middot; Three Audiences &middot; Zero Extraction Incentive
               One Independent Source · Three Audiences · Zero Extraction Incentive
             </div>
             <MultiSidedDiagram />
@@ -212,6 +243,15 @@ export default function CapabilitiesPage() {
           </p>
           <div className="ib-samples">
             <a href="/redcanary" className="ib-sample-card">
+              <div className="ib-sample-type">Catalyst Study &middot; SENTINEL</div>
+              <div className="ib-sample-name">Red Canary — MDR</div>
+              <div className="ib-sample-meta">9-vendor benchmark &middot; 75+ verified respondents &middot; 9.0 NPS &middot; 8.8 replication difficulty</div>
+              <div className="ib-sample-link">Preview Study →</div>
+            </a>
+            <a href="/bluecat" className="ib-sample-card">
+              <div className="ib-sample-type">Catalyst Study &middot; FORTRESS</div>
+              <div className="ib-sample-name">BlueCat Networks — DDI</div>
+              <div className="ib-sample-meta">55 verified respondents &middot; 9.0 mission criticality &middot; 1.9 switching intent &middot; 98.5% NRR</div>
               <div className="ib-sample-type">Catalyst Study · SENTINEL</div>
               <div className="ib-sample-name">Red Canary — MDR</div>
               <div className="ib-sample-meta">9-vendor benchmark · 75+ verified respondents · 9.0 NPS · 8.8 replication difficulty</div>
@@ -226,6 +266,7 @@ export default function CapabilitiesPage() {
             <a href="/catalyst" className="ib-sample-card ib-sample-cta">
               <div className="ib-sample-type">Catalyst Library</div>
               <div className="ib-sample-name">20+ Assets Available</div>
+              <div className="ib-sample-meta">Same-day delivery if covered &middot; Investment hooks, metrics, verbatims, moat analysis</div>
               <div className="ib-sample-meta">Same-day delivery if covered · Investment hooks, metrics, verbatims, moat analysis</div>
               <div className="ib-sample-link">Browse Library →</div>
             </a>

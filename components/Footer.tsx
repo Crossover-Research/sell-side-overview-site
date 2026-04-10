@@ -6,6 +6,7 @@ export function Footer() {
         <div className="site-footer-contact-inner">
           <div>
             <div className="site-footer-contact-name">Ian McArdle</div>
+            <div className="site-footer-contact-title">Head of Strategic Partnerships &middot; Crossover Research</div>
             <div className="site-footer-contact-title">Head of Strategic Partnerships · Crossover Research</div>
             <a href="mailto:ian@crossoverresearch.com" className="site-footer-contact-email">
               ian@crossoverresearch.com
@@ -43,7 +44,7 @@ export function Footer() {
           <a href="/bluecat">BlueCat</a>
         </div>
         <div className="site-footer-legal">
-          © 2026 Crossover Research LLC · Confidential
+          © 2026 Crossover Research LLC &middot; Confidential
         </div>
       </div>
     </footer>

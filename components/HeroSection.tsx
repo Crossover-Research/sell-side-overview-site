@@ -33,6 +33,7 @@ export function HeroSection({ tab }: HeroSectionProps) {
               </div>
               <div className="hero-proof-rule" />
               <div className="hero-proof-name">Executive Director, J.P. Morgan</div>
+              <div className="hero-proof-role">Sell-side mandate &middot; $10B transaction</div>
               <div className="hero-proof-role">Sell-side mandate · $10B transaction</div>
               <div className="hero-proof-rule" style={{ marginTop: 16 }} />
               <div style={{ marginTop: 14 }}>
@@ -52,7 +53,7 @@ export function HeroSection({ tab }: HeroSectionProps) {
           </div>
         ) : (
           <div style={{ paddingBottom: '4px' }}>
-            <div className="hero-eyebrow">Voice of Customer Intelligence · BlueCat Networks</div>
+            <div className="hero-eyebrow">Voice of Customer Intelligence &middot; BlueCat Networks</div>
             <h1 className="hero-title" style={{ fontSize: '18px', marginBottom: '0' }}>
               DDI — Mission-Critical Infrastructure
             </h1>
