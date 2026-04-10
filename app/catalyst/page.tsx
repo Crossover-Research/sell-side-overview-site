@@ -53,7 +53,7 @@ function TeaserModal({ asset, onClose, onRequest }: { asset: CatalystAsset; onCl
           </div>
           <div style={{ display:'flex',flexDirection:'column' as const,gap:10,alignItems:'center',background:'rgba(255,255,255,.03)',border:'1px solid rgba(255,255,255,.08)',padding:'20px 24px',textAlign:'center' as const }}>
             <div style={{ fontSize:12,color:'rgba(255,255,255,.5)',marginBottom:4 }}>Full report: verified respondents, competitive scorecard, pricing analysis, IC-ready writeup</div>
-            <div style={{ fontSize:11,fontWeight:700,color:'rgba(255,255,255,.3)',letterSpacing:'.06em' }}>$10,000 per report · 30-60 day exclusive window</div>
+            <div style={{ fontSize:11,fontWeight:700,color:'rgba(255,255,255,.3)',letterSpacing:'.06em' }}>$10,000 per report &middot; 30-60 day exclusive window</div>
             <div style={{ display:'flex',gap:10,marginTop:4,flexWrap:'wrap' as const,justifyContent:'center' }}>
               <button onClick={onRequest} style={{ background:'rgba(255,255,255,.95)',color:'#0a1525',border:'none',padding:'10px 24px',fontSize:12,fontWeight:700,cursor:'pointer' }}>Request Full Report →</button>
               <a href="mailto:ian@crossoverresearch.com" style={{ background:'transparent',color:'rgba(255,255,255,.55)',border:'1px solid rgba(255,255,255,.16)',padding:'10px 20px',fontSize:12,fontWeight:500,textDecoration:'none' }}>Email Ian McArdle</a>
@@ -131,7 +131,7 @@ export default function CatalystPage() {
         <div style={{ maxWidth:1140,margin:'0 auto' }}>
           <div style={{ display:'grid',gridTemplateColumns:'1fr 400px',gap:48,alignItems:'start' }}>
             <div>
-              <div style={{ fontSize:10,fontWeight:700,letterSpacing:'.18em',textTransform:'uppercase' as const,color:'rgba(130,175,255,.65)',marginBottom:14 }}>Crossover Catalyst · Deal Intelligence Library</div>
+              <div style={{ fontSize:10,fontWeight:700,letterSpacing:'.18em',textTransform:'uppercase' as const,color:'rgba(130,175,255,.65)',marginBottom:14 }}>Crossover Catalyst &middot; Deal Intelligence Library</div>
               <h1 style={{ fontSize:30,fontWeight:700,color:'#fff',lineHeight:1.2,letterSpacing:'-.025em',marginBottom:14 }}>Customer intelligence on high-conviction assets.<br /><span style={{ color:'rgba(130,175,255,.6)',fontWeight:300 }}>6-12 months before formal processes begin.</span></h1>
               <p style={{ fontSize:14,color:'rgba(255,255,255,.6)',lineHeight:1.7,maxWidth:520,marginBottom:24 }}>Investment banks commission Crossover to win mandates. We reshape that same primary research into investment-ready intelligence for select funds — before teasers circulate. The same verbatim customer truth. Different strategic framing.</p>
               <div style={{ display:'flex',gap:10,flexWrap:'wrap' as const,marginBottom:8 }}>
@@ -186,7 +186,7 @@ export default function CatalystPage() {
           <div style={{ display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:18,flexWrap:'wrap' as const,gap:12 }}>
             <div>
               <div style={{ fontSize:10,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase' as const,color:'rgba(255,255,255,.3)',marginBottom:5 }}>Asset Library</div>
-              <h2 style={{ fontSize:18,fontWeight:700,color:'rgba(255,255,255,.9)',margin:0 }}>{CATALYST_ASSETS.length} Assets · Company Identity Locked Until Access Granted</h2>
+              <h2 style={{ fontSize:18,fontWeight:700,color:'rgba(255,255,255,.9)',margin:0 }}>{CATALYST_ASSETS.length} Assets &middot; Company Identity Locked Until Access Granted</h2>
             </div>
             <div style={{ display:'flex',gap:6 }}>
               {(['all','active','new','transacted'] as const).map(f=>(
@@ -232,7 +232,7 @@ export default function CatalystPage() {
           <div style={{ marginTop:28,display:'flex',alignItems:'center',justifyContent:'space-between',padding:'18px 24px',background:'rgba(77,144,254,.07)',border:'1px solid rgba(77,144,254,.15)',flexWrap:'wrap' as const,gap:14 }}>
             <div>
               <div style={{ fontSize:14,fontWeight:700,color:'rgba(255,255,255,.88)',marginBottom:4 }}>Is your target already covered?</div>
-              <div style={{ fontSize:12,color:'rgba(255,255,255,.4)' }}>Same-day delivery if in library · Custom study in 14 days if not · $10,000 per report</div>
+              <div style={{ fontSize:12,color:'rgba(255,255,255,.4)' }}>Same-day delivery if in library &middot; Custom study in 14 days if not &middot; $10,000 per report</div>
             </div>
             <button onClick={()=>setRequestOpen(true)} style={{ background:'rgba(255,255,255,.95)',color:'#050d18',border:'none',padding:'10px 24px',fontSize:12,fontWeight:700,cursor:'pointer',whiteSpace:'nowrap' }}>Check Coverage →</button>
           </div>

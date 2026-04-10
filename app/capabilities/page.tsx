@@ -17,7 +17,7 @@ export default function CapabilitiesPage() {
       {/* HERO */}
       <section className="ib-hero">
         <div className="ib-inner">
-          <div className="ib-eyebrow">Crossover Research · Multi-Sided Intelligence Platform</div>
+          <div className="ib-eyebrow">Crossover Research &middot; Multi-Sided Intelligence Platform</div>
           <h1 className="ib-title">
             Stockpicking private markets.<br />
             <em>Independent by construction. Compounding by design.</em>
@@ -43,8 +43,8 @@ export default function CapabilitiesPage() {
             </div>
             <div className="ib-inline-quote-attr">
               <span className="ib-inline-quote-name">Executive Director, J.P. Morgan</span>
-              <span className="ib-inline-quote-sep"> · </span>
-              <span className="ib-inline-quote-role">Sell-side mandate · $10B transaction</span>
+              <span className="ib-inline-quote-sep"> &middot; </span>
+              <span className="ib-inline-quote-role">Sell-side mandate &middot; $10B transaction</span>
             </div>
           </div>
         </div>
@@ -111,7 +111,7 @@ export default function CapabilitiesPage() {
           {/* Multi-sided diagram */}
           <div style={{ marginTop: 32, borderTop: '1px solid rgba(255,255,255,.07)', paddingTop: 28 }}>
             <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,.3)', marginBottom: 16, textAlign: 'center' }}>
-              One Independent Source · Three Audiences · Zero Extraction Incentive
+              One Independent Source &middot; Three Audiences &middot; Zero Extraction Incentive
             </div>
             <MultiSidedDiagram />
           </div>
@@ -180,21 +180,21 @@ export default function CapabilitiesPage() {
           </p>
           <div className="ib-samples">
             <a href="/redcanary" className="ib-sample-card">
-              <div className="ib-sample-type">Catalyst Study · SENTINEL</div>
+              <div className="ib-sample-type">Catalyst Study &middot; SENTINEL</div>
               <div className="ib-sample-name">Red Canary — MDR</div>
-              <div className="ib-sample-meta">9-vendor benchmark · 75+ verified respondents · 9.0 NPS · 8.8 replication difficulty</div>
+              <div className="ib-sample-meta">9-vendor benchmark &middot; 75+ verified respondents &middot; 9.0 NPS &middot; 8.8 replication difficulty</div>
               <div className="ib-sample-link">Preview Study →</div>
             </a>
             <a href="/bluecat" className="ib-sample-card">
-              <div className="ib-sample-type">Catalyst Study · FORTRESS</div>
+              <div className="ib-sample-type">Catalyst Study &middot; FORTRESS</div>
               <div className="ib-sample-name">BlueCat Networks — DDI</div>
-              <div className="ib-sample-meta">55 verified respondents · 9.0 mission criticality · 1.9 switching intent · 98.5% NRR</div>
+              <div className="ib-sample-meta">55 verified respondents &middot; 9.0 mission criticality &middot; 1.9 switching intent &middot; 98.5% NRR</div>
               <div className="ib-sample-link">Preview Study →</div>
             </a>
             <a href="/catalyst" className="ib-sample-card ib-sample-cta">
               <div className="ib-sample-type">Catalyst Library</div>
               <div className="ib-sample-name">20+ Assets Available</div>
-              <div className="ib-sample-meta">Same-day delivery if covered · Investment hooks, metrics, verbatims, moat analysis</div>
+              <div className="ib-sample-meta">Same-day delivery if covered &middot; Investment hooks, metrics, verbatims, moat analysis</div>
               <div className="ib-sample-link">Browse Library →</div>
             </a>
           </div>

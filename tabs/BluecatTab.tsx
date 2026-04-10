@@ -7,7 +7,7 @@ export function BluecatTab() {
   return (
     <div>
       <div className="section-header">
-        <div className="section-eyebrow">Investment Thesis · BlueCat Networks</div>
+        <div className="section-eyebrow">Investment Thesis &middot; BlueCat Networks</div>
         <h2 className="section-title">IC Case in Four Questions</h2>
         <p className="section-lead">
           DNS, DHCP, and IP address management — foundational enterprise infrastructure

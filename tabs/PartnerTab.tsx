@@ -58,7 +58,7 @@ export function PartnerTab() {
           <div style={{ width: 24, height: 1, background: 'var(--br-hi)' }} />
           <div>
             <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--t0)', letterSpacing: '.04em' }}>Executive Director, J.P. Morgan</div>
-            <div style={{ fontSize: 10, color: 'var(--t3)', marginTop: 2, textTransform: 'uppercase', letterSpacing: '.04em' }}>Sell-side mandate · $10B transaction</div>
+            <div style={{ fontSize: 10, color: 'var(--t3)', marginTop: 2, textTransform: 'uppercase', letterSpacing: '.04em' }}>Sell-side mandate &middot; $10B transaction</div>
           </div>
         </div>
       </div>
