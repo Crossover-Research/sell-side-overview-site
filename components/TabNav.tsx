@@ -59,6 +59,15 @@ export function TabNav() {
 
         <div className="tab-nav-divider" />
 
+        <a
+          href="/catalyst"
+          className={`tab-btn tab-primary${pathname === '/catalyst' ? ' active' : ''}`}
+        >
+          Catalyst Library
+        </a>
+
+        <div className="tab-nav-divider" />
+
         <button
           ref={btnRef}
           className={`tab-btn tab-primary${isResearch ? ' active' : ''}`}
