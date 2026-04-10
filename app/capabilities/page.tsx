@@ -22,7 +22,7 @@ export default function CapabilitiesPage() {
           </h1>
           <p className="ib-lead">
             Proprietary Voice of Customer intelligence purpose-built for investment banking.
-            Independent evidence from verified customers — not management-sourced references,
+            Independent evidence from verified customers: not management-sourced references,
             not analyst reports, not expert network calls. Primary research that survives
             buyer IC scrutiny because it was never curated by the sell-side.
           </p>
@@ -89,8 +89,8 @@ export default function CapabilitiesPage() {
           <h2 className="ib-section-title">Five Integrated Capabilities</h2>
           <p className="ib-section-desc">
             Each capability maps to a moment in the banker workflow where proprietary customer
-            intelligence creates asymmetric advantage. They compound — the research built for
-            mandate pursuit becomes the CIM evidence, the buyer pre-read, and the management prep.
+            intelligence creates asymmetric advantage. They compound: the research built for
+            mandate pitch becomes the CIM evidence, the buyer pre-read, and the management prep.
           </p>
 
           {/* Capability tabs */}
