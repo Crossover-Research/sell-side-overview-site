@@ -1,9 +1,7 @@
 import { TrackRecord } from '../components/TrackRecord';
-import { AdvantageCard } from '../components/AdvantageCard';
 import { EngagementCard } from '../components/EngagementCard';
 import { ContactStrip } from '../components/ContactStrip';
-import { InsightBox } from '../components/InsightBox';
-import { TRACK_STATS, ADVANTAGE_CARDS, ENGAGEMENT_OPTIONS, CONTACT_INFO } from '../lib/data/partner';
+import { TRACK_STATS, ENGAGEMENT_OPTIONS, CONTACT_INFO } from '../lib/data/partner';
 
 const WITHOUT_WITH = [
   { w: 'Pitch alongside 3–5 identical banks. Hope relationship wins.', c: 'Walk in with customer evidence no competing bank has. The room is already yours.' },
@@ -61,25 +59,6 @@ export function PartnerTab() {
           </tbody>
         </table>
       </div>
-      <InsightBox>
-        <strong>50% sell-side mandate win rate.</strong> Not because of better relationships —
-        because Crossover-backed pitches are built from what customers actually say.
-        No competing bank can walk in with that.
-      </InsightBox>
-
-      <div className="divider" />
-
-      {/* Advantages — grid, no cards */}
-      <div className="section-header" style={{ marginBottom: 14 }}>
-        <div className="section-eyebrow">Why It Works</div>
-        <h2 className="section-title">Six Structural Advantages</h2>
-      </div>
-      <div className="advantage-grid" style={{ marginBottom: 'var(--sp-6)' }}>
-        {ADVANTAGE_CARDS.map((card, i) => (
-          <AdvantageCard key={i} card={card} />
-        ))}
-      </div>
-
       <div className="divider" />
 
       {/* Products — panel grid */}
