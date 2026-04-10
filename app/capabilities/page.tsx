@@ -18,6 +18,7 @@ export default function CapabilitiesPage() {
       <section className="ib-hero">
         <div className="ib-inner">
           <div className="ib-eyebrow">Crossover Research &middot; Multi-Sided Intelligence Platform</div>
+          <div className="ib-eyebrow">Crossover Research · Multi-Sided Intelligence Platform</div>
           <h1 className="ib-title">
             Stockpicking private markets.<br />
             <em>Independent by construction. Compounding by design.</em>
@@ -80,6 +81,49 @@ export default function CapabilitiesPage() {
         </div>
       </section>
 
+      {/* WHY CROSSOVER — differentiators */}
+      <section className="ib-section" id="why">
+        <div className="ib-inner">
+          <div className="ib-section-eyebrow">Why Crossover</div>
+          <h2 className="ib-section-title">Not a Consulting Firm. Not an Expert Network.</h2>
+          <p className="ib-section-desc">
+            In media, advertisers and networks both rely on Nielsen because neither can accept audience data the
+            other produced. Private markets had no equivalent. Crossover is the independent measurement layer
+            both sides of a transaction can use — because neither side chooses the respondents and verbatim
+            quotes cannot be curated without being changed.
+          </p>
+          </p>
+          <p className="ib-section-desc" style={{ color: 'rgba(255,255,255,.72)', marginTop: '-12px' }}>
+            General Atlantic took a 30-minute call. The mandate research briefed them on a fully-formed thesis
+            in a single meeting. They commissioned Crossover for secondary diligence to validate the initial
+            findings. The diligence held.{' '}
+            <strong style={{ color: '#fff' }}>$500M Series C at $1B+ valuation.</strong>
+          </p>
+          <div style={{ marginTop: 24, padding: '20px 0' }}>
+            <FlywheelDiagram />
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 0, borderTop: '1px solid rgba(255,255,255,.1)', marginTop: 24 }}>
+            {[
+              { step: '01', label: 'Sell-Side Mandate', desc: 'J.P. Morgan engages Crossover' },
+              { step: '02', label: 'Line of Sight',     desc: 'Primary research reveals high-conviction asset' },
+              { step: '03', label: 'Fundamental View',  desc: 'Original thesis formed — stockpicker\'s lens' },
+              { step: '04', label: 'Buy-Side Match',    desc: 'Select funds alerted · 30-min conviction brief' },
+              { step: '05', label: 'Secondary Diligence', desc: 'GA commissions validation · $500M closes' },
+            ].map(({ step, label, desc }, i) => (
+              <div key={i} style={{ padding: '16px 18px', borderRight: i < 4 ? '1px solid rgba(255,255,255,.08)' : 'none' }}>
+                <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.12em', color: 'rgba(130,175,255,.5)', marginBottom: 6 }}>STEP {step}</div>
+                <div style={{ fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,.85)', marginBottom: 4 }}>{label}</div>
+                <div style={{ fontSize: 11, color: 'rgba(255,255,255,.4)', lineHeight: 1.5 }}>{desc}</div>
+              </div>
+            ))}
+          </div>
+          <div style={{ marginTop: 20, padding: '13px 18px', background: 'rgba(255,255,255,.05)', borderLeft: '3px solid rgba(130,175,255,.35)', fontSize: 12, color: 'rgba(255,255,255,.55)', fontStyle: 'italic', lineHeight: 1.6 }}>
+            Sell-side line of sight. Proprietary primary research. Original fundamental view. Buy-side match.
+            The same infrastructure that wins mandates for bankers identifies the next great asset for funds.
+            It only works because the data is never curated for either side.
+          </div>
+        </div>
+      </section>
+
       {/* WHY CROSSOVER */}
       <section className="ib-section" id="why">
         <div className="ib-inner">
@@ -110,6 +154,7 @@ export default function CapabilitiesPage() {
           <div style={{ marginTop: 32, borderTop: '1px solid rgba(255,255,255,.07)', paddingTop: 28 }}>
             <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,.3)', marginBottom: 16, textAlign: 'center' }}>
               One Independent Source &middot; Three Audiences &middot; Zero Extraction Incentive
+              One Independent Source · Three Audiences · Zero Extraction Incentive
             </div>
             <MultiSidedDiagram />
           </div>
@@ -182,6 +227,18 @@ export default function CapabilitiesPage() {
               <div className="ib-sample-name">Red Canary &mdash; MDR</div>
               <div className="ib-sample-meta">9-vendor benchmark &middot; 75+ verified respondents &middot; 9.0 NPS &middot; 8.8 replication difficulty</div>
               <div className="ib-sample-link">Preview Study &rarr;</div>
+              <div className="ib-sample-name">Red Canary — MDR</div>
+              <div className="ib-sample-meta">9-vendor benchmark &middot; 75+ verified respondents &middot; 9.0 NPS &middot; 8.8 replication difficulty</div>
+              <div className="ib-sample-link">Preview Study →</div>
+            </a>
+            <a href="/bluecat" className="ib-sample-card">
+              <div className="ib-sample-type">Catalyst Study &middot; FORTRESS</div>
+              <div className="ib-sample-name">BlueCat Networks — DDI</div>
+              <div className="ib-sample-meta">55 verified respondents &middot; 9.0 mission criticality &middot; 1.9 switching intent &middot; 98.5% NRR</div>
+              <div className="ib-sample-type">Catalyst Study · SENTINEL</div>
+              <div className="ib-sample-name">Red Canary — MDR</div>
+              <div className="ib-sample-meta">9-vendor benchmark · 75+ verified respondents · 9.0 NPS · 8.8 replication difficulty</div>
+              <div className="ib-sample-link">Preview Study →</div>
             </a>
             <a href="/bluecat" className="ib-sample-card">
               <div className="ib-sample-type">Catalyst Study &middot; FORTRESS</div>
@@ -194,6 +251,8 @@ export default function CapabilitiesPage() {
               <div className="ib-sample-name">20+ Assets Available</div>
               <div className="ib-sample-meta">Same-day delivery if covered &middot; Investment hooks, metrics, verbatims, moat analysis</div>
               <div className="ib-sample-link">Browse Library &rarr;</div>
+              <div className="ib-sample-meta">Same-day delivery if covered · Investment hooks, metrics, verbatims, moat analysis</div>
+              <div className="ib-sample-link">Browse Library →</div>
             </a>
           </div>
         </div>
