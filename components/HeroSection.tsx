@@ -3,7 +3,6 @@ import type { Tab } from '../lib/types';
 interface HeroSectionProps { tab?: Tab; }
 
 export function HeroSection({ tab }: HeroSectionProps) {
-  const isPartner = !tab || tab === 'partner';
   const isBluecat = tab === 'bluecat';
 
   return (
@@ -36,6 +35,20 @@ export function HeroSection({ tab }: HeroSectionProps) {
               <div className="hero-proof-rule" />
               <div className="hero-proof-name">Executive Director, J.P. Morgan</div>
               <div className="hero-proof-role">Sell-side mandate · $10B transaction</div>
+          <div>
+            <h1 className="hero-title">
+              Independent customer evidence<br />
+              <span>no competing bank can replicate.</span>
+            </h1>
+            <p className="hero-subtitle">
+              Voice of Customer intelligence that changes the mandate conversation from
+              &ldquo;trust us&rdquo; to &ldquo;here&rsquo;s what customers actually said.&rdquo;
+              Verified data, not management projections.
+            </p>
+            <div className="hero-actions">
+              <a href="/partner" className="hero-cta-primary">Start a Mandate →</a>
+              <a href="/redcanary" className="hero-cta-secondary">View Research ↓</a>
+              <a href="/capabilities" className="hero-cta-secondary">Intelligence Platform ↗</a>
             </div>
           </div>
         ) : (

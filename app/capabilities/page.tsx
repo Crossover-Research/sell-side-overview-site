@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import {
-  IB_TRACK_RECORD, IB_WORKFLOW_STAGES, IB_CAPS, IB_CAP_DATA,
+  IB_TRACK_RECORD, IB_CAPS, IB_CAP_DATA,
   type IBCap,
 } from '../../lib/data/ibCapabilities';
 
@@ -46,20 +46,17 @@ export default function CapabilitiesPage() {
               <div className="ib-metric-lbl">Days avg. study turnaround</div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* J.P. MORGAN PROOF */}
-      <section className="ib-proof">
-        <div className="ib-inner">
-          <div className="ib-proof-quote">
-            &ldquo;Having a Voice of Customer document was seen as a differentiator by the client.
-            The findings from your report were a key part of the equity story materials we presented.&rdquo;
-          </div>
-          <div className="ib-proof-attr">
-            <span className="ib-proof-name">Executive Director, J.P. Morgan</span>
-            <span className="ib-proof-sep">·</span>
-            <span className="ib-proof-role">Sell-side mandate · $10B transaction</span>
+          <div className="ib-inline-quote">
+            <div className="ib-inline-quote-text">
+              &ldquo;Having a Voice of Customer document was seen as a differentiator by the client.
+              The findings from your report were a key part of the equity story materials we presented.&rdquo;
+            </div>
+            <div className="ib-inline-quote-attr">
+              <span className="ib-inline-quote-name">Executive Director, J.P. Morgan</span>
+              <span className="ib-inline-quote-sep"> · </span>
+              <span className="ib-inline-quote-role">Sell-side mandate · $10B transaction</span>
+            </div>
           </div>
         </div>
       </section>
@@ -82,27 +79,6 @@ export default function CapabilitiesPage() {
             than 30 expert network calls, at a fraction of the cost. Where expert networks
             produce conversation notes, Crossover produces evidence.
           </p>
-        </div>
-      </section>
-
-      {/* WORKFLOW MAP */}
-      <section className="ib-section" id="workflow">
-        <div className="ib-inner">
-          <div className="ib-section-eyebrow">How We Fit Your Process</div>
-          <h2 className="ib-section-title">Six Moments Where Crossover Changes the Outcome</h2>
-          <p className="ib-section-desc">
-            Intelligence inserted at each critical inflection point in the sell-side mandate —
-            from before the pitch to after the LOI.
-          </p>
-          <div className="ib-workflow">
-            {IB_WORKFLOW_STAGES.map((stage, i) => (
-              <div key={i} className="ib-stage">
-                <div className="ib-stage-num">{stage.num}</div>
-                <div className="ib-stage-label">{stage.label}</div>
-                <div className="ib-stage-desc">{stage.desc}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -191,13 +167,13 @@ export default function CapabilitiesPage() {
               <div className="ib-sample-type">Catalyst Study</div>
               <div className="ib-sample-name">Red Canary — MDR</div>
               <div className="ib-sample-meta">9-vendor benchmark · 75+ verified respondents · Cybersecurity</div>
-              <div className="ib-sample-link">View the Thesis Tab →</div>
+              <div className="ib-sample-link">Preview Study →</div>
             </a>
             <a href="/bluecat" className="ib-sample-card">
               <div className="ib-sample-type">Catalyst Study</div>
               <div className="ib-sample-name">BlueCat Networks — DDI</div>
               <div className="ib-sample-meta">55 verified respondents · Mission-critical infrastructure · Network software</div>
-              <div className="ib-sample-link">View the BlueCat Tab →</div>
+              <div className="ib-sample-link">Preview Study →</div>
             </a>
             <a href="/partner" className="ib-sample-card ib-sample-cta">
               <div className="ib-sample-type">Engagement</div>

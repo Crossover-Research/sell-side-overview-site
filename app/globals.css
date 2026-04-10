@@ -107,6 +107,13 @@ body::before {
 .topbar-brand-label { font-size: 9px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.35); }
 .topbar-brand-divider { width: 100%; height: 1px; background: rgba(255,255,255,.14); margin: 5px 0; transform-origin: left; }
 .topbar-logo-img { height: 28px; width: auto; opacity: 1; display: inline-block; vertical-align: middle; }
+.topbar-brand { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+.topbar-brand-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.55); line-height: 1; }
+.topbar-brand-row { display: flex; align-items: center; gap: 8px; }
+.topbar-brand-label { font-size: 9px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.35); }
+.topbar-logo-img { height: 22px; width: auto; opacity: 1; display: inline-block; vertical-align: middle; }
+.topbar-logo-img { height: 20px; width: auto; filter: brightness(0) invert(1); opacity: .82; display: inline-block; vertical-align: middle; }
+.topbar-logo-img { height: 22px; width: auto; filter: brightness(0) invert(1); opacity: .92; }
 .topbar-divider { width: 1px; height: 16px; background: var(--br-hi); }
 .topbar-title h1 { font-size: 11px; font-weight: 400; color: rgba(255,255,255,.60); line-height: 1; }
 .topbar-title p  { display: none; }
@@ -127,6 +134,7 @@ body::before {
   background: linear-gradient(165deg, rgba(8,21,38,.97) 0%, rgba(12,29,52,.92) 100%);
   padding: 0 var(--content-pad) 0;
   padding-top: calc(72px + 42px + 20px);
+  padding-top: calc(64px + 42px + 20px);
   position: relative;
   z-index: 1;
   border-bottom: 1px solid var(--br-lo);
@@ -602,6 +610,7 @@ body::before {
   background: linear-gradient(168deg, #05101f 0%, #0a1e38 55%, #0e2545 100%);
   padding: 60px 0 0;
   padding-top: calc(72px + 42px + 40px);
+  padding-top: calc(64px + 42px + 40px);
   position: relative; z-index: 1;
   border-bottom: 1px solid var(--br-lo);
 }
@@ -1010,3 +1019,32 @@ body::before {
 .topbar-logo-img {
   animation: logo-pulse-glow 3.6s ease-in-out 1.2s infinite;
 }
+.topbar-brand-row { display: flex; align-items: center; gap: 8px; }
+/* ── INLINE HERO QUOTE ────────────────────────────────────────────────────── */
+.ib-inline-quote {
+  padding: 20px 0 24px;
+  border-top: 1px solid var(--br-lo);
+  margin-top: 4px;
+}
+.ib-inline-quote-text {
+  font-size: 13.5px;
+  color: var(--t1);
+  font-style: italic;
+  line-height: 1.65;
+  margin-bottom: 10px;
+  max-width: 680px;
+}
+.ib-inline-quote-attr {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.ib-inline-quote-name {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--t2);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.ib-inline-quote-sep  { font-size: 10px; color: var(--t4); }
+.ib-inline-quote-role { font-size: 10px; color: var(--t3); }
