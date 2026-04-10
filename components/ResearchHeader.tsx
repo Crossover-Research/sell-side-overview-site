@@ -1,4 +1,3 @@
-import type { Tab } from '../lib/types';
 
 const DownloadIcon = () => (
   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -8,77 +7,65 @@ const DownloadIcon = () => (
   </svg>
 );
 
-const HEADERS: Record<Tab, {
-  title: string;
-  sub: string;
-  kpis: Array<{ val: string; lbl: string }>;
-  reportUrl?: string;
-  reportLabel?: string;
-} | null> = {
-  thesis: {
-    title: 'Red Canary — VoC Research',
+const CONFIGS: Record<string, {
+  title: string; sub: string;
+  kpis: { val: string; lbl: string }[];
+  reportUrl: string; reportLabel: string;
+}> = {
+  redcanary: {
+    title: 'Red Canary — Voice of Customer Research',
     sub: 'Catalyst Study CR-2024-005 · 9-vendor MDR benchmark · Verified customer respondents',
-    kpis: [{ val: '9.0', lbl: 'NPS Score' }, { val: '8.8', lbl: 'Replication Diff.' }, { val: '40%', lbl: 'ARR Growth' }],
+    kpis: [{ val: '9.0', lbl: 'NPS' }, { val: '8.8', lbl: 'Replication Diff.' }, { val: '40%', lbl: 'ARR Growth' }],
     reportUrl: 'https://yvkbfmdugujhxerdopcm.supabase.co/storage/v1/object/public/public-assets/red-canary-catalyst.pdf',
-    reportLabel: 'Download Sample Report',
-  },
-  vendor: {
-    title: 'Red Canary — Vendor Intel',
-    sub: 'Competitive benchmark across 9 MDR providers',
-    kpis: [{ val: '#3', lbl: 'Security Posture' }, { val: '9.0', lbl: 'Recommend' }, { val: '5.5×', lbl: 'Consol. Pref.' }],
-    reportUrl: 'https://yvkbfmdugujhxerdopcm.supabase.co/storage/v1/object/public/public-assets/red-canary-catalyst.pdf',
-    reportLabel: 'Download Sample Report',
-  },
-  voice: {
-    title: 'Red Canary — Customer Voice',
-    sub: 'Verbatim evidence from verified customers',
-    kpis: [{ val: '9', lbl: 'Verbatims' }, { val: '81%', lbl: '24/7 Driver' }, { val: '8.8', lbl: 'Switching Cost' }],
-    reportUrl: 'https://yvkbfmdugujhxerdopcm.supabase.co/storage/v1/object/public/public-assets/red-canary-catalyst.pdf',
-    reportLabel: 'Download Sample Report',
+    reportLabel: 'Download Report',
   },
   bluecat: {
-    title: 'BlueCat Networks — VoC Research',
+    title: 'BlueCat Networks — Voice of Customer Research',
     sub: 'Catalyst Study CR-2024-006 · DDI benchmark · 55 verified enterprise respondents',
     kpis: [{ val: '9.0', lbl: 'Mission Crit.' }, { val: '1.9', lbl: 'Switch Intent' }, { val: '98.5%', lbl: 'Net Retention' }],
     reportUrl: 'https://yvkbfmdugujhxerdopcm.supabase.co/storage/v1/object/public/public-assets/bluecat-catalyst.pdf',
-    reportLabel: 'Download Sample Report',
+    reportLabel: 'Download Report',
   },
+};
+
+// Map old tab IDs to config keys
+const TAB_TO_KEY: Record<string, string | null> = {
+  redcanary: 'redcanary',
+  bluecat: 'bluecat',
+  thesis: 'redcanary',
   partner: null,
 };
 
-interface ResearchHeaderProps { tab: Tab; }
+interface ResearchHeaderProps {
+  tab: string;
+  onSectionChange?: (s: string) => void;
+  activeSection?: string;
+}
 
 export function ResearchHeader({ tab }: ResearchHeaderProps) {
-  const hdr = HEADERS[tab];
-  if (!hdr) return null;
+  const key = TAB_TO_KEY[tab];
+  if (!key) return null;
+  const cfg = CONFIGS[key];
   return (
     <div className="research-header">
       <div className="research-brand">
         <div>
-          <div className="research-title">{hdr.title}</div>
-          <div className="research-sub">{hdr.sub}</div>
+          <div className="research-title">{cfg.title}</div>
+          <div className="research-sub">{cfg.sub}</div>
         </div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
         <div className="research-kpis">
-          {hdr.kpis.map((k, i) => (
+          {cfg.kpis.map((k, i) => (
             <div key={i} style={{ textAlign: 'right' }}>
               <div className="research-kpi-val">{k.val}</div>
               <div className="research-kpi-lbl">{k.lbl}</div>
             </div>
           ))}
         </div>
-        {hdr.reportUrl && (
-          <a
-            href={hdr.reportUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="research-download-btn"
-          >
-            <DownloadIcon />
-            {hdr.reportLabel}
-          </a>
-        )}
+        <a href={cfg.reportUrl} target="_blank" rel="noopener noreferrer" className="research-download-btn">
+          <DownloadIcon />{cfg.reportLabel}
+        </a>
       </div>
     </div>
   );

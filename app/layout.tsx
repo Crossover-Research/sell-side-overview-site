@@ -1,5 +1,6 @@
 import Script from 'next/script'
 import { Topbar } from '../components/Topbar'
+import { TabNav } from '../components/TabNav'
 import { Footer } from '../components/Footer'
 import './globals.css'
 
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <Topbar />
+        <TabNav />
         <main>{children}</main>
         <Footer />
       </body>

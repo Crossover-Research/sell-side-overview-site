@@ -1,18 +1,14 @@
-import type { MetricCell } from '../lib/types';
 import type { Tab } from '../lib/types';
 
-interface HeroSectionProps {
-  metrics: MetricCell[];
-  tab?: Tab;
-}
+interface HeroSectionProps { tab?: Tab; }
 
-export function HeroSection({ metrics, tab }: HeroSectionProps) {
-  const isPartner = !tab || tab === 'partner';
+export function HeroSection({ tab }: HeroSectionProps) {
+  const isBluecat = tab === 'bluecat';
 
   return (
     <div className="hero">
       <div className="hero-inner">
-        {isPartner ? (
+        {!isBluecat ? (
           <div className="hero-grid">
             <div>
               <div className="hero-eyebrow">Institutional Research · Sell-Side Intelligence</div>
@@ -27,7 +23,7 @@ export function HeroSection({ metrics, tab }: HeroSectionProps) {
               </p>
               <div className="hero-actions">
                 <a href="/partner" className="hero-cta-primary">Start a Mandate →</a>
-                <a href="/thesis" className="hero-cta-secondary">View Research ↓</a>
+                <a href="/redcanary" className="hero-cta-secondary">View Research ↓</a>
                 <a href="/capabilities" className="hero-cta-secondary">Intelligence Platform ↗</a>
               </div>
             </div>
@@ -44,33 +40,12 @@ export function HeroSection({ metrics, tab }: HeroSectionProps) {
           </div>
         ) : (
           <div style={{ paddingBottom: '4px' }}>
-            <div className="hero-eyebrow">Voice of Customer Intelligence · {
-              tab === 'bluecat' ? 'BlueCat Networks' : 'Red Canary'
-            }</div>
+            <div className="hero-eyebrow">Voice of Customer Intelligence · BlueCat Networks</div>
             <h1 className="hero-title" style={{ fontSize: '18px', marginBottom: '0' }}>
-              {tab === 'thesis'  && 'The IC Case in Four Questions'}
-              {tab === 'vendor'  && '9-Vendor Competitive Benchmark'}
-              {tab === 'voice'   && 'Verbatim Customer Evidence'}
-              {tab === 'bluecat' && 'DDI — Mission-Critical Infrastructure'}
+              DDI — Mission-Critical Infrastructure
             </h1>
           </div>
         )}
-        <div className="metric-strip">
-          {metrics.map((m, i) => (
-            <div key={i} className="metric-cell">
-              <div className="metric-label">{m.label}</div>
-              <div className="metric-value">
-                {m.value}
-                {m.sub && <small style={{ fontSize: '13px', opacity: 0.5 }}>{m.sub}</small>}
-              </div>
-              {m.delta && (
-                <div className="metric-sub">
-                  <span className="metric-delta" style={m.deltaStyle}>{m.delta}</span>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   );
