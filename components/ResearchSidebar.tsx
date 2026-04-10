@@ -1,7 +1,6 @@
 'use client';
 
 interface Props {
-  tab: Tab;
   tab: string;
   activeSection?: string;
   onSelect?: (s: string) => void;
@@ -20,8 +19,7 @@ const BC_ITEMS = [
 ];
 
 export function ResearchSidebar({ tab, activeSection, onSelect }: Props) {
-  const isRC = ['thesis', 'vendor', 'voice'].includes(tab);
-  const isRC = false; // RC now uses /redcanary page directly
+  const isRC = tab === 'redcanary';
   const items = isRC ? RC_ITEMS : BC_ITEMS;
   const groupLabel = isRC ? 'Red Canary — MDR' : 'BlueCat Networks — DDI';
 

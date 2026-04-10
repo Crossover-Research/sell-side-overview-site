@@ -1,4 +1,3 @@
-
 const DownloadIcon = () => (
   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -15,7 +14,7 @@ const CONFIGS: Record<string, {
   redcanary: {
     title: 'Red Canary — Voice of Customer Research',
     sub: 'Catalyst Study CR-2024-005 · 9-vendor MDR benchmark · Verified customer respondents',
-    kpis: [{ val: '9.0', lbl: 'NPS' }, { val: '8.8', lbl: 'Replication Diff.' }, { val: '40%', lbl: 'ARR Growth' }],
+    kpis: [{ val: '9.0', lbl: 'NPS' }, { val: '8.8', lbl: 'Replication' }, { val: '40%', lbl: 'ARR Growth' }],
     reportUrl: 'https://yvkbfmdugujhxerdopcm.supabase.co/storage/v1/object/public/public-assets/red-canary-catalyst.pdf',
     reportLabel: 'Download Report',
   },
@@ -28,34 +27,11 @@ const CONFIGS: Record<string, {
   },
 };
 
-// Map old tab IDs to config keys
-const TAB_TO_KEY: Record<Tab, string | null> = {
-  thesis: 'redcanary', vendor: 'redcanary', voice: 'redcanary',
-  bluecat: 'bluecat', partner: null,
-};
-
-interface ResearchHeaderProps {
-  tab: Tab;
-};
-
-// Map old tab IDs to config keys
-const TAB_TO_KEY: Record<string, string | null> = {
-  redcanary: 'redcanary',
-  bluecat: 'bluecat',
-  thesis: 'redcanary',
-  partner: null,
-};
-
-interface ResearchHeaderProps {
-  tab: string;
-  onSectionChange?: (s: string) => void;
-  activeSection?: string;
-}
+interface ResearchHeaderProps { tab: string; }
 
 export function ResearchHeader({ tab }: ResearchHeaderProps) {
-  const key = TAB_TO_KEY[tab];
-  if (!key) return null;
-  const cfg = CONFIGS[key];
+  const cfg = CONFIGS[tab];
+  if (!cfg) return null;
   return (
     <div className="research-header">
       <div className="research-brand">

@@ -19,9 +19,9 @@ import {
 type Section = 'thesis' | 'vendor' | 'voice';
 
 const SECTIONS: { id: Section; label: string }[] = [
-  { id: 'thesis', label: 'IC Thesis'   },
+  { id: 'thesis', label: 'IC Thesis'    },
   { id: 'vendor', label: 'Vendor Intel' },
-  { id: 'voice',  label: 'Voice'       },
+  { id: 'voice',  label: 'Voice'        },
 ];
 
 export default function RedCanaryPage() {
@@ -29,15 +29,15 @@ export default function RedCanaryPage() {
 
   return (
     <>
-      <ResearchHeader tab="thesis"  />
+      <ResearchHeader tab="redcanary" />
       <div className="research-layout">
-        <ResearchSidebar tab="thesis" activeSection={active} onSelect={(s) => setActive(s as Section)} />
-      <ResearchHeader tab="redcanary"  />
-      <div className="research-layout">
-        <ResearchSidebar tab="redcanary" activeSection={active} onSelect={(s) => setActive(s as Section)} />
+        <ResearchSidebar
+          tab="redcanary"
+          activeSection={active}
+          onSelect={(s) => setActive(s as Section)}
+        />
         <div className="content-inner">
 
-          {/* Internal section tabs */}
           <div className="rc-section-tabs">
             {SECTIONS.map(s => (
               <button
@@ -50,7 +50,6 @@ export default function RedCanaryPage() {
             ))}
           </div>
 
-          {/* IC THESIS */}
           {active === 'thesis' && (
             <div className="rc-section">
               <div className="section-header">
@@ -65,7 +64,6 @@ export default function RedCanaryPage() {
             </div>
           )}
 
-          {/* VENDOR INTEL */}
           {active === 'vendor' && (
             <div className="rc-section">
               <VendorSpotlight data={VENDOR_SPOTLIGHT} />
@@ -73,7 +71,7 @@ export default function RedCanaryPage() {
                 <div className="section-eyebrow">Vendor Intel</div>
                 <h2 className="section-title">9-Vendor Competitive Benchmark</h2>
                 <p className="section-lead">
-                  Scores derived from verified customer responses across purpose-built MDR
+                  Scores from verified customer responses across purpose-built MDR
                   providers and platform alternatives.
                 </p>
               </div>
@@ -99,12 +97,11 @@ export default function RedCanaryPage() {
               </div>
               <InsightBox>
                 <strong>84% of verified Red Canary customers</strong> report the platform
-                costs less than an equivalent in-house SOC build — sourced data, not management narrative.
+                costs less than an equivalent in-house SOC — sourced data, not management narrative.
               </InsightBox>
             </div>
           )}
 
-          {/* CUSTOMER VOICE */}
           {active === 'voice' && (
             <div className="rc-section">
               <div className="section-header">

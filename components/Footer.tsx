@@ -1,7 +1,5 @@
 export function Footer() {
   return (
-    <footer className="page-footer">
-      <div>© 2026 Crossover Research · Confidential · <a href="mailto:ian@crossoverresearch.com">Contact</a></div>
     <footer className="site-footer">
       <div className="site-footer-inner">
         <div className="site-footer-brand">
@@ -14,7 +12,6 @@ export function Footer() {
             CROSSOVER<span className="site-footer-accent"> RESEARCH</span>
           </span>
         </div>
-
         <div className="site-footer-links">
           <a href="/partner">Work With Us</a>
           <a href="/capabilities">Intelligence Platform</a>
@@ -22,7 +19,6 @@ export function Footer() {
           <a href="/bluecat">BlueCat Study</a>
           <a href="mailto:ian@crossoverresearch.com">Contact</a>
         </div>
-
         <div className="site-footer-legal">
           <span>© 2026 Crossover Research LLC</span>
           <span className="site-footer-dot">·</span>
