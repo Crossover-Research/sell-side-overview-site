@@ -13,7 +13,7 @@ export function Topbar() {
           </div>
           <div className="topbar-brand-divider" />
           <div className="topbar-brand-row">
-            <span className="topbar-brand-label">Powered by</span>
+            <span className="topbar-brand-label">Powered&nbsp;by</span>
             <img src={LOGO_URL} alt="Crossover Research" className="topbar-logo-img" />
           </div>
         </div>
