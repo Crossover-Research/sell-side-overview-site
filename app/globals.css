@@ -106,6 +106,8 @@ body::before {
 .topbar-brand-row { display: flex; align-items: center; gap: 8px; }
 .topbar-brand-label { font-size: 9px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.35); }
 .topbar-logo-img { height: 22px; width: auto; opacity: 1; display: inline-block; vertical-align: middle; }
+.topbar-logo-img { height: 20px; width: auto; filter: brightness(0) invert(1); opacity: .82; display: inline-block; vertical-align: middle; }
+.topbar-logo-img { height: 22px; width: auto; filter: brightness(0) invert(1); opacity: .92; }
 .topbar-divider { width: 1px; height: 16px; background: var(--br-hi); }
 .topbar-title h1 { font-size: 11px; font-weight: 400; color: rgba(255,255,255,.60); line-height: 1; }
 .topbar-title p  { display: none; }
@@ -982,3 +984,31 @@ body::before {
 .topbar-logo-fallback { display: none; font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.82); }
 
 .topbar-brand-row { display: flex; align-items: center; gap: 8px; }
+/* ── INLINE HERO QUOTE ────────────────────────────────────────────────────── */
+.ib-inline-quote {
+  padding: 20px 0 24px;
+  border-top: 1px solid var(--br-lo);
+  margin-top: 4px;
+}
+.ib-inline-quote-text {
+  font-size: 13.5px;
+  color: var(--t1);
+  font-style: italic;
+  line-height: 1.65;
+  margin-bottom: 10px;
+  max-width: 680px;
+}
+.ib-inline-quote-attr {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.ib-inline-quote-name {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--t2);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.ib-inline-quote-sep  { font-size: 10px; color: var(--t4); }
+.ib-inline-quote-role { font-size: 10px; color: var(--t3); }

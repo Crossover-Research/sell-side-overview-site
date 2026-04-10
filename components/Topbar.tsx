@@ -12,7 +12,14 @@ export function Topbar() {
               src="https://www.crossoverresearch.com/logos/CrossoverResearchLogo.svg"
               alt="Crossover Research"
               className="topbar-logo-img"
+              onError={(e) => {
+                const t = e.currentTarget;
+                t.style.display = 'none';
+                const fb = t.nextElementSibling as HTMLElement;
+                if (fb) fb.style.display = 'inline';
+              }}
             />
+            <span className="topbar-logo-fallback">CROSSOVER RESEARCH</span>
           </div>
         </div>
       </div>
