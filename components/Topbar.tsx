@@ -24,7 +24,6 @@ export function Topbar() {
         >
           Book a Meeting
         </a>
-        <div className="badge-confidential">Confidential</div>
       </div>
     </div>
   );
