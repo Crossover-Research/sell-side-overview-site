@@ -1,8 +1,8 @@
 'use client';
-import type { Tab } from '../lib/types';
 
 interface Props {
   tab: Tab;
+  tab: string;
   activeSection?: string;
   onSelect?: (s: string) => void;
 }
@@ -21,6 +21,7 @@ const BC_ITEMS = [
 
 export function ResearchSidebar({ tab, activeSection, onSelect }: Props) {
   const isRC = ['thesis', 'vendor', 'voice'].includes(tab);
+  const isRC = false; // RC now uses /redcanary page directly
   const items = isRC ? RC_ITEMS : BC_ITEMS;
   const groupLabel = isRC ? 'Red Canary — MDR' : 'BlueCat Networks — DDI';
 
