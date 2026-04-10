@@ -11,6 +11,9 @@ export function Topbar() {
           <div className="topbar-brand-row">
             <span className="topbar-brand-label">Powered by</span>
             <img src={BRAND.logoUrl} alt={BRAND.name} className="topbar-logo-img" />
+            <span className="topbar-brand-name">
+              {BRAND.nameMarkup.base}<span className="topbar-brand-accent">{BRAND.nameMarkup.accent}</span>
+            </span>
           </div>
         </div>
       </div>
