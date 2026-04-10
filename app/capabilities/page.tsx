@@ -167,13 +167,13 @@ export default function CapabilitiesPage() {
               <div className="ib-sample-type">Catalyst Study</div>
               <div className="ib-sample-name">Red Canary — MDR</div>
               <div className="ib-sample-meta">9-vendor benchmark · 75+ verified respondents · Cybersecurity</div>
-              <div className="ib-sample-link">View the Thesis Tab →</div>
+              <div className="ib-sample-link">Preview Study →</div>
             </a>
             <a href="/bluecat" className="ib-sample-card">
               <div className="ib-sample-type">Catalyst Study</div>
               <div className="ib-sample-name">BlueCat Networks — DDI</div>
               <div className="ib-sample-meta">55 verified respondents · Mission-critical infrastructure · Network software</div>
-              <div className="ib-sample-link">View the BlueCat Tab →</div>
+              <div className="ib-sample-link">Preview Study →</div>
             </a>
             <a href="/partner" className="ib-sample-card ib-sample-cta">
               <div className="ib-sample-type">Engagement</div>
