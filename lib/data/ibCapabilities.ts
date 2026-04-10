@@ -16,7 +16,7 @@ export const IB_WORKFLOW_STAGES = [
   { num: '06', label: 'Close & Compound',   desc: 'Intelligence that builds across every mandate' },
 ];
 
-export const IB_CAPS = ['mandate', 'narrative', 'buyers', 'process', 'prep', 'intelligence'] as const;
+export const IB_CAPS = ['mandate', 'narrative', 'buyers', 'process', 'prep'] as const;
 export type IBCap = typeof IB_CAPS[number];
 
 export interface CapabilityFeature { title: string; desc: string; }
@@ -35,22 +35,16 @@ export const IB_CAP_DATA: Record<IBCap, IBCapabilityData> = {
   mandate: {
     label: 'Mandate Pitch',
     headline: 'Win the mandate before the pitch meeting starts',
-    body: 'Before you pitch alongside five competing banks with identical decks, we deliver pre-engagement intelligence no other bank has. Verified customer universe, ARR proxy, and competitive snapshot — in under 48 hours for any B2B software target.',
+    body: "Before you pitch alongside five competing banks with identical decks, we deliver pre-engagement intelligence no other bank has. You walk in knowing the operator's verified customer base, ARR proxy, and competitive vulnerabilities from independent sources. You are not just another bank. You are the one who already knows the company better than anyone else in the room.",
     bankerProblem: 'You are pitching alongside 4 other banks with identical decks and identical relationship narratives. The client has no rational basis to choose you.',
     crossoverAnswer: 'We deliver a pre-engagement intelligence package on the target before your pitch meeting. You walk in with proprietary evidence. They do not.',
-    stats: [
-      { label: 'Intelligence snapshot delivery', val: '< 48 hrs' },
-      { label: 'Signal sources scanned', val: '30+' },
-      { label: 'Verified customer orgs mapped', val: '350–600' },
-      { label: 'Mandate win rate with Crossover', val: '50%' },
-    ],
+    stats: [],
     features: [
       { title: 'Pre-Pitch Intelligence Snapshot', desc: 'Full target intelligence in under 48 hours — verified customer universe, ARR proxy, competitive vulnerabilities, and one anchoring verbatim. In the room before competing banks finish reading the teaser.' },
       { title: 'ARR Proxy Triangulation', desc: 'Five independent signals — headcount composition, job posting mix, G2 velocity, partner tier, marketplace presence — triangulated into a reliable revenue bracket. Your financial model goes into the pitch with corroboration, not just a management number.' },
-      { title: 'Catalyst Pre-Built Study Access', desc: 'If your target is covered in the Catalyst library, the full report — 50-100+ verified respondents, 9 benchmark dimensions, verbatim evidence — is available within hours of mandate inquiry. The research your competitors would take 6 weeks to commission, you get before the pitch.' },
+      { title: 'Catalyst Pre-Built Study Access', desc: 'If your target is covered in the Catalyst library, the full report — 30-100+ verified respondents, 9 benchmark dimensions, verbatim evidence — is available within hours of mandate inquiry. The research your competitors would take 6 weeks to commission, you get before the pitch.' },
       { title: 'Competitive Moat Assessment', desc: 'Independent scoring of switching cost evidence, replication difficulty, and retention signals — sourced from verified respondents, not management. If the moat does not hold under primary research, you know before the CIM goes to buyers.' },
-      { title: 'Customer Universe Discovery', desc: 'Exhaustive mapping of a target company\'s verified customer base from 30+ public signal sources — 350-600 organizations per scan with enriched contacts. The foundation for every subsequent piece of research, built before a single interview is commissioned.' },
-      { title: 'Sector Mandate Intelligence', desc: 'Continuous scanning of PE hold periods, management movements, and sector M&A velocity surfaces companies approaching a process 12-18 months ahead of the banker call. You call before the pitch list is finalized.' },
+      { title: 'Customer Universe Discovery', desc: 'Exhaustive mapping of a target company\'s verified customer base from 30+ public signal sources — 350-600 organizations per scan with enriched contacts. The foundation for every subsequent piece of research, built before a single interview is commissioned.' }
     ],
   },
 
@@ -60,12 +54,7 @@ export const IB_CAP_DATA: Record<IBCap, IBCapabilityData> = {
     body: 'The most scrutinized pages in any CIM make claims about customer loyalty, market position, and competitive differentiation. Buyers discount management-sourced evidence before the first page turn. Crossover replaces assertion with independently sourced primary research from verified customers the sell-side did not select.',
     bankerProblem: 'Your CIM has claims like "best-in-class NPS" and "category-leading retention." Sophisticated buyers know these come from management. They discount them before the first page turn.',
     crossoverAnswer: 'Every retention claim, NPS benchmark, and competitive positioning statement in the CIM traces to verified respondents the buyer did not select. Assertion becomes sourced data. Skepticism becomes conviction.',
-    stats: [
-      { label: 'Respondents per VoC study', val: '50–100+' },
-      { label: 'Benchmark dimensions (Core 9)', val: '9' },
-      { label: 'Vendors benchmarked per study', val: '8–12' },
-      { label: 'Typical study turnaround', val: '5–10 days' },
-    ],
+    stats: [],
     features: [
       { title: 'Crossover Core 9 Benchmarking', desc: 'Nine standardized dimensions — NPS, Renewal Intent, Switching Difficulty, Mission Criticality, and five more — benchmarkable against every comparable study we have run. A 9.0 NPS means something different when you can show it ranks in the top decile of 40 MDR studies.' },
       { title: 'CIM Evidence Insertion', desc: 'Customer-backed proof points written for direct insertion into CIM narrative sections — verbatims formatted for the management presentation, NPS benchmarks calibrated to the competitive set. Every sentence in the customer section traces to a Crossover respondent.' },
@@ -82,12 +71,7 @@ export const IB_CAP_DATA: Record<IBCap, IBCapabilityData> = {
     body: 'Banks send the same process letter to the same 40 names and wait. Crossover builds a scored buyer landscape — strategic acquirers mapped against competitive synergy, financial buyers scored on mandate fit and fund dynamics — and delivers a researched outreach campaign on day one of the process.',
     bankerProblem: 'You send a generic process letter to 40 buyers and wait. You have no visibility into which buyers have the highest conviction before they respond.',
     crossoverAnswer: 'We score every potential acquirer before the first call: IC simulation to assess their likely objections, portfolio fit, and fund dynamics. You know which buyers will bid at the highest conviction before you prioritize management\'s time.',
-    stats: [
-      { label: 'Fund/company match scores', val: '11,000+' },
-      { label: 'Buyer types scored', val: 'Strategic + Financial' },
-      { label: 'IC simulations per mandate', val: 'Top 5 buyers' },
-      { label: 'Outreach campaign delivery', val: 'Day 1 of process' },
-    ],
+    stats: [],
     features: [
       { title: 'Scored Buyer Landscape', desc: 'Every potential acquirer assessed on mandate fit and fund dynamics — sector thesis, deal size, deployment velocity, LP pressure, and competitive portfolio conflicts. The top 50 most qualified buyers are ranked before the first call goes out.' },
       { title: 'IC Simulation for Top Buyers', desc: 'For the top 5 buyer candidates, we simulate their IC — what dimensions they will interrogate, what evidence they demand, where they will walk. Use it to pre-screen which buyers are worth management\'s time before the first NDA is signed.' },
@@ -104,12 +88,7 @@ export const IB_CAP_DATA: Record<IBCap, IBCapabilityData> = {
     body: 'Buyer diligence drags 6-10 weeks because every buyer commissions independent research on the same questions. Crossover evidence is pre-positioned in the data room as a queryable intelligence portal. Buyers arrive at the LOI stage already convinced because the research was done before exclusivity.',
     bankerProblem: 'Buyer diligence drags for 6-10 weeks because every buyer is validating customer retention, competitive positioning, and pricing power from scratch.',
     crossoverAnswer: 'Crossover evidence is pre-positioned in the data room. Buyers access a queryable portal that answers the IC questions before they are asked. Diligence telescopes because the research is done before exclusivity.',
-    stats: [
-      { label: 'Catalyst studies available', val: '20+' },
-      { label: 'Typical diligence compression', val: '4–6 wks' },
-      { label: 'Portal query response time', val: 'Instant' },
-      { label: 'Process support modes', val: 'Buy-side + Sell-side' },
-    ],
+    stats: [],
     features: [
       { title: 'Queryable Intelligence Portals', desc: 'Every deliverable is a hosted portal with an embedded AI assistant — buyers query in natural language, the portal answers immediately from verified respondent data. No analyst in the loop, no 48-hour turnaround on follow-up questions.' },
       { title: 'Catalyst Data Room Integration', desc: 'Buyers who would otherwise spend 6 weeks commissioning their own VoC find 50-100+ verified respondents, benchmarked across 9 dimensions, already completed. The first buyer to access Catalyst enters exclusivity with the highest conviction — and the most aggressive price.' },
@@ -126,12 +105,7 @@ export const IB_CAP_DATA: Record<IBCap, IBCapabilityData> = {
     body: 'Management teams that close deals have already been through the hardest version of the buyer conversation before it happened. Crossover simulates fund-specific IC deliberations with adversarial personas grounded in the named fund\'s actual investment thesis. The real IC feels like a repeat performance.',
     bankerProblem: 'Management walks into buyer IC meetings cold on the hardest questions. When a sophisticated buyer pushes on churn risk or competitive displacement and management stumbles, the deal loses momentum it rarely recovers.',
     crossoverAnswer: 'We simulate the buyer\'s IC before the meeting using fund-specific personas grounded in their actual investment thesis and deal history. Management has already answered every blocking objection. The real IC is not a surprise.',
-    stats: [
-      { label: 'IC simulation modes', val: '3' },
-      { label: 'Persona archetypes per simulation', val: '5' },
-      { label: 'Attack vectors stress-tested', val: '9' },
-      { label: 'Output format', val: 'IC Memo + Objection Library' },
-    ],
+    stats: [],
     features: [
       { title: 'Buyer IC Simulation Engine', desc: 'For any named acquirer, we simulate their IC — five personas grounded in the fund\'s actual thesis, portfolio, and deal history. The output: which dimensions they will interrogate, what evidence they demand, and where they are likely to walk.' },
       { title: 'Interactive Management Prep Mode', desc: 'Management plays themselves, the engine plays the buyer IC panel — every blocking objection turned into a live question. The session produces a readiness score by topic and a prioritized prep list. The real IC feels like a repeat.' },
@@ -140,55 +114,7 @@ export const IB_CAP_DATA: Record<IBCap, IBCapabilityData> = {
       { title: 'Seller IC Simulation', desc: 'Before committing to a process, simulate your own fund\'s IC deliberation — five personas, fund-specific criteria, structured memo output with blocking objections and minimum evidence threshold. Know your IC\'s verdict before you commission a banker.' },
       { title: 'Objection Library Compounding', desc: 'Every simulation and prep session adds to an objection library tied to the mandate — resolved, open, and newly surfaced objections tracked across multiple buyer conversations. Management knows which risks are universal versus buyer-specific.' },
     ],
-  },
+  }
 
-  intelligence: {
-    label: 'Deal Flow Intelligence',
-    headline: 'Proprietary signals that surface mandates before they exist',
-    body: 'The most valuable intelligence in investment banking is knowing which companies are approaching a process before the management team has decided to run one. Crossover\'s continuous signal monitoring across 30+ source types surfaces convergence alerts 12-18 months before the banker call.',
-    bankerProblem: 'Your coverage calls are reactive. You learn a company is running a process when the teaser lands in your inbox after someone else was hired.',
-    crossoverAnswer: 'We monitor 30+ signal sources continuously and surface convergence alerts when hold period, management movement, advisor addition, and sector signals converge. You call before the pitch list is finalized.',
-    stats: [
-      { label: 'Signal sources monitored', val: '30+' },
-      { label: 'Studies in longitudinal database', val: 'Growing' },
-      { label: 'Portfolio hold period coverage', val: 'Continuous' },
-      { label: 'Lead time advantage', val: '12–18 months' },
-    ],
-    features: [
-      { title: 'Pipeline Signal Monitoring', desc: 'Continuous scanning of hold periods, management movements, board changes, and fund deployment patterns surfaces companies approaching a process, dormant relationships to reactivate, and new sourcing targets. Specific enough to brief a banker for a targeted call.' },
-      { title: 'Sector M&A Velocity Tracking', desc: 'Real-time monitoring of sector transactions — deal announcements, multiples, buyer identity, advisor selection. When a sector heats up, we surface the next likely target based on comparable profile and hold period before management has decided to run a process.' },
-      { title: 'Longitudinal Intelligence Database', desc: 'Every completed study writes back into a structured database — NPS, mission criticality, competitive rankings, verbatims, risk flags. Each subsequent engagement in a sector benchmarks against the full history so scores have context rather than existing in isolation.' },
-      { title: 'Competitive Intelligence Tracking', desc: 'Ongoing monitoring of named competitors across active mandates — pricing changes, product announcements, G2 velocity shifts, M&A activity. When a direct competitor is acquired, we update the benchmarking within days and flag the impact on your positioning.' },
-      { title: 'Fund Activity Signal Detection', desc: 'Fund hiring patterns, platform announcements, and deployment pace surface which funds are building a thesis in your sector before they post an LOI. Getting there first starts a relationship, not a pitch.' },
-      { title: 'Cross-Mandate Learning', desc: 'Buyer preferences identified in one process inform outreach strategy for the next comparable asset. Objections surfaced in one IC get catalogued for the next management prep. The platform gets sharper with every engagement.' },
-    ],
-  },
 };
 
-export const IB_DIFFERENTIATORS = [
-  {
-    num: '01',
-    title: 'Independent by Construction',
-    desc: 'We build the respondent universe ourselves — management does not select the references, the sell-side cannot curate the evidence. Every finding survives buyer IC scrutiny because no one in the transaction controlled who we talked to.',
-  },
-  {
-    num: '02',
-    title: 'Built for the Transaction Clock',
-    desc: 'Catalyst pre-built studies are available immediately. Custom studies turn in 5-10 days. Pre-pitch snapshots in 48 hours. Every capability is designed around the constraint that matters: the first-round bid date.',
-  },
-  {
-    num: '03',
-    title: 'Both Sides of the Same Transaction',
-    desc: 'One independent source trusted by every party in the room — sell-side building the equity story, buy-side evaluating the target, management preparing for IC. Not an advisor to one side. The intelligence layer that makes the process close faster.',
-  },
-  {
-    num: '04',
-    title: 'Queryable, Not Static',
-    desc: 'Every deliverable is a hosted portal with an embedded AI assistant — your team queries in natural language, no analyst in the loop, no static PDF. The research is alive for the duration of the process.',
-  },
-  {
-    num: '05',
-    title: 'Trusted by J.P. Morgan, Used on $25B+',
-    desc: '"Having a Voice of Customer document was seen as a differentiator by the client." 22+ engagements with J.P. Morgan alone. $25B+ in transaction value supported. 50% win rate on mandates where Crossover was part of the pitch.',
-  },
-];
