@@ -7,6 +7,7 @@ export function Footer() {
           <div>
             <div className="site-footer-contact-name">Ian McArdle</div>
             <div className="site-footer-contact-title">Head of Strategic Partnerships &middot; Crossover Research</div>
+            <div className="site-footer-contact-title">Head of Strategic Partnerships · Crossover Research</div>
             <a href="mailto:ian@crossoverresearch.com" className="site-footer-contact-email">
               ian@crossoverresearch.com
             </a>

@@ -34,6 +34,7 @@ export function HeroSection({ tab }: HeroSectionProps) {
               <div className="hero-proof-rule" />
               <div className="hero-proof-name">Executive Director, J.P. Morgan</div>
               <div className="hero-proof-role">Sell-side mandate &middot; $10B transaction</div>
+              <div className="hero-proof-role">Sell-side mandate · $10B transaction</div>
               <div className="hero-proof-rule" style={{ marginTop: 16 }} />
               <div style={{ marginTop: 14 }}>
                 <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,.35)', marginBottom: 8 }}>
