@@ -143,9 +143,9 @@ export default function CatalystPage() {
             <div style={{ background:'rgba(255,255,255,.04)',border:'1px solid rgba(255,255,255,.1)',padding:'22px 24px',position:'relative',overflow:'hidden' }}>
               <div style={{ position:'absolute',top:0,left:0,right:0,height:1,background:'linear-gradient(90deg,transparent,rgba(77,144,254,.35),transparent)' }} />
               <div style={{ fontSize:10,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase' as const,color:'rgba(77,144,254,.8)',marginBottom:12 }}>🏆 Proof: Both Sides of $500M</div>
-              <p style={{ fontSize:12.5,color:'rgba(255,255,255,.72)',lineHeight:1.65,marginBottom:14 }}>J.P. Morgan engaged Crossover for VoC to win the Nerdio Series C mandate. 30+ customer interviews. J.P. Morgan won the exclusive mandate.</p>
-              <p style={{ fontSize:12.5,color:'rgba(255,255,255,.72)',lineHeight:1.65,marginBottom:14 }}>Separately, Crossover alerted General Atlantic early. GA commissioned deeper research and invested <strong style={{ color:'#fff' }}>$500M at unicorn valuation.</strong></p>
-              <div style={{ borderTop:'1px solid rgba(255,255,255,.08)',paddingTop:10,fontSize:11,color:'rgba(255,255,255,.35)',fontStyle:'italic' }}>The raw data was identical. The framing differed. No research provider has ever powered both sides of a deal this way.</div>
+              <p style={{ fontSize:12.5,color:'rgba(255,255,255,.72)',lineHeight:1.65,marginBottom:14 }}>J.P. Morgan commissioned Crossover to differentiate their Nerdio Series C pitch. 30+ customer interviews. J.P. Morgan won the exclusive mandate.</p>
+              <p style={{ fontSize:12.5,color:'rgba(255,255,255,.72)',lineHeight:1.65,marginBottom:14 }}>General Atlantic accessed the same research — the verbatim customer truth from those same interviews — and used it as the foundation for their investment thesis. That research anchored their conviction for <strong style={{ color:'#fff' }}>a $500M investment at unicorn valuation.</strong></p>
+              <div style={{ borderTop:'1px solid rgba(255,255,255,.08)',paddingTop:10,fontSize:11,color:'rgba(255,255,255,.35)',fontStyle:'italic' }}>One study. Both sides of the same deal. Neither side chose the respondents. The same primary research that won the sell-side mandate anchored the buy-side thesis.</div>
             </div>
           </div>
           {/* Stats */}

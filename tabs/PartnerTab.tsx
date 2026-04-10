@@ -36,6 +36,29 @@ export function PartnerTab() {
         </div>
       </div>
 
+      {/* Nerdio — both sides proof */}
+      <div style={{ padding: '0 0 28px', borderBottom: '1px solid var(--br-lo)', marginBottom: '28px' }}>
+        <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--blue)', opacity: .8, marginBottom: 12 }}>
+          Proof: Both Sides of $500M — The Nerdio Deal
+        </div>
+        <p style={{ fontSize: 14, color: 'var(--t1)', lineHeight: 1.65, maxWidth: 780, marginBottom: 14 }}>
+          J.P. Morgan commissioned Crossover to differentiate their Nerdio Series C pitch.
+          30+ customer interviews. J.P. Morgan won the exclusive mandate.
+        </p>
+        <p style={{ fontSize: 14, color: 'var(--t1)', lineHeight: 1.65, maxWidth: 780, marginBottom: 14 }}>
+          General Atlantic accessed the same research — the verbatim customer truth from those same
+          interviews — and used it as the foundation for their investment thesis. That research
+          anchored their conviction for{' '}
+          <strong style={{ color: 'var(--t0)' }}>a $500M investment at unicorn valuation.</strong>
+        </p>
+        <div style={{ fontSize: 12, color: 'var(--t3)', fontStyle: 'italic', borderLeft: '2px solid var(--br-hi)', paddingLeft: 12, maxWidth: 680 }}>
+          One study. Both sides of the same deal. Neither side chose the respondents.
+          The same primary research that won the sell-side mandate anchored the buy-side thesis.
+          No research provider has ever powered both sides of a deal this way — because it only
+          works when the data is genuinely independent.
+        </div>
+      </div>
+
       {/* Without / With */}
       <div className="section-header" style={{ marginBottom: 14 }}>
         <div className="section-eyebrow">The Difference</div>

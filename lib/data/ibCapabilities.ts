@@ -116,3 +116,30 @@ export const IB_CAP_DATA: Record<IBCap, IBCapabilityData> = {
 
 };
 
+export const IB_DIFFERENTIATORS = [
+  {
+    num: '01',
+    title: 'Independent by Construction',
+    desc: 'We build the respondent universe ourselves from 30+ public signal sources — management does not select the references, the sell-side cannot curate the evidence. Every finding survives buyer IC scrutiny because no one in the transaction controlled who we talked to.',
+  },
+  {
+    num: '02',
+    title: 'Built for the Transaction Clock',
+    desc: 'Catalyst pre-built studies are available immediately. Custom studies turn in 5-10 days. Pre-pitch snapshots in 48 hours. Every capability is designed around the constraint that matters: the first-round bid date.',
+  },
+  {
+    num: '03',
+    title: 'The Independent Measurement Standard',
+    desc: 'In media, advertisers and networks both rely on Nielsen because neither can accept audience data the other produced. Private markets had no equivalent — until now. Crossover is the independent measurement layer both sides of a transaction can use, because neither side chooses the respondents and verbatim quotes cannot be curated without being changed. Proof: J.P. Morgan commissioned Crossover research to win the Nerdio Series C mandate. General Atlantic used the same research — the verbatim truth from those same interviews — as the foundation for their investment thesis and $500M conviction.',
+  },
+  {
+    num: '04',
+    title: 'Queryable, Not Static',
+    desc: 'Every deliverable is a hosted portal with an embedded AI assistant — your team queries in natural language, no analyst in the loop, no static PDF. The research is alive for the duration of the process.',
+  },
+  {
+    num: '05',
+    title: 'Trusted by J.P. Morgan, Used on $25B+',
+    desc: '"Having a Voice of Customer document was seen as a differentiator by the client." 22+ engagements with J.P. Morgan alone. $25B+ in transaction value supported. 50% win rate on mandates where Crossover was part of the pitch.',
+  },
+];
