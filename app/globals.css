@@ -134,9 +134,9 @@ body::before {
 }
 .topbar-brand-accent { color: rgba(74,143,232,.95); }
 .topbar-logo-img {
-  height: 26px; width: auto;
-  filter: brightness(0) invert(1);
-  opacity: .92;
+  height: 18px; width: auto;
+  filter: none;
+  opacity: 1;
   display: inline-block; vertical-align: middle;
   animation: logo-pulse-glow 3.6s ease-in-out 1.2s infinite;
 }
