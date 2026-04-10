@@ -52,7 +52,7 @@
   --content-pad: 36px;
 
   /* Layout heights */
-  --topbar-h: 76px;
+  --topbar-h: 58px;
   --tabnav-h: 42px;
   --research-header-h: 50px;
 
@@ -154,9 +154,9 @@ body::before {
 
 /* ── HERO ────────────────────────────────────────────────────────────────────── */
 .hero {
-  background: linear-gradient(165deg, rgba(8,21,38,.97) 0%, rgba(12,29,52,.92) 100%);
-  padding: 0 var(--content-pad) 32px;
-  padding-top: calc(var(--topbar-h) + var(--tabnav-h) + 28px);
+  background: linear-gradient(165deg, rgba(6,16,32,.99) 0%, rgba(10,26,48,.97) 100%);
+  padding: 0 var(--content-pad) 28px;
+  padding-top: calc(var(--topbar-h) + var(--tabnav-h) + 20px);
   position: relative;
   z-index: 1;
   border-bottom: 1px solid var(--br-lo);
@@ -635,9 +635,9 @@ body::before {
 
 /* Hero */
 .ib-hero {
-  background: linear-gradient(168deg, #05101f 0%, #0a1e38 55%, #0e2545 100%);
+  background: linear-gradient(168deg, #060f22 0%, #0c2040 55%, #102848 100%);
   padding: 0 0 0;
-  padding-top: calc(var(--topbar-h) + var(--tabnav-h) + 44px);
+  padding-top: calc(var(--topbar-h) + var(--tabnav-h) + 28px);
   position: relative; z-index: 1;
   border-bottom: 1px solid var(--br-lo);
 }
@@ -668,9 +668,9 @@ body::before {
 /* Sections */
 .ib-section { padding: 44px 0; position: relative; z-index: 1; }
 .ib-section-alt  { background: rgba(255,255,255,.025); border-top: 1px solid var(--br-lo); border-bottom: 1px solid var(--br-lo); }
-.ib-section-dark { background: linear-gradient(168deg, #050e1a 0%, #081525 100%); border-top: 1px solid var(--br-lo); }
-.ib-section-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--red); margin-bottom: 6px; }
-.ib-section-title { font-size: 24px; font-weight: 700; color: var(--t0); letter-spacing: -.025em; margin-bottom: 8px; line-height: 1.25; }
+.ib-section-dark { background: linear-gradient(168deg, #050e1c 0%, #071420 50%, #06121e 100%); border-top: 1px solid rgba(77,144,254,.15); border-bottom: 1px solid rgba(77,144,254,.1); }
+.ib-section-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #ff5568; margin-bottom: 8px; }
+.ib-section-title { font-size: 24px; font-weight: 700; color: rgba(255,255,255,.97); letter-spacing: -.028em; margin-bottom: 8px; line-height: 1.25; }
 .ib-section-desc  { font-size: 13.5px; color: var(--t1); line-height: 1.65; max-width: 640px; margin-bottom: 28px; }
 
 /* Workflow map */
