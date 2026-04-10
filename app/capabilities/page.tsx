@@ -92,7 +92,6 @@ export default function CapabilitiesPage() {
             both sides of a transaction can use — because neither side chooses the respondents and verbatim
             quotes cannot be curated without being changed.
           </p>
-          </p>
           <p className="ib-section-desc" style={{ color: 'rgba(255,255,255,.72)', marginTop: '-12px' }}>
             General Atlantic took a 30-minute call. The mandate research briefed them on a fully-formed thesis
             in a single meeting. They commissioned Crossover for secondary diligence to validate the initial
