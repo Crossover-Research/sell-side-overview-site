@@ -1051,3 +1051,7 @@ main { padding-top: 72px; } /* clearance for fixed topbar — applies to every r
 }
 .ib-inline-quote-sep  { font-size: 10px; color: var(--t4); }
 .ib-inline-quote-role { font-size: 10px; color: var(--t3); }
+
+/* Hide trigger stat when body is expanded — shown in body instead */
+.ic-accordion-row.open .ic-trigger > div:first-child { display: none; }
+.ic-accordion-row.open .ic-trigger { grid-template-columns: 1fr auto; }
