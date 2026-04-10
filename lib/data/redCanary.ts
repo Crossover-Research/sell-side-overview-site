@@ -102,7 +102,7 @@ export const REP_CHART_DATA = {
 export const COST_CHART_DATA = {
   labels: ['Significantly less expensive', 'Somewhat less expensive', 'About the same', 'Somewhat more expensive'],
   data:   [67, 17, 8, 8],
-  colors: ['#0f7b55', '#1e3a5f', '#9ca3af', '#e8334a'],
+  colors: ['#2dd4a0', '#4d90fe', '#6b7280', '#f59e0b'],  // teal, blue, grey, amber
 };
 
 export const ADOPTION_DRIVERS_DATA = {
