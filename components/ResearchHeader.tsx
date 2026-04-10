@@ -49,7 +49,7 @@ export function ResearchHeader({ tab }: ResearchHeaderProps) {
             </div>
           ))}
         </div>
-        <a href={cfg.reportUrl} target="_blank" rel="noopener noreferrer" className="research-download-btn">
+        <a href={cfg.reportUrl} target="_blank" rel="noopener noreferrer" download className="research-download-btn" aria-label={`Download ${cfg.title}`}>
           <DownloadIcon />{cfg.reportLabel}
         </a>
       </div>
