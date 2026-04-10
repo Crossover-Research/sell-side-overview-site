@@ -18,14 +18,13 @@ export default function CapabilitiesPage() {
       <section className="ib-hero">
         <div className="ib-inner">
           <div className="ib-eyebrow">Crossover Research &middot; Multi-Sided Intelligence Platform</div>
-          <div className="ib-eyebrow">Crossover Research · Multi-Sided Intelligence Platform</div>
           <h1 className="ib-title">
             Stockpicking private markets.<br />
             <em>Independent by construction. Compounding by design.</em>
           </h1>
           <p className="ib-lead">
             Crossover uses sell-side line of sight and proprietary primary research to form original fundamental
-            views on high-quality assets — then serves every party in the transaction with the same
+            views on high-quality assets &mdash; then serves every party in the transaction with the same
             independent evidence. Not a consulting firm. Not an expert network. A multi-sided intelligence
             engine that spans the transaction lifecycle because the methodology serves the business,
             not just the deal.
@@ -36,24 +35,6 @@ export default function CapabilitiesPage() {
             { val: IB_TRACK_RECORD.jpmEngagements,        label: 'J.P. Morgan engagements completed' },
             { val: IB_TRACK_RECORD.totalTransactionValue, label: 'Transaction value supported' },
           ]} />
-          <div className="ib-metrics">
-            <div className="ib-metric">
-              <div className="ib-metric-val">{IB_TRACK_RECORD.winRateWithCrossover}</div>
-              <div className="ib-metric-lbl">Mandate win rate with Crossover</div>
-            </div>
-            <div className="ib-metric">
-              <div className="ib-metric-val">{IB_TRACK_RECORD.jpmEngagements}</div>
-              <div className="ib-metric-lbl">J.P. Morgan engagements completed</div>
-            </div>
-            <div className="ib-metric">
-              <div className="ib-metric-val">{IB_TRACK_RECORD.totalTransactionValue}</div>
-              <div className="ib-metric-lbl">Transaction value supported</div>
-            </div>
-            <div className="ib-metric">
-              <div className="ib-metric-val" style={{ fontSize: 13 }}>{IB_TRACK_RECORD.avgDeliveryDays}</div>
-              <div className="ib-metric-lbl">Delivery — Catalyst vs. custom</div>
-            </div>
-          </div>
 
           <div className="ib-inline-quote">
             <div className="ib-inline-quote-text">
@@ -69,12 +50,12 @@ export default function CapabilitiesPage() {
         </div>
       </section>
 
-      {/* THE FLYWHEEL — Nerdio proof of model */}
+      {/* THE FLYWHEEL */}
       <section className="ib-section ib-section-dark" id="flywheel">
         <div className="ib-inner">
           <div className="ib-section-eyebrow">Proof of the Model</div>
           <h2 className="ib-section-title" style={{ color: '#fff' }}>
-            Both Sides of $500M — The Nerdio Deal
+            Both Sides of $500M &mdash; The Nerdio Deal
           </h2>
           <p className="ib-section-desc" style={{ color: 'rgba(255,255,255,.72)' }}>
             J.P. Morgan engaged Crossover to win the Nerdio Series C mandate. That sell-side engagement gave
@@ -99,7 +80,7 @@ export default function CapabilitiesPage() {
         </div>
       </section>
 
-      {/* WHY CROSSOVER — differentiators */}
+      {/* WHY CROSSOVER */}
       <section className="ib-section" id="why">
         <div className="ib-inner">
           <div className="ib-section-eyebrow">Why Crossover</div>
@@ -107,50 +88,7 @@ export default function CapabilitiesPage() {
           <p className="ib-section-desc">
             In media, advertisers and networks both rely on Nielsen because neither can accept audience data the
             other produced. Private markets had no equivalent. Crossover is the independent measurement layer
-            both sides of a transaction can use — because neither side chooses the respondents and verbatim
-            quotes cannot be curated without being changed.
-          </p>
-          </p>
-          <p className="ib-section-desc" style={{ color: 'rgba(255,255,255,.72)', marginTop: '-12px' }}>
-            General Atlantic took a 30-minute call. The mandate research briefed them on a fully-formed thesis
-            in a single meeting. They commissioned Crossover for secondary diligence to validate the initial
-            findings. The diligence held.{' '}
-            <strong style={{ color: '#fff' }}>$500M Series C at $1B+ valuation.</strong>
-          </p>
-          <div style={{ marginTop: 24, padding: '20px 0' }}>
-            <FlywheelDiagram />
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 0, borderTop: '1px solid rgba(255,255,255,.1)', marginTop: 24 }}>
-            {[
-              { step: '01', label: 'Sell-Side Mandate', desc: 'J.P. Morgan engages Crossover' },
-              { step: '02', label: 'Line of Sight',     desc: 'Primary research reveals high-conviction asset' },
-              { step: '03', label: 'Fundamental View',  desc: 'Original thesis formed — stockpicker\'s lens' },
-              { step: '04', label: 'Buy-Side Match',    desc: 'Select funds alerted · 30-min conviction brief' },
-              { step: '05', label: 'Secondary Diligence', desc: 'GA commissions validation · $500M closes' },
-            ].map(({ step, label, desc }, i) => (
-              <div key={i} style={{ padding: '16px 18px', borderRight: i < 4 ? '1px solid rgba(255,255,255,.08)' : 'none' }}>
-                <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.12em', color: 'rgba(130,175,255,.5)', marginBottom: 6 }}>STEP {step}</div>
-                <div style={{ fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,.85)', marginBottom: 4 }}>{label}</div>
-                <div style={{ fontSize: 11, color: 'rgba(255,255,255,.4)', lineHeight: 1.5 }}>{desc}</div>
-              </div>
-            ))}
-          </div>
-          <div style={{ marginTop: 20, padding: '13px 18px', background: 'rgba(255,255,255,.05)', borderLeft: '3px solid rgba(130,175,255,.35)', fontSize: 12, color: 'rgba(255,255,255,.55)', fontStyle: 'italic', lineHeight: 1.6 }}>
-            Sell-side line of sight. Proprietary primary research. Original fundamental view. Buy-side match.
-            The same infrastructure that wins mandates for bankers identifies the next great asset for funds.
-            It only works because the data is never curated for either side.
-          </div>
-        </div>
-      </section>
-
-      {/* WHY CROSSOVER — differentiators */}
-      <section className="ib-section" id="why">
-        <div className="ib-inner">
-          <div className="ib-section-eyebrow">Why Crossover</div>
-          <h2 className="ib-section-title">Not a Consulting Firm. Not an Expert Network.</h2>
-          <p className="ib-section-desc">
-            In media, advertisers and networks both rely on Nielsen because neither can accept audience data the
-            other produced. Private markets had no equivalent. Crossover is the independent measurement layer
-            both sides of a transaction can use — because neither side chooses the respondents and verbatim
+            both sides of a transaction can use &mdash; because neither side chooses the respondents and verbatim
             quotes cannot be curated without being changed.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginTop: 24 }}>
@@ -165,16 +103,13 @@ export default function CapabilitiesPage() {
             ))}
           </div>
           <div style={{ marginTop: 20, padding: '14px 20px', background: 'rgba(77,144,254,.06)', border: '1px solid rgba(77,144,254,.14)', fontSize: 13, color: 'rgba(160,200,255,.8)', lineHeight: 1.65, fontStyle: 'italic' }}>
-            &ldquo;Most research firms confirm the thesis. Crossover surfaces the gaps — using independent respondents who
+            &ldquo;Most research firms confirm the thesis. Crossover surfaces the gaps &mdash; using independent respondents who
             weren&rsquo;t handpicked, findings that include the friction and the complaints. Research that includes
             limitations is the highest-credibility format available in private markets.&rdquo;
           </div>
-
-          {/* Multi-sided diagram */}
           <div style={{ marginTop: 32, borderTop: '1px solid rgba(255,255,255,.07)', paddingTop: 28 }}>
             <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,.3)', marginBottom: 16, textAlign: 'center' }}>
               One Independent Source &middot; Three Audiences &middot; Zero Extraction Incentive
-              One Independent Source · Three Audiences · Zero Extraction Incentive
             </div>
             <MultiSidedDiagram />
           </div>
@@ -210,7 +145,7 @@ export default function CapabilitiesPage() {
                 <div className="ib-framing-label">The Problem</div>
                 <p className="ib-framing-text">{cap.bankerProblem}</p>
               </div>
-              <div className="ib-framing-arrow">→</div>
+              <div className="ib-framing-arrow">&rarr;</div>
               <div className="ib-framing-col ib-framing-answer">
                 <div className="ib-framing-label">Crossover Answer</div>
                 <p className="ib-framing-text">{cap.crossoverAnswer}</p>
@@ -238,37 +173,27 @@ export default function CapabilitiesPage() {
           <div className="ib-section-eyebrow">Sample Intelligence</div>
           <h2 className="ib-section-title">See a Crossover Study Live</h2>
           <p className="ib-section-desc">
-            Red Canary and BlueCat Networks are live Catalyst studies — the same format your deal team receives.
+            Red Canary and BlueCat Networks are live Catalyst studies &mdash; the same format your deal team receives.
             Verbatim evidence, competitive benchmarking, IC-ready data, queryable portal. All accessible now.
           </p>
           <div className="ib-samples">
             <a href="/redcanary" className="ib-sample-card">
               <div className="ib-sample-type">Catalyst Study &middot; SENTINEL</div>
-              <div className="ib-sample-name">Red Canary — MDR</div>
+              <div className="ib-sample-name">Red Canary &mdash; MDR</div>
               <div className="ib-sample-meta">9-vendor benchmark &middot; 75+ verified respondents &middot; 9.0 NPS &middot; 8.8 replication difficulty</div>
-              <div className="ib-sample-link">Preview Study →</div>
+              <div className="ib-sample-link">Preview Study &rarr;</div>
             </a>
             <a href="/bluecat" className="ib-sample-card">
               <div className="ib-sample-type">Catalyst Study &middot; FORTRESS</div>
-              <div className="ib-sample-name">BlueCat Networks — DDI</div>
+              <div className="ib-sample-name">BlueCat Networks &mdash; DDI</div>
               <div className="ib-sample-meta">55 verified respondents &middot; 9.0 mission criticality &middot; 1.9 switching intent &middot; 98.5% NRR</div>
-              <div className="ib-sample-type">Catalyst Study · SENTINEL</div>
-              <div className="ib-sample-name">Red Canary — MDR</div>
-              <div className="ib-sample-meta">9-vendor benchmark · 75+ verified respondents · 9.0 NPS · 8.8 replication difficulty</div>
-              <div className="ib-sample-link">Preview Study →</div>
-            </a>
-            <a href="/bluecat" className="ib-sample-card">
-              <div className="ib-sample-type">Catalyst Study · FORTRESS</div>
-              <div className="ib-sample-name">BlueCat Networks — DDI</div>
-              <div className="ib-sample-meta">55 verified respondents · 9.0 mission criticality · 1.9 switching intent · 98.5% NRR</div>
-              <div className="ib-sample-link">Preview Study →</div>
+              <div className="ib-sample-link">Preview Study &rarr;</div>
             </a>
             <a href="/catalyst" className="ib-sample-card ib-sample-cta">
               <div className="ib-sample-type">Catalyst Library</div>
               <div className="ib-sample-name">20+ Assets Available</div>
               <div className="ib-sample-meta">Same-day delivery if covered &middot; Investment hooks, metrics, verbatims, moat analysis</div>
-              <div className="ib-sample-meta">Same-day delivery if covered · Investment hooks, metrics, verbatims, moat analysis</div>
-              <div className="ib-sample-link">Browse Library →</div>
+              <div className="ib-sample-link">Browse Library &rarr;</div>
             </a>
           </div>
         </div>
