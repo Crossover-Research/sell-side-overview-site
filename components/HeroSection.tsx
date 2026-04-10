@@ -1,12 +1,8 @@
-import type { MetricCell } from '../lib/types';
 import type { Tab } from '../lib/types';
 
-interface HeroSectionProps {
-  metrics: MetricCell[];
-  tab?: Tab;
-}
+interface HeroSectionProps { tab?: Tab; }
 
-export function HeroSection({ metrics, tab }: HeroSectionProps) {
+export function HeroSection({ tab }: HeroSectionProps) {
   const isPartner = !tab || tab === 'partner';
 
   return (
@@ -55,22 +51,6 @@ export function HeroSection({ metrics, tab }: HeroSectionProps) {
             </h1>
           </div>
         )}
-        <div className="metric-strip">
-          {metrics.map((m, i) => (
-            <div key={i} className="metric-cell">
-              <div className="metric-label">{m.label}</div>
-              <div className="metric-value">
-                {m.value}
-                {m.sub && <small style={{ fontSize: '13px', opacity: 0.5 }}>{m.sub}</small>}
-              </div>
-              {m.delta && (
-                <div className="metric-sub">
-                  <span className="metric-delta" style={m.deltaStyle}>{m.delta}</span>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   );
