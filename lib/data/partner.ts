@@ -1,17 +1,17 @@
 import type { TrackStatItem, AdvantageCard, EngagementCard, MetricCell } from '../types';
 
 export const PARTNER_METRICS: MetricCell[] = [
-  { label: 'Mandate Win Rate',        value: '50%',  delta: 'With Crossover research' },
-  { label: 'J.P. Morgan Engagements', value: '22+',  delta: 'Completed' },
-  { label: 'Transaction Value',       value: '$25B+', delta: 'Total supported' },
-  { label: 'Coverage',                value: 'PE/IB', delta: 'Buy + sell-side' },
+  { label: 'Mandate Win Rate',        value: '50%',   delta: 'With Crossover research' },
+  { label: 'J.P. Morgan Engagements', value: '22+',   delta: 'Completed' },
+  { label: 'Transaction Value',       value: '$25B+',  delta: 'Total supported' },
+  { label: 'Catalyst Coverage',       value: '20+',   delta: 'Assets available same day' },
 ];
 
 export const TRACK_STATS: TrackStatItem[] = [
-  { num: '50%',  label: 'Win rate on mandates with Crossover research' },
+  { num: '50%',  label: 'Win rate on mandates where Crossover was part of the pitch' },
   { num: '22+',  label: 'Completed engagements with J.P. Morgan alone' },
   { num: '$25B+', label: 'Total transaction value supported' },
-  { num: 'PE/IB', label: 'Both buy-side and sell-side coverage: GA, Battery, Lead Edge & others' },
+  { num: '20+',  label: 'Catalyst assets available same day — PE/GE funds, GA, Battery, Lead Edge & others' },
 ];
 
 export const ADVANTAGE_CARDS: AdvantageCard[] = [
@@ -20,24 +20,24 @@ export const ADVANTAGE_CARDS: AdvantageCard[] = [
     desc: '4–6 banks compete on every tech mandate. Crossover data is concrete differentiation that competitors cannot replicate on your timeline. It changes the conversation from "trust us" to "here\'s what customers actually said."',
   },
   {
+    title: 'Find the Gaps First',
+    desc: 'Every asset has weaknesses. Most operators hide them and hope buyers don\'t find them before close. Crossover surfaces them weeks before buyers do — using independent respondents the operator didn\'t handpick — then builds customer-backed evidence to close them proactively.',
+  },
+  {
     title: 'Anchor the CIM',
     desc: '"84% of verified customers say Red Canary costs less than building in-house" is an independent, third-party claim. It lands in the CIM as sourced evidence, not management narrative. Buyers cannot challenge what they didn\'t produce.',
   },
   {
     title: 'Compress Diligence',
-    desc: 'Buyer IC questions about stickiness, replication cost, and moat are answered before they\'re asked. That shortens the diligence window and lets you close on the seller\'s timeline.',
+    desc: 'Buyer IC questions about stickiness, replication cost, and moat are answered before they\'re asked. That shortens the diligence window and lets you close on the seller\'s timeline — not the buyer\'s.',
   },
   {
-    title: 'Bypass the Credibility Filter',
-    desc: 'Post-2022 buyers are structurally skeptical of management-sourced evidence. Crossover data is the only format that survives IC-level interrogation — not supplemental, but the credibility infrastructure.',
+    title: 'The Independent Measurement Layer',
+    desc: 'Neither buyers nor sellers can fully trust VoC the other side commissioned. Crossover is the measurement layer both sides use — because neither side chose the respondents. Same data. Different strategic framing. Proof: Nerdio Series C. Both sides. $500M at $1B+.',
   },
   {
-    title: 'Know the Asset Better Than the Room',
-    desc: 'When you can quote verified customer switching costs, NPS, and replication difficulty before the operator speaks, you own the valuation narrative. Independent customer data supports stronger multiples.',
-  },
-  {
-    title: 'Built for the Sell-Side Timeline',
-    desc: 'Every engagement is scoped to your process milestones, not a generic research calendar. Catalyst portfolio delivery is immediate. Custom studies are scoped to your first-round bid date.',
+    title: 'Built for the Transaction Clock',
+    desc: 'Same day if covered in Catalyst. 14 days for a custom study. Pre-pitch snapshot in 48 hours. Every engagement scoped to your process milestones — not a research calendar.',
   },
 ];
 
@@ -48,7 +48,7 @@ export const ENGAGEMENT_OPTIONS: EngagementCard[] = [
     desc: 'You have a company and a process stage. We scope immediately to your diligence timeline and IC questions.',
     steps: [
       'Share company name and current process stage',
-      'Immediate delivery if covered in Catalyst portfolio',
+      'Immediate delivery if covered in Catalyst library',
       'Custom study scoped to your bid date if not',
       'IC-ready data before first-round bids close',
     ],
@@ -59,7 +59,7 @@ export const ENGAGEMENT_OPTIONS: EngagementCard[] = [
   {
     label: 'Option B',
     type: 'Upcoming Pitch',
-    desc: 'You have a target company and a pitch date. We check Catalyst coverage immediately and confirm what fits your window.',
+    desc: 'You have a target company and a pitch date. We confirm Catalyst coverage immediately and scope to your window.',
     steps: [
       'Provide company name and pitch date',
       'Immediate Catalyst coverage check',
@@ -73,12 +73,12 @@ export const ENGAGEMENT_OPTIONS: EngagementCard[] = [
   {
     label: 'Option C',
     type: '20-Minute Call',
-    desc: 'You want to understand how Crossover data fits into your process. We walk through sample outputs and scoping options.',
+    desc: 'You want to understand how Crossover fits your process. We walk through sample outputs and coverage options.',
     steps: [
       'Schedule a 20-minute call',
-      'See live examples of Catalyst reports',
+      'See live examples from the Catalyst library',
       'Understand custom study options and timelines',
-      'Get immediate answer: is your target already covered?',
+      'Immediate answer: is your target already covered?',
     ],
     ctaText: 'Book a Call',
     ctaHref: 'https://book.crossoverresearch.com/#/crossoverresearch',
