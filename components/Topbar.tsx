@@ -10,6 +10,7 @@ export function Topbar() {
 
           {/* Row 1: VOICE OF CUSTOMER INTELLIGENCE */}
           <div className="topbar-brand-eyebrow">
+            <span>Sell-Side</span><span>Intelligence</span>
             Sell-Side Intelligence
           </div>
 
