@@ -178,7 +178,53 @@ export const CATALYST_ASSETS: CatalystAsset[] = [
       'Switching risk is extremely high because our playbooks, integrations, and training are all embedded.',
     ],
     moat: 'Emergency communication platforms embed because playbooks, org charts, contact trees, and crisis response workflows are all configured in-system. Switching during stable periods requires emergency response team retraining.',
+  },  {
+    code: 'FLYWHEEL',
+    category: 'Cloud Management SaaS',
+    subtitle: 'Microsoft Azure Virtual Desktop Management',
+    status: 'transacted',
+    realName: 'Nerdio',
+    dealNote: 'Series C · $500M at $1B+ · General Atlantic',
+    keyMetric: '9.2/10 Mission Critical',
+    hook: "When MSPs and enterprises describe your platform as the only way to profitably manage Azure Virtual Desktop at scale, you have a platform with no credible substitute. J.P. Morgan engaged Crossover to win the Series C mandate. The research gave General Atlantic a fully-formed thesis in a 30-minute call.",
+    metrics: [
+      { label: 'Mission Criticality', value: '9.2/10', context: 'No credible substitute' },
+      { label: 'Partner Dependency', value: '85%+', context: 'MSPs non-negotiable' },
+      { label: 'Deal Size', value: '$500M', context: 'Series C close' },
+      { label: 'Valuation', value: '$1B+', context: 'Unicorn at close' },
+    ],
+    quotes: [
+      'There is no other way to profitably manage AVD at the scale our clients require. This is non-negotiable.',
+      'We evaluated every alternative. Nothing else handles multi-tenant AVD management at this depth.',
+    ],
+    moat: 'Deep MSP channel dependency with embedded billing, provisioning, and monitoring workflows. Switching requires MSP retraining, customer migration, and loss of Nerdio-specific automation that competitors cannot replicate at the same price point.',
+    bank: 'J.P. Morgan',
+    interviews: 38,
   },
+  {
+    code: 'UTILITY',
+    category: 'Vertical SaaS — PropTech',
+    subtitle: 'Utility Management & Billing',
+    status: 'transacted',
+    realName: 'Conservice',
+    dealNote: 'Acquired · Utility management leader · PE-backed exit',
+    keyMetric: '8.6/10 Switching Difficulty',
+    hook: "When 90%+ of multifamily operators describe switching as operationally catastrophic and your platform processes utility billing for millions of units, you have a business that compounds with every property added to the portfolio.",
+    metrics: [
+      { label: 'Switching Difficulty', value: '8.6/10', context: 'Operationally catastrophic' },
+      { label: 'Market Coverage', value: 'Top 10', context: 'All 10 largest NMHC operators' },
+      { label: 'Mission Criticality', value: '8.3/10', context: 'Billing infrastructure' },
+      { label: 'NRR', value: '105%+', context: 'Expansion via portfolio growth' },
+    ],
+    quotes: [
+      'Switching would require re-auditing every utility account across 40,000 units. It is not something we would ever consider.',
+      'They are embedded in our accounting stack, our resident portal, and our compliance workflow. There is no clean exit.',
+    ],
+    moat: 'Utility billing embeds into accounting reconciliation, resident portals, and regulatory compliance workflows. Each property added to a management company increases switching cost proportionally. The network compounds.',
+    bank: 'J.P. Morgan',
+    interviews: 31,
+  },
+
 ];
 
 export const CATALYST_STATS = {
