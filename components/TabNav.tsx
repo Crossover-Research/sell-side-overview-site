@@ -94,20 +94,18 @@ export function TabNav() {
           style={{ position: 'fixed', top: dropdownPos.top, left: dropdownPos.left }}
           onMouseLeave={() => setSamplesOpen(false)}
         >
-          <div className="tab-dropdown-label">Red Canary — MDR</div>
           <button
             className={`tab-dropdown-item${pathname === '/redcanary' ? ' active' : ''}`}
             onClick={() => { router.push('/redcanary'); setSamplesOpen(false); }}
           >
-            Preview Study
+            Red Canary
           </button>
           <div className="tab-dropdown-sep" />
-          <div className="tab-dropdown-label">BlueCat Networks — DDI</div>
           <button
             className={`tab-dropdown-item${pathname === '/bluecat' ? ' active' : ''}`}
             onClick={() => { router.push('/bluecat'); setSamplesOpen(false); }}
           >
-            Preview Study
+            BlueCat Networks
           </button>
         </div>
       )}
