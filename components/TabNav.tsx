@@ -90,7 +90,7 @@ export function TabNav() {
             className={`tab-dropdown-item${pathname === '/redcanary' ? ' active' : ''}`}
             onClick={() => { router.push('/redcanary'); setSamplesOpen(false); }}
           >
-            Full Study
+            Preview Study
           </button>
           <div className="tab-dropdown-sep" />
           <div className="tab-dropdown-label">BlueCat Networks — DDI</div>
@@ -98,7 +98,7 @@ export function TabNav() {
             className={`tab-dropdown-item${pathname === '/bluecat' ? ' active' : ''}`}
             onClick={() => { router.push('/bluecat'); setSamplesOpen(false); }}
           >
-            Full Study
+            Preview Study
           </button>
         </div>
       )}
