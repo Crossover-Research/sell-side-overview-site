@@ -12,7 +12,7 @@ export function TabNav() {
 
   const isResearch = pathname === '/redcanary' || pathname === '/bluecat';
   const isPartner  = pathname === '/partner' || pathname === '/';
-  const isCap      = pathname === '/capabilities';
+  const isCap      = pathname === '/capabilities' || pathname === '/intelligence';
 
   const updatePos = useCallback(() => {
     if (btnRef.current) {
@@ -53,17 +53,8 @@ export function TabNav() {
 
         <div className="tab-nav-divider" />
 
-        <a href="/capabilities" className={`tab-btn tab-primary${isCap ? ' active' : ''}`}>
-          Intelligence Platform
-        </a>
-
-        <div className="tab-nav-divider" />
-
-        <a
-          href="/catalyst"
-          className={`tab-btn tab-primary${pathname === '/catalyst' ? ' active' : ''}`}
-        >
-          Catalyst Library
+        <a href="/intelligence" className={`tab-btn tab-primary${pathname === '/intelligence' || isCap || pathname === '/catalyst' ? ' active' : ''}`}>
+          Intelligence
         </a>
 
         <div className="tab-nav-divider" />
