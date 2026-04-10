@@ -6,8 +6,7 @@ export function Topbar() {
       <div className="topbar-left">
         <div className="topbar-brand">
           <div className="topbar-brand-eyebrow">Sell-Side Intelligence</div>
-          <div className="topbar-brand-rule" />
-          <div className="topbar-brand-powered">
+          <div className="topbar-brand-row">
             <span className="topbar-brand-label">Powered by</span>
             <img
               src="https://www.crossoverresearch.com/logos/CrossoverResearchLogo.svg"
