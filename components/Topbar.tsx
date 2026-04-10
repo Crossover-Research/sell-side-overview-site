@@ -7,7 +7,10 @@ export function Topbar() {
     <div className="topbar">
       <div className="topbar-left">
         <div className="topbar-brand">
-          <div className="topbar-brand-eyebrow">Sell-Side Intelligence</div>
+          <div className="topbar-brand-eyebrow">
+            <span>Sell-Side</span>
+            <span>Intelligence</span>
+          </div>
           <div className="topbar-brand-divider" />
           <div className="topbar-brand-row">
             <span className="topbar-brand-label">Powered by</span>
