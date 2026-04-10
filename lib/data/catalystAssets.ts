@@ -48,7 +48,7 @@ export const CATALYST_ASSETS: CatalystAsset[] = [
     subtitle: 'Managed Detection & Response',
     status: 'transacted',
     realName: 'Red Canary',
-    dealNote: 'Acquired by OpenText · MDR category leader',
+    dealNote: 'Acquired by Zscaler · MDR category leader',
     keyMetric: '9.0/10 NPS',
     hook: "When customers run real-malware competitive bake-offs and you detect threats faster with 67% cost savings versus building in-house, you're not competing on features. You're providing operational necessity for mid-market security teams.",
     metrics: [
@@ -207,7 +207,7 @@ export const CATALYST_ASSETS: CatalystAsset[] = [
     subtitle: 'Utility Management & Billing',
     status: 'transacted',
     realName: 'Conservice',
-    dealNote: 'Acquired · Utility management leader · PE-backed exit',
+    dealNote: 'Growth investment by TPG · Utility management leader',
     keyMetric: '8.6/10 Switching Difficulty',
     hook: "When 90%+ of multifamily operators describe switching as operationally catastrophic and your platform processes utility billing for millions of units, you have a business that compounds with every property added to the portfolio.",
     metrics: [
