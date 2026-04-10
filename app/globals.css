@@ -977,3 +977,32 @@ body::before {
 }
 
 .topbar-logo-fallback { display: none; font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.82); }
+
+/* ── INLINE HERO QUOTE ────────────────────────────────────────────────────── */
+.ib-inline-quote {
+  padding: 20px 0 24px;
+  border-top: 1px solid var(--br-lo);
+  margin-top: 4px;
+}
+.ib-inline-quote-text {
+  font-size: 13.5px;
+  color: var(--t1);
+  font-style: italic;
+  line-height: 1.65;
+  margin-bottom: 10px;
+  max-width: 680px;
+}
+.ib-inline-quote-attr {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.ib-inline-quote-name {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--t2);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.ib-inline-quote-sep  { font-size: 10px; color: var(--t4); }
+.ib-inline-quote-role { font-size: 10px; color: var(--t3); }
