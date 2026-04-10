@@ -77,7 +77,7 @@ export function TabNav() {
 
       </div>
 
-      {/* Dropdown rendered at root level via fixed position — escapes overflow:auto clipping */}
+      {/* Dropdown rendered at root level via fixed position - escapes overflow:auto clipping */}
       {samplesOpen && (
         <div
           ref={dropdownRef}

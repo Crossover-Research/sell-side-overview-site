@@ -85,7 +85,7 @@ export function MultiSidedDiagram() {
         );
       })}
 
-      {/* Center node — Crossover */}
+      {/* Center node - Crossover */}
       <circle cx={cx} cy={cy} r={40} fill="rgba(77,144,254,.14)" stroke="rgba(130,175,255,.5)" strokeWidth={1.5} />
       <text x={cx} y={cy - 8} textAnchor="middle" fontSize={9} fontWeight={800} fill="rgba(130,175,255,.9)" letterSpacing="1.5" fontFamily="JetBrains Mono, monospace">CROSSOVER</text>
       <text x={cx} y={cy + 4} textAnchor="middle" fontSize={9} fontWeight={800} fill="rgba(130,175,255,.9)" letterSpacing="1.5" fontFamily="JetBrains Mono, monospace">RESEARCH</text>
