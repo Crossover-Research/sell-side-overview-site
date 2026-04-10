@@ -1,21 +1,22 @@
 'use client';
 import { useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
-import type { Tab } from '../lib/types';
 
-export function TabNav({ activeTab }: { activeTab: Tab }) {
-  const router = useRouter();
+export function TabNav() {
+  const router   = useRouter();
   const pathname = usePathname();
   const [samplesOpen, setSamplesOpen] = useState(false);
 
-  const isResearch = ['thesis', 'vendor', 'voice', 'bluecat'].includes(activeTab);
+  const isResearch = pathname === '/redcanary' || pathname === '/bluecat';
+  const isPartner  = pathname === '/partner' || pathname === '/';
+  const isCap      = pathname === '/capabilities';
 
   return (
     <div className="tab-nav-wrap">
       <div className="tab-nav">
 
         <button
-          className={`tab-btn tab-primary${activeTab === 'partner' ? ' active' : ''}`}
+          className={`tab-btn tab-primary${isPartner ? ' active' : ''}`}
           onClick={() => router.push('/partner')}
         >
           Work With Us
@@ -23,16 +24,12 @@ export function TabNav({ activeTab }: { activeTab: Tab }) {
 
         <div className="tab-nav-divider" />
 
-        <a
-          href="/capabilities"
-          className={`tab-btn tab-primary${pathname === '/capabilities' ? ' active' : ''}`}
-        >
+        <a href="/capabilities" className={`tab-btn tab-primary${isCap ? ' active' : ''}`}>
           Intelligence Platform
         </a>
 
         <div className="tab-nav-divider" />
 
-        {/* Research Samples dropdown */}
         <div
           className="tab-dropdown-wrap"
           onMouseEnter={() => setSamplesOpen(true)}
@@ -40,34 +37,24 @@ export function TabNav({ activeTab }: { activeTab: Tab }) {
         >
           <button className={`tab-btn tab-primary${isResearch ? ' active' : ''}`}>
             Research Samples
-            <span className="tab-chevron" style={{ transform: samplesOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}>
-              ▾
-            </span>
+            <span className="tab-chevron" style={{ transform: samplesOpen ? 'rotate(180deg)' : 'none' }}>▾</span>
           </button>
-
           {samplesOpen && (
             <div className="tab-dropdown">
               <div className="tab-dropdown-label">Red Canary — MDR</div>
-              {([
-                { id: 'thesis' as Tab, label: 'IC Thesis'    },
-                { id: 'vendor' as Tab, label: 'Vendor Intel' },
-                { id: 'voice'  as Tab, label: 'Voice'        },
-              ]).map(({ id, label }) => (
-                <button
-                  key={id}
-                  className={`tab-dropdown-item${activeTab === id ? ' active' : ''}`}
-                  onClick={() => { router.push(`/${id}`); setSamplesOpen(false); }}
-                >
-                  {label}
-                </button>
-              ))}
+              <button
+                className={`tab-dropdown-item${pathname === '/redcanary' ? ' active' : ''}`}
+                onClick={() => { router.push('/redcanary'); setSamplesOpen(false); }}
+              >
+                Full Study
+              </button>
               <div className="tab-dropdown-sep" />
               <div className="tab-dropdown-label">BlueCat Networks — DDI</div>
               <button
-                className={`tab-dropdown-item${activeTab === 'bluecat' ? ' active' : ''}`}
+                className={`tab-dropdown-item${pathname === '/bluecat' ? ' active' : ''}`}
                 onClick={() => { router.push('/bluecat'); setSamplesOpen(false); }}
               >
-                VoC Report
+                Full Study
               </button>
             </div>
           )}
@@ -75,10 +62,7 @@ export function TabNav({ activeTab }: { activeTab: Tab }) {
 
         <div className="tab-nav-divider" />
 
-        <a
-          href="mailto:ian@crossoverresearch.com"
-          className="tab-btn tab-primary"
-        >
+        <a href="mailto:ian@crossoverresearch.com" className="tab-btn tab-primary">
           Submit a Request
         </a>
 
