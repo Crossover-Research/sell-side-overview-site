@@ -108,6 +108,49 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
   );
 }
 
+
+const LockIcon = ({ size = 11 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ display:'inline-block',verticalAlign:'middle',marginRight:5 }}>
+    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+  </svg>
+);
+
+function AssetNameCell({ asset }: { asset: CatalystAsset }) {
+  const [revealed, setRevealed] = useState(false);
+  const isTransacted = asset.status === 'transacted';
+
+  if (!isTransacted) {
+    return (
+      <div>
+        <div style={{ fontSize:13,fontWeight:700,color:'rgba(130,175,255,.72)',marginBottom:3,display:'flex',alignItems:'center' }}>
+          <LockIcon />{asset.code}
+        </div>
+        <div style={{ fontSize:10,color:'rgba(255,255,255,.2)',letterSpacing:'.04em',textTransform:'uppercase' }}>Identity locked</div>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ position:'relative',cursor:'default',userSelect:'none',minWidth:140 }}
+      onMouseEnter={()=>setRevealed(true)}
+      onMouseLeave={()=>setRevealed(false)}
+    >
+      <div style={{ position:'relative',height:20,overflow:'hidden',marginBottom:3 }}>
+        <div style={{ position:'absolute',top:0,left:0,width:'100%',fontSize:13,fontWeight:700,color:'rgba(130,175,255,.6)',display:'flex',alignItems:'center',transform:revealed?'translateX(-115%)':'translateX(0)',transition:'transform .32s cubic-bezier(.4,0,.2,1)' }}>
+          <LockIcon size={10}/>{asset.code}
+        </div>
+        <div style={{ position:'absolute',top:0,left:0,width:'100%',fontSize:13,fontWeight:700,color:'#2dd4a0',transform:revealed?'translateX(0)':'translateX(115%)',transition:'transform .32s cubic-bezier(.4,0,.2,1)' }}>
+          {asset.realName}
+        </div>
+      </div>
+      <div style={{ fontSize:10,letterSpacing:'.04em',color:revealed?'rgba(45,212,160,.55)':'rgba(255,255,255,.2)',transition:'color .2s' }}>
+        {revealed && asset.dealNote ? asset.dealNote : 'Hover to reveal'}
+      </div>
+    </div>
+  );
+}
+
 export default function IntelligencePage() {
   const [activeCap, setActiveCap] = useState<IBCap>('mandate');
   const [selectedAsset, setSelectedAsset] = useState<CatalystAsset|null>(null);
@@ -299,22 +342,13 @@ export default function IntelligencePage() {
                 {filtered.map((a,i)=>{
                   const s = statusCfg[a.status];
                   const isTransacted = a.status==='transacted';
-                  const displayName = isTransacted && a.realName ? a.realName : a.code;
                   return (
                     <tr key={i} style={{ borderBottom:'1px solid rgba(255,255,255,.05)',cursor:'pointer',transition:'background .12s' }}
                       onClick={()=>setSelectedAsset(a)}
                       onMouseEnter={e=>(e.currentTarget.style.background='rgba(255,255,255,.04)')}
                       onMouseLeave={e=>(e.currentTarget.style.background='transparent')}>
                       <td style={{ padding:'12px 14px' }}>
-                        <div style={{ fontSize:13,fontWeight:700,color: isTransacted ? '#2dd4a0' : 'rgba(130,175,255,.9)',marginBottom:2 }}>
-                          {displayName}
-                        </div>
-                        {isTransacted && a.realName && (
-                          <div style={{ fontSize:10,color:'rgba(255,255,255,.3)',fontStyle:'italic' }}>was: {a.code}</div>
-                        )}
-                        {!isTransacted && (
-                          <div style={{ fontSize:10,color:'rgba(255,255,255,.25)',fontStyle:'italic' }}>identity locked</div>
-                        )}
+                        <AssetNameCell asset={a} />
                       </td>
                       <td style={{ padding:'12px 14px' }}>
                         <div style={{ fontSize:12,color:'rgba(255,255,255,.6)' }}>{a.category}</div>
