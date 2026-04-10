@@ -216,15 +216,15 @@ export default function IntelligencePage() {
         <div className="ib-inner">
           <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:48,alignItems:'start' }}>
             <div>
-              <div className="ib-section-eyebrow">The Compounding Engine</div>
-              <h2 className="ib-section-title" style={{ color:'#fff',fontSize:22,marginBottom:12 }}>
-                How Crossover makes institutional research affordable.
+              <div className="ib-section-eyebrow">Crossover Catalyst</div>
+              <h2 className="ib-section-title" style={{ color:'#fff',fontSize:22,marginBottom:14 }}>
+                The first dual-sided intelligence product for banked transactions.
               </h2>
-              <p style={{ fontSize:13,color:'rgba(255,255,255,.6)',lineHeight:1.75,marginBottom:14 }}>
-                Every sell-side mandate Crossover completes produces primary research that is verticalised into dual-sided intelligence. The sell-side deck becomes the baseline for buy-side thesis development &mdash; the same verified customer truth, reframed for a different audience.
+              <p style={{ fontSize:15,fontWeight:300,color:'rgba(255,255,255,.82)',lineHeight:1.7,marginBottom:18,fontStyle:'italic',borderLeft:'3px solid rgba(77,144,254,.5)',paddingLeft:16 }}>
+                &ldquo;The same infrastructure that wins mandates for bankers identifies the next great asset for funds.&rdquo;
               </p>
-              <p style={{ fontSize:13,color:'rgba(255,255,255,.6)',lineHeight:1.75,marginBottom:20 }}>
-                This is how Crossover captures economics across the full transaction lifecycle rather than charging any single party consulting-firm rates. The research compounds with every engagement.
+              <p style={{ fontSize:13,color:'rgba(255,255,255,.58)',lineHeight:1.75,marginBottom:20 }}>
+                Every sell-side mandate produces primary research that is verticalised into dual-sided intelligence. The sell-side deck becomes the baseline for buy-side thesis development. The economics distribute across the ecosystem &mdash; no single party pays consulting-firm rates.
               </p>
               <button onClick={()=>setRequestOpen(true)} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 20px',fontSize:12,fontWeight:700,cursor:'pointer' }}>
                 Check Coverage &rarr;
