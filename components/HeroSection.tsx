@@ -12,7 +12,6 @@ export function HeroSection({ tab }: HeroSectionProps) {
         {!isBluecat ? (
           <div className="hero-grid">
             <div>
-              <div className="hero-eyebrow">Institutional Research · Sell-Side Intelligence</div>
               <h1 className="hero-title">
                 Independent customer evidence<br />
                 <span>no competing bank can replicate.</span>
