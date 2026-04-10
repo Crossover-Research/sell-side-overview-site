@@ -29,6 +29,16 @@ const CONFIGS: Record<string, {
 };
 
 // Map old tab IDs to config keys
+const TAB_TO_KEY: Record<Tab, string | null> = {
+  thesis: 'redcanary', vendor: 'redcanary', voice: 'redcanary',
+  bluecat: 'bluecat', partner: null,
+};
+
+interface ResearchHeaderProps {
+  tab: Tab;
+};
+
+// Map old tab IDs to config keys
 const TAB_TO_KEY: Record<string, string | null> = {
   redcanary: 'redcanary',
   bluecat: 'bluecat',

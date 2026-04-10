@@ -21,6 +21,14 @@ export function Topbar() {
         </div>
       </div>
       <div className="topbar-right">
+        <a
+          href="https://book.crossoverresearch.com/#/crossoverresearch"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="topbar-book-btn"
+        >
+          Book a Meeting
+        </a>
         <div className="badge-confidential">Confidential</div>
       </div>
     </div>
