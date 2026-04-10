@@ -3,8 +3,7 @@ export const IB_TRACK_RECORD = {
   jpmEngagements: '22+',
   totalTransactionValue: '$25B+',
   winRateWithCrossover: '50%',
-  avgDeliveryDays: '5–10',
-  verifiedRespondentsDeployed: '3,500+',
+  avgDeliveryDays: '14–21',
 };
 
 export const IB_WORKFLOW_STAGES = [

@@ -42,10 +42,6 @@ export default function CapabilitiesPage() {
               <div className="ib-metric-lbl">Transaction value supported</div>
             </div>
             <div className="ib-metric">
-              <div className="ib-metric-val">{IB_TRACK_RECORD.verifiedRespondentsDeployed}</div>
-              <div className="ib-metric-lbl">Verified customer respondents deployed</div>
-            </div>
-            <div className="ib-metric">
               <div className="ib-metric-val">{IB_TRACK_RECORD.avgDeliveryDays}</div>
               <div className="ib-metric-lbl">Days avg. study turnaround</div>
             </div>
@@ -65,6 +61,27 @@ export default function CapabilitiesPage() {
             <span className="ib-proof-sep">·</span>
             <span className="ib-proof-role">Sell-side mandate · $10B transaction</span>
           </div>
+        </div>
+      </section>
+
+
+      {/* DIFFERENTIATORS */}
+      <section className="ib-section ib-section-dark" id="why">
+        <div className="ib-inner">
+          <div className="ib-section-eyebrow">Why Crossover</div>
+          <h2 className="ib-section-title" style={{ color: '#fff' }}>
+            Not a Consulting Firm. Not an Expert Network.
+          </h2>
+          <p className="ib-section-desc" style={{ color: 'rgba(255,255,255,.7)' }}>
+            Crossover Research is a proprietary intelligence platform built specifically for
+            investment decision-making. Every capability exists because the traditional
+            research infrastructure fails at the exact moment a transaction process demands it.
+          </p>
+          <p className="ib-section-desc" style={{ color: 'rgba(255,255,255,.55)', marginTop: '-20px' }}>
+            More verified respondents, more benchmark dimensions, and more IC-ready structure
+            than 30 expert network calls, at a fraction of the cost. Where expert networks
+            produce conversation notes, Crossover produces evidence.
+          </p>
         </div>
       </section>
 
@@ -156,26 +173,6 @@ export default function CapabilitiesPage() {
               ))}
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* DIFFERENTIATORS */}
-      <section className="ib-section ib-section-dark" id="why">
-        <div className="ib-inner">
-          <div className="ib-section-eyebrow">Why Crossover</div>
-          <h2 className="ib-section-title" style={{ color: '#fff' }}>
-            Not a Consulting Firm. Not an Expert Network.
-          </h2>
-          <p className="ib-section-desc" style={{ color: 'rgba(255,255,255,.7)' }}>
-            Crossover Research is a proprietary intelligence platform built specifically for
-            investment decision-making. Every capability exists because the traditional
-            research infrastructure fails at the exact moment a transaction process demands it.
-          </p>
-          <p className="ib-section-desc" style={{ color: 'rgba(255,255,255,.55)', marginTop: '-20px' }}>
-            More verified respondents, more benchmark dimensions, and more IC-ready structure
-            than 30 expert network calls, at a fraction of the cost. Where expert networks
-            produce conversation notes, Crossover produces evidence.
-          </p>
         </div>
       </section>
 
