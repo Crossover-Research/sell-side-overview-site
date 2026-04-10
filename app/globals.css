@@ -984,3 +984,25 @@ body::before {
   .site-footer-links { gap: 4px; }
   .site-footer-links a { border-right: none; padding: 4px 10px; }
 }
+
+/* ── TOPBAR BOOK BUTTON ───────────────────────────────────────────────────── */
+.topbar-book-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 14px;
+  margin-right: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .03em;
+  color: rgba(255,255,255,.85);
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,.22);
+  background: rgba(77,144,254,.18);
+  transition: all .15s;
+  white-space: nowrap;
+}
+.topbar-book-btn:hover {
+  background: rgba(77,144,254,.35);
+  border-color: rgba(77,144,254,.5);
+  color: #fff;
+}

@@ -93,7 +93,7 @@ export default function CapabilitiesPage() {
       <section className="ib-section ib-section-alt" id="capabilities">
         <div className="ib-inner">
           <div className="ib-section-eyebrow">Intelligence Capabilities</div>
-          <h2 className="ib-section-title">Six Integrated Capabilities</h2>
+          <h2 className="ib-section-title">Five Integrated Capabilities</h2>
           <p className="ib-section-desc">
             Each capability maps to a moment in the banker workflow where proprietary customer
             intelligence creates asymmetric advantage. They compound — the research built for
@@ -159,35 +159,6 @@ export default function CapabilitiesPage() {
         </div>
       </section>
 
-      {/* PROCESS FLOW */}
-      <section className="ib-section" id="process">
-        <div className="ib-inner">
-          <div className="ib-section-eyebrow">Engagement Model</div>
-          <h2 className="ib-section-title">From Intelligence Brief to Queryable Asset</h2>
-          <p className="ib-section-desc">
-            Every engagement follows a structured methodology. The deliverable is not a PDF
-            — it is a hosted intelligence portal that compounds across your entire deal team
-            for the duration of the process.
-          </p>
-          <div className="ib-process">
-            {[
-              { num: '01', label: 'Intelligence Brief', detail: 'Scope the thesis questions, target customer profile, competitive set, and buyer universe priorities' },
-              { num: '02', label: 'Customer Discovery', detail: 'Build the verified respondent universe across 30+ public signal sources, no management-provided references' },
-              { num: '03', label: 'VoC Collection', detail: '30–100+ verified customers surveyed across Core 9 dimensions with competitive benchmarking and Van Westendorp pricing' },
-              { num: '04', label: 'IC Simulation', detail: 'Run attack surface mapping and buyer-specific IC simulation before management\'s first process meeting' },
-              { num: '05', label: 'Portal Delivery', detail: 'Hosted queryable intelligence portal, IC-ready writeup, buyer outreach campaign, and CIM evidence layer — simultaneously' },
-              { num: '06', label: 'Live Support', detail: 'Active process support: buyer question responses, additional simulations, and competitive intelligence updates through close' },
-            ].map(s => (
-              <div key={s.num} className="ib-process-step">
-                <div className="ib-process-num">{s.num}</div>
-                <div className="ib-process-label">{s.label}</div>
-                <div className="ib-process-detail">{s.detail}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* DIFFERENTIATORS */}
       <section className="ib-section ib-section-dark" id="why">
         <div className="ib-inner">
@@ -199,6 +170,11 @@ export default function CapabilitiesPage() {
             Crossover Research is a proprietary intelligence platform built specifically for
             investment decision-making. Every capability exists because the traditional
             research infrastructure fails at the exact moment a transaction process demands it.
+          </p>
+          <p className="ib-section-desc" style={{ color: 'rgba(255,255,255,.55)', marginTop: '-20px' }}>
+            More verified respondents, more benchmark dimensions, and more IC-ready structure
+            than 30 expert network calls, at a fraction of the cost. Where expert networks
+            produce conversation notes, Crossover produces evidence.
           </p>
         </div>
       </section>
