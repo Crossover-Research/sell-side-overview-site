@@ -5,35 +5,32 @@ import { FlywheelDiagram } from '../../components/FlywheelDiagram';
 import { IB_TRACK_RECORD, IB_CAPS, IB_CAP_DATA, type IBCap } from '../../lib/data/ibCapabilities';
 import { CATALYST_ASSETS, type CatalystAsset } from '../../lib/data/catalystAssets';
 
-function AssetCard({ asset, onClick }: { asset: CatalystAsset; onClick: () => void }) {
-  const statusColor = { active: '#2dd4a0', new: '#7bb8ff', transacted: 'rgba(255,255,255,.3)' }[asset.status];
-  return (
-    <div onClick={onClick}
-      style={{ background:'rgba(255,255,255,.03)',border:'1px solid rgba(255,255,255,.08)',padding:'14px 16px',cursor:'pointer',transition:'border-color .15s',display:'flex',flexDirection:'column',gap:6 }}
-      onMouseEnter={e=>(e.currentTarget.style.borderColor='rgba(130,175,255,.3)')}
-      onMouseLeave={e=>(e.currentTarget.style.borderColor='rgba(255,255,255,.08)')}
-    >
-      <div style={{ display:'flex',alignItems:'center',justifyContent:'space-between' }}>
-        <span style={{ fontSize:12,fontWeight:700,color:'rgba(130,175,255,.9)',letterSpacing:'.06em' }}>{asset.code}</span>
-        <span style={{ fontSize:9,fontWeight:700,color:statusColor,letterSpacing:'.06em',textTransform:'uppercase' }}>{asset.status}</span>
-      </div>
-      <div style={{ fontSize:12,color:'rgba(255,255,255,.5)' }}>{asset.subtitle}</div>
-      <div style={{ fontSize:11,fontWeight:600,color:'rgba(255,255,255,.65)',fontFamily:'JetBrains Mono,monospace' }}>{asset.keyMetric}</div>
-    </div>
-  );
-}
+type FilterType = 'all' | 'active' | 'new' | 'transacted';
 
 function TeaserModal({ asset, onClose, onRequest }: { asset: CatalystAsset; onClose:()=>void; onRequest:()=>void }) {
+  const displayName = asset.status === 'transacted' && asset.realName ? asset.realName : asset.code;
   return (
     <div onClick={e=>e.target===e.currentTarget&&onClose()} style={{ position:'fixed',inset:0,zIndex:500,background:'rgba(4,9,18,.88)',backdropFilter:'blur(8px)',display:'flex',alignItems:'center',justifyContent:'center',padding:20 }}>
       <div style={{ background:'#0c1a2e',border:'1px solid rgba(255,255,255,.12)',maxWidth:700,width:'100%',maxHeight:'88vh',overflowY:'auto',position:'relative' }}>
         <div style={{ background:'linear-gradient(135deg,#0f1f38,#162d4a)',padding:'22px 26px',borderBottom:'1px solid rgba(255,255,255,.08)',position:'relative' }}>
           <button onClick={onClose} style={{ position:'absolute',top:11,right:11,background:'rgba(255,255,255,.1)',border:'none',color:'rgba(255,255,255,.7)',width:26,height:26,cursor:'pointer',fontSize:15,lineHeight:'26px',textAlign:'center' }}>x</button>
-          <div style={{ fontSize:10,fontWeight:700,color:'rgba(130,175,255,.75)',letterSpacing:'.1em',textTransform:'uppercase',marginBottom:4 }}>{asset.code} -- Identity Locked</div>
-          <div style={{ fontSize:18,fontWeight:700,color:'#fff',marginBottom:3 }}>{asset.subtitle}</div>
-          <div style={{ fontSize:11,color:'rgba(255,255,255,.35)',textTransform:'uppercase',letterSpacing:'.06em' }}>{asset.category}</div>
+          <div style={{ display:'flex',alignItems:'center',gap:10,marginBottom:4 }}>
+            <div style={{ fontSize:10,fontWeight:700,color:'rgba(130,175,255,.75)',letterSpacing:'.1em',textTransform:'uppercase' }}>{asset.code}</div>
+            {asset.status==='transacted' && asset.realName && (
+              <div style={{ fontSize:10,fontWeight:700,color:'#2dd4a0',letterSpacing:'.06em',textTransform:'uppercase' }}>
+                Unblinded: {asset.realName}
+              </div>
+            )}
+          </div>
+          <div style={{ fontSize:18,fontWeight:700,color:'#fff',marginBottom:3 }}>{displayName} &mdash; {asset.category}</div>
+          <div style={{ fontSize:11,color:'rgba(255,255,255,.35)',textTransform:'uppercase',letterSpacing:'.06em' }}>{asset.subtitle}{asset.dealNote ? ` · ${asset.dealNote}` : ''}</div>
         </div>
         <div style={{ padding:'20px 26px' }}>
+          {asset.status==='transacted' && (
+            <div style={{ background:'rgba(45,212,160,.07)',border:'1px solid rgba(45,212,160,.2)',padding:'10px 14px',marginBottom:14,fontSize:12,color:'rgba(45,212,160,.85)',lineHeight:1.5 }}>
+              This asset has transacted. Identity unblinded post-close. Funds with active access received the full research brief before the process began.
+            </div>
+          )}
           <div style={{ background:'rgba(77,144,254,.1)',border:'1px solid rgba(77,144,254,.2)',padding:'13px 16px',marginBottom:16 }}>
             <div style={{ fontSize:9,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(130,175,255,.6)',marginBottom:6 }}>Investment Hook</div>
             <p style={{ fontSize:13,color:'rgba(255,255,255,.85)',lineHeight:1.65,margin:0 }}>{asset.hook}</p>
@@ -51,7 +48,9 @@ function TeaserModal({ asset, onClose, onRequest }: { asset: CatalystAsset; onCl
             <div key={i} style={{ borderLeft:'2px solid rgba(77,144,254,.3)',paddingLeft:11,marginBottom:9,fontSize:12,color:'rgba(255,255,255,.6)',fontStyle:'italic',lineHeight:1.6 }}>"{q}"</div>
           ))}
           <div style={{ display:'flex',gap:9,marginTop:18,justifyContent:'flex-end' }}>
-            <button onClick={onRequest} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 20px',fontSize:12,fontWeight:700,cursor:'pointer' }}>Request Full Report &rarr;</button>
+            {asset.status!=='transacted' && (
+              <button onClick={onRequest} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 20px',fontSize:12,fontWeight:700,cursor:'pointer' }}>Request Full Report &rarr;</button>
+            )}
             <a href="mailto:ian@crossoverresearch.com" style={{ background:'transparent',color:'rgba(255,255,255,.5)',border:'1px solid rgba(255,255,255,.14)',padding:'9px 16px',fontSize:12,textDecoration:'none' }}>Email Ian</a>
           </div>
         </div>
@@ -101,7 +100,7 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
               <select required style={{...inp,appearance:'none'}} onChange={e=>set('orgType',e.target.value)}><option value="">Select...</option>{ORG.map(o=><option key={o}>{o}</option>)}</select>
             </div>
           </div>
-          <div><label style={{ display:'block',fontSize:9,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.3)',marginBottom:4 }}>Target Company or Mandate</label><input style={inp} placeholder="Company name -- we'll confirm coverage immediately" onChange={e=>set('mandate',e.target.value)} /></div>
+          <div><label style={{ display:'block',fontSize:9,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.3)',marginBottom:4 }}>Target Company or Mandate</label><input style={inp} placeholder="Company name -- confirm coverage immediately" onChange={e=>set('mandate',e.target.value)} /></div>
           <button type="submit" style={{ width:'100%',background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'10px',fontSize:13,fontWeight:700,cursor:'pointer',marginTop:2 }}>Submit &rarr;</button>
         </form>
       </div>
@@ -113,7 +112,15 @@ export default function IntelligencePage() {
   const [activeCap, setActiveCap] = useState<IBCap>('mandate');
   const [selectedAsset, setSelectedAsset] = useState<CatalystAsset|null>(null);
   const [requestOpen, setRequestOpen] = useState(false);
+  const [filter, setFilter] = useState<FilterType>('all');
   const cap = IB_CAP_DATA[activeCap];
+  const filtered = CATALYST_ASSETS.filter(a=>filter==='all'||a.status===filter);
+
+  const statusCfg = {
+    active:     { color:'#2dd4a0', bg:'rgba(45,212,160,.1)',  border:'rgba(45,212,160,.25)',  label:'Active' },
+    new:        { color:'#7bb8ff', bg:'rgba(77,144,254,.12)', border:'rgba(77,144,254,.25)',  label:'New' },
+    transacted: { color:'rgba(255,255,255,.5)', bg:'rgba(255,255,255,.05)', border:'rgba(255,255,255,.12)', label:'Transacted' },
+  };
 
   return (
     <>
@@ -132,24 +139,6 @@ export default function IntelligencePage() {
             { val: IB_TRACK_RECORD.jpmEngagements,        label: 'J.P. Morgan engagements' },
             { val: IB_TRACK_RECORD.totalTransactionValue, label: 'Transaction value supported' },
           ]} />
-        </div>
-      </section>
-
-      <section className="ib-section ib-section-dark">
-        <div className="ib-inner">
-          <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:40,alignItems:'start' }}>
-            <div>
-              <div className="ib-section-eyebrow">Proof of the Model</div>
-              <h2 className="ib-section-title" style={{ color:'#fff',fontSize:20,marginBottom:10 }}>Both Sides of $500M</h2>
-              <p style={{ fontSize:13,color:'rgba(255,255,255,.62)',lineHeight:1.7,marginBottom:8 }}>
-                J.P. Morgan engaged Crossover on the Nerdio Series C. Sell-side line of sight revealed a high-conviction asset. Crossover formed a fundamental view and alerted select funds.
-              </p>
-              <p style={{ fontSize:13,color:'rgba(255,255,255,.62)',lineHeight:1.7 }}>
-                GA took a 30-minute call, commissioned secondary diligence, and it held. <strong style={{ color:'#fff' }}>$500M at $1B+.</strong>
-              </p>
-            </div>
-            <FlywheelDiagram />
-          </div>
         </div>
       </section>
 
@@ -212,26 +201,33 @@ export default function IntelligencePage() {
         </div>
       </section>
 
+      {/* CATALYST SECTION */}
       <section className="ib-section ib-section-dark">
         <div className="ib-inner">
-          <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:48,alignItems:'start' }}>
+
+          {/* Header + Positioning */}
+          <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:48,alignItems:'start',marginBottom:36 }}>
             <div>
               <div className="ib-section-eyebrow">Crossover Catalyst</div>
               <h2 className="ib-section-title" style={{ color:'#fff',fontSize:22,marginBottom:14 }}>
                 The first dual-sided intelligence product for banked transactions.
               </h2>
-              <p style={{ fontSize:15,fontWeight:300,color:'rgba(255,255,255,.82)',lineHeight:1.7,marginBottom:18,fontStyle:'italic',borderLeft:'3px solid rgba(77,144,254,.5)',paddingLeft:16 }}>
+              <p style={{ fontSize:15,fontWeight:300,color:'rgba(255,255,255,.82)',lineHeight:1.7,marginBottom:16,fontStyle:'italic',borderLeft:'3px solid rgba(77,144,254,.5)',paddingLeft:16 }}>
                 &ldquo;The same infrastructure that wins mandates for bankers identifies the next great asset for funds.&rdquo;
               </p>
-              <p style={{ fontSize:13,color:'rgba(255,255,255,.58)',lineHeight:1.75,marginBottom:20 }}>
-                Every sell-side mandate produces primary research that is verticalised into dual-sided intelligence. The sell-side deck becomes the baseline for buy-side thesis development. The economics distribute across the ecosystem &mdash; no single party pays consulting-firm rates.
+              <p style={{ fontSize:13,color:'rgba(255,255,255,.55)',lineHeight:1.75,marginBottom:20 }}>
+                Every sell-side mandate produces primary research that is verticalised into dual-sided intelligence.
+                The sell-side deck becomes the baseline for buy-side thesis development.
+                The economics distribute across the ecosystem &mdash; no single party pays consulting-firm rates.
               </p>
               <button onClick={()=>setRequestOpen(true)} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 20px',fontSize:12,fontWeight:700,cursor:'pointer' }}>
                 Check Coverage &rarr;
               </button>
             </div>
+
+            {/* Dual-sided model steps */}
             <div>
-              <div style={{ border:'1px solid rgba(255,255,255,.1)',padding:'22px 24px',marginBottom:12 }}>
+              <div style={{ border:'1px solid rgba(255,255,255,.1)',padding:'20px 22px',marginBottom:10 }}>
                 <div style={{ fontSize:10,fontWeight:700,letterSpacing:'.12em',textTransform:'uppercase',color:'rgba(77,144,254,.7)',marginBottom:14 }}>Dual-Sided Intelligence Model</div>
                 {[
                   { n:'01', label:'Bank mandates Crossover', sub:'Sell-side deck, mandate differentiation' },
@@ -248,25 +244,99 @@ export default function IntelligencePage() {
                   </div>
                 ))}
               </div>
-              <div style={{ fontSize:11,color:'rgba(255,255,255,.28)',fontStyle:'italic',lineHeight:1.6 }}>
+              <div style={{ fontSize:11,color:'rgba(255,255,255,.25)',fontStyle:'italic' }}>
                 No single party pays consulting-firm rates because no single party carries the full cost.
               </div>
             </div>
           </div>
 
-          <div style={{ marginTop:36,borderTop:'1px solid rgba(255,255,255,.08)',paddingTop:28 }}>
+          {/* Nerdio flywheel proof */}
+          <div style={{ borderTop:'1px solid rgba(255,255,255,.08)',paddingTop:28,marginBottom:36 }}>
+            <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:40,alignItems:'start' }}>
+              <div>
+                <div style={{ fontSize:10,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(77,144,254,.7)',marginBottom:10 }}>Proof &mdash; Both Sides of $500M</div>
+                <p style={{ fontSize:13,color:'rgba(255,255,255,.6)',lineHeight:1.7,marginBottom:8 }}>
+                  J.P. Morgan engaged Crossover on the Nerdio Series C. Sell-side line of sight revealed a high-conviction asset. Crossover formed a fundamental view and alerted select funds.
+                </p>
+                <p style={{ fontSize:13,color:'rgba(255,255,255,.6)',lineHeight:1.7 }}>
+                  GA took a 30-minute call, commissioned secondary diligence, and it held. <strong style={{ color:'#fff' }}>$500M at $1B+.</strong>
+                </p>
+              </div>
+              <FlywheelDiagram />
+            </div>
+          </div>
+
+          {/* Asset table */}
+          <div style={{ borderTop:'1px solid rgba(255,255,255,.08)',paddingTop:28 }}>
             <div style={{ display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:16,flexWrap:'wrap',gap:10 }}>
-              <h3 style={{ fontSize:15,fontWeight:600,color:'rgba(255,255,255,.8)',margin:0 }}>
-                {CATALYST_ASSETS.length} assets in the library &mdash; company identity locked
-              </h3>
-              <button onClick={()=>setRequestOpen(true)} style={{ background:'rgba(255,255,255,.85)',color:'#050d18',border:'none',padding:'7px 16px',fontSize:11,fontWeight:700,cursor:'pointer' }}>Check Coverage &rarr;</button>
+              <div>
+                <div style={{ fontSize:13,fontWeight:600,color:'rgba(255,255,255,.8)',marginBottom:3 }}>
+                  {CATALYST_ASSETS.length} assets &mdash; identity locked until access granted
+                </div>
+                <div style={{ fontSize:11,color:'rgba(255,255,255,.3)' }}>
+                  Transacted assets unblinded post-close. Active assets remain code-named.
+                </div>
+              </div>
+              <div style={{ display:'flex',gap:6,alignItems:'center' }}>
+                {(['all','active','new','transacted'] as FilterType[]).map(f=>(
+                  <button key={f} onClick={()=>setFilter(f)} style={{ padding:'5px 13px',fontSize:11,fontWeight:600,background:filter===f?'rgba(255,255,255,.12)':'transparent',border:'1px solid rgba(255,255,255,.12)',color:filter===f?'rgba(255,255,255,.9)':'rgba(255,255,255,.4)',cursor:'pointer',textTransform:'capitalize' }}>
+                    {f==='all' ? `All (${CATALYST_ASSETS.length})` : f==='transacted' ? 'Transacted' : f.charAt(0).toUpperCase()+f.slice(1)}
+                  </button>
+                ))}
+                <button onClick={()=>setRequestOpen(true)} style={{ padding:'5px 14px',fontSize:11,fontWeight:700,background:'rgba(255,255,255,.88)',color:'#050d18',border:'none',cursor:'pointer',marginLeft:4 }}>Check Coverage &rarr;</button>
+              </div>
             </div>
-            <div style={{ display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:9 }}>
-              {CATALYST_ASSETS.map((a,i)=>(
-                <AssetCard key={i} asset={a} onClick={()=>setSelectedAsset(a)} />
-              ))}
-            </div>
-            <div style={{ marginTop:16,padding:'11px 16px',background:'rgba(77,144,254,.06)',border:'1px solid rgba(77,144,254,.12)',fontSize:12,color:'rgba(160,200,255,.7)',display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:10 }}>
+
+            <table style={{ width:'100%',borderCollapse:'collapse',background:'rgba(255,255,255,.02)',border:'1px solid rgba(255,255,255,.08)' }}>
+              <thead>
+                <tr style={{ borderBottom:'2px solid rgba(255,255,255,.1)' }}>
+                  {['Asset','Category','Key Metric','Status',''].map((h,i)=>(
+                    <th key={i} style={{ padding:'9px 14px',textAlign:'left',fontSize:9,fontWeight:700,textTransform:'uppercase',letterSpacing:'.1em',color:'rgba(255,255,255,.3)',whiteSpace:'nowrap' }}>{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {filtered.map((a,i)=>{
+                  const s = statusCfg[a.status];
+                  const isTransacted = a.status==='transacted';
+                  const displayName = isTransacted && a.realName ? a.realName : a.code;
+                  return (
+                    <tr key={i} style={{ borderBottom:'1px solid rgba(255,255,255,.05)',cursor:'pointer',transition:'background .12s' }}
+                      onClick={()=>setSelectedAsset(a)}
+                      onMouseEnter={e=>(e.currentTarget.style.background='rgba(255,255,255,.04)')}
+                      onMouseLeave={e=>(e.currentTarget.style.background='transparent')}>
+                      <td style={{ padding:'12px 14px' }}>
+                        <div style={{ fontSize:13,fontWeight:700,color: isTransacted ? '#2dd4a0' : 'rgba(130,175,255,.9)',marginBottom:2 }}>
+                          {displayName}
+                        </div>
+                        {isTransacted && a.realName && (
+                          <div style={{ fontSize:10,color:'rgba(255,255,255,.3)',fontStyle:'italic' }}>was: {a.code}</div>
+                        )}
+                        {!isTransacted && (
+                          <div style={{ fontSize:10,color:'rgba(255,255,255,.25)',fontStyle:'italic' }}>identity locked</div>
+                        )}
+                      </td>
+                      <td style={{ padding:'12px 14px' }}>
+                        <div style={{ fontSize:12,color:'rgba(255,255,255,.6)' }}>{a.category}</div>
+                        <div style={{ fontSize:10,color:'rgba(255,255,255,.28)',fontStyle:'italic' }}>{a.subtitle}</div>
+                      </td>
+                      <td style={{ padding:'12px 14px',fontSize:12,fontWeight:600,color:'rgba(130,175,255,.8)',fontFamily:'JetBrains Mono,monospace' }}>{a.keyMetric}</td>
+                      <td style={{ padding:'12px 14px' }}>
+                        <span style={{ fontSize:9,fontWeight:700,color:s.color,background:s.bg,border:`1px solid ${s.border}`,padding:'3px 9px',letterSpacing:'.06em',textTransform:'uppercase',whiteSpace:'nowrap' }}>
+                          {s.label}
+                        </span>
+                      </td>
+                      <td style={{ padding:'12px 14px' }}>
+                        <button onClick={e=>{e.stopPropagation();isTransacted?setSelectedAsset(a):setRequestOpen(true);}} style={{ background:'rgba(255,255,255,.07)',border:'1px solid rgba(255,255,255,.12)',color:'rgba(255,255,255,.6)',padding:'5px 12px',fontSize:11,cursor:'pointer',whiteSpace:'nowrap' }}>
+                          {isTransacted ? 'View Research' : 'Request Access'}
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+            <div style={{ marginTop:14,padding:'10px 16px',background:'rgba(77,144,254,.06)',border:'1px solid rgba(77,144,254,.12)',fontSize:12,color:'rgba(160,200,255,.7)',display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:10 }}>
               <span>Same-day if covered &middot; 14-day custom if not &middot; $10,000 per report</span>
               <button onClick={()=>setRequestOpen(true)} style={{ background:'transparent',border:'1px solid rgba(130,175,255,.3)',color:'rgba(130,175,255,.8)',padding:'5px 13px',fontSize:11,fontWeight:600,cursor:'pointer' }}>Request Access &rarr;</button>
             </div>

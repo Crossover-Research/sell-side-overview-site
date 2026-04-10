@@ -16,6 +16,8 @@ export interface CatalystAsset {
   moat: string;
   bank?: string;
   interviews?: number;
+  realName?: string;
+  dealNote?: string;
 }
 
 export const CATALYST_ASSETS: CatalystAsset[] = [
@@ -45,6 +47,8 @@ export const CATALYST_ASSETS: CatalystAsset[] = [
     category: 'Cybersecurity MDR',
     subtitle: 'Managed Detection & Response',
     status: 'transacted',
+    realName: 'Red Canary',
+    dealNote: 'Acquired by OpenText · MDR category leader',
     keyMetric: '9.0/10 NPS',
     hook: "When customers run real-malware competitive bake-offs and you detect threats faster with 67% cost savings versus building in-house, you're not competing on features. You're providing operational necessity for mid-market security teams.",
     metrics: [
