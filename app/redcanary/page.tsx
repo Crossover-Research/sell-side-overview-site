@@ -29,6 +29,9 @@ export default function RedCanaryPage() {
 
   return (
     <>
+      <ResearchHeader tab="thesis"  />
+      <div className="research-layout">
+        <ResearchSidebar tab="thesis" activeSection={active} onSelect={(s) => setActive(s as Section)} />
       <ResearchHeader tab="redcanary"  />
       <div className="research-layout">
         <ResearchSidebar tab="redcanary" activeSection={active} onSelect={(s) => setActive(s as Section)} />
