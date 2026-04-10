@@ -32,6 +32,7 @@ export default async function TabPage({ params }: PageProps) {
 
   return (
     <>
+      {!isResearch && <HeroSection tab={typedTab} />}
       {isResearch ? (
         <>
           <ResearchHeader tab="bluecat" />

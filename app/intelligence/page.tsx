@@ -1,6 +1,5 @@
 'use client';
 import { useState } from 'react';
-import { AnimatedMetrics } from '../../components/AnimatedMetrics';
 import { FlywheelDiagram } from '../../components/FlywheelDiagram';
 import { IB_TRACK_RECORD, IB_CAPS, IB_CAP_DATA, type IBCap } from '../../lib/data/ibCapabilities';
 import { CATALYST_ASSETS, type CatalystAsset } from '../../lib/data/catalystAssets';
@@ -177,11 +176,6 @@ export default function IntelligencePage() {
             Independent primary research. Wins mandates for bankers, hardens CIMs for operators,
             builds buy-side conviction for funds. Same data. Neither side chose the respondents.
           </p>
-          <AnimatedMetrics metrics={[
-            { val: IB_TRACK_RECORD.winRateWithCrossover, label: 'Mandate win rate' },
-            { val: IB_TRACK_RECORD.jpmEngagements,        label: 'J.P. Morgan engagements' },
-            { val: IB_TRACK_RECORD.totalTransactionValue, label: 'Transaction value supported' },
-          ]} />
         </div>
       </section>
 

@@ -2,139 +2,146 @@
 import { useState, useEffect } from 'react';
 import type { Tab } from '../lib/types';
 
+const METRICS = [
+  { val: '50%',  label: 'Mandate win rate with Crossover' },
+  { val: '22+',  label: 'J.P. Morgan engagements' },
+  { val: '$25B+', label: 'Transaction value supported' },
+  { val: '20+',  label: 'Catalyst assets available same day' },
+];
+
 const PROOF_CARDS = [
   {
+    tag: 'Mandate Win',
     quote: 'Having a Voice of Customer document was seen as a differentiator by the client. The findings from your report were a key part of the equity story materials we presented.',
     name: 'Executive Director, J.P. Morgan',
     role: 'Sell-side mandate · $10B transaction',
-    tag: 'Mandate Win',
   },
   {
+    tag: 'Proof of Flywheel',
     quote: 'J.P. Morgan mandate → Crossover line of sight → original fundamental view → GA 30-min brief → secondary diligence validated → $500M Series C at $1B+ valuation.',
     name: 'The Nerdio Deal',
     role: 'Both sides of the same transaction',
-    tag: 'Proof of Flywheel',
   },
   {
+    tag: 'Independence',
     quote: 'Independent by construction. Neither side chose the respondents. The same verbatim customer truth serves the sell-side equity story and the buy-side investment thesis simultaneously.',
     name: 'The Verbatim Truth Layer',
     role: 'Why both sides can rely on it',
-    tag: 'Independence',
   },
 ];
 
 interface HeroSectionProps { tab?: Tab; }
 
 export function HeroSection({ tab }: HeroSectionProps) {
+  const isPartner = tab === 'partner';
   const isBluecat = tab === 'bluecat';
   const [active, setActive] = useState(0);
-  const [animating, setAnimating] = useState(false);
+  const [fading, setFading] = useState(false);
 
   useEffect(() => {
+    if (!isPartner) return;
     const t = setInterval(() => {
-      setAnimating(true);
-      setTimeout(() => {
-        setActive(a => (a + 1) % PROOF_CARDS.length);
-        setAnimating(false);
-      }, 300);
-    }, 5000);
+      setFading(true);
+      setTimeout(() => { setActive(a => (a + 1) % PROOF_CARDS.length); setFading(false); }, 280);
+    }, 5200);
     return () => clearInterval(t);
-  }, []);
+  }, [isPartner]);
 
   const go = (i: number) => {
     if (i === active) return;
-    setAnimating(true);
-    setTimeout(() => { setActive(i); setAnimating(false); }, 250);
+    setFading(true);
+    setTimeout(() => { setActive(i); setFading(false); }, 240);
   };
 
   const card = PROOF_CARDS[active];
 
+  if (isBluecat) return null;
+
   return (
     <div className="hero">
       <div className="hero-inner">
-        {!isBluecat ? (
+        {isPartner ? (
+          /* ── WORK WITH US hero ──────────────────────────────── */
           <div className="hero-grid">
             <div>
+              <div className="hero-eyebrow">Sell-Side Intelligence &middot; Work With Us</div>
               <h1 className="hero-title">
-                The gaps in your story<br />
-                <span>exist whether you surface them or not.</span>
+                Win the mandate before<br />
+                <span>competing banks build their pitch.</span>
               </h1>
               <p className="hero-subtitle">
-                Crossover finds them first &mdash; using independent respondents nobody handpicked &mdash;
-                then builds customer-backed evidence to close them before buyers do.
-                The same research wins your mandate, hardens your CIM, and anchors buy-side conviction.
+                Crossover gives bankers independent customer evidence no competing bank has commissioned.
+                The same research hardens your CIM, pre-answers buyer objections, and anchors buy-side conviction.
               </p>
-              <div className="hero-actions">
-                <a href="/partner" className="hero-cta-primary">Work With Us &rarr;</a>
-                <a href="/intelligence" className="hero-cta-secondary">Intelligence Platform &rarr;</a>
+              {/* Metrics strip */}
+              <div className="hero-metrics">
+                {METRICS.map((m, i) => (
+                  <div key={i} className="hero-metric">
+                    <div className="hero-metric-val">{m.val}</div>
+                    <div className="hero-metric-lbl">{m.label}</div>
+                  </div>
+                ))}
               </div>
             </div>
 
             {/* Rotating proof carousel */}
-            <div className="hero-proof" style={{ position: 'relative', minHeight: 240 }}>
-              {/* Tag */}
-              <div style={{
-                display: 'inline-block', fontSize: 9, fontWeight: 700,
-                letterSpacing: '.14em', textTransform: 'uppercase',
-                color: 'rgba(77,144,254,.9)', background: 'rgba(77,144,254,.12)',
-                border: '1px solid rgba(77,144,254,.25)',
-                padding: '3px 10px', marginBottom: 14,
-                transition: 'opacity .25s',
-                opacity: animating ? 0 : 1,
-              }}>
+            <div className="hero-proof">
+              <div style={{ fontSize:9,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(77,144,254,.9)',background:'rgba(77,144,254,.12)',border:'1px solid rgba(77,144,254,.25)',padding:'3px 10px',display:'inline-block',marginBottom:14,opacity:fading?0:1,transition:'opacity .22s' }}>
                 {card.tag}
               </div>
-
-              {/* Quote */}
-              <div className="hero-proof-quote" style={{
-                transition: 'opacity .25s, transform .25s',
-                opacity: animating ? 0 : 1,
-                transform: animating ? 'translateY(6px)' : 'none',
-                marginBottom: 16,
-                fontSize: 14,
-                fontStyle: 'italic',
-              }}>
+              <div className="hero-proof-quote" style={{ opacity:fading?0:1,transform:fading?'translateY(5px)':'none',transition:'opacity .22s,transform .22s',fontSize:14,fontStyle:'italic',marginBottom:16 }}>
                 &ldquo;{card.quote}&rdquo;
               </div>
-
               <div className="hero-proof-rule" />
-
-              <div style={{
-                marginTop: 10,
-                transition: 'opacity .25s',
-                opacity: animating ? 0 : 1,
-              }}>
+              <div style={{ marginTop:10,opacity:fading?0:1,transition:'opacity .22s' }}>
                 <div className="hero-proof-name">{card.name}</div>
                 <div className="hero-proof-role">{card.role}</div>
               </div>
-
-              {/* Dot indicators */}
-              <div style={{ display: 'flex', gap: 7, marginTop: 20 }}>
+              <div style={{ display:'flex',gap:6,marginTop:18 }}>
                 {PROOF_CARDS.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => go(i)}
-                    style={{
-                      width: i === active ? 20 : 6,
-                      height: 6,
-                      borderRadius: 3,
-                      background: i === active ? 'rgba(130,175,255,.85)' : 'rgba(255,255,255,.2)',
-                      border: 'none',
-                      cursor: 'pointer',
-                      padding: 0,
-                      transition: 'all .3s',
-                    }}
-                  />
+                  <button key={i} onClick={() => go(i)} style={{ width:i===active?20:6,height:6,borderRadius:3,background:i===active?'rgba(130,175,255,.85)':'rgba(255,255,255,.18)',border:'none',cursor:'pointer',padding:0,transition:'all .3s' }} />
                 ))}
               </div>
             </div>
           </div>
         ) : (
-          <div style={{ paddingBottom: '4px' }}>
-            <div className="hero-eyebrow">Voice of Customer Intelligence &middot; BlueCat Networks</div>
-            <h1 className="hero-title" style={{ fontSize: '18px', marginBottom: '0' }}>
-              DDI &mdash; Mission-Critical Infrastructure
-            </h1>
+          /* ── INTELLIGENCE hero ──────────────────────────────── */
+          <div className="hero-grid">
+            <div>
+              <div className="hero-eyebrow">Sell-Side Intelligence &middot; Intelligence Platform</div>
+              <h1 className="hero-title">
+                The research layer that spans<br />
+                <span>the full transaction lifecycle.</span>
+              </h1>
+              <p className="hero-subtitle">
+                Independent primary research. Wins mandates for bankers, hardens CIMs for operators,
+                builds buy-side conviction for funds. Same data. Neither side chose the respondents.
+              </p>
+              {/* Metrics strip */}
+              <div className="hero-metrics">
+                {METRICS.map((m, i) => (
+                  <div key={i} className="hero-metric">
+                    <div className="hero-metric-val">{m.val}</div>
+                    <div className="hero-metric-lbl">{m.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Rotating proof carousel — same component, unified feel */}
+            <div className="hero-proof">
+              <div style={{ fontSize:9,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(77,144,254,.9)',background:'rgba(77,144,254,.12)',border:'1px solid rgba(77,144,254,.25)',padding:'3px 10px',display:'inline-block',marginBottom:14 }}>
+                {PROOF_CARDS[0].tag}
+              </div>
+              <div className="hero-proof-quote" style={{ fontSize:14,fontStyle:'italic',marginBottom:16 }}>
+                &ldquo;{PROOF_CARDS[0].quote}&rdquo;
+              </div>
+              <div className="hero-proof-rule" />
+              <div style={{ marginTop:10 }}>
+                <div className="hero-proof-name">{PROOF_CARDS[0].name}</div>
+                <div className="hero-proof-role">{PROOF_CARDS[0].role}</div>
+              </div>
+            </div>
           </div>
         )}
       </div>

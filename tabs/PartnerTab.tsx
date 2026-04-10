@@ -1,6 +1,5 @@
-import { TrackRecord } from '../components/TrackRecord';
 import { EngagementCard } from '../components/EngagementCard';
-import { TRACK_STATS, ENGAGEMENT_OPTIONS, CONTACT_INFO } from '../lib/data/partner';
+import { ENGAGEMENT_OPTIONS, CONTACT_INFO } from '../lib/data/partner';
 
 const WITHOUT_WITH = [
   { w: 'Most bankers pitch on relationship. Operators have no rational basis to choose one bank over another.', c: 'Crossover gives bankers direct customer evidence no competing bank has. The room is already yours.' },
@@ -46,9 +45,7 @@ const PRODUCTS = [
 export function PartnerTab() {
   return (
     <div>
-      <TrackRecord stats={TRACK_STATS} />
-
-      {/* J.P. Morgan proof */}
+{/* J.P. Morgan proof */}
       <div style={{ padding: '28px 0 24px', borderBottom: '1px solid var(--br-lo)', marginBottom: '28px' }}>
         <p style={{ fontSize: '18px', fontWeight: 300, color: 'var(--t1)', lineHeight: 1.6, fontStyle: 'italic', maxWidth: 760, marginBottom: 16 }}>
           &ldquo;Having a Voice of Customer document was seen as a differentiator by the client.
