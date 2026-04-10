@@ -148,15 +148,7 @@ export default function CatalystPage() {
               <div style={{ borderTop:'1px solid rgba(255,255,255,.08)',paddingTop:10,fontSize:11,color:'rgba(255,255,255,.35)',fontStyle:'italic' }}>Sell-side line of sight. Proprietary primary research. Original fundamental view. Buy-side match. The same infrastructure that wins mandates for bankers identifies the next great asset for funds.</div>
             </div>
           </div>
-          {/* Stats */}
-          <div style={{ display:'grid',gridTemplateColumns:'repeat(5,1fr)',borderTop:'1px solid rgba(255,255,255,.07)',marginTop:28 }}>
-            {[['20+','Assets in library'],['60+','Targeting in 2026'],['3,500+','Customer interviews'],['90%','Cost savings vs DIY'],['< 2 hrs','Read time per report']].map(([v,l],i)=>(
-              <div key={i} style={{ padding:'14px 18px',borderRight:i<4?'1px solid rgba(255,255,255,.07)':'none' }}>
-                <div style={{ fontFamily:'JetBrains Mono,monospace',fontSize:20,fontWeight:700,color:'rgba(255,255,255,.92)',lineHeight:1,marginBottom:4 }}>{v}</div>
-                <div style={{ fontSize:10,color:'rgba(255,255,255,.3)',letterSpacing:'.06em' }}>{l}</div>
-              </div>
-            ))}
-          </div>
+
         </div>
       </section>
 
