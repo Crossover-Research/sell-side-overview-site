@@ -3,11 +3,11 @@ import { EngagementCard } from '../components/EngagementCard';
 import { TRACK_STATS, ENGAGEMENT_OPTIONS, CONTACT_INFO } from '../lib/data/partner';
 
 const WITHOUT_WITH = [
-  { w: 'Pitch alongside 3–5 identical banks. Hope relationship wins.',           c: 'Walk in with customer evidence no competing bank has. The room is already yours.' },
-  { w: 'Assemble standard deck. Recycle public comps and industry reports.',      c: 'Customer-validated equity story built from verified respondents the buyer didn\'t select.' },
-  { w: 'Hope buyers don\'t find the gaps before you do.',                         c: 'Find the gaps first. Surface weaknesses with independent research. Close them before buyers do.' },
-  { w: 'CIM claims that sophisticated buyers discount before the first page turn.', c: 'Every retention claim, NPS benchmark, and moat assertion traces to verified respondents. Assertion becomes evidence.' },
-  { w: 'Win on relationship, not insight.',                                        c: 'Win on substance. Independent evidence cannot be copied overnight.' },
+  { w: 'Pitch alongside four identical banks. Hope your relationship is the tiebreaker.',      c: 'Walk in with customer evidence no competing bank has commissioned. The room is already yours.' },
+  { w: 'Build the equity story from public comps and management interviews buyers already discount.', c: 'Every claim traces to verified respondents the buyer did not select. Assertion becomes primary evidence.' },
+  { w: 'Bury the weak spots and hope diligence misses them before close.',                     c: 'Find the gaps before buyers do. Independent research surfaces weaknesses — and closes them with evidence.' },
+  { w: 'Spend weeks defending terrain in diligence that should have been fortified before process.', c: 'Enter the process with every buyer objection pre-answered by customer-backed evidence, not management counter-argument.' },
+  { w: 'Win on relationship. Lose to the bank that brought independent proof.',                c: 'Win on substance. Customer evidence from verified respondents cannot be replicated on your timeline.' },
 ];
 
 const PRODUCTS = [
