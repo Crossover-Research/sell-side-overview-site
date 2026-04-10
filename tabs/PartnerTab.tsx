@@ -52,10 +52,10 @@ export function PartnerTab() {
           <strong style={{ color: 'var(--t0)' }}>a $500M investment at unicorn valuation.</strong>
         </p>
         <div style={{ fontSize: 12, color: 'var(--t3)', fontStyle: 'italic', borderLeft: '2px solid var(--br-hi)', paddingLeft: 12, maxWidth: 680 }}>
-          One study. Both sides of the same deal. Neither side chose the respondents.
-          The same primary research that won the sell-side mandate anchored the buy-side thesis.
-          No research provider has ever powered both sides of a deal this way — because it only
-          works when the data is genuinely independent.
+          Sell-side mandate research became an original thesis. That thesis became a 30-minute conviction brief.
+          That brief became a secondary diligence commission. That diligence became a $500M deal.
+          One research infrastructure powering the full transaction lifecycle — because the data
+          was never curated for either side.
         </div>
       </div>
 
