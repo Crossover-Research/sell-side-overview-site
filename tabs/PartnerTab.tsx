@@ -60,29 +60,6 @@ export function PartnerTab() {
         </div>
       </div>
 
-      {/* Nerdio flywheel */}
-      <div style={{ padding: '0 0 28px', borderBottom: '1px solid var(--br-lo)', marginBottom: '28px' }}>
-        <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--blue)', opacity: .8, marginBottom: 12 }}>
-          Proof of the Flywheel — The Nerdio Deal
-        </div>
-        <p style={{ fontSize: 14, color: 'var(--t1)', lineHeight: 1.65, maxWidth: 780, marginBottom: 10 }}>
-          J.P. Morgan engaged Crossover to win the Nerdio Series C mandate. That engagement gave Crossover
-          line of sight into an asset the PE market hadn&rsquo;t yet evaluated. We formed a preliminary
-          fundamental view from the primary research: high-conviction story. We alerted select funds that fit
-          the thesis profile.
-        </p>
-        <p style={{ fontSize: 14, color: 'var(--t1)', lineHeight: 1.65, maxWidth: 780, marginBottom: 14 }}>
-          General Atlantic took a 30-minute call. The mandate research briefed them on a fully-formed thesis
-          in a single meeting — early positioning before the formal process began. They commissioned Crossover
-          to run the secondary diligence stream to validate the initial findings. The diligence held.{' '}
-          <strong style={{ color: 'var(--t0)' }}>$500M Series C at $1B+ valuation.</strong>
-        </p>
-        <div style={{ fontSize: 12, color: 'var(--t3)', fontStyle: 'italic', borderLeft: '2px solid var(--br-hi)', paddingLeft: 12, maxWidth: 700 }}>
-          Sell-side line of sight. Proprietary primary research. Original fundamental view. Buy-side match.
-          The same infrastructure that wins mandates for bankers identifies the next great asset for funds.
-          It only works because the data is never curated for either side.
-        </div>
-      </div>
 
       {/* Multi-sided model explainer */}
       <div style={{ padding: '0 0 28px', borderBottom: '1px solid var(--br-lo)', marginBottom: '28px' }}>
