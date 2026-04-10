@@ -6,14 +6,6 @@ import { IC_CARDS_BLUECAT, VERBATIMS_BLUECAT, STUDY_INTEL } from '../lib/data/bl
 export function BluecatTab() {
   return (
     <div>
-      <div className="section-header">
-        <div className="section-eyebrow">Investment Thesis &middot; BlueCat Networks</div>
-        <h2 className="section-title">IC Case in Four Questions</h2>
-        <p className="section-lead">
-          DNS, DHCP, and IP address management — foundational enterprise infrastructure
-          with near-zero churn and active Infoblox displacement opportunity.
-        </p>
-      </div>
 
       <ICAccordion cards={IC_CARDS_BLUECAT} theme="green" />
 

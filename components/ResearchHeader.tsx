@@ -7,23 +7,25 @@ const DownloadIcon = () => (
 );
 
 const CONFIGS: Record<string, {
-  title: string; sub: string;
+  company: string; product: string; studyId: string; color: string;
   kpis: { val: string; lbl: string }[];
-  reportUrl: string; reportLabel: string;
+  reportUrl: string;
 }> = {
   redcanary: {
-    title: 'Red Canary — Voice of Customer Research',
-    sub: 'Catalyst Study CR-2024-005 · 9-vendor MDR benchmark · Verified customer respondents',
+    company: 'Red Canary',
+    product: 'Managed Detection & Response',
+    studyId: 'Catalyst Study CR-2024-005 · 9-vendor MDR benchmark · 75+ respondents',
+    color: '#e05c5c',
     kpis: [{ val: '9.0', lbl: 'NPS' }, { val: '8.8', lbl: 'Replication' }, { val: '40%', lbl: 'ARR Growth' }],
     reportUrl: 'https://yvkbfmdugujhxerdopcm.supabase.co/storage/v1/object/public/public-assets/red-canary-catalyst.pdf',
-    reportLabel: 'Download Report',
   },
   bluecat: {
-    title: 'BlueCat Networks — Voice of Customer Research',
-    sub: 'Catalyst Study CR-2024-006 · DDI benchmark · 55 verified enterprise respondents',
+    company: 'BlueCat Networks',
+    product: 'DNS · DHCP · IP Address Management',
+    studyId: 'Catalyst Study CR-2024-006 · 55 verified enterprise respondents',
+    color: '#1e90d4',
     kpis: [{ val: '9.0', lbl: 'Mission Crit.' }, { val: '1.9', lbl: 'Switch Intent' }, { val: '98.5%', lbl: 'Net Retention' }],
     reportUrl: 'https://yvkbfmdugujhxerdopcm.supabase.co/storage/v1/object/public/public-assets/bluecat-catalyst.pdf',
-    reportLabel: 'Download Report',
   },
 };
 
@@ -35,9 +37,16 @@ export function ResearchHeader({ tab }: ResearchHeaderProps) {
   return (
     <div className="research-header">
       <div className="research-brand">
+        {/* Color accent bar */}
+        <div style={{ width: 3, height: 36, background: cfg.color, flexShrink: 0, borderRadius: 2 }} />
         <div>
-          <div className="research-title">{cfg.title}</div>
-          <div className="research-sub">{cfg.sub}</div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 3 }}>
+            <div className="research-title">{cfg.company}</div>
+            <div style={{ fontSize: 10, fontWeight: 600, color: cfg.color, background: `${cfg.color}18`, border: `1px solid ${cfg.color}35`, padding: '2px 8px', letterSpacing: '.04em', textTransform: 'uppercase' }}>
+              Catalyst Study
+            </div>
+          </div>
+          <div className="research-sub">{cfg.product} &middot; {cfg.studyId}</div>
         </div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
@@ -49,8 +58,8 @@ export function ResearchHeader({ tab }: ResearchHeaderProps) {
             </div>
           ))}
         </div>
-        <a href={cfg.reportUrl} target="_blank" rel="noopener noreferrer" download className="research-download-btn" aria-label={`Download ${cfg.title}`}>
-          <DownloadIcon />{cfg.reportLabel}
+        <a href={cfg.reportUrl} target="_blank" rel="noopener noreferrer" download className="research-download-btn">
+          <DownloadIcon />Download
         </a>
       </div>
     </div>
