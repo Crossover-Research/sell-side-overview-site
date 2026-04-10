@@ -91,7 +91,7 @@ body::before {
   backdrop-filter: var(--blur);
   -webkit-backdrop-filter: var(--blur);
   border-bottom: 1px solid rgba(255,255,255,.09);
-  height: 50px;
+  height: 72px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -101,6 +101,12 @@ body::before {
   z-index: 300;
 }
 .topbar-left  { display: flex; align-items: center; gap: 14px; }
+.topbar-brand { display: inline-flex; flex-direction: column; align-items: stretch; gap: 0; }
+.topbar-brand-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .35em; text-transform: uppercase; color: rgba(255,255,255,.58); line-height: 1; width: 100%; }
+.topbar-brand-row { display: flex; align-items: center; gap: 8px; width: 100%; }
+.topbar-brand-label { font-size: 9px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.35); }
+.topbar-brand-divider { width: 100%; height: 1px; background: rgba(255,255,255,.14); margin: 5px 0; transform-origin: left; }
+.topbar-logo-img { height: 28px; width: auto; opacity: 1; display: inline-block; vertical-align: middle; }
 .topbar-brand { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
 .topbar-brand-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.55); line-height: 1; }
 .topbar-brand-row { display: flex; align-items: center; gap: 8px; }
@@ -127,6 +133,7 @@ body::before {
 .hero {
   background: linear-gradient(165deg, rgba(8,21,38,.97) 0%, rgba(12,29,52,.92) 100%);
   padding: 0 var(--content-pad) 0;
+  padding-top: calc(72px + 42px + 20px);
   padding-top: calc(64px + 42px + 20px);
   position: relative;
   z-index: 1;
@@ -602,6 +609,7 @@ body::before {
 .ib-hero {
   background: linear-gradient(168deg, #05101f 0%, #0a1e38 55%, #0e2545 100%);
   padding: 60px 0 0;
+  padding-top: calc(72px + 42px + 40px);
   padding-top: calc(64px + 42px + 40px);
   position: relative; z-index: 1;
   border-bottom: 1px solid var(--br-lo);
@@ -983,6 +991,34 @@ body::before {
 
 .topbar-logo-fallback { display: none; font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.82); }
 
+.topbar-brand-row { display: flex; align-items: center; gap: 8px; width: 100%; }
+
+/* ── TOPBAR ENTRANCE ANIMATION ───────────────────────────────────────────── */
+@keyframes topbar-fade-up {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes divider-draw {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+@keyframes logo-pulse-glow {
+  0%, 100% { filter: drop-shadow(0 0 0px rgba(74,143,232,0)); }
+  50%       { filter: drop-shadow(0 0 7px rgba(74,143,232,.55)); }
+}
+
+.topbar-brand-eyebrow {
+  animation: topbar-fade-up .4s cubic-bezier(.22,.68,0,1.2) .05s both;
+}
+.topbar-brand-divider {
+  animation: divider-draw .5s cubic-bezier(.4,0,.2,1) .2s both;
+}
+.topbar-brand-row {
+  animation: topbar-fade-up .4s cubic-bezier(.22,.68,0,1.2) .3s both;
+}
+.topbar-logo-img {
+  animation: logo-pulse-glow 3.6s ease-in-out 1.2s infinite;
+}
 .topbar-brand-row { display: flex; align-items: center; gap: 8px; }
 /* ── INLINE HERO QUOTE ────────────────────────────────────────────────────── */
 .ib-inline-quote {

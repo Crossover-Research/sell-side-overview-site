@@ -5,7 +5,14 @@ export function Topbar() {
     <div className="topbar">
       <div className="topbar-left">
         <div className="topbar-brand">
+
+          {/* Row 1: SELL-SIDE INTELLIGENCE */}
           <div className="topbar-brand-eyebrow">Sell-Side Intelligence</div>
+
+          {/* Divider */}
+          <div className="topbar-brand-divider" />
+
+          {/* Row 2: Powered by [colored logo] */}
           <div className="topbar-brand-row">
             <span className="topbar-brand-label">Powered by</span>
             <img
@@ -21,6 +28,7 @@ export function Topbar() {
             />
             <span className="topbar-logo-fallback">CROSSOVER RESEARCH</span>
           </div>
+
         </div>
       </div>
       <div className="topbar-right">
