@@ -1,4 +1,3 @@
-import type { Tab } from '../lib/types';
 
 const DownloadIcon = () => (
   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -30,13 +29,15 @@ const CONFIGS: Record<string, {
 };
 
 // Map old tab IDs to config keys
-const TAB_TO_KEY: Record<Tab, string | null> = {
-  thesis: 'redcanary', vendor: 'redcanary', voice: 'redcanary',
-  bluecat: 'bluecat', partner: null,
+const TAB_TO_KEY: Record<string, string | null> = {
+  redcanary: 'redcanary',
+  bluecat: 'bluecat',
+  thesis: 'redcanary',
+  partner: null,
 };
 
 interface ResearchHeaderProps {
-  tab: Tab;
+  tab: string;
   onSectionChange?: (s: string) => void;
   activeSection?: string;
 }

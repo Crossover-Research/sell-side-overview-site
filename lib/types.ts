@@ -76,7 +76,7 @@ export interface ChartDataset {
   cutout?: string;
 }
 
-export type Tab = 'thesis' | 'vendor' | 'voice' | 'bluecat' | 'partner';
+export type Tab = 'bluecat' | 'partner';
 
 export interface VendorSpotlightData {
   name: string;

@@ -3,14 +3,11 @@ import { HeroSection } from '../../components/HeroSection';
 import { ChartInit } from '../../components/ChartInit';
 import { ResearchSidebar } from '../../components/ResearchSidebar';
 import { ResearchHeader } from '../../components/ResearchHeader';
-import { ThesisTab } from '../../tabs/ThesisTab';
-import { VendorTab } from '../../tabs/VendorTab';
-import { VoiceTab } from '../../tabs/VoiceTab';
 import { BluecatTab } from '../../tabs/BluecatTab';
 import { PartnerTab } from '../../tabs/PartnerTab';
 import type { Tab } from '../../lib/types';
 
-const validTabs: Tab[] = ['thesis', 'vendor', 'voice', 'bluecat', 'partner'];
+const validTabs: Tab[] = ['bluecat', 'partner'];
 
 export function generateStaticParams() {
   return validTabs.map((tab) => ({ tab }));
@@ -27,12 +24,9 @@ export default async function TabPage({ params }: PageProps) {
     redirect('/redcanary');
   }
   const typedTab = tab as Tab;
-  const isResearch = typedTab !== 'partner';
+  const isResearch = typedTab === 'bluecat';
 
   const content = {
-    thesis:  <ThesisTab />,
-    vendor:  <VendorTab />,
-    voice:   <VoiceTab />,
     bluecat: <BluecatTab />,
     partner: <PartnerTab />,
   }[typedTab];

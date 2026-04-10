@@ -3,12 +3,12 @@ import type { Tab } from '../lib/types';
 interface HeroSectionProps { tab?: Tab; }
 
 export function HeroSection({ tab }: HeroSectionProps) {
-  const isPartner = !tab || tab === 'partner';
+  const isBluecat = tab === 'bluecat';
 
   return (
     <div className="hero">
       <div className="hero-inner">
-        {isPartner ? (
+        {!isBluecat ? (
           <div className="hero-grid">
             <div>
               <div className="hero-eyebrow">Institutional Research · Sell-Side Intelligence</div>
@@ -23,7 +23,7 @@ export function HeroSection({ tab }: HeroSectionProps) {
               </p>
               <div className="hero-actions">
                 <a href="/partner" className="hero-cta-primary">Start a Mandate →</a>
-                <a href="/thesis" className="hero-cta-secondary">View Research ↓</a>
+                <a href="/redcanary" className="hero-cta-secondary">View Research ↓</a>
                 <a href="/capabilities" className="hero-cta-secondary">Intelligence Platform ↗</a>
               </div>
             </div>
@@ -40,14 +40,9 @@ export function HeroSection({ tab }: HeroSectionProps) {
           </div>
         ) : (
           <div style={{ paddingBottom: '4px' }}>
-            <div className="hero-eyebrow">Voice of Customer Intelligence · {
-              tab === 'bluecat' ? 'BlueCat Networks' : 'Red Canary'
-            }</div>
+            <div className="hero-eyebrow">Voice of Customer Intelligence · BlueCat Networks</div>
             <h1 className="hero-title" style={{ fontSize: '18px', marginBottom: '0' }}>
-              {tab === 'thesis'  && 'The IC Case in Four Questions'}
-              {tab === 'vendor'  && '9-Vendor Competitive Benchmark'}
-              {tab === 'voice'   && 'Verbatim Customer Evidence'}
-              {tab === 'bluecat' && 'DDI — Mission-Critical Infrastructure'}
+              DDI — Mission-Critical Infrastructure
             </h1>
           </div>
         )}
