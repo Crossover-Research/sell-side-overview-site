@@ -1,4 +1,3 @@
-import { notFound } from 'next/navigation';
 import { notFound, redirect } from 'next/navigation';
 import { HeroSection } from '../../components/HeroSection';
 import { ChartInit } from '../../components/ChartInit';
@@ -14,22 +13,21 @@ export function generateStaticParams() {
   return validTabs.map((tab) => ({ tab }));
 }
 
-
 interface PageProps { params: Promise<{ tab: string }>; }
 
 export default async function TabPage({ params }: PageProps) {
   const { tab } = await params;
+
+  // Legacy routes redirect to unified pages
+  if (['thesis', 'vendor', 'voice'].includes(tab)) redirect('/redcanary');
+
   if (!validTabs.includes(tab as Tab)) notFound();
-  // Consolidated: thesis/vendor/voice now live at /redcanary
-  if (['thesis', 'vendor', 'voice'].includes(tab)) {
-    redirect('/redcanary');
-  }
   const typedTab = tab as Tab;
   const isResearch = typedTab === 'bluecat';
 
   const content = {
-    bluecat: <BluecatTab />,
-    partner: <PartnerTab />,
+    bluecat:  <BluecatTab />,
+    partner:  <PartnerTab />,
   }[typedTab];
 
   return (
@@ -37,9 +35,9 @@ export default async function TabPage({ params }: PageProps) {
       <HeroSection tab={typedTab} />
       {isResearch ? (
         <>
-          <ResearchHeader tab={typedTab} />
+          <ResearchHeader tab="bluecat" />
           <div className="research-layout">
-            <ResearchSidebar tab={typedTab} />
+            <ResearchSidebar tab="bluecat" />
             <div className="content-inner">{content}</div>
           </div>
         </>
