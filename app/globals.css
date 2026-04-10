@@ -91,7 +91,7 @@ body::before {
   backdrop-filter: var(--blur);
   -webkit-backdrop-filter: var(--blur);
   border-bottom: 1px solid rgba(255,255,255,.09);
-  height: 64px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -101,27 +101,10 @@ body::before {
   z-index: 300;
 }
 .topbar-left  { display: flex; align-items: center; gap: 14px; }
-.topbar-brand { display: flex; flex-direction: column; align-items: flex-start; gap: 0; }
-.topbar-brand-eyebrow {
-  font-size: 9px; font-weight: 700; letter-spacing: .22em;
-  text-transform: uppercase; color: rgba(255,255,255,.42); line-height: 1; margin-bottom: 5px;
-}
-.topbar-brand-rule {
-  width: 100%; height: 1px;
-  background: linear-gradient(90deg, rgba(255,255,255,.15), transparent);
-  margin-bottom: 5px;
-}
-.topbar-brand-powered { display: flex; align-items: center; gap: 7px; }
-.topbar-brand-label {
-  font-size: 8px; font-weight: 600; letter-spacing: .12em;
-  text-transform: uppercase; color: rgba(255,255,255,.28);
-}
-.topbar-logo-img { height: 18px; width: auto; filter: brightness(0) invert(1); opacity: .75; }
-.topbar-brand-name {
-  font-size: 14px; font-weight: 800; letter-spacing: .08em;
-  text-transform: uppercase; color: rgba(255,255,255,.82);
-}
-.topbar-brand-accent { color: #4a8fe8; }
+.topbar-logo-img { height: 22px; width: auto; filter: brightness(0) invert(1); opacity: .92; }
+.topbar-divider { width: 1px; height: 16px; background: var(--br-hi); }
+.topbar-title h1 { font-size: 11px; font-weight: 400; color: rgba(255,255,255,.60); line-height: 1; }
+.topbar-title p  { display: none; }
 .topbar-right { display: flex; align-items: stretch; }
 .badge-confidential {
   display: flex; align-items: center;
@@ -138,7 +121,7 @@ body::before {
 .hero {
   background: linear-gradient(165deg, rgba(8,21,38,.97) 0%, rgba(12,29,52,.92) 100%);
   padding: 0 var(--content-pad) 0;
-  padding-top: calc(64px + 42px + 28px);
+  padding-top: calc(50px + 36px);
   position: relative;
   z-index: 1;
   border-bottom: 1px solid var(--br-lo);
@@ -241,11 +224,11 @@ body::before {
 
 /* ── TAB NAV ─────────────────────────────────────────────────────────────────── */
 .tab-nav-wrap {
-  background: rgba(5,11,22,.96);
+  background: rgba(6,14,28,.9);
   backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
   border-bottom: 1px solid var(--br-lo);
   padding: 0 var(--content-pad);
-  position: sticky; top: 64px; z-index: 200;
+  position: sticky; top: 50px; z-index: 200;
 }
 .tab-nav { max-width: var(--content-max); margin: 0 auto; display: flex; overflow-x: auto; scrollbar-width: none; }
 .tab-nav::-webkit-scrollbar { display: none; }
@@ -274,8 +257,8 @@ body::before {
   backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
   border-right: 1px solid var(--br-lo);
   padding: 18px 0;
-  position: sticky; top: 106px;
-  height: calc(100vh - 106px); overflow-y: auto;
+  position: sticky; top: 102px;
+  height: calc(100vh - 102px); overflow-y: auto;
 }
 .sidebar-group  { font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--t3); padding: 10px 16px 4px; }
 .sidebar-item {
@@ -529,7 +512,15 @@ body::before {
 .chart-card-title { font-size: 11px; font-weight: 700; color: var(--t0); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 14px; }
 
 /* ── FOOTER ──────────────────────────────────────────────────────────────────── */
-/* .page-footer — see FOOTER BRAND BLOCK section below */
+.page-footer {
+  background: rgba(4,10,20,.92);
+  border-top: 1px solid var(--br-lo);
+  color: var(--t4); font-size: 9px; text-align: center;
+  padding: 12px var(--content-pad); letter-spacing: .1em; text-transform: uppercase;
+  position: relative; z-index: 1;
+}
+.page-footer a { color: var(--t3); text-decoration: none; margin: 0 6px; }
+.page-footer a:hover { color: var(--t1); }
 
 /* ── ANIMATIONS ───────────────────────────────────────────────────────────────── */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
@@ -605,7 +596,7 @@ body::before {
 .ib-hero {
   background: linear-gradient(168deg, #05101f 0%, #0a1e38 55%, #0e2545 100%);
   padding: 60px 0 0;
-  padding-top: calc(64px + 42px + 40px);
+  padding-top: calc(50px + 60px);
   position: relative; z-index: 1;
   border-bottom: 1px solid var(--br-lo);
 }
@@ -743,7 +734,17 @@ body::before {
   .ib-cap-tabs { overflow-x: auto; flex-wrap: nowrap; }
   .ib-cap-tab { flex-shrink: 0; }
 }
-
+.topbar-cap-link {
+  display: flex; align-items: center;
+  padding: 0 14px;
+  font-size: 11px; font-weight: 500;
+  color: rgba(255,255,255,.58);
+  text-decoration: none;
+  border-left: 1px solid rgba(255,255,255,.1);
+  transition: color .15s;
+  letter-spacing: .03em;
+}
+.topbar-cap-link:hover { color: rgba(255,255,255,.9); }
 
 /* Research header download button */
 .research-download-btn {
