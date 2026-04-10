@@ -577,6 +577,9 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); } /* clearance for 
   .track-record { grid-template-columns: 1fr 1fr; }
   .metric-strip { grid-template-columns: repeat(2, 1fr); }
   .ic-trigger { grid-template-columns: 72px 1fr; }
+  .ic-body-inner { grid-template-columns: 80px 1fr; gap: 14px; }
+  .ic-body-stat { font-size: 26px; }
+  .ic-stat-num { font-size: 15px; }
   .ic-verdict-chip { display: none; }
 }
 @media (max-width: 600px) {
