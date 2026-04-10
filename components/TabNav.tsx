@@ -2,12 +2,21 @@
 import { useState, useRef, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 
+const RESEARCH_TABS = [
+  { href: '/thesis',  label: 'IC Thesis'    },
+  { href: '/vendor',  label: 'Vendor Intel' },
+  { href: '/voice',   label: 'Voice'        },
+];
+
 export function TabNav() {
   const router   = useRouter();
   const pathname = usePathname();
   const [samplesOpen, setSamplesOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
+  const isResearch = ['/thesis', '/vendor', '/voice', '/bluecat'].includes(pathname);
+  const isPartner  = pathname === '/partner' || pathname === '/';
+  const isCap      = pathname === '/capabilities';
   const isResearch = pathname === '/redcanary' || pathname === '/bluecat';
   const isPartner  = pathname === '/partner' || pathname === '/';
   const isCap      = pathname === '/capabilities';
@@ -36,6 +45,10 @@ export function TabNav() {
 
         <div className="tab-nav-divider" />
 
+        <a
+          href="/capabilities"
+          className={`tab-btn tab-primary${isCap ? ' active' : ''}`}
+        >
         <a href="/capabilities" className={`tab-btn tab-primary${isCap ? ' active' : ''}`}>
           Intelligence Platform
         </a>
@@ -58,6 +71,15 @@ export function TabNav() {
           {samplesOpen && (
             <div className="tab-dropdown">
               <div className="tab-dropdown-label">Red Canary — MDR</div>
+              {RESEARCH_TABS.map(({ href, label }) => (
+                <button
+                  key={href}
+                  className={`tab-dropdown-item${pathname === href ? ' active' : ''}`}
+                  onClick={() => { router.push(href); setSamplesOpen(false); }}
+                >
+                  {label}
+                </button>
+              ))}
               <button
                 className={`tab-dropdown-item${pathname === '/redcanary' ? ' active' : ''}`}
                 onClick={() => { router.push('/redcanary'); setSamplesOpen(false); }}

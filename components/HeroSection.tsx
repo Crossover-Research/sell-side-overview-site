@@ -3,6 +3,7 @@ import type { Tab } from '../lib/types';
 interface HeroSectionProps { tab?: Tab; }
 
 export function HeroSection({ tab }: HeroSectionProps) {
+  const isPartner = !tab || tab === 'partner';
   const isBluecat = tab === 'bluecat';
 
   return (

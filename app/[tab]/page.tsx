@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import { notFound, redirect } from 'next/navigation';
 import { HeroSection } from '../../components/HeroSection';
 import { ChartInit } from '../../components/ChartInit';
