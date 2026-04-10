@@ -1,15 +1,27 @@
 'use client';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 
 export function TabNav() {
   const router   = useRouter();
   const pathname = usePathname();
   const [samplesOpen, setSamplesOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const isResearch = pathname === '/redcanary' || pathname === '/bluecat';
   const isPartner  = pathname === '/partner' || pathname === '/';
   const isCap      = pathname === '/capabilities';
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setSamplesOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <div className="tab-nav-wrap">
@@ -32,10 +44,14 @@ export function TabNav() {
 
         <div
           className="tab-dropdown-wrap"
+          ref={dropdownRef}
           onMouseEnter={() => setSamplesOpen(true)}
           onMouseLeave={() => setSamplesOpen(false)}
         >
-          <button className={`tab-btn tab-primary${isResearch ? ' active' : ''}`}>
+          <button
+            className={`tab-btn tab-primary${isResearch ? ' active' : ''}`}
+            onClick={() => setSamplesOpen(prev => !prev)}
+          >
             Research Samples
             <span className="tab-chevron" style={{ transform: samplesOpen ? 'rotate(180deg)' : 'none' }}>▾</span>
           </button>
