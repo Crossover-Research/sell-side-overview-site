@@ -115,5 +115,21 @@ export const IB_CAP_DATA: Record<IBCap, IBCapabilityData> = {
     ],
   }
 
+  intelligence: {
+    label: 'Deal Flow Intelligence',
+    headline: 'Proprietary signals that surface mandates before they exist',
+    body: 'The most valuable intelligence in investment banking is knowing which companies are approaching a process before the management team has decided to run one. Crossover\'s continuous signal monitoring across 30+ source types surfaces convergence alerts 12-18 months before the banker call.',
+    bankerProblem: 'Your coverage calls are reactive. You learn a company is running a process when the teaser lands in your inbox after someone else was hired.',
+    crossoverAnswer: 'We monitor 30+ signal sources continuously and surface convergence alerts when hold period, management movement, advisor addition, and sector signals converge. You call before the pitch list is finalized.',
+    stats: [],
+    features: [
+      { title: 'Pipeline Signal Monitoring', desc: 'Continuous scanning of hold periods, management movements, board changes, and fund deployment patterns surfaces companies approaching a process, dormant relationships to reactivate, and new sourcing targets. Specific enough to brief a banker for a targeted call.' },
+      { title: 'Sector M&A Velocity Tracking', desc: 'Real-time monitoring of sector transactions — deal announcements, multiples, buyer identity, advisor selection. When a sector heats up, we surface the next likely target based on comparable profile and hold period before management has decided to run a process.' },
+      { title: 'Longitudinal Intelligence Database', desc: 'Every completed study writes back into a structured database — NPS, mission criticality, competitive rankings, verbatims, risk flags. Each subsequent engagement in a sector benchmarks against the full history so scores have context rather than existing in isolation.' },
+      { title: 'Competitive Intelligence Tracking', desc: 'Ongoing monitoring of named competitors across active mandates — pricing changes, product announcements, G2 velocity shifts, M&A activity. When a direct competitor is acquired, we update the benchmarking within days and flag the impact on your positioning.' },
+      { title: 'Fund Activity Signal Detection', desc: 'Fund hiring patterns, platform announcements, and deployment pace surface which funds are building a thesis in your sector before they post an LOI. Getting there first starts a relationship, not a pitch.' },
+      { title: 'Cross-Mandate Learning', desc: 'Buyer preferences identified in one process inform outreach strategy for the next comparable asset. Objections surfaced in one IC get catalogued for the next management prep. The platform gets sharper with every engagement.' },
+    ],
+  },
 };
 
