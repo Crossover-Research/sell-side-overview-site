@@ -4,7 +4,7 @@ import { TRACK_STATS, ENGAGEMENT_OPTIONS, CONTACT_INFO } from '../lib/data/partn
 
 const WITHOUT_WITH = [
   { w: 'Pitch alongside four identical banks. Hope your relationship is the tiebreaker.',      c: 'Walk in with customer evidence no competing bank has commissioned. The room is already yours.' },
-  { w: 'Build the equity story from public comps and management interviews buyers already discount.', c: 'Every claim traces to verified respondents the buyer did not select. Assertion becomes primary evidence.' },
+  { w: 'Most bankers build the equity story from general market research buyers discount before page one.', c: 'Crossover puts direct customer feedback in front of management. The depth of verified insight is what wins deals.' },
   { w: 'Bury the weak spots and hope diligence misses them before close.',                     c: 'Find the gaps before buyers do. Independent research surfaces weaknesses — and closes them with evidence.' },
   { w: 'Spend weeks defending terrain in diligence that should have been fortified before process.', c: 'Enter the process with every buyer objection pre-answered by customer-backed evidence, not management counter-argument.' },
   { w: 'Win on relationship. Lose to the bank that brought independent proof.',                c: 'Win on substance. Customer evidence from verified respondents cannot be replicated on your timeline.' },
