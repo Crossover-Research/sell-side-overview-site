@@ -102,13 +102,18 @@ body::before {
 }
 .topbar-left  { display: flex; align-items: center; gap: 14px; }
 .topbar-brand { display: inline-flex; flex-direction: column; align-items: stretch; gap: 0; }
-.topbar-brand-eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .32em; text-transform: uppercase; color: rgba(255,255,255,.95); line-height: 1; width: 100%; }
+.topbar-brand-eyebrow {
+  font-size: 13px; font-weight: 700; text-transform: uppercase;
+  color: rgba(255,255,255,.95); line-height: 1; width: 100%;
+  text-align: justify; text-align-last: justify;
+  /* justify trick — forces single line to span full width */
+}
+.topbar-brand-eyebrow::after { content: ''; display: inline-block; width: 100%; }
 .topbar-brand-row { display: flex; align-items: center; gap: 8px; width: 100%; }
 .topbar-brand-label { font-size: 9px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.35); }
 .topbar-brand-divider { width: 100%; height: 1px; background: rgba(255,255,255,.14); margin: 5px 0; transform-origin: left; }
 .topbar-logo-img { height: 28px; width: auto; opacity: 1; display: inline-block; vertical-align: middle; filter: brightness(0) invert(1); }
 .topbar-brand { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
-.topbar-brand-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.55); line-height: 1; }
 .topbar-brand-row { display: flex; align-items: center; gap: 8px; }
 .topbar-brand-label { font-size: 9px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.35); }
 .topbar-logo-img { height: 22px; width: auto; opacity: 1; display: inline-block; vertical-align: middle; }
@@ -118,6 +123,7 @@ body::before {
 .topbar-title h1 { font-size: 11px; font-weight: 400; color: rgba(255,255,255,.60); line-height: 1; }
 .topbar-title p  { display: none; }
 .topbar-right { display: flex; align-items: stretch; }
+main { padding-top: 72px; } /* clearance for fixed topbar — applies to every route */
 .badge-confidential {
   display: flex; align-items: center;
   font-size: 9px; font-weight: 600;
@@ -133,8 +139,8 @@ body::before {
 .hero {
   background: linear-gradient(165deg, rgba(8,21,38,.97) 0%, rgba(12,29,52,.92) 100%);
   padding: 0 var(--content-pad) 0;
-  padding-top: calc(72px + 42px + 20px);
-  padding-top: calc(64px + 42px + 20px);
+  padding-top: calc(42px + 24px);
+  padding-top: calc(42px + 24px);
   position: relative;
   z-index: 1;
   border-bottom: 1px solid var(--br-lo);
@@ -609,8 +615,7 @@ body::before {
 .ib-hero {
   background: linear-gradient(168deg, #05101f 0%, #0a1e38 55%, #0e2545 100%);
   padding: 60px 0 0;
-  padding-top: calc(72px + 42px + 40px);
-  padding-top: calc(64px + 42px + 40px);
+  padding-top: calc(42px + 40px);
   position: relative; z-index: 1;
   border-bottom: 1px solid var(--br-lo);
 }
@@ -1007,9 +1012,7 @@ body::before {
   50%       { filter: drop-shadow(0 0 7px rgba(74,143,232,.55)); }
 }
 
-.topbar-brand-eyebrow {
-  animation: topbar-fade-up .4s cubic-bezier(.22,.68,0,1.2) .05s both;
-}
+
 .topbar-brand-divider {
   animation: divider-draw .5s cubic-bezier(.4,0,.2,1) .2s both;
 }
