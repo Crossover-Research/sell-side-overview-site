@@ -35,6 +35,24 @@ export default function CapabilitiesPage() {
             { val: IB_TRACK_RECORD.jpmEngagements,        label: 'J.P. Morgan engagements completed' },
             { val: IB_TRACK_RECORD.totalTransactionValue, label: 'Transaction value supported' },
           ]} />
+          <div className="ib-metrics">
+            <div className="ib-metric">
+              <div className="ib-metric-val">{IB_TRACK_RECORD.winRateWithCrossover}</div>
+              <div className="ib-metric-lbl">Mandate win rate with Crossover</div>
+            </div>
+            <div className="ib-metric">
+              <div className="ib-metric-val">{IB_TRACK_RECORD.jpmEngagements}</div>
+              <div className="ib-metric-lbl">J.P. Morgan engagements completed</div>
+            </div>
+            <div className="ib-metric">
+              <div className="ib-metric-val">{IB_TRACK_RECORD.totalTransactionValue}</div>
+              <div className="ib-metric-lbl">Transaction value supported</div>
+            </div>
+            <div className="ib-metric">
+              <div className="ib-metric-val" style={{ fontSize: 13 }}>{IB_TRACK_RECORD.avgDeliveryDays}</div>
+              <div className="ib-metric-lbl">Delivery — Catalyst vs. custom</div>
+            </div>
+          </div>
 
           <div className="ib-inline-quote">
             <div className="ib-inline-quote-text">
@@ -71,6 +89,20 @@ export default function CapabilitiesPage() {
           </p>
           <div style={{ marginTop: 24, padding: '20px 0' }}>
             <FlywheelDiagram />
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 0, borderTop: '1px solid rgba(255,255,255,.1)', marginTop: 24 }}>
+            {[
+              { step: '01', label: 'Sell-Side Mandate', desc: 'J.P. Morgan engages Crossover' },
+              { step: '02', label: 'Line of Sight',     desc: 'Primary research reveals high-conviction asset' },
+              { step: '03', label: 'Fundamental View',  desc: 'Original thesis formed — stockpicker\'s lens' },
+              { step: '04', label: 'Buy-Side Match',    desc: 'Select funds alerted · 30-min conviction brief' },
+              { step: '05', label: 'Secondary Diligence', desc: 'GA commissions validation · $500M closes' },
+            ].map(({ step, label, desc }, i) => (
+              <div key={i} style={{ padding: '16px 18px', borderRight: i < 4 ? '1px solid rgba(255,255,255,.08)' : 'none' }}>
+                <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.12em', color: 'rgba(130,175,255,.5)', marginBottom: 6 }}>STEP {step}</div>
+                <div style={{ fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,.85)', marginBottom: 4 }}>{label}</div>
+                <div style={{ fontSize: 11, color: 'rgba(255,255,255,.4)', lineHeight: 1.5 }}>{desc}</div>
+              </div>
+            ))}
           </div>
           <div style={{ marginTop: 20, padding: '13px 18px', background: 'rgba(255,255,255,.05)', borderLeft: '3px solid rgba(130,175,255,.35)', fontSize: 12, color: 'rgba(255,255,255,.55)', fontStyle: 'italic', lineHeight: 1.6 }}>
             Sell-side line of sight. Proprietary primary research. Original fundamental view. Buy-side match.
