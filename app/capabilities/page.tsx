@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import {
   IB_TRACK_RECORD, IB_WORKFLOW_STAGES, IB_CAPS, IB_CAP_DATA,
-  IB_DIFFERENTIATORS, type IBCap,
+  type IBCap,
 } from '../../lib/data/ibCapabilities';
 
 export default function CapabilitiesPage() {
@@ -97,8 +97,7 @@ export default function CapabilitiesPage() {
           <p className="ib-section-desc">
             Each capability maps to a moment in the banker workflow where proprietary customer
             intelligence creates asymmetric advantage. They compound — the research built for
-            mandate pursuit becomes the CIM evidence, which becomes the buyer pre-read,
-            which becomes the management prep.
+            mandate pursuit becomes the CIM evidence, the buyer pre-read, and the management prep.
           </p>
 
           {/* Capability tabs */}
@@ -130,19 +129,21 @@ export default function CapabilitiesPage() {
             </div>
 
             {/* Header: headline + stats */}
-            <div className="ib-cap-header">
+            <div className={cap.stats.length > 0 ? "ib-cap-header" : "ib-cap-header-full"}>
               <div>
                 <h3 className="ib-cap-headline">{cap.headline}</h3>
                 <p className="ib-cap-body">{cap.body}</p>
               </div>
-              <div className="ib-stat-box">
-                {cap.stats.map((s, i) => (
-                  <div key={i} className="ib-stat-row">
-                    <span className="ib-stat-label">{s.label}</span>
-                    <span className="ib-stat-val">{s.val}</span>
-                  </div>
-                ))}
-              </div>
+              {cap.stats.length > 0 && (
+                <div className="ib-stat-box">
+                  {cap.stats.map((s, i) => (
+                    <div key={i} className="ib-stat-row">
+                      <span className="ib-stat-label">{s.label}</span>
+                      <span className="ib-stat-val">{s.val}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* 6 feature cards */}
@@ -171,7 +172,7 @@ export default function CapabilitiesPage() {
           <div className="ib-process">
             {[
               { num: '01', label: 'Intelligence Brief', detail: 'Scope the thesis questions, target customer profile, competitive set, and buyer universe priorities' },
-              { num: '02', label: 'Customer Discovery', detail: 'Build the verified respondent universe across 30+ public signal sources — no management-provided references' },
+              { num: '02', label: 'Customer Discovery', detail: 'Build the verified respondent universe across 30+ public signal sources, no management-provided references' },
               { num: '03', label: 'VoC Collection', detail: '30–100+ verified customers surveyed across Core 9 dimensions with competitive benchmarking and Van Westendorp pricing' },
               { num: '04', label: 'IC Simulation', detail: 'Run attack surface mapping and buyer-specific IC simulation before management\'s first process meeting' },
               { num: '05', label: 'Portal Delivery', detail: 'Hosted queryable intelligence portal, IC-ready writeup, buyer outreach campaign, and CIM evidence layer — simultaneously' },
@@ -199,15 +200,6 @@ export default function CapabilitiesPage() {
             investment decision-making. Every capability exists because the traditional
             research infrastructure fails at the exact moment a transaction process demands it.
           </p>
-          <div className="ib-diff-grid">
-            {IB_DIFFERENTIATORS.map(d => (
-              <div key={d.num} className="ib-diff">
-                <div className="ib-diff-num">{d.num}</div>
-                <div className="ib-diff-title">{d.title}</div>
-                <div className="ib-diff-desc">{d.desc}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -215,7 +207,7 @@ export default function CapabilitiesPage() {
       <section className="ib-section" id="samples">
         <div className="ib-inner">
           <div className="ib-section-eyebrow">Sample Intelligence</div>
-          <h2 className="ib-section-title">See a Live Crossover Portal</h2>
+          <h2 className="ib-section-title">See a Crossover Sample Study</h2>
           <p className="ib-section-desc">
             The Red Canary and BlueCat Networks Catalyst studies are live examples of the
             intelligence your deal team receives. The queryable portal, verbatim evidence,
