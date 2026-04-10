@@ -3,10 +3,10 @@ import { EngagementCard } from '../components/EngagementCard';
 import { TRACK_STATS, ENGAGEMENT_OPTIONS, CONTACT_INFO } from '../lib/data/partner';
 
 const WITHOUT_WITH = [
-  { w: 'Most bankers pitch on relationship. Buyers have no rational basis to choose one bank over another.', c: 'Crossover gives bankers direct customer evidence no competing bank has. The room is already yours.' },
-  { w: 'Most bankers build the equity story from general market research buyers discount before page one.',   c: 'Crossover puts direct customer feedback in front of management. The depth of verified insight is what wins deals.' },
-  { w: 'Most bankers bury the weak spots and hope buyers miss them before close.',                           c: 'Crossover finds the gaps first. Independent research surfaces weaknesses and closes them before buyers do.' },
-  { w: 'Most bankers spend diligence defending terrain that should have been fortified before the process.', c: 'Crossover pre-answers every buyer objection with customer-backed evidence before the first management meeting.' },
+  { w: 'Most bankers pitch on relationship. Operators have no rational basis to choose one bank over another.', c: 'Crossover gives bankers direct customer evidence no competing bank has. The room is already yours.' },
+  { w: 'Most bankers build the equity story from general market research operators already discount.',          c: 'Crossover puts direct customer feedback in front of operators. The depth of verified insight wins deals.' },
+  { w: 'Most bankers bury weak spots and hope diligence misses them before close.',                            c: 'Crossover finds the gaps first, surfaces them with independent research, and closes them with evidence.' },
+  { w: 'Most bankers spend diligence defending terrain that should have been fortified before process started.', c: 'Crossover pre-answers every buyer objection with customer-backed evidence before the first meeting.' },
   { w: 'Most bankers win on relationship. When a competitor brings independent proof, the relationship loses.', c: 'Crossover evidence cannot be replicated on any timeline. Walk in with proof. Walk out with the mandate.' },
 ];
 
