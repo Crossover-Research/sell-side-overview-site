@@ -74,7 +74,7 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
   if(sent) return(
     <div style={{ position:'fixed',inset:0,zIndex:600,background:'rgba(4,9,18,.92)',display:'flex',alignItems:'center',justifyContent:'center',padding:20 }}>
       <div style={{ background:'#0c1a2e',border:'1px solid rgba(255,255,255,.12)',padding:'40px 32px',maxWidth:380,width:'100%',textAlign:'center' }}>
-        <div style={{ fontSize:26,color:'#2dd4a0',marginBottom:10 }}>✓</div>
+        <div style={{ fontSize:26,color:'#2dd4a0',marginBottom:10 }}>&#10003;</div>
         <div style={{ fontSize:16,fontWeight:700,color:'#fff',marginBottom:7 }}>Request Submitted</div>
         <p style={{ fontSize:12,color:'rgba(255,255,255,.4)',lineHeight:1.6,marginBottom:20 }}>We&rsquo;ll confirm coverage within 24 hours.</p>
         <button onClick={onClose} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 24px',fontSize:12,fontWeight:700,cursor:'pointer' }}>Done</button>
@@ -111,7 +111,6 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
 
 export default function IntelligencePage() {
   const [activeCap, setActiveCap] = useState<IBCap>('mandate');
-  const [activeTab, setActiveTab] = useState<'platform'|'catalyst'>('platform');
   const [selectedAsset, setSelectedAsset] = useState<CatalystAsset|null>(null);
   const [requestOpen, setRequestOpen] = useState(false);
   const cap = IB_CAP_DATA[activeCap];
@@ -134,154 +133,154 @@ export default function IntelligencePage() {
             { val: IB_TRACK_RECORD.jpmEngagements,        label: 'J.P. Morgan engagements' },
             { val: IB_TRACK_RECORD.totalTransactionValue, label: 'Transaction value supported' },
           ]} />
-          {/* Tab switcher */}
-          <div style={{ display:'flex',gap:0,borderBottom:'1px solid rgba(255,255,255,.08)',marginTop:24 }}>
-            {(['platform','catalyst'] as const).map(t=>(
-              <button key={t} onClick={()=>setActiveTab(t)} style={{ padding:'10px 22px',fontSize:12,fontWeight:600,background:'none',border:'none',cursor:'pointer',letterSpacing:'.04em',textTransform:'uppercase',color:activeTab===t?'rgba(255,255,255,.9)':'rgba(255,255,255,.32)',borderBottom:activeTab===t?'2px solid rgba(255,255,255,.7)':'2px solid transparent',marginBottom:-1,transition:'color .15s' }}>
-                {t==='platform'?'Intelligence Platform':'Catalyst Library'}
-              </button>
-            ))}
+        </div>
+      </section>
+
+      {/* NERDIO + FLYWHEEL */}
+      <section className="ib-section ib-section-dark">
+        <div className="ib-inner">
+          <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:40,alignItems:'start' }}>
+            <div>
+              <div className="ib-section-eyebrow">Proof of the Model</div>
+              <h2 className="ib-section-title" style={{ color:'#fff',fontSize:20,marginBottom:10 }}>Both Sides of $500M</h2>
+              <p style={{ fontSize:13,color:'rgba(255,255,255,.62)',lineHeight:1.7,marginBottom:8 }}>
+                J.P. Morgan engaged Crossover on the Nerdio Series C. Sell-side line of sight revealed a high-conviction asset. Crossover formed a fundamental view and alerted select funds.
+              </p>
+              <p style={{ fontSize:13,color:'rgba(255,255,255,.62)',lineHeight:1.7 }}>
+                GA took a 30-minute call, commissioned secondary diligence, and it held. <strong style={{ color:'#fff' }}>$500M at $1B+.</strong>
+              </p>
+            </div>
+            <FlywheelDiagram />
           </div>
         </div>
       </section>
 
-      {/* ── PLATFORM TAB ──────────────────────────────────────────────────────── */}
-      {activeTab==='platform' && (
-        <>
-          {/* Nerdio + Flywheel */}
-          <section className="ib-section ib-section-dark">
-            <div className="ib-inner">
-              <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:40,alignItems:'start' }}>
-                <div>
-                  <div className="ib-section-eyebrow">Proof of the Model</div>
-                  <h2 className="ib-section-title" style={{ color:'#fff',fontSize:20,marginBottom:10 }}>Both Sides of $500M</h2>
-                  <p style={{ fontSize:13,color:'rgba(255,255,255,.62)',lineHeight:1.7,marginBottom:8 }}>
-                    J.P. Morgan engaged Crossover on the Nerdio Series C. Sell-side line of sight revealed a high-conviction asset. Crossover formed a fundamental view and alerted select funds.
-                  </p>
-                  <p style={{ fontSize:13,color:'rgba(255,255,255,.62)',lineHeight:1.7 }}>
-                    GA took a 30-minute call, commissioned secondary diligence, and it held. <strong style={{ color:'#fff' }}>$500M at $1B+.</strong>
-                  </p>
-                </div>
-                <FlywheelDiagram />
+      {/* CAPABILITIES */}
+      <section className="ib-section ib-section-alt">
+        <div className="ib-inner">
+          <div className="ib-section-eyebrow">Six Capabilities</div>
+          <h2 className="ib-section-title" style={{ marginBottom:18 }}>Built for Every Stage</h2>
+          <div className="ib-cap-tabs">
+            {IB_CAPS.map(c=>(
+              <button key={c} onClick={()=>setActiveCap(c)} className={`ib-cap-tab${activeCap===c?' active':''}`}>
+                {IB_CAP_DATA[c].label}
+              </button>
+            ))}
+          </div>
+          <div className="ib-cap-panel">
+            <div className="ib-framing">
+              <div className="ib-framing-col">
+                <div className="ib-framing-label">The Problem</div>
+                <p className="ib-framing-text">{cap.bankerProblem}</p>
+              </div>
+              <div className="ib-framing-arrow">&rarr;</div>
+              <div className="ib-framing-col ib-framing-answer">
+                <div className="ib-framing-label">Crossover Answer</div>
+                <p className="ib-framing-text">{cap.crossoverAnswer}</p>
               </div>
             </div>
-          </section>
+            <div className="ib-cap-header-full">
+              <h3 className="ib-cap-headline">{cap.headline}</h3>
+            </div>
+            <div className="ib-features">
+              {cap.features.slice(0,4).map((f,i)=>(
+                <div key={i} className="ib-feature">
+                  <div className="ib-feature-title">{f.title}</div>
+                  <div className="ib-feature-desc">{f.desc}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
-          {/* Capabilities */}
-          <section className="ib-section ib-section-alt">
-            <div className="ib-inner">
-              <div className="ib-section-eyebrow">Six Capabilities</div>
-              <h2 className="ib-section-title" style={{ marginBottom:18 }}>Built for Every Stage</h2>
-              <div className="ib-cap-tabs">
-                {IB_CAPS.map(c=>(
-                  <button key={c} onClick={()=>setActiveCap(c)} className={`ib-cap-tab${activeCap===c?' active':''}`}>
-                    {IB_CAP_DATA[c].label}
-                  </button>
-                ))}
-              </div>
-              <div className="ib-cap-panel">
-                <div className="ib-framing">
-                  <div className="ib-framing-col">
-                    <div className="ib-framing-label">The Problem</div>
-                    <p className="ib-framing-text">{cap.bankerProblem}</p>
-                  </div>
-                  <div className="ib-framing-arrow">&rarr;</div>
-                  <div className="ib-framing-col ib-framing-answer">
-                    <div className="ib-framing-label">Crossover Answer</div>
-                    <p className="ib-framing-text">{cap.crossoverAnswer}</p>
-                  </div>
-                </div>
-                <div className="ib-cap-header-full">
-                  <h3 className="ib-cap-headline">{cap.headline}</h3>
-                </div>
-                <div className="ib-features">
-                  {cap.features.slice(0,4).map((f,i)=>(
-                    <div key={i} className="ib-feature">
-                      <div className="ib-feature-title">{f.title}</div>
-                      <div className="ib-feature-desc">{f.desc}</div>
+      {/* SAMPLE STUDIES */}
+      <section className="ib-section">
+        <div className="ib-inner">
+          <div className="ib-section-eyebrow">Sample Research</div>
+          <h2 className="ib-section-title" style={{ marginBottom:16 }}>Live Catalyst Studies</h2>
+          <div className="ib-samples">
+            <a href="/redcanary" className="ib-sample-card">
+              <div className="ib-sample-type">SENTINEL &middot; Cybersecurity MDR</div>
+              <div className="ib-sample-name">Red Canary</div>
+              <div className="ib-sample-meta">9.0 NPS &middot; 8.8 replication difficulty &middot; 75+ respondents</div>
+              <div className="ib-sample-link">View Study &rarr;</div>
+            </a>
+            <a href="/bluecat" className="ib-sample-card">
+              <div className="ib-sample-type">FORTRESS &middot; Network Infrastructure</div>
+              <div className="ib-sample-name">BlueCat Networks</div>
+              <div className="ib-sample-meta">9.0 mission criticality &middot; 1.9 switching intent &middot; 55 respondents</div>
+              <div className="ib-sample-link">View Study &rarr;</div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* CATALYST — THE COMPOUNDING ENGINE */}
+      <section className="ib-section ib-section-dark">
+        <div className="ib-inner">
+          <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:48,alignItems:'start' }}>
+            <div>
+              <div className="ib-section-eyebrow">The Compounding Engine</div>
+              <h2 className="ib-section-title" style={{ color:'#fff',fontSize:22,marginBottom:12 }}>
+                How Crossover makes institutional research affordable.
+              </h2>
+              <p style={{ fontSize:13,color:'rgba(255,255,255,.6)',lineHeight:1.75,marginBottom:14 }}>
+                Every sell-side mandate Crossover completes produces primary research that is verticalised into dual-sided intelligence. The sell-side deck becomes the baseline for buy-side thesis development — the same verified customer truth, reframed for a different audience.
+              </p>
+              <p style={{ fontSize:13,color:'rgba(255,255,255,.6)',lineHeight:1.75,marginBottom:20 }}>
+                This is how Crossover captures economics across the full transaction lifecycle rather than charging any single party consulting-firm rates. The bank pays for the mandate. The fund pays for the thesis. The operator pays for the CIM layer. The research compounds with every engagement.
+              </p>
+              <button onClick={()=>setRequestOpen(true)} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 20px',fontSize:12,fontWeight:700,cursor:'pointer' }}>
+                Check Coverage &rarr;
+              </button>
+            </div>
+            <div>
+              {/* Flywheel economics visual */}
+              <div style={{ border:'1px solid rgba(255,255,255,.1)',padding:'22px 24px',marginBottom:12 }}>
+                <div style={{ fontSize:10,fontWeight:700,letterSpacing:'.12em',textTransform:'uppercase',color:'rgba(77,144,254,.7)',marginBottom:14 }}>The Dual-Sided Intelligence Model</div>
+                {[
+                  { arrow:'01', label:'Bank mandates Crossover', sub:'Sell-side deck · Mandate differentiation', color:'rgba(130,175,255,.7)' },
+                  { arrow:'02', label:'Research produces verified customer truth', sub:'Independent respondents · Core 9 methodology', color:'rgba(130,175,255,.55)' },
+                  { arrow:'03', label:'Intelligence verticalised for each audience', sub:'Banker equity story · Operator CIM · Fund thesis', color:'rgba(130,175,255,.55)' },
+                  { arrow:'04', label:'Catalyst resales compound the asset', sub:'Select funds · 6-12 months early · Same data', color:'rgba(130,175,255,.7)' },
+                ].map(({arrow,label,sub,color},i)=>(
+                  <div key={i} style={{ display:'flex',gap:12,alignItems:'flex-start',marginBottom:i<3?12:0 }}>
+                    <div style={{ fontSize:9,fontWeight:700,color:'rgba(130,175,255,.4)',fontFamily:'JetBrains Mono,monospace',flexShrink:0,paddingTop:2 }}>{arrow}</div>
+                    <div style={{ flex:1,paddingBottom:i<3?12:0,borderBottom:i<3?'1px solid rgba(255,255,255,.06)':'none' }}>
+                      <div style={{ fontSize:12,fontWeight:600,color,marginBottom:2 }}>{label}</div>
+                      <div style={{ fontSize:11,color:'rgba(255,255,255,.35)' }}>{sub}</div>
                     </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Sample studies */}
-          <section className="ib-section">
-            <div className="ib-inner">
-              <div className="ib-section-eyebrow">Sample Research</div>
-              <h2 className="ib-section-title" style={{ marginBottom:16 }}>Live Catalyst Studies</h2>
-              <div className="ib-samples">
-                <a href="/redcanary" className="ib-sample-card">
-                  <div className="ib-sample-type">SENTINEL &middot; Cybersecurity MDR</div>
-                  <div className="ib-sample-name">Red Canary</div>
-                  <div className="ib-sample-meta">9.0 NPS &middot; 8.8 replication difficulty &middot; 75+ respondents</div>
-                  <div className="ib-sample-link">View Study &rarr;</div>
-                </a>
-                <a href="/bluecat" className="ib-sample-card">
-                  <div className="ib-sample-type">FORTRESS &middot; Network Infrastructure</div>
-                  <div className="ib-sample-name">BlueCat Networks</div>
-                  <div className="ib-sample-meta">9.0 mission criticality &middot; 1.9 switching intent &middot; 55 respondents</div>
-                  <div className="ib-sample-link">View Study &rarr;</div>
-                </a>
-                <a href="#catalyst" onClick={e=>{e.preventDefault();setActiveTab('catalyst');}} className="ib-sample-card ib-sample-cta">
-                  <div className="ib-sample-type">Catalyst Library</div>
-                  <div className="ib-sample-name">20+ Assets</div>
-                  <div className="ib-sample-meta">Same-day if covered &middot; Investment hooks &middot; Locked identities</div>
-                  <div className="ib-sample-link">Browse Library &rarr;</div>
-                </a>
-              </div>
-            </div>
-          </section>
-        </>
-      )}
-
-      {/* ── CATALYST TAB ──────────────────────────────────────────────────────── */}
-      {activeTab==='catalyst' && (
-        <>
-          <section className="ib-section ib-section-dark">
-            <div className="ib-inner">
-              <div style={{ display:'grid',gridTemplateColumns:'1fr 300px',gap:40,alignItems:'start' }}>
-                <div>
-                  <div className="ib-section-eyebrow">Catalyst Library</div>
-                  <h2 className="ib-section-title" style={{ color:'#fff',fontSize:21,marginBottom:10 }}>
-                    Customer intelligence 6&ndash;12 months before processes begin.
-                  </h2>
-                  <p style={{ fontSize:13,color:'rgba(255,255,255,.58)',lineHeight:1.7,marginBottom:16 }}>
-                    Investment banks commission Crossover to win mandates. We reshape that research into investment-ready intelligence for select funds before teasers circulate. Same verbatim truth. Different framing.
-                  </p>
-                  <button onClick={()=>setRequestOpen(true)} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 20px',fontSize:12,fontWeight:700,cursor:'pointer' }}>
-                    Check Coverage &rarr;
-                  </button>
-                </div>
-                <div style={{ background:'rgba(255,255,255,.04)',border:'1px solid rgba(255,255,255,.1)',padding:'18px 20px' }}>
-                  <div style={{ fontSize:10,fontWeight:700,letterSpacing:'.12em',textTransform:'uppercase',color:'rgba(77,144,254,.8)',marginBottom:8 }}>🏆 Nerdio &mdash; $500M at $1B+</div>
-                  <p style={{ fontSize:12,color:'rgba(255,255,255,.6)',lineHeight:1.65,margin:'0 0 8px' }}>Mandate &rarr; line of sight &rarr; fundamental view &rarr; GA 30-min brief &rarr; secondary diligence &rarr; validated.</p>
-                  <div style={{ fontSize:11,color:'rgba(255,255,255,.28)',fontStyle:'italic' }}>Same data. Neither side chose the respondents.</div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section className="ib-section">
-            <div className="ib-inner">
-              <div style={{ display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:16,flexWrap:'wrap',gap:10 }}>
-                <h2 className="ib-section-title" style={{ margin:0 }}>{CATALYST_ASSETS.length} Assets &mdash; Company Identity Locked</h2>
-                <button onClick={()=>setRequestOpen(true)} style={{ background:'rgba(255,255,255,.88)',color:'#050d18',border:'none',padding:'7px 16px',fontSize:11,fontWeight:700,cursor:'pointer' }}>Check Coverage &rarr;</button>
-              </div>
-              <div style={{ display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:9 }}>
-                {CATALYST_ASSETS.map((a,i)=>(
-                  <AssetCard key={i} asset={a} onClick={()=>setSelectedAsset(a)} />
+                  </div>
                 ))}
               </div>
-              <div style={{ marginTop:18,padding:'12px 16px',background:'rgba(77,144,254,.07)',border:'1px solid rgba(77,144,254,.14)',fontSize:12,color:'rgba(160,200,255,.75)',display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:10 }}>
-                <span>Same-day if covered &middot; 14-day custom if not &middot; $10,000 per report</span>
-                <button onClick={()=>setRequestOpen(true)} style={{ background:'transparent',border:'1px solid rgba(130,175,255,.35)',color:'rgba(130,175,255,.85)',padding:'6px 14px',fontSize:11,fontWeight:600,cursor:'pointer' }}>Request Access &rarr;</button>
+              <div style={{ fontSize:11,color:'rgba(255,255,255,.28)',fontStyle:'italic',lineHeight:1.6 }}>
+                No single party pays consulting-firm rates because no single party carries the full cost.
+                The economics distribute across the ecosystem.
               </div>
             </div>
-          </section>
-        </>
-      )}
+          </div>
+
+          {/* Asset grid */}
+          <div style={{ marginTop:36,borderTop:'1px solid rgba(255,255,255,.08)',paddingTop:28 }}>
+            <div style={{ display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:16,flexWrap:'wrap',gap:10 }}>
+              <h3 style={{ fontSize:15,fontWeight:600,color:'rgba(255,255,255,.8)',margin:0 }}>
+                {CATALYST_ASSETS.length} assets in the library &mdash; company identity locked until access granted
+              </h3>
+              <button onClick={()=>setRequestOpen(true)} style={{ background:'rgba(255,255,255,.85)',color:'#050d18',border:'none',padding:'7px 16px',fontSize:11,fontWeight:700,cursor:'pointer' }}>Check Coverage &rarr;</button>
+            </div>
+            <div style={{ display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:9 }}>
+              {CATALYST_ASSETS.map((a,i)=>(
+                <AssetCard key={i} asset={a} onClick={()=>setSelectedAsset(a)} />
+              ))}
+            </div>
+            <div style={{ marginTop:16,padding:'11px 16px',background:'rgba(77,144,254,.06)',border:'1px solid rgba(77,144,254,.12)',fontSize:12,color:'rgba(160,200,255,.7)',display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:10 }}>
+              <span>Same-day if covered &middot; 14-day custom if not &middot; $10,000 per report</span>
+              <button onClick={()=>setRequestOpen(true)} style={{ background:'transparent',border:'1px solid rgba(130,175,255,.3)',color:'rgba(130,175,255,.8)',padding:'5px 13px',fontSize:11,fontWeight:600,cursor:'pointer' }}>Request Access &rarr;</button>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* CTA */}
       <section className="ib-cta">
