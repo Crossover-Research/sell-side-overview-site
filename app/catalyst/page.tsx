@@ -127,7 +127,7 @@ export default function CatalystPage() {
   return (
     <>
       {/* HERO */}
-      <section style={{ background:'linear-gradient(168deg,#050d18,#091424 55%,#0d1d36)',padding:'48px 36px 0',borderBottom:'1px solid rgba(255,255,255,.07)' }}>
+      <section style={{ background:'linear-gradient(168deg,#050d18,#091424 55%,#0d1d36)',padding:'24px 36px 0',borderBottom:'1px solid rgba(255,255,255,.07)' }}>
         <div style={{ maxWidth:1140,margin:'0 auto' }}>
           <div style={{ display:'grid',gridTemplateColumns:'1fr 400px',gap:48,alignItems:'start' }}>
             <div>
