@@ -220,7 +220,7 @@ export default function IntelligencePage() {
       <section className="ib-section">
         <div className="ib-inner">
           <div className="ib-section-eyebrow">Sample Research</div>
-          <h2 className="ib-section-title" style={{ marginBottom:16 }}>Live Catalyst Studies</h2>
+          <h2 className="ib-section-title" style={{ marginBottom:16 }}>Catalyst Studies</h2>
           <div className="ib-samples">
             <a href="/redcanary" className="ib-sample-card">
               <div className="ib-sample-type">SENTINEL &middot; Cybersecurity MDR</div>
