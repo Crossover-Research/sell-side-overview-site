@@ -296,7 +296,7 @@ export default function IntelligencePage() {
                   J.P. Morgan engaged Crossover on the Nerdio Series C. Sell-side line of sight revealed a high-conviction asset. Crossover formed a fundamental view and alerted select funds.
                 </p>
                 <p style={{ fontSize:13,color:'rgba(255,255,255,.6)',lineHeight:1.7 }}>
-                  GA took a 30-minute call, commissioned secondary diligence, and it held. <strong style={{ color:'#fff' }}>$500M at $1B+.</strong>
+                  GA took a 30-minute call, commissioned secondary diligence. It held. <strong style={{ color:'#fff' }}>$500M at $1B+.</strong>
                 </p>
               </div>
               <FlywheelDiagram />

@@ -54,7 +54,7 @@ export function TabNav() {
         <div className="tab-nav-divider" />
 
         <a href="/intelligence" className={`tab-btn tab-primary${pathname === '/intelligence' || isCap || pathname === '/catalyst' ? ' active' : ''}`}>
-          Intelligence
+          Intelligence Platform
         </a>
 
         <div className="tab-nav-divider" />
