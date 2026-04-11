@@ -1,5 +1,6 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { FlywheelDiagram } from '../../components/FlywheelDiagram';
 import { IB_TRACK_RECORD, IB_CAPS, IB_CAP_DATA, type IBCap } from '../../lib/data/ibCapabilities';
 import { CATALYST_ASSETS, type CatalystAsset } from '../../lib/data/catalystAssets';
@@ -151,11 +152,18 @@ function AssetNameCell({ asset }: { asset: CatalystAsset }) {
 }
 
 export default function IntelligencePage() {
+  const searchParams = useSearchParams();
   const [activeCap, setActiveCap] = useState<IBCap>('mandate');
   const [selectedAsset, setSelectedAsset] = useState<CatalystAsset|null>(null);
   const [requestOpen, setRequestOpen] = useState(false);
   const [filter, setFilter] = useState<FilterType>('all');
   const cap = IB_CAP_DATA[activeCap];
+
+  useEffect(() => {
+    if (searchParams.get('request') === '1') {
+      setRequestOpen(true);
+    }
+  }, [searchParams]);
   const filtered = CATALYST_ASSETS.filter(a=>filter==='all'||a.status===filter);
 
   const statusCfg = {

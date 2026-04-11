@@ -11,9 +11,9 @@ export function Footer() {
         <div className="site-footer-links">
           <a href="/partner">Work With Us</a>
           <a href="/intelligence">Intelligence Platform</a>
-          <a href="/intelligence">Catalyst Library</a>
           <a href="/redcanary">Red Canary</a>
-          <a href="/bluecat">BlueCat</a>
+          <a href="/bluecat">BlueCat Networks</a>
+          <a href="mailto:ian@crossoverresearch.com">Contact</a>
         </div>
         <div className="site-footer-legal">
           &copy; 2026 Crossover Research LLC

@@ -1,11 +1,18 @@
+import type { Metadata } from 'next';
 import Script from 'next/script'
 import { Topbar } from '../components/Topbar'
 import { TabNav } from '../components/TabNav'
 import { Footer } from '../components/Footer'
 import './globals.css'
 
-export const metadata = {
-  title: 'Crossover Research — Sell-Side Intelligence',
+export const metadata: Metadata = {
+  title: 'Crossover Research — Voice of Customer Intelligence',
+  description: 'Independent primary research for investment bankers, operators, and funds. The same verified customer truth — different strategic framing for each audience.',
+  openGraph: {
+    title: 'Crossover Research — Voice of Customer Intelligence',
+    description: 'Win mandates with customer evidence no competing bank has. The first dual-sided intelligence product for banked transactions.',
+    siteName: 'Crossover Research',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

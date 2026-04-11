@@ -71,7 +71,7 @@ export function TabNav() {
 
         <div className="tab-nav-divider" />
 
-        <a href="mailto:ian@crossoverresearch.com" className="tab-btn tab-primary">
+        <a href="/intelligence?request=1" className="tab-btn tab-primary">
           Submit a Request
         </a>
 
