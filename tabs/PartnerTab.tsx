@@ -2,11 +2,11 @@ import { EngagementCard } from '../components/EngagementCard';
 import { ENGAGEMENT_OPTIONS, CONTACT_INFO } from '../lib/data/partner';
 
 const WITHOUT_WITH = [
-  { w: 'Most bankers pitch on relationship. Operators have no rational basis to choose one bank over another.', c: 'Crossover gives bankers direct customer evidence no competing bank has. The room is already yours.' },
-  { w: 'Most bankers build the equity story from general market research operators already discount.',          c: 'Crossover puts direct customer feedback in front of operators. The depth of verified insight wins deals.' },
-  { w: 'Most bankers bury weak spots and hope diligence misses them before close.',                            c: 'Crossover finds the gaps first, surfaces them with independent research, and closes them with evidence.' },
-  { w: 'Most bankers spend diligence defending terrain that should have been fortified before process started.', c: 'Crossover pre-answers every buyer objection with customer-backed evidence before the first meeting.' },
-  { w: 'Most bankers win on relationship. When a competitor brings independent proof, the relationship loses.', c: 'Crossover evidence cannot be replicated on any timeline. Walk in with proof. Walk out with the mandate.' },
+  { w: 'Pitch alongside 3–5 identical banks on relationship. No rational basis to choose you.', c: 'Walk in with customer evidence no competing bank has commissioned. The room is already yours.' },
+  { w: 'Build the equity story from market research the operator already discounts.', c: 'Build the equity story from independent verified customer data. The operator cannot challenge what they did not select.' },
+  { w: 'Bury weak spots and hope buyer diligence misses them before close.', c: 'Find the gaps first. Surface them with independent research. Close them before diligence begins.' },
+  { w: 'Spend diligence defending terrain that should have been fortified before process started.', c: 'Pre-answer every buyer objection with customer-backed evidence before the first meeting.' },
+  { w: 'Win on relationship. When a competitor brings independent proof, the relationship loses.', c: 'Independent evidence cannot be replicated on any timeline. Walk in with proof. Walk out with the mandate.' },
 ];
 
 const PRODUCTS = [
