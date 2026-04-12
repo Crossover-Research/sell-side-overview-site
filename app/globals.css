@@ -1102,10 +1102,10 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); padding-bottom: 44p
 
 /* ── HERO METRICS STRIP ──────────────────────────────────────────────────── */
 .hero-metrics { display: flex; gap: 0; margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.08); }
-.hero-metric { padding-right: 28px; margin-right: 28px; border-right: 1px solid rgba(255,255,255,.1); }
+.hero-metric { padding-right: 36px; margin-right: 36px; border-right: 1px solid rgba(255,255,255,.1); display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
 .hero-metric:last-child { border-right: none; margin-right: 0; padding-right: 0; }
-.hero-metric-val { font-family: var(--font-mono); font-size: 26px; font-weight: 700; color: rgba(255,255,255,.92); line-height: 1; margin-bottom: 5px; }
-.hero-metric-lbl { font-size: 11px; color: rgba(255,255,255,.4); white-space: nowrap; line-height: 1; }
+.hero-metric-val { font-family: var(--font-mono); font-size: 28px; font-weight: 700; color: rgba(255,255,255,.95); line-height: 1; letter-spacing: -.02em; }
+.hero-metric-lbl { font-size: 11px; color: rgba(255,255,255,.45); white-space: nowrap; line-height: 1; letter-spacing: .02em; }
 .hero-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(130,175,255,.55); margin-bottom: 14px; }
 
 /* ── CATALYST TABLE MOBILE ───────────────────────────────────────────────── */
