@@ -8,53 +8,39 @@ export function TabNav() {
   const [samplesOpen, setSamplesOpen] = useState(false);
   const [dropdownPos, setDropdownPos] = useState({ top: 0, left: 0 });
   const btnRef = useRef<HTMLButtonElement>(null);
-  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const isResearch = pathname === '/redcanary' || pathname === '/bluecat';
-  const isPartner  = pathname === '/partner' || pathname === '/';
-  const isCap      = pathname === '/capabilities' || pathname === '/intelligence';
-
-  const updatePos = useCallback(() => {
-    if (btnRef.current) {
-      const r = btnRef.current.getBoundingClientRect();
-      setDropdownPos({ top: r.bottom + 4, left: r.left });
-    }
-  }, []);
+  const isResearch  = pathname === '/redcanary' || pathname === '/bluecat';
+  const isIntel     = pathname === '/intelligence' || pathname === '/capabilities';
+  const isCatalyst  = pathname === '/catalyst';
 
   const openDropdown = useCallback(() => {
-    updatePos();
-    setSamplesOpen(true);
-  }, [updatePos]);
-
-  // Close on outside click
-  useEffect(() => {
-    function onMouseDown(e: MouseEvent) {
-      if (
-        dropdownRef.current && !dropdownRef.current.contains(e.target as Node) &&
-        btnRef.current && !btnRef.current.contains(e.target as Node)
-      ) {
-        setSamplesOpen(false);
-      }
+    if (btnRef.current) {
+      const r = btnRef.current.getBoundingClientRect();
+      setDropdownPos({ top: r.bottom, left: r.left });
     }
-    document.addEventListener('mousedown', onMouseDown);
-    return () => document.removeEventListener('mousedown', onMouseDown);
+    setSamplesOpen(true);
+  }, []);
+
+  useEffect(() => {
+    const close = (e: MouseEvent) => {
+      if (btnRef.current && !btnRef.current.contains(e.target as Node)) setSamplesOpen(false);
+    };
+    document.addEventListener('mousedown', close);
+    return () => document.removeEventListener('mousedown', close);
   }, []);
 
   return (
     <div className="tab-nav-wrap">
-      <div className="tab-nav">
+      <nav className="tab-nav">
 
-        <button
-          className={`tab-btn tab-primary${isPartner ? ' active' : ''}`}
-          onClick={() => router.push('/partner')}
-        >
-          Work With Us
-        </button>
+        <a href="/intelligence" className={`tab-btn tab-primary${isIntel ? ' active' : ''}`}>
+          Intelligence Platform
+        </a>
 
         <div className="tab-nav-divider" />
 
-        <a href="/intelligence" className={`tab-btn tab-primary${pathname === '/intelligence' || isCap || pathname === '/catalyst' ? ' active' : ''}`}>
-          Intelligence Platform
+        <a href="/catalyst" className={`tab-btn tab-primary${isCatalyst ? ' active' : ''}`}>
+          Catalyst Library
         </a>
 
         <div className="tab-nav-divider" />
@@ -64,9 +50,9 @@ export function TabNav() {
           className={`tab-btn tab-primary${isResearch ? ' active' : ''}`}
           onClick={() => samplesOpen ? setSamplesOpen(false) : openDropdown()}
           onMouseEnter={openDropdown}
+          onMouseLeave={() => {}}
         >
-          Research Samples
-          <span className="tab-chevron" style={{ transform: samplesOpen ? 'rotate(180deg)' : 'none' }}>▾</span>
+          Research Samples <span style={{ fontSize: 9, opacity: .6 }}>&#9660;</span>
         </button>
 
         <div className="tab-nav-divider" />
@@ -75,12 +61,11 @@ export function TabNav() {
           Submit a Request
         </a>
 
-      </div>
+      </nav>
 
-      {/* Dropdown rendered at root level via fixed position - escapes overflow:auto clipping */}
       {samplesOpen && (
         <div
-          ref={dropdownRef}
+          ref={undefined}
           className="tab-dropdown"
           style={{ position: 'fixed', top: dropdownPos.top, left: dropdownPos.left }}
           onMouseLeave={() => setSamplesOpen(false)}
