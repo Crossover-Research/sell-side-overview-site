@@ -279,7 +279,7 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); } /* clearance for 
   transition: color .15s, border-color .2s; letter-spacing: .01em;
 }
 .tab-btn:hover { color: var(--t0); }
-.tab-btn.active { color: rgba(255,255,255,.97); border-bottom-color: rgba(180,210,255,.8); font-weight: 600; }
+.tab-btn.active { color: rgba(255,255,255,.97); border-bottom-color: rgba(180,210,255,.8); font-weight: 600; margin-bottom: -1px; }
 .tab-btn.tab-asset { margin-left: 14px; padding-left: 14px; border-left: 1px solid var(--br-lo); font-weight: 600; color: var(--t3); }
 .tab-btn.tab-asset.active { color: var(--t0); border-bottom-color: rgba(255,255,255,.35); }
 .tab-btn.tab-sep { margin-left: 6px; padding-left: 14px; border-left: 1px solid var(--br-lo); color: var(--t3); }
