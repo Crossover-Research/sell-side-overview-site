@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { FlywheelDiagram } from '../../components/FlywheelDiagram';
 import { IB_TRACK_RECORD, IB_CAPS, IB_CAP_DATA, type IBCap } from '../../lib/data/ibCapabilities';
@@ -159,19 +159,23 @@ function AssetNameCell({ asset }: { asset: CatalystAsset }) {
   );
 }
 
-export default function IntelligencePage() {
+
+function RequestParamWatcher({ onOpen }: { onOpen: () => void }) {
   const searchParams = useSearchParams();
+  useEffect(() => {
+    if (searchParams.get('request') === '1') onOpen();
+  }, [searchParams, onOpen]);
+  return null;
+}
+
+export default function IntelligencePage() {
   const [activeCap, setActiveCap] = useState<IBCap>('mandate');
   const [selectedAsset, setSelectedAsset] = useState<CatalystAsset|null>(null);
   const [requestOpen, setRequestOpen] = useState(false);
   const [filter, setFilter] = useState<FilterType>('all');
   const cap = IB_CAP_DATA[activeCap];
 
-  useEffect(() => {
-    if (searchParams.get('request') === '1') {
-      setRequestOpen(true);
-    }
-  }, [searchParams]);
+
   const filtered = CATALYST_ASSETS.filter(a=>filter==='all'||a.status===filter);
 
   const statusCfg = {
@@ -182,6 +186,7 @@ export default function IntelligencePage() {
 
   return (
     <>
+      <Suspense fallback={null}><RequestParamWatcher onOpen={() => setRequestOpen(true)} /></Suspense>
       <section className="ib-hero" style={{ paddingBottom: 0 }}>
         <div className="ib-inner">
           <h1 className="ib-title" style={{ marginBottom: 10 }}>
