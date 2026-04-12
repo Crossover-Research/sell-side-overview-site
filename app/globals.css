@@ -226,19 +226,20 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); padding-bottom: 44p
 
 /* Hero proof panel (J.P. Morgan quote) */
 .hero-proof {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.1);
-  border: 1px solid var(--br-hi);
-  padding: 18px; margin-top: 4px; position: relative; overflow: hidden;
+  background: rgba(10,24,50,.85);
+  border: 1px solid rgba(77,144,254,.25);
+  border-top: 2px solid rgba(77,144,254,.6);
+  padding: 24px; margin-top: 4px; position: relative; overflow: hidden;
+  box-shadow: 0 0 40px rgba(77,144,254,.08), inset 0 1px 0 rgba(77,144,254,.15);
 }
 .hero-proof::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+  content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 2px;
+  background: linear-gradient(to bottom, rgba(77,144,254,.6), rgba(77,144,254,.05));
 }
-.hero-proof-quote { font-size: 12px; color: var(--t1); font-style: italic; line-height: 1.65; margin-bottom: 12px; }
-.hero-proof-rule  { width: 20px; height: 1px; background: var(--br-hi); margin-bottom: 6px; }
-.hero-proof-name  { font-size: 10px; font-weight: 700; color: var(--t2); letter-spacing: .06em; text-transform: uppercase; }
-.hero-proof-role  { font-size: 9px; color: var(--t3); margin-top: 2px; letter-spacing: .04em; }
+.hero-proof-quote { font-size: 14px; color: rgba(255,255,255,.82); font-style: italic; line-height: 1.72; margin-bottom: 16px; }
+.hero-proof-rule  { width: 24px; height: 1px; background: rgba(77,144,254,.4); margin-bottom: 10px; }
+.hero-proof-name  { font-size: 10.5px; font-weight: 700; color: rgba(255,255,255,.7); letter-spacing: .07em; text-transform: uppercase; }
+.hero-proof-role  { font-size: 10px; color: rgba(255,255,255,.38); margin-top: 3px; letter-spacing: .03em; }
 
 /* ── METRIC STRIP ────────────────────────────────────────────────────────────── */
 .metric-strip {
