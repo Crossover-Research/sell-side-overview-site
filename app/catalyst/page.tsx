@@ -183,15 +183,30 @@ export default function CatalystPage() {
             </div>
           </div>
 
-          {/* Nerdio proof — compact strip */}
-          <div style={{ display:'flex',alignItems:'center',gap:32,marginBottom:28,padding:'16px 20px',background:'rgba(77,144,254,.06)',border:'1px solid rgba(77,144,254,.12)' }}>
-            <div style={{ flexShrink:0 }}>
-              <div style={{ fontSize:9,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(77,144,254,.7)',marginBottom:4 }}>Proof &mdash; Both Sides of One Deal</div>
-              <div style={{ fontSize:13,color:'rgba(255,255,255,.65)',lineHeight:1.6 }}>
-                J.P. Morgan mandate &rarr; Crossover line of sight &rarr; GA 30-min brief &rarr; secondary diligence &rarr; <strong style={{ color:'#fff' }}>$500M Series C at $1B+.</strong>
-              </div>
+          {/* Nerdio proof — vertical stack */}
+          <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:0,marginBottom:28,border:'1px solid rgba(77,144,254,.15)',background:'rgba(77,144,254,.04)' }}>
+            <div style={{ padding:'20px 24px',borderRight:'1px solid rgba(77,144,254,.12)' }}>
+              <div style={{ fontSize:9,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(77,144,254,.7)',marginBottom:12 }}>Proof &mdash; Both Sides of One Deal</div>
+              {[
+                { step:'Sell-side mandate', detail:'J.P. Morgan engages Crossover on Nerdio Series C' },
+                { step:'Line of sight', detail:'Primary research reveals high-conviction asset' },
+                { step:'Fundamental view formed', detail:'Original thesis — independent, not curated' },
+                { step:'Buy-side match', detail:'GA alerted, 30-min brief, early positioning' },
+                { step:'Secondary diligence', detail:'Validates findings. $500M Series C at $1B+' },
+              ].map(({step,detail},i,arr)=>(
+                <div key={i} style={{ display:'flex',gap:12,alignItems:'flex-start',marginBottom:i<arr.length-1?10:0 }}>
+                  <div style={{ display:'flex',flexDirection:'column',alignItems:'center',flexShrink:0 }}>
+                    <div style={{ width:6,height:6,borderRadius:'50%',background:i===arr.length-1?'#2dd4a0':'rgba(77,144,254,.6)',marginTop:3 }} />
+                    {i<arr.length-1&&<div style={{ width:1,height:14,background:'rgba(77,144,254,.2)',marginTop:3 }} />}
+                  </div>
+                  <div style={{ paddingBottom:i<arr.length-1?4:0 }}>
+                    <div style={{ fontSize:11,fontWeight:600,color:i===arr.length-1?'#2dd4a0':'rgba(130,175,255,.8)',marginBottom:1 }}>{step}</div>
+                    <div style={{ fontSize:10,color:'rgba(255,255,255,.35)',lineHeight:1.5 }}>{detail}</div>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div style={{ flexShrink:0,marginLeft:'auto' }}>
+            <div style={{ padding:'20px 24px',display:'flex',alignItems:'center' }}>
               <FlywheelDiagram />
             </div>
           </div>
