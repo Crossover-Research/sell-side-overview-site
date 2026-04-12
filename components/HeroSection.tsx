@@ -63,7 +63,6 @@ export function HeroSection({ tab }: HeroSectionProps) {
           /* ── WORK WITH US hero ──────────────────────────────── */
           <div className="hero-grid">
             <div>
-              <div className="hero-eyebrow">Voice of Customer Intelligence &middot; For Bankers</div>
               <h1 className="hero-title">
                 Win the mandate before<br />
                 <span>competing banks build their pitch.</span>
@@ -107,7 +106,6 @@ export function HeroSection({ tab }: HeroSectionProps) {
           /* ── INTELLIGENCE hero ──────────────────────────────── */
           <div className="hero-grid">
             <div>
-              <div className="hero-eyebrow">Voice of Customer Intelligence &middot; Intelligence Platform</div>
               <h1 className="hero-title">
                 The research layer that spans<br />
                 <span>the full transaction lifecycle.</span>
