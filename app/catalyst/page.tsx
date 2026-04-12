@@ -155,38 +155,43 @@ export default function CatalystPage() {
         <div className="ib-inner">
 
           {/* Header row */}
-          <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:48,alignItems:'center',marginBottom:32,paddingBottom:28,borderBottom:'1px solid rgba(255,255,255,.07)' }}>
-            <div>
-              <div className="ib-section-eyebrow">Crossover Catalyst</div>
-              <h2 style={{ fontSize:24,fontWeight:700,color:'#fff',lineHeight:1.25,marginBottom:12,marginTop:8 }}>
-                The first dual-sided intelligence product for banked transactions.
-              </h2>
-              <p style={{ fontSize:13,color:'rgba(255,255,255,.5)',lineHeight:1.75,marginBottom:0 }}>
-                Every sell-side mandate produces primary research verticalised for both sides of the transaction.
-                Same independent data. Neither side chose the respondents.
-              </p>
-            </div>
-            {/* 4-step horizontal model */}
-            <div style={{ display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:0,border:'1px solid rgba(255,255,255,.08)' }}>
-              {[
-                { n:'01', label:'Bank mandates Crossover', sub:'Sell-side deck' },
-                { n:'02', label:'Verified customer truth', sub:'Independent respondents' },
-                { n:'03', label:'Verticalised by audience', sub:'Banker · Operator · Fund' },
-                { n:'04', label:'Catalyst resales', sub:'Select funds, 6-12 mo early' },
-              ].map(({n,label,sub},i)=>(
-                <div key={i} style={{ padding:'14px 14px',borderLeft:i>0?'1px solid rgba(255,255,255,.07)':'none' }}>
-                  <div style={{ fontSize:9,fontWeight:700,color:'rgba(130,175,255,.35)',fontFamily:'JetBrains Mono,monospace',marginBottom:6 }}>{n}</div>
-                  <div style={{ fontSize:11,fontWeight:600,color:'rgba(255,255,255,.75)',lineHeight:1.35,marginBottom:4 }}>{label}</div>
-                  <div style={{ fontSize:10,color:'rgba(255,255,255,.3)' }}>{sub}</div>
-                </div>
-              ))}
+          <div style={{ marginBottom:36,paddingBottom:32,borderBottom:'1px solid rgba(255,255,255,.07)' }}>
+            <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:48,alignItems:'center',marginBottom:28 }}>
+              <div>
+                <div className="ib-section-eyebrow">Crossover Catalyst</div>
+                <h2 style={{ fontSize:26,fontWeight:700,color:'#fff',lineHeight:1.2,marginBottom:14,marginTop:8 }}>
+                  The first dual-sided intelligence product for banked transactions.
+                </h2>
+                <p style={{ fontSize:14,color:'rgba(255,255,255,.58)',lineHeight:1.8,marginBottom:20 }}>
+                  Every sell-side mandate produces primary research verticalised for both sides of the transaction.
+                  Same independent data. Neither side chose the respondents.
+                </p>
+                <button onClick={()=>setRequestOpen(true)} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 20px',fontSize:12,fontWeight:700,cursor:'pointer' }}>
+                  Check Coverage &rarr;
+                </button>
+              </div>
+              {/* 4-step model — bigger, more readable */}
+              <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gridTemplateRows:'1fr 1fr',gap:1,background:'rgba(255,255,255,.07)' }}>
+                {[
+                  { n:'01', label:'Bank mandates Crossover', sub:'Sell-side deck · mandate differentiation' },
+                  { n:'02', label:'Verified customer truth', sub:'Independent respondents, not management-sourced' },
+                  { n:'03', label:'Verticalised by audience', sub:'Banker equity story · Operator CIM · Fund thesis' },
+                  { n:'04', label:'Catalyst resales compound', sub:'Select funds · 6-12 months early · same data' },
+                ].map(({n,label,sub},i)=>(
+                  <div key={i} style={{ padding:'18px 20px',background:'rgba(8,18,34,.95)' }}>
+                    <div style={{ fontSize:9,fontWeight:700,color:'rgba(130,175,255,.4)',fontFamily:'JetBrains Mono,monospace',marginBottom:8 }}>{n}</div>
+                    <div style={{ fontSize:13,fontWeight:700,color:'rgba(255,255,255,.85)',lineHeight:1.3,marginBottom:5 }}>{label}</div>
+                    <div style={{ fontSize:11,color:'rgba(255,255,255,.4)',lineHeight:1.5 }}>{sub}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Nerdio proof — vertical stack */}
-          <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:0,marginBottom:28,border:'1px solid rgba(77,144,254,.15)',background:'rgba(77,144,254,.04)' }}>
-            <div style={{ padding:'20px 24px',borderRight:'1px solid rgba(77,144,254,.12)' }}>
-              <div style={{ fontSize:9,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(77,144,254,.7)',marginBottom:12 }}>Proof &mdash; Both Sides of One Deal</div>
+          {/* Nerdio proof */}
+          <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:0,marginBottom:32,border:'1px solid rgba(77,144,254,.15)',background:'rgba(77,144,254,.04)' }}>
+            <div style={{ padding:'24px 28px',borderRight:'1px solid rgba(77,144,254,.12)' }}>
+              <div style={{ fontSize:9,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(77,144,254,.7)',marginBottom:16 }}>Proof &mdash; Both Sides of One Deal</div>
               {[
                 { step:'Sell-side mandate', detail:'J.P. Morgan engages Crossover on Nerdio Series C' },
                 { step:'Line of sight', detail:'Primary research reveals high-conviction asset' },
@@ -194,19 +199,19 @@ export default function CatalystPage() {
                 { step:'Buy-side match', detail:'GA alerted, 30-min brief, early positioning' },
                 { step:'Secondary diligence', detail:'Validates findings. $500M Series C at $1B+' },
               ].map(({step,detail},i,arr)=>(
-                <div key={i} style={{ display:'flex',gap:12,alignItems:'flex-start',marginBottom:i<arr.length-1?10:0 }}>
+                <div key={i} style={{ display:'flex',gap:14,alignItems:'flex-start',marginBottom:i<arr.length-1?14:0 }}>
                   <div style={{ display:'flex',flexDirection:'column',alignItems:'center',flexShrink:0 }}>
-                    <div style={{ width:6,height:6,borderRadius:'50%',background:i===arr.length-1?'#2dd4a0':'rgba(77,144,254,.6)',marginTop:3 }} />
-                    {i<arr.length-1&&<div style={{ width:1,height:14,background:'rgba(77,144,254,.2)',marginTop:3 }} />}
+                    <div style={{ width:7,height:7,borderRadius:'50%',background:i===arr.length-1?'#2dd4a0':'rgba(77,144,254,.7)',marginTop:4 }} />
+                    {i<arr.length-1&&<div style={{ width:1,height:18,background:'rgba(77,144,254,.2)',marginTop:3 }} />}
                   </div>
-                  <div style={{ paddingBottom:i<arr.length-1?4:0 }}>
-                    <div style={{ fontSize:11,fontWeight:600,color:i===arr.length-1?'#2dd4a0':'rgba(130,175,255,.8)',marginBottom:1 }}>{step}</div>
-                    <div style={{ fontSize:10,color:'rgba(255,255,255,.35)',lineHeight:1.5 }}>{detail}</div>
+                  <div>
+                    <div style={{ fontSize:13,fontWeight:600,color:i===arr.length-1?'#2dd4a0':'rgba(255,255,255,.85)',marginBottom:2 }}>{step}</div>
+                    <div style={{ fontSize:11,color:'rgba(255,255,255,.45)',lineHeight:1.55 }}>{detail}</div>
                   </div>
                 </div>
               ))}
             </div>
-            <div style={{ padding:'20px 24px',display:'flex',alignItems:'center' }}>
+            <div style={{ padding:'24px 28px',display:'flex',alignItems:'center',justifyContent:'center' }}>
               <FlywheelDiagram />
             </div>
           </div>
