@@ -98,7 +98,7 @@ body::before {
   background: #0b1628;
   backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
   border-bottom: 1px solid rgba(255,255,255,.09);
-  height: 58px;
+  height: 72px;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 var(--content-pad);
   position: fixed; top: 0; left: 0; right: 0;
