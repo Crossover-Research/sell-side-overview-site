@@ -57,15 +57,21 @@ export function HeroSection({ tab }: HeroSectionProps) {
     <div className="hero">
       <div className="hero-inner">
         <div className="hero-grid">
-          <div>
+
+          {/* LEFT — headline, subtitle, CTAs, metrics */}
+          <div style={{ display:'flex', flexDirection:'column', justifyContent:'center' }}>
             <h1 className="hero-title">
-              The research layer that spans<br />
-              <span>the full transaction lifecycle.</span>
+              The research layer that spans the full transaction lifecycle.
             </h1>
             <p className="hero-subtitle">
-              Independent primary research. Wins mandates for bankers, hardens CIMs for operators,
-              builds buy-side conviction for funds. Same data. Neither side chose the respondents.
+              Independent primary research that wins mandates for bankers, hardens CIMs for
+              operators, and builds buy-side conviction for funds. Same data. Neither side
+              chose the respondents.
             </p>
+            <div style={{ display:'flex', gap:10, marginBottom:28 }}>
+              <a href="/intelligence?request=1" className="hero-cta-primary">Start a Mandate &rarr;</a>
+              <a href="/catalyst" className="hero-cta-secondary">Catalyst Library</a>
+            </div>
             <div className="hero-metrics">
               {METRICS.map((m, i) => (
                 <div key={i} className="hero-metric">
@@ -76,24 +82,26 @@ export function HeroSection({ tab }: HeroSectionProps) {
             </div>
           </div>
 
+          {/* RIGHT — rotating proof carousel */}
           <div className="hero-proof">
-            <div style={{ fontSize:9,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(77,144,254,.9)',background:'rgba(77,144,254,.12)',border:'1px solid rgba(77,144,254,.25)',padding:'3px 10px',display:'inline-block',marginBottom:14,opacity:fading?0:1,transition:'opacity .22s' }}>
+            <div style={{ fontSize:9,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(77,144,254,.9)',background:'rgba(77,144,254,.12)',border:'1px solid rgba(77,144,254,.25)',padding:'3px 10px',display:'inline-block',marginBottom:16,opacity:fading?0:1,transition:'opacity .22s' }}>
               {card.tag}
             </div>
-            <div className="hero-proof-quote" style={{ opacity:fading?0:1,transform:fading?'translateY(5px)':'none',transition:'opacity .22s,transform .22s',fontSize:14,fontStyle:'italic',marginBottom:16 }}>
+            <div style={{ opacity:fading?0:1,transform:fading?'translateY(5px)':'none',transition:'opacity .22s,transform .22s',fontSize:15,fontStyle:'italic',lineHeight:1.7,color:'rgba(255,255,255,.82)',marginBottom:20 }}>
               &ldquo;{card.quote}&rdquo;
             </div>
-            <div className="hero-proof-rule" />
-            <div style={{ marginTop:10,opacity:fading?0:1,transition:'opacity .22s' }}>
-              <div className="hero-proof-name">{card.name}</div>
-              <div className="hero-proof-role">{card.role}</div>
+            <div style={{ width:24,height:1,background:'rgba(255,255,255,.2)',marginBottom:12 }} />
+            <div style={{ opacity:fading?0:1,transition:'opacity .22s',marginBottom:20 }}>
+              <div style={{ fontSize:11,fontWeight:700,color:'rgba(255,255,255,.75)',letterSpacing:'.06em',textTransform:'uppercase',marginBottom:3 }}>{card.name}</div>
+              <div style={{ fontSize:10,color:'rgba(255,255,255,.38)',letterSpacing:'.03em' }}>{card.role}</div>
             </div>
-            <div style={{ display:'flex',gap:6,marginTop:18 }}>
+            <div style={{ display:'flex',gap:6 }}>
               {PROOF_CARDS.map((_,i) => (
-                <button key={i} onClick={() => go(i)} style={{ width:i===active?20:6,height:6,borderRadius:3,background:i===active?'rgba(130,175,255,.85)':'rgba(255,255,255,.18)',border:'none',cursor:'pointer',padding:0,transition:'all .3s' }} />
+                <button key={i} onClick={() => go(i)} style={{ width:i===active?22:6,height:6,borderRadius:3,background:i===active?'rgba(130,175,255,.85)':'rgba(255,255,255,.15)',border:'none',cursor:'pointer',padding:0,transition:'all .3s' }} />
               ))}
             </div>
           </div>
+
         </div>
       </div>
     </div>

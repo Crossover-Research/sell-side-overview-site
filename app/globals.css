@@ -163,20 +163,20 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); padding-bottom: 44p
   border-bottom: 1px solid var(--br-lo);
 }
 .hero-inner { max-width: var(--content-max); margin: 0 auto; }
-.hero-grid  { display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: start; }
+.hero-grid  { display: grid; grid-template-columns: 1fr 380px; gap: 56px; align-items: center; }
 
 .hero-eyebrow {
   font-size: 9px; font-weight: 700; letter-spacing: .18em;
   text-transform: uppercase; color: var(--t3); margin-bottom: 10px;
 }
 .hero-title {
-  font-size: 30px; font-weight: 700; color: rgba(255,255,255,.97);
-  line-height: 1.2; letter-spacing: -.03em; margin-bottom: 14px;
+  font-size: 34px; font-weight: 700; color: rgba(255,255,255,.97);
+  line-height: 1.18; letter-spacing: -.03em; margin-bottom: 16px;
 }
 .hero-title span { color: var(--t2); font-weight: 300; }
 .hero-subtitle {
-  font-size: 14px; color: rgba(255,255,255,.72); line-height: 1.65;
-  max-width: 540px; margin-bottom: 22px;
+  font-size: 14px; color: rgba(255,255,255,.65); line-height: 1.7;
+  max-width: 520px; margin-bottom: 22px;
 }
 
 /* HERO CTAs — fixed wrapping with nowrap */
@@ -226,8 +226,8 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); padding-bottom: 44p
 
 /* Hero proof panel (J.P. Morgan quote) */
 .hero-proof {
-  background: var(--glass-hi);
-  backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
   border: 1px solid var(--br-hi);
   padding: 18px; margin-top: 4px; position: relative; overflow: hidden;
 }
