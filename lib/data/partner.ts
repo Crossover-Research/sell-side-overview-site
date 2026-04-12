@@ -30,20 +30,6 @@ export const ENGAGEMENT_OPTIONS: EngagementCard[] = [
     ctaText: 'Prep a Pitch',
     ctaHref: '/intelligence?request=1',
     ctaStyle: 'outline',
-  },
-  {
-    label: 'Option C',
-    type: '20-Minute Call',
-    desc: 'You want to understand how Crossover fits your process. We walk through sample outputs and coverage options.',
-    steps: [
-      'Schedule a 20-minute call',
-      'See live examples from the Catalyst library',
-      'Understand custom study options and timelines',
-      'Immediate answer: is your target already covered?',
-    ],
-    ctaText: 'Book a Call',
-    ctaHref: 'https://book.crossoverresearch.com/#/crossoverresearch',
-    ctaTarget: '_blank',
-  },
-];
+  }
+];;
 
