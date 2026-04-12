@@ -7,9 +7,9 @@ import { CONTACT } from '../../lib/config/site';
 type FilterType = 'all' | 'active' | 'new' | 'transacted';
 
 const statusCfg = {
-  active:     { color:'#2dd4a0', bg:'rgba(45,212,160,.1)',  border:'rgba(45,212,160,.25)',  label:'Active' },
-  new:        { color:'#7bb8ff', bg:'rgba(77,144,254,.12)', border:'rgba(77,144,254,.25)',  label:'New' },
-  transacted: { color:'rgba(255,255,255,.5)', bg:'rgba(255,255,255,.05)', border:'rgba(255,255,255,.12)', label:'Transacted' },
+  active:     { color:'#2dd4a0', bg:'rgba(45,212,160,.12)', border:'rgba(45,212,160,.3)',  label:'Active' },
+  new:        { color:'#f59e0b', bg:'rgba(245,158,11,.12)', border:'rgba(245,158,11,.3)',  label:'New' },
+  transacted: { color:'rgba(180,180,200,.7)', bg:'rgba(255,255,255,.04)', border:'rgba(255,255,255,.15)', label:'Closed' },
 };
 
 const LockIcon = ({ size=11 }: { size?: number }) => (
@@ -19,12 +19,19 @@ const LockIcon = ({ size=11 }: { size?: number }) => (
   </svg>
 );
 
+const UnlockIcon = ({ size=11 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ display:'inline-block',verticalAlign:'middle',marginRight:5 }}>
+    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+    <path d="M7 11V7a5 5 0 0 1 9.9-1"/>
+  </svg>
+);
+
 function AssetNameCell({ asset }: { asset: CatalystAsset }) {
   const [revealed, setRevealed] = useState(false);
   const isTransacted = asset.status === 'transacted';
   if (!isTransacted) return (
     <div>
-      <div style={{ fontSize:13,fontWeight:700,color:'rgba(130,175,255,.72)',marginBottom:3,display:'flex',alignItems:'center' }}><LockIcon />{asset.code}</div>
+      <div style={{ fontSize:13,fontWeight:700,color:'rgba(130,175,255,.75)',marginBottom:3,display:'flex',alignItems:'center' }}><LockIcon />{asset.code}</div>
       <div style={{ fontSize:10,color:'rgba(255,255,255,.2)',letterSpacing:'.04em',textTransform:'uppercase' }}>Identity locked</div>
     </div>
   );
@@ -32,14 +39,14 @@ function AssetNameCell({ asset }: { asset: CatalystAsset }) {
     <div style={{ position:'relative',cursor:'default',userSelect:'none',minWidth:140 }}
       onMouseEnter={()=>setRevealed(true)} onMouseLeave={()=>setRevealed(false)}>
       <div style={{ position:'relative',height:20,overflow:'hidden',marginBottom:3 }}>
-        <div style={{ position:'absolute',top:0,left:0,width:'100%',fontSize:13,fontWeight:700,color:'rgba(130,175,255,.6)',display:'flex',alignItems:'center',transform:revealed?'translateX(-115%)':'translateX(0)',transition:'transform .32s cubic-bezier(.4,0,.2,1)' }}>
-          <LockIcon size={10}/>{asset.code}
+        <div style={{ position:'absolute',top:0,left:0,width:'100%',fontSize:13,fontWeight:700,color:'rgba(180,180,200,.65)',display:'flex',alignItems:'center',transform:revealed?'translateX(-115%)':'translateX(0)',transition:'transform .32s cubic-bezier(.4,0,.2,1)' }}>
+          <UnlockIcon size={10}/>{asset.code}
         </div>
         <div style={{ position:'absolute',top:0,left:0,width:'100%',fontSize:13,fontWeight:700,color:'#2dd4a0',transform:revealed?'translateX(0)':'translateX(115%)',transition:'transform .32s cubic-bezier(.4,0,.2,1)' }}>
           {asset.realName}
         </div>
       </div>
-      <div style={{ fontSize:10,letterSpacing:'.04em',color:revealed?'rgba(45,212,160,.55)':'rgba(255,255,255,.2)',transition:'color .2s' }}>
+      <div style={{ fontSize:10,letterSpacing:'.04em',color:revealed?'rgba(45,212,160,.55)':'rgba(255,255,255,.22)',transition:'color .2s' }}>
         {revealed&&asset.dealNote ? asset.dealNote : 'Hover to reveal'}
       </div>
     </div>
@@ -146,7 +153,13 @@ export default function CatalystPage() {
   const [selectedAsset, setSelectedAsset] = useState<CatalystAsset|null>(null);
   const [requestOpen, setRequestOpen] = useState(false);
   const [filter, setFilter] = useState<FilterType>('all');
-  const filtered = CATALYST_ASSETS.filter(a=>filter==='all'||a.status===filter);
+  const filtered = CATALYST_ASSETS
+    .filter(a=>filter==='all'||a.status===filter)
+    .sort((a,b)=>{
+      if(filter!=='all') return 0;
+      const order = {active:0,new:1,transacted:2};
+      return order[a.status]-order[b.status];
+    });
 
   return (
     <>
