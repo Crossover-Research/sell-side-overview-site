@@ -6,7 +6,6 @@ const METRICS = [
   { val: '50%',  label: 'Mandate win rate with Crossover' },
   { val: '22+',  label: 'J.P. Morgan engagements' },
   { val: '$25B+', label: 'Transaction value supported' },
-  { val: '20+',  label: 'Catalyst assets available same day' },
 ];
 
 const PROOF_CARDS = [
