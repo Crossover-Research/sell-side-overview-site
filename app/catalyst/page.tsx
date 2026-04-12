@@ -150,61 +150,48 @@ export default function CatalystPage() {
 
   return (
     <>
-      {/* POSITIONING */}
+      {/* POSITIONING + TABLE — unified dark section */}
       <section className="ib-section ib-section-dark">
         <div className="ib-inner">
-          <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:48,alignItems:'start',marginBottom:36 }}>
+
+          {/* Header row */}
+          <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:48,alignItems:'center',marginBottom:32,paddingBottom:28,borderBottom:'1px solid rgba(255,255,255,.07)' }}>
             <div>
               <div className="ib-section-eyebrow">Crossover Catalyst</div>
-              <h2 className="ib-section-title" style={{ color:'#fff',fontSize:22,marginBottom:14 }}>
+              <h2 style={{ fontSize:24,fontWeight:700,color:'#fff',lineHeight:1.25,marginBottom:12,marginTop:8 }}>
                 The first dual-sided intelligence product for banked transactions.
               </h2>
-              <p style={{ fontSize:15,fontWeight:300,color:'rgba(255,255,255,.82)',lineHeight:1.7,marginBottom:16,fontStyle:'italic',borderLeft:'3px solid rgba(77,144,254,.5)',paddingLeft:16 }}>
-                &ldquo;The same infrastructure that wins mandates for bankers identifies the next great asset for funds.&rdquo;
+              <p style={{ fontSize:13,color:'rgba(255,255,255,.5)',lineHeight:1.75,marginBottom:0 }}>
+                Every sell-side mandate produces primary research verticalised for both sides of the transaction.
+                Same independent data. Neither side chose the respondents.
               </p>
-              <p style={{ fontSize:13,color:'rgba(255,255,255,.55)',lineHeight:1.75,marginBottom:20 }}>
-                Every sell-side mandate produces primary research verticalised into dual-sided intelligence.
-                The sell-side deck becomes the baseline for buy-side thesis development.
-                The economics distribute across the ecosystem &mdash; no single party pays consulting-firm rates.
-              </p>
-              <button onClick={()=>setRequestOpen(true)} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 20px',fontSize:12,fontWeight:700,cursor:'pointer' }}>
-                Check Coverage &rarr;
-              </button>
             </div>
-            <div>
-              <div style={{ border:'1px solid rgba(255,255,255,.1)',padding:'20px 22px',marginBottom:10 }}>
-                <div style={{ fontSize:10,fontWeight:700,letterSpacing:'.12em',textTransform:'uppercase',color:'rgba(77,144,254,.7)',marginBottom:14 }}>Dual-Sided Intelligence Model</div>
-                {[
-                  { n:'01', label:'Bank mandates Crossover', sub:'Sell-side deck, mandate differentiation' },
-                  { n:'02', label:'Research produces verified customer truth', sub:'Independent respondents, Core 9 methodology' },
-                  { n:'03', label:'Intelligence verticalised for each audience', sub:'Banker equity story, operator CIM, fund thesis' },
-                  { n:'04', label:'Catalyst resales compound the asset', sub:'Select funds, 6-12 months early, same data' },
-                ].map(({n,label,sub},i)=>(
-                  <div key={i} style={{ display:'flex',gap:12,alignItems:'flex-start',marginBottom:i<3?12:0 }}>
-                    <div style={{ fontSize:9,fontWeight:700,color:'rgba(130,175,255,.4)',fontFamily:'JetBrains Mono,monospace',flexShrink:0,paddingTop:2 }}>{n}</div>
-                    <div style={{ flex:1,paddingBottom:i<3?12:0,borderBottom:i<3?'1px solid rgba(255,255,255,.06)':'none' }}>
-                      <div style={{ fontSize:12,fontWeight:600,color:'rgba(130,175,255,.7)',marginBottom:2 }}>{label}</div>
-                      <div style={{ fontSize:11,color:'rgba(255,255,255,.35)' }}>{sub}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div style={{ fontSize:11,color:'rgba(255,255,255,.25)',fontStyle:'italic' }}>No single party pays consulting-firm rates because no single party carries the full cost.</div>
+            {/* 4-step horizontal model */}
+            <div style={{ display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:0,border:'1px solid rgba(255,255,255,.08)' }}>
+              {[
+                { n:'01', label:'Bank mandates Crossover', sub:'Sell-side deck' },
+                { n:'02', label:'Verified customer truth', sub:'Independent respondents' },
+                { n:'03', label:'Verticalised by audience', sub:'Banker · Operator · Fund' },
+                { n:'04', label:'Catalyst resales', sub:'Select funds, 6-12 mo early' },
+              ].map(({n,label,sub},i)=>(
+                <div key={i} style={{ padding:'14px 14px',borderLeft:i>0?'1px solid rgba(255,255,255,.07)':'none' }}>
+                  <div style={{ fontSize:9,fontWeight:700,color:'rgba(130,175,255,.35)',fontFamily:'JetBrains Mono,monospace',marginBottom:6 }}>{n}</div>
+                  <div style={{ fontSize:11,fontWeight:600,color:'rgba(255,255,255,.75)',lineHeight:1.35,marginBottom:4 }}>{label}</div>
+                  <div style={{ fontSize:10,color:'rgba(255,255,255,.3)' }}>{sub}</div>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Nerdio proof */}
-          <div style={{ borderTop:'1px solid rgba(255,255,255,.08)',paddingTop:28,marginBottom:36 }}>
-            <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:40,alignItems:'start' }}>
-              <div>
-                <div style={{ fontSize:10,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(77,144,254,.7)',marginBottom:10 }}>Proof &mdash; Both Sides of $500M</div>
-                <p style={{ fontSize:13,color:'rgba(255,255,255,.6)',lineHeight:1.7,marginBottom:8 }}>
-                  J.P. Morgan engaged Crossover on the Nerdio Series C. Sell-side line of sight revealed a high-conviction asset. Crossover formed a fundamental view and alerted select funds.
-                </p>
-                <p style={{ fontSize:13,color:'rgba(255,255,255,.6)',lineHeight:1.7 }}>
-                  GA took a 30-minute call, commissioned secondary diligence. It held. <strong style={{ color:'#fff' }}>$500M at $1B+.</strong>
-                </p>
+          {/* Nerdio proof — compact strip */}
+          <div style={{ display:'flex',alignItems:'center',gap:32,marginBottom:28,padding:'16px 20px',background:'rgba(77,144,254,.06)',border:'1px solid rgba(77,144,254,.12)' }}>
+            <div style={{ flexShrink:0 }}>
+              <div style={{ fontSize:9,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(77,144,254,.7)',marginBottom:4 }}>Proof &mdash; Both Sides of One Deal</div>
+              <div style={{ fontSize:13,color:'rgba(255,255,255,.65)',lineHeight:1.6 }}>
+                J.P. Morgan mandate &rarr; Crossover line of sight &rarr; GA 30-min brief &rarr; secondary diligence &rarr; <strong style={{ color:'#fff' }}>$500M Series C at $1B+.</strong>
               </div>
+            </div>
+            <div style={{ flexShrink:0,marginLeft:'auto' }}>
               <FlywheelDiagram />
             </div>
           </div>
