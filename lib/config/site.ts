@@ -7,8 +7,8 @@
 export const BRAND = {
   name:    'Crossover Research',
   nameMarkup: { base: 'CROSSOVER', accent: ' RESEARCH' },
-  tagline: 'Sell-Side Intelligence',
-  logoUrl: 'https://www.crossoverresearch.com/logos/CrossoverResearchLogo.svg',
+  tagline: 'Voice of Customer Intelligence',
+  logoUrl: '/cr-logo-light.svg',
   demoUrl: 'https://catalyst.crossoverresearch.com/demo',
 } as const;
 

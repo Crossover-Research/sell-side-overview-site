@@ -1,6 +1,5 @@
 'use client';
-
-const LOGO_URL = '/cr-logo-light.svg';
+import { BRAND, CONTACT } from '../lib/config/site';
 
 export function Topbar() {
   return (
@@ -14,13 +13,13 @@ export function Topbar() {
           <div className="topbar-brand-divider" />
           <div className="topbar-brand-row">
             <span className="topbar-brand-label">Powered&nbsp;by</span>
-            <img src={LOGO_URL} alt="Crossover Research" className="topbar-logo-img" />
+            <img src={BRAND.logoUrl} alt="Crossover Research" className="topbar-logo-img" />
           </div>
         </div>
       </div>
       <div className="topbar-right">
         <a
-          href="https://book.crossoverresearch.com/#/crossoverresearch"
+          href={CONTACT.bookingUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="topbar-book-btn"

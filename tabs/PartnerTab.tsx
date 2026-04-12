@@ -1,10 +1,12 @@
+'use client';
 import { EngagementCard } from '../components/EngagementCard';
 import { ENGAGEMENT_OPTIONS } from '../lib/data/partner';
+import { CONTACT } from '../lib/config/site';
 
 const WITHOUT_WITH = [
-  { w: 'Pitch alongside 3–5 identical banks on relationship. No rational basis to choose you.', c: 'Walk in with customer evidence no competing bank has commissioned. The room is already yours.' },
-  { w: 'Build the equity story from market research the operator already discounts.', c: 'Build the equity story from independent verified customer data. The operator cannot challenge what they did not select.' },
-  { w: 'Bury weak spots and hope buyer diligence misses them before close.', c: 'Find the gaps first. Surface them with independent research. Close them before diligence begins.' },
+  { w: 'Pitch alongside 3–5 identical banks on relationship. No rational basis to choose you.',   c: 'Walk in with customer evidence no competing bank has commissioned. The room is already yours.' },
+  { w: 'Build the equity story from market research the operator already discounts.',              c: 'Build the equity story from independent verified customer data. The operator cannot challenge what they did not select.' },
+  { w: 'Bury weak spots and hope buyer diligence misses them before close.',                      c: 'Find the gaps first. Surface them with independent research. Close them before diligence begins.' },
   { w: 'Spend diligence defending terrain that should have been fortified before process started.', c: 'Pre-answer every buyer objection with customer-backed evidence before the first meeting.' },
   { w: 'Win on relationship. When a competitor brings independent proof, the relationship loses.', c: 'Independent evidence cannot be replicated on any timeline. Walk in with proof. Walk out with the mandate.' },
 ];
@@ -15,8 +17,8 @@ const PRODUCTS = [
     color: 'rgba(130,180,255,.9)',
     title: 'Mandate Pitch Deck',
     desc: 'Customer proof points that no competing bank walks in with. Crossover line of sight gives you the company before competing banks finish reading the teaser.',
-    timeline: '48 hrs – 2w',
-    customers: '20–30',
+    timeline: '48 hrs\u20132w',
+    customers: '20\u201330',
     stage: 'Mandate',
     value: 'The banker enters the room knowing exactly what buyers will flag. And exactly how to answer it.',
   },
@@ -25,8 +27,8 @@ const PRODUCTS = [
     color: 'var(--amber)',
     title: 'Operator Rebuttal + CIM',
     desc: 'Surfaces weaknesses before buyers find them. Builds customer-backed evidence to close gaps proactively. Then hardens the CIM narrative around what the data actually shows.',
-    timeline: '3–5w',
-    customers: '30–60',
+    timeline: '3\u20135w',
+    customers: '30\u201360',
     stage: 'Sell-side',
     value: 'Stop reacting to diligence questions. Find the gaps first, close them with evidence, enter the process on offense.',
   },
@@ -34,9 +36,9 @@ const PRODUCTS = [
     audience: 'Investor',
     color: 'var(--green)',
     title: 'Customer Diligence Report',
-    desc: 'Build conviction on the asset before the teaser drops. The same primary research — independent by construction — that serves the sell-side serves your IC.',
-    timeline: '5–7w',
-    customers: '50–100+',
+    desc: 'Build conviction on the asset before the teaser drops. The same primary research \u2014 independent by construction \u2014 that serves the sell-side serves your IC.',
+    timeline: '5\u20137w',
+    customers: '50\u2013100+',
     stage: 'Diligence',
     value: "Independent evidence the sell-side can't curate. Bid with conviction on your own timeline.",
   },
@@ -45,46 +47,6 @@ const PRODUCTS = [
 export function PartnerTab() {
   return (
     <div>
-{/* J.P. Morgan proof */}
-      <div style={{ padding: '28px 0 24px', borderBottom: '1px solid var(--br-lo)', marginBottom: '28px' }}>
-        <p style={{ fontSize: '18px', fontWeight: 300, color: 'var(--t1)', lineHeight: 1.6, fontStyle: 'italic', maxWidth: 760, marginBottom: 16 }}>
-          &ldquo;Having a Voice of Customer document was seen as a differentiator by the client.
-          The findings from your report were a key part of the equity story materials we presented.&rdquo;
-        </p>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <div style={{ width: 24, height: 1, background: 'var(--br-hi)' }} />
-          <div>
-            <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--t0)', letterSpacing: '.04em' }}>Executive Director, J.P. Morgan</div>
-            <div style={{ fontSize: 10, color: 'var(--t3)', marginTop: 2, textTransform: 'uppercase', letterSpacing: '.04em' }}>Sell-side mandate &middot; $10B transaction</div>
-          </div>
-        </div>
-      </div>
-
-
-      {/* Multi-sided model explainer */}
-      <div style={{ padding: '0 0 28px', borderBottom: '1px solid var(--br-lo)', marginBottom: '28px' }}>
-        <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--t3)', marginBottom: 12 }}>
-          Why This Works — The Multi-Sided Model
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
-          {[
-            { who: 'For Bankers', what: 'Win the mandate. Own the equity narrative. The research you commission becomes the proof layer that survives buyer IC.' },
-            { who: 'For Operators', what: 'Find the gaps before buyers do. Build customer-backed evidence to close them. Enter the process on offense, not defense.' },
-            { who: 'For Funds', what: "Build conviction before the teaser drops. The same independent research the sell-side uses — neither side chose the respondents, so both sides can rely on it." },
-          ].map(({ who, what }, i) => (
-            <div key={i} style={{ borderLeft: '2px solid var(--br-hi)', paddingLeft: 14 }}>
-              <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--t0)', letterSpacing: '.06em', marginBottom: 6 }}>{who}</div>
-              <div style={{ fontSize: 12, color: 'var(--t2)', lineHeight: 1.6 }}>{what}</div>
-            </div>
-          ))}
-        </div>
-        <div style={{ marginTop: 16, padding: '12px 16px', background: 'rgba(255,255,255,.03)', borderLeft: '3px solid rgba(255,255,255,.15)', fontSize: 12, color: 'var(--t3)', lineHeight: 1.6, fontStyle: 'italic' }}>
-          Crossover monetizes across the full transaction lifecycle — mandate fee, CIM enhancement, Catalyst resales, secondary diligence.
-          No single party extraction means no single party&rsquo;s agenda can corrupt the research.
-          This is the structural answer to the conflict-of-interest question.
-        </div>
-      </div>
-
       {/* Without / With */}
       <div className="section-header" style={{ marginBottom: 14 }}>
         <div className="section-eyebrow">The Difference</div>
@@ -101,8 +63,8 @@ export function PartnerTab() {
           <tbody>
             {WITHOUT_WITH.map((row, i) => (
               <tr key={i}>
-                <td className="col-w"><span className="ww-x">✕</span>{row.w}</td>
-                <td className="col-c"><span className="ww-check">✓</span>{row.c}</td>
+                <td className="col-w"><span className="ww-x">&#10005;</span>{row.w}</td>
+                <td className="col-c"><span className="ww-check">&#10003;</span>{row.c}</td>
               </tr>
             ))}
           </tbody>
@@ -133,10 +95,9 @@ export function PartnerTab() {
       </div>
       <div style={{ fontSize: 11, color: 'var(--t3)', marginBottom: 'var(--sp-6)' }}>
         Pricing: flat fee or outcome-based, structured to your transaction milestone.
-        Consulting firms charge $100K+ to validate your thesis for one party. Crossover prices each stream
+        Consulting firms charge $100K+ to validate one party&rsquo;s thesis. Crossover prices each stream
         separately because each stream is independent.
       </div>
-
       <div className="divider" />
 
       {/* Engagement */}
@@ -150,6 +111,18 @@ export function PartnerTab() {
         ))}
       </div>
 
+      <div className="divider" />
+      <div style={{ padding: '20px 0', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16 }}>
+        <div>
+          <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--t0)', marginBottom: 3 }}>Ian McArdle</div>
+          <div style={{ fontSize: 11, color: 'var(--t3)' }}>Head of Strategic Partnerships &middot; Crossover Research</div>
+          <a href={`mailto:${CONTACT.email}`} style={{ fontSize: 11, color: 'rgba(130,175,255,.8)', textDecoration: 'none' }}>{CONTACT.email}</a>
+        </div>
+        <div style={{ display: 'flex', gap: 8 }}>
+          <a href={`mailto:${CONTACT.email}`} className="cta-btn solid" style={{ fontSize: 12 }}>Email Ian</a>
+          <a href={CONTACT.bookingUrl} target="_blank" rel="noopener noreferrer" className="cta-btn outline" style={{ fontSize: 12 }}>Book a Meeting</a>
+        </div>
+      </div>
     </div>
   );
 }

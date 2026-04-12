@@ -39,7 +39,6 @@ export function HeroSection({ tab }: HeroSectionProps) {
   const [fading, setFading] = useState(false);
 
   useEffect(() => {
-    if (!isPartner) return;
     const t = setInterval(() => {
       setFading(true);
       setTimeout(() => { setActive(a => (a + 1) % PROOF_CARDS.length); setFading(false); }, 280);
@@ -128,18 +127,23 @@ export function HeroSection({ tab }: HeroSectionProps) {
               </div>
             </div>
 
-            {/* Rotating proof carousel — same component, unified feel */}
+            {/* Rotating carousel — same as partner tab */}
             <div className="hero-proof">
-              <div style={{ fontSize:9,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(77,144,254,.9)',background:'rgba(77,144,254,.12)',border:'1px solid rgba(77,144,254,.25)',padding:'3px 10px',display:'inline-block',marginBottom:14 }}>
-                {PROOF_CARDS[0].tag}
+              <div style={{ fontSize:9,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(77,144,254,.9)',background:'rgba(77,144,254,.12)',border:'1px solid rgba(77,144,254,.25)',padding:'3px 10px',display:'inline-block',marginBottom:14,opacity:fading?0:1,transition:'opacity .22s' }}>
+                {card.tag}
               </div>
-              <div className="hero-proof-quote" style={{ fontSize:14,fontStyle:'italic',marginBottom:16 }}>
-                &ldquo;{PROOF_CARDS[0].quote}&rdquo;
+              <div className="hero-proof-quote" style={{ opacity:fading?0:1,transform:fading?'translateY(5px)':'none',transition:'opacity .22s,transform .22s',fontSize:14,fontStyle:'italic',marginBottom:16 }}>
+                &ldquo;{card.quote}&rdquo;
               </div>
               <div className="hero-proof-rule" />
-              <div style={{ marginTop:10 }}>
-                <div className="hero-proof-name">{PROOF_CARDS[0].name}</div>
-                <div className="hero-proof-role">{PROOF_CARDS[0].role}</div>
+              <div style={{ marginTop:10,opacity:fading?0:1,transition:'opacity .22s' }}>
+                <div className="hero-proof-name">{card.name}</div>
+                <div className="hero-proof-role">{card.role}</div>
+              </div>
+              <div style={{ display:'flex',gap:6,marginTop:18 }}>
+                {PROOF_CARDS.map((_,i) => (
+                  <button key={i} onClick={()=>go(i)} style={{ width:i===active?20:6,height:6,borderRadius:3,background:i===active?'rgba(130,175,255,.85)':'rgba(255,255,255,.18)',border:'none',cursor:'pointer',padding:0,transition:'all .3s' }} />
+                ))}
               </div>
             </div>
           </div>
