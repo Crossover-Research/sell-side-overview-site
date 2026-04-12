@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect, Suspense } from 'react';
+import { HeroSection } from '../../components/HeroSection';
 import { useSearchParams } from 'next/navigation';
 import { IB_TRACK_RECORD, IB_CAPS, IB_CAP_DATA, type IBCap } from '../../lib/data/ibCapabilities';
 import { ENGAGEMENT_OPTIONS } from '../../lib/data/partner';
@@ -89,6 +90,7 @@ export default function IntelligencePage() {
 
   return (
     <>
+      <HeroSection />
       <Suspense fallback={null}><RequestParamWatcher onOpen={() => setRequestOpen(true)} /></Suspense>
 
       {/* CAPABILITIES */}
