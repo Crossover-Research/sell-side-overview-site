@@ -32,8 +32,8 @@ const PROOF_CARDS = [
 interface HeroSectionProps { tab?: Tab; }
 
 export function HeroSection({ tab }: HeroSectionProps) {
-  const isPartner = tab === 'partner';
-  const isBluecat = tab === 'bluecat';
+  if (tab === 'bluecat') return null;
+
   const [active, setActive] = useState(0);
   const [fading, setFading] = useState(false);
 
@@ -43,7 +43,7 @@ export function HeroSection({ tab }: HeroSectionProps) {
       setTimeout(() => { setActive(a => (a + 1) % PROOF_CARDS.length); setFading(false); }, 280);
     }, 5200);
     return () => clearInterval(t);
-  }, [isPartner]);
+  }, []);
 
   const go = (i: number) => {
     if (i === active) return;
@@ -53,98 +53,48 @@ export function HeroSection({ tab }: HeroSectionProps) {
 
   const card = PROOF_CARDS[active];
 
-  if (isBluecat) return null;
-
   return (
     <div className="hero">
       <div className="hero-inner">
-        {isPartner ? (
-          /* ── WORK WITH US hero ──────────────────────────────── */
-          <div className="hero-grid">
-            <div>
-              <h1 className="hero-title">
-                Win the mandate before<br />
-                <span>competing banks build their pitch.</span>
-              </h1>
-              <p className="hero-subtitle">
-                Crossover gives bankers independent customer evidence no competing bank has commissioned.
-                The same research hardens your CIM, pre-answers buyer objections, and anchors buy-side conviction.
-              </p>
-              {/* Metrics strip */}
-              <div className="hero-metrics">
-                {METRICS.map((m, i) => (
-                  <div key={i} className="hero-metric">
-                    <div className="hero-metric-val">{m.val}</div>
-                    <div className="hero-metric-lbl">{m.label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Rotating proof carousel */}
-            <div className="hero-proof">
-              <div style={{ fontSize:9,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(77,144,254,.9)',background:'rgba(77,144,254,.12)',border:'1px solid rgba(77,144,254,.25)',padding:'3px 10px',display:'inline-block',marginBottom:14,opacity:fading?0:1,transition:'opacity .22s' }}>
-                {card.tag}
-              </div>
-              <div className="hero-proof-quote" style={{ opacity:fading?0:1,transform:fading?'translateY(5px)':'none',transition:'opacity .22s,transform .22s',fontSize:14,fontStyle:'italic',marginBottom:16 }}>
-                &ldquo;{card.quote}&rdquo;
-              </div>
-              <div className="hero-proof-rule" />
-              <div style={{ marginTop:10,opacity:fading?0:1,transition:'opacity .22s' }}>
-                <div className="hero-proof-name">{card.name}</div>
-                <div className="hero-proof-role">{card.role}</div>
-              </div>
-              <div style={{ display:'flex',gap:6,marginTop:18 }}>
-                {PROOF_CARDS.map((_, i) => (
-                  <button key={i} onClick={() => go(i)} style={{ width:i===active?20:6,height:6,borderRadius:3,background:i===active?'rgba(130,175,255,.85)':'rgba(255,255,255,.18)',border:'none',cursor:'pointer',padding:0,transition:'all .3s' }} />
-                ))}
-              </div>
+        <div className="hero-grid">
+          <div>
+            <h1 className="hero-title">
+              The research layer that spans<br />
+              <span>the full transaction lifecycle.</span>
+            </h1>
+            <p className="hero-subtitle">
+              Independent primary research. Wins mandates for bankers, hardens CIMs for operators,
+              builds buy-side conviction for funds. Same data. Neither side chose the respondents.
+            </p>
+            <div className="hero-metrics">
+              {METRICS.map((m, i) => (
+                <div key={i} className="hero-metric">
+                  <div className="hero-metric-val">{m.val}</div>
+                  <div className="hero-metric-lbl">{m.label}</div>
+                </div>
+              ))}
             </div>
           </div>
-        ) : (
-          /* ── INTELLIGENCE hero ──────────────────────────────── */
-          <div className="hero-grid">
-            <div>
-              <h1 className="hero-title">
-                The research layer that spans<br />
-                <span>the full transaction lifecycle.</span>
-              </h1>
-              <p className="hero-subtitle">
-                Independent primary research. Wins mandates for bankers, hardens CIMs for operators,
-                builds buy-side conviction for funds. Same data. Neither side chose the respondents.
-              </p>
-              {/* Metrics strip */}
-              <div className="hero-metrics">
-                {METRICS.map((m, i) => (
-                  <div key={i} className="hero-metric">
-                    <div className="hero-metric-val">{m.val}</div>
-                    <div className="hero-metric-lbl">{m.label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
 
-            {/* Rotating carousel — same as partner tab */}
-            <div className="hero-proof">
-              <div style={{ fontSize:9,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(77,144,254,.9)',background:'rgba(77,144,254,.12)',border:'1px solid rgba(77,144,254,.25)',padding:'3px 10px',display:'inline-block',marginBottom:14,opacity:fading?0:1,transition:'opacity .22s' }}>
-                {card.tag}
-              </div>
-              <div className="hero-proof-quote" style={{ opacity:fading?0:1,transform:fading?'translateY(5px)':'none',transition:'opacity .22s,transform .22s',fontSize:14,fontStyle:'italic',marginBottom:16 }}>
-                &ldquo;{card.quote}&rdquo;
-              </div>
-              <div className="hero-proof-rule" />
-              <div style={{ marginTop:10,opacity:fading?0:1,transition:'opacity .22s' }}>
-                <div className="hero-proof-name">{card.name}</div>
-                <div className="hero-proof-role">{card.role}</div>
-              </div>
-              <div style={{ display:'flex',gap:6,marginTop:18 }}>
-                {PROOF_CARDS.map((_,i) => (
-                  <button key={i} onClick={()=>go(i)} style={{ width:i===active?20:6,height:6,borderRadius:3,background:i===active?'rgba(130,175,255,.85)':'rgba(255,255,255,.18)',border:'none',cursor:'pointer',padding:0,transition:'all .3s' }} />
-                ))}
-              </div>
+          <div className="hero-proof">
+            <div style={{ fontSize:9,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(77,144,254,.9)',background:'rgba(77,144,254,.12)',border:'1px solid rgba(77,144,254,.25)',padding:'3px 10px',display:'inline-block',marginBottom:14,opacity:fading?0:1,transition:'opacity .22s' }}>
+              {card.tag}
+            </div>
+            <div className="hero-proof-quote" style={{ opacity:fading?0:1,transform:fading?'translateY(5px)':'none',transition:'opacity .22s,transform .22s',fontSize:14,fontStyle:'italic',marginBottom:16 }}>
+              &ldquo;{card.quote}&rdquo;
+            </div>
+            <div className="hero-proof-rule" />
+            <div style={{ marginTop:10,opacity:fading?0:1,transition:'opacity .22s' }}>
+              <div className="hero-proof-name">{card.name}</div>
+              <div className="hero-proof-role">{card.role}</div>
+            </div>
+            <div style={{ display:'flex',gap:6,marginTop:18 }}>
+              {PROOF_CARDS.map((_,i) => (
+                <button key={i} onClick={() => go(i)} style={{ width:i===active?20:6,height:6,borderRadius:3,background:i===active?'rgba(130,175,255,.85)':'rgba(255,255,255,.18)',border:'none',cursor:'pointer',padding:0,transition:'all .3s' }} />
+              ))}
             </div>
           </div>
-        )}
+        </div>
       </div>
     </div>
   );

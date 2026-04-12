@@ -1,2 +1,1 @@
-import { redirect } from 'next/navigation';
-export default function Home() { redirect('/partner'); }
+export { default } from './intelligence/page';
