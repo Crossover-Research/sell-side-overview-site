@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 32" fill="none">
+  <circle cx="10" cy="16" r="8" fill="#e05c5c"/>
+  <path d="M7 13 Q10 9 13 13 Q10 11 7 13Z" fill="#fff" opacity=".9"/>
+  <text x="24" y="21" font-family="'IBM Plex Sans',sans-serif" font-size="16" font-weight="700" letter-spacing="-.3" fill="white">Red Canary</text>
+</svg>

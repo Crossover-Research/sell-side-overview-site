@@ -7,12 +7,13 @@ const DownloadIcon = () => (
 );
 
 const CONFIGS: Record<string, {
-  company: string; product: string; studyId: string; color: string;
+  company: string; product: string; studyId: string; color: string; logoSrc: string;
   kpis: { val: string; lbl: string }[];
   reportUrl: string;
 }> = {
   redcanary: {
     company: 'Red Canary',
+    logoSrc: '/red-canary-logo.svg',
     product: 'Managed Detection & Response',
     studyId: 'Catalyst Study CR-2024-005 · 9-vendor MDR benchmark · 75+ respondents',
     color: '#e05c5c',
@@ -21,6 +22,7 @@ const CONFIGS: Record<string, {
   },
   bluecat: {
     company: 'BlueCat Networks',
+    logoSrc: '/bluecat-logo.svg',
     product: 'DNS · DHCP · IP Address Management',
     studyId: 'Catalyst Study CR-2024-006 · 55 verified enterprise respondents',
     color: '#1e90d4',
@@ -41,7 +43,7 @@ export function ResearchHeader({ tab }: ResearchHeaderProps) {
         <div style={{ width: 3, height: 36, background: cfg.color, flexShrink: 0, borderRadius: 2 }} />
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 3 }}>
-            <div className="research-title">{cfg.company}</div>
+            <img src={cfg.logoSrc} alt={cfg.company} style={{ height: 22, width: "auto", filter: "brightness(0) invert(1)", opacity: .9 }} />
             <div style={{ fontSize: 10, fontWeight: 600, color: cfg.color, background: `${cfg.color}18`, border: `1px solid ${cfg.color}35`, padding: '2px 8px', letterSpacing: '.04em', textTransform: 'uppercase' }}>
               Catalyst Study
             </div>
