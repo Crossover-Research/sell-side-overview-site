@@ -152,7 +152,7 @@ body::before {
   padding: 4px 10px;
 }
 
-main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); } /* clearance for every route */
+main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); padding-bottom: 44px; } /* clearance for fixed header + footer */
 
 /* ── HERO ────────────────────────────────────────────────────────────────────── */
 .hero {
@@ -975,9 +975,9 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); } /* clearance for 
 /* ── FOOTER ─────────────────────────────────────────────────────────────── */
 .site-footer {
   background: #04090f;
-  border-top: 1px solid rgba(255,255,255,.07);
+  border-top: 1px solid rgba(255,255,255,.12);
   padding: 10px var(--content-pad);
-  position: relative; z-index: 1;
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
 }
 .site-footer-inner {
   max-width: var(--content-max); margin: 0 auto;
@@ -993,7 +993,7 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); } /* clearance for 
   display: flex; align-items: center; gap: 0; flex-wrap: wrap;
 }
 .site-footer-links a {
-  font-size: 10px; font-weight: 500; color: rgba(255,255,255,.25);
+  font-size: 10px; font-weight: 500; color: rgba(255,255,255,.5);
   text-decoration: none; padding: 3px 10px;
   border-right: 1px solid rgba(255,255,255,.08);
   transition: color .15s; white-space: nowrap;
@@ -1001,7 +1001,7 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); } /* clearance for 
 .site-footer-links a:last-child { border-right: none; }
 .site-footer-links a:hover { color: rgba(255,255,255,.6); }
 .site-footer-legal {
-  font-size: 10px; color: rgba(255,255,255,.18);
+  font-size: 10px; color: rgba(255,255,255,.4);
   letter-spacing: .04em; white-space: nowrap;
 }
 @media (max-width: 700px) {
