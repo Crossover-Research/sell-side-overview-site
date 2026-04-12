@@ -1,5 +1,5 @@
 import { EngagementCard } from '../components/EngagementCard';
-import { ENGAGEMENT_OPTIONS, CONTACT_INFO } from '../lib/data/partner';
+import { ENGAGEMENT_OPTIONS } from '../lib/data/partner';
 
 const WITHOUT_WITH = [
   { w: 'Pitch alongside 3–5 identical banks on relationship. No rational basis to choose you.', c: 'Walk in with customer evidence no competing bank has commissioned. The room is already yours.' },

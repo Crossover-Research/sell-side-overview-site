@@ -68,15 +68,7 @@ export default function RedCanaryPage() {
           {active === 'vendor' && (
             <div className="rc-section">
               <VendorSpotlight data={VENDOR_SPOTLIGHT} />
-              <div className="section-header">
-                <div className="section-eyebrow">Vendor Intel</div>
-                <h2 className="section-title">9-Vendor Competitive Benchmark</h2>
-                <p className="section-lead">
-                  Scores from verified customer responses across purpose-built MDR
-                  providers and platform alternatives.
-                </p>
-              </div>
-              <Core9Chart title="Red Canary" />
+<Core9Chart title="Red Canary" />
               <ComparisonTable rows={COMPETITOR_ROWS} />
               <div className="divider" />
               <div className="charts-grid">
