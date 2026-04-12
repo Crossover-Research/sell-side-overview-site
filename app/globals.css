@@ -1137,3 +1137,16 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); } /* clearance for 
 .hero-metric-val { font-family: var(--font-mono); font-size: 22px; font-weight: 700; color: rgba(255,255,255,.9); line-height: 1; margin-bottom: 4px; }
 .hero-metric-lbl { font-size: 10px; color: rgba(255,255,255,.38); line-height: 1.4; }
 .hero-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(130,175,255,.55); margin-bottom: 14px; }
+
+/* ── CATALYST TABLE MOBILE ───────────────────────────────────────────────── */
+@media (max-width: 820px) {
+  .catalyst-table-wrap table { display: none; }
+  .catalyst-table-wrap .catalyst-mobile-cards { display: flex; flex-direction: column; gap: 8px; }
+  .hero-metrics { grid-template-columns: 1fr 1fr; }
+  .hero-metric { border-right: none; border-bottom: 1px solid rgba(255,255,255,.08); padding: 12px 0 12px; }
+  .hero-metric:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.08); padding-right: 16px; }
+  .hero-metric:last-child, .hero-metric:nth-last-child(2):nth-child(odd) { border-bottom: none; }
+}
+@media (min-width: 821px) {
+  .catalyst-mobile-cards { display: none; }
+}

@@ -65,10 +65,17 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
   const ORG = ['Investment Bank','Private Equity','Growth Equity','Venture Capital','Strategic'];
   const inp: React.CSSProperties = { width:'100%',background:'rgba(255,255,255,.05)',border:'1px solid rgba(255,255,255,.12)',color:'rgba(255,255,255,.88)',padding:'9px 12px',fontSize:13,outline:'none',boxSizing:'border-box' };
   const set = (k:string,v:string)=>setForm(f=>({...f,[k]:v}));
+  const [error, setError] = useState('');
   const submit = async(e:React.FormEvent)=>{
     e.preventDefault();
-    try{await fetch('/api/catalyst-request',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(form)});}catch{}
-    setSent(true);
+    setError('');
+    try {
+      const res = await fetch('/api/catalyst-request',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(form)});
+      if (!res.ok) throw new Error('failed');
+      setSent(true);
+    } catch {
+      setError('Something went wrong. Email ian@crossoverresearch.com directly.');
+    }
   };
   if(sent) return(
     <div style={{ position:'fixed',inset:0,zIndex:600,background:'rgba(4,9,18,.92)',display:'flex',alignItems:'center',justifyContent:'center',padding:20 }}>
@@ -101,6 +108,7 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
             </div>
           </div>
           <div><label style={{ display:'block',fontSize:9,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.3)',marginBottom:4 }}>Target Company or Mandate</label><input style={inp} placeholder="Company name -- confirm coverage immediately" onChange={e=>set('mandate',e.target.value)} /></div>
+          {error && <div style={{ fontSize:12,color:'#f87171',background:'rgba(248,113,113,.08)',border:'1px solid rgba(248,113,113,.2)',padding:'8px 12px',lineHeight:1.5 }}>{error}</div>}
           <button type="submit" style={{ width:'100%',background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'10px',fontSize:13,fontWeight:700,cursor:'pointer',marginTop:2 }}>Submit &rarr;</button>
         </form>
       </div>
@@ -332,6 +340,7 @@ export default function IntelligencePage() {
               </div>
             </div>
 
+            <div className="catalyst-table-wrap">
             <table style={{ width:'100%',borderCollapse:'collapse',background:'rgba(255,255,255,.02)',border:'1px solid rgba(255,255,255,.08)' }}>
               <thead>
                 <tr style={{ borderBottom:'2px solid rgba(255,255,255,.1)' }}>
@@ -372,6 +381,25 @@ export default function IntelligencePage() {
                 })}
               </tbody>
             </table>
+
+            {/* Mobile card fallback */}
+            <div className="catalyst-mobile-cards">
+              {filtered.map((a,i)=>{
+                const s = statusCfg[a.status];
+                const isTransacted = a.status==='transacted';
+                return (
+                  <div key={i} onClick={()=>setSelectedAsset(a)} style={{ background:'rgba(255,255,255,.03)',border:'1px solid rgba(255,255,255,.08)',padding:'14px 16px',cursor:'pointer' }}>
+                    <div style={{ display:'flex',alignItems:'flex-start',justifyContent:'space-between',marginBottom:8 }}>
+                      <AssetNameCell asset={a} />
+                      <span style={{ fontSize:9,fontWeight:700,color:s.color,background:s.bg,border:`1px solid ${s.border}`,padding:'3px 9px',letterSpacing:'.06em',textTransform:'uppercase',flexShrink:0,marginLeft:10 }}>{s.label}</span>
+                    </div>
+                    <div style={{ fontSize:12,color:'rgba(255,255,255,.5)',marginBottom:4 }}>{a.category}</div>
+                    <div style={{ fontSize:12,fontWeight:600,color:'rgba(130,175,255,.8)',fontFamily:'JetBrains Mono,monospace' }}>{a.keyMetric}</div>
+                  </div>
+                );
+              })}
+            </div>
+            </div>
             <div style={{ marginTop:14,padding:'10px 16px',background:'rgba(77,144,254,.06)',border:'1px solid rgba(77,144,254,.12)',fontSize:12,color:'rgba(160,200,255,.7)',display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:10 }}>
               <span>Same-day if covered &middot; 14-day custom if not &middot; $10,000 per report</span>
               <button onClick={()=>setRequestOpen(true)} style={{ background:'transparent',border:'1px solid rgba(130,175,255,.3)',color:'rgba(130,175,255,.8)',padding:'5px 13px',fontSize:11,fontWeight:600,cursor:'pointer' }}>Request Access &rarr;</button>

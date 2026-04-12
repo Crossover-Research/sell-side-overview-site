@@ -14,7 +14,7 @@ export const ENGAGEMENT_OPTIONS: EngagementCard[] = [
       'IC-ready data before first-round bids close',
     ],
     ctaText: 'Start a Mandate',
-    ctaHref: 'mailto:ian@crossoverresearch.com',
+    ctaHref: '/intelligence?request=1',
     ctaStyle: 'outline',
   },
   {
@@ -28,7 +28,7 @@ export const ENGAGEMENT_OPTIONS: EngagementCard[] = [
       'Report in pitch deck is the primary differentiator',
     ],
     ctaText: 'Prep a Pitch',
-    ctaHref: 'mailto:ian@crossoverresearch.com',
+    ctaHref: '/intelligence?request=1',
     ctaStyle: 'outline',
   },
   {
@@ -47,8 +47,3 @@ export const ENGAGEMENT_OPTIONS: EngagementCard[] = [
   },
 ];
 
-export const CONTACT_INFO = {
-  name: 'Ian McArdle',
-  title: 'Head of Strategic Partnerships • Crossover Research',
-  email: 'ian@crossoverresearch.com',
-};
