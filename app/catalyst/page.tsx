@@ -202,29 +202,18 @@ export default function CatalystPage() {
           </div>
 
           {/* Nerdio proof */}
-          <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:0,marginBottom:32,border:'1px solid rgba(77,144,254,.15)',background:'rgba(77,144,254,.04)' }}>
-            <div style={{ padding:'24px 28px',borderRight:'1px solid rgba(77,144,254,.12)' }}>
-              <div style={{ fontSize:9,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(77,144,254,.7)',marginBottom:16 }}>Proof &mdash; Both Sides of One Deal</div>
-              {[
-                { step:'Sell-side mandate', detail:'J.P. Morgan engages Crossover on Nerdio Series C' },
-                { step:'Line of sight', detail:'Primary research reveals high-conviction asset' },
-                { step:'Fundamental view formed', detail:'Original thesis — independent, not curated' },
-                { step:'Buy-side match', detail:'GA alerted, 30-min brief, early positioning' },
-                { step:'Secondary diligence', detail:'Validates findings. $500M Series C at $1B+' },
-              ].map(({step,detail},i,arr)=>(
-                <div key={i} style={{ display:'flex',gap:14,alignItems:'flex-start',marginBottom:i<arr.length-1?14:0 }}>
-                  <div style={{ display:'flex',flexDirection:'column',alignItems:'center',flexShrink:0 }}>
-                    <div style={{ width:7,height:7,borderRadius:'50%',background:i===arr.length-1?'#2dd4a0':'rgba(77,144,254,.7)',marginTop:4 }} />
-                    {i<arr.length-1&&<div style={{ width:1,height:18,background:'rgba(77,144,254,.2)',marginTop:3 }} />}
-                  </div>
-                  <div>
-                    <div style={{ fontSize:13,fontWeight:600,color:i===arr.length-1?'#2dd4a0':'rgba(255,255,255,.85)',marginBottom:2 }}>{step}</div>
-                    <div style={{ fontSize:11,color:'rgba(255,255,255,.45)',lineHeight:1.55 }}>{detail}</div>
-                  </div>
+          <div style={{ marginBottom:32,border:'1px solid rgba(77,144,254,.15)',background:'rgba(77,144,254,.04)',padding:'28px 32px' }}>
+            <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:48,alignItems:'start' }}>
+              <div>
+                <div style={{ fontSize:9,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(77,144,254,.7)',marginBottom:10 }}>Proof &mdash; Both Sides of One Deal</div>
+                <p style={{ fontSize:14,fontWeight:300,color:'rgba(255,255,255,.55)',lineHeight:1.75,marginBottom:4,fontStyle:'italic' }}>
+                  &ldquo;The same infrastructure that wins mandates for bankers identifies the next great asset for funds. It only works because the data is never curated for either side.&rdquo;
+                </p>
+                <div style={{ marginTop:16,paddingTop:16,borderTop:'1px solid rgba(77,144,254,.12)' }}>
+                  <div style={{ fontSize:11,fontWeight:700,color:'rgba(255,255,255,.5)',letterSpacing:'.04em',marginBottom:2 }}>THE NERDIO DEAL</div>
+                  <div style={{ fontSize:11,color:'rgba(255,255,255,.3)' }}>J.P. Morgan sell-side &middot; General Atlantic buy-side &middot; $500M Series C</div>
                 </div>
-              ))}
-            </div>
-            <div style={{ padding:'24px 28px',display:'flex',alignItems:'center',justifyContent:'center' }}>
+              </div>
               <FlywheelDiagram />
             </div>
           </div>
