@@ -214,17 +214,7 @@ export default function IntelligencePage() {
               <EngagementCard key={i} card={card} />
             ))}
           </div>
-          <div style={{ marginTop:32,paddingTop:24,borderTop:'1px solid rgba(255,255,255,.07)',display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:16 }}>
-            <div>
-              <div style={{ fontSize:14,fontWeight:700,color:'var(--t0)',marginBottom:3 }}>Ian McArdle</div>
-              <div style={{ fontSize:11,color:'var(--t3)',marginBottom:4 }}>Head of Strategic Partnerships &middot; Crossover Research</div>
-              <a href={`mailto:${CONTACT.email}`} style={{ fontSize:11,color:'rgba(130,175,255,.8)',textDecoration:'none' }}>{CONTACT.email}</a>
-            </div>
-            <div style={{ display:'flex',gap:8 }}>
-              <a href={`mailto:${CONTACT.email}`} className="cta-btn solid" style={{ fontSize:12 }}>Email Ian</a>
-              <a href={CONTACT.bookingUrl} target="_blank" rel="noopener noreferrer" className="cta-btn outline" style={{ fontSize:12 }}>Book a Meeting</a>
-            </div>
-          </div>
+
         </div>
       </section>
 
