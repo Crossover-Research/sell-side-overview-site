@@ -111,7 +111,7 @@ body::before {
   display: inline-flex; flex-direction: column; align-items: stretch; gap: 0;
 }
 .topbar-brand-eyebrow {
-  font-size: 11px; font-weight: 600; text-transform: uppercase;
+  font-size: 12.5px; font-weight: 600; text-transform: uppercase;
   letter-spacing: .22em; color: rgba(200,220,255,.72); line-height: 1;
   display: flex; justify-content: space-between; align-items: center; gap: 12px;
   animation: topbar-fade-up .4s cubic-bezier(.22,.68,0,1.2) .05s both;
@@ -135,7 +135,7 @@ body::before {
   white-space: nowrap; flex-shrink: 0;
 }
 .topbar-logo-img {
-  height: 22px; width: auto;
+  height: 18px; width: auto;
   filter: none;
   opacity: 1;
   display: inline-block; vertical-align: middle;
