@@ -92,34 +92,7 @@ export default function IntelligencePage() {
     <>
       <HeroSection />
       <Suspense fallback={null}><RequestParamWatcher onOpen={() => setRequestOpen(true)} /></Suspense>
-
-
-
-      {/* WITHOUT / WITH */}
-      <section id="difference" className="ib-section">
-        <div className="ib-inner">
-          <div className="ib-section-eyebrow">The Difference</div>
-          <h2 className="ib-section-title" style={{ marginBottom:16 }}>What Changes When You Walk In With Crossover</h2>
-          <div className="ww-wrap">
-            <table className="ww-table">
-              <thead>
-                <tr>
-                  <th className="col-w" style={{ width:'50%' }}>Without Crossover</th>
-                  <th className="col-c" style={{ width:'50%' }}>With Crossover</th>
-                </tr>
-              </thead>
-              <tbody>
-                {WITHOUT_WITH.map((row,i)=>(
-                  <tr key={i}>
-                    <td className="col-w"><span className="ww-x">&#10005;</span>{row.w}</td>
-                    <td className="col-c"><span className="ww-check">&#10003;</span>{row.c}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>      {/* CAPABILITIES */}
+      {/* CAPABILITIES */}
       <section id="capabilities" className="ib-section ib-section-alt">
         <div className="ib-inner">
           <div className="ib-section-eyebrow">Six Capabilities</div>
@@ -158,6 +131,46 @@ export default function IntelligencePage() {
         </div>
       </section>
 
+      {/* ENGAGE */}
+      <section id="engage" className="ib-section ib-section-alt">
+        <div className="ib-inner">
+          <div className="ib-section-eyebrow">Start a Mandate</div>
+          <h2 className="ib-section-title" style={{ marginBottom:20 }}>Aligned to Where You Are in the Process</h2>
+          <div className="engagement-wrap">
+            {ENGAGEMENT_OPTIONS.map((card,i)=>(
+              <EngagementCard key={i} card={card} />
+            ))}
+          </div>
+
+
+        </div>
+      </section>
+
+      {/* WITHOUT / WITH */}
+      <section id="difference" className="ib-section">
+        <div className="ib-inner">
+          <div className="ib-section-eyebrow">The Difference</div>
+          <h2 className="ib-section-title" style={{ marginBottom:16 }}>What Changes When You Walk In With Crossover</h2>
+          <div className="ww-wrap">
+            <table className="ww-table">
+              <thead>
+                <tr>
+                  <th className="col-w" style={{ width:'50%' }}>Without Crossover</th>
+                  <th className="col-c" style={{ width:'50%' }}>With Crossover</th>
+                </tr>
+              </thead>
+              <tbody>
+                {WITHOUT_WITH.map((row,i)=>(
+                  <tr key={i}>
+                    <td className="col-w"><span className="ww-x">&#10005;</span>{row.w}</td>
+                    <td className="col-c"><span className="ww-check">&#10003;</span>{row.c}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
       {/* PRODUCTS */}
       <section id="products" className="ib-section ib-section-dark">
         <div className="ib-inner">
@@ -204,20 +217,10 @@ export default function IntelligencePage() {
           </div>
         </div>
       </section>
-      {/* ENGAGE */}
-      <section id="engage" className="ib-section ib-section-alt">
-        <div className="ib-inner">
-          <div className="ib-section-eyebrow">Start a Mandate</div>
-          <h2 className="ib-section-title" style={{ marginBottom:20 }}>Aligned to Where You Are in the Process</h2>
-          <div className="engagement-wrap">
-            {ENGAGEMENT_OPTIONS.map((card,i)=>(
-              <EngagementCard key={i} card={card} />
-            ))}
-          </div>
 
 
-        </div>
-      </section>
+
+
       {requestOpen && <RequestModal onClose={()=>setRequestOpen(false)} />}
     </>
   );
