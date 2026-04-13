@@ -193,34 +193,18 @@ export default function CatalystPage() {
 
           {/* Header row */}
           <div style={{ marginBottom:36,paddingBottom:32,borderBottom:'1px solid rgba(255,255,255,.07)' }}>
-            <div className="catalyst-header-grid" style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:48,alignItems:'center',marginBottom:28 }}>
-              <div>
-                <div className="ib-section-eyebrow">Crossover Catalyst</div>
-                <h2 style={{ fontSize:26,fontWeight:700,color:'#fff',lineHeight:1.2,marginBottom:14,marginTop:8 }}>
-                  The first dual-sided intelligence product for banked transactions.
-                </h2>
-                <p style={{ fontSize:14,color:'rgba(255,255,255,.58)',lineHeight:1.8,marginBottom:20 }}>
-                  Every sell-side mandate produces primary research verticalised for both sides of the transaction.
+            <div className="ib-section-eyebrow">Crossover Catalyst</div>
+            <div style={{ display:'flex',alignItems:'flex-end',justifyContent:'space-between',gap:48,flexWrap:'wrap',marginTop:8 }}>
+              <h2 style={{ fontSize:30,fontWeight:700,color:'#fff',lineHeight:1.15,letterSpacing:'-.02em',maxWidth:600,margin:0 }}>
+                The first dual-sided intelligence product for banked transactions.
+              </h2>
+              <div style={{ display:'flex',flexDirection:'column',gap:10,alignItems:'flex-end',flexShrink:0 }}>
+                <p style={{ fontSize:13,color:'rgba(255,255,255,.45)',lineHeight:1.7,maxWidth:340,textAlign:'right',margin:0 }}>
                   Same independent data. Neither side chose the respondents.
                 </p>
-                <button onClick={()=>setRequestOpen(true)} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 20px',fontSize:12,fontWeight:700,cursor:'pointer' }}>
+                <button onClick={()=>setRequestOpen(true)} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 22px',fontSize:12,fontWeight:700,cursor:'pointer',whiteSpace:'nowrap' }}>
                   Check Coverage &rarr;
                 </button>
-              </div>
-              {/* 4-step model — bigger, more readable */}
-              <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gridTemplateRows:'1fr 1fr',gap:1,background:'rgba(255,255,255,.07)' }}>
-                {[
-                  { n:'01', label:'Bank mandates Crossover', sub:'Sell-side deck · mandate differentiation' },
-                  { n:'02', label:'Verified customer truth', sub:'Independent respondents, not management-sourced' },
-                  { n:'03', label:'Verticalised by audience', sub:'Banker equity story · Operator CIM · Fund thesis' },
-                  { n:'04', label:'Catalyst resales compound', sub:'Select funds · 6-12 months early · same data' },
-                ].map(({n,label,sub},i)=>(
-                  <div key={i} style={{ padding:'18px 20px',background:'rgba(8,18,34,.95)' }}>
-                    <div style={{ fontSize:9,fontWeight:700,color:'rgba(130,175,255,.4)',fontFamily:'JetBrains Mono,monospace',marginBottom:8 }}>{n}</div>
-                    <div style={{ fontSize:13,fontWeight:700,color:'rgba(255,255,255,.85)',lineHeight:1.3,marginBottom:5 }}>{label}</div>
-                    <div style={{ fontSize:11,color:'rgba(255,255,255,.4)',lineHeight:1.5 }}>{sub}</div>
-                  </div>
-                ))}
               </div>
             </div>
           </div>
