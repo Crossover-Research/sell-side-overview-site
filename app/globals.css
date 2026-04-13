@@ -1471,3 +1471,205 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); padding-bottom: 60p
 }
 .asset-transacted--revealed .asset-underline { width: 100%; opacity: 1; }
 .asset-transacted--revealed .asset-code-slide { color: rgba(255,255,255,.4); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MOBILE ASSET CARDS — full overhaul
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.mobile-asset-card {
+  position: relative;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.09);
+  padding: 16px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color .2s, background .2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.mobile-asset-card:active { background: rgba(255,255,255,.05); }
+
+/* Transacted cards get a subtle blue-tinted bg */
+.mobile-asset-card--transacted {
+  border-color: rgba(77,144,254,.15);
+  background: rgba(6,14,28,.6);
+}
+/* Revealed state */
+.mobile-asset-card--revealed {
+  border-color: rgba(45,212,160,.3);
+  background: rgba(45,212,160,.04);
+}
+
+/* Top row */
+.mac-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.mac-status {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+}
+.mac-metric {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(130,175,255,.85);
+  letter-spacing: -.01em;
+}
+
+/* Identity block */
+.mac-identity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* Lock/unlock icon container */
+.mac-lock-wrap {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mac-lock-icon {
+  position: absolute;
+  color: rgba(130,175,255,.6);
+  transition: opacity .35s ease, transform .35s ease;
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+.mac-lock-icon--hidden {
+  opacity: 0;
+  transform: scale(0.5) rotate(-20deg);
+}
+.mac-unlock-icon {
+  position: absolute;
+  color: var(--green);
+  opacity: 0;
+  transform: scale(1.3) rotate(15deg);
+  transition: opacity .35s ease .1s, transform .35s cubic-bezier(.34,1.56,.64,1) .1s;
+}
+.mac-unlock-icon--visible {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+/* Name slide */
+.mac-name-wrap {
+  position: relative;
+  height: 22px;
+  flex: 1;
+  overflow: hidden;
+}
+.mac-code {
+  position: absolute;
+  top: 0; left: 0;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  color: rgba(255,255,255,.8);
+  transition: transform .4s cubic-bezier(.4,0,.2,1), opacity .3s;
+  white-space: nowrap;
+}
+.mac-code--out {
+  transform: translateX(-108%);
+  opacity: 0;
+}
+.mac-realname {
+  position: absolute;
+  top: 0; left: 0;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: .01em;
+  color: var(--green);
+  transform: translateX(108%);
+  opacity: 0;
+  transition: transform .4s cubic-bezier(.4,0,.2,1) .05s, opacity .3s .05s;
+  white-space: nowrap;
+}
+.mac-realname--in {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Hint */
+.mac-hint {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.25);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.mac-hint--pulse {
+  color: rgba(45,212,160,.6);
+  animation: hint-pulse 2s ease-in-out infinite;
+}
+.mac-dealnote {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .05em;
+  color: rgba(45,212,160,.6);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 1;
+}
+
+/* Category */
+.mac-category {
+  font-size: 11px;
+  color: rgba(255,255,255,.45);
+  margin-bottom: 12px;
+}
+.mac-subtitle {
+  color: rgba(255,255,255,.25);
+  font-style: italic;
+}
+
+/* Actions */
+.mac-actions { min-height: 0; }
+.mac-btn {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 7px 14px;
+  cursor: pointer;
+  letter-spacing: .03em;
+  transition: all .15s;
+  border: none;
+}
+.mac-btn--primary {
+  background: rgba(45,212,160,.15);
+  color: var(--green);
+  border: 1px solid rgba(45,212,160,.3);
+}
+.mac-btn--primary:active { background: rgba(45,212,160,.25); }
+.mac-btn--outline {
+  background: transparent;
+  color: rgba(255,255,255,.5);
+  border: 1px solid rgba(255,255,255,.12);
+}
+.mac-btn--outline:active { background: rgba(255,255,255,.05); }
+
+/* Bottom reveal bar */
+.mac-reveal-bar {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--green);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .5s cubic-bezier(.4,0,.2,1);
+}
+.mobile-asset-card--revealed .mac-reveal-bar {
+  transform: scaleX(1);
+}

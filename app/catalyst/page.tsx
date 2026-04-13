@@ -178,6 +178,90 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
   );
 }
 
+
+function MobileAssetCard({ asset, statusCfg: s, isFirst, onOpen, onRequest }: {
+  asset: CatalystAsset;
+  statusCfg: { color: string; bg: string; border: string; label: string };
+  isFirst: boolean;
+  onOpen: () => void;
+  onRequest: () => void;
+}) {
+  const [revealed, setRevealed] = useState(false);
+  const isTransacted = asset.status === 'transacted';
+
+  const handleTap = () => {
+    if (isTransacted && !revealed) { setRevealed(true); return; }
+    onOpen();
+  };
+
+  return (
+    <div
+      className={`mobile-asset-card${isTransacted ? ' mobile-asset-card--transacted' : ''}${revealed ? ' mobile-asset-card--revealed' : ''}`}
+      onClick={handleTap}
+    >
+      {/* Top row: status badge + key metric */}
+      <div className="mac-top">
+        <span className="mac-status" style={{ color:s.color, background:s.bg, border:`1px solid ${s.border}` }}>{s.label}</span>
+        <span className="mac-metric">{asset.keyMetric}</span>
+      </div>
+
+      {/* Identity block */}
+      <div className="mac-identity">
+        {isTransacted ? (
+          <>
+            {/* Lock icon → unlock icon transition */}
+            <div className="mac-lock-wrap">
+              <div className={`mac-lock-icon${revealed?' mac-lock-icon--hidden':''}`}>
+                <LockIcon size={14} />
+              </div>
+              <div className={`mac-unlock-icon${revealed?' mac-unlock-icon--visible':''}`}>
+                <UnlockIcon size={14} />
+              </div>
+            </div>
+            {/* Code → real name */}
+            <div className="mac-name-wrap">
+              <div className={`mac-code${revealed?' mac-code--out':''}`}>{asset.code}</div>
+              <div className={`mac-realname${revealed?' mac-realname--in':''}`}>{asset.realName}</div>
+            </div>
+            {/* Tap-to-reveal hint */}
+            {!revealed && (
+              <div className={`mac-hint${isFirst?' mac-hint--pulse':''}`}>
+                {isFirst ? 'tap to reveal →' : 'tap to reveal'}
+              </div>
+            )}
+            {revealed && asset.dealNote && (
+              <div className="mac-dealnote">{asset.dealNote}</div>
+            )}
+          </>
+        ) : (
+          <>
+            <div className="mac-lock-wrap"><LockIcon size={14} /></div>
+            <div className="mac-name-wrap">
+              <div className="mac-code">{asset.code}</div>
+            </div>
+            <div className="mac-hint">identity locked</div>
+          </>
+        )}
+      </div>
+
+      {/* Category */}
+      <div className="mac-category">{asset.category}<span className="mac-subtitle"> · {asset.subtitle}</span></div>
+
+      {/* CTA row — only shown after reveal or for locked (request access) */}
+      <div className="mac-actions">
+        {isTransacted && revealed ? (
+          <button className="mac-btn mac-btn--primary" onClick={e=>{e.stopPropagation();onOpen();}}>View Research →</button>
+        ) : isTransacted ? null : (
+          <button className="mac-btn mac-btn--outline" onClick={e=>{e.stopPropagation();onRequest();}}>Request Access →</button>
+        )}
+      </div>
+
+      {/* Teal reveal bar at bottom */}
+      {isTransacted && <div className="mac-reveal-bar" />}
+    </div>
+  );
+}
+
 export default function CatalystPage() {
   const [selectedAsset, setSelectedAsset] = useState<CatalystAsset|null>(null);
   const [requestOpen, setRequestOpen] = useState(false);
@@ -288,15 +372,17 @@ export default function CatalystPage() {
               <div className="catalyst-mobile-cards">
                 {filtered.map((a,i)=>{
                   const s = statusCfg[a.status];
+                  const isTransacted = a.status==='transacted';
+                  const isFirst = i===filtered.findIndex(x=>x.status==='transacted');
                   return (
-                    <div key={i} onClick={()=>setSelectedAsset(a)} style={{ background:'rgba(255,255,255,.03)',border:'1px solid rgba(255,255,255,.08)',padding:'14px 16px',cursor:'pointer' }}>
-                      <div style={{ display:'flex',alignItems:'flex-start',justifyContent:'space-between',marginBottom:8 }}>
-                        <AssetNameCell asset={a} isFirst={i===filtered.findIndex(x=>x.status==='transacted')} />
-                        <span style={{ fontSize:9,fontWeight:700,color:s.color,background:s.bg,border:`1px solid ${s.border}`,padding:'3px 9px',letterSpacing:'.06em',textTransform:'uppercase',flexShrink:0,marginLeft:10 }}>{s.label}</span>
-                      </div>
-                      <div style={{ fontSize:12,color:'rgba(255,255,255,.5)',marginBottom:4 }}>{a.category}</div>
-                      <div style={{ fontSize:12,fontWeight:600,color:'rgba(130,175,255,.8)',fontFamily:'JetBrains Mono,monospace' }}>{a.keyMetric}</div>
-                    </div>
+                    <MobileAssetCard
+                      key={i}
+                      asset={a}
+                      statusCfg={s}
+                      isFirst={isFirst}
+                      onOpen={()=>setSelectedAsset(a)}
+                      onRequest={()=>setRequestOpen(true)}
+                    />
                   );
                 })}
               </div>
