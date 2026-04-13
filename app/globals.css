@@ -267,7 +267,7 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); padding-bottom: 60p
   backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
   border-bottom: 1px solid var(--br-lo);
   padding: 0 var(--content-pad);
-  position: fixed; top: calc(var(--topbar-h) + 8px); left: 0; right: 0; z-index: 200;
+  position: fixed; top: var(--topbar-h); left: 0; right: 0; z-index: 200;
 }
 .tab-nav { max-width: var(--content-max); margin: 0 auto; display: flex; overflow-x: auto; scrollbar-width: none; }
 .tab-nav::-webkit-scrollbar { display: none; }
