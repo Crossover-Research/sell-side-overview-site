@@ -69,8 +69,8 @@ export function HeroSection({ tab }: HeroSectionProps) {
               chose the respondents.
             </p>
             <div style={{ display:'flex', gap:10, marginBottom:28 }}>
-              <a href="/intelligence?request=1" className="hero-cta-primary">Start a Mandate &rarr;</a>
-              <a href="/catalyst" className="hero-cta-secondary">Catalyst Library</a>
+              <a href="/intelligence#engage" className="hero-cta-primary">Start a Mandate &rarr;</a>
+              <a href="/catalyst#catalyst" className="hero-cta-secondary">Catalyst Library</a>
             </div>
             <div className="hero-metrics">
               {METRICS.map((m, i) => (

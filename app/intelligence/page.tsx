@@ -96,7 +96,7 @@ export default function IntelligencePage() {
 
 
       {/* WITHOUT / WITH */}
-      <section className="ib-section">
+      <section id="difference" className="ib-section">
         <div className="ib-inner">
           <div className="ib-section-eyebrow">The Difference</div>
           <h2 className="ib-section-title" style={{ marginBottom:16 }}>What Changes When You Walk In With Crossover</h2>
@@ -120,7 +120,7 @@ export default function IntelligencePage() {
           </div>
         </div>
       </section>      {/* CAPABILITIES */}
-      <section className="ib-section ib-section-alt">
+      <section id="capabilities" className="ib-section ib-section-alt">
         <div className="ib-inner">
           <div className="ib-section-eyebrow">Six Capabilities</div>
           <h2 className="ib-section-title" style={{ marginBottom:18 }}>Built for Every Stage of the Transaction</h2>
@@ -159,7 +159,7 @@ export default function IntelligencePage() {
       </section>
 
       {/* PRODUCTS */}
-      <section className="ib-section ib-section-dark">
+      <section id="products" className="ib-section ib-section-dark">
         <div className="ib-inner">
           <div className="ib-section-eyebrow">What You Get</div>
           <h2 className="ib-section-title" style={{ color:'#fff',marginBottom:20 }}>One Methodology. Three Outputs.</h2>
@@ -178,7 +178,7 @@ export default function IntelligencePage() {
 
       {/* SAMPLE STUDIES */}
 
-      <section className="ib-section">
+      <section id="samples" className="ib-section">
         <div className="ib-inner">
           <div className="ib-section-eyebrow">Sample Research</div>
           <h2 className="ib-section-title" style={{ marginBottom:16 }}>Live Catalyst Studies</h2>
@@ -205,7 +205,7 @@ export default function IntelligencePage() {
         </div>
       </section>
       {/* ENGAGE */}
-      <section className="ib-section ib-section-alt">
+      <section id="engage" className="ib-section ib-section-alt">
         <div className="ib-inner">
           <div className="ib-section-eyebrow">Start a Mandate</div>
           <h2 className="ib-section-title" style={{ marginBottom:20 }}>Aligned to Where You Are in the Process</h2>
@@ -213,6 +213,19 @@ export default function IntelligencePage() {
             {ENGAGEMENT_OPTIONS.map((card,i)=>(
               <EngagementCard key={i} card={card} />
             ))}
+          </div>
+
+          {/* Fallback contact — always visible, no modal required */}
+          <div style={{ marginTop:32,paddingTop:24,borderTop:'1px solid rgba(255,255,255,.07)',display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:16 }}>
+            <div>
+              <div style={{ fontSize:14,fontWeight:700,color:'var(--t0)',marginBottom:3 }}>Ian McArdle</div>
+              <div style={{ fontSize:11,color:'var(--t3)',marginBottom:4 }}>Head of Strategic Partnerships &middot; Crossover Research</div>
+              <a href={`mailto:${CONTACT.email}`} style={{ fontSize:11,color:'rgba(130,175,255,.8)',textDecoration:'none' }}>{CONTACT.email}</a>
+            </div>
+            <div style={{ display:'flex',gap:8 }}>
+              <a href={`mailto:${CONTACT.email}`} className="cta-btn solid" style={{ fontSize:12 }}>Email Ian</a>
+              <a href={CONTACT.bookingUrl} target="_blank" rel="noopener noreferrer" className="cta-btn outline" style={{ fontSize:12 }}>Book a Meeting</a>
+            </div>
           </div>
 
         </div>

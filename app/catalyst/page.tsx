@@ -164,7 +164,7 @@ export default function CatalystPage() {
   return (
     <>
       {/* POSITIONING + TABLE — unified dark section */}
-      <section className="ib-section ib-section-dark">
+      <section id="catalyst" className="ib-section ib-section-dark">
         <div className="ib-inner">
 
           {/* Header row */}
