@@ -75,8 +75,9 @@ export function HeroSection({ tab }: HeroSectionProps) {
             <div className="hero-metrics">
               {METRICS.map((m, i) => (
                 <div key={i} className="hero-metric">
+                  <div className="hero-metric-label">{m.label}</div>
                   <div className="hero-metric-val">{m.val}</div>
-                  <div className="hero-metric-lbl">{m.label}</div>
+                  <div className="hero-metric-tick" />
                 </div>
               ))}
             </div>
