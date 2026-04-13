@@ -46,7 +46,7 @@ export function BluecatContent() {
       {active === 'intel' && (
         <div className="rc-section">
           <InsightBox><strong>Thesis verdict:</strong> {STUDY_INTEL.thesisVerdict}</InsightBox>
-          <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:'1px',background:'var(--br-lo)',marginTop:16 }}>
+          <div className="advantage-grid" style={{ display:'grid',gap:'1px',background:'var(--br-lo)',marginTop:16 }}>
             <div className="advantage-card"><div className="advantage-title">Expansion Segments</div><div className="advantage-desc">{STUDY_INTEL.expansionSegments}</div></div>
             <div className="advantage-card"><div className="advantage-title">Risk Flags</div><div className="advantage-desc">{STUDY_INTEL.riskFlags}</div></div>
           </div>

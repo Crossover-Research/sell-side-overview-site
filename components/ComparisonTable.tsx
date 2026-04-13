@@ -54,6 +54,7 @@ export function ComparisonTable({ rows }: Props) {
   };
 
   return (
+    <div className="comparison-table-wrap">
     <table className="comparison-table">
       <thead>
         <tr>
@@ -91,5 +92,6 @@ export function ComparisonTable({ rows }: Props) {
         })}
       </tbody>
     </table>
+    </div>
   );
 }

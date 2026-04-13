@@ -73,7 +73,7 @@ function TeaserModal({ asset, onClose, onRequest }: { asset: CatalystAsset; onCl
             <div style={{ fontSize:9,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(130,175,255,.6)',marginBottom:6 }}>Investment Hook</div>
             <p style={{ fontSize:13,color:'rgba(255,255,255,.85)',lineHeight:1.65,margin:0 }}>{asset.hook}</p>
           </div>
-          <div style={{ display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:7,marginBottom:16 }}>
+          <div className="catalyst-modal-metrics" style={{ display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:7,marginBottom:16 }}>
             {asset.metrics.map((m,i)=>(
               <div key={i} style={{ background:'rgba(255,255,255,.04)',border:'1px solid rgba(255,255,255,.07)',padding:'9px 11px',textAlign:'center' }}>
                 <div style={{ fontSize:8,fontWeight:700,textTransform:'uppercase',letterSpacing:'.08em',color:'rgba(255,255,255,.3)',marginBottom:4 }}>{m.label}</div>
@@ -169,7 +169,7 @@ export default function CatalystPage() {
 
           {/* Header row */}
           <div style={{ marginBottom:36,paddingBottom:32,borderBottom:'1px solid rgba(255,255,255,.07)' }}>
-            <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:48,alignItems:'center',marginBottom:28 }}>
+            <div className="catalyst-header-grid" style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:48,alignItems:'center',marginBottom:28 }}>
               <div>
                 <div className="ib-section-eyebrow">Crossover Catalyst</div>
                 <h2 style={{ fontSize:26,fontWeight:700,color:'#fff',lineHeight:1.2,marginBottom:14,marginTop:8 }}>
@@ -203,7 +203,7 @@ export default function CatalystPage() {
 
           {/* Nerdio proof */}
           <div style={{ marginBottom:32,border:'1px solid rgba(77,144,254,.15)',background:'rgba(77,144,254,.04)',padding:'28px 32px' }}>
-            <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:48,alignItems:'start' }}>
+            <div className="catalyst-proof-grid" style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:48,alignItems:'start' }}>
               <div>
                 <div style={{ fontSize:9,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(77,144,254,.7)',marginBottom:10 }}>Proof &mdash; Both Sides of One Deal</div>
                 <p style={{ fontSize:14,fontWeight:300,color:'rgba(255,255,255,.55)',lineHeight:1.75,marginBottom:4,fontStyle:'italic' }}>
