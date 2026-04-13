@@ -1402,7 +1402,6 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); padding-bottom: 60p
   cursor: pointer;
   user-select: none;
   min-width: 150px;
-  padding: 2px 0;
 }
 
 /* Slide hint badge — shown on first transacted only */
@@ -1417,9 +1416,10 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); padding-bottom: 60p
   color: rgba(45,212,160,.7);
   background: rgba(45,212,160,.08);
   border: 1px solid rgba(45,212,160,.2);
-  padding: 2px 7px 2px 6px;
-  margin-bottom: 6px;
+  padding: 1px 7px 1px 6px;
+  transition: opacity .2s;
   animation: hint-pulse 2.4s ease-in-out infinite;
+  white-space: nowrap;
 }
 @keyframes hint-pulse {
   0%, 100% { opacity: .7; }

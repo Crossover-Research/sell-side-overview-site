@@ -30,8 +30,11 @@ function AssetNameCell({ asset, isFirst }: { asset: CatalystAsset; isFirst?: boo
   const [revealed, setRevealed] = useState(false);
   const isTransacted = asset.status === 'transacted';
 
+  /* Fixed-height wrapper so no row ever shifts — all cells 58px tall */
+  const cellStyle: React.CSSProperties = { height:58, display:'flex', flexDirection:'column', justifyContent:'center', gap:0 };
+
   if (!isTransacted) return (
-    <div className="asset-locked">
+    <div style={cellStyle}>
       <div style={{ fontSize:13,fontWeight:700,color:'rgba(130,175,255,.75)',marginBottom:4,display:'flex',alignItems:'center' }}>
         <LockIcon />{asset.code}
       </div>
@@ -42,20 +45,19 @@ function AssetNameCell({ asset, isFirst }: { asset: CatalystAsset; isFirst?: boo
   return (
     <div
       className={`asset-transacted${revealed?' asset-transacted--revealed':''}`}
+      style={cellStyle}
       onMouseEnter={()=>setRevealed(true)}
       onMouseLeave={()=>setRevealed(false)}
       onTouchStart={()=>setRevealed(r=>!r)}
     >
-      {/* Slide hint — only on first transacted, hides after hover */}
-      {isFirst && !revealed && (
-        <div className="asset-reveal-hint">
-          <span>slide to reveal</span>
-          <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 4h10M7 1l4 3-4 3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-        </div>
-      )}
+      {/* Slide hint — always in DOM on first transacted, hidden via opacity so no layout shift */}
+      <div className="asset-reveal-hint" style={{ visibility:isFirst&&!revealed?'visible':'hidden', opacity:isFirst&&!revealed?1:0, height:18, marginBottom:4 }}>
+        <span>slide to reveal</span>
+        <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 4h10M7 1l4 3-4 3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+      </div>
 
       {/* Code → Real name slide */}
-      <div style={{ position:'relative',height:22,overflow:'hidden',marginBottom:4 }}>
+      <div style={{ position:'relative',height:20,overflow:'hidden',flexShrink:0 }}>
         <div className="asset-code-slide" style={{ transform:revealed?'translateX(-110%)':'translateX(0)' }}>
           <UnlockIcon size={10}/>{asset.code}
         </div>
@@ -64,15 +66,18 @@ function AssetNameCell({ asset, isFirst }: { asset: CatalystAsset; isFirst?: boo
         </div>
       </div>
 
-      {/* Sub-label */}
-      <div className={`asset-sub${revealed?' asset-sub--revealed':''}`}>
-        {revealed && asset.dealNote ? asset.dealNote : (
-          <span className="asset-sub-hint">hover to reveal identity</span>
-        )}
+      {/* Sub-label — always same height, content swaps via opacity */}
+      <div style={{ position:'relative',height:16,marginTop:3,overflow:'hidden' }}>
+        <div className="asset-sub" style={{ position:'absolute',top:0,left:0,opacity:revealed?0:1,transition:'opacity .2s' }}>
+          <span className="asset-sub-hint">hover to reveal</span>
+        </div>
+        <div className="asset-sub asset-sub--revealed" style={{ position:'absolute',top:0,left:0,opacity:revealed?1:0,transition:'opacity .2s' }}>
+          {asset.dealNote ?? ''}
+        </div>
       </div>
 
-      {/* Teal underline reveal indicator */}
-      <div className="asset-underline" />
+      {/* Teal underline */}
+      <div className="asset-underline" style={{ marginTop:4 }} />
     </div>
   );
 }
