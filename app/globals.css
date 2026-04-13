@@ -1389,3 +1389,84 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); padding-bottom: 60p
   .hero-proof { display: none; }
   .hero-grid  { gap: 28px; }
 }
+
+/* ── CATALYST ASSET NAME CELLS ───────────────────────────────────────────── */
+
+/* Locked (active/new) */
+.asset-locked { cursor: default; }
+
+/* Transacted — hover to reveal */
+.asset-transacted {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  min-width: 150px;
+  padding: 2px 0;
+}
+
+/* Slide hint badge — shown on first transacted only */
+.asset-reveal-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(45,212,160,.7);
+  background: rgba(45,212,160,.08);
+  border: 1px solid rgba(45,212,160,.2);
+  padding: 2px 7px 2px 6px;
+  margin-bottom: 6px;
+  animation: hint-pulse 2.4s ease-in-out infinite;
+}
+@keyframes hint-pulse {
+  0%, 100% { opacity: .7; }
+  50%       { opacity: 1; }
+}
+
+/* Sliding name layers */
+.asset-code-slide {
+  position: absolute; top: 0; left: 0; width: 100%;
+  font-size: 13px; font-weight: 700;
+  color: rgba(255,255,255,.75);
+  display: flex; align-items: center;
+  transition: transform .34s cubic-bezier(.4,0,.2,1);
+}
+.asset-name-slide {
+  position: absolute; top: 0; left: 0; width: 100%;
+  font-size: 13px; font-weight: 700;
+  color: #2dd4a0;
+  transition: transform .34s cubic-bezier(.4,0,.2,1);
+}
+
+/* Sub-label */
+.asset-sub {
+  font-size: 10px;
+  letter-spacing: .04em;
+  color: rgba(255,255,255,.22);
+  transition: color .2s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+.asset-sub--revealed {
+  color: rgba(45,212,160,.65);
+}
+.asset-sub-hint {
+  color: rgba(255,255,255,.22);
+  font-style: italic;
+}
+
+/* Teal underline that grows on reveal */
+.asset-underline {
+  height: 1px;
+  background: var(--green);
+  width: 0;
+  margin-top: 5px;
+  transition: width .34s cubic-bezier(.4,0,.2,1);
+  opacity: .6;
+}
+.asset-transacted--revealed .asset-underline { width: 100%; opacity: 1; }
+.asset-transacted--revealed .asset-code-slide { color: rgba(255,255,255,.4); }

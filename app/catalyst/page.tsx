@@ -26,29 +26,53 @@ const UnlockIcon = ({ size=11 }: { size?: number }) => (
   </svg>
 );
 
-function AssetNameCell({ asset }: { asset: CatalystAsset }) {
+function AssetNameCell({ asset, isFirst }: { asset: CatalystAsset; isFirst?: boolean }) {
   const [revealed, setRevealed] = useState(false);
   const isTransacted = asset.status === 'transacted';
+
   if (!isTransacted) return (
-    <div>
-      <div style={{ fontSize:13,fontWeight:700,color:'rgba(130,175,255,.75)',marginBottom:3,display:'flex',alignItems:'center' }}><LockIcon />{asset.code}</div>
-      <div style={{ fontSize:10,color:'rgba(255,255,255,.2)',letterSpacing:'.04em',textTransform:'uppercase' }}>Identity locked</div>
+    <div className="asset-locked">
+      <div style={{ fontSize:13,fontWeight:700,color:'rgba(130,175,255,.75)',marginBottom:4,display:'flex',alignItems:'center' }}>
+        <LockIcon />{asset.code}
+      </div>
+      <div style={{ fontSize:10,color:'rgba(255,255,255,.18)',letterSpacing:'.06em',textTransform:'uppercase' }}>Identity locked</div>
     </div>
   );
+
   return (
-    <div style={{ position:'relative',cursor:'default',userSelect:'none',minWidth:140 }}
-      onMouseEnter={()=>setRevealed(true)} onMouseLeave={()=>setRevealed(false)}>
-      <div style={{ position:'relative',height:20,overflow:'hidden',marginBottom:3 }}>
-        <div style={{ position:'absolute',top:0,left:0,width:'100%',fontSize:13,fontWeight:700,color:'rgba(180,180,200,.65)',display:'flex',alignItems:'center',transform:revealed?'translateX(-115%)':'translateX(0)',transition:'transform .32s cubic-bezier(.4,0,.2,1)' }}>
+    <div
+      className={`asset-transacted${revealed?' asset-transacted--revealed':''}`}
+      onMouseEnter={()=>setRevealed(true)}
+      onMouseLeave={()=>setRevealed(false)}
+      onTouchStart={()=>setRevealed(r=>!r)}
+    >
+      {/* Slide hint — only on first transacted, hides after hover */}
+      {isFirst && !revealed && (
+        <div className="asset-reveal-hint">
+          <span>slide to reveal</span>
+          <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 4h10M7 1l4 3-4 3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        </div>
+      )}
+
+      {/* Code → Real name slide */}
+      <div style={{ position:'relative',height:22,overflow:'hidden',marginBottom:4 }}>
+        <div className="asset-code-slide" style={{ transform:revealed?'translateX(-110%)':'translateX(0)' }}>
           <UnlockIcon size={10}/>{asset.code}
         </div>
-        <div style={{ position:'absolute',top:0,left:0,width:'100%',fontSize:13,fontWeight:700,color:'#2dd4a0',transform:revealed?'translateX(0)':'translateX(115%)',transition:'transform .32s cubic-bezier(.4,0,.2,1)' }}>
+        <div className="asset-name-slide" style={{ transform:revealed?'translateX(0)':'translateX(110%)' }}>
           {asset.realName}
         </div>
       </div>
-      <div style={{ fontSize:10,letterSpacing:'.04em',color:revealed?'rgba(45,212,160,.55)':'rgba(255,255,255,.22)',transition:'color .2s' }}>
-        {revealed&&asset.dealNote ? asset.dealNote : 'Hover to reveal'}
+
+      {/* Sub-label */}
+      <div className={`asset-sub${revealed?' asset-sub--revealed':''}`}>
+        {revealed && asset.dealNote ? asset.dealNote : (
+          <span className="asset-sub-hint">hover to reveal identity</span>
+        )}
       </div>
+
+      {/* Teal underline reveal indicator */}
+      <div className="asset-underline" />
     </div>
   );
 }
@@ -247,12 +271,13 @@ export default function CatalystPage() {
                   {filtered.map((a,i)=>{
                     const s = statusCfg[a.status];
                     const isTransacted = a.status==='transacted';
+                    const firstTransactedIdx = filtered.findIndex(x=>x.status==='transacted');
                     return (
                       <tr key={i} style={{ borderBottom:'1px solid rgba(255,255,255,.05)',cursor:'pointer',transition:'background .12s' }}
                         onClick={()=>setSelectedAsset(a)}
                         onMouseEnter={e=>(e.currentTarget.style.background='rgba(255,255,255,.04)')}
                         onMouseLeave={e=>(e.currentTarget.style.background='transparent')}>
-                        <td style={{ padding:'12px 14px' }}><AssetNameCell asset={a} /></td>
+                        <td style={{ padding:'12px 14px' }}><AssetNameCell asset={a} isFirst={i===firstTransactedIdx} /></td>
                         <td style={{ padding:'12px 14px' }}>
                           <div style={{ fontSize:12,color:'rgba(255,255,255,.6)' }}>{a.category}</div>
                           <div style={{ fontSize:10,color:'rgba(255,255,255,.28)',fontStyle:'italic' }}>{a.subtitle}</div>
@@ -277,7 +302,7 @@ export default function CatalystPage() {
                   return (
                     <div key={i} onClick={()=>setSelectedAsset(a)} style={{ background:'rgba(255,255,255,.03)',border:'1px solid rgba(255,255,255,.08)',padding:'14px 16px',cursor:'pointer' }}>
                       <div style={{ display:'flex',alignItems:'flex-start',justifyContent:'space-between',marginBottom:8 }}>
-                        <AssetNameCell asset={a} />
+                        <AssetNameCell asset={a} isFirst={i===filtered.findIndex(x=>x.status==='transacted')} />
                         <span style={{ fontSize:9,fontWeight:700,color:s.color,background:s.bg,border:`1px solid ${s.border}`,padding:'3px 9px',letterSpacing:'.06em',textTransform:'uppercase',flexShrink:0,marginLeft:10 }}>{s.label}</span>
                       </div>
                       <div style={{ fontSize:12,color:'rgba(255,255,255,.5)',marginBottom:4 }}>{a.category}</div>
