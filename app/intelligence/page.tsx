@@ -41,10 +41,10 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
     </div>
   );
   return(
-    <div onClick={e=>e.target===e.currentTarget&&onClose()} style={{ position:'fixed',inset:0,zIndex:600,background:'rgba(4,9,18,.92)',backdropFilter:'blur(8px)',display:'flex',alignItems:'center',justifyContent:'center',padding:20 }}>
-      <div style={{ background:'#0c1a2e',border:'1px solid rgba(255,255,255,.12)',maxWidth:460,width:'100%',position:'relative' }}>
+    <div style={{ position:'fixed',inset:0,zIndex:600,background:'rgba(4,9,18,.92)',backdropFilter:'blur(8px)',display:'flex',alignItems:'center',justifyContent:'center',padding:20 }} onClick={onClose}>
+      <div style={{ background:'#0c1a2e',border:'1px solid rgba(255,255,255,.12)',maxWidth:460,width:'100%',position:'relative' }} onClick={e=>e.stopPropagation()}>
         <div style={{ background:'linear-gradient(135deg,#0f1f38,#162d4a)',padding:'18px 22px',borderBottom:'1px solid rgba(255,255,255,.08)',position:'relative' }}>
-          <button onClick={onClose} style={{ position:'absolute',top:10,right:10,background:'rgba(255,255,255,.1)',border:'none',color:'rgba(255,255,255,.7)',width:24,height:24,cursor:'pointer',fontSize:14,lineHeight:'24px',textAlign:'center' }}>x</button>
+          <button onClick={onClose} style={{ position:'absolute',top:12,right:12,background:'rgba(255,255,255,.12)',border:'1px solid rgba(255,255,255,.18)',color:'rgba(255,255,255,.9)',width:28,height:28,cursor:'pointer',fontSize:16,lineHeight:'26px',textAlign:'center',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0 }}>&#215;</button>
           <div style={{ fontSize:14,fontWeight:700,color:'#fff',marginBottom:2 }}>Start a Mandate</div>
           <p style={{ fontSize:11,color:'rgba(255,255,255,.35)',margin:0 }}>Same-day if covered &middot; 14-day custom if not</p>
         </div>
@@ -215,18 +215,6 @@ export default function IntelligencePage() {
             ))}
           </div>
 
-          {/* Fallback contact — always visible, no modal required */}
-          <div style={{ marginTop:32,paddingTop:24,borderTop:'1px solid rgba(255,255,255,.07)',display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:16 }}>
-            <div>
-              <div style={{ fontSize:14,fontWeight:700,color:'var(--t0)',marginBottom:3 }}>Ian McArdle</div>
-              <div style={{ fontSize:11,color:'var(--t3)',marginBottom:4 }}>Head of Strategic Partnerships &middot; Crossover Research</div>
-              <a href={`mailto:${CONTACT.email}`} style={{ fontSize:11,color:'rgba(130,175,255,.8)',textDecoration:'none' }}>{CONTACT.email}</a>
-            </div>
-            <div style={{ display:'flex',gap:8 }}>
-              <a href={`mailto:${CONTACT.email}`} className="cta-btn solid" style={{ fontSize:12 }}>Email Ian</a>
-              <a href={CONTACT.bookingUrl} target="_blank" rel="noopener noreferrer" className="cta-btn outline" style={{ fontSize:12 }}>Book a Meeting</a>
-            </div>
-          </div>
 
         </div>
       </section>
