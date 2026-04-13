@@ -31,9 +31,9 @@ export function FlywheelDiagram() {
     const run = () => {
       setActiveStep(i);
       i++;
-      if (i < STEPS.length) setTimeout(run, 380);
+      if (i < STEPS.length) setTimeout(run, 900);
     };
-    setTimeout(run, 250);
+    setTimeout(run, 600);
   }, [visible]);
 
   return (
