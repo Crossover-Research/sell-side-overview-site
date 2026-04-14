@@ -15,6 +15,7 @@ export function Footer() {
           <a href="/intelligence">Intelligence Platform</a>
           <a href="/redcanary">Red Canary</a>
           <a href="/bluecat">BlueCat Networks</a>
+          <a href="/qofai">Q of AI</a>
           <a href={`mailto:${CONTACT.email}`}>Contact</a>
         </div>
         <div className="site-footer-legal">
