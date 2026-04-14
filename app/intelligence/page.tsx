@@ -19,10 +19,21 @@ function RequestParamWatcher({ onOpen }: { onOpen: () => void }) {
 function RequestModal({ onClose }: { onClose:()=>void }) {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState('');
-  const [form, setForm] = useState({ firstName:'',lastName:'',email:'',firm:'',orgType:'',mandate:'' });
+  const [firmOther, setFirmOther] = useState(false);
+  const [form, setForm] = useState({ firstName:'',lastName:'',email:'',firm:'',orgType:'Investment Bank',mandate:'' });
   const ORG = ['Investment Bank','Private Equity','Growth Equity','Venture Capital','Strategic'];
+  const BANKS = [
+    'Goldman Sachs','J.P. Morgan','Morgan Stanley','Bank of America','Citi',
+    'Barclays','Deutsche Bank','UBS','Credit Suisse','Lazard',
+    'Evercore','Moelis & Company','Jefferies','RBC Capital Markets','Wells Fargo',
+    'Other',
+  ];
   const inp: React.CSSProperties = { width:'100%',background:'rgba(255,255,255,.05)',border:'1px solid rgba(255,255,255,.12)',color:'rgba(255,255,255,.88)',padding:'9px 12px',fontSize:13,outline:'none',boxSizing:'border-box' };
   const set = (k:string,v:string)=>setForm(f=>({...f,[k]:v}));
+  const handleFirmSelect = (v:string) => {
+    if (v === 'Other') { setFirmOther(true); set('firm',''); }
+    else { setFirmOther(false); set('firm', v); }
+  };
   const submit = async(e:React.FormEvent)=>{
     e.preventDefault(); setError('');
     try {
@@ -56,9 +67,22 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
           </div>
           <div><label style={{ display:'block',fontSize:9,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.3)',marginBottom:4 }}>Work Email *</label><input required type="email" style={inp} placeholder="jordan@bank.com" onChange={e=>set('email',e.target.value)} /></div>
           <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:9 }}>
-            <div><label style={{ display:'block',fontSize:9,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.3)',marginBottom:4 }}>Firm *</label><input required style={inp} placeholder="J.P. Morgan" onChange={e=>set('firm',e.target.value)} /></div>
-            <div><label style={{ display:'block',fontSize:9,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.3)',marginBottom:4 }}>Org Type *</label>
-              <select required style={{...inp,appearance:'none'}} onChange={e=>set('orgType',e.target.value)}><option value="">Select...</option>{ORG.map(o=><option key={o}>{o}</option>)}</select>
+            <div>
+              <label style={{ display:'block',fontSize:9,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.3)',marginBottom:4 }}>Firm *</label>
+              {!firmOther
+                ? <select required style={{...inp,appearance:'none'}} onChange={e=>handleFirmSelect(e.target.value)} defaultValue="">
+                    <option value="" disabled>Select firm...</option>
+                    {BANKS.map(b=><option key={b} value={b}>{b}</option>)}
+                  </select>
+                : <input required autoFocus style={inp} placeholder="Firm name" onChange={e=>set('firm',e.target.value)} />
+              }
+              {firmOther && <button type="button" onClick={()=>setFirmOther(false)} style={{ fontSize:9,color:'rgba(255,255,255,.3)',background:'none',border:'none',cursor:'pointer',marginTop:4,padding:0 }}>← Back to list</button>}
+            </div>
+            <div>
+              <label style={{ display:'block',fontSize:9,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.3)',marginBottom:4 }}>Org Type *</label>
+              <select required style={{...inp,appearance:'none'}} value={form.orgType} onChange={e=>set('orgType',e.target.value)}>
+                {ORG.map(o=><option key={o}>{o}</option>)}
+              </select>
             </div>
           </div>
           <div><label style={{ display:'block',fontSize:9,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.3)',marginBottom:4 }}>Target Company or Mandate</label><input style={inp} placeholder="Company name" onChange={e=>set('mandate',e.target.value)} /></div>
