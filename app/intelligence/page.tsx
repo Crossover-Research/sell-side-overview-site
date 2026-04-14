@@ -197,13 +197,13 @@ export default function IntelligencePage() {
           <div className="ib-samples">
             <a href="/redcanary" className="ib-sample-card">
               <div className="ib-sample-type">SENTINEL &middot; Cybersecurity MDR</div>
-              <div className="ib-sample-name">Red Canary</div>
+              <img src="/red-canary-logo.svg" alt="Red Canary" className="ib-sample-logo" />
               <div className="ib-sample-meta">9.0 NPS &middot; 8.8 replication difficulty &middot; 75+ respondents</div>
               <div className="ib-sample-link">View Study &rarr;</div>
             </a>
             <a href="/bluecat" className="ib-sample-card">
               <div className="ib-sample-type">FORTRESS &middot; Network Infrastructure</div>
-              <div className="ib-sample-name">BlueCat Networks</div>
+              <img src="/bluecat-logo.svg" alt="BlueCat Networks" className="ib-sample-logo ib-sample-logo--invert" />
               <div className="ib-sample-meta">9.0 mission criticality &middot; 1.9 switching intent &middot; 55 respondents</div>
               <div className="ib-sample-link">View Study &rarr;</div>
             </a>

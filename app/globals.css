@@ -1839,3 +1839,17 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); padding-bottom: 60p
   background: rgba(255,77,94,.7);
   transform: rotate(-8deg);
 }
+
+/* ── SAMPLE CARD LOGOS ───────────────────────────────────────────────────── */
+.ib-sample-logo {
+  height: 28px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  margin-bottom: 12px;
+  display: block;
+}
+.ib-sample-logo--invert {
+  filter: brightness(0) invert(1);
+  opacity: .85;
+}

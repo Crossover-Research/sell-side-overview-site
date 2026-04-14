@@ -43,7 +43,7 @@ export function ResearchHeader({ tab }: ResearchHeaderProps) {
         <div style={{ width: 3, height: 36, background: cfg.color, flexShrink: 0, borderRadius: 2 }} />
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 3 }}>
-            <img src={cfg.logoSrc} alt={cfg.company} style={{ height: 22, width: "auto", filter: "brightness(0) invert(1)", opacity: .9 }} />
+            <img src={cfg.logoSrc} alt={cfg.company} style={{ height: 22, width: "auto", filter: tab === 'bluecat' ? "brightness(0) invert(1)" : "none", opacity: tab === 'bluecat' ? .85 : 1 }} />
             <div style={{ fontSize: 10, fontWeight: 600, color: cfg.color, background: `${cfg.color}18`, border: `1px solid ${cfg.color}35`, padding: '2px 8px', letterSpacing: '.04em', textTransform: 'uppercase' }}>
               Catalyst Study
             </div>
