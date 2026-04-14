@@ -185,23 +185,6 @@ export default function IntelligencePage() {
           </div>
         </div>
       </section>
-      {/* PRODUCTS */}
-      <section id="products" className="ib-section ib-section-dark">
-        <div className="ib-inner">
-          <div className="ib-section-eyebrow">What You Get</div>
-          <h2 className="ib-section-title" style={{ color:'#fff',marginBottom:20 }}>One Methodology. Three Outputs.</h2>
-          <div className="product-grid">
-            {PRODUCTS.map((p,i)=>(
-              <div key={i} className="product-col" style={{ borderLeft:i>0?'1px solid rgba(255,255,255,.08)':'none' }}>
-                <div className="product-audience" style={{ color:p.color }}>{p.audience}</div>
-                <div className="product-title">{p.title}</div>
-                <div className="product-desc">{p.desc}</div>
-                <div className="product-value" style={{ marginTop:'auto',paddingTop:12 }}>{p.value}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* SAMPLE STUDIES */}
 
