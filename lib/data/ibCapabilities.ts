@@ -36,8 +36,8 @@ export const IB_CAP_DATA: Record<IBCap, IBCapabilityData> = {
     anchorLabel: 'Bank in the room with independent customer proof',
     anchorContext: 'Verbatims the operator never commissioned — no competing bank can replicate on any timeline',
     body: "Crossover's sell-side engagements create line of sight into high-quality assets before they're in formal processes. When J.P. Morgan engaged us for the Nerdio Series C, the customer interviews won them the mandate. We then formed a fundamental view from those findings, alerted select funds, and GA took a 30-minute conviction brief; secondary diligence followed, and $500M at $1B+ closed. That's the flywheel. You walk in knowing the company better than anyone else in the room. Then the research works for you after the mandate is won.",
-    bankerProblem: 'You are pitching alongside 4 other banks with identical decks. Every bank says the same things. The client has no rational basis to choose you over anyone else in the room.',
-    crossoverAnswer: 'You walk in with verified customer verbatims the operator has never seen, sourced independently before your pitch. No other bank has them. The client cannot produce them. The research exists because you engaged Crossover.',
+    bankerProblem: 'Four other banks. Identical decks. No rational basis to choose you.',
+    crossoverAnswer: 'Verified customer verbatims the operator has never seen. No other bank has them. The research exists because you engaged Crossover.',
     stats: [],
     features: [
       { title: 'Pre-Pitch Intelligence Snapshot', desc: 'Verified customer universe, ARR proxy, competitive vulnerabilities, and one anchoring verbatim in under 48 hours. In the room before competing banks finish reading the teaser.' },
@@ -56,8 +56,8 @@ export const IB_CAP_DATA: Record<IBCap, IBCapabilityData> = {
     anchorLabel: 'Core benchmark dimensions',
     anchorContext: 'Standardised across 40+ comparable Crossover studies',
     body: "Two things live inside every CIM: the operator's claims, and the evidence supporting them. Most CIMs have strong claims and weak evidence: management interviews, public comps, analyst estimates. Crossover replaces the evidence layer entirely. Every retention claim, NPS benchmark, and competitive positioning statement traces to verified respondents the buyer did not select and the sell-side did not curate. The narrative is the same. The credibility is structurally different.",
-    bankerProblem: "Your CIM says 'best-in-class NPS' and 'category-leading retention.' Sophisticated buyers discount management-sourced evidence before the first page turn. They build skepticism into their valuation before they've read your comps.",
-    crossoverAnswer: 'We replace assertion with independently sourced evidence at every claim that matters. Customers the buyer knows they would have interviewed themselves, saying the same things, because we talked to them first.',
+    bankerProblem: "Sophisticated buyers discount management-sourced evidence before the first page turn.",
+    crossoverAnswer: 'Every CIM claim that touches customer quality traces to independent respondents the buyer cannot challenge.',
     stats: [],
     features: [
       { title: 'Crossover Core 9 Benchmarking', desc: 'Nine standardized dimensions: NPS, Renewal Intent, Switching Difficulty, Mission Criticality, and five more, benchmarkable against 40+ comparable studies in the Crossover database. A 9.0 NPS in MDR ranks in the top decile. That context changes valuations.' },
@@ -76,8 +76,8 @@ export const IB_CAP_DATA: Record<IBCap, IBCapabilityData> = {
     anchorLabel: 'Buyers ranked before first outreach',
     anchorContext: 'IC simulation run on top 5 before a call goes out',
     body: "Most sell-side processes send the same process letter to the same 40 names and wait. Crossover builds a scored buyer landscape before the first outreach, with strategic acquirers mapped against competitive synergy and financial buyers scored on mandate fit and fund dynamics. You know which buyers will bid at the highest conviction before you prioritize management's time.",
-    bankerProblem: "You send a generic process letter to 40 buyers and wait. You have no visibility into which buyers have the highest conviction before they respond, and management's time gets spent on the wrong meetings.",
-    crossoverAnswer: 'We score every potential acquirer before the first call. IC simulation, portfolio fit, fund dynamics. You know which buyers will move before you pick up the phone.',
+    bankerProblem: "Generic process letter to 40 buyers. No visibility into conviction levels. Management time wasted on the wrong meetings.",
+    crossoverAnswer: 'Every potential acquirer scored before first outreach. IC simulation, portfolio fit, fund dynamics — you know who will move before you call.',
     stats: [],
     features: [
       { title: 'Scored Buyer Landscape', desc: 'Every potential acquirer assessed on mandate fit and fund dynamics: sector thesis, deal size, deployment velocity, LP pressure, competitive portfolio conflicts. Top 50 buyers ranked before the first call goes out.' },
@@ -96,8 +96,8 @@ export const IB_CAP_DATA: Record<IBCap, IBCapabilityData> = {
     anchorLabel: 'IC attack vectors stress-tested',
     anchorContext: 'Revenue quality, churn, moat, pricing power + 5 more',
     body: "Every asset has weaknesses. Most operators and bankers know this, and most hide them below the surface because there hasn't been an affordable, fast mechanism to formulate a response plan during a transaction sprint. The reflex is to hope buyers don't find the gaps before you close. Crossover inverts this. We surface gaps on purpose, using independent respondents who weren't handpicked by management, then helping operators build customer-backed evidence to close them before the formal process begins. Proactive, not reactive. Evidence-based, not management-asserted. This is our most defensible capability because it's the only one that makes the research more credible by finding problems.",
-    bankerProblem: "Operators know the weak spots in their story and bury them. Buyers find them in diligence and use them to reprice. You spend weeks defending terrain you could have fortified before the process started.",
-    crossoverAnswer: "We run independent primary research designed to surface weaknesses: the same questions a hostile IC would ask, answered by respondents the operator didn't choose. Then we build a customer-backed response plan while there's still time to be proactive.",
+    bankerProblem: "Buyers find the gaps in diligence and use them to reprice. You spend weeks defending terrain you could have fortified before the process started.",
+    crossoverAnswer: "Surface the gaps before buyers do. Build customer-backed rebuttals while there's still time to be proactive.",
     stats: [],
     features: [
       { title: 'Independent Gap Assessment', desc: "Respondents sourced entirely from public signals, with no management reference list and no handpicked advocates. The findings reflect what the full customer base actually experiences, including friction, complaints, and risk flags buyers will surface. We don't sanitize what we find." },
@@ -116,8 +116,8 @@ export const IB_CAP_DATA: Record<IBCap, IBCapabilityData> = {
     anchorLabel: 'Adversarial personas per simulation',
     anchorContext: 'Grounded in fund thesis, portfolio, and deal history',
     body: "Management teams that close deals have already been through the hardest version of the buyer conversation before it happened. Crossover builds fund-specific adversarial personas grounded in the named fund's actual investment thesis, portfolio, and deal history, then runs management through the IC as many times as needed. The real IC feels like a repeat performance because it is.",
-    bankerProblem: "Management walks into buyer IC meetings cold on the hardest questions. When a sophisticated buyer pushes on churn risk or competitive displacement and management stumbles, the deal loses momentum it rarely recovers.",
-    crossoverAnswer: "We simulate the buyer's IC before the meeting. Fund-specific personas, adversarial framing, evidence demands. Management has already answered every blocking objection. The real IC is not a surprise.",
+    bankerProblem: "Management walks in cold. One stumble on churn risk or competitive displacement and the deal loses momentum it rarely recovers.",
+    crossoverAnswer: "Management has already answered every blocking objection before the real IC. Fund-specific personas. The meeting feels like a repeat performance.",
     stats: [],
     features: [
       { title: 'Fund-Specific IC Simulation', desc: "For any named acquirer, five personas grounded in the fund's actual thesis, portfolio, and deal history. Which dimensions they'll interrogate, what evidence they demand, where they'll walk, built from primary research on the buyer rather than generic PE archetypes." },
@@ -136,7 +136,7 @@ export const IB_CAP_DATA: Record<IBCap, IBCapabilityData> = {
     anchorLabel: 'Public signal sources',
     anchorContext: 'Respondent universe built without management input',
     body: "Cortex is why the research is independent by construction, not by policy. It builds the respondent universe from 30+ public signal sources without any input from management. It maintains the longitudinal benchmark database that makes every new study contextually meaningful. It powers the AI assistant layer that makes Crossover research queryable rather than static. And because Crossover's revenue model is sum of parts: mandate fee, CIM enhancement, Catalyst resales, secondary diligence. Cortex serves every party with the same data because no single party's economics can corrupt it.",
-    bankerProblem: 'Expert networks give you opinions. Management references give you advocates. Analyst reports give you estimates. None of these sources can be used by the other side, so none resolve the information asymmetry that creates conflict.',
+    bankerProblem: 'Expert networks give opinions. Management references give advocates. None of these sources resolve the information asymmetry both sides rely on.',
     crossoverAnswer: 'Cortex builds the respondent universe itself, from public signals no party controls. Both sides of a transaction can rely on the research because neither side chose who we talked to.',
     stats: [],
     features: [
