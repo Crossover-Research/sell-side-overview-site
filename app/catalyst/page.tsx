@@ -31,7 +31,7 @@ function AssetNameCell({ asset, isFirst }: { asset: CatalystAsset; isFirst?: boo
   const isTransacted = asset.status === 'transacted';
 
   /* Fixed-height wrapper so no row ever shifts — all cells 58px tall */
-  const cellStyle: React.CSSProperties = { height:58, display:'flex', flexDirection:'column', justifyContent:'center', gap:0 };
+  const cellStyle: React.CSSProperties = { height:70, display:'flex', flexDirection:'column', justifyContent:'center', gap:0 };
 
   if (!isTransacted) return (
     <div style={cellStyle}>
@@ -51,7 +51,7 @@ function AssetNameCell({ asset, isFirst }: { asset: CatalystAsset; isFirst?: boo
       onTouchStart={()=>setRevealed(r=>!r)}
     >
       {/* Slide hint — always in DOM on first transacted, hidden via opacity so no layout shift */}
-      <div className="asset-reveal-hint" style={{ visibility:isFirst&&!revealed?'visible':'hidden', opacity:isFirst&&!revealed?1:0, height:18, marginBottom:4 }}>
+      <div className="asset-reveal-hint" style={{ visibility:isFirst&&!revealed?'visible':'hidden', opacity:isFirst&&!revealed?1:0, height:isFirst?18:0, marginBottom:isFirst?4:0, overflow:'hidden' }}>
         <span>slide to reveal</span>
         <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 4h10M7 1l4 3-4 3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
       </div>
