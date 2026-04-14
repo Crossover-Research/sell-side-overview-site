@@ -228,7 +228,7 @@ export default function QofAIPage() {
             <h2 style={{ fontSize: 28, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.025em', lineHeight: 1.2, margin: 0 }}>
               Four quadrants. One determines valuation.
             </h2>
-            <p style={{ fontSize: 13, color: 'rgba(255,255,255,.45)', lineHeight: 1.7, maxWidth: 480, margin: 0 }}>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,.45)', lineHeight: 1.7, margin: 0 }}>
               SaaS valuations down $1.5T as investors reprice structural AI displacement risk. The Q of AI maps every asset against two axes — current AI strength and structural defensibility — into four quadrants with distinct M&A implications.
             </p>
           </div>
@@ -284,7 +284,7 @@ export default function QofAIPage() {
               <div className="ib-section-eyebrow" style={{ marginBottom: 4 }}>The Framework</div>
               <h2 style={{ fontSize: 22, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.02em', margin: 0 }}>15 dimensions. Two independent scores.</h2>
             </div>
-            <p style={{ fontSize: 12.5, color: 'rgba(255,255,255,.4)', lineHeight: 1.65, maxWidth: 480, margin: 0 }}>
+            <p style={{ fontSize: 12.5, color: 'rgba(255,255,255,.4)', lineHeight: 1.65, margin: 0 }}>
               Every score derived from structured customer interviews — not internal benchmarks. Capability alone does not predict valuation resilience.
             </p>
           </div>
@@ -340,7 +340,7 @@ export default function QofAIPage() {
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 36px' }}>
           <div className="ib-section-eyebrow">Buyer Objection Handling</div>
           <h2 style={{ fontSize: 24, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.022em', marginBottom: 6, marginTop: 8 }}>Every IC now has an AI question. You need a customer-backed answer.</h2>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,.45)', marginBottom: 32, maxWidth: 560 }}>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,.45)', marginBottom: 32 }}>
             Generic "AI-powered" claims get discounted before the first page turn. The Q of AI produces customer-validated responses to each blocking objection.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 1, background: 'rgba(255,255,255,.07)' }}>
@@ -365,7 +365,7 @@ export default function QofAIPage() {
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 36px' }}>
           <div className="ib-section-eyebrow">Engagement Options</div>
           <h2 style={{ fontSize: 24, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.022em', marginBottom: 6, marginTop: 8 }}>Three packages. One methodology.</h2>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,.45)', marginBottom: 32, maxWidth: 480 }}>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,.45)', marginBottom: 32 }}>
             Every package includes a visual scorecard, 25+ slide VoC report, customer verbatims, and CIM-ready positioning language.
           </p>
 
