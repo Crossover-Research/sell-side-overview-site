@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import { IB_TRACK_RECORD, IB_CAPS, IB_CAP_DATA, type IBCap } from '../../lib/data/ibCapabilities';
 import { ENGAGEMENT_OPTIONS } from '../../lib/data/partner';
 import { CONTACT } from '../../lib/config/site';
+import { SelectField } from '../../components/SelectField';
 import { EngagementCard } from '../../components/EngagementCard';
 
 function RequestParamWatcher({ onOpen }: { onOpen: () => void }) {
@@ -70,20 +71,14 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
             <div>
               <label style={{ display:'block',fontSize:9,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.3)',marginBottom:4 }}>Firm *</label>
               {!firmOther
-                ? <select required style={{...inp,appearance:'none'}} onChange={e=>handleFirmSelect(e.target.value)} defaultValue="">
-                    <option value="" disabled>Select firm...</option>
-                    {BANKS.map(b=><option key={b} value={b}>{b}</option>)}
-                  </select>
-                : <input required autoFocus style={inp} placeholder="Firm name" onChange={e=>set('firm',e.target.value)} />
+                ? <SelectField label="" options={BANKS} value={form.firm} onChange={v=>handleFirmSelect(v)} placeholder="Select firm..." required />
+                : <>
+                    <input required autoFocus style={inp} placeholder="Firm name" onChange={e=>set('firm',e.target.value)} />
+                    <button type="button" onClick={()=>setFirmOther(false)} style={{ fontSize:9,color:'rgba(255,255,255,.3)',background:'none',border:'none',cursor:'pointer',marginTop:4,padding:0 }}>← Back to list</button>
+                  </>
               }
-              {firmOther && <button type="button" onClick={()=>setFirmOther(false)} style={{ fontSize:9,color:'rgba(255,255,255,.3)',background:'none',border:'none',cursor:'pointer',marginTop:4,padding:0 }}>← Back to list</button>}
             </div>
-            <div>
-              <label style={{ display:'block',fontSize:9,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.3)',marginBottom:4 }}>Org Type *</label>
-              <select required style={{...inp,appearance:'none'}} value={form.orgType} onChange={e=>set('orgType',e.target.value)}>
-                {ORG.map(o=><option key={o}>{o}</option>)}
-              </select>
-            </div>
+            <SelectField label="Org Type" options={ORG} value={form.orgType} onChange={v=>set('orgType',v)} required />
           </div>
           <div><label style={{ display:'block',fontSize:9,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.3)',marginBottom:4 }}>Target Company or Mandate</label><input style={inp} placeholder="Company name" onChange={e=>set('mandate',e.target.value)} /></div>
           {error && <div style={{ fontSize:12,color:'#f87171',background:'rgba(248,113,113,.08)',border:'1px solid rgba(248,113,113,.2)',padding:'8px 12px' }}>{error}</div>}
