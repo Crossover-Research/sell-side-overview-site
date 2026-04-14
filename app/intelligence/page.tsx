@@ -105,27 +105,39 @@ export default function IntelligencePage() {
             ))}
           </div>
           <div className="ib-cap-panel">
-            <div className="ib-framing">
-              <div className="ib-framing-col">
-                <div className="ib-framing-label">The Problem</div>
-                <p className="ib-framing-text">{cap.bankerProblem}</p>
+            <div className="cap-deal-layout">
+
+              {/* LEFT COL — anchor stat + problem/answer */}
+              <div className="cap-left">
+                <div className="cap-anchor-stat">{cap.anchorStat}</div>
+                <div className="cap-anchor-label">{cap.anchorLabel}</div>
+                <div className="cap-anchor-context">{cap.anchorContext}</div>
+
+                <div className="cap-divider" />
+
+                <div className="cap-problem-label">The problem</div>
+                <p className="cap-problem-text">{cap.bankerProblem}</p>
+
+                <div className="cap-answer-label">Crossover answer</div>
+                <p className="cap-answer-text">{cap.crossoverAnswer}</p>
               </div>
-              <div className="ib-framing-arrow">&rarr;</div>
-              <div className="ib-framing-col ib-framing-answer">
-                <div className="ib-framing-label">Crossover Answer</div>
-                <p className="ib-framing-text">{cap.crossoverAnswer}</p>
-              </div>
-            </div>
-            <div className="ib-cap-header-full">
-              <h3 className="ib-cap-headline">{cap.headline}</h3>
-            </div>
-            <div className="ib-features">
-              {cap.features.slice(0,4).map((f,i)=>(
-                <div key={i} className="ib-feature">
-                  <div className="ib-feature-title">{f.title}</div>
-                  <div className="ib-feature-desc">{f.desc}</div>
+
+              {/* RIGHT COL — headline + feature rows */}
+              <div className="cap-right">
+                <h3 className="cap-headline">{cap.headline}</h3>
+                <div className="cap-feature-rows">
+                  {cap.features.slice(0,4).map((f,i)=>(
+                    <div key={i} className="cap-feature-row">
+                      <div className="cap-feature-num">{String(i+1).padStart(2,'0')}</div>
+                      <div className="cap-feature-body">
+                        <div className="cap-feature-title">{f.title}</div>
+                        <div className="cap-feature-desc">{f.desc}</div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+
             </div>
           </div>
         </div>

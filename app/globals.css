@@ -1673,3 +1673,153 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); padding-bottom: 60p
 .mobile-asset-card--revealed .mac-reveal-bar {
   transform: scaleX(1);
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CAPABILITY PANEL — Deal Sheet Layout
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.cap-deal-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 0;
+  border: 1px solid var(--br-hi);
+  background: var(--glass-hi);
+  backdrop-filter: var(--blur);
+  position: relative;
+  animation: fadeUp .2s var(--ease-s) both;
+}
+/* Top shimmer line */
+.cap-deal-layout::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
+}
+
+/* LEFT — stat column */
+.cap-left {
+  padding: 28px 28px 32px;
+  border-right: 1px solid var(--br-hi);
+  display: flex;
+  flex-direction: column;
+  background: rgba(0,0,0,.15);
+}
+
+/* Dominant stat */
+.cap-anchor-stat {
+  font-family: var(--font-mono);
+  font-size: 64px;
+  font-weight: 700;
+  color: rgba(255,255,255,.97);
+  line-height: 1;
+  letter-spacing: -.04em;
+  margin-bottom: 8px;
+}
+.cap-anchor-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--green);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+.cap-anchor-context {
+  font-size: 11px;
+  color: var(--t3);
+  line-height: 1.5;
+}
+
+.cap-divider {
+  height: 1px;
+  background: var(--br-hi);
+  margin: 22px 0;
+}
+
+/* Problem / Answer */
+.cap-problem-label,
+.cap-answer-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.cap-problem-label { color: var(--t3); }
+.cap-answer-label  { color: rgba(77,144,254,.7); margin-top: 16px; }
+
+.cap-problem-text {
+  font-size: 12px;
+  color: var(--t2);
+  line-height: 1.65;
+}
+.cap-answer-text {
+  font-size: 12px;
+  color: var(--t1);
+  line-height: 1.65;
+}
+
+/* RIGHT — headline + rows */
+.cap-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.cap-headline {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--t0);
+  letter-spacing: -.018em;
+  line-height: 1.3;
+  padding: 24px 28px 20px;
+  border-bottom: 1px solid var(--br-lo);
+}
+
+/* Feature rows — ruled list, no boxes */
+.cap-feature-rows { display: flex; flex-direction: column; }
+
+.cap-feature-row {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 0;
+  padding: 14px 28px;
+  border-bottom: 1px solid var(--br-lo);
+  transition: background .12s;
+  border-left: 2px solid transparent;
+}
+.cap-feature-row:last-child { border-bottom: none; }
+.cap-feature-row:hover {
+  background: rgba(77,144,254,.04);
+  border-left-color: rgba(77,144,254,.4);
+}
+
+.cap-feature-num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--t4);
+  padding-top: 2px;
+  letter-spacing: .04em;
+}
+.cap-feature-title {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--t0);
+  margin-bottom: 3px;
+}
+.cap-feature-desc {
+  font-size: 11.5px;
+  color: var(--t2);
+  line-height: 1.55;
+}
+
+/* Responsive */
+@media (max-width: 820px) {
+  .cap-deal-layout { grid-template-columns: 1fr; }
+  .cap-left { border-right: none; border-bottom: 1px solid var(--br-hi); padding: 22px 20px; }
+  .cap-anchor-stat { font-size: 48px; }
+  .cap-headline { padding: 18px 20px 14px; font-size: 15px; }
+  .cap-feature-row { padding: 12px 20px; }
+}
+@media (max-width: 600px) {
+  .cap-anchor-stat { font-size: 40px; }
+}
