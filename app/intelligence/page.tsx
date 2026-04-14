@@ -109,7 +109,9 @@ export default function IntelligencePage() {
 
               {/* LEFT COL — anchor stat + problem/answer */}
               <div className="cap-left">
-                <div className="cap-anchor-stat">{cap.anchorStat}</div>
+                <div className={`cap-anchor-stat${cap.anchorStat==='0'?' cap-anchor-stat--zero':''}`}>
+                  {cap.anchorStat}
+                </div>
                 <div className="cap-anchor-label">{cap.anchorLabel}</div>
                 <div className="cap-anchor-context">{cap.anchorContext}</div>
 
