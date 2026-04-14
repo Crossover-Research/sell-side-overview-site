@@ -214,21 +214,24 @@ export default function IntelligencePage() {
           <div className="ib-samples">
             <a href="/redcanary" className="ib-sample-card">
               <div className="ib-sample-type">SENTINEL &middot; Cybersecurity MDR</div>
-              <img src="/red-canary-logo.svg" alt="Red Canary" className="ib-sample-logo" />
-              <div className="ib-sample-meta">9.0 NPS &middot; 8.8 replication difficulty &middot; 75+ respondents</div>
-              <div className="ib-sample-link">View Study &rarr;</div>
+              <div className="ib-sample-logo-wrap">
+                <img src="/red-canary-logo.svg" alt="Red Canary" className="ib-sample-logo" />
+              </div>
+              <div className="ib-sample-link" style={{ marginTop:'auto' }}>View Study &rarr;</div>
             </a>
             <a href="/bluecat" className="ib-sample-card">
               <div className="ib-sample-type">FORTRESS &middot; Network Infrastructure</div>
-              <img src="/bluecat-logo.svg" alt="BlueCat Networks" className="ib-sample-logo ib-sample-logo--invert" />
-              <div className="ib-sample-meta">9.0 mission criticality &middot; 1.9 switching intent &middot; 55 respondents</div>
-              <div className="ib-sample-link">View Study &rarr;</div>
+              <div className="ib-sample-logo-wrap">
+                <img src="/bluecat-logo.svg" alt="BlueCat Networks" className="ib-sample-logo ib-sample-logo--invert" />
+              </div>
+              <div className="ib-sample-link" style={{ marginTop:'auto' }}>View Study &rarr;</div>
             </a>
             <a href="/catalyst" className="ib-sample-card ib-sample-cta">
               <div className="ib-sample-type">Catalyst Library</div>
-              <div className="ib-sample-name">10 Assets Available</div>
-              <div className="ib-sample-meta">Same-day if covered &middot; Locked identities &middot; Slide reveal on transacted</div>
-              <div className="ib-sample-link">Browse Library &rarr;</div>
+              <div className="ib-sample-logo-wrap">
+                <div className="ib-sample-name">10 Assets Available</div>
+              </div>
+              <div className="ib-sample-link" style={{ marginTop:'auto' }}>Browse Library &rarr;</div>
             </a>
           </div>
         </div>
