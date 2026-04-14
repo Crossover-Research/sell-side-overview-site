@@ -277,27 +277,31 @@ export default function QofAIPage() {
       </section>
 
       {/* 15 DIMENSIONS */}
-      <section style={{ padding: '52px 0', background: 'rgba(255,255,255,.015)', borderBottom: '1px solid rgba(255,255,255,.07)' }}>
+      <section style={{ padding: '40px 0', background: 'rgba(255,255,255,.015)', borderBottom: '1px solid rgba(255,255,255,.07)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 36px' }}>
-          <div className="ib-section-eyebrow">The Framework</div>
-          <h2 style={{ fontSize: 24, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.022em', marginBottom: 6, marginTop: 8 }}>15 dimensions. Two independent scores.</h2>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,.45)', marginBottom: 32, maxWidth: 560 }}>
-            Every score derived from structured interviews with actual customers — not internal benchmarks. Both scores are required; capability alone does not predict valuation resilience.
-          </p>
+          <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 20 }}>
+            <div>
+              <div className="ib-section-eyebrow" style={{ marginBottom: 4 }}>The Framework</div>
+              <h2 style={{ fontSize: 22, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.02em', margin: 0 }}>15 dimensions. Two independent scores.</h2>
+            </div>
+            <p style={{ fontSize: 12.5, color: 'rgba(255,255,255,.4)', lineHeight: 1.65, maxWidth: 480, margin: 0 }}>
+              Every score derived from structured customer interviews — not internal benchmarks. Capability alone does not predict valuation resilience.
+            </p>
+          </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 1, background: 'rgba(255,255,255,.07)' }}>
             {/* Capability */}
             <div style={{ background: 'rgba(6,14,28,.95)' }}>
-              <div style={{ padding: '16px 24px', borderBottom: '1px solid rgba(255,255,255,.07)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <div style={{ padding: '12px 24px', borderBottom: '1px solid rgba(255,255,255,.07)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <div>
                   <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(77,144,254,.7)', marginBottom: 3 }}>Part I</div>
                   <div style={{ fontSize: 14, fontWeight: 700, color: 'rgba(255,255,255,.9)' }}>AI Capability Score</div>
                 </div>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 28, fontWeight: 700, color: 'rgba(77,144,254,.9)', letterSpacing: '-.03em' }}>83<span style={{ fontSize: 14, color: 'rgba(255,255,255,.3)' }}>/100</span></div>
               </div>
-              <div style={{ padding: '8px 0' }}>
+              <div style={{ padding: '4px 0' }}>
                 {CAPABILITY_DIMS.map((d, i) => (
-                  <div key={i} style={{ padding: '10px 24px', borderBottom: i < CAPABILITY_DIMS.length - 1 ? '1px solid rgba(255,255,255,.04)' : 'none' }}>
+                  <div key={i} style={{ padding: '7px 24px', borderBottom: i < CAPABILITY_DIMS.length - 1 ? '1px solid rgba(255,255,255,.04)' : 'none' }}>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 5 }}>
                       <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,.65)' }}>{d.label}</div>
                     </div>
@@ -308,29 +312,23 @@ export default function QofAIPage() {
             </div>
 
             {/* Resilience */}
-            <div style={{ background: 'rgba(6,14,28,.95)' }}>
-              <div style={{ padding: '16px 24px', borderBottom: '1px solid rgba(255,255,255,.07)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div style={{ background: 'rgba(6,14,28,.95)', display: 'flex', flexDirection: 'column' }}>
+              <div style={{ padding: '12px 24px', borderBottom: '1px solid rgba(255,255,255,.07)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <div>
                   <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(45,212,160,.7)', marginBottom: 3 }}>Part II</div>
                   <div style={{ fontSize: 14, fontWeight: 700, color: 'rgba(255,255,255,.9)' }}>AI Resilience Score</div>
                 </div>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 28, fontWeight: 700, color: 'rgba(45,212,160,.9)', letterSpacing: '-.03em' }}>87<span style={{ fontSize: 14, color: 'rgba(255,255,255,.3)' }}>/100</span></div>
               </div>
-              <div style={{ padding: '8px 0' }}>
+              <div style={{ padding: '8px 0', flex: 1 }}>
                 {RESILIENCE_DIMS.map((d, i) => (
-                  <div key={i} style={{ padding: '10px 24px', borderBottom: i < RESILIENCE_DIMS.length - 1 ? '1px solid rgba(255,255,255,.04)' : 'none' }}>
+                  <div key={i} style={{ padding: '7px 24px', borderBottom: i < RESILIENCE_DIMS.length - 1 ? '1px solid rgba(255,255,255,.04)' : 'none' }}>
                     <div style={{ marginBottom: 5 }}>
                       <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,.65)' }}>{d.label}</div>
                     </div>
                     <ScoreBar score={d.score} color="rgba(45,212,160,.7)" />
                   </div>
                 ))}
-                {/* Filler context */}
-                <div style={{ padding: '20px 24px', borderTop: '1px solid rgba(255,255,255,.04)', background: 'rgba(255,255,255,.02)' }}>
-                  <div style={{ fontSize: 11, color: 'rgba(255,255,255,.3)', lineHeight: 1.65 }}>
-                    The 5 displacement risk questions probe whether AI capabilities represent a durable competitive advantage or a feature set that will be commoditized by AI-native platforms.
-                  </div>
-                </div>
               </div>
             </div>
           </div>
