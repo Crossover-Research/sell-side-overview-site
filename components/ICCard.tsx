@@ -14,7 +14,7 @@ export function ICCard({ card, isOpen, onToggle }: ICCardProps) {
   return (
     <div className={`ic-accordion-row${isOpen ? ' open' : ''}`}>
       <div className="ic-trigger" onClick={onToggle} role="button" aria-expanded={isOpen}>
-        <div style={{ textAlign: 'center' }}>
+        <div style={{ textAlign: 'center', opacity: isOpen ? 0 : 1, transition: 'opacity .2s' }}>
           <div className="ic-stat-num">{card.stat.num}</div>
           <div className="ic-stat-lbl">{statLabel}</div>
         </div>
