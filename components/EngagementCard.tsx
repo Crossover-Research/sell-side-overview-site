@@ -7,7 +7,7 @@ export function EngagementCard({ card }: Props) {
   return (
     <div className="engagement-item">
       <div>
-        <div className="engagement-label">{card.label}</div>
+        <div className="engagement-label" style={{ fontFamily:'var(--font-mono)',letterSpacing:'.08em' }}>{card.label}</div>
         <div className="engagement-type">{card.type}</div>
       </div>
       <div>

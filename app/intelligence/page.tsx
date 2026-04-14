@@ -148,8 +148,8 @@ export default function IntelligencePage() {
       {/* ENGAGE */}
       <section id="engage" className="ib-section ib-section-alt">
         <div className="ib-inner">
-          <div className="ib-section-eyebrow">Start a Mandate</div>
-          <h2 className="ib-section-title" style={{ marginBottom:20 }}>Aligned to Where You Are in the Process</h2>
+          <div className="ib-section-eyebrow">How Banks Engage</div>
+          <h2 className="ib-section-title" style={{ marginBottom:20 }}>Three Entry Points. One Research Infrastructure.</h2>
           <div className="engagement-wrap">
             {ENGAGEMENT_OPTIONS.map((card,i)=>(
               <EngagementCard key={i} card={card} />
