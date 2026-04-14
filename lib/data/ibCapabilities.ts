@@ -32,9 +32,9 @@ export const IB_CAP_DATA: Record<IBCap, IBCapabilityData> = {
   mandate: {
     label: 'Mandate Pitch',
     headline: 'Walk in with customer proof management never commissioned',
-    anchorStat: '0',
-    anchorLabel: 'Other banks have this intelligence',
-    anchorContext: 'Independent verbatims the operator has never seen — sourced before a single interview is commissioned',
+    anchorStat: '1st',
+    anchorLabel: 'Bank in the room with independent customer proof',
+    anchorContext: 'Verbatims the operator never commissioned — no competing bank can replicate on any timeline',
     body: "Crossover's sell-side engagements create line of sight into high-quality assets before they're in formal processes. When J.P. Morgan engaged us for the Nerdio Series C, the customer interviews won them the mandate. We then formed a fundamental view from those findings, alerted select funds, and GA took a 30-minute conviction brief; secondary diligence followed, and $500M at $1B+ closed. That's the flywheel. You walk in knowing the company better than anyone else in the room. Then the research works for you after the mandate is won.",
     bankerProblem: 'You are pitching alongside 4 other banks with identical decks. Every bank says the same things. The client has no rational basis to choose you over anyone else in the room.',
     crossoverAnswer: 'You walk in with verified customer verbatims the operator has never seen, sourced independently before your pitch. No other bank has them. The client cannot produce them. The research exists because you engaged Crossover.',

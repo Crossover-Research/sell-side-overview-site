@@ -130,16 +130,7 @@ export default function IntelligencePage() {
 
               {/* LEFT COL — anchor stat + problem/answer */}
               <div className="cap-left">
-                {cap.anchorStat === '0' ? (
-                  <div className="cap-anchor-stat" style={{ position:'relative', display:'inline-block' }}>
-                    <span style={{ color:'rgba(255,77,94,.85)' }}>0</span>
-                    <svg style={{ position:'absolute', top:'50%', left:'-4px', right:'-4px', width:'calc(100% + 8px)', overflow:'visible', pointerEvents:'none' }} height="4" viewBox="0 0 100 4" preserveAspectRatio="none">
-                      <line x1="0" y1="2" x2="100" y2="2" stroke="rgba(255,77,94,.7)" strokeWidth="3" strokeLinecap="round"/>
-                    </svg>
-                  </div>
-                ) : (
-                  <div className="cap-anchor-stat">{cap.anchorStat}</div>
-                )}
+                <div className="cap-anchor-stat">{cap.anchorStat}</div>
                 <div className="cap-anchor-label">{cap.anchorLabel}</div>
                 <div className="cap-anchor-context">{cap.anchorContext}</div>
 
