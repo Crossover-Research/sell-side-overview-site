@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect, useCallback, Suspense } from 'react';
 import { HeroSection } from '../../components/HeroSection';
 import { useSearchParams } from 'next/navigation';
 import { IB_TRACK_RECORD, IB_CAPS, IB_CAP_DATA, type IBCap } from '../../lib/data/ibCapabilities';
@@ -11,7 +11,8 @@ function RequestParamWatcher({ onOpen }: { onOpen: () => void }) {
   const searchParams = useSearchParams();
   useEffect(() => {
     if (searchParams.get('request') === '1') onOpen();
-  }, [searchParams, onOpen]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
   return null;
 }
 
@@ -41,7 +42,7 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
     </div>
   );
   return(
-    <div style={{ position:'fixed',inset:0,zIndex:600,background:'rgba(4,9,18,.92)',backdropFilter:'blur(8px)',display:'flex',alignItems:'center',justifyContent:'center',padding:20 }} onClick={onClose}>
+    <div style={{ position:'fixed',inset:0,zIndex:600,background:'rgba(4,9,18,.75)',backdropFilter:'blur(6px)',display:'flex',alignItems:'center',justifyContent:'center',padding:20 }} onClick={onClose}>
       <div style={{ background:'#0c1a2e',border:'1px solid rgba(255,255,255,.12)',maxWidth:460,width:'100%',position:'relative' }} onClick={e=>e.stopPropagation()}>
         <div style={{ background:'linear-gradient(135deg,#0f1f38,#162d4a)',padding:'18px 22px',borderBottom:'1px solid rgba(255,255,255,.08)',position:'relative' }}>
           <button onClick={onClose} style={{ position:'absolute',top:12,right:12,background:'rgba(255,255,255,.12)',border:'1px solid rgba(255,255,255,.18)',color:'rgba(255,255,255,.9)',width:28,height:28,cursor:'pointer',fontSize:16,lineHeight:'26px',textAlign:'center',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0 }}>&#215;</button>
@@ -87,11 +88,12 @@ export default function IntelligencePage() {
   const [activeCap, setActiveCap] = useState<IBCap>('mandate');
   const [requestOpen, setRequestOpen] = useState(false);
   const cap = IB_CAP_DATA[activeCap];
+  const openRequest = useCallback(() => setRequestOpen(true), []);
 
   return (
     <>
       <HeroSection />
-      <Suspense fallback={null}><RequestParamWatcher onOpen={() => setRequestOpen(true)} /></Suspense>
+      <Suspense fallback={null}><RequestParamWatcher onOpen={openRequest} /></Suspense>
       {/* CAPABILITIES */}
       <section id="capabilities" className="ib-section ib-section-alt">
         <div className="ib-inner">
