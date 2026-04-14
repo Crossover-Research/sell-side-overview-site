@@ -154,7 +154,7 @@ export default function QofAIPage() {
                 Quality of AI<br />
                 <span style={{ color: 'rgba(255,255,255,.4)', fontWeight: 300 }}>Assessment</span>
               </h1>
-              <p style={{ fontSize: 15, color: 'rgba(255,255,255,.6)', lineHeight: 1.75, maxWidth: 520, marginBottom: 28 }}>
+              <p style={{ fontSize: 15, color: 'rgba(255,255,255,.6)', lineHeight: 1.75, marginBottom: 28 }}>
                 Every PE fund and strategic acquirer now leads with: <em style={{ color: 'rgba(255,200,100,.8)', fontStyle: 'normal' }}>"Will this company be displaced by AI-native competition?"</em> Generic "AI-powered" claims create valuation discounts. Customer-validated positioning commands premium multiples.
               </p>
               <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
@@ -220,70 +220,56 @@ export default function QofAIPage() {
         </div>
       </section>
 
-      {/* QUADRANT MATRIX */}
+      {/* QUADRANT MATRIX — full width, no separate key */}
       <section style={{ padding: '52px 0', borderBottom: '1px solid rgba(255,255,255,.07)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 36px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 560px', gap: 56, alignItems: 'start' }}>
-            <div>
-              <div className="ib-section-eyebrow">AI Resilience Matrix</div>
-              <h2 style={{ fontSize: 28, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.025em', lineHeight: 1.2, marginBottom: 14, marginTop: 8 }}>
-                Four quadrants.<br />One determines valuation.
-              </h2>
-              <p style={{ fontSize: 13, color: 'rgba(255,255,255,.5)', lineHeight: 1.75, marginBottom: 28, maxWidth: 440 }}>
-                SaaS valuations down $1.5T as investors reprice structural AI displacement risk. The Q of AI maps every asset against two axes — current AI strength and structural defensibility — into four quadrants with distinct M&A implications.
-              </p>
+          <div className="ib-section-eyebrow">AI Resilience Matrix</div>
+          <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 40, flexWrap: 'wrap', marginTop: 8, marginBottom: 36 }}>
+            <h2 style={{ fontSize: 28, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.025em', lineHeight: 1.2, margin: 0 }}>
+              Four quadrants. One determines valuation.
+            </h2>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,.45)', lineHeight: 1.7, maxWidth: 480, margin: 0 }}>
+              SaaS valuations down $1.5T as investors reprice structural AI displacement risk. The Q of AI maps every asset against two axes — current AI strength and structural defensibility — into four quadrants with distinct M&A implications.
+            </p>
+          </div>
 
-              {/* Quadrant detail */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 1, background: 'rgba(255,255,255,.06)' }}>
-                {QUADRANTS.map((q) => (
-                  <div key={q.id} style={{ background: q.highlight ? 'rgba(45,212,160,.05)' : 'rgba(6,14,28,.9)', padding: '14px 18px', borderLeft: q.highlight ? '2px solid rgba(45,212,160,.5)' : '2px solid transparent' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 5 }}>
-                      <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: q.badgeColor, background: q.badgeBg, padding: '2px 7px' }}>{q.badge}</span>
-                    </div>
-                    <div style={{ fontSize: 13, fontWeight: 700, color: q.highlight ? 'rgba(45,212,160,.95)' : 'rgba(255,255,255,.8)', marginBottom: 3 }}>{q.name}</div>
-                    <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,.38)', lineHeight: 1.5 }}>{q.desc}</div>
-                  </div>
-                ))}
-              </div>
+          {/* Full-width 2×2 matrix with axis labels */}
+          <div style={{ position: 'relative', marginLeft: 48 }}>
+            {/* Y-axis label */}
+            <div style={{ position: 'absolute', left: -48, top: 0, bottom: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.2)', transform: 'rotate(-90deg)', whiteSpace: 'nowrap' }}>AI CAPABILITY →</div>
             </div>
+            {/* X-axis label */}
+            <div style={{ textAlign: 'center', fontSize: 9, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.2)', marginBottom: 10 }}>AI RESILIENCE →</div>
 
-            {/* 2×2 matrix visual */}
-            <div>
-              <div style={{ position: 'relative', border: '1px solid rgba(255,255,255,.1)', background: 'rgba(6,14,28,.6)' }}>
-                {/* Axis labels */}
-                <div style={{ position: 'absolute', top: -22, left: 0, right: 0, textAlign: 'center', fontSize: 9, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.25)' }}>AI RESILIENCE →</div>
-                <div style={{ position: 'absolute', left: -68, top: 0, bottom: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.25)', transform: 'rotate(-90deg)', whiteSpace: 'nowrap' }}>AI CAPABILITY →</div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2, background: 'rgba(255,255,255,.06)', border: '1px solid rgba(255,255,255,.08)' }}>
+              {/* Top-left: AI Catalyst */}
+              <div style={{ background: 'rgba(6,14,28,.95)', padding: '32px 32px', minHeight: 200 }}>
+                <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(77,144,254,.8)', background: 'rgba(77,144,254,.1)', padding: '2px 8px', display: 'inline-block', marginBottom: 12 }}>Growth Opportunity</div>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 18, fontWeight: 700, color: 'rgba(77,144,254,.9)', marginBottom: 10 }}>AI Catalyst</div>
+                <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.4)', lineHeight: 1.6 }}>High Resilience + Emerging AI capability. Strong structural moats with untapped AI potential. Valuation upside depends on AI execution.</div>
+              </div>
+              {/* Top-right: AI Fortress — highlighted */}
+              <div style={{ background: 'rgba(45,212,160,.05)', padding: '32px 32px', minHeight: 200, borderLeft: '2px solid rgba(45,212,160,.3)', position: 'relative', overflow: 'hidden' }}>
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 2, background: 'linear-gradient(90deg,transparent,rgba(45,212,160,.5),transparent)' }} />
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
+                  <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(45,212,160,.9)', background: 'rgba(45,212,160,.12)', padding: '2px 8px', display: 'inline-block' }}>Premium Asset</div>
+                  <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', color: 'rgba(45,212,160,.5)', fontFamily: 'var(--font-mono)' }}>← Target Quadrant</div>
                 </div>
-
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 1, background: 'rgba(255,255,255,.08)' }}>
-                  {/* Top-left: AI Catalyst */}
-                  <div style={{ background: 'rgba(6,14,28,.95)', padding: '28px 24px', minHeight: 160 }}>
-                    <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(77,144,254,.8)', background: 'rgba(77,144,254,.1)', padding: '2px 7px', display: 'inline-block', marginBottom: 10 }}>Growth Opportunity</div>
-                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, fontWeight: 700, color: 'rgba(77,144,254,.9)', marginBottom: 6 }}>AI Catalyst</div>
-                    <div style={{ fontSize: 11, color: 'rgba(255,255,255,.35)', lineHeight: 1.5 }}>High Resilience + Emerging AI. Strong moats, untapped potential.</div>
-                  </div>
-                  {/* Top-right: AI Fortress — highlighted */}
-                  <div style={{ background: 'rgba(45,212,160,.06)', padding: '28px 24px', minHeight: 160, border: '1px solid rgba(45,212,160,.2)', position: 'relative', overflow: 'hidden' }}>
-                    <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 2, background: 'linear-gradient(90deg,transparent,rgba(45,212,160,.6),transparent)' }} />
-                    <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(45,212,160,.9)', background: 'rgba(45,212,160,.12)', padding: '2px 7px', display: 'inline-block', marginBottom: 10 }}>Premium Asset</div>
-                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, fontWeight: 700, color: 'rgba(45,212,160,.95)', marginBottom: 6 }}>AI Fortress</div>
-                    <div style={{ fontSize: 11, color: 'rgba(255,255,255,.45)', lineHeight: 1.5 }}>High Capability + High Resilience. Commands 15–25% premium.</div>
-                    <div style={{ marginTop: 12, fontFamily: 'var(--font-mono)', fontSize: 10, color: 'rgba(45,212,160,.6)' }}>← Target Quadrant</div>
-                  </div>
-                  {/* Bottom-left: AI Foundation */}
-                  <div style={{ background: 'rgba(6,14,28,.95)', padding: '28px 24px', minHeight: 160 }}>
-                    <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(255,77,94,.8)', background: 'rgba(255,77,94,.08)', padding: '2px 7px', display: 'inline-block', marginBottom: 10 }}>Rebuild Required</div>
-                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, fontWeight: 700, color: 'rgba(255,77,94,.8)', marginBottom: 6 }}>AI Foundation</div>
-                    <div style={{ fontSize: 11, color: 'rgba(255,255,255,.35)', lineHeight: 1.5 }}>Emerging AI + Developing Moats. Investment required in both.</div>
-                  </div>
-                  {/* Bottom-right: AI Accelerator */}
-                  <div style={{ background: 'rgba(6,14,28,.95)', padding: '28px 24px', minHeight: 160 }}>
-                    <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(245,158,11,.85)', background: 'rgba(245,158,11,.08)', padding: '2px 7px', display: 'inline-block', marginBottom: 10 }}>Moat Investment Needed</div>
-                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, fontWeight: 700, color: 'rgba(245,158,11,.85)', marginBottom: 6 }}>AI Accelerator</div>
-                    <div style={{ fontSize: 11, color: 'rgba(255,255,255,.35)', lineHeight: 1.5 }}>Strong AI + Developing Moats. Needs structural defensibility.</div>
-                  </div>
-                </div>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 18, fontWeight: 700, color: 'rgba(45,212,160,.95)', marginBottom: 10 }}>AI Fortress</div>
+                <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.5)', lineHeight: 1.6 }}>High Capability + High Resilience. Deep data moats, advanced AI, structural defensibility. Commands 15–25% valuation premium over peers.</div>
+              </div>
+              {/* Bottom-left: AI Foundation */}
+              <div style={{ background: 'rgba(6,14,28,.95)', padding: '32px 32px', minHeight: 200, borderTop: '1px solid rgba(255,255,255,.05)' }}>
+                <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(255,77,94,.8)', background: 'rgba(255,77,94,.07)', padding: '2px 8px', display: 'inline-block', marginBottom: 12 }}>Rebuild Required</div>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 18, fontWeight: 700, color: 'rgba(255,77,94,.75)', marginBottom: 10 }}>AI Foundation</div>
+                <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.35)', lineHeight: 1.6 }}>Emerging AI + Developing Moats. Requires investment in both capability and structural defensibility. Valuation discount until trajectory is established.</div>
+              </div>
+              {/* Bottom-right: AI Accelerator */}
+              <div style={{ background: 'rgba(6,14,28,.95)', padding: '32px 32px', minHeight: 200, borderTop: '1px solid rgba(255,255,255,.05)', borderLeft: '1px solid rgba(255,255,255,.05)' }}>
+                <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(245,158,11,.85)', background: 'rgba(245,158,11,.07)', padding: '2px 8px', display: 'inline-block', marginBottom: 12 }}>Moat Investment Needed</div>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 18, fontWeight: 700, color: 'rgba(245,158,11,.85)', marginBottom: 10 }}>AI Accelerator</div>
+                <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.35)', lineHeight: 1.6 }}>Strong AI capability + Developing Moats. Needs deeper structural defensibility to sustain positioning against AI-native competition long-term.</div>
               </div>
             </div>
           </div>
