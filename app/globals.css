@@ -1824,20 +1824,13 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); padding-bottom: 60p
   .cap-anchor-stat { font-size: 40px; }
 }
 
-/* Zero anchor stat — red/struck treatment for "0 other banks have this" */
+/* Zero anchor stat — red treatment, strikethrough via SVG in JSX */
 .cap-anchor-stat--zero {
   color: rgba(255,77,94,.9);
   position: relative;
-  display: inline-block;
-}
-.cap-anchor-stat--zero::after {
-  content: '';
-  position: absolute;
-  left: 0; right: 0;
-  top: 52%;
-  height: 3px;
-  background: rgba(255,77,94,.7);
-  transform: rotate(-8deg);
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
 }
 
 /* ── SAMPLE CARD LOGOS ───────────────────────────────────────────────────── */
