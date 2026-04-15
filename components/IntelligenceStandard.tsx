@@ -60,7 +60,7 @@ export function IntelligenceStandard() {
             One evidence base. Every party in the room.
           </h2>
           <p style={{ fontSize: 13, color: 'rgba(255,255,255,.4)', maxWidth: 560, margin: '0 auto' }}>
-            The mandate pitch deck is the baseline. Every downstream deliverable — the operator's CIM, the investor's diligence — draws from the same independent source.
+            Customer verbatims collected independently. Uncoached. Defensible at IC. The mandate pitch deck is the baseline — the operator's CIM and the investor's diligence both draw from the same verbatim record.
           </p>
         </div>
 
@@ -70,9 +70,9 @@ export function IntelligenceStandard() {
           {/* SOURCE */}
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 0 }}>
             <div style={{ width: 360, ...nodeStyle(vis(1), vis(2)) }}>
-              <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(77,144,254,.7)', marginBottom: 5 }}>Crossover Research</div>
-              <div style={{ fontSize: 15, fontWeight: 700, color: 'rgba(255,255,255,.92)', marginBottom: 3 }}>Independent evidence base</div>
-              <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,.4)' }}>Neither side chose the respondents</div>
+              <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(77,144,254,.7)', marginBottom: 5 }}>Crossover Research · Intelligence Infrastructure</div>
+              <div style={{ fontSize: 15, fontWeight: 700, color: 'rgba(255,255,255,.92)', marginBottom: 3 }}>Verbatim Truth Layer</div>
+              <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,.4)', fontStyle: 'italic' }}>The verbatim truth layer that all parties can rely on.</div>
             </div>
           </div>
 
@@ -127,7 +127,7 @@ export function IntelligenceStandard() {
             textAlign: 'center',
           }}>
             <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.55)', lineHeight: 1.65, marginBottom: 10 }}>
-              One evidence base. No party selected the respondents. No party can challenge the data.
+              One verbatim truth layer. Every party relies on it. No party produced it.
             </div>
             <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', justifyContent: 'center' }}>
               {DEALS.map((d, i) => (

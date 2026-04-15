@@ -73,7 +73,7 @@ export function MarketProblem() {
 
         {/* Footer line */}
         <div style={{ textAlign:'center', marginTop:20, fontSize:13, color:'rgba(255,255,255,.3)', fontStyle:'italic' }}>
-          Information only flows one direction — and only when it's already too late to use it.
+          Every party works from a different version of the truth. Crossover is the verbatim record they all share.
         </div>
 
       </div>

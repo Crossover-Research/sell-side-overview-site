@@ -11,6 +11,7 @@ import { DealProof } from '../../components/DealProof';
 import { MarketProblem } from '../../components/MarketProblem';
 import { AudienceWithout } from '../../components/AudienceWithout';
 import { IntelligenceStandard } from '../../components/IntelligenceStandard';
+import { ProductArchitecture } from '../../components/ProductArchitecture';
 
 function RequestParamWatcher({ onOpen }: { onOpen: () => void }) {
   const searchParams = useSearchParams();
@@ -235,6 +236,7 @@ export default function IntelligencePage() {
 
       <MarketProblem />
       <IntelligenceStandard />
+      <ProductArchitecture />
       <AudienceWithout />
 
       {/* SAMPLE STUDIES */}
