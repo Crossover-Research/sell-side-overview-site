@@ -294,10 +294,10 @@ export default function IntelligencePage() {
               </div>
               <div style={{ fontSize:15, fontWeight:700, color:'rgba(255,255,255,.92)', marginBottom:6, lineHeight:1.3 }}>Intelligence Report + GTM Playbook</div>
               <div style={{ fontSize:12, color:'var(--t2)', lineHeight:1.65, marginBottom:16 }}>
-                Full competitive intelligence with vendor displacement scorecards, tiered account targets, renewal windows, and per-account strategic approach — delivered as a live queryable portal.
+                Full competitive intelligence with vendor displacement scorecards, tiered account targets, renewal windows, and per-account strategic approach. Includes the underlying data file so your team can run additional cuts and custom queries.
               </div>
               <div style={{ display:'flex', gap:5, flexWrap:'wrap', marginBottom:18 }}>
-                {['Full Report','GTM Playbook','Response Carve-Out','Interactive Data'].map((t,i)=>(
+                {['Full Report','GTM Playbook','Response Carve-Out','Underlying Data File'].map((t,i)=>(
                   <span key={i} style={{ fontSize:9, fontWeight:600, color:'rgba(255,255,255,.4)', background:'rgba(255,255,255,.05)', border:'1px solid rgba(255,255,255,.08)', padding:'2px 7px' }}>{t}</span>
                 ))}
               </div>
@@ -319,10 +319,10 @@ export default function IntelligencePage() {
               </div>
               <div style={{ fontSize:15, fontWeight:700, color:'rgba(255,255,255,.92)', marginBottom:6, lineHeight:1.3 }}>Volie — Queryable Deal Intelligence</div>
               <div style={{ fontSize:12, color:'var(--t2)', lineHeight:1.65, marginBottom:16 }}>
-                A live client-facing portal with Cortex AI embedded. Your client queries findings in natural language, explores verbatims, and shares internally. No analyst turnaround. The research stays live after delivery.
+                A live client-facing portal with Cortex AI embedded — our intelligence bot that runs sophisticated cuts and interpretations of the underlying data. Your client gets answers in seconds, not days. No analyst in the loop.
               </div>
               <div style={{ display:'flex', gap:5, flexWrap:'wrap', marginBottom:18 }}>
-                {['Cortex AI','Natural Language Query','Live Verbatims','Shareable'].map((t,i)=>(
+                {['Cortex AI Bot','Sophisticated Data Cuts','Live Verbatims','Shareable'].map((t,i)=>(
                   <span key={i} style={{ fontSize:9, fontWeight:600, color:'rgba(130,175,255,.6)', background:'rgba(77,144,254,.07)', border:'1px solid rgba(77,144,254,.15)', padding:'2px 7px' }}>{t}</span>
                 ))}
               </div>
