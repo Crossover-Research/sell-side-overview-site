@@ -259,9 +259,61 @@ export default function IntelligencePage() {
       <section id="samples" className="ib-section">
         <div className="ib-inner">
           <div className="ib-section-eyebrow">Sample Research</div>
-          <h2 className="ib-section-title" style={{ marginBottom:16 }}>Live Catalyst Studies</h2>
-          <div className="ib-samples">
-            {/* Red Canary — code name reveals logo on hover */}
+          <h2 className="ib-section-title" style={{ marginBottom:4 }}>Live Catalyst Studies</h2>
+          <p style={{ fontSize:13, color:'var(--t2)', marginBottom:20, lineHeight:1.6 }}>
+            Every Crossover engagement produces a queryable intelligence portal — a live environment your client explores, not a static PDF.
+          </p>
+
+          {/* Portal showcase — full width above cards */}
+          <a
+            href="https://volie.crossoverintelligence.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display:'block', textDecoration:'none', marginBottom:1 }}
+          >
+            <div style={{
+              background:'rgba(77,144,254,.06)',
+              border:'1px solid rgba(77,144,254,.2)',
+              padding:'20px 28px',
+              display:'flex', alignItems:'center', justifyContent:'space-between', gap:24, flexWrap:'wrap',
+              transition:'background .15s',
+              position:'relative', overflow:'hidden',
+            }}
+            onMouseEnter={e=>(e.currentTarget.style.background='rgba(77,144,254,.1)')}
+            onMouseLeave={e=>(e.currentTarget.style.background='rgba(77,144,254,.06)')}
+            >
+              <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,transparent,rgba(77,144,254,.4),transparent)' }} />
+              <div>
+                <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(77,144,254,.8)', marginBottom:6 }}>
+                  Live Demo · Client Intelligence Portal
+                </div>
+                <div style={{ fontSize:16, fontWeight:700, color:'rgba(255,255,255,.92)', marginBottom:4 }}>
+                  Volie — Queryable Deal Intelligence
+                </div>
+                <div style={{ fontSize:12, color:'var(--t2)', lineHeight:1.6, maxWidth:640 }}>
+                  A live example of what your client receives. Verified customer data, IC-ready findings, and an embedded AI assistant — queryable in natural language. No analyst in the loop. No 48-hour turnaround.
+                </div>
+              </div>
+              <div style={{ display:'flex', alignItems:'center', gap:10, flexShrink:0 }}>
+                <div style={{ textAlign:'right' }}>
+                  <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.3)', marginBottom:3 }}>Format</div>
+                  <div style={{ fontSize:12, fontWeight:600, color:'rgba(255,255,255,.7)' }}>Live Portal</div>
+                </div>
+                <div style={{ width:1, height:32, background:'rgba(255,255,255,.08)' }} />
+                <div style={{ textAlign:'right' }}>
+                  <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.3)', marginBottom:3 }}>Access</div>
+                  <div style={{ fontSize:12, fontWeight:600, color:'rgba(255,255,255,.7)' }}>Open Demo</div>
+                </div>
+                <div style={{ width:1, height:32, background:'rgba(255,255,255,.08)' }} />
+                <span style={{ fontSize:12, fontWeight:700, color:'rgba(130,175,255,.9)', whiteSpace:'nowrap' }}>
+                  View Portal ↗
+                </span>
+              </div>
+            </div>
+          </a>
+
+          {/* Study cards */}
+          <div className="ib-samples" style={{ marginTop:1 }}>
             <SampleCard
               href="/redcanary"
               type="SENTINEL · Cybersecurity MDR"
@@ -271,7 +323,6 @@ export default function IntelligencePage() {
               logoInvert={false}
               cta="View Study"
             />
-            {/* BlueCat — code name reveals logo on hover */}
             <SampleCard
               href="/bluecat"
               type="FORTRESS · Network Infrastructure"

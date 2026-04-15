@@ -46,6 +46,7 @@ export const IB_CAP_DATA: Record<IBCap, IBCapabilityData> = {
       { title: 'Customer Universe Discovery', desc: 'Verified customer base mapped from 30+ public signal sources: 350-600 organizations with enriched contacts. Built before a single interview is commissioned.' },
       { title: 'Sell-Side Line of Sight → Buy-Side Match', desc: "Crossover forms an independent fundamental view on every asset we cover. When the mandate research reveals a high-conviction story, we alert select buy-side funds, stockpicking private markets using sell-side line of sight. The Nerdio deal is the proof: mandate engagement → original thesis → GA 30-min brief → $500M at $1B+." },
       { title: 'Instant vs. 14-Day Delivery', desc: 'Same day if covered in Catalyst. 14 days for a custom study. Pre-pitch snapshot in 48 hours. Every timeline structured around your bid date, not a research calendar.' },
+      { title: 'Queryable Intelligence Portal', desc: 'Every engagement delivers a live portal — not a PDF. Your client queries findings in natural language, explores verbatims, and shares internally. No analyst turnaround. The research stays live.' },
     ],
   },
 
