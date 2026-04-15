@@ -120,19 +120,20 @@ export function IntelligenceStandard() {
 
           {/* Truth bar */}
           <div style={{
-            marginTop: 12, padding: '14px 20px',
+            marginTop: 12, padding: '20px 28px',
             background: 'rgba(6,14,28,.95)', border: '1px solid rgba(255,255,255,.08)',
             opacity: vis(7) ? 1 : 0, transform: vis(7) ? 'translateY(0)' : 'translateY(6px)',
             transition: 'opacity .5s ease, transform .5s ease',
             textAlign: 'center',
           }}>
-            <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.55)', lineHeight: 1.65, marginBottom: 10 }}>
+            <div style={{ fontSize: 14, fontWeight: 600, color: 'rgba(255,255,255,.8)', lineHeight: 1.6, marginBottom: 16 }}>
               One verbatim truth layer. Every party relies on it. No party produced it.
             </div>
-            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', justifyContent: 'center' }}>
+            <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', justifyContent: 'center' }}>
               {DEALS.map((d, i) => (
-                <div key={i} style={{ fontSize: 10, color: 'rgba(255,255,255,.35)', background: 'rgba(255,255,255,.04)', border: '1px solid rgba(255,255,255,.07)', padding: '3px 10px' }}>
-                  <strong style={{ color: 'rgba(255,255,255,.55)', fontWeight: 600 }}>{d.deal}</strong> · {d.label}
+                <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, background: 'rgba(255,255,255,.05)', border: '1px solid rgba(255,255,255,.1)', padding: '8px 16px' }}>
+                  <span style={{ fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,.85)' }}>{d.deal}</span>
+                  <span style={{ fontSize: 11, color: 'rgba(255,255,255,.4)' }}>{d.label}</span>
                 </div>
               ))}
             </div>
