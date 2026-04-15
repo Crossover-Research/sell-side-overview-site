@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback, Suspense } from 'react';
 import { HeroSection } from '../../components/HeroSection';
 import { useSearchParams } from 'next/navigation';
 import { IB_TRACK_RECORD, IB_CAPS, IB_CAP_DATA, type IBCap } from '../../lib/data/ibCapabilities';
+import { CATALYST_ASSETS } from '../../lib/data/catalystAssets';
 import { ENGAGEMENT_OPTIONS } from '../../lib/data/partner';
 import { CONTACT } from '../../lib/config/site';
 import { SelectField } from '../../components/SelectField';
@@ -10,7 +11,6 @@ import { EngagementCard } from '../../components/EngagementCard';
 import { DealProof } from '../../components/DealProof';
 import { MarketProblem } from '../../components/MarketProblem';
 import { AudienceWithout } from '../../components/AudienceWithout';
-import { ProductArchitecture } from '../../components/ProductArchitecture';
 
 function RequestParamWatcher({ onOpen }: { onOpen: () => void }) {
   const searchParams = useSearchParams();
@@ -234,7 +234,6 @@ export default function IntelligencePage() {
       </section>
 
       <MarketProblem />
-      <ProductArchitecture />
       <AudienceWithout />
 
       {/* SAMPLE STUDIES */}
@@ -327,7 +326,14 @@ export default function IntelligencePage() {
             <a href="/catalyst" className="ib-sample-card ib-sample-cta">
               <div className="ib-sample-type">Catalyst Library</div>
               <div className="ib-sample-logo-wrap">
-                <div className="ib-sample-name">10 Assets Available</div>
+                <div className="ib-sample-name">{CATALYST_ASSETS.length} Assets</div>
+              </div>
+              <div style={{ display:'flex', gap:8, flexWrap:'wrap', marginBottom:10 }}>
+                {(['transacted','active','new'] as const).map(s => {
+                  const n = CATALYST_ASSETS.filter(a => a.status === s).length;
+                  const cfg = { transacted:{ color:'rgba(180,180,200,.6)', label:'Closed' }, active:{ color:'rgba(45,212,160,.8)', label:'Active' }, new:{ color:'rgba(245,158,11,.8)', label:'New' } };
+                  return n > 0 ? <span key={s} style={{ fontSize:9, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase' as const, color:cfg[s].color }}>{n} {cfg[s].label}</span> : null;
+                })}
               </div>
               <div className="ib-sample-link" style={{ marginTop:'auto' }}>Browse Library &rarr;</div>
             </a>

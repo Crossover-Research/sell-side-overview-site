@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { ProductArchitecture } from '../../components/ProductArchitecture';
 import { FlywheelDiagram } from '../../components/FlywheelDiagram';
 import { CATALYST_ASSETS, type CatalystAsset } from '../../lib/data/catalystAssets';
 import { CONTACT } from '../../lib/config/site';
@@ -295,6 +296,7 @@ export default function CatalystPage() {
 
   return (
     <>
+      <ProductArchitecture />
       {/* POSITIONING + TABLE — unified dark section */}
       <section id="catalyst" className="ib-section ib-section-dark">
         <div className="ib-inner">
