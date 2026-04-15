@@ -104,8 +104,8 @@ const PRODUCTS = [
 ];
 
 
-function SampleCard({ href, type, codeName, logoSrc, logoAlt, logoInvert, cta }: {
-  href: string; type: string; codeName: string;
+function SampleCard({ href, type, codeName, badge, logoSrc, logoAlt, logoInvert, cta }: {
+  href: string; type: string; codeName: string; badge: string;
   logoSrc: string; logoAlt: string; logoInvert: boolean; cta: string;
 }) {
   const [hovered, setHovered] = useState(false);
@@ -113,10 +113,21 @@ function SampleCard({ href, type, codeName, logoSrc, logoAlt, logoInvert, cta }:
     <a
       href={href}
       className="ib-sample-card"
+      style={{ position:'relative' }}
       onMouseEnter={()=>setHovered(true)}
       onMouseLeave={()=>setHovered(false)}
     >
+      {/* Badge — top right corner */}
+      <div style={{
+        position:'absolute', top:14, right:14,
+        fontSize:8, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase',
+        color:'var(--green)', background:'rgba(45,212,160,.1)',
+        border:'1px solid rgba(45,212,160,.25)', padding:'2px 8px',
+      }}>{badge}</div>
+
+      {/* Sector — no code name */}
       <div className="ib-sample-type">{type}</div>
+
       <div className="ib-sample-logo-wrap" style={{ position:'relative', overflow:'hidden' }}>
         {/* Code name — slides out up on hover */}
         <div style={{
@@ -316,8 +327,9 @@ export default function IntelligencePage() {
           <div className="ib-samples" style={{ marginTop:1 }}>
             <SampleCard
               href="/redcanary"
-              type="SENTINEL · Cybersecurity MDR"
+              type="Cybersecurity MDR"
               codeName="SENTINEL"
+              badge="Catalyst"
               logoSrc="/red-canary-logo.svg"
               logoAlt="Red Canary"
               logoInvert={false}
@@ -325,8 +337,9 @@ export default function IntelligencePage() {
             />
             <SampleCard
               href="/bluecat"
-              type="FORTRESS · Network Infrastructure"
+              type="Network Infrastructure"
               codeName="FORTRESS"
+              badge="Catalyst"
               logoSrc="/bluecat-logo.svg"
               logoAlt="BlueCat Networks"
               logoInvert={true}
