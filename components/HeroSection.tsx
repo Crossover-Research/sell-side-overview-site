@@ -1,12 +1,13 @@
 'use client';
 import { useState } from 'react';
 import type { Tab } from '../lib/types';
+import { IB_TRACK_RECORD } from '../lib/data/ibCapabilities';
 
 const METRICS = [
   { val: '$1B+',  label: 'Single transaction outcome' },
-  { val: '25+',   label: 'Sell-side mandates' },
+  { val: IB_TRACK_RECORD.mandatesSupported,   label: 'Sell-side mandates' },
   { val: '60+',   label: 'Buy-side engagements' },
-  { val: '60%',   label: 'Mandate win rate' },
+  { val: IB_TRACK_RECORD.winRateWithCrossover, label: 'Mandate win rate' },
 ];
 
 interface HeroSectionProps { tab?: Tab; }
