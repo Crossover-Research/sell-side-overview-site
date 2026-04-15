@@ -170,7 +170,7 @@ export default function IntelligencePage() {
       {/* CAPABILITIES */}
       <section id="capabilities" className="ib-section ib-section-alt">
         <div className="ib-inner">
-          <div className="ib-section-eyebrow">Six Capabilities</div>
+          <div className="ib-section-eyebrow">Five Capabilities</div>
           <h2 className="ib-section-title" style={{ marginBottom:18 }}>Built for Every Stage of the Transaction</h2>
           <div className="ib-cap-tabs">
             {IB_CAPS.map(c=>(
