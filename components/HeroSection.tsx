@@ -6,7 +6,7 @@ const METRICS = [
   { val: '$1B+',  label: 'Single transaction outcome' },
   { val: '25+',   label: 'Sell-side mandates' },
   { val: '60+',   label: 'Buy-side engagements' },
-  { val: '50%',   label: 'Mandate win rate' },
+  { val: '60%',   label: 'Mandate win rate' },
 ];
 
 interface HeroSectionProps { tab?: Tab; }
