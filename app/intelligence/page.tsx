@@ -121,8 +121,9 @@ function SampleCard({ href, type, codeName, badge, logoSrc, logoAlt, logoInvert,
       <div style={{
         position:'absolute', top:14, right:14,
         fontSize:8, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase',
-        color:'var(--green)', background:'rgba(45,212,160,.1)',
-        border:'1px solid rgba(45,212,160,.25)', padding:'2px 8px',
+        color:'rgba(77,144,254,.95)', background:'rgba(77,144,254,.12)',
+        border:'1px solid rgba(77,144,254,.3)', padding:'2px 8px',
+        animation:'hint-pulse 2.4s ease-in-out infinite',
       }}>{badge}</div>
 
       {/* Sector — no code name */}
