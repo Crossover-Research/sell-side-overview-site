@@ -10,6 +10,7 @@ import { EngagementCard } from '../../components/EngagementCard';
 import { DealProof } from '../../components/DealProof';
 import { MarketProblem } from '../../components/MarketProblem';
 import { AudienceWithout } from '../../components/AudienceWithout';
+import { IntelligenceStandard } from '../../components/IntelligenceStandard';
 
 function RequestParamWatcher({ onOpen }: { onOpen: () => void }) {
   const searchParams = useSearchParams();
@@ -233,6 +234,7 @@ export default function IntelligencePage() {
       </section>
 
       <MarketProblem />
+      <IntelligenceStandard />
       <AudienceWithout />
 
       {/* SAMPLE STUDIES */}
