@@ -2,7 +2,7 @@ export const IB_TRACK_RECORD = {
   mandatesSupported: '50+',
   jpmEngagements: '22+',
   totalTransactionValue: '$25B+',
-  winRateWithCrossover: '50%',
+  winRateWithCrossover: '60%',
   avgDeliveryDays: 'Same day (Catalyst) · 14 days (custom)',
 };
 
@@ -10,12 +10,11 @@ export const IB_WORKFLOW_STAGES = [
   { num: '01', label: 'Mandate Pitch',          desc: 'Line of sight before competing banks arrive' },
   { num: '02', label: 'CIM Narrative',          desc: 'Customer equity story no buyer can challenge' },
   { num: '03', label: 'Buyer Mapping',          desc: 'Know conviction levels before the first call' },
-  { num: '04', label: 'Operator Rebuttal',      desc: 'Find the gaps before buyers do. Close them first.' },
-  { num: '05', label: 'AI Management Meetings', desc: 'Simulate buyer IC before the real meeting' },
-  { num: '06', label: 'Cortex Research',        desc: 'The intelligence infrastructure underneath everything' },
+  { num: '04', label: 'AI Management Meetings', desc: 'Simulate buyer IC before the real meeting' },
+  { num: '05', label: 'Cortex Research',        desc: 'The intelligence infrastructure underneath everything' },
 ];
 
-export const IB_CAPS = ['mandate','cim-narrative','buyer-mapping','operator-rebuttal','ai-mgmt','cortex'] as const;
+export const IB_CAPS = ['mandate','cim-narrative','buyer-mapping','ai-mgmt','cortex'] as const;
 export type IBCap = typeof IB_CAPS[number];
 
 export interface CapabilityFeature { title: string; desc: string; }
@@ -67,6 +66,9 @@ export const IB_CAP_DATA: Record<IBCap, IBCapabilityData> = {
       { title: 'Competitive Benchmarking Scorecard', desc: 'Across 8-12 named competitors, every dimension scored from verified customer responses: who wins where, what drives switching, where the target is vulnerable. Buyers cannot replicate this without their own 6-week study.' },
       { title: 'Mission Criticality Evidence', desc: "Direct measurement of what happens to the customer's business if the product goes away. A 9.0/10 mission criticality score from 75 verified respondents is not a claim that can be challenged at IC." },
       { title: 'Verbatim Evidence Extraction', desc: 'Unedited customer voice organized by theme (switching costs, competitive differentiation, ROI), with full respondent attribution. The management presentation stops looking like marketing and starts looking like research.' },
+      { title: 'Independent Gap Assessment', desc: "Respondents sourced entirely from public signals, with no management reference list and no handpicked advocates. The findings reflect what the full customer base actually experiences, including friction, complaints, and risk flags buyers will surface. We don't sanitize what we find." },
+      { title: 'Attack Surface Mapping', desc: "Nine canonical IC attack vectors assessed against the primary evidence: revenue quality, churn risk, competitive displacement, moat durability, pricing power, and four more. Each: here's the adversarial question, here's what the evidence says, here's the residual risk if the evidence is thin." },
+      { title: 'Narrative Hardening', desc: "The equity story gets rebuilt around the evidence, not the aspiration. Claims that can't be independently supported get replaced with what the data actually shows. A narrower, more defensible narrative is more valuable to buyers than a broad narrative they don't believe." },
     ],
   },
 
@@ -87,26 +89,6 @@ export const IB_CAP_DATA: Record<IBCap, IBCapabilityData> = {
       { title: 'Financial Buyer Fund Dynamics', desc: 'Hold period monitoring, fund deployment pace, and competitive ownership patterns surface which funds are most motivated. A fund at year 4 of 5 with two add-ons in the same vertical is not an incidental buyer.' },
       { title: 'Personalized Outreach Campaigns', desc: 'Three-message cadences researched and written for each specific recipient, not templates. Fund-specific personalization grounded in their portfolio, deal history, and thesis language. Import and run on day one.' },
       { title: 'Buyer Opportunity Pages', desc: 'Custom single-page intelligence portals for each target buyer: thesis framing tailored to their criteria, Catalyst preview, direct engagement path. Designed to accelerate internal approval to engage.' },
-    ],
-  },
-
-  'operator-rebuttal': {
-    label: 'Operator Rebuttal',
-    headline: 'Find the gaps in the story before buyers find them first',
-    anchorStat: '9',
-    anchorLabel: 'IC attack vectors stress-tested',
-    anchorContext: 'Revenue quality, churn, moat, pricing power + 5 more',
-    body: "Every asset has weaknesses. Most operators and bankers know this, and most hide them below the surface because there hasn't been an affordable, fast mechanism to formulate a response plan during a transaction sprint. The reflex is to hope buyers don't find the gaps before you close. Crossover inverts this. We surface gaps on purpose, using independent respondents who weren't handpicked by management, then helping operators build customer-backed evidence to close them before the formal process begins. Proactive, not reactive. Evidence-based, not management-asserted. This is our most defensible capability because it's the only one that makes the research more credible by finding problems.",
-    bankerProblem: "Buyers find the gaps in diligence and use them to reprice. You spend weeks defending terrain you could have fortified before the process started.",
-    crossoverAnswer: "Surface the gaps before buyers do. Build customer-backed rebuttals while there's still time to be proactive.",
-    stats: [],
-    features: [
-      { title: 'Independent Gap Assessment', desc: "Respondents sourced entirely from public signals, with no management reference list and no handpicked advocates. The findings reflect what the full customer base actually experiences, including friction, complaints, and risk flags buyers will surface. We don't sanitize what we find." },
-      { title: 'Attack Surface Mapping', desc: "Nine canonical IC attack vectors assessed against the primary evidence: revenue quality, churn risk, competitive displacement, moat durability, pricing power, and four more. Each: here's the adversarial question, here's what the evidence says, here's the residual risk if the evidence is thin." },
-      { title: 'Customer-Backed Rebuttal Development', desc: "For each identified weakness, we design a targeted additional research strand to generate customer-backed evidence that directly addresses the attack. The rebuttal isn't a management counter-argument. It's independent customer data that closes the gap." },
-      { title: 'Narrative Hardening', desc: "The equity story gets rebuilt around the evidence, not the aspiration. Claims that can't be independently supported get replaced with what the data actually shows. A narrower, more defensible narrative is more valuable to buyers than a broad narrative they don't believe." },
-      { title: 'Pre-Emption Briefing', desc: 'The operator enters every management presentation knowing which topics will be contested, what the hostile question looks like, and what the customer-backed evidence response is. No surprises. No stumbles. The hardest questions feel like repetition.' },
-      { title: 'Credibility Infrastructure for Buyers', desc: 'Buyers trust findings that include weaknesses. Research that only confirms the thesis gets discounted at IC before anyone reads it. Research that surfaces limitations and addresses them with independent evidence is the highest-credibility format available in private markets.' },
     ],
   },
 
