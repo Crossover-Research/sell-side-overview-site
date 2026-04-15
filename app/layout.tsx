@@ -6,6 +6,7 @@ import { Footer } from '../components/Footer'
 import './globals.css'
 
 export const metadata: Metadata = {
+  icons: { icon: '/favicon.svg' },
   title: 'Crossover Research — Voice of Customer Intelligence',
   description: 'Independent primary research for investment bankers, operators, and funds. The same verified customer truth — different strategic framing for each audience.',
   openGraph: {
