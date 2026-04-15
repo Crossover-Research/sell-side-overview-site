@@ -270,59 +270,66 @@ export default function IntelligencePage() {
 
       <section id="samples" className="ib-section">
         <div className="ib-inner">
-          <div className="ib-section-eyebrow">Sample Research</div>
-          <h2 className="ib-section-title" style={{ marginBottom:4 }}>Live Catalyst Studies</h2>
+          <div className="ib-section-eyebrow">Live Deliverables</div>
+          <h2 className="ib-section-title" style={{ marginBottom:4 }}>See exactly what your client receives</h2>
           <p style={{ fontSize:13, color:'var(--t2)', marginBottom:20, lineHeight:1.6 }}>
-            Every Crossover engagement produces a queryable intelligence portal — a live environment your client explores, not a static PDF.
+            Every engagement delivers a live portal with Cortex AI embedded — not a PDF. The GTM Playbook turns VoC data into a tiered account list with named targets, renewal windows, and displacement signals your sales team can act on immediately.
           </p>
 
-          {/* Portal showcase — full width above cards */}
-          <a
-            href="https://volie.crossoverintelligence.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ display:'block', textDecoration:'none', marginBottom:1 }}
-          >
-            <div style={{
-              background:'rgba(77,144,254,.06)',
-              border:'1px solid rgba(77,144,254,.2)',
-              padding:'20px 28px',
-              display:'flex', alignItems:'center', justifyContent:'space-between', gap:24, flexWrap:'wrap',
-              transition:'background .15s',
-              position:'relative', overflow:'hidden',
-            }}
-            onMouseEnter={e=>(e.currentTarget.style.background='rgba(77,144,254,.1)')}
-            onMouseLeave={e=>(e.currentTarget.style.background='rgba(77,144,254,.06)')}
+          {/* Deliverable showcase — two live examples side by side */}
+          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:1, background:'rgba(255,255,255,.06)', marginBottom:1 }}>
+
+            {/* Sample Report */}
+            <a
+              href="https://sample.crossoverintelligence.com/"
+              target="_blank" rel="noopener noreferrer"
+              style={{ display:'flex', flexDirection:'column', textDecoration:'none', background:'rgba(6,14,28,.95)', padding:'22px 26px', position:'relative', overflow:'hidden', transition:'background .15s' }}
+              onMouseEnter={e=>(e.currentTarget.style.background='rgba(12,22,44,.95)')}
+              onMouseLeave={e=>(e.currentTarget.style.background='rgba(6,14,28,.95)')}
             >
-              <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,transparent,rgba(77,144,254,.4),transparent)' }} />
-              <div>
-                <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(77,144,254,.8)', marginBottom:6 }}>
-                  Live Demo · Client Intelligence Portal
-                </div>
-                <div style={{ fontSize:16, fontWeight:700, color:'rgba(255,255,255,.92)', marginBottom:4 }}>
-                  Volie — Queryable Deal Intelligence
-                </div>
-                <div style={{ fontSize:12, color:'var(--t2)', lineHeight:1.6, maxWidth:640 }}>
-                  A live example of what your client receives. Verified customer data, IC-ready findings, and an embedded AI assistant — queryable in natural language. No analyst in the loop. No 48-hour turnaround.
-                </div>
+              <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent)' }} />
+              <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:14 }}>
+                <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.3)' }}>Sample Report</div>
+                <div style={{ fontSize:8, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(245,158,11,.9)', background:'rgba(245,158,11,.1)', border:'1px solid rgba(245,158,11,.25)', padding:'2px 8px' }}>Operator</div>
               </div>
-              <div style={{ display:'flex', alignItems:'center', gap:10, flexShrink:0 }}>
-                <div style={{ textAlign:'right' }}>
-                  <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.3)', marginBottom:3 }}>Format</div>
-                  <div style={{ fontSize:12, fontWeight:600, color:'rgba(255,255,255,.7)' }}>Live Portal</div>
-                </div>
-                <div style={{ width:1, height:32, background:'rgba(255,255,255,.08)' }} />
-                <div style={{ textAlign:'right' }}>
-                  <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.3)', marginBottom:3 }}>Access</div>
-                  <div style={{ fontSize:12, fontWeight:600, color:'rgba(255,255,255,.7)' }}>Open Demo</div>
-                </div>
-                <div style={{ width:1, height:32, background:'rgba(255,255,255,.08)' }} />
-                <span style={{ fontSize:12, fontWeight:700, color:'rgba(130,175,255,.9)', whiteSpace:'nowrap' }}>
-                  View Portal ↗
-                </span>
+              <div style={{ fontSize:15, fontWeight:700, color:'rgba(255,255,255,.92)', marginBottom:6, lineHeight:1.3 }}>Intelligence Report + GTM Playbook</div>
+              <div style={{ fontSize:12, color:'var(--t2)', lineHeight:1.65, marginBottom:16 }}>
+                Full competitive intelligence with vendor displacement scorecards, tiered account targets, renewal windows, and per-account strategic approach — delivered as a live queryable portal.
               </div>
-            </div>
-          </a>
+              <div style={{ display:'flex', gap:5, flexWrap:'wrap', marginBottom:18 }}>
+                {['Full Report','GTM Playbook','Response Carve-Out','Interactive Data'].map((t,i)=>(
+                  <span key={i} style={{ fontSize:9, fontWeight:600, color:'rgba(255,255,255,.4)', background:'rgba(255,255,255,.05)', border:'1px solid rgba(255,255,255,.08)', padding:'2px 7px' }}>{t}</span>
+                ))}
+              </div>
+              <div style={{ fontSize:11, fontWeight:700, color:'rgba(255,255,255,.55)', marginTop:'auto' }}>View Sample Report ↗</div>
+            </a>
+
+            {/* Volie Portal */}
+            <a
+              href="https://volie.crossoverintelligence.com/"
+              target="_blank" rel="noopener noreferrer"
+              style={{ display:'flex', flexDirection:'column', textDecoration:'none', background:'rgba(6,14,28,.95)', padding:'22px 26px', position:'relative', overflow:'hidden', transition:'background .15s', borderLeft:'1px solid rgba(77,144,254,.15)' }}
+              onMouseEnter={e=>(e.currentTarget.style.background='rgba(12,22,44,.95)')}
+              onMouseLeave={e=>(e.currentTarget.style.background='rgba(6,14,28,.95)')}
+            >
+              <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,transparent,rgba(77,144,254,.3),transparent)' }} />
+              <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:14 }}>
+                <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.3)' }}>Client Proposal</div>
+                <div style={{ fontSize:8, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(77,144,254,.9)', background:'rgba(77,144,254,.12)', border:'1px solid rgba(77,144,254,.3)', padding:'2px 8px', animation:'hint-pulse 2.4s ease-in-out infinite' }}>Live Portal</div>
+              </div>
+              <div style={{ fontSize:15, fontWeight:700, color:'rgba(255,255,255,.92)', marginBottom:6, lineHeight:1.3 }}>Volie — Queryable Deal Intelligence</div>
+              <div style={{ fontSize:12, color:'var(--t2)', lineHeight:1.65, marginBottom:16 }}>
+                A live client-facing portal with Cortex AI embedded. Your client queries findings in natural language, explores verbatims, and shares internally. No analyst turnaround. The research stays live after delivery.
+              </div>
+              <div style={{ display:'flex', gap:5, flexWrap:'wrap', marginBottom:18 }}>
+                {['Cortex AI','Natural Language Query','Live Verbatims','Shareable'].map((t,i)=>(
+                  <span key={i} style={{ fontSize:9, fontWeight:600, color:'rgba(130,175,255,.6)', background:'rgba(77,144,254,.07)', border:'1px solid rgba(77,144,254,.15)', padding:'2px 7px' }}>{t}</span>
+                ))}
+              </div>
+              <div style={{ fontSize:11, fontWeight:700, color:'rgba(130,175,255,.8)', marginTop:'auto' }}>View Live Portal ↗</div>
+            </a>
+
+          </div>
 
           {/* Study cards */}
           <div className="ib-samples" style={{ marginTop:1 }}>
