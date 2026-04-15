@@ -674,7 +674,7 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); padding-bottom: 60p
 .ib-section { padding: 44px 0; position: relative; z-index: 1; }
 .ib-section-alt  { background: rgba(255,255,255,.025); border-top: 1px solid var(--br-lo); border-bottom: 1px solid var(--br-lo); }
 .ib-section-dark { background: linear-gradient(168deg, #050e1c 0%, #071420 50%, #06121e 100%); border-top: 1px solid rgba(77,144,254,.15); border-bottom: 1px solid rgba(77,144,254,.1); }
-.ib-section-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--green); margin-bottom: 8px; }
+.ib-section-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; }
 .ib-section-title { font-size: 24px; font-weight: 700; color: rgba(255,255,255,.97); letter-spacing: -.028em; margin-bottom: 8px; line-height: 1.25; }
 .ib-section-desc  { font-size: 13.5px; color: var(--t1); line-height: 1.65; margin-bottom: 28px; }
 
