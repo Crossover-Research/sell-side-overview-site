@@ -7,6 +7,9 @@ import { ENGAGEMENT_OPTIONS } from '../../lib/data/partner';
 import { CONTACT } from '../../lib/config/site';
 import { SelectField } from '../../components/SelectField';
 import { EngagementCard } from '../../components/EngagementCard';
+import { DealProof } from '../../components/DealProof';
+import { MarketProblem } from '../../components/MarketProblem';
+import { AudienceWithout } from '../../components/AudienceWithout';
 
 function RequestParamWatcher({ onOpen }: { onOpen: () => void }) {
   const searchParams = useSearchParams();
@@ -89,19 +92,7 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
   );
 }
 
-const WITHOUT_WITH = [
-  { w: 'Pitch alongside 3-5 identical banks on relationship. No rational basis to choose you.',    c: 'Walk in with customer evidence no competing bank has commissioned. The room is already yours.' },
-  { w: 'Build the equity story from market research the operator already discounts.',               c: 'Build the equity story from independent verified customer data. The operator cannot challenge what they did not select.' },
-  { w: 'Bury weak spots and hope buyer diligence misses them before close.',                       c: 'Find the gaps first. Surface them with independent research. Close them before diligence begins.' },
-  { w: 'Spend diligence defending terrain that should have been fortified before process started.', c: 'Pre-answer every buyer objection with customer-backed evidence before the first meeting.' },
-  { w: 'Win on relationship. When a competitor brings independent proof, the relationship loses.',  c: 'Independent evidence cannot be replicated on any timeline. Walk in with proof. Walk out with the mandate.' },
-];
 
-const PRODUCTS = [
-  { audience:'Banker', color:'rgba(130,180,255,.9)', title:'Mandate Pitch Deck', desc:'Customer proof points that no competing bank walks in with.', timeline:'48 hrs-2w', customers:'20-30', stage:'Mandate', value:'The banker enters the room knowing exactly what buyers will flag. And exactly how to answer it.' },
-  { audience:'Operator', color:'var(--amber)', title:'Operator Rebuttal + CIM', desc:'Surfaces weaknesses before buyers find them. Closes gaps proactively. Hardens the CIM narrative.', timeline:'3-5w', customers:'30-60', stage:'Sell-side', value:'Find the gaps first, close them with evidence, enter the process on offense.' },
-  { audience:'Investor', color:'var(--green)', title:'Customer Diligence Report', desc:'Build conviction before the teaser drops. Independent research that serves both sides of the transaction.', timeline:'5-7w', customers:'50-100+', stage:'Diligence', value:"Independent evidence the sell-side can't curate. Bid with conviction on your own timeline." },
-];
 
 
 function SampleCard({ href, type, codeName, badge, logoSrc, logoAlt, logoInvert, cta }: {
@@ -174,6 +165,7 @@ export default function IntelligencePage() {
     <>
       <HeroSection />
       <Suspense fallback={null}><RequestParamWatcher onOpen={openRequest} /></Suspense>
+      <DealProof />
       {/* CAPABILITIES */}
       <section id="capabilities" className="ib-section ib-section-alt">
         <div className="ib-inner">
@@ -240,31 +232,8 @@ export default function IntelligencePage() {
         </div>
       </section>
 
-      {/* WITHOUT / WITH */}
-      <section id="difference" className="ib-section">
-        <div className="ib-inner">
-          <div className="ib-section-eyebrow">The Difference</div>
-          <h2 className="ib-section-title" style={{ marginBottom:16 }}>What Changes When You Walk In With Crossover</h2>
-          <div className="ww-wrap">
-            <table className="ww-table">
-              <thead>
-                <tr>
-                  <th className="col-w" style={{ width:'50%' }}>Without Crossover</th>
-                  <th className="col-c" style={{ width:'50%' }}>With Crossover</th>
-                </tr>
-              </thead>
-              <tbody>
-                {WITHOUT_WITH.map((row,i)=>(
-                  <tr key={i}>
-                    <td className="col-w"><span className="ww-x">&#10005;</span>{row.w}</td>
-                    <td className="col-c"><span className="ww-check">&#10003;</span>{row.c}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
+      <MarketProblem />
+      <AudienceWithout />
 
       {/* SAMPLE STUDIES */}
 
