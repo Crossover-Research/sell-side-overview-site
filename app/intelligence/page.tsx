@@ -103,6 +103,55 @@ const PRODUCTS = [
   { audience:'Investor', color:'var(--green)', title:'Customer Diligence Report', desc:'Build conviction before the teaser drops. Independent research that serves both sides of the transaction.', timeline:'5-7w', customers:'50-100+', stage:'Diligence', value:"Independent evidence the sell-side can't curate. Bid with conviction on your own timeline." },
 ];
 
+
+function SampleCard({ href, type, codeName, logoSrc, logoAlt, logoInvert, cta }: {
+  href: string; type: string; codeName: string;
+  logoSrc: string; logoAlt: string; logoInvert: boolean; cta: string;
+}) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <a
+      href={href}
+      className="ib-sample-card"
+      onMouseEnter={()=>setHovered(true)}
+      onMouseLeave={()=>setHovered(false)}
+    >
+      <div className="ib-sample-type">{type}</div>
+      <div className="ib-sample-logo-wrap" style={{ position:'relative', overflow:'hidden' }}>
+        {/* Code name — slides out up on hover */}
+        <div style={{
+          position:'absolute', top:0, left:0, width:'100%',
+          display:'flex', alignItems:'center', height:'100%',
+          transform: hovered ? 'translateY(-100%)' : 'translateY(0)',
+          opacity: hovered ? 0 : 1,
+          transition: 'transform .3s cubic-bezier(.4,0,.2,1), opacity .2s',
+        }}>
+          <span style={{ fontFamily:'var(--font-mono)', fontSize:22, fontWeight:700, letterSpacing:'.06em', color:'rgba(255,255,255,.5)' }}>
+            {codeName}
+          </span>
+        </div>
+        {/* Logo — slides in from below on hover */}
+        <div style={{
+          position:'absolute', top:0, left:0, width:'100%',
+          display:'flex', alignItems:'center', height:'100%',
+          transform: hovered ? 'translateY(0)' : 'translateY(100%)',
+          opacity: hovered ? 1 : 0,
+          transition: 'transform .3s cubic-bezier(.4,0,.2,1), opacity .2s .05s',
+        }}>
+          <img
+            src={logoSrc} alt={logoAlt}
+            style={{ height:24, width:'auto', maxWidth:200, filter: logoInvert ? 'brightness(0) invert(1)' : 'none', opacity: logoInvert ? .85 : 1 }}
+          />
+        </div>
+      </div>
+      <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.25)', marginBottom:16 }}>
+        Hover to reveal
+      </div>
+      <div className="ib-sample-link" style={{ marginTop:'auto' }}>{cta} &rarr;</div>
+    </a>
+  );
+}
+
 export default function IntelligencePage() {
   const [activeCap, setActiveCap] = useState<IBCap>('mandate');
   const [requestOpen, setRequestOpen] = useState(false);
@@ -212,20 +261,26 @@ export default function IntelligencePage() {
           <div className="ib-section-eyebrow">Sample Research</div>
           <h2 className="ib-section-title" style={{ marginBottom:16 }}>Live Catalyst Studies</h2>
           <div className="ib-samples">
-            <a href="/redcanary" className="ib-sample-card">
-              <div className="ib-sample-type">SENTINEL &middot; Cybersecurity MDR</div>
-              <div className="ib-sample-logo-wrap">
-                <img src="/red-canary-logo.svg" alt="Red Canary" className="ib-sample-logo" />
-              </div>
-              <div className="ib-sample-link" style={{ marginTop:'auto' }}>View Study &rarr;</div>
-            </a>
-            <a href="/bluecat" className="ib-sample-card">
-              <div className="ib-sample-type">FORTRESS &middot; Network Infrastructure</div>
-              <div className="ib-sample-logo-wrap">
-                <img src="/bluecat-logo.svg" alt="BlueCat Networks" className="ib-sample-logo ib-sample-logo--invert" />
-              </div>
-              <div className="ib-sample-link" style={{ marginTop:'auto' }}>View Study &rarr;</div>
-            </a>
+            {/* Red Canary — code name reveals logo on hover */}
+            <SampleCard
+              href="/redcanary"
+              type="SENTINEL · Cybersecurity MDR"
+              codeName="SENTINEL"
+              logoSrc="/red-canary-logo.svg"
+              logoAlt="Red Canary"
+              logoInvert={false}
+              cta="View Study"
+            />
+            {/* BlueCat — code name reveals logo on hover */}
+            <SampleCard
+              href="/bluecat"
+              type="FORTRESS · Network Infrastructure"
+              codeName="FORTRESS"
+              logoSrc="/bluecat-logo.svg"
+              logoAlt="BlueCat Networks"
+              logoInvert={true}
+              cta="View Study"
+            />
             <a href="/catalyst" className="ib-sample-card ib-sample-cta">
               <div className="ib-sample-type">Catalyst Library</div>
               <div className="ib-sample-logo-wrap">
