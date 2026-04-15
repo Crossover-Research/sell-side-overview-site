@@ -47,14 +47,14 @@ export function MarketProblem() {
         {/* Table */}
         <div style={{ border:'1px solid rgba(255,255,255,.1)', overflow:'hidden' }}>
           {/* Header row */}
-          <div style={{ display:'grid', gridTemplateColumns:'160px 1fr 1fr', background:'rgba(255,255,255,.04)', borderBottom:'1px solid rgba(255,255,255,.08)' }}>
+          <div style={{ display:'grid', gridTemplateColumns:'120px 1fr 1fr', background:'rgba(255,255,255,.04)', borderBottom:'1px solid rgba(255,255,255,.08)' }}>
             <div style={{ padding:'10px 20px' }} />
             <div style={{ padding:'10px 20px', fontSize:9, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(255,255,255,.3)', borderLeft:'1px solid rgba(255,255,255,.06)' }}>What They Do</div>
             <div style={{ padding:'10px 20px', fontSize:9, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(255,255,255,.3)', borderLeft:'1px solid rgba(255,255,255,.06)' }}>What It Costs</div>
           </div>
 
           {ROWS.map((row, i) => (
-            <div key={i} style={{ display:'grid', gridTemplateColumns:'160px 1fr 1fr', borderBottom: i < ROWS.length-1 ? '1px solid rgba(255,255,255,.06)' : 'none', background:'rgba(6,14,28,.95)' }}>
+            <div key={i} style={{ display:'grid', gridTemplateColumns:'120px 1fr 1fr', borderBottom: i < ROWS.length-1 ? '1px solid rgba(255,255,255,.06)' : 'none', background:'rgba(6,14,28,.95)' }}>
               <div style={{ padding:'22px 20px', display:'flex', alignItems:'flex-start' }}>
                 <span style={{ fontSize:9, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase', color:row.audienceColor, background:row.audienceBg, padding:'3px 10px', display:'inline-block' }}>
                   {row.audience}

@@ -124,7 +124,7 @@ export function DealProof() {
                 </div>
               )}
               {!deal.quote && (
-                <div style={{ fontSize:12.5, color:'rgba(255,255,255,.5)', lineHeight:1.65, marginBottom:14 }}>{deal.sell.desc}</div>
+                <div style={{ fontSize:13, color:'rgba(255,255,255,.52)', lineHeight:1.65, marginBottom:14 }}>{deal.sell.desc}</div>
               )}
               <div style={{ background:'rgba(255,255,255,.04)', border:'1px solid rgba(255,255,255,.08)', padding:'10px 14px' }}>
                 <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.3)', marginBottom:4 }}>Outcome</div>

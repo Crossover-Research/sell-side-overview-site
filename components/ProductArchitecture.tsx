@@ -98,12 +98,12 @@ export function ProductArchitecture() {
           </p>
         </div>
 
-        <div style={{ maxWidth: 780, margin: '0 auto' }}>
+        <div style={{ maxWidth: 860, margin: '0 auto' }}>
 
           {/* Mandate Deck — top */}
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 0 }}>
             <div style={{
-              width: 380, padding: '18px 24px',
+              width: 480, padding: '18px 28px',
               background: 'rgba(77,144,254,.08)', border: '1px solid rgba(77,144,254,.3)',
               position: 'relative', overflow: 'hidden', textAlign: 'center',
               ...fadeIn(vis(2)),
@@ -123,12 +123,12 @@ export function ProductArchitecture() {
           </div>
 
           {/* Horizontal fork line */}
-          <div style={{ overflow: 'hidden', height: 1, margin: '0 40px' }}>
+          <div style={{ overflow: 'hidden', height: 1 }}>
             <div style={{ ...lineH(vis(3)) }} />
           </div>
 
           {/* Four product cards in 2×2 grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 1, background: 'rgba(255,255,255,.06)', margin: '0 40px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 1, background: 'rgba(255,255,255,.06)' }}>
             {/* Drop lines above first row */}
             {PRODUCTS.map((p, i) => (
               <div key={i} style={{
@@ -149,14 +149,13 @@ export function ProductArchitecture() {
           </div>
 
           {/* Connector line down */}
-          <div style={{ display: 'flex', justifyContent: 'center', height: 24, margin: '0 40px 0' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', height: 24 }}>
             <div style={{ ...lineV(vis(6)), height: vis(6) ? 24 : 0 }} />
           </div>
 
           {/* Shared outcome bar */}
           <div style={{
-            margin: '0 40px',
-            padding: '16px 24px',
+            padding: '20px 32px',
             background: 'rgba(6,14,28,.95)',
             border: '1px solid rgba(255,255,255,.1)',
             textAlign: 'center',

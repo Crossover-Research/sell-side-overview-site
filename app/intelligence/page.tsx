@@ -10,7 +10,6 @@ import { EngagementCard } from '../../components/EngagementCard';
 import { DealProof } from '../../components/DealProof';
 import { MarketProblem } from '../../components/MarketProblem';
 import { AudienceWithout } from '../../components/AudienceWithout';
-import { IntelligenceStandard } from '../../components/IntelligenceStandard';
 import { ProductArchitecture } from '../../components/ProductArchitecture';
 
 function RequestParamWatcher({ onOpen }: { onOpen: () => void }) {
@@ -235,7 +234,6 @@ export default function IntelligencePage() {
       </section>
 
       <MarketProblem />
-      <IntelligenceStandard />
       <ProductArchitecture />
       <AudienceWithout />
 
