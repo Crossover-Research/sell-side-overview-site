@@ -108,12 +108,12 @@ function LogoImg({ src, alt, height = 18, invert }: { src: string; alt: string; 
       src={src}
       alt={alt}
       style={{
-        height: isGA ? 36 : height,
+        height: isGA ? 14 : height,
         width: 'auto',
-        maxWidth: isGA ? 140 : 220,
+        maxWidth: isGA ? 160 : 220,
         display: 'block',
-        filter: needsInvert ? 'brightness(0) invert(1)' : 'none',
-        opacity: needsInvert ? 0.85 : 1,
+        filter: (!isGA && needsInvert) ? 'brightness(0) invert(1)' : 'none',
+        opacity: (!isGA && needsInvert) ? 0.85 : 1,
       }}
     />
   );
