@@ -118,10 +118,11 @@ const DEALS = [
   },
 ];
 
-function LogoImg({ src, alt, height = 18, invert = false }: { src: string; alt: string; height?: number; invert?: boolean }) {
+function LogoImg({ src, alt, height = 18, invert }: { src: string; alt: string; height?: number; invert?: boolean }) {
   if (!src) return null;
-  const needsInvert = invert || alt === 'J.P. Morgan' || alt === 'General Atlantic';
-  return <img src={src} alt={alt} style={{ height, width: 'auto', maxWidth: 190, display: 'block', filter: needsInvert ? 'brightness(0) invert(1)' : 'none', opacity: needsInvert ? .85 : 1 }} />;
+  const needsInvert = invert ?? (src.includes('jpmorgan') || src.includes('zscaler'));
+  const isSquare = src.includes('general-atlantic');
+  return <img src={src} alt={alt} style={{ height, width: 'auto', maxWidth: isSquare ? height * 1.1 : 200, display: 'block', filter: needsInvert ? 'brightness(0) invert(1)' : 'none', opacity: needsInvert ? .88 : 1 }} />;
 }
 
 export function DealProof() {
@@ -231,7 +232,7 @@ export function DealProof() {
                 </div>
                 {deal.left.firmLogo && (
                   <div>
-                    <LogoImg src={deal.left.firmLogo} alt={deal.left.firmName} height={17} />
+                    <LogoImg src={deal.left.firmLogo} alt={deal.left.firmName} height={22} />
                     <div style={{ fontSize: 10, color: 'rgba(255,255,255,.28)', marginTop: 4 }}>{deal.left.firmRole}</div>
                   </div>
                 )}
@@ -258,7 +259,7 @@ export function DealProof() {
                 </div>
                 {deal.right.firmLogo && (
                   <div>
-                    <LogoImg src={deal.right.firmLogo} alt={deal.right.firmName} height={17} />
+                    <LogoImg src={deal.right.firmLogo} alt={deal.right.firmName} height={22} />
                     <div style={{ fontSize: 10, color: 'rgba(255,255,255,.28)', marginTop: 4 }}>{deal.right.firmRole}</div>
                   </div>
                 )}
@@ -280,7 +281,7 @@ export function DealProof() {
                     {s.right.parties.map((p: any, i: number) => (
                       <div key={i}>
                         <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,.22)', marginBottom: 7 }}>{p.role}</div>
-                        <LogoImg src={p.logo} alt={p.name} height={17} invert={p.invert} />
+                        <LogoImg src={p.logo} alt={p.name} height={22} invert={p.invert} />
                         {i < s.right.parties.length - 1 && <div style={{ height: 1, background: 'rgba(255,255,255,.05)', marginTop: 14 }} />}
                       </div>
                     ))}
