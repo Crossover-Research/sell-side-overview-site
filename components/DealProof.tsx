@@ -198,6 +198,9 @@ export function DealProof() {
           {/* Left stat column */}
           <div style={{ ...fade, background: 'rgba(255,255,255,.02)', borderRight: '1px solid rgba(255,255,255,.07)', padding: '28px 24px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
+              <div style={{ marginBottom: 18 }}>
+                <LogoImg src={deal.companyLogo} alt={deal.company} height={deal.logoHeight} />
+              </div>
               <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,.25)', marginBottom: 12 }}>
                 {deal.sizeLabel}
               </div>
@@ -216,12 +219,6 @@ export function DealProof() {
 
           {/* Right content */}
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {/* Right header */}
-            <div style={{ ...fade, padding: '14px 24px', borderBottom: '1px solid rgba(255,255,255,.06)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <LogoImg src={deal.companyLogo} alt={deal.company} height={deal.logoHeight} />
-              <div style={{ fontSize: 10, color: 'rgba(255,255,255,.3)', fontStyle: 'italic' }}>{deal.tagline}</div>
-            </div>
-
             {/* Two columns */}
             <div style={{ ...fade, display: 'grid', gridTemplateColumns: '1fr 1fr', flex: 1 }}>
 
