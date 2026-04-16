@@ -18,8 +18,7 @@ export function TabNav() {
         <a href="/catalyst"     className={`tab-btn tab-primary${isCatalyst ? ' active' : ''}`}>Catalyst Library</a>
         <div className="tab-nav-divider" />
         <a href="/samples"      className={`tab-btn tab-primary${isSamples ? ' active' : ''}`}>Research Samples</a>
-        <div style={{ flex: 1 }} />
-        <a href="/intelligence?request=1" className="tab-cta">Scope a Mandate →</a>
+
       </nav>
     </div>
   );

@@ -1023,6 +1023,27 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); padding-bottom: 60p
   .site-footer-logo { display: none; }
 }
 /* ── TOPBAR BOOK BUTTON ───────────────────────────────────────────────────── */
+.topbar-scope-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 14px;
+  margin-right: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: rgba(45,212,160,.9);
+  text-decoration: none;
+  border: 1px solid rgba(45,212,160,.3);
+  background: rgba(45,212,160,.07);
+  transition: all .15s;
+  white-space: nowrap;
+}
+.topbar-scope-btn:hover {
+  background: rgba(45,212,160,.14);
+  border-color: rgba(45,212,160,.55);
+  color: #2dd4a0;
+}
+
 .topbar-book-btn {
   display: inline-flex;
   align-items: center;
