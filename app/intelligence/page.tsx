@@ -94,60 +94,24 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
 
 
 
-function SampleCard({ href, type, codeName, badge, logoSrc, logoAlt, logoInvert, cta }: {
-  href: string; type: string; codeName: string; badge: string;
+function SampleCard({ href, type, badge, logoSrc, logoAlt, logoInvert, cta }: {
+  href: string; type: string; badge: string;
   logoSrc: string; logoAlt: string; logoInvert: boolean; cta: string;
 }) {
-  const [hovered, setHovered] = useState(false);
   return (
-    <a
-      href={href}
-      className="ib-sample-card"
-      style={{ position:'relative' }}
-      onMouseEnter={()=>setHovered(true)}
-      onMouseLeave={()=>setHovered(false)}
-    >
-      {/* Badge — top right corner */}
+    <a href={href} className="ib-sample-card" style={{ position:'relative' }}>
       <div style={{
         position:'absolute', top:14, right:14,
         fontSize:8, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase',
         color:'rgba(77,144,254,.95)', background:'rgba(77,144,254,.12)',
         border:'1px solid rgba(77,144,254,.3)', padding:'2px 8px',
-        animation:'hint-pulse 2.4s ease-in-out infinite',
       }}>{badge}</div>
-
-      {/* Sector — no code name */}
       <div className="ib-sample-type">{type}</div>
-
-      <div className="ib-sample-logo-wrap" style={{ position:'relative', overflow:'hidden' }}>
-        {/* Code name — slides out up on hover */}
-        <div style={{
-          position:'absolute', top:0, left:0, width:'100%',
-          display:'flex', alignItems:'center', height:'100%',
-          transform: hovered ? 'translateY(-100%)' : 'translateY(0)',
-          opacity: hovered ? 0 : 1,
-          transition: 'transform .3s cubic-bezier(.4,0,.2,1), opacity .2s',
-        }}>
-          <span style={{ fontFamily:'var(--font-mono)', fontSize:22, fontWeight:700, letterSpacing:'.06em', color: 'rgba(255,255,255,.5)' }}>
-            {codeName}
-          </span>
-        </div>
-        {/* Logo — slides in from below on hover */}
-        <div style={{
-          position:'absolute', top:0, left:0, width:'100%',
-          display:'flex', alignItems:'center', height:'100%',
-          transform: hovered ? 'translateY(0)' : 'translateY(100%)',
-          opacity: hovered ? 1 : 0,
-          transition: 'transform .3s cubic-bezier(.4,0,.2,1), opacity .2s .05s',
-        }}>
-          <img
-            src={logoSrc} alt={logoAlt}
-            style={{ height:24, width:'auto', maxWidth:200, filter: logoInvert ? 'brightness(0) invert(1)' : 'none', opacity: logoInvert ? .85 : 1 }}
-          />
-        </div>
-      </div>
-      <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color: 'rgba(255,255,255,.48)', marginBottom:16 }}>
-        Hover to reveal
+      <div className="ib-sample-logo-wrap">
+        <img
+          src={logoSrc} alt={logoAlt}
+          style={{ height:28, width:'auto', maxWidth:200, filter: logoInvert ? 'brightness(0) invert(1)' : 'none', opacity: logoInvert ? .85 : 1 }}
+        />
       </div>
       <div className="ib-sample-link" style={{ marginTop:'auto' }}>{cta} &rarr;</div>
     </a>
@@ -174,9 +138,6 @@ export default function IntelligencePage() {
         <div className="ib-inner">
           <div className="ib-section-eyebrow">Live Deliverables</div>
           <h2 className="ib-section-title" style={{ marginBottom:4 }}>See exactly what your client receives</h2>
-          <p style={{ fontSize:13, color:'var(--t2)', marginBottom:20, lineHeight:1.6 }}>
-            Every engagement delivers a live portal with Cortex AI embedded — not a PDF. The GTM Playbook turns VoC data into a tiered account list with named targets, renewal windows, and displacement signals your sales team can act on immediately.
-          </p>
 
           {/* Deliverable showcase — Volie first, Sample Report second */}
           <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:1, background:'rgba(255,255,255,.06)', marginBottom:1 }}>
@@ -190,15 +151,12 @@ export default function IntelligencePage() {
               onMouseLeave={e=>(e.currentTarget.style.background='rgba(6,14,28,.95)')}
             >
               <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,transparent,rgba(77,144,254,.35),transparent)' }} />
-              <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:14 }}>
-                <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color: 'rgba(255,255,255,.3)' }}>Client Proposal</div>
-                <div style={{ fontSize:8, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(77,144,254,.9)', background:'rgba(77,144,254,.12)', border:'1px solid rgba(77,144,254,.3)', padding:'2px 8px', animation:'hint-pulse 2.4s ease-in-out infinite' }}>Live Portal</div>
+              <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:16 }}>
+                <div style={{ fontSize:8, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(77,144,254,.9)', background:'rgba(77,144,254,.12)', border:'1px solid rgba(77,144,254,.3)', padding:'2px 8px' }}>Client Proposal</div>
+                <div style={{ fontSize:8, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(77,144,254,.7)', padding:'2px 0' }}>Live Portal ↗</div>
               </div>
-              <div style={{ fontSize:15, fontWeight:700, color: 'rgba(255,255,255,.92)', marginBottom:6 }}>Volie</div>
-              <div style={{ fontSize:12, color:'var(--t2)', lineHeight:1.65, marginBottom:16 }}>
-                Purpose-built operator outreach. Our intelligence engine identifies the right targets, surfaces the pain, and produces proposals that strike a nerve before competitors know the process is live.
-              </div>
-              <div style={{ display:'flex', gap:5, flexWrap:'wrap', marginBottom:18 }}>
+              <div style={{ fontSize:17, fontWeight:700, color: 'rgba(255,255,255,.92)', marginBottom:8, letterSpacing:'-.02em' }}>Volie</div>
+              <div style={{ display:'flex', gap:5, flexWrap:'wrap', marginBottom:16 }}>
                 {['Targeted Outreach','Cortex AI','Operator Intelligence','Shareable'].map((t,i)=>(
                   <span key={i} style={{ fontSize:9, fontWeight:600, color:'rgba(130,175,255,.6)', background:'rgba(77,144,254,.07)', border:'1px solid rgba(77,144,254,.15)', padding:'2px 7px' }}>{t}</span>
                 ))}
@@ -206,7 +164,7 @@ export default function IntelligencePage() {
               <div style={{ fontSize:11, fontWeight:700, color:'rgba(130,175,255,.8)', marginTop:'auto' }}>View Live Portal ↗</div>
             </a>
 
-            {/* Sample Report */}
+            {/* Sample VoC */}
             <a
               href="https://sample.crossoverintelligence.com/"
               target="_blank" rel="noopener noreferrer"
@@ -215,20 +173,17 @@ export default function IntelligencePage() {
               onMouseLeave={e=>(e.currentTarget.style.background='rgba(6,14,28,.95)')}
             >
               <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent)' }} />
-              <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:14 }}>
-                <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color: 'rgba(255,255,255,.3)' }}>Sample Report</div>
-                <div style={{ fontSize:8, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(245,158,11,.9)', background:'rgba(245,158,11,.1)', border:'1px solid rgba(245,158,11,.25)', padding:'2px 8px' }}>Operator</div>
+              <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:16 }}>
+                <div style={{ fontSize:8, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(45,212,160,.9)', background:'rgba(45,212,160,.08)', border:'1px solid rgba(45,212,160,.25)', padding:'2px 8px' }}>Sample VoC</div>
+                <div style={{ fontSize:8, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.45)', padding:'2px 0' }}>Full Report ↗</div>
               </div>
-              <div style={{ fontSize:15, fontWeight:700, color: 'rgba(255,255,255,.92)', marginBottom:6 }}>Intelligence Report + GTM Playbook</div>
-              <div style={{ fontSize:12, color:'var(--t2)', lineHeight:1.65, marginBottom:16 }}>
-                Competitive displacement scorecards, tiered account targets with renewal windows, and a GTM playbook your sales team can execute the day the deal closes.
-              </div>
-              <div style={{ display:'flex', gap:5, flexWrap:'wrap', marginBottom:18 }}>
+              <div style={{ fontSize:17, fontWeight:700, color: 'rgba(255,255,255,.92)', marginBottom:8, letterSpacing:'-.02em' }}>Intelligence Report + GTM Playbook</div>
+              <div style={{ display:'flex', gap:5, flexWrap:'wrap', marginBottom:16 }}>
                 {['Full Report','GTM Playbook','Response Carve-Out','Underlying Data File'].map((t,i)=>(
-                  <span key={i} style={{ fontSize:9, fontWeight:600, color: 'rgba(255,255,255,.4)', background:'rgba(255,255,255,.05)', border:'1px solid rgba(255,255,255,.08)', padding:'2px 7px' }}>{t}</span>
+                  <span key={i} style={{ fontSize:9, fontWeight:600, color: 'rgba(255,255,255,.55)', background:'rgba(255,255,255,.05)', border:'1px solid rgba(255,255,255,.08)', padding:'2px 7px' }}>{t}</span>
                 ))}
               </div>
-              <div style={{ fontSize:11, fontWeight:700, color: 'rgba(255,255,255,.55)', marginTop:'auto' }}>View Sample Report ↗</div>
+              <div style={{ fontSize:11, fontWeight:700, color: 'rgba(255,255,255,.6)', marginTop:'auto' }}>View Sample Report ↗</div>
             </a>
 
           </div>
@@ -238,7 +193,6 @@ export default function IntelligencePage() {
             <SampleCard
               href="/redcanary"
               type="Cybersecurity MDR"
-              codeName="SENTINEL"
               badge="Catalyst"
               logoSrc="/red-canary-logo.svg"
               logoAlt="Red Canary"
@@ -248,7 +202,6 @@ export default function IntelligencePage() {
             <SampleCard
               href="/bluecat"
               type="Network Infrastructure"
-              codeName="FORTRESS"
               badge="Catalyst"
               logoSrc="/bluecat-logo.svg"
               logoAlt="BlueCat Networks"
