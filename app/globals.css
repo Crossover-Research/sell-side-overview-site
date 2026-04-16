@@ -1139,6 +1139,7 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); padding-bottom: 60p
   text-transform: uppercase;
   color: rgba(255,255,255,.3);
   line-height: 1;
+  margin-bottom: 10px;
 }
 .hero-metric-val {
   font-family: var(--font-mono);
