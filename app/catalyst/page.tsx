@@ -296,13 +296,10 @@ export default function CatalystPage() {
 
   return (
     <>
-      <ProductArchitecture />
-      {/* POSITIONING + TABLE — unified dark section */}
-      <section id="catalyst" className="ib-section ib-section-dark">
+      {/* HERO HEADER */}
+      <section className="ib-section ib-section-dark" style={{ paddingBottom:0 }}>
         <div className="ib-inner">
-
-          {/* Header row */}
-          <div style={{ marginBottom:36,paddingBottom:32,borderBottom:'1px solid rgba(255,255,255,.07)' }}>
+          <div style={{ paddingBottom:32,borderBottom:'1px solid rgba(255,255,255,.07)' }}>
             <div className="ib-section-eyebrow">Crossover Catalyst</div>
             <div style={{ display:'flex',alignItems:'flex-end',justifyContent:'space-between',gap:48,flexWrap:'wrap',marginTop:8 }}>
               <h2 style={{ fontSize:30,fontWeight:700,color:'#fff',lineHeight:1.15,letterSpacing:'-.02em',maxWidth:600,margin:0 }}>
@@ -310,7 +307,7 @@ export default function CatalystPage() {
               </h2>
               <div style={{ display:'flex',flexDirection:'column',gap:10,alignItems:'flex-end',flexShrink:0 }}>
                 <p style={{ fontSize:13,color:'rgba(255,255,255,.45)',lineHeight:1.7,maxWidth:340,textAlign:'right',margin:0 }}>
-                  Same independent data. Neither side chose the respondents.
+                  The universal truth layer for private markets. Bankers win mandates. Operators control the narrative. Investors build conviction.
                 </p>
                 <button onClick={()=>setRequestOpen(true)} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 22px',fontSize:12,fontWeight:700,cursor:'pointer',whiteSpace:'nowrap' }}>
                   Check Coverage &rarr;
@@ -318,6 +315,14 @@ export default function CatalystPage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <ProductArchitecture />
+
+      {/* LIBRARY TABLE */}
+      <section id="catalyst" className="ib-section ib-section-dark">
+        <div className="ib-inner">
 
           {/* Nerdio proof */}
           <div style={{ marginBottom:32,border:'1px solid rgba(77,144,254,.15)',background:'rgba(77,144,254,.04)',padding:'28px 32px' }}>
@@ -408,10 +413,7 @@ export default function CatalystPage() {
                 })}
               </div>
             </div>
-            <div style={{ marginTop:14,padding:'10px 16px',background:'rgba(77,144,254,.06)',border:'1px solid rgba(77,144,254,.12)',fontSize:12,color:'rgba(160,200,255,.7)',display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:10 }}>
-              <span>Same-day if covered &middot; 14-day custom if not &middot; $10,000 per report</span>
-              <button onClick={()=>setRequestOpen(true)} style={{ background:'transparent',border:'1px solid rgba(130,175,255,.3)',color:'rgba(130,175,255,.8)',padding:'5px 13px',fontSize:11,fontWeight:600,cursor:'pointer' }}>Request Access &rarr;</button>
-            </div>
+
           </div>
         </div>
       </section>
