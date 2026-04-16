@@ -89,12 +89,12 @@ export function ProductArchitecture() {
 
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: 44, ...fadeIn(vis(1)) }}>
-          <div className="ib-section-eyebrow" style={{ textAlign: 'center', marginBottom: 8 }}>Intelligence Infrastructure</div>
+          <div className="ib-section-eyebrow" style={{ textAlign: 'center', marginBottom: 8 }}>Crossover Catalyst</div>
           <h2 style={{ fontSize: 'clamp(20px,3vw,28px)', fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.025em', marginBottom: 8 }}>
-            A shared intelligence engine for every transaction.
+            This is Crossover Catalyst.
           </h2>
           <p style={{ fontSize: 13, color: 'rgba(255,255,255,.38)' }}>
-            One verbatim truth layer. Built once. Deployed across every party in the deal.
+            One verbatim truth layer. Built once. Used by every party in the transaction — the banker who wins the mandate, the operator who controls the narrative, the investor who arrives with conviction.
           </p>
         </div>
 
@@ -177,7 +177,7 @@ export function ProductArchitecture() {
             <p style={{ fontSize: 'clamp(15px,2.2vw,20px)', fontWeight: 500, color: 'rgba(255,255,255,.7)', lineHeight: 1.5 }}>
               When every party is working from the same truth,<br />
               they don't just negotiate.{' '}
-              <span style={{ color: 'rgba(45,212,160,.9)', fontWeight: 700 }}>They transact.</span>
+              <span style={{ color: 'rgba(45,212,160,.9)', fontWeight: 700 }}>They transact. That's Crossover Catalyst.</span>
             </p>
           </div>
 
