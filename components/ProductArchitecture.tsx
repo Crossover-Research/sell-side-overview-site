@@ -93,7 +93,7 @@ export function ProductArchitecture() {
           <h2 style={{ fontSize: 'clamp(20px,3vw,28px)', fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.025em', marginBottom: 8 }}>
             This is Crossover Catalyst.
           </h2>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,.38)' }}>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,.60)' }}>
             The universal truth layer for private markets. Bankers win mandates. Operators control the narrative. Investors build conviction.
           </p>
         </div>
@@ -164,10 +164,10 @@ export function ProductArchitecture() {
             <div style={{ fontSize: 15, fontWeight: 700, color: 'rgba(255,255,255,.88)', marginBottom: 4 }}>
               Every party enters the room with the same evidence base.
             </div>
-            <div style={{ fontSize: 12, color: 'rgba(255,255,255,.38)' }}>
+            <div style={{ fontSize: 12, color: 'rgba(255,255,255,.60)' }}>
               No restarts. No surprises. No retrades at the eleventh hour.
             </div>
-            <div style={{ marginTop: 10, fontSize: 11, color: 'rgba(255,255,255,.22)', fontStyle: 'italic' }}>
+            <div style={{ marginTop: 10, fontSize: 11, color: 'rgba(255,255,255,.48)', fontStyle: 'italic' }}>
               Nerdio's $500M round — one verbatim truth layer, the bank's mandate, the investor's conviction, the operator's outcome.
             </div>
           </div>

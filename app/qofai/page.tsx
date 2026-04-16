@@ -189,7 +189,7 @@ export default function QofAIPage() {
                   <div key={i} style={{ background: 'rgba(6,14,28,.9)', padding: '16px 18px' }}>
                     <div style={{ fontFamily: 'var(--font-mono)', fontSize: 28, fontWeight: 700, color: m.color, lineHeight: 1, letterSpacing: '-.03em', marginBottom: 4 }}>{m.val}</div>
                     <div style={{ fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: 'rgba(255,255,255,.4)', marginBottom: 3 }}>{m.lbl}</div>
-                    <div style={{ fontSize: 10, color: 'rgba(255,255,255,.25)' }}>{m.sub}</div>
+                    <div style={{ fontSize: 10, color: 'rgba(255,255,255,.48)' }}>{m.sub}</div>
                   </div>
                 ))}
               </div>
@@ -197,7 +197,7 @@ export default function QofAIPage() {
                 <div style={{ fontSize: 11, color: 'rgba(255,255,255,.45)', fontStyle: 'italic', lineHeight: 1.6, marginBottom: 8 }}>
                   "We tested ChatGPT and Claude as replacements, but they failed completely without our domain data."
                 </div>
-                <div style={{ fontSize: 10, color: 'rgba(255,255,255,.25)' }}>VP of Operations · Enterprise Customer (12+ integrations)</div>
+                <div style={{ fontSize: 10, color: 'rgba(255,255,255,.48)' }}>VP of Operations · Enterprise Customer (12+ integrations)</div>
               </div>
             </div>
           </div>
@@ -248,13 +248,13 @@ export default function QofAIPage() {
               <div style={{ background: 'rgba(6,14,28,.95)', padding: '32px 32px', minHeight: 200, borderTop: '1px solid rgba(255,255,255,.05)' }}>
                 <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(255,77,94,.8)', background: 'rgba(255,77,94,.07)', padding: '2px 8px', display: 'inline-block', marginBottom: 12 }}>Rebuild Required</div>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 18, fontWeight: 700, color: 'rgba(255,77,94,.75)', marginBottom: 10 }}>AI Foundation</div>
-                <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.35)', lineHeight: 1.6 }}>Emerging AI + Developing Moats. Requires investment in both capability and structural defensibility. Valuation discount until trajectory is established.</div>
+                <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.60)', lineHeight: 1.6 }}>Emerging AI + Developing Moats. Requires investment in both capability and structural defensibility. Valuation discount until trajectory is established.</div>
               </div>
               {/* Bottom-right: AI Accelerator */}
               <div style={{ background: 'rgba(6,14,28,.95)', padding: '32px 32px', minHeight: 200, borderTop: '1px solid rgba(255,255,255,.05)', borderLeft: '1px solid rgba(255,255,255,.05)' }}>
                 <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(245,158,11,.85)', background: 'rgba(245,158,11,.07)', padding: '2px 8px', display: 'inline-block', marginBottom: 12 }}>Moat Investment Needed</div>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 18, fontWeight: 700, color: 'rgba(245,158,11,.85)', marginBottom: 10 }}>AI Accelerator</div>
-                <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.35)', lineHeight: 1.6 }}>Strong AI capability + Developing Moats. Needs deeper structural defensibility to sustain positioning against AI-native competition long-term.</div>
+                <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.60)', lineHeight: 1.6 }}>Strong AI capability + Developing Moats. Needs deeper structural defensibility to sustain positioning against AI-native competition long-term.</div>
               </div>
             </div>
           </div>
@@ -380,7 +380,7 @@ export default function QofAIPage() {
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 22, fontWeight: 700, color: pkg.color, letterSpacing: '-.02em', marginBottom: 4 }}>{pkg.price}</div>
                 <div style={{ fontSize: 10, color: 'rgba(255,255,255,.3)', marginBottom: 16 }}>{pkg.timeline}</div>
                 <div style={{ fontSize: 12, color: 'rgba(255,255,255,.5)', lineHeight: 1.65, marginBottom: 14 }}>{pkg.desc}</div>
-                <div style={{ fontSize: 10, color: 'rgba(255,255,255,.28)', lineHeight: 1.6, fontStyle: 'italic' }}>{pkg.useCase}</div>
+                <div style={{ fontSize: 10, color: 'rgba(255,255,255,.50)', lineHeight: 1.6, fontStyle: 'italic' }}>{pkg.useCase}</div>
               </div>
             ))}
           </div>
@@ -397,7 +397,7 @@ export default function QofAIPage() {
               ].map((item, i) => (
                 <div key={i} style={{ borderLeft: '2px solid rgba(45,212,160,.3)', paddingLeft: 14 }}>
                   <div style={{ fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,.75)', marginBottom: 4 }}>{item.title}</div>
-                  <div style={{ fontSize: 11, color: 'rgba(255,255,255,.35)', lineHeight: 1.5 }}>{item.desc}</div>
+                  <div style={{ fontSize: 11, color: 'rgba(255,255,255,.60)', lineHeight: 1.5 }}>{item.desc}</div>
                 </div>
               ))}
             </div>
@@ -423,7 +423,7 @@ export default function QofAIPage() {
               Book a Call
             </a>
           </div>
-          <div style={{ marginTop: 20, fontSize: 11, color: 'rgba(255,255,255,.25)' }}>
+          <div style={{ marginTop: 20, fontSize: 11, color: 'rgba(255,255,255,.48)' }}>
             {CONTACT.email}
           </div>
         </div>

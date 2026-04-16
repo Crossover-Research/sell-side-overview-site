@@ -66,7 +66,7 @@ export function ResearchHeader({ tab }: ResearchHeaderProps) {
                 Catalyst Study
               </span>
             </div>
-            <div style={{ fontSize: 10, color: 'rgba(255,255,255,.32)', letterSpacing: '.02em', whiteSpace: 'nowrap' as const, overflow: 'hidden', textOverflow: 'ellipsis' }}>
+            <div style={{ fontSize: 10, color: 'rgba(255,255,255,.55)', letterSpacing: '.02em', whiteSpace: 'nowrap' as const, overflow: 'hidden', textOverflow: 'ellipsis' }}>
               {cfg.product}&nbsp;&middot;&nbsp;{cfg.studyId}
             </div>
           </div>
@@ -79,7 +79,7 @@ export function ResearchHeader({ tab }: ResearchHeaderProps) {
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: 15, fontWeight: 700, color: 'rgba(255,255,255,.88)', lineHeight: 1, letterSpacing: '-.01em', marginBottom: 3 }}>
                 {k.val}
               </div>
-              <div style={{ fontSize: 9, fontWeight: 600, textTransform: 'uppercase' as const, letterSpacing: '.1em', color: 'rgba(255,255,255,.28)', whiteSpace: 'nowrap' as const }}>
+              <div style={{ fontSize: 9, fontWeight: 600, textTransform: 'uppercase' as const, letterSpacing: '.1em', color: 'rgba(255,255,255,.52)', whiteSpace: 'nowrap' as const }}>
                 {k.lbl}
               </div>
             </div>

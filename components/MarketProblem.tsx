@@ -34,11 +34,11 @@ export function MarketProblem() {
 
         {/* Header */}
         <div style={{ textAlign:'center', marginBottom:36 }}>
-          <h2 style={{ fontSize:'clamp(20px,3vw,30px)', fontWeight:700, color:'rgba(255,255,255,.92)', letterSpacing:'-.025em', lineHeight:1.2, marginBottom:10 }}>
+          <h2 style={{ fontSize:'clamp(20px,3vw,30px)', fontWeight:700, color: 'rgba(255,255,255,.92)', letterSpacing:'-.025em', lineHeight:1.2, marginBottom:10 }}>
             Private markets are structurally broken.<br />
-            <span style={{ color:'rgba(255,255,255,.45)', fontWeight:400 }}>Everyone knows it. Nobody wants to admit it.</span>
+            <span style={{ color: 'rgba(255,255,255,.45)', fontWeight:400 }}>Everyone knows it. Nobody wants to admit it.</span>
           </h2>
-          <p style={{ fontSize:13, color:'rgba(255,255,255,.35)', lineHeight:1.7 }}>
+          <p style={{ fontSize:13, color: 'rgba(255,255,255,.60)', lineHeight:1.7 }}>
             Bankers coach operators to glorify. Investors assume everything is curated.<br />
             Every party enters the room working from a different version of the truth.
           </p>
@@ -49,8 +49,8 @@ export function MarketProblem() {
           {/* Header row */}
           <div style={{ display:'grid', gridTemplateColumns:'120px 1fr 1fr', background:'rgba(255,255,255,.04)', borderBottom:'1px solid rgba(255,255,255,.08)' }}>
             <div style={{ padding:'10px 20px' }} />
-            <div style={{ padding:'10px 20px', fontSize:9, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(255,255,255,.3)', borderLeft:'1px solid rgba(255,255,255,.06)' }}>What They Do</div>
-            <div style={{ padding:'10px 20px', fontSize:9, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(255,255,255,.3)', borderLeft:'1px solid rgba(255,255,255,.06)' }}>What It Costs</div>
+            <div style={{ padding:'10px 20px', fontSize:9, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color: 'rgba(255,255,255,.3)', borderLeft:'1px solid rgba(255,255,255,.06)' }}>What They Do</div>
+            <div style={{ padding:'10px 20px', fontSize:9, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color: 'rgba(255,255,255,.3)', borderLeft:'1px solid rgba(255,255,255,.06)' }}>What It Costs</div>
           </div>
 
           {ROWS.map((row, i) => (
@@ -60,11 +60,11 @@ export function MarketProblem() {
                   {row.audience}
                 </span>
               </div>
-              <div style={{ padding:'22px 20px', borderLeft:'1px solid rgba(255,255,255,.06)', fontSize:12.5, color:'rgba(255,255,255,.55)', lineHeight:1.7 }}>
+              <div style={{ padding:'22px 20px', borderLeft:'1px solid rgba(255,255,255,.06)', fontSize:12.5, color: 'rgba(255,255,255,.55)', lineHeight:1.7 }}>
                 {row.what}
               </div>
               <div style={{ padding:'22px 20px', borderLeft:'1px solid rgba(255,255,255,.06)' }}>
-                <div style={{ fontSize:12.5, color:'rgba(255,255,255,.45)', lineHeight:1.7, marginBottom:8 }}>{row.cost}</div>
+                <div style={{ fontSize:12.5, color: 'rgba(255,255,255,.45)', lineHeight:1.7, marginBottom:8 }}>{row.cost}</div>
                 <div style={{ fontSize:12.5, fontWeight:600, color:'rgba(245,158,11,.85)', lineHeight:1.6 }}>{row.costBold}</div>
               </div>
             </div>
@@ -72,7 +72,7 @@ export function MarketProblem() {
         </div>
 
         {/* Footer line */}
-        <div style={{ textAlign:'center', marginTop:20, fontSize:13, color:'rgba(255,255,255,.3)', fontStyle:'italic' }}>
+        <div style={{ textAlign:'center', marginTop:20, fontSize:13, color: 'rgba(255,255,255,.3)', fontStyle:'italic' }}>
           Every party works from a different version of the truth. Crossover is the verbatim record they all share.
         </div>
 

@@ -102,15 +102,15 @@ const DEALS = [
 function LogoImg({ src, alt, height = 18, invert }: { src: string; alt: string; height?: number; invert?: boolean }) {
   if (!src) return null;
   const needsInvert = invert ?? (src.includes('jpmorgan') || src.includes('zscaler'));
-  const isSquare = src.includes('general-atlantic');
+  const isGA = src.includes('general-atlantic');
   return (
     <img
       src={src}
       alt={alt}
       style={{
-        height,
+        height: isGA ? 36 : height,
         width: 'auto',
-        maxWidth: isSquare ? height * 1.1 : 220,
+        maxWidth: isGA ? 140 : 220,
         display: 'block',
         filter: needsInvert ? 'brightness(0) invert(1)' : 'none',
         opacity: needsInvert ? 0.85 : 1,
@@ -161,7 +161,7 @@ export function DealProof() {
           <h2 style={{ fontSize: 'clamp(22px,3vw,32px)', fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.025em', marginBottom: 6 }}>
             VoC Intelligence that drives outcomes.
           </h2>
-          <div style={{ fontSize: 13, color: 'rgba(255,255,255,.35)' }}>Three engagements. $11.2B in combined transaction value.</div>
+          <div style={{ fontSize: 13, color: 'rgba(255,255,255,.60)' }}>Three engagements. $11.2B in combined transaction value.</div>
         </div>
 
         {/* Tab selectors */}
@@ -241,7 +241,7 @@ export function DealProof() {
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: 44, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.04em', lineHeight: 1, marginBottom: 7 }}>
                 {deal.size}
               </div>
-              <div style={{ fontSize: 10, color: 'rgba(255,255,255,.28)', letterSpacing: '.03em' }}>
+              <div style={{ fontSize: 10, color: 'rgba(255,255,255,.50)', letterSpacing: '.03em' }}>
                 {deal.badge} &middot; {deal.company}
               </div>
             </div>
@@ -251,7 +251,7 @@ export function DealProof() {
 
             {/* Involvement */}
             <div>
-              <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,.18)', marginBottom: 5 }}>Involvement</div>
+              <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,.45)', marginBottom: 5 }}>Involvement</div>
               <div style={{ fontSize: 11, fontWeight: 600, color: 'rgba(45,212,160,.75)', letterSpacing: '.02em' }}>{deal.involvement}</div>
             </div>
           </div>
@@ -265,7 +265,7 @@ export function DealProof() {
             {s.left.firmLogo && (
               <div>
                 <LogoImg src={s.left.firmLogo} alt={s.left.firmName} height={24} />
-                <div style={{ fontSize: 10, color: 'rgba(255,255,255,.28)', marginTop: 5 }}>{s.left.firmRole}</div>
+                <div style={{ fontSize: 10, color: 'rgba(255,255,255,.50)', marginTop: 5 }}>{s.left.firmRole}</div>
               </div>
             )}
 
@@ -276,7 +276,7 @@ export function DealProof() {
                 <div style={{ fontSize: 12.5, fontStyle: 'italic', color: 'rgba(255,255,255,.6)', lineHeight: 1.75, borderLeft: '2px solid rgba(77,144,254,.28)', paddingLeft: 14, marginBottom: 10 }}>
                   {s.left.quote}
                 </div>
-                <div style={{ fontSize: 10, color: 'rgba(255,255,255,.26)', paddingLeft: 16 }}>{s.left.quoteAttr}</div>
+                <div style={{ fontSize: 10, color: 'rgba(255,255,255,.48)', paddingLeft: 16 }}>{s.left.quoteAttr}</div>
               </div>
             ) : (
               <div style={{ flex: 1, fontSize: 12.5, color: 'rgba(255,255,255,.5)', lineHeight: 1.75 }}>
@@ -301,7 +301,7 @@ export function DealProof() {
             {s.right.firmLogo && (
               <div>
                 <LogoImg src={s.right.firmLogo} alt={s.right.firmName} height={24} />
-                <div style={{ fontSize: 10, color: 'rgba(255,255,255,.28)', marginTop: 5 }}>{s.right.firmRole}</div>
+                <div style={{ fontSize: 10, color: 'rgba(255,255,255,.50)', marginTop: 5 }}>{s.right.firmRole}</div>
               </div>
             )}
 

@@ -50,7 +50,7 @@ export function CapabilitiesEngine() {
           <h2 style={{ fontSize: 'clamp(20px,3vw,28px)', fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.025em', marginBottom: 6 }}>
             Three entry points. Five capabilities. One infrastructure.
           </h2>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,.38)' }}>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,.62)' }}>
             Start where you are in the deal. Every stage draws from the same verbatim truth layer.
           </p>
         </div>
@@ -58,7 +58,7 @@ export function CapabilitiesEngine() {
         {/* Divider label */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 1 }}>
           <div style={{ height: 1, flex: 1, background: 'rgba(255,255,255,.07)' }} />
-          <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,.18)', whiteSpace: 'nowrap' }}>When do you engage</span>
+          <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,.48)', whiteSpace: 'nowrap' }}>When do you engage</span>
           <div style={{ height: 1, flex: 1, background: 'rgba(255,255,255,.07)' }} />
         </div>
 
@@ -81,7 +81,7 @@ export function CapabilitiesEngine() {
               >
                 {/* Stage label */}
                 <div style={{ padding: '20px 20px', borderRight: '1px solid rgba(255,255,255,.06)' }}>
-                  <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.22)', marginBottom: 5 }}>Stage {s.num}</div>
+                  <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.45)', marginBottom: 5 }}>Stage {s.num}</div>
                   <div style={{ fontSize: 12, fontWeight: 700, color: isActive ? 'rgba(255,255,255,.9)' : 'rgba(255,255,255,.65)', lineHeight: 1.3 }}>{s.name}</div>
                 </div>
 
@@ -92,7 +92,7 @@ export function CapabilitiesEngine() {
                     <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.5)', lineHeight: 1.65, marginBottom: 12 }}>{s.desc}</div>
                   )}
                   {!isActive && (
-                    <div style={{ fontSize: 12, color: 'rgba(255,255,255,.38)', lineHeight: 1.5 }}>{s.desc}</div>
+                    <div style={{ fontSize: 12, color: 'rgba(255,255,255,.62)', lineHeight: 1.5 }}>{s.desc}</div>
                   )}
                   <div style={{ display: 'flex', gap: 5, flexWrap: 'wrap', marginTop: 10 }}>
                     {s.tags.map((t, ti) => (
@@ -119,7 +119,7 @@ export function CapabilitiesEngine() {
         {/* Divider label */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 1 }}>
           <div style={{ height: 1, flex: 1, background: 'rgba(255,255,255,.07)' }} />
-          <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,.18)', whiteSpace: 'nowrap' }}>What gets deployed</span>
+          <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,.48)', whiteSpace: 'nowrap' }}>What gets deployed</span>
           <div style={{ height: 1, flex: 1, background: 'rgba(255,255,255,.07)' }} />
         </div>
 
@@ -142,7 +142,7 @@ export function CapabilitiesEngine() {
                 <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.1em', color: 'rgba(255,255,255,.2)', marginBottom: 10 }}>{cap.num}</div>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 26, fontWeight: 700, color: isActive ? 'rgba(130,175,255,.95)' : 'rgba(255,255,255,.85)', letterSpacing: '-.03em', lineHeight: 1, marginBottom: 6 }}>{cap.stat}</div>
                 <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: isActive ? 'rgba(45,212,160,.8)' : 'rgba(45,212,160,.5)', marginBottom: 8 }}>{cap.label}</div>
-                <div style={{ fontSize: 11, color: 'rgba(255,255,255,.38)', lineHeight: 1.55 }}>{cap.hook}</div>
+                <div style={{ fontSize: 11, color: 'rgba(255,255,255,.62)', lineHeight: 1.55 }}>{cap.hook}</div>
               </div>
             );
           })}

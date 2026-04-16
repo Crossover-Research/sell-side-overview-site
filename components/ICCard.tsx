@@ -40,17 +40,17 @@ export function ICCard({ card, isOpen, onToggle }: ICCardProps) {
 
           {/* Col 2: Finding */}
           <div style={{ padding: '16px 20px', borderRight: '1px solid rgba(255,255,255,.06)' }}>
-            <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.25)', marginBottom: 7 }}>Finding</div>
+            <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.50)', marginBottom: 7 }}>Finding</div>
             <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.72)', lineHeight: 1.65 }}>{card.finding}</div>
           </div>
 
           {/* Col 3: Verbatim */}
           <div style={{ padding: '16px 0 16px 20px' }}>
-            <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.25)', marginBottom: 7 }}>Customer Verbatim</div>
+            <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.50)', marginBottom: 7 }}>Customer Verbatim</div>
             <div style={{ fontSize: 12, color: 'rgba(255,255,255,.6)', fontStyle: 'italic', lineHeight: 1.65, borderLeft: '2px solid rgba(77,144,254,.3)', paddingLeft: 12, marginBottom: 8 }}>
               &ldquo;{card.quote.text.replace(/^\"|\"$/g, '')}&rdquo;
             </div>
-            <div style={{ fontSize: 10, color: 'rgba(255,255,255,.28)' }}>{card.quote.cite}</div>
+            <div style={{ fontSize: 10, color: 'rgba(255,255,255,.52)' }}>{card.quote.cite}</div>
             <div className="pill-row" style={{ marginTop: 10 }}>
               {card.pills.map((p, i) => (
                 <span key={i} className={`pill${p.win ? ' win' : ''}`}>{p.label}</span>
