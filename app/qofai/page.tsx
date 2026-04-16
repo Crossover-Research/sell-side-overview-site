@@ -202,21 +202,6 @@ export default function QofAIPage() {
             </div>
           </div>
 
-          {/* Stat strip */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', borderTop: '1px solid rgba(255,255,255,.07)' }}>
-            {[
-              { val: '15–25%', lbl: 'Valuation premium', sub: 'AI Fortress vs. peers' },
-              { val: '15', lbl: 'Dimensions assessed', sub: '10 capability + 5 resilience' },
-              { val: '3–4w', lbl: 'Complete assessment', sub: 'Including full VoC report' },
-              { val: '0', lbl: 'Internal benchmarks used', sub: 'All scores from actual customers' },
-            ].map((s, i) => (
-              <div key={i} style={{ padding: '18px 24px', borderRight: i < 3 ? '1px solid rgba(255,255,255,.07)' : 'none' }}>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 22, fontWeight: 700, color: i === 3 ? 'rgba(255,77,94,.85)' : 'rgba(255,255,255,.92)', lineHeight: 1, marginBottom: 5, letterSpacing: '-.02em' }}>{s.val}</div>
-                <div style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: 'rgba(45,212,160,.7)', marginBottom: 3 }}>{s.lbl}</div>
-                <div style={{ fontSize: 10, color: 'rgba(255,255,255,.28)' }}>{s.sub}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
