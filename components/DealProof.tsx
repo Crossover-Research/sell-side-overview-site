@@ -81,7 +81,7 @@ const DEALS = [
   {
     company: 'Red Canary',
     companyLogo: '/red-canary-logo.svg',
-    logoHeight: 22,
+    logoHeight: 32,
     badge: 'Acquisition',
     size: '$675M',
     sizeLabel: 'Exit',
