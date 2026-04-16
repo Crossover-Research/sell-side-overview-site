@@ -38,7 +38,7 @@ export function HeroSection({ tab }: HeroSectionProps) {
           Our pitch enhancement work won <strong style={{ color: 'rgba(255,255,255,.82)', fontWeight:600 }}>J.P. Morgan</strong> the Nerdio mandate.
           Our deep dive research gave <strong style={{ color: 'rgba(255,255,255,.82)', fontWeight:600 }}>General Atlantic</strong> the conviction to invest $500M.
         </div>
-        <div style={{ fontSize:15, color: 'rgba(255,255,255,.4)', fontStyle:'italic', marginBottom:40 }}>
+        <div style={{ fontSize:15, color: 'rgba(255,255,255,.68)', fontStyle:'italic', marginBottom:40 }}>
           One deal. Both sides. Powered by Crossover Research.
         </div>
 
@@ -56,7 +56,7 @@ export function HeroSection({ tab }: HeroSectionProps) {
         </div>
 
         {/* Scroll cue */}
-        <div style={{ padding:'18px 0 0', fontSize:18, color: 'rgba(255,255,255,.2)', lineHeight:1 }}>&#8964;</div>
+        <div style={{ padding:'18px 0 0', fontSize:18, color: 'rgba(255,255,255,.55)', lineHeight:1 }}>&#8964;</div>
 
       </div>
     </div>

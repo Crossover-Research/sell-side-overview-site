@@ -36,7 +36,7 @@ export function DriversChart({ labels, redCanaryData, avgData }: DriversChartPro
           tooltip: { callbacks: { label: (c: { dataset: { label: string }; raw: number }) => ` ${c.dataset.label}: ${c.raw}%` } },
         },
         scales: {
-          x: { min: 0, max: 100, grid: { color: 'rgba(255,255,255,.07)' }, ticks: { color: 'rgba(255,255,255,.4)', callback: (v: number | string) => `${v}%` } },
+          x: { min: 0, max: 100, grid: { color: 'rgba(255,255,255,.07)' }, ticks: { color: 'rgba(255,255,255,.68)', callback: (v: number | string) => `${v}%` } },
           y: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,.55)', font: { size: 11 } } },
         },
       },

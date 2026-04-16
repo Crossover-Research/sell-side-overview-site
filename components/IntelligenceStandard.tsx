@@ -59,7 +59,7 @@ export function IntelligenceStandard() {
           <h2 style={{ fontSize: 'clamp(20px,3vw,28px)', fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.025em', marginBottom: 10 }}>
             One evidence base. Every party in the room.
           </h2>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,.4)', maxWidth: 560, margin: '0 auto' }}>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,.68)', maxWidth: 560, margin: '0 auto' }}>
             Customer verbatims collected independently. Uncoached. Defensible at IC. The mandate pitch deck is the baseline — the operator's CIM and the investor's diligence both draw from the same verbatim record.
           </p>
         </div>
@@ -72,7 +72,7 @@ export function IntelligenceStandard() {
             <div style={{ width: 360, ...nodeStyle(vis(1), vis(2)) }}>
               <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(77,144,254,.7)', marginBottom: 5 }}>Crossover Research · Intelligence Infrastructure</div>
               <div style={{ fontSize: 15, fontWeight: 700, color: 'rgba(255,255,255,.92)', marginBottom: 3 }}>Verbatim Truth Layer</div>
-              <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,.4)', fontStyle: 'italic' }}>The verbatim truth layer that all parties can rely on.</div>
+              <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,.68)', fontStyle: 'italic' }}>The verbatim truth layer that all parties can rely on.</div>
             </div>
           </div>
 
@@ -86,7 +86,7 @@ export function IntelligenceStandard() {
             <div style={{ width: 360, ...nodeStyle(vis(3), vis(3)), borderColor: vis(3) ? 'rgba(77,144,254,.5)' : 'rgba(255,255,255,.08)', background: vis(3) ? 'rgba(77,144,254,.1)' : 'rgba(6,14,28,.95)' }}>
               <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(77,144,254,.85)', marginBottom: 5 }}>Bankers · Stage 01</div>
               <div style={{ fontSize: 15, fontWeight: 700, color: 'rgba(255,255,255,.92)', marginBottom: 3 }}>Mandate pitch deck</div>
-              <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,.5)' }}>Walk in first. Walk in with proof no competing bank has.</div>
+              <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,.72)' }}>Walk in first. Walk in with proof no competing bank has.</div>
             </div>
           </div>
 
@@ -108,13 +108,13 @@ export function IntelligenceStandard() {
             <div style={{ ...nodeStyle(vis(5), false), borderColor: vis(5) ? 'rgba(45,212,160,.3)' : 'rgba(255,255,255,.06)' }}>
               <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(45,212,160,.8)', marginBottom: 5 }}>Operators · Stage 02</div>
               <div style={{ fontSize: 14, fontWeight: 700, color: 'rgba(255,255,255,.88)', marginBottom: 4 }}>Preemptive CIM</div>
-              <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,.42)', lineHeight: 1.6 }}>Weaknesses surfaced and closed before buyers use them as leverage.</div>
+              <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,.68)', lineHeight: 1.6 }}>Weaknesses surfaced and closed before buyers use them as leverage.</div>
             </div>
             {/* Investors */}
             <div style={{ ...nodeStyle(vis(6), false), borderColor: vis(6) ? 'rgba(245,158,11,.3)' : 'rgba(255,255,255,.06)' }}>
               <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(245,158,11,.8)', marginBottom: 5 }}>Investors · Stage 03</div>
               <div style={{ fontSize: 14, fontWeight: 700, color: 'rgba(255,255,255,.88)', marginBottom: 4 }}>Secondary diligence</div>
-              <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,.42)', lineHeight: 1.6 }}>Stress-test the thesis 6–12 months before the process opens.</div>
+              <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,.68)', lineHeight: 1.6 }}>Stress-test the thesis 6–12 months before the process opens.</div>
             </div>
           </div>
 
@@ -133,7 +133,7 @@ export function IntelligenceStandard() {
               {DEALS.map((d, i) => (
                 <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, background: 'rgba(255,255,255,.05)', border: '1px solid rgba(255,255,255,.1)', padding: '8px 16px' }}>
                   <span style={{ fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,.85)' }}>{d.deal}</span>
-                  <span style={{ fontSize: 11, color: 'rgba(255,255,255,.4)' }}>{d.label}</span>
+                  <span style={{ fontSize: 11, color: 'rgba(255,255,255,.68)' }}>{d.label}</span>
                 </div>
               ))}
             </div>

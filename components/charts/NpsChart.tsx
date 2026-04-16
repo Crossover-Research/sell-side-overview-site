@@ -40,7 +40,7 @@ export function NpsChart({ labels, data, highlightIndex = 2 }: NpsChartProps) {
           tooltip: { callbacks: { label: (c: { raw: number }) => ` ${c.raw.toFixed(1)} / 10` } },
         },
         scales: {
-          x: { min: 0, max: 10, grid: { color: 'rgba(255,255,255,.07)' }, ticks: { color: 'rgba(255,255,255,.4)', font: { family: "'JetBrains Mono',monospace", size: 11 } } },
+          x: { min: 0, max: 10, grid: { color: 'rgba(255,255,255,.07)' }, ticks: { color: 'rgba(255,255,255,.68)', font: { family: "'JetBrains Mono',monospace", size: 11 } } },
           y: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,.55)', font: { size: 12 } } },
         },
       },

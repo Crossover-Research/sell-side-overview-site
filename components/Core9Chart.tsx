@@ -50,7 +50,7 @@ export function Core9Chart({ title = 'Red Canary' }: { title?: string }) {
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginLeft: 'auto' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
             <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'rgba(130,175,255,.85)' }} />
-            <span style={{ fontSize: 10, color: 'rgba(255,255,255,.45)' }}>{title}</span>
+            <span style={{ fontSize: 10, color: 'rgba(255,255,255,.70)' }}>{title}</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
             <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'rgba(255,255,255,.2)' }} />
@@ -91,7 +91,7 @@ export function Core9Chart({ title = 'Red Canary' }: { title?: string }) {
           );
         })}
       </div>
-      <div style={{ marginTop: 12, fontSize: 10, color: 'rgba(255,255,255,.2)', fontStyle: 'italic' }}>
+      <div style={{ marginTop: 12, fontSize: 10, color: 'rgba(255,255,255,.55)', fontStyle: 'italic' }}>
         Scored from 75+ verified respondents across 9 benchmark dimensions. Category benchmark derived from 40+ comparable studies.
       </div>
     </div>

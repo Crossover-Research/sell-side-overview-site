@@ -58,7 +58,7 @@ export function CapabilitiesEngine() {
         {/* Divider label */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 1 }}>
           <div style={{ height: 1, flex: 1, background: 'rgba(255,255,255,.07)' }} />
-          <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,.48)', whiteSpace: 'nowrap' }}>When do you engage</span>
+          <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,.70)', whiteSpace: 'nowrap' }}>When do you engage</span>
           <div style={{ height: 1, flex: 1, background: 'rgba(255,255,255,.07)' }} />
         </div>
 
@@ -81,7 +81,7 @@ export function CapabilitiesEngine() {
               >
                 {/* Stage label */}
                 <div style={{ padding: '20px 20px', borderRight: '1px solid rgba(255,255,255,.06)' }}>
-                  <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.45)', marginBottom: 5 }}>Stage {s.num}</div>
+                  <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.70)', marginBottom: 5 }}>Stage {s.num}</div>
                   <div style={{ fontSize: 12, fontWeight: 700, color: isActive ? 'rgba(255,255,255,.9)' : 'rgba(255,255,255,.65)', lineHeight: 1.3 }}>{s.name}</div>
                 </div>
 
@@ -89,7 +89,7 @@ export function CapabilitiesEngine() {
                 <div style={{ padding: '20px 24px' }}>
                   <div style={{ fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,.88)', marginBottom: isActive ? 8 : 3 }}>{s.headline}</div>
                   {isActive && (
-                    <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.5)', lineHeight: 1.65, marginBottom: 12 }}>{s.desc}</div>
+                    <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.72)', lineHeight: 1.65, marginBottom: 12 }}>{s.desc}</div>
                   )}
                   {!isActive && (
                     <div style={{ fontSize: 12, color: 'rgba(255,255,255,.62)', lineHeight: 1.5 }}>{s.desc}</div>
@@ -119,7 +119,7 @@ export function CapabilitiesEngine() {
         {/* Divider label */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 1 }}>
           <div style={{ height: 1, flex: 1, background: 'rgba(255,255,255,.07)' }} />
-          <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,.48)', whiteSpace: 'nowrap' }}>What gets deployed</span>
+          <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,.70)', whiteSpace: 'nowrap' }}>What gets deployed</span>
           <div style={{ height: 1, flex: 1, background: 'rgba(255,255,255,.07)' }} />
         </div>
 
@@ -139,7 +139,7 @@ export function CapabilitiesEngine() {
                 onMouseEnter={e => { if (!isActive) (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,.02)'; }}
                 onMouseLeave={e => { if (!isActive) (e.currentTarget as HTMLElement).style.background = 'rgba(6,14,28,.97)'; }}
               >
-                <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.1em', color: 'rgba(255,255,255,.2)', marginBottom: 10 }}>{cap.num}</div>
+                <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.1em', color: 'rgba(255,255,255,.55)', marginBottom: 10 }}>{cap.num}</div>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 26, fontWeight: 700, color: isActive ? 'rgba(130,175,255,.95)' : 'rgba(255,255,255,.85)', letterSpacing: '-.03em', lineHeight: 1, marginBottom: 6 }}>{cap.stat}</div>
                 <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: isActive ? 'rgba(45,212,160,.8)' : 'rgba(45,212,160,.5)', marginBottom: 8 }}>{cap.label}</div>
                 <div style={{ fontSize: 11, color: 'rgba(255,255,255,.62)', lineHeight: 1.55 }}>{cap.hook}</div>

@@ -113,7 +113,7 @@ export function ProductArchitecture() {
                 <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(77,144,254,.9)', background: 'rgba(77,144,254,.15)', border: '1px solid rgba(77,144,254,.3)', padding: '2px 8px' }}>Banker</span>
               </div>
               <div style={{ fontSize: 15, fontWeight: 700, color: 'rgba(255,255,255,.92)', marginBottom: 4 }}>Catalyst Mandate Deck</div>
-              <div style={{ fontSize: 12, color: 'rgba(255,255,255,.48)' }}>Win the mandate with live customer verbatims instead of desk research.</div>
+              <div style={{ fontSize: 12, color: 'rgba(255,255,255,.70)' }}>Win the mandate with live customer verbatims instead of desk research.</div>
             </div>
           </div>
 
@@ -143,7 +143,7 @@ export function ProductArchitecture() {
                   </span>
                 </div>
                 <div style={{ fontSize: 13, fontWeight: 700, color: 'rgba(255,255,255,.88)', marginBottom: 5 }}>{p.title}</div>
-                <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,.42)', lineHeight: 1.6 }}>{p.desc}</div>
+                <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,.68)', lineHeight: 1.6 }}>{p.desc}</div>
               </div>
             ))}
           </div>
@@ -167,7 +167,7 @@ export function ProductArchitecture() {
             <div style={{ fontSize: 12, color: 'rgba(255,255,255,.60)' }}>
               No restarts. No surprises. No retrades at the eleventh hour.
             </div>
-            <div style={{ marginTop: 10, fontSize: 11, color: 'rgba(255,255,255,.48)', fontStyle: 'italic' }}>
+            <div style={{ marginTop: 10, fontSize: 11, color: 'rgba(255,255,255,.70)', fontStyle: 'italic' }}>
               Nerdio's $500M round — one verbatim truth layer, the bank's mandate, the investor's conviction, the operator's outcome.
             </div>
           </div>

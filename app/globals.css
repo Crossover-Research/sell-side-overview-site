@@ -21,9 +21,9 @@
   /* Text scale — all pass WCAG AA on dark bg */
   --t0: rgba(255,255,255,.95);   /* headings    */
   --t1: rgba(255,255,255,.75);   /* body        */
-  --t2: rgba(255,255,255,.62);   /* secondary   */
-  --t3: rgba(255,255,255,.48);   /* labels      */
-  --t4: rgba(255,255,255,.32);   /* placeholder */
+  --t2: rgba(255,255,255,.70);   /* secondary   */
+  --t3: rgba(255,255,255,.60);   /* labels      */
+  --t4: rgba(255,255,255,.45);   /* placeholder */
 
   /* Semantic */
   --red:    #ff4d5e;
@@ -521,7 +521,7 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); padding-bottom: 60p
 .cta-btn.solid { background: rgba(77,144,254,.85); color: #fff; border: 1px solid rgba(77,144,254,.5); }
 .cta-btn.solid:hover { background: #5599ff; transform: translateY(-2px); box-shadow: 0 4px 16px rgba(77,144,254,.45); }
 .cta-btn.outline { border: 1px solid var(--br-hi); color: var(--t1); background: transparent; }
-.cta-btn.outline:hover { border-color: rgba(255,255,255,.50); background: var(--glass-mid); }
+.cta-btn.outline:hover { border-color: rgba(255,255,255,.72); background: var(--glass-mid); }
 
 /* ── RESEARCH HEADER ─────────────────────────────────────────────────────────── */
 .research-header {
@@ -901,7 +901,7 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); padding-bottom: 60p
   font-weight: 700;
   letter-spacing: .28em;
   text-transform: uppercase;
-  color: rgba(255,255,255,.45);
+  color: rgba(255,255,255,.70);
   margin-bottom: 14px;
 }
 .footer-rule {
@@ -942,7 +942,7 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); padding-bottom: 60p
 .footer-meta {
   text-align: center;
   font-size: 10px;
-  color: rgba(255,255,255,.45);
+  color: rgba(255,255,255,.70);
   letter-spacing: .06em;
 }
 .footer-meta a {
@@ -1480,7 +1480,7 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); padding-bottom: 60p
 .asset-sub {
   font-size: 10px;
   letter-spacing: .04em;
-  color: rgba(255,255,255,.45);
+  color: rgba(255,255,255,.70);
   transition: color .2s;
   white-space: nowrap;
   overflow: hidden;
@@ -1491,7 +1491,7 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); padding-bottom: 60p
   color: rgba(45,212,160,.65);
 }
 .asset-sub-hint {
-  color: rgba(255,255,255,.45);
+  color: rgba(255,255,255,.70);
   font-style: italic;
 }
 
@@ -1641,7 +1641,7 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); padding-bottom: 60p
   font-weight: 600;
   letter-spacing: .08em;
   text-transform: uppercase;
-  color: rgba(255,255,255,.48);
+  color: rgba(255,255,255,.70);
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -1663,11 +1663,11 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); padding-bottom: 60p
 /* Category */
 .mac-category {
   font-size: 11px;
-  color: rgba(255,255,255,.45);
+  color: rgba(255,255,255,.70);
   margin-bottom: 12px;
 }
 .mac-subtitle {
-  color: rgba(255,255,255,.48);
+  color: rgba(255,255,255,.70);
   font-style: italic;
 }
 

@@ -152,7 +152,7 @@ export default function QofAIPage() {
               </div>
               <h1 style={{ fontSize: 44, fontWeight: 700, color: '#fff', lineHeight: 1.1, letterSpacing: '-.04em', marginBottom: 18 }}>
                 Quality of AI<br />
-                <span style={{ color: 'rgba(255,255,255,.4)', fontWeight: 300 }}>Assessment</span>
+                <span style={{ color: 'rgba(255,255,255,.68)', fontWeight: 300 }}>Assessment</span>
               </h1>
               <p style={{ fontSize: 15, color: 'rgba(255,255,255,.6)', lineHeight: 1.75, marginBottom: 28 }}>
                 Every PE fund and strategic acquirer now leads with: <em style={{ color: 'rgba(255,200,100,.8)', fontStyle: 'normal' }}>"Will this company be displaced by AI-native competition?"</em> Generic "AI-powered" claims create valuation discounts. Customer-validated positioning commands premium multiples.
@@ -172,8 +172,8 @@ export default function QofAIPage() {
               <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 1, background: 'linear-gradient(90deg,transparent,rgba(45,212,160,.4),transparent)' }} />
               <div style={{ padding: '16px 20px', borderBottom: '1px solid rgba(255,255,255,.07)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <div>
-                  <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.3)', marginBottom: 3 }}>AI Assessment Scorecard</div>
-                  <div style={{ fontSize: 11, color: 'rgba(255,255,255,.4)' }}>[Company Name] · Enterprise SaaS</div>
+                  <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.62)', marginBottom: 3 }}>AI Assessment Scorecard</div>
+                  <div style={{ fontSize: 11, color: 'rgba(255,255,255,.68)' }}>[Company Name] · Enterprise SaaS</div>
                 </div>
                 <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(45,212,160,.9)', background: 'rgba(45,212,160,.12)', border: '1px solid rgba(45,212,160,.3)', padding: '3px 10px' }}>
                   AI FORTRESS
@@ -188,16 +188,16 @@ export default function QofAIPage() {
                 ].map((m, i) => (
                   <div key={i} style={{ background: 'rgba(6,14,28,.9)', padding: '16px 18px' }}>
                     <div style={{ fontFamily: 'var(--font-mono)', fontSize: 28, fontWeight: 700, color: m.color, lineHeight: 1, letterSpacing: '-.03em', marginBottom: 4 }}>{m.val}</div>
-                    <div style={{ fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: 'rgba(255,255,255,.4)', marginBottom: 3 }}>{m.lbl}</div>
-                    <div style={{ fontSize: 10, color: 'rgba(255,255,255,.48)' }}>{m.sub}</div>
+                    <div style={{ fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: 'rgba(255,255,255,.68)', marginBottom: 3 }}>{m.lbl}</div>
+                    <div style={{ fontSize: 10, color: 'rgba(255,255,255,.70)' }}>{m.sub}</div>
                   </div>
                 ))}
               </div>
               <div style={{ padding: '14px 20px', borderTop: '1px solid rgba(255,255,255,.06)' }}>
-                <div style={{ fontSize: 11, color: 'rgba(255,255,255,.45)', fontStyle: 'italic', lineHeight: 1.6, marginBottom: 8 }}>
+                <div style={{ fontSize: 11, color: 'rgba(255,255,255,.70)', fontStyle: 'italic', lineHeight: 1.6, marginBottom: 8 }}>
                   "We tested ChatGPT and Claude as replacements, but they failed completely without our domain data."
                 </div>
-                <div style={{ fontSize: 10, color: 'rgba(255,255,255,.48)' }}>VP of Operations · Enterprise Customer (12+ integrations)</div>
+                <div style={{ fontSize: 10, color: 'rgba(255,255,255,.70)' }}>VP of Operations · Enterprise Customer (12+ integrations)</div>
               </div>
             </div>
           </div>
@@ -213,7 +213,7 @@ export default function QofAIPage() {
             <h2 style={{ fontSize: 28, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.025em', lineHeight: 1.2, margin: 0 }}>
               Four quadrants. One determines valuation.
             </h2>
-            <p style={{ fontSize: 13, color: 'rgba(255,255,255,.45)', lineHeight: 1.7, margin: 0 }}>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,.70)', lineHeight: 1.7, margin: 0 }}>
               SaaS valuations down $1.5T as investors reprice structural AI displacement risk. The Q of AI maps every asset against two axes — current AI strength and structural defensibility — into four quadrants with distinct M&A implications.
             </p>
           </div>
@@ -222,10 +222,10 @@ export default function QofAIPage() {
           <div style={{ position: 'relative', marginLeft: 32 }}>
             {/* Y-axis label */}
             <div style={{ position: 'absolute', left: -32, top: 0, bottom: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', width: 20 }}>
-              <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.45)', transform: 'rotate(-90deg)', whiteSpace: 'nowrap', transformOrigin: 'center center' }}>AI CAPABILITY →</div>
+              <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.70)', transform: 'rotate(-90deg)', whiteSpace: 'nowrap', transformOrigin: 'center center' }}>AI CAPABILITY →</div>
             </div>
             {/* X-axis label */}
-            <div style={{ textAlign: 'center', fontSize: 8, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.45)', marginBottom: 10 }}>AI RESILIENCE →</div>
+            <div style={{ textAlign: 'center', fontSize: 8, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.70)', marginBottom: 10 }}>AI RESILIENCE →</div>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2, background: 'rgba(255,255,255,.06)', border: '1px solid rgba(255,255,255,.08)' }}>
               {/* Top-left: AI Catalyst */}
@@ -269,7 +269,7 @@ export default function QofAIPage() {
               <div className="ib-section-eyebrow" style={{ marginBottom: 4 }}>The Framework</div>
               <h2 style={{ fontSize: 22, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.02em', margin: 0 }}>15 dimensions. Two independent scores.</h2>
             </div>
-            <p style={{ fontSize: 12.5, color: 'rgba(255,255,255,.4)', lineHeight: 1.65, margin: 0 }}>
+            <p style={{ fontSize: 12.5, color: 'rgba(255,255,255,.68)', lineHeight: 1.65, margin: 0 }}>
               Every score derived from structured customer interviews — not internal benchmarks. Capability alone does not predict valuation resilience.
             </p>
           </div>
@@ -285,7 +285,7 @@ export default function QofAIPage() {
                 </div>
                 <div style={{ textAlign: 'right' }}>
                   <div style={{ fontFamily: 'var(--font-mono)', fontSize: 40, fontWeight: 700, color: 'rgba(77,144,254,.95)', letterSpacing: '-.04em', lineHeight: 1 }}>83</div>
-                  <div style={{ fontSize: 9, color: 'rgba(255,255,255,.45)', marginTop: 3, letterSpacing: '.06em' }}>OUT OF 100</div>
+                  <div style={{ fontSize: 9, color: 'rgba(255,255,255,.70)', marginTop: 3, letterSpacing: '.06em' }}>OUT OF 100</div>
                 </div>
               </div>
               <div>
@@ -312,7 +312,7 @@ export default function QofAIPage() {
                 </div>
                 <div style={{ textAlign: 'right' }}>
                   <div style={{ fontFamily: 'var(--font-mono)', fontSize: 40, fontWeight: 700, color: 'rgba(45,212,160,.95)', letterSpacing: '-.04em', lineHeight: 1 }}>87</div>
-                  <div style={{ fontSize: 9, color: 'rgba(255,255,255,.45)', marginTop: 3, letterSpacing: '.06em' }}>OUT OF 100</div>
+                  <div style={{ fontSize: 9, color: 'rgba(255,255,255,.70)', marginTop: 3, letterSpacing: '.06em' }}>OUT OF 100</div>
                 </div>
               </div>
               <div>
@@ -347,7 +347,7 @@ export default function QofAIPage() {
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 36px' }}>
           <div className="ib-section-eyebrow">Buyer Objection Handling</div>
           <h2 style={{ fontSize: 24, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.022em', marginBottom: 6, marginTop: 8 }}>Every IC now has an AI question. You need a customer-backed answer.</h2>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,.45)', marginBottom: 32 }}>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,.70)', marginBottom: 32 }}>
             Generic "AI-powered" claims get discounted before the first page turn. The Q of AI produces customer-validated responses to each blocking objection.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 1, background: 'rgba(255,255,255,.07)' }}>
@@ -372,7 +372,7 @@ export default function QofAIPage() {
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 36px' }}>
           <div className="ib-section-eyebrow">Engagement Options</div>
           <h2 style={{ fontSize: 24, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.022em', marginBottom: 6, marginTop: 8 }}>Three packages. One methodology.</h2>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,.45)', marginBottom: 32 }}>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,.70)', marginBottom: 32 }}>
             Every package includes a visual scorecard, 25+ slide VoC report, customer verbatims, and CIM-ready positioning language.
           </p>
 
@@ -400,16 +400,16 @@ export default function QofAIPage() {
                 </div>
                 <div style={{ fontSize: 16, fontWeight: 700, color: 'rgba(255,255,255,.92)', marginBottom: 6 }}>{pkg.name}</div>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 22, fontWeight: 700, color: pkg.color, letterSpacing: '-.02em', marginBottom: 4 }}>{pkg.price}</div>
-                <div style={{ fontSize: 10, color: 'rgba(255,255,255,.3)', marginBottom: 16 }}>{pkg.timeline}</div>
-                <div style={{ fontSize: 12, color: 'rgba(255,255,255,.5)', lineHeight: 1.65, marginBottom: 14 }}>{pkg.desc}</div>
-                <div style={{ fontSize: 10, color: 'rgba(255,255,255,.50)', lineHeight: 1.6, fontStyle: 'italic' }}>{pkg.useCase}</div>
+                <div style={{ fontSize: 10, color: 'rgba(255,255,255,.62)', marginBottom: 16 }}>{pkg.timeline}</div>
+                <div style={{ fontSize: 12, color: 'rgba(255,255,255,.72)', lineHeight: 1.65, marginBottom: 14 }}>{pkg.desc}</div>
+                <div style={{ fontSize: 10, color: 'rgba(255,255,255,.72)', lineHeight: 1.6, fontStyle: 'italic' }}>{pkg.useCase}</div>
               </div>
             ))}
           </div>
 
           {/* Every package includes */}
           <div style={{ background: 'rgba(255,255,255,.03)', border: '1px solid rgba(255,255,255,.07)', padding: '20px 28px' }}>
-            <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.3)', marginBottom: 14 }}>Every Package Includes</div>
+            <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.62)', marginBottom: 14 }}>Every Package Includes</div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 16 }}>
               {[
                 { title: 'Visual Scorecard', desc: 'CIM-ready slides with quantified scores across all dimensions' },
@@ -434,7 +434,7 @@ export default function QofAIPage() {
           <h2 style={{ fontSize: 28, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.025em', lineHeight: 1.2, marginBottom: 14 }}>
             Pre-empt the objection.<br />Commission the Q of AI.
           </h2>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,.45)', lineHeight: 1.7, marginBottom: 28 }}>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,.70)', lineHeight: 1.7, marginBottom: 28 }}>
             Institutional buyers expect this level of diligence. AI Fortress quadrant companies command 15–25% valuation premiums. The research takes 3–4 weeks. Most processes don't give you that window twice.
           </p>
           <div style={{ display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -445,7 +445,7 @@ export default function QofAIPage() {
               Book a Call
             </a>
           </div>
-          <div style={{ marginTop: 20, fontSize: 11, color: 'rgba(255,255,255,.48)' }}>
+          <div style={{ marginTop: 20, fontSize: 11, color: 'rgba(255,255,255,.70)' }}>
             {CONTACT.email}
           </div>
         </div>
