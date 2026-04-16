@@ -34,7 +34,7 @@ export function HeroSection({ tab }: HeroSectionProps) {
         </h1>
 
         {/* Sub-copy */}
-        <div style={{ fontSize:'clamp(14px,1.6vw,17px)', color:'rgba(255,255,255,.55)', lineHeight:1.75, maxWidth:760, margin:'0 auto 12px' }}>
+        <div style={{ fontSize:'clamp(14px,1.6vw,17px)', color:'rgba(255,255,255,.55)', lineHeight:1.75, maxWidth:760, margin:'0 auto 40px' }}>
           Our pitch enhancement work won <strong style={{ color:'rgba(255,255,255,.82)', fontWeight:600 }}>J.P. Morgan</strong> the Nerdio mandate.
           Our deep dive research gave <strong style={{ color:'rgba(255,255,255,.82)', fontWeight:600 }}>General Atlantic</strong> the conviction to invest $500M.
         </div>
@@ -42,12 +42,7 @@ export function HeroSection({ tab }: HeroSectionProps) {
           One deal. Both sides. Powered by Crossover Research.
         </div>
 
-        {/* CTAs */}
-        <div style={{ display:'flex', gap:12, justifyContent:'center', flexWrap:'wrap', marginBottom:64 }}>
-          <a href="/intelligence#engage" className="hero-cta-primary" style={{ padding:'10px 28px', fontSize:13 }}>Start a Mandate →</a>
-          <a href="/catalyst" className="hero-cta-secondary" style={{ padding:'10px 22px', fontSize:13 }}>Catalyst Library</a>
-          <a href="/qofai" className="hero-cta-secondary" style={{ padding:'10px 22px', fontSize:13 }}>Q of AI</a>
-        </div>
+
 
         {/* Metrics strip */}
         <div style={{ display:'flex', borderTop:'1px solid rgba(255,255,255,.07)', marginTop:0 }}>

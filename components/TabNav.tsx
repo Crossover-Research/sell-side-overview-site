@@ -10,7 +10,7 @@ export function TabNav() {
 
   return (
     <div className="tab-nav-wrap">
-      <nav className="tab-nav">
+      <nav className="tab-nav" style={{ alignItems: 'center' }}>
         <a href="/intelligence" className={`tab-btn tab-primary${isIntel ? ' active' : ''}`}>Intelligence Platform</a>
         <div className="tab-nav-divider" />
         <a href="/qofai"        className={`tab-btn tab-primary${isQofAI ? ' active' : ''}`}>Q of AI</a>
@@ -18,8 +18,8 @@ export function TabNav() {
         <a href="/catalyst"     className={`tab-btn tab-primary${isCatalyst ? ' active' : ''}`}>Catalyst Library</a>
         <div className="tab-nav-divider" />
         <a href="/samples"      className={`tab-btn tab-primary${isSamples ? ' active' : ''}`}>Research Samples</a>
-        <div className="tab-nav-divider" />
-        <a href="/intelligence?request=1" className="tab-btn tab-primary">Submit a Request</a>
+        <div style={{ flex: 1 }} />
+        <a href="/intelligence?request=1" className="tab-cta">Scope a Mandate →</a>
       </nav>
     </div>
   );
