@@ -169,18 +169,15 @@ export function DealProof() {
           <div style={{ fontSize: 13, color: 'rgba(255,255,255,.35)' }}>Three engagements. $11.2B in combined transaction value.</div>
         </div>
 
-        {/* Selectors */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: 6, marginBottom: 16, flexWrap: 'wrap' }}>
-          {DEALS.map((d, i) => (
+        {/* Selectors — dot indicators */}
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 10, marginBottom: 16 }}>
+          {DEALS.map((_, i) => (
             <button key={i} onClick={() => goTo(i)} style={{
-              fontSize: 11, fontWeight: 600, padding: '6px 16px', cursor: 'pointer',
-              background: active === i ? 'rgba(255,255,255,.08)' : 'transparent',
-              border: `1px solid ${active === i ? 'rgba(255,255,255,.22)' : 'rgba(255,255,255,.07)'}`,
-              color: active === i ? 'rgba(255,255,255,.88)' : 'rgba(255,255,255,.35)',
-              transition: 'all .2s', whiteSpace: 'nowrap' as const,
-            }}>
-              {i + 1} / {DEALS.length} &middot; {d.company} &mdash; {d.size}
-            </button>
+              width: active === i ? 24 : 6, height: 6,
+              borderRadius: 3, padding: 0, cursor: 'pointer', border: 'none',
+              background: active === i ? 'rgba(130,175,255,.85)' : 'rgba(255,255,255,.2)',
+              transition: 'all .3s ease',
+            }} />
           ))}
         </div>
 
