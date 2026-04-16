@@ -4,11 +4,11 @@ export const ENGAGEMENT_OPTIONS: EngagementCard[] = [
   {
     label: 'Stage 01',
     type: 'Sector Research',
-    desc: 'You have a sector thesis. We build a proprietary intelligence base on the companies you are tracking — before any process begins.',
+    desc: 'Demonstrate sector expertise and use the underlying work to solicit operators and improve pipeline conversion.',
     steps: [
       'Define target sector and shortlist of companies',
-      'Crossover maps customer universe from public signals — no management contact',
-      'Verified customer interviews surface competitive positioning and operator weaknesses',
+      'Crossover builds proprietary intelligence base from public signals — no management contact',
+      'Customer interviews surface competitive positioning and operator weaknesses',
       'Deliver sector brief: who to call on, what differentiates each target, where the gaps are',
     ],
     ctaText: 'Start Sector Research',
@@ -18,7 +18,7 @@ export const ENGAGEMENT_OPTIONS: EngagementCard[] = [
   {
     label: 'Stage 02',
     type: 'Mandate Pitch',
-    desc: 'You have a pitch date. We give you proprietary customer signals and insights no other bank in the room has commissioned.',
+    desc: 'Win RFPs by bringing proprietary customer insights that show management teams you know the story better than competitors.',
     steps: [
       'Share target company and pitch date',
       'Crossover delivers verified customer verbatims and competitive intelligence',
@@ -32,7 +32,7 @@ export const ENGAGEMENT_OPTIONS: EngagementCard[] = [
   {
     label: 'Stage 03',
     type: 'CIM Enhancement',
-    desc: 'You have the mandate. We harden the equity story using Crossover\'s intelligence framework so every claim traces to independent customer evidence.',
+    desc: "The bank's pitch deck serves as the basis for CIM development — Crossover helps operators get customer-backed proof points to counter the weakest elements of the story.",
     steps: [
       'Map every CIM claim that touches customer quality, retention, or competitive position',
       'Replace management-sourced assertions with independently verified customer data',

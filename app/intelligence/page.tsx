@@ -2,12 +2,10 @@
 import { useState, useEffect, useCallback, Suspense } from 'react';
 import { HeroSection } from '../../components/HeroSection';
 import { useSearchParams } from 'next/navigation';
-import { IB_TRACK_RECORD, IB_CAPS, IB_CAP_DATA, type IBCap } from '../../lib/data/ibCapabilities';
 import { CATALYST_ASSETS } from '../../lib/data/catalystAssets';
-import { ENGAGEMENT_OPTIONS } from '../../lib/data/partner';
 import { CONTACT } from '../../lib/config/site';
 import { SelectField } from '../../components/SelectField';
-import { EngagementCard } from '../../components/EngagementCard';
+import { CapabilitiesEngine } from '../../components/CapabilitiesEngine';
 import { DealProof } from '../../components/DealProof';
 import { MarketProblem } from '../../components/MarketProblem';
 import { AudienceWithout } from '../../components/AudienceWithout';
@@ -157,9 +155,7 @@ function SampleCard({ href, type, codeName, badge, logoSrc, logoAlt, logoInvert,
 }
 
 export default function IntelligencePage() {
-  const [activeCap, setActiveCap] = useState<IBCap>('mandate');
   const [requestOpen, setRequestOpen] = useState(false);
-  const cap = IB_CAP_DATA[activeCap];
   const openRequest = useCallback(() => setRequestOpen(true), []);
 
   return (
@@ -167,71 +163,7 @@ export default function IntelligencePage() {
       <HeroSection />
       <Suspense fallback={null}><RequestParamWatcher onOpen={openRequest} /></Suspense>
       <DealProof />
-      {/* CAPABILITIES */}
-      <section id="capabilities" className="ib-section ib-section-alt">
-        <div className="ib-inner">
-          <div className="ib-section-eyebrow">Five Capabilities</div>
-          <h2 className="ib-section-title" style={{ marginBottom:18 }}>Built for Every Stage of the Transaction</h2>
-          <div className="ib-cap-tabs">
-            {IB_CAPS.map(c=>(
-              <button key={c} onClick={()=>setActiveCap(c)} className={`ib-cap-tab${activeCap===c?' active':''}`}>
-                {IB_CAP_DATA[c].label}
-              </button>
-            ))}
-          </div>
-          <div className="ib-cap-panel">
-            <div className="cap-deal-layout">
-
-              {/* LEFT COL — anchor stat + problem/answer */}
-              <div className="cap-left">
-                <div className="cap-anchor-stat">{cap.anchorStat}</div>
-                <div className="cap-anchor-label">{cap.anchorLabel}</div>
-                <div className="cap-anchor-context">{cap.anchorContext}</div>
-
-                <div className="cap-divider" />
-
-                <div className="cap-problem-label">The problem</div>
-                <p className="cap-problem-text">{cap.bankerProblem}</p>
-
-                <div className="cap-answer-label">Crossover answer</div>
-                <p className="cap-answer-text">{cap.crossoverAnswer}</p>
-              </div>
-
-              {/* RIGHT COL — headline + feature rows */}
-              <div className="cap-right">
-                <h3 className="cap-headline">{cap.headline}</h3>
-                <div className="cap-feature-rows">
-                  {cap.features.slice(0,4).map((f,i)=>(
-                    <div key={i} className="cap-feature-row">
-                      <div className="cap-feature-num">{String(i+1).padStart(2,'0')}</div>
-                      <div className="cap-feature-body">
-                        <div className="cap-feature-title">{f.title}</div>
-                        <div className="cap-feature-desc">{f.desc}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ENGAGE */}
-      <section id="engage" className="ib-section ib-section-alt">
-        <div className="ib-inner">
-          <div className="ib-section-eyebrow">How Banks Engage</div>
-          <h2 className="ib-section-title" style={{ marginBottom:20 }}>Three Entry Points. One Research Infrastructure.</h2>
-          <div className="engagement-wrap">
-            {ENGAGEMENT_OPTIONS.map((card,i)=>(
-              <EngagementCard key={i} card={card} />
-            ))}
-          </div>
-
-
-        </div>
-      </section>
+      <CapabilitiesEngine />
 
       <MarketProblem />
       <AudienceWithout />
