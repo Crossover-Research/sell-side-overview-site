@@ -422,7 +422,7 @@ export default function QofAIPage() {
 
       {/* CTA */}
       <section style={{ padding: '52px 0', textAlign: 'center' }}>
-        <div style={{ maxWidth: 560, margin: '0 auto', padding: '0 36px' }}>
+        <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 36px' }}>
           <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(45,212,160,.7)', marginBottom: 16 }}>Get Started</div>
           <h2 style={{ fontSize: 28, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.025em', lineHeight: 1.2, marginBottom: 14 }}>
             Pre-empt the objection.<br />Commission the Q of AI.
