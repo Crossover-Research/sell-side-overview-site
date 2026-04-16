@@ -94,7 +94,7 @@ export function ProductArchitecture() {
             This is Crossover Catalyst.
           </h2>
           <p style={{ fontSize: 13, color: 'rgba(255,255,255,.38)' }}>
-            One verbatim truth layer. Built once. Used by every party in the transaction — the banker who wins the mandate, the operator who controls the narrative, the investor who arrives with conviction.
+            The universal truth layer for private markets. Bankers win mandates. Operators control the narrative. Investors build conviction.
           </p>
         </div>
 
