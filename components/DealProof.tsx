@@ -120,7 +120,8 @@ const DEALS = [
 
 function LogoImg({ src, alt, height = 18, invert = false }: { src: string; alt: string; height?: number; invert?: boolean }) {
   if (!src) return null;
-  return <img src={src} alt={alt} style={{ height, width: 'auto', maxWidth: 190, display: 'block', filter: invert ? 'brightness(0) invert(1)' : 'none' }} />;
+  const needsInvert = invert || alt === 'J.P. Morgan' || alt === 'General Atlantic';
+  return <img src={src} alt={alt} style={{ height, width: 'auto', maxWidth: 190, display: 'block', filter: needsInvert ? 'brightness(0) invert(1)' : 'none', opacity: needsInvert ? .85 : 1 }} />;
 }
 
 export function DealProof() {
