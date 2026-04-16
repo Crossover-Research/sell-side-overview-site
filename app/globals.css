@@ -755,7 +755,7 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); padding-bottom: 60p
 .ib-diff-desc  { font-size: 12.5px; color: var(--t1); line-height: 1.65; }
 
 /* Sample cards */
-.ib-samples { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--br-lo); }
+.ib-samples { display: grid; grid-template-columns: repeat(3, minmax(0, 320px)); gap: 1px; background: var(--br-lo); justify-content: start; }
 .ib-sample-card { display: flex; flex-direction: column; background: var(--glass-hi); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur); padding: 24px 24px 20px; text-decoration: none; transition: background .15s; min-height: 160px; }
 .ib-sample-card:hover { background: rgba(255,255,255,.07); }
 .ib-sample-cta { background: rgba(77,144,254,.08); border: 1px solid rgba(77,144,254,.2); }
