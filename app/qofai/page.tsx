@@ -262,7 +262,7 @@ export default function QofAIPage() {
       </section>
 
       {/* 15 DIMENSIONS */}
-      <section style={{ padding: '40px 0', background: 'rgba(255,255,255,.015)', borderBottom: '1px solid rgba(255,255,255,.07)' }}>
+      <section style={{ padding: '40px 0', background: 'rgba(255,255,255,.03)', borderBottom: '1px solid rgba(255,255,255,.07)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 36px' }}>
           <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 20 }}>
             <div>
@@ -355,11 +355,11 @@ export default function QofAIPage() {
               <div key={i} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0, background: 'rgba(6,14,28,.95)' }}>
                 <div style={{ padding: '18px 24px', borderRight: '1px solid rgba(255,255,255,.07)' }}>
                   <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(255,77,94,.6)', marginBottom: 6 }}>Buyer Objection</div>
-                  <div style={{ fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,.7)', lineHeight: 1.5, fontStyle: 'italic' }}>{o.q}</div>
+                  <div style={{ fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,.82)', lineHeight: 1.5, fontStyle: 'italic' }}>{o.q}</div>
                 </div>
                 <div style={{ padding: '18px 24px' }}>
                   <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(45,212,160,.7)', marginBottom: 6 }}>Q of AI Answer</div>
-                  <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.6)', lineHeight: 1.65 }}>{o.a}</div>
+                  <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.75)', lineHeight: 1.65 }}>{o.a}</div>
                 </div>
               </div>
             ))}

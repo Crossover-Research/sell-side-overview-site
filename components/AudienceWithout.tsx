@@ -73,7 +73,7 @@ export function AudienceWithout() {
                 fontSize:12, fontWeight:600, padding:'8px 20px', cursor:'pointer',
                 background: active===t.id ? 'rgba(255,255,255,.08)' : 'transparent',
                 border: `1px solid ${active===t.id ? 'rgba(255,255,255,.2)' : 'rgba(255,255,255,.1)'}`,
-                color: active===t.id ? 'rgba(255,255,255,.92)' : 'rgba(255,255,255,.4)',
+                color: active===t.id ? 'rgba(255,255,255,.95)' : 'rgba(255,255,255,.60)',
                 transition:'all .15s',
               }}>
                 {t.label}
@@ -96,7 +96,7 @@ export function AudienceWithout() {
               <div style={{ padding:'16px 12px', display:'flex', alignItems:'center', borderRight:'1px solid rgba(255,255,255,.05)' }}>
                 <span style={{ fontSize:8, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase' as const, color: 'rgba(255,255,255,.62)', background:'rgba(255,255,255,.06)', padding:'2px 6px', whiteSpace:'nowrap' as const }}>{row.label}</span>
               </div>
-              <div style={{ padding:'16px 20px', fontSize:12.5, color: i === d.rows.length-1 ? 'rgba(255,255,255,.28)' : 'rgba(255,255,255,.65)', lineHeight:1.65, fontStyle: i === d.rows.length-1 ? 'italic' : 'normal', borderRight:'1px solid rgba(255,255,255,.05)' }}>
+              <div style={{ padding:'16px 20px', fontSize:12.5, color: i === d.rows.length-1 ? 'rgba(255,255,255,.55)' : 'rgba(255,255,255,.70)', lineHeight:1.65, fontStyle: i === d.rows.length-1 ? 'italic' : 'normal', borderRight:'1px solid rgba(255,255,255,.05)' }}>
                 {row.without}
               </div>
               <div style={{ display:'flex', alignItems:'center', justifyContent:'center', borderRight:'1px solid rgba(255,255,255,.05)' }}>

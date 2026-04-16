@@ -93,7 +93,7 @@ export function ProductArchitecture() {
           <h2 style={{ fontSize: 'clamp(20px,3vw,28px)', fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.025em', marginBottom: 8 }}>
             This is Crossover Catalyst.
           </h2>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,.60)' }}>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,.72)' }}>
             The universal truth layer for private markets. Bankers win mandates. Operators control the narrative. Investors build conviction.
           </p>
         </div>
@@ -164,7 +164,7 @@ export function ProductArchitecture() {
             <div style={{ fontSize: 15, fontWeight: 700, color: 'rgba(255,255,255,.88)', marginBottom: 4 }}>
               Every party enters the room with the same evidence base.
             </div>
-            <div style={{ fontSize: 12, color: 'rgba(255,255,255,.60)' }}>
+            <div style={{ fontSize: 12, color: 'rgba(255,255,255,.72)' }}>
               No restarts. No surprises. No retrades at the eleventh hour.
             </div>
             <div style={{ marginTop: 10, fontSize: 11, color: 'rgba(255,255,255,.70)', fontStyle: 'italic' }}>
@@ -174,7 +174,7 @@ export function ProductArchitecture() {
 
           {/* Final statement */}
           <div style={{ textAlign: 'center', marginTop: 32, ...fadeIn(vis(8)) }}>
-            <p style={{ fontSize: 'clamp(15px,2.2vw,20px)', fontWeight: 500, color: 'rgba(255,255,255,.7)', lineHeight: 1.5 }}>
+            <p style={{ fontSize: 'clamp(15px,2.2vw,20px)', fontWeight: 500, color: 'rgba(255,255,255,.78)', lineHeight: 1.5 }}>
               When every party is working from the same truth,<br />
               they don't just negotiate.{' '}
               <span style={{ color: 'rgba(45,212,160,.9)', fontWeight: 700 }}>They transact. That's Crossover Catalyst.</span>

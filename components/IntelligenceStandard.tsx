@@ -72,7 +72,7 @@ export function IntelligenceStandard() {
             <div style={{ width: 360, ...nodeStyle(vis(1), vis(2)) }}>
               <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(77,144,254,.7)', marginBottom: 5 }}>Crossover Research · Intelligence Infrastructure</div>
               <div style={{ fontSize: 15, fontWeight: 700, color: 'rgba(255,255,255,.92)', marginBottom: 3 }}>Verbatim Truth Layer</div>
-              <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,.68)', fontStyle: 'italic' }}>The verbatim truth layer that all parties can rely on.</div>
+              <div style={{ fontSize: 12, color: 'rgba(255,255,255,.72)', fontStyle: 'italic' }}>The verbatim truth layer that all parties can rely on.</div>
             </div>
           </div>
 

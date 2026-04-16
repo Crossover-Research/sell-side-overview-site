@@ -82,7 +82,7 @@ export function CapabilitiesEngine() {
                 {/* Stage label */}
                 <div style={{ padding: '20px 20px', borderRight: '1px solid rgba(255,255,255,.06)' }}>
                   <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.70)', marginBottom: 5 }}>Stage {s.num}</div>
-                  <div style={{ fontSize: 12, fontWeight: 700, color: isActive ? 'rgba(255,255,255,.9)' : 'rgba(255,255,255,.65)', lineHeight: 1.3 }}>{s.name}</div>
+                  <div style={{ fontSize: 12, fontWeight: 700, color: isActive ? 'rgba(255,255,255,.95)' : 'rgba(255,255,255,.78)', lineHeight: 1.3 }}>{s.name}</div>
                 </div>
 
                 {/* Content */}
@@ -96,7 +96,7 @@ export function CapabilitiesEngine() {
                   )}
                   <div style={{ display: 'flex', gap: 5, flexWrap: 'wrap', marginTop: 10 }}>
                     {s.tags.map((t, ti) => (
-                      <span key={ti} style={{ fontSize: 9, fontWeight: 600, color: isActive ? 'rgba(130,175,255,.65)' : 'rgba(255,255,255,.28)', background: isActive ? 'rgba(77,144,254,.08)' : 'rgba(255,255,255,.04)', border: `1px solid ${isActive ? 'rgba(77,144,254,.2)' : 'rgba(255,255,255,.07)'}`, padding: '2px 7px' }}>{t}</span>
+                      <span key={ti} style={{ fontSize: 9, fontWeight: 600, color: isActive ? 'rgba(130,175,255,.75)' : 'rgba(255,255,255,.55)', background: isActive ? 'rgba(77,144,254,.08)' : 'rgba(255,255,255,.04)', border: `1px solid ${isActive ? 'rgba(77,144,254,.2)' : 'rgba(255,255,255,.07)'}`, padding: '2px 7px' }}>{t}</span>
                     ))}
                   </div>
                 </div>
@@ -106,7 +106,7 @@ export function CapabilitiesEngine() {
                   <a
                     href="/intelligence?request=1"
                     onClick={e => e.stopPropagation()}
-                    style={{ fontSize: 10, fontWeight: 700, color: isActive ? 'rgba(130,175,255,.85)' : 'rgba(255,255,255,.25)', letterSpacing: '.04em', textDecoration: 'none', whiteSpace: 'nowrap', transition: 'color .15s' }}
+                    style={{ fontSize: 10, fontWeight: 700, color: isActive ? 'rgba(130,175,255,.9)' : 'rgba(255,255,255,.55)', letterSpacing: '.04em', textDecoration: 'none', whiteSpace: 'nowrap', transition: 'color .15s' }}
                   >
                     {s.cta} →
                   </a>

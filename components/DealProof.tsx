@@ -108,9 +108,9 @@ function LogoImg({ src, alt, height = 18, invert }: { src: string; alt: string; 
       src={src}
       alt={alt}
       style={{
-        height: isGA ? 14 : height,
+        height: isGA ? 22 : height,
         width: 'auto',
-        maxWidth: isGA ? 160 : 220,
+        maxWidth: isGA ? 180 : 220,
         display: 'block',
         filter: (!isGA && needsInvert) ? 'brightness(0) invert(1)' : 'none',
         opacity: (!isGA && needsInvert) ? 0.85 : 1,
@@ -182,14 +182,14 @@ export function DealProof() {
             >
               <span style={{
                 width: 5, height: 5, borderRadius: '50%',
-                background: active === i ? 'rgba(130,175,255,.9)' : 'rgba(255,255,255,.18)',
+                background: active === i ? 'rgba(130,175,255,.9)' : 'rgba(255,255,255,.35)',
                 transition: 'background .2s ease',
                 flexShrink: 0,
               }} />
               <span style={{
                 fontSize: 10, fontWeight: 700, letterSpacing: '.08em',
                 textTransform: 'uppercase' as const,
-                color: active === i ? 'rgba(255,255,255,.8)' : 'rgba(255,255,255,.32)',
+                color: active === i ? 'rgba(255,255,255,.9)' : 'rgba(255,255,255,.58)',
                 transition: 'color .2s ease',
               }}>{d.company}</span>
             </button>

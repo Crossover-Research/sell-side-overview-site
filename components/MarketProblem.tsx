@@ -60,7 +60,7 @@ export function MarketProblem() {
                   {row.audience}
                 </span>
               </div>
-              <div style={{ padding:'22px 20px', borderLeft:'1px solid rgba(255,255,255,.06)', fontSize:12.5, color: 'rgba(255,255,255,.55)', lineHeight:1.7 }}>
+              <div style={{ padding:'22px 20px', borderLeft:'1px solid rgba(255,255,255,.06)', fontSize:12.5, color: 'rgba(255,255,255,.72)', lineHeight:1.7 }}>
                 {row.what}
               </div>
               <div style={{ padding:'22px 20px', borderLeft:'1px solid rgba(255,255,255,.06)' }}>
