@@ -269,7 +269,7 @@ main { padding-top: calc(var(--topbar-h) + var(--tabnav-h)); padding-bottom: 60p
   padding: 0 var(--content-pad);
   position: fixed; top: var(--topbar-h); left: 0; right: 0; z-index: 200;
 }
-.tab-nav { max-width: var(--content-max); margin: 0 auto; display: flex; overflow-x: auto; scrollbar-width: none; }
+.tab-nav { max-width: var(--content-max); display: flex; overflow-x: auto; scrollbar-width: none; }
 .tab-nav::-webkit-scrollbar { display: none; }
 .tab-btn {
   all: unset; cursor: pointer;
