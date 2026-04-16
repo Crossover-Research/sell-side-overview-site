@@ -246,25 +246,50 @@ export default function IntelligencePage() {
             Every engagement delivers a live portal with Cortex AI embedded — not a PDF. The GTM Playbook turns VoC data into a tiered account list with named targets, renewal windows, and displacement signals your sales team can act on immediately.
           </p>
 
-          {/* Deliverable showcase — two live examples side by side */}
+          {/* Deliverable showcase — Volie first, Sample Report second */}
           <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:1, background:'rgba(255,255,255,.06)', marginBottom:1 }}>
+
+            {/* Volie — Client Proposal */}
+            <a
+              href="https://volie.crossoverintelligence.com/"
+              target="_blank" rel="noopener noreferrer"
+              style={{ display:'flex', flexDirection:'column', textDecoration:'none', background:'rgba(6,14,28,.95)', padding:'22px 26px', position:'relative', overflow:'hidden', transition:'background .15s' }}
+              onMouseEnter={e=>(e.currentTarget.style.background='rgba(10,20,40,.95)')}
+              onMouseLeave={e=>(e.currentTarget.style.background='rgba(6,14,28,.95)')}
+            >
+              <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,transparent,rgba(77,144,254,.35),transparent)' }} />
+              <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:14 }}>
+                <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.3)' }}>Client Proposal</div>
+                <div style={{ fontSize:8, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(77,144,254,.9)', background:'rgba(77,144,254,.12)', border:'1px solid rgba(77,144,254,.3)', padding:'2px 8px', animation:'hint-pulse 2.4s ease-in-out infinite' }}>Live Portal</div>
+              </div>
+              <div style={{ fontSize:15, fontWeight:700, color:'rgba(255,255,255,.92)', marginBottom:6 }}>Volie</div>
+              <div style={{ fontSize:12, color:'var(--t2)', lineHeight:1.65, marginBottom:16 }}>
+                Purpose-built operator outreach. Our intelligence engine identifies the right targets, surfaces the pain, and produces proposals that strike a nerve before competitors know the process is live.
+              </div>
+              <div style={{ display:'flex', gap:5, flexWrap:'wrap', marginBottom:18 }}>
+                {['Targeted Outreach','Cortex AI','Operator Intelligence','Shareable'].map((t,i)=>(
+                  <span key={i} style={{ fontSize:9, fontWeight:600, color:'rgba(130,175,255,.6)', background:'rgba(77,144,254,.07)', border:'1px solid rgba(77,144,254,.15)', padding:'2px 7px' }}>{t}</span>
+                ))}
+              </div>
+              <div style={{ fontSize:11, fontWeight:700, color:'rgba(130,175,255,.8)', marginTop:'auto' }}>View Live Portal ↗</div>
+            </a>
 
             {/* Sample Report */}
             <a
               href="https://sample.crossoverintelligence.com/"
               target="_blank" rel="noopener noreferrer"
-              style={{ display:'flex', flexDirection:'column', textDecoration:'none', background:'rgba(6,14,28,.95)', padding:'22px 26px', position:'relative', overflow:'hidden', transition:'background .15s' }}
-              onMouseEnter={e=>(e.currentTarget.style.background='rgba(12,22,44,.95)')}
+              style={{ display:'flex', flexDirection:'column', textDecoration:'none', background:'rgba(6,14,28,.95)', padding:'22px 26px', position:'relative', overflow:'hidden', transition:'background .15s', borderLeft:'1px solid rgba(255,255,255,.06)' }}
+              onMouseEnter={e=>(e.currentTarget.style.background='rgba(10,20,40,.95)')}
               onMouseLeave={e=>(e.currentTarget.style.background='rgba(6,14,28,.95)')}
             >
-              <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent)' }} />
+              <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent)' }} />
               <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:14 }}>
                 <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.3)' }}>Sample Report</div>
                 <div style={{ fontSize:8, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(245,158,11,.9)', background:'rgba(245,158,11,.1)', border:'1px solid rgba(245,158,11,.25)', padding:'2px 8px' }}>Operator</div>
               </div>
-              <div style={{ fontSize:15, fontWeight:700, color:'rgba(255,255,255,.92)', marginBottom:6, lineHeight:1.3 }}>Intelligence Report + GTM Playbook</div>
+              <div style={{ fontSize:15, fontWeight:700, color:'rgba(255,255,255,.92)', marginBottom:6 }}>Intelligence Report + GTM Playbook</div>
               <div style={{ fontSize:12, color:'var(--t2)', lineHeight:1.65, marginBottom:16 }}>
-                Full competitive intelligence with vendor displacement scorecards, tiered account targets, renewal windows, and per-account strategic approach. Includes the underlying data file so your team can run additional cuts and custom queries.
+                Competitive displacement scorecards, tiered account targets with renewal windows, and a GTM playbook your sales team can execute the day the deal closes.
               </div>
               <div style={{ display:'flex', gap:5, flexWrap:'wrap', marginBottom:18 }}>
                 {['Full Report','GTM Playbook','Response Carve-Out','Underlying Data File'].map((t,i)=>(
@@ -272,31 +297,6 @@ export default function IntelligencePage() {
                 ))}
               </div>
               <div style={{ fontSize:11, fontWeight:700, color:'rgba(255,255,255,.55)', marginTop:'auto' }}>View Sample Report ↗</div>
-            </a>
-
-            {/* Volie Portal */}
-            <a
-              href="https://volie.crossoverintelligence.com/"
-              target="_blank" rel="noopener noreferrer"
-              style={{ display:'flex', flexDirection:'column', textDecoration:'none', background:'rgba(6,14,28,.95)', padding:'22px 26px', position:'relative', overflow:'hidden', transition:'background .15s', borderLeft:'1px solid rgba(77,144,254,.15)' }}
-              onMouseEnter={e=>(e.currentTarget.style.background='rgba(12,22,44,.95)')}
-              onMouseLeave={e=>(e.currentTarget.style.background='rgba(6,14,28,.95)')}
-            >
-              <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,transparent,rgba(77,144,254,.3),transparent)' }} />
-              <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:14 }}>
-                <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.3)' }}>Client Proposal</div>
-                <div style={{ fontSize:8, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(77,144,254,.9)', background:'rgba(77,144,254,.12)', border:'1px solid rgba(77,144,254,.3)', padding:'2px 8px', animation:'hint-pulse 2.4s ease-in-out infinite' }}>Live Portal</div>
-              </div>
-              <div style={{ fontSize:15, fontWeight:700, color:'rgba(255,255,255,.92)', marginBottom:6, lineHeight:1.3 }}>Volie — Queryable Deal Intelligence</div>
-              <div style={{ fontSize:12, color:'var(--t2)', lineHeight:1.65, marginBottom:16 }}>
-                A live client-facing portal with Cortex AI embedded — our intelligence bot that runs sophisticated cuts and interpretations of the underlying data. Your client gets answers in seconds, not days. No analyst in the loop.
-              </div>
-              <div style={{ display:'flex', gap:5, flexWrap:'wrap', marginBottom:18 }}>
-                {['Cortex AI Bot','Sophisticated Data Cuts','Live Verbatims','Shareable'].map((t,i)=>(
-                  <span key={i} style={{ fontSize:9, fontWeight:600, color:'rgba(130,175,255,.6)', background:'rgba(77,144,254,.07)', border:'1px solid rgba(77,144,254,.15)', padding:'2px 7px' }}>{t}</span>
-                ))}
-              </div>
-              <div style={{ fontSize:11, fontWeight:700, color:'rgba(130,175,255,.8)', marginTop:'auto' }}>View Live Portal ↗</div>
             </a>
 
           </div>
