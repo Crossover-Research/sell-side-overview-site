@@ -435,7 +435,7 @@ export default function QofAIPage() {
             Pre-empt the objection.<br />Commission the Q of AI.
           </h2>
           <p style={{ fontSize: 13, color: 'rgba(255,255,255,.70)', lineHeight: 1.7, marginBottom: 28 }}>
-            Institutional buyers now expect AI diligence as standard. AI Fortress quadrant companies command 15–25% valuation premiums. The research takes 3–4 weeks. Every score derived from real customers — not internal benchmarks, not management spin.
+            Institutional buyers are repricing AI displacement risk across every software transaction. Companies without customer-validated positioning get discounted. AI Fortress quadrant: 15–25% valuation premium. Three to four weeks. Real customers. Independent collection.
           </p>
           <div style={{ display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href={`mailto:${CONTACT.email}`} style={{ background: 'rgba(255,255,255,.95)', color: '#050e1e', border: 'none', padding: '10px 24px', fontSize: 12, fontWeight: 700, cursor: 'pointer', textDecoration: 'none' }}>
