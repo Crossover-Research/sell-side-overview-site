@@ -227,14 +227,15 @@ export function DealProof() {
             padding: '28px 24px',
             display: 'flex',
             flexDirection: 'column',
+            justifyContent: 'space-between',
           }}>
             {/* Logo */}
-            <div style={{ marginBottom: 24 }}>
+            <div style={{ marginBottom: 0 }}>
               <LogoImg src={deal.companyLogo} alt={deal.company} height={deal.logoHeight} />
             </div>
 
-            {/* Size */}
-            <div style={{ flex: 1 }}>
+            {/* Size — centered vertically */}
+            <div style={{ textAlign: 'left' }}>
               <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,.55)', marginBottom: 7 }}>
                 {deal.sizeLabel}
               </div>
@@ -246,11 +247,9 @@ export function DealProof() {
               </div>
             </div>
 
-            {/* Divider */}
-            <div style={{ height: 1, background: 'rgba(255,255,255,.06)', margin: '22px 0' }} />
-
             {/* Involvement */}
             <div>
+              <div style={{ height: 1, background: 'rgba(255,255,255,.06)', marginBottom: 18 }} />
               <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,.70)', marginBottom: 5 }}>Involvement</div>
               <div style={{ fontSize: 11, fontWeight: 600, color: 'rgba(45,212,160,.75)', letterSpacing: '.02em' }}>{deal.involvement}</div>
             </div>
