@@ -306,9 +306,6 @@ export default function CatalystPage() {
                 The only intelligence library that serves both sides of the same deal.
               </h2>
               <div style={{ display:'flex',flexDirection:'column',gap:10,alignItems:'flex-end',flexShrink:0 }}>
-                <p style={{ fontSize:13,color: 'rgba(255,255,255,.70)',lineHeight:1.7,maxWidth:340,textAlign:'right',margin:0 }}>
-                  Every report collected independently. No party curated it for their side. That's why every party can rely on it.
-                </p>
                 <button onClick={()=>setRequestOpen(true)} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 22px',fontSize:12,fontWeight:700,cursor:'pointer',whiteSpace:'nowrap' }}>
                   Check Coverage &rarr;
                 </button>
