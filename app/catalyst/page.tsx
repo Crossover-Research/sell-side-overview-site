@@ -114,7 +114,7 @@ function TeaserModal({ asset, onClose, onRequest }: { asset: CatalystAsset; onCl
             ))}
           </div>
           {asset.quotes.slice(0,2).map((q,i)=>(
-            <div key={i} style={{ borderLeft:'2px solid rgba(77,144,254,.3)',paddingLeft:11,marginBottom:9,fontSize:12,color: 'rgba(255,255,255,.6)',fontStyle:'italic',lineHeight:1.6 }}>"{q}"</div>
+            <div key={i} style={{ borderLeft:'2px solid rgba(77,144,254,.3)',paddingLeft:11,marginBottom:9,fontSize:12.5,color: 'rgba(255,255,255,.75)',fontStyle:'italic',lineHeight:1.6 }}>"{q}"</div>
           ))}
           <div style={{ display:'flex',gap:9,marginTop:18,justifyContent:'flex-end' }}>
             {!isTransacted&&<button onClick={onRequest} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 20px',fontSize:12,fontWeight:700,cursor:'pointer' }}>Request Full Report &rarr;</button>}
@@ -329,7 +329,7 @@ export default function CatalystPage() {
             <div className="catalyst-proof-grid" style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:48,alignItems:'start' }}>
               <div>
                 <div style={{ fontSize: 11,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(77,144,254,.7)',marginBottom:10 }}>Proof &mdash; Both Sides of One Deal</div>
-                <p style={{ fontSize:14,fontWeight:300,color: 'rgba(255,255,255,.55)',lineHeight:1.75,marginBottom:4,fontStyle:'italic' }}>
+                <p style={{ fontSize:14,fontWeight:300,color: 'rgba(255,255,255,.75)',lineHeight:1.75,marginBottom:4,fontStyle:'italic' }}>
                   &ldquo;The same infrastructure that wins mandates for bankers identifies the next great asset for funds. It only works because the data is never curated for either side.&rdquo;
                 </p>
                 <div style={{ marginTop:16,paddingTop:16,borderTop:'1px solid rgba(77,144,254,.12)' }}>

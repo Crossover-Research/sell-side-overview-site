@@ -154,14 +154,14 @@ export default function QofAIPage() {
                 Quality of AI<br />
                 <span style={{ color: 'rgba(255,255,255,.68)', fontWeight: 300 }}>Assessment</span>
               </h1>
-              <p style={{ fontSize: 15, color: 'rgba(255,255,255,.6)', lineHeight: 1.75, marginBottom: 28 }}>
+              <p style={{ fontSize: 15, color: 'rgba(255,255,255,.78)', lineHeight: 1.75, marginBottom: 28 }}>
                 Every PE fund and strategic acquirer now leads with: <em style={{ color: 'rgba(255,200,100,.8)', fontStyle: 'normal' }}>"Will this company be displaced by AI-native competition?"</em> Generic "AI-powered" claims create valuation discounts. Customer-validated positioning commands premium multiples.
               </p>
               <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
                 <a href={`mailto:${CONTACT.email}`} style={{ background: 'rgba(255,255,255,.95)', color: '#050e1e', border: 'none', padding: '8px 20px', fontSize: 12, fontWeight: 700, cursor: 'pointer', textDecoration: 'none', display: 'inline-flex', alignItems: 'center' }}>
                   Request Assessment →
                 </a>
-                <a href={CONTACT.bookingUrl} target="_blank" rel="noopener noreferrer" style={{ background: 'transparent', color: 'rgba(255,255,255,.6)', border: '1px solid rgba(255,255,255,.18)', padding: '8px 18px', fontSize: 12, fontWeight: 500, cursor: 'pointer', textDecoration: 'none' }}>
+                <a href={CONTACT.bookingUrl} target="_blank" rel="noopener noreferrer" style={{ background: 'transparent', color: 'rgba(255,255,255,.78)', border: '1px solid rgba(255,255,255,.22)', padding: '8px 18px', fontSize: 12, fontWeight: 500, cursor: 'pointer', textDecoration: 'none' }}>
                   Book a Call
                 </a>
               </div>
@@ -239,7 +239,7 @@ export default function QofAIPage() {
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 2, background: 'linear-gradient(90deg,transparent,rgba(45,212,160,.5),transparent)' }} />
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
                   <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(45,212,160,.9)', background: 'rgba(45,212,160,.12)', padding: '2px 8px', display: 'inline-block' }}>Premium Asset</div>
-                  <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', color: 'rgba(45,212,160,.5)', fontFamily: 'var(--font-mono)' }}>← Target Quadrant</div>
+                  <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', color: 'rgba(45,212,160,.72)', fontFamily: 'var(--font-mono)' }}>← Target Quadrant</div>
                 </div>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 18, fontWeight: 700, color: 'rgba(45,212,160,.95)', marginBottom: 10 }}>AI Fortress</div>
                 <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.68)', lineHeight: 1.6 }}>High Capability + High Resilience. Deep data moats, advanced AI, structural defensibility. Commands 15–25% valuation premium over peers.</div>
@@ -248,13 +248,13 @@ export default function QofAIPage() {
               <div style={{ background: 'rgba(6,14,28,.95)', padding: '32px 32px', minHeight: 200, borderTop: '1px solid rgba(255,255,255,.05)' }}>
                 <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(255,77,94,.8)', background: 'rgba(255,77,94,.07)', padding: '2px 8px', display: 'inline-block', marginBottom: 12 }}>Rebuild Required</div>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 18, fontWeight: 700, color: 'rgba(255,77,94,.75)', marginBottom: 10 }}>AI Foundation</div>
-                <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.60)', lineHeight: 1.6 }}>Emerging AI + Developing Moats. Requires investment in both capability and structural defensibility. Valuation discount until trajectory is established.</div>
+                <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.75)', lineHeight: 1.6 }}>Emerging AI + Developing Moats. Requires investment in both capability and structural defensibility. Valuation discount until trajectory is established.</div>
               </div>
               {/* Bottom-right: AI Accelerator */}
               <div style={{ background: 'rgba(6,14,28,.95)', padding: '32px 32px', minHeight: 200, borderTop: '1px solid rgba(255,255,255,.05)', borderLeft: '1px solid rgba(255,255,255,.05)' }}>
                 <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(245,158,11,.85)', background: 'rgba(245,158,11,.07)', padding: '2px 8px', display: 'inline-block', marginBottom: 12 }}>Moat Investment Needed</div>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 18, fontWeight: 700, color: 'rgba(245,158,11,.85)', marginBottom: 10 }}>AI Accelerator</div>
-                <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.60)', lineHeight: 1.6 }}>Strong AI capability + Developing Moats. Needs deeper structural defensibility to sustain positioning against AI-native competition long-term.</div>
+                <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.75)', lineHeight: 1.6 }}>Strong AI capability + Developing Moats. Needs deeper structural defensibility to sustain positioning against AI-native competition long-term.</div>
               </div>
             </div>
           </div>
@@ -333,7 +333,7 @@ export default function QofAIPage() {
                 <div style={{ background: 'rgba(45,212,160,.06)', border: '1px solid rgba(45,212,160,.2)', padding: '12px 16px' }}>
                   <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(45,212,160,.6)', marginBottom: 5 }}>Verdict</div>
                   <div style={{ fontSize: 13, fontWeight: 700, color: 'rgba(45,212,160,.95)', marginBottom: 3 }}>AI Fortress Quadrant — Premium Asset</div>
-                  <div style={{ fontSize: 11, color: 'rgba(255,255,255,.55)' }}>Top 15–20% of assessed software companies</div>
+                  <div style={{ fontSize: 11, color: 'rgba(255,255,255,.68)' }}>Top 15–20% of assessed software companies</div>
                 </div>
               </div>
             </div>
@@ -400,7 +400,7 @@ export default function QofAIPage() {
                 </div>
                 <div style={{ fontSize: 16, fontWeight: 700, color: 'rgba(255,255,255,.92)', marginBottom: 6 }}>{pkg.name}</div>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 22, fontWeight: 700, color: pkg.color, letterSpacing: '-.02em', marginBottom: 4 }}>{pkg.price}</div>
-                <div style={{ fontSize: 10, color: 'rgba(255,255,255,.62)', marginBottom: 16 }}>{pkg.timeline}</div>
+                <div style={{ fontSize: 11, color: 'rgba(255,255,255,.72)', marginBottom: 16 }}>{pkg.timeline}</div>
                 <div style={{ fontSize: 13, color: 'rgba(255,255,255,.78)', lineHeight: 1.65, marginBottom: 14 }}>{pkg.desc}</div>
                 <div style={{ fontSize: 11, color: 'rgba(255,255,255,.72)', lineHeight: 1.6, fontStyle: 'italic' }}>{pkg.useCase}</div>
               </div>
@@ -441,7 +441,7 @@ export default function QofAIPage() {
             <a href={`mailto:${CONTACT.email}`} style={{ background: 'rgba(255,255,255,.95)', color: '#050e1e', border: 'none', padding: '10px 24px', fontSize: 12, fontWeight: 700, cursor: 'pointer', textDecoration: 'none' }}>
               Email Ian →
             </a>
-            <a href={CONTACT.bookingUrl} target="_blank" rel="noopener noreferrer" style={{ background: 'transparent', color: 'rgba(255,255,255,.6)', border: '1px solid rgba(255,255,255,.18)', padding: '10px 20px', fontSize: 12, fontWeight: 500, textDecoration: 'none' }}>
+            <a href={CONTACT.bookingUrl} target="_blank" rel="noopener noreferrer" style={{ background: 'transparent', color: 'rgba(255,255,255,.78)', border: '1px solid rgba(255,255,255,.22)', padding: '10px 20px', fontSize: 12, fontWeight: 500, textDecoration: 'none' }}>
               Book a Call
             </a>
           </div>

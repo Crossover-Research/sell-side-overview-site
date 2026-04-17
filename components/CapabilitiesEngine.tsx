@@ -92,7 +92,7 @@ export function CapabilitiesEngine() {
                     <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.72)', lineHeight: 1.65, marginBottom: 12 }}>{s.desc}</div>
                   )}
                   {!isActive && (
-                    <div style={{ fontSize: 12, color: 'rgba(255,255,255,.62)', lineHeight: 1.5 }}>{s.desc}</div>
+                    <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.72)', lineHeight: 1.55 }}>{s.desc}</div>
                   )}
                   <div style={{ display: 'flex', gap: 5, flexWrap: 'wrap', marginTop: 10 }}>
                     {s.tags.map((t, ti) => (
@@ -141,8 +141,8 @@ export function CapabilitiesEngine() {
               >
                 <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.1em', color: 'rgba(255,255,255,.55)', marginBottom: 10 }}>{cap.num}</div>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 26, fontWeight: 700, color: isActive ? 'rgba(130,175,255,.95)' : 'rgba(255,255,255,.85)', letterSpacing: '-.03em', lineHeight: 1, marginBottom: 6 }}>{cap.stat}</div>
-                <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: isActive ? 'rgba(45,212,160,.8)' : 'rgba(45,212,160,.5)', marginBottom: 8 }}>{cap.label}</div>
-                <div style={{ fontSize: 11, color: 'rgba(255,255,255,.62)', lineHeight: 1.55 }}>{cap.hook}</div>
+                <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: isActive ? 'rgba(45,212,160,.9)' : 'rgba(45,212,160,.68)', marginBottom: 8 }}>{cap.label}</div>
+                <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,.72)', lineHeight: 1.55 }}>{cap.hook}</div>
               </div>
             );
           })}

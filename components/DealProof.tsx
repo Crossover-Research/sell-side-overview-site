@@ -161,7 +161,7 @@ export function DealProof() {
           <h2 style={{ fontSize: 'clamp(22px,3vw,32px)', fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.025em', marginBottom: 6 }}>
             VoC Intelligence that drives outcomes.
           </h2>
-          <div style={{ fontSize: 13, color: 'rgba(255,255,255,.60)' }}>Three engagements. $11.2B in combined transaction value.</div>
+          <div style={{ fontSize: 13, color: 'rgba(255,255,255,.72)' }}>Three engagements. $11.2B in combined transaction value.</div>
         </div>
 
         {/* Tab selectors */}
@@ -273,7 +273,7 @@ export function DealProof() {
 
             {s.left.quote ? (
               <div style={{ flex: 1 }}>
-                <div style={{ fontSize: 12.5, fontStyle: 'italic', color: 'rgba(255,255,255,.6)', lineHeight: 1.75, borderLeft: '2px solid rgba(77,144,254,.28)', paddingLeft: 14, marginBottom: 10 }}>
+                <div style={{ fontSize: 13, fontStyle: 'italic', color: 'rgba(255,255,255,.82)', lineHeight: 1.75, borderLeft: '2px solid rgba(77,144,254,.28)', paddingLeft: 14, marginBottom: 10 }}>
                   {s.left.quote}
                 </div>
                 <div style={{ fontSize: 10, color: 'rgba(255,255,255,.70)', paddingLeft: 16 }}>{s.left.quoteAttr}</div>
