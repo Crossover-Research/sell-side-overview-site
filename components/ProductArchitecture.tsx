@@ -91,7 +91,7 @@ export function ProductArchitecture() {
         <div style={{ textAlign: 'center', marginBottom: 44, ...fadeIn(vis(1)) }}>
           <div className="ib-section-eyebrow" style={{ textAlign: 'center', marginBottom: 8 }}>Crossover Catalyst</div>
           <h2 style={{ fontSize: 'clamp(20px,3vw,28px)', fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.025em', marginBottom: 8 }}>
-            One evidence base. Every party draws from it.
+            One evidence base. Each party builds from it.
           </h2>
           <p style={{ fontSize: 13, color: 'rgba(255,255,255,.72)' }}>
             Collected independently. Uncoached by any party. The same verbatims power the mandate pitch, the CIM, and the IC memo.
