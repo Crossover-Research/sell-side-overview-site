@@ -235,7 +235,7 @@ export function DealProof() {
 
             {/* Size */}
             <div style={{ flex: 1 }}>
-              <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,.55)', marginBottom: 7 }}>
+              <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,.55)', marginBottom: 7 }}>
                 {deal.sizeLabel}
               </div>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: 44, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.04em', lineHeight: 1, marginBottom: 7 }}>
@@ -251,14 +251,14 @@ export function DealProof() {
 
             {/* Involvement */}
             <div>
-              <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,.70)', marginBottom: 5 }}>Involvement</div>
+              <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,.70)', marginBottom: 5 }}>Involvement</div>
               <div style={{ fontSize: 11, fontWeight: 600, color: 'rgba(45,212,160,.75)', letterSpacing: '.02em' }}>{deal.involvement}</div>
             </div>
           </div>
 
           {/* ── CENTRE: Primary ── */}
           <div style={{ ...fade, borderRight: '1px solid rgba(255,255,255,.07)', padding: '24px 28px', display: 'flex', flexDirection: 'column', gap: 14 }}>
-            <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.16em', textTransform: 'uppercase' as const, color: s.left.accentColor }}>
+            <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.16em', textTransform: 'uppercase' as const, color: s.left.accentColor }}>
               {s.left.label}
             </div>
 
@@ -286,7 +286,7 @@ export function DealProof() {
 
             {s.left.outcome && (
               <div style={{ background: s.left.outcomeBg, border: `1px solid ${s.left.outcomeBorder}`, padding: '10px 14px' }}>
-                <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,.55)', marginBottom: 5 }}>Outcome</div>
+                <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,.55)', marginBottom: 5 }}>Outcome</div>
                 <div style={{ fontSize: 12, fontWeight: 600, color: s.left.outcomeText, lineHeight: 1.4 }}>{s.left.outcome}</div>
               </div>
             )}
@@ -294,7 +294,7 @@ export function DealProof() {
 
           {/* ── RIGHT: Context/Counterpart ── */}
           <div style={{ ...fade, padding: '24px 28px', display: 'flex', flexDirection: 'column', gap: 14 }}>
-            <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.16em', textTransform: 'uppercase' as const, color: s.right.accentColor ?? 'rgba(255,255,255,.25)' }}>
+            <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.16em', textTransform: 'uppercase' as const, color: s.right.accentColor ?? 'rgba(255,255,255,.25)' }}>
               {s.right.label}
             </div>
 
@@ -318,8 +318,8 @@ export function DealProof() {
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 1, background: 'rgba(255,255,255,.05)', flex: 1 }}>
                   {s.right.stats.map((st: any, i: number) => (
                     <div key={i} style={{ padding: '14px 16px', background: 'rgba(6,14,28,.95)' }}>
-                      <div style={{ fontFamily: 'var(--font-mono)', fontSize: 18, fontWeight: 700, color: 'rgba(255,255,255,.85)', marginBottom: 4, letterSpacing: '-.02em' }}>{st.val}</div>
-                      <div style={{ fontSize: 9, color: 'rgba(255,255,255,.62)', lineHeight: 1.4, textTransform: 'uppercase' as const, letterSpacing: '.06em' }}>{st.label}</div>
+                      <div style={{ fontFamily: 'var(--font-mono)', fontSize: 22, fontWeight: 700, color: 'rgba(255,255,255,.92)', marginBottom: 5, letterSpacing: '-.02em' }}>{st.val}</div>
+                      <div style={{ fontSize: 11, color: 'rgba(255,255,255,.72)', lineHeight: 1.4, textTransform: 'uppercase' as const, letterSpacing: '.04em' }}>{st.label}</div>
                     </div>
                   ))}
                 </div>
@@ -332,7 +332,7 @@ export function DealProof() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 20, flex: 1 }}>
                   {s.right.parties.map((p: any, i: number) => (
                     <div key={i}>
-                      <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,.55)', marginBottom: 10 }}>{p.role}</div>
+                      <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,.55)', marginBottom: 10 }}>{p.role}</div>
                       <LogoImg src={p.logo} alt={p.name} height={24} invert={p.invert} />
                       {i < s.right.parties.length - 1 && (
                         <div style={{ height: 1, background: 'rgba(255,255,255,.05)', marginTop: 20 }} />
@@ -345,7 +345,7 @@ export function DealProof() {
 
             {s.right.outcome && (
               <div style={{ background: s.right.outcomeBg, border: `1px solid ${s.right.outcomeBorder}`, padding: '10px 14px', marginTop: 'auto' }}>
-                <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,.55)', marginBottom: 5 }}>Outcome</div>
+                <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,.55)', marginBottom: 5 }}>Outcome</div>
                 <div style={{ fontSize: 12, fontWeight: 600, color: s.right.outcomeText, lineHeight: 1.4 }}>{s.right.outcome}</div>
               </div>
             )}

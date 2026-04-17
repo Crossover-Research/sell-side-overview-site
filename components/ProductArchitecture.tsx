@@ -110,7 +110,7 @@ export function ProductArchitecture() {
             }}>
               <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 1, background: 'linear-gradient(90deg,transparent,rgba(77,144,254,.5),transparent)' }} />
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, marginBottom: 6 }}>
-                <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(77,144,254,.9)', background: 'rgba(77,144,254,.15)', border: '1px solid rgba(77,144,254,.3)', padding: '2px 8px' }}>Banker</span>
+                <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(77,144,254,.9)', background: 'rgba(77,144,254,.15)', border: '1px solid rgba(77,144,254,.3)', padding: '2px 8px' }}>Banker</span>
               </div>
               <div style={{ fontSize: 15, fontWeight: 700, color: 'rgba(255,255,255,.92)', marginBottom: 4 }}>Catalyst Mandate Deck</div>
               <div style={{ fontSize: 12, color: 'rgba(255,255,255,.70)' }}>Win the mandate with live customer verbatims instead of desk research.</div>
@@ -138,7 +138,7 @@ export function ProductArchitecture() {
                 ...fadeIn(vis(i < 2 ? 4 : 5), i % 2 === 1 ? 80 : 0),
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
-                  <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: p.color, background: p.bg, border: `1px solid ${p.border}`, padding: '2px 7px' }}>
+                  <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: p.color, background: p.bg, border: `1px solid ${p.border}`, padding: '2px 7px' }}>
                     {p.audience}
                   </span>
                 </div>

@@ -101,15 +101,15 @@ function TeaserModal({ asset, onClose, onRequest }: { asset: CatalystAsset; onCl
         <div style={{ padding:'20px 26px' }}>
           {isTransacted&&<div style={{ background:'rgba(45,212,160,.07)',border:'1px solid rgba(45,212,160,.2)',padding:'10px 14px',marginBottom:14,fontSize:12,color:'rgba(45,212,160,.85)',lineHeight:1.5 }}>This asset has transacted. Identity unblinded post-close.</div>}
           <div style={{ background:'rgba(77,144,254,.1)',border:'1px solid rgba(77,144,254,.2)',padding:'13px 16px',marginBottom:16 }}>
-            <div style={{ fontSize:9,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(130,175,255,.6)',marginBottom:6 }}>Investment Hook</div>
+            <div style={{ fontSize: 11,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(130,175,255,.6)',marginBottom:6 }}>Investment Hook</div>
             <p style={{ fontSize:13,color: 'rgba(255,255,255,.85)',lineHeight:1.65,margin:0 }}>{asset.hook}</p>
           </div>
           <div className="catalyst-modal-metrics" style={{ display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:7,marginBottom:16 }}>
             {asset.metrics.map((m,i)=>(
               <div key={i} style={{ background:'rgba(255,255,255,.04)',border:'1px solid rgba(255,255,255,.07)',padding:'9px 11px',textAlign:'center' }}>
-                <div style={{ fontSize:8,fontWeight:700,textTransform:'uppercase',letterSpacing:'.08em',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>{m.label}</div>
+                <div style={{ fontSize: 10,fontWeight:700,textTransform:'uppercase',letterSpacing:'.08em',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>{m.label}</div>
                 <div style={{ fontSize:15,fontWeight:700,color:'rgba(130,175,255,.95)',lineHeight:1,marginBottom:2 }}>{m.value}</div>
-                <div style={{ fontSize:9,color: 'rgba(255,255,255,.62)' }}>{m.context}</div>
+                <div style={{ fontSize: 11,color: 'rgba(255,255,255,.62)' }}>{m.context}</div>
               </div>
             ))}
           </div>
@@ -172,24 +172,24 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
         </div>
         <form onSubmit={submit} style={{ padding:'18px 22px',display:'flex',flexDirection:'column',gap:11 }}>
           <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:9 }}>
-            <div><label style={{ display:'block',fontSize:9,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>First Name *</label><input required style={inp} placeholder="Jordan" onChange={e=>set('firstName',e.target.value)} /></div>
-            <div><label style={{ display:'block',fontSize:9,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>Last Name *</label><input required style={inp} placeholder="Keller" onChange={e=>set('lastName',e.target.value)} /></div>
+            <div><label style={{ display:'block',fontSize: 11,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>First Name *</label><input required style={inp} placeholder="Jordan" onChange={e=>set('firstName',e.target.value)} /></div>
+            <div><label style={{ display:'block',fontSize: 11,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>Last Name *</label><input required style={inp} placeholder="Keller" onChange={e=>set('lastName',e.target.value)} /></div>
           </div>
-          <div><label style={{ display:'block',fontSize:9,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>Work Email *</label><input required type="email" style={inp} placeholder="jordan@bank.com" onChange={e=>set('email',e.target.value)} /></div>
+          <div><label style={{ display:'block',fontSize: 11,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>Work Email *</label><input required type="email" style={inp} placeholder="jordan@bank.com" onChange={e=>set('email',e.target.value)} /></div>
           <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:9 }}>
             <div>
-              <label style={{ display:'block',fontSize:9,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>Firm *</label>
+              <label style={{ display:'block',fontSize: 11,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>Firm *</label>
               {!firmOther
                 ? <SelectField label="" options={BANKS} value={form.firm} onChange={v=>handleFirmSelect(v)} placeholder="Select firm..." required />
                 : <>
                     <input required autoFocus style={inp} placeholder="Firm name" onChange={e=>set('firm',e.target.value)} />
-                    <button type="button" onClick={()=>setFirmOther(false)} style={{ fontSize:9,color: 'rgba(255,255,255,.62)',background:'none',border:'none',cursor:'pointer',marginTop:4,padding:0 }}>← Back to list</button>
+                    <button type="button" onClick={()=>setFirmOther(false)} style={{ fontSize: 11,color: 'rgba(255,255,255,.62)',background:'none',border:'none',cursor:'pointer',marginTop:4,padding:0 }}>← Back to list</button>
                   </>
               }
             </div>
             <SelectField label="Org Type" options={ORG} value={form.orgType} onChange={v=>set('orgType',v)} required />
           </div>
-          <div><label style={{ display:'block',fontSize:9,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>Target Company or Mandate</label><input style={inp} placeholder="Company name" onChange={e=>set('mandate',e.target.value)} /></div>
+          <div><label style={{ display:'block',fontSize: 11,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>Target Company or Mandate</label><input style={inp} placeholder="Company name" onChange={e=>set('mandate',e.target.value)} /></div>
           {error&&<div style={{ fontSize:12,color:'#f87171',background:'rgba(248,113,113,.08)',border:'1px solid rgba(248,113,113,.2)',padding:'8px 12px' }}>{error}</div>}
           <button type="submit" style={{ width:'100%',background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'10px',fontSize:13,fontWeight:700,cursor:'pointer',marginTop:2 }}>Submit &rarr;</button>
         </form>
@@ -328,7 +328,7 @@ export default function CatalystPage() {
           <div style={{ marginBottom:32,border:'1px solid rgba(77,144,254,.15)',background:'rgba(77,144,254,.04)',padding:'28px 32px' }}>
             <div className="catalyst-proof-grid" style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:48,alignItems:'start' }}>
               <div>
-                <div style={{ fontSize:9,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(77,144,254,.7)',marginBottom:10 }}>Proof &mdash; Both Sides of One Deal</div>
+                <div style={{ fontSize: 11,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(77,144,254,.7)',marginBottom:10 }}>Proof &mdash; Both Sides of One Deal</div>
                 <p style={{ fontSize:14,fontWeight:300,color: 'rgba(255,255,255,.55)',lineHeight:1.75,marginBottom:4,fontStyle:'italic' }}>
                   &ldquo;The same infrastructure that wins mandates for bankers identifies the next great asset for funds. It only works because the data is never curated for either side.&rdquo;
                 </p>
@@ -350,7 +350,7 @@ export default function CatalystPage() {
               </div>
               <div style={{ display:'flex',gap:6,alignItems:'center' }}>
                 {(['all','active','new','transacted'] as FilterType[]).map(f=>(
-                  <button key={f} onClick={()=>setFilter(f)} style={{ padding:'5px 13px',fontSize:11,fontWeight:600,background:filter===f?'rgba(255,255,255,.12)':'transparent',border:'1px solid rgba(255,255,255,.12)',color:filter===f?'rgba(255,255,255,.9)':'rgba(255,255,255,.4)',cursor:'pointer',textTransform:'capitalize' }}>
+                  <button key={f} onClick={()=>setFilter(f)} style={{ padding:'5px 13px',fontSize:11,fontWeight:600,background:filter===f?'rgba(255,255,255,.12)':'transparent',border:'1px solid rgba(255,255,255,.12)',color:filter===f?'rgba(255,255,255,.95)':'rgba(255,255,255,.62)',cursor:'pointer',textTransform:'capitalize' }}>
                     {f==='all'?`All (${CATALYST_ASSETS.length})`:f==='transacted'?'Transacted':f.charAt(0).toUpperCase()+f.slice(1)}
                   </button>
                 ))}
@@ -362,7 +362,7 @@ export default function CatalystPage() {
                 <thead>
                   <tr style={{ borderBottom:'2px solid rgba(255,255,255,.1)' }}>
                     {['Asset','Category','Key Metric','Status',''].map((h,i)=>(
-                      <th key={i} style={{ padding:'9px 14px',textAlign:'left',fontSize:9,fontWeight:700,textTransform:'uppercase',letterSpacing:'.1em',color: 'rgba(255,255,255,.62)',whiteSpace:'nowrap' }}>{h}</th>
+                      <th key={i} style={{ padding:'9px 14px',textAlign:'left',fontSize: 11,fontWeight:700,textTransform:'uppercase',letterSpacing:'.1em',color: 'rgba(255,255,255,.62)',whiteSpace:'nowrap' }}>{h}</th>
                     ))}
                   </tr>
                 </thead>
@@ -378,15 +378,15 @@ export default function CatalystPage() {
                         onMouseLeave={e=>(e.currentTarget.style.background='transparent')}>
                         <td style={{ padding:'12px 14px' }}><AssetNameCell asset={a} isFirst={i===firstTransactedIdx} /></td>
                         <td style={{ padding:'12px 14px' }}>
-                          <div style={{ fontSize:12,color: 'rgba(255,255,255,.6)' }}>{a.category}</div>
-                          <div style={{ fontSize:10,color: 'rgba(255,255,255,.72)',fontStyle:'italic' }}>{a.subtitle}</div>
+                          <div style={{ fontSize:12,color: 'rgba(255,255,255,.75)' }}>{a.category}</div>
+                          <div style={{ fontSize:11,color: 'rgba(255,255,255,.72)',fontStyle:'italic' }}>{a.subtitle}</div>
                         </td>
                         <td style={{ padding:'12px 14px',fontSize:12,fontWeight:600,color:'rgba(130,175,255,.8)',fontFamily:'JetBrains Mono,monospace' }}>{a.keyMetric}</td>
                         <td style={{ padding:'12px 14px' }}>
-                          <span style={{ fontSize:9,fontWeight:700,color:s.color,background:s.bg,border:`1px solid ${s.border}`,padding:'3px 9px',letterSpacing:'.06em',textTransform:'uppercase',whiteSpace:'nowrap' }}>{s.label}</span>
+                          <span style={{ fontSize: 11,fontWeight:700,color:s.color,background:s.bg,border:`1px solid ${s.border}`,padding:'3px 9px',letterSpacing:'.06em',textTransform:'uppercase',whiteSpace:'nowrap' }}>{s.label}</span>
                         </td>
                         <td style={{ padding:'12px 14px' }}>
-                          <button onClick={e=>{e.stopPropagation();isTransacted?setSelectedAsset(a):setRequestOpen(true);}} style={{ background:'rgba(255,255,255,.07)',border:'1px solid rgba(255,255,255,.12)',color: 'rgba(255,255,255,.6)',padding:'5px 12px',fontSize:11,cursor:'pointer',whiteSpace:'nowrap' }}>
+                          <button onClick={e=>{e.stopPropagation();isTransacted?setSelectedAsset(a):setRequestOpen(true);}} style={{ background:'rgba(255,255,255,.07)',border:'1px solid rgba(255,255,255,.12)',color: 'rgba(255,255,255,.75)',padding:'5px 12px',fontSize:11,cursor:'pointer',whiteSpace:'nowrap' }}>
                             {isTransacted?'View Research':'Request Access'}
                           </button>
                         </td>

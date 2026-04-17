@@ -86,15 +86,15 @@ export function AudienceWithout() {
         <div style={{ border:'1px solid rgba(255,255,255,.1)', overflow:'hidden' }}>
           <div style={{ display:'grid', gridTemplateColumns:'72px 1fr 40px 1fr', background:'rgba(255,255,255,.03)', borderBottom:'1px solid rgba(255,255,255,.08)' }}>
             <div />
-            <div style={{ padding:'8px 16px', fontSize:9, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase' as const, color: 'rgba(255,255,255,.70)' }}>Without Crossover</div>
+            <div style={{ padding:'8px 16px', fontSize: 11, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase' as const, color: 'rgba(255,255,255,.70)' }}>Without Crossover</div>
             <div />
-            <div style={{ padding:'8px 16px', fontSize:9, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase' as const, color:d.accent }}>With Crossover</div>
+            <div style={{ padding:'8px 16px', fontSize: 11, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase' as const, color:d.accent }}>With Crossover</div>
           </div>
 
           {d.rows.map((row, i) => (
             <div key={i} style={{ display:'grid', gridTemplateColumns:'72px 1fr 40px 1fr', borderBottom: i < d.rows.length-1 ? '1px solid rgba(255,255,255,.05)' : 'none', background: i === d.rows.length-1 ? 'rgba(255,255,255,.02)' : 'rgba(6,14,28,.95)' }}>
               <div style={{ padding:'16px 12px', display:'flex', alignItems:'center', borderRight:'1px solid rgba(255,255,255,.05)' }}>
-                <span style={{ fontSize:8, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase' as const, color: 'rgba(255,255,255,.62)', background:'rgba(255,255,255,.06)', padding:'2px 6px', whiteSpace:'nowrap' as const }}>{row.label}</span>
+                <span style={{ fontSize: 10, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase' as const, color: 'rgba(255,255,255,.62)', background:'rgba(255,255,255,.06)', padding:'2px 6px', whiteSpace:'nowrap' as const }}>{row.label}</span>
               </div>
               <div style={{ padding:'16px 20px', fontSize:12.5, color: i === d.rows.length-1 ? 'rgba(255,255,255,.55)' : 'rgba(255,255,255,.70)', lineHeight:1.65, fontStyle: i === d.rows.length-1 ? 'italic' : 'normal', borderRight:'1px solid rgba(255,255,255,.05)' }}>
                 {row.without}
@@ -113,7 +113,7 @@ export function AudienceWithout() {
         <div style={{ background:'rgba(6,14,28,.95)', border:'1px solid rgba(255,255,255,.08)', borderTop:'none', padding:'16px 24px', display:'flex', alignItems:'center', gap:24 }}>
           <div style={{ flexShrink:0 }}>
             <div style={{ fontFamily:'var(--font-mono)', fontSize:24, fontWeight:700, color:d.accent, lineHeight:1, letterSpacing:'-.02em' }}>{d.outcome.stat}</div>
-            <div style={{ fontSize:8, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase' as const, color: 'rgba(255,255,255,.72)', marginTop:3 }}>{d.outcome.statLabel}</div>
+            <div style={{ fontSize: 10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase' as const, color: 'rgba(255,255,255,.72)', marginTop:3 }}>{d.outcome.statLabel}</div>
           </div>
           <div style={{ width:1, height:36, background:'rgba(255,255,255,.08)', flexShrink:0 }} />
           <div style={{ fontSize:12, color: 'rgba(255,255,255,.70)', lineHeight:1.65 }}>{d.outcome.desc}</div>

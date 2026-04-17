@@ -20,7 +20,7 @@ export function SelectField({ label, options, value, onChange, placeholder = 'Se
     return () => document.removeEventListener('mousedown', handler);
   }, []);
 
-  const lbl: React.CSSProperties = { display:'block', fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.62)', marginBottom:4 };
+  const lbl: React.CSSProperties = { display:'block', fontSize: 11, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.62)', marginBottom:4 };
 
   return (
     <div ref={ref} style={{ position:'relative' }}>

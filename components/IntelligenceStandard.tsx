@@ -70,7 +70,7 @@ export function IntelligenceStandard() {
           {/* SOURCE */}
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 0 }}>
             <div style={{ width: 360, ...nodeStyle(vis(1), vis(2)) }}>
-              <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(77,144,254,.7)', marginBottom: 5 }}>Crossover Research · Intelligence Infrastructure</div>
+              <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(77,144,254,.7)', marginBottom: 5 }}>Crossover Research · Intelligence Infrastructure</div>
               <div style={{ fontSize: 15, fontWeight: 700, color: 'rgba(255,255,255,.92)', marginBottom: 3 }}>Verbatim Truth Layer</div>
               <div style={{ fontSize: 12, color: 'rgba(255,255,255,.72)', fontStyle: 'italic' }}>The verbatim truth layer that all parties can rely on.</div>
             </div>
@@ -84,7 +84,7 @@ export function IntelligenceStandard() {
           {/* BANKER */}
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 0 }}>
             <div style={{ width: 360, ...nodeStyle(vis(3), vis(3)), borderColor: vis(3) ? 'rgba(77,144,254,.5)' : 'rgba(255,255,255,.08)', background: vis(3) ? 'rgba(77,144,254,.1)' : 'rgba(6,14,28,.95)' }}>
-              <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(77,144,254,.85)', marginBottom: 5 }}>Bankers · Stage 01</div>
+              <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(77,144,254,.85)', marginBottom: 5 }}>Bankers · Stage 01</div>
               <div style={{ fontSize: 15, fontWeight: 700, color: 'rgba(255,255,255,.92)', marginBottom: 3 }}>Mandate pitch deck</div>
               <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,.72)' }}>Walk in first. Walk in with proof no competing bank has.</div>
             </div>
@@ -106,13 +106,13 @@ export function IntelligenceStandard() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
             {/* Operators */}
             <div style={{ ...nodeStyle(vis(5), false), borderColor: vis(5) ? 'rgba(45,212,160,.3)' : 'rgba(255,255,255,.06)' }}>
-              <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(45,212,160,.8)', marginBottom: 5 }}>Operators · Stage 02</div>
+              <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(45,212,160,.8)', marginBottom: 5 }}>Operators · Stage 02</div>
               <div style={{ fontSize: 14, fontWeight: 700, color: 'rgba(255,255,255,.88)', marginBottom: 4 }}>Preemptive CIM</div>
               <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,.68)', lineHeight: 1.6 }}>Weaknesses surfaced and closed before buyers use them as leverage.</div>
             </div>
             {/* Investors */}
             <div style={{ ...nodeStyle(vis(6), false), borderColor: vis(6) ? 'rgba(245,158,11,.3)' : 'rgba(255,255,255,.06)' }}>
-              <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(245,158,11,.8)', marginBottom: 5 }}>Investors · Stage 03</div>
+              <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(245,158,11,.8)', marginBottom: 5 }}>Investors · Stage 03</div>
               <div style={{ fontSize: 14, fontWeight: 700, color: 'rgba(255,255,255,.88)', marginBottom: 4 }}>Secondary diligence</div>
               <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,.68)', lineHeight: 1.6 }}>Stress-test the thesis 6–12 months before the process opens.</div>
             </div>

@@ -29,7 +29,7 @@ const ROWS = [
 
 export function MarketProblem() {
   return (
-    <section style={{ padding:'64px 0', background:'rgba(255,255,255,.015)', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
+    <section style={{ padding:'72px 0', background:'rgba(255,255,255,.04)', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
       <div style={{ maxWidth:'var(--content-max)', margin:'0 auto', padding:'0 var(--content-pad)' }}>
 
         {/* Header */}
@@ -49,14 +49,14 @@ export function MarketProblem() {
           {/* Header row */}
           <div style={{ display:'grid', gridTemplateColumns:'120px 1fr 1fr', background:'rgba(255,255,255,.04)', borderBottom:'1px solid rgba(255,255,255,.08)' }}>
             <div style={{ padding:'10px 20px' }} />
-            <div style={{ padding:'10px 20px', fontSize:9, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color: 'rgba(255,255,255,.62)', borderLeft:'1px solid rgba(255,255,255,.06)' }}>What They Do</div>
-            <div style={{ padding:'10px 20px', fontSize:9, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color: 'rgba(255,255,255,.62)', borderLeft:'1px solid rgba(255,255,255,.06)' }}>What It Costs</div>
+            <div style={{ padding:'10px 20px', fontSize: 11, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color: 'rgba(255,255,255,.62)', borderLeft:'1px solid rgba(255,255,255,.06)' }}>What They Do</div>
+            <div style={{ padding:'10px 20px', fontSize: 11, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color: 'rgba(255,255,255,.62)', borderLeft:'1px solid rgba(255,255,255,.06)' }}>What It Costs</div>
           </div>
 
           {ROWS.map((row, i) => (
             <div key={i} style={{ display:'grid', gridTemplateColumns:'120px 1fr 1fr', borderBottom: i < ROWS.length-1 ? '1px solid rgba(255,255,255,.06)' : 'none', background:'rgba(6,14,28,.95)' }}>
               <div style={{ padding:'22px 20px', display:'flex', alignItems:'flex-start' }}>
-                <span style={{ fontSize:9, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase', color:row.audienceColor, background:row.audienceBg, padding:'3px 10px', display:'inline-block' }}>
+                <span style={{ fontSize: 11, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase', color:row.audienceColor, background:row.audienceBg, padding:'3px 10px', display:'inline-block' }}>
                   {row.audience}
                 </span>
               </div>

@@ -65,24 +65,24 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
         </div>
         <form onSubmit={submit} style={{ padding:'18px 22px',display:'flex',flexDirection:'column',gap:11 }}>
           <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:9 }}>
-            <div><label style={{ display:'block',fontSize:9,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>First Name *</label><input required style={inp} placeholder="Jordan" onChange={e=>set('firstName',e.target.value)} /></div>
-            <div><label style={{ display:'block',fontSize:9,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>Last Name *</label><input required style={inp} placeholder="Keller" onChange={e=>set('lastName',e.target.value)} /></div>
+            <div><label style={{ display:'block',fontSize: 11,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>First Name *</label><input required style={inp} placeholder="Jordan" onChange={e=>set('firstName',e.target.value)} /></div>
+            <div><label style={{ display:'block',fontSize: 11,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>Last Name *</label><input required style={inp} placeholder="Keller" onChange={e=>set('lastName',e.target.value)} /></div>
           </div>
-          <div><label style={{ display:'block',fontSize:9,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>Work Email *</label><input required type="email" style={inp} placeholder="jordan@bank.com" onChange={e=>set('email',e.target.value)} /></div>
+          <div><label style={{ display:'block',fontSize: 11,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>Work Email *</label><input required type="email" style={inp} placeholder="jordan@bank.com" onChange={e=>set('email',e.target.value)} /></div>
           <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:9 }}>
             <div>
               {!firmOther
                 ? <SelectField label="Firm" options={BANKS} value={form.firm} onChange={v=>handleFirmSelect(v)} placeholder="Select firm..." required />
                 : <div>
-                    <label style={{ display:'block',fontSize:9,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>Firm *</label>
+                    <label style={{ display:'block',fontSize: 11,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>Firm *</label>
                     <input required autoFocus style={inp} placeholder="Firm name" onChange={e=>set('firm',e.target.value)} />
-                    <button type="button" onClick={()=>setFirmOther(false)} style={{ fontSize:9,color: 'rgba(255,255,255,.62)',background:'none',border:'none',cursor:'pointer',marginTop:4,padding:0 }}>← Back to list</button>
+                    <button type="button" onClick={()=>setFirmOther(false)} style={{ fontSize: 11,color: 'rgba(255,255,255,.62)',background:'none',border:'none',cursor:'pointer',marginTop:4,padding:0 }}>← Back to list</button>
                   </div>
               }
             </div>
             <SelectField label="Org Type" options={ORG} value={form.orgType} onChange={v=>set('orgType',v)} required />
           </div>
-          <div><label style={{ display:'block',fontSize:9,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>Target Company or Mandate</label><input style={inp} placeholder="Company name" onChange={e=>set('mandate',e.target.value)} /></div>
+          <div><label style={{ display:'block',fontSize: 11,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>Target Company or Mandate</label><input style={inp} placeholder="Company name" onChange={e=>set('mandate',e.target.value)} /></div>
           {error && <div style={{ fontSize:12,color:'#f87171',background:'rgba(248,113,113,.08)',border:'1px solid rgba(248,113,113,.2)',padding:'8px 12px' }}>{error}</div>}
           <button type="submit" style={{ width:'100%',background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'10px',fontSize:13,fontWeight:700,cursor:'pointer',marginTop:2 }}>Submit &rarr;</button>
         </form>
@@ -102,7 +102,7 @@ function SampleCard({ href, type, badge, logoSrc, logoAlt, logoInvert, cta }: {
     <a href={href} className="ib-sample-card" style={{ position:'relative' }}>
       <div style={{
         position:'absolute', top:14, right:14,
-        fontSize:8, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase',
+        fontSize: 10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase',
         color:'rgba(77,144,254,.95)', background:'rgba(77,144,254,.12)',
         border:'1px solid rgba(77,144,254,.3)', padding:'2px 8px',
       }}>{badge}</div>
@@ -152,13 +152,13 @@ export default function IntelligencePage() {
             >
               <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,transparent,rgba(77,144,254,.35),transparent)' }} />
               <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:16 }}>
-                <div style={{ fontSize:8, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(77,144,254,.9)', background:'rgba(77,144,254,.12)', border:'1px solid rgba(77,144,254,.3)', padding:'2px 8px' }}>Client Proposal</div>
-                <div style={{ fontSize:8, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(77,144,254,.7)', padding:'2px 0' }}>Live Portal ↗</div>
+                <div style={{ fontSize: 10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(77,144,254,.9)', background:'rgba(77,144,254,.12)', border:'1px solid rgba(77,144,254,.3)', padding:'2px 8px' }}>Client Proposal</div>
+                <div style={{ fontSize: 10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(77,144,254,.7)', padding:'2px 0' }}>Live Portal ↗</div>
               </div>
               <div style={{ fontSize:17, fontWeight:700, color: 'rgba(255,255,255,.92)', marginBottom:8, letterSpacing:'-.02em' }}>Volie</div>
               <div style={{ display:'flex', gap:5, flexWrap:'wrap', marginBottom:16 }}>
                 {['Targeted Outreach','Cortex AI','Operator Intelligence','Shareable'].map((t,i)=>(
-                  <span key={i} style={{ fontSize:9, fontWeight:600, color:'rgba(130,175,255,.6)', background:'rgba(77,144,254,.07)', border:'1px solid rgba(77,144,254,.15)', padding:'2px 7px' }}>{t}</span>
+                  <span key={i} style={{ fontSize: 11, fontWeight:600, color:'rgba(130,175,255,.8)', background:'rgba(77,144,254,.07)', border:'1px solid rgba(77,144,254,.15)', padding:'2px 7px' }}>{t}</span>
                 ))}
               </div>
               <div style={{ fontSize:11, fontWeight:700, color:'rgba(130,175,255,.8)', marginTop:'auto' }}>View Live Portal ↗</div>
@@ -174,13 +174,13 @@ export default function IntelligencePage() {
             >
               <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent)' }} />
               <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:16 }}>
-                <div style={{ fontSize:8, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(45,212,160,.9)', background:'rgba(45,212,160,.08)', border:'1px solid rgba(45,212,160,.25)', padding:'2px 8px' }}>Sample VoC</div>
-                <div style={{ fontSize:8, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.70)', padding:'2px 0' }}>Full Report ↗</div>
+                <div style={{ fontSize: 10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(45,212,160,.9)', background:'rgba(45,212,160,.08)', border:'1px solid rgba(45,212,160,.25)', padding:'2px 8px' }}>Sample VoC</div>
+                <div style={{ fontSize: 10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.70)', padding:'2px 0' }}>Full Report ↗</div>
               </div>
               <div style={{ fontSize:17, fontWeight:700, color: 'rgba(255,255,255,.92)', marginBottom:8, letterSpacing:'-.02em' }}>Intelligence Report + GTM Playbook</div>
               <div style={{ display:'flex', gap:5, flexWrap:'wrap', marginBottom:16 }}>
                 {['Full Report','GTM Playbook','Response Carve-Out','Underlying Data File'].map((t,i)=>(
-                  <span key={i} style={{ fontSize:9, fontWeight:600, color: 'rgba(255,255,255,.55)', background:'rgba(255,255,255,.05)', border:'1px solid rgba(255,255,255,.08)', padding:'2px 7px' }}>{t}</span>
+                  <span key={i} style={{ fontSize: 11, fontWeight:600, color: 'rgba(255,255,255,.55)', background:'rgba(255,255,255,.05)', border:'1px solid rgba(255,255,255,.08)', padding:'2px 7px' }}>{t}</span>
                 ))}
               </div>
               <div style={{ fontSize:11, fontWeight:700, color: 'rgba(255,255,255,.6)', marginTop:'auto' }}>View Sample Report ↗</div>
@@ -217,7 +217,7 @@ export default function IntelligencePage() {
                 {(['transacted','active','new'] as const).map(s => {
                   const n = CATALYST_ASSETS.filter(a => a.status === s).length;
                   const cfg = { transacted:{ color:'rgba(180,180,200,.6)', label:'Closed' }, active:{ color:'rgba(45,212,160,.8)', label:'Active' }, new:{ color:'rgba(245,158,11,.8)', label:'New' } };
-                  return n > 0 ? <span key={s} style={{ fontSize:9, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase' as const, color:cfg[s].color }}>{n} {cfg[s].label}</span> : null;
+                  return n > 0 ? <span key={s} style={{ fontSize: 11, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase' as const, color:cfg[s].color }}>{n} {cfg[s].label}</span> : null;
                 })}
               </div>
               <div className="ib-sample-link" style={{ marginTop:'auto' }}>Browse Library &rarr;</div>

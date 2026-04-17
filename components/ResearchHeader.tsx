@@ -62,7 +62,7 @@ export function ResearchHeader({ tab }: ResearchHeaderProps) {
                 alt={cfg.company}
                 style={{ height: 20, width: 'auto', maxWidth: 150, filter: cfg.invertLogo ? 'brightness(0) invert(1)' : 'none', opacity: cfg.invertLogo ? .85 : 1, flexShrink: 0 }}
               />
-              <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase' as const, color: cfg.color, background: `${cfg.color}18`, border: `1px solid ${cfg.color}40`, padding: '1px 7px', flexShrink: 0 }}>
+              <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase' as const, color: cfg.color, background: `${cfg.color}18`, border: `1px solid ${cfg.color}40`, padding: '1px 7px', flexShrink: 0 }}>
                 Catalyst Study
               </span>
             </div>
@@ -79,7 +79,7 @@ export function ResearchHeader({ tab }: ResearchHeaderProps) {
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: 15, fontWeight: 700, color: 'rgba(255,255,255,.88)', lineHeight: 1, letterSpacing: '-.01em', marginBottom: 3 }}>
                 {k.val}
               </div>
-              <div style={{ fontSize: 9, fontWeight: 600, textTransform: 'uppercase' as const, letterSpacing: '.1em', color: 'rgba(255,255,255,.72)', whiteSpace: 'nowrap' as const }}>
+              <div style={{ fontSize: 11, fontWeight: 600, textTransform: 'uppercase' as const, letterSpacing: '.1em', color: 'rgba(255,255,255,.72)', whiteSpace: 'nowrap' as const }}>
                 {k.lbl}
               </div>
             </div>
