@@ -164,35 +164,23 @@ export function DealProof() {
           <div style={{ fontSize: 13, color: 'rgba(255,255,255,.72)' }}>Three engagements. $11.2B in combined transaction value.</div>
         </div>
 
-        {/* Tab selectors */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: 8, marginBottom: 20 }}>
-          {DEALS.map((d, i) => (
+        {/* Tab selectors — dots only, timed rotation */}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: 12, marginBottom: 20 }}>
+          {DEALS.map((_, i) => (
             <button
               key={i}
               onClick={() => goTo(i)}
               style={{
-                display: 'flex', alignItems: 'center', gap: 8,
-                padding: '6px 16px',
-                border: `1px solid ${active === i ? 'rgba(130,175,255,.35)' : 'rgba(255,255,255,.09)'}`,
-                background: active === i ? 'rgba(77,144,254,.08)' : 'transparent',
-                borderRadius: 3,
+                width: active === i ? 28 : 8,
+                height: 8,
+                borderRadius: 4,
+                padding: 0,
+                border: 'none',
+                background: active === i ? 'rgba(130,175,255,.85)' : 'rgba(255,255,255,.25)',
                 cursor: 'pointer',
-                transition: 'all .2s ease',
+                transition: 'all .3s ease',
               }}
-            >
-              <span style={{
-                width: 5, height: 5, borderRadius: '50%',
-                background: active === i ? 'rgba(130,175,255,.9)' : 'rgba(255,255,255,.35)',
-                transition: 'background .2s ease',
-                flexShrink: 0,
-              }} />
-              <span style={{
-                fontSize: 10, fontWeight: 700, letterSpacing: '.08em',
-                textTransform: 'uppercase' as const,
-                color: active === i ? 'rgba(255,255,255,.9)' : 'rgba(255,255,255,.58)',
-                transition: 'color .2s ease',
-              }}>{d.company}</span>
-            </button>
+            />
           ))}
         </div>
 

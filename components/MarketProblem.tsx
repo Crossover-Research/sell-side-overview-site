@@ -32,48 +32,42 @@ export function MarketProblem() {
     <section style={{ padding:'72px 0', background:'rgba(255,255,255,.04)', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
       <div style={{ maxWidth:'var(--content-max)', margin:'0 auto', padding:'0 var(--content-pad)' }}>
 
-        {/* Header */}
-        <div style={{ textAlign:'center', marginBottom:36 }}>
-          <h2 style={{ fontSize:'clamp(20px,3vw,30px)', fontWeight:700, color: 'rgba(255,255,255,.92)', letterSpacing:'-.025em', lineHeight:1.2, marginBottom:10 }}>
-            Private markets are structurally broken.<br />
-            <span style={{ color: 'rgba(255,255,255,.70)', fontWeight:400 }}>Everyone knows it. Nobody wants to admit it.</span>
-          </h2>
-          <p style={{ fontSize:13, color: 'rgba(255,255,255,.60)', lineHeight:1.7 }}>
-            Bankers coach operators to glorify. Investors assume everything is curated.<br />
-            Every party enters the room working from a different version of the truth.
-          </p>
-        </div>
-
-        {/* Table */}
-        <div style={{ border:'1px solid rgba(255,255,255,.1)', overflow:'hidden' }}>
+        {/* Table first */}
+        <div style={{ border:'1px solid rgba(255,255,255,.1)', overflow:'hidden', marginBottom:20 }}>
           {/* Header row */}
-          <div style={{ display:'grid', gridTemplateColumns:'120px 1fr 1fr', background:'rgba(255,255,255,.04)', borderBottom:'1px solid rgba(255,255,255,.08)' }}>
-            <div style={{ padding:'10px 20px' }} />
-            <div style={{ padding:'10px 20px', fontSize: 11, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color: 'rgba(255,255,255,.62)', borderLeft:'1px solid rgba(255,255,255,.06)' }}>What They Do</div>
-            <div style={{ padding:'10px 20px', fontSize: 11, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color: 'rgba(255,255,255,.62)', borderLeft:'1px solid rgba(255,255,255,.06)' }}>What It Costs</div>
+          <div style={{ display:'grid', gridTemplateColumns:'120px 1fr 1fr', background:'rgba(255,255,255,.06)', borderBottom:'1px solid rgba(255,255,255,.1)' }}>
+            <div style={{ padding:'12px 20px' }} />
+            <div style={{ padding:'12px 20px', fontSize:12, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase' as const, color:'rgba(255,255,255,.92)', borderLeft:'1px solid rgba(255,255,255,.08)' }}>What They Do</div>
+            <div style={{ padding:'12px 20px', fontSize:12, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase' as const, color:'rgba(255,255,255,.92)', borderLeft:'1px solid rgba(255,255,255,.08)' }}>What It Costs</div>
           </div>
 
           {ROWS.map((row, i) => (
-            <div key={i} style={{ display:'grid', gridTemplateColumns:'120px 1fr 1fr', borderBottom: i < ROWS.length-1 ? '1px solid rgba(255,255,255,.06)' : 'none', background:'rgba(6,14,28,.95)' }}>
-              <div style={{ padding:'22px 20px', display:'flex', alignItems:'flex-start' }}>
-                <span style={{ fontSize: 11, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase', color:row.audienceColor, background:row.audienceBg, padding:'3px 10px', display:'inline-block' }}>
+            <div key={i} style={{ display:'grid', gridTemplateColumns:'120px 1fr 1fr', borderBottom: i < ROWS.length-1 ? '1px solid rgba(255,255,255,.07)' : 'none', background:'rgba(6,14,28,.95)' }}>
+              <div style={{ padding:'24px 20px', display:'flex', alignItems:'flex-start' }}>
+                <span style={{ fontSize:11, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase' as const, color:row.audienceColor, background:row.audienceBg, padding:'3px 10px', display:'inline-block' }}>
                   {row.audience}
                 </span>
               </div>
-              <div style={{ padding:'22px 20px', borderLeft:'1px solid rgba(255,255,255,.06)', fontSize:12.5, color: 'rgba(255,255,255,.72)', lineHeight:1.7 }}>
+              <div style={{ padding:'24px 20px', borderLeft:'1px solid rgba(255,255,255,.06)', fontSize:13, color:'rgba(255,255,255,.82)', lineHeight:1.75 }}>
                 {row.what}
               </div>
-              <div style={{ padding:'22px 20px', borderLeft:'1px solid rgba(255,255,255,.06)' }}>
-                <div style={{ fontSize:12.5, color: 'rgba(255,255,255,.70)', lineHeight:1.7, marginBottom:8 }}>{row.cost}</div>
-                <div style={{ fontSize:12.5, fontWeight:600, color:'rgba(245,158,11,.85)', lineHeight:1.6 }}>{row.costBold}</div>
+              <div style={{ padding:'24px 20px', borderLeft:'1px solid rgba(255,255,255,.06)' }}>
+                <div style={{ fontSize:13, color:'rgba(255,255,255,.82)', lineHeight:1.75, marginBottom:10 }}>{row.cost}</div>
+                <div style={{ fontSize:13, fontWeight:600, color:'rgba(245,158,11,.9)', lineHeight:1.6 }}>{row.costBold}</div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Footer line */}
-        <div style={{ textAlign:'center', marginTop:20, fontSize:13, color: 'rgba(255,255,255,.75)', fontStyle:'italic' }}>
-          Every party works from a different version of the truth. Crossover is the one record none of them produced — and all of them rely on.
+        {/* Header below table */}
+        <div style={{ textAlign:'center', marginBottom:0 }}>
+          <h2 style={{ fontSize:'clamp(20px,3vw,30px)', fontWeight:700, color:'rgba(255,255,255,.92)', letterSpacing:'-.025em', lineHeight:1.2, marginBottom:10 }}>
+            Private markets are structurally broken.<br />
+            <span style={{ color:'rgba(255,255,255,.70)', fontWeight:400 }}>Everyone knows it. Nobody wants to admit it.</span>
+          </h2>
+          <p style={{ fontSize:13, color:'rgba(255,255,255,.72)', lineHeight:1.7, fontStyle:'italic' }}>
+            Every party works from a different version of the truth. Crossover is the one record none of them produced — and all of them rely on.
+          </p>
         </div>
 
       </div>
