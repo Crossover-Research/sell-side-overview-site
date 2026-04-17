@@ -155,7 +155,7 @@ export default function QofAIPage() {
                 <span style={{ color: 'rgba(255,255,255,.68)', fontWeight: 300 }}>Assessment</span>
               </h1>
               <p style={{ fontSize: 15, color: 'rgba(255,255,255,.78)', lineHeight: 1.75, marginBottom: 28 }}>
-                Every PE fund and strategic acquirer now leads with: <em style={{ color: 'rgba(255,200,100,.8)', fontStyle: 'normal' }}>"Will this company be displaced by AI-native competition?"</em> Generic "AI-powered" claims create valuation discounts. Customer-validated positioning commands premium multiples.
+                Every PE fund and strategic acquirer now leads with: <em style={{ color: 'rgba(255,200,100,.8)', fontStyle: 'normal' }}>"Will this company be displaced by AI-native competition?"</em> Generic claims get discounted. Scores derived from actual customers — collected independently, uncoached — command premium multiples.
               </p>
               <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
                 <a href={`mailto:${CONTACT.email}`} style={{ background: 'rgba(255,255,255,.95)', color: '#050e1e', border: 'none', padding: '8px 20px', fontSize: 12, fontWeight: 700, cursor: 'pointer', textDecoration: 'none', display: 'inline-flex', alignItems: 'center' }}>
@@ -370,7 +370,7 @@ export default function QofAIPage() {
       {/* PACKAGES */}
       <section style={{ padding: '64px 0', background: 'linear-gradient(168deg,#050e1e 0%,#081628 100%)', borderBottom: '1px solid rgba(255,255,255,.07)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 36px' }}>
-          <div className="ib-section-eyebrow">Engagement Options</div>
+          <div className="ib-section-eyebrow">Assessment Packages</div>
           <h2 style={{ fontSize: 24, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.022em', marginBottom: 6, marginTop: 8 }}>Three packages. One methodology.</h2>
           <p style={{ fontSize: 13, color: 'rgba(255,255,255,.70)', marginBottom: 32 }}>
             Every package includes a visual scorecard, 25+ slide VoC report, customer verbatims, and CIM-ready positioning language.
@@ -435,7 +435,7 @@ export default function QofAIPage() {
             Pre-empt the objection.<br />Commission the Q of AI.
           </h2>
           <p style={{ fontSize: 13, color: 'rgba(255,255,255,.70)', lineHeight: 1.7, marginBottom: 28 }}>
-            Institutional buyers expect this level of diligence. AI Fortress quadrant companies command 15–25% valuation premiums. The research takes 3–4 weeks. Most processes don't give you that window twice.
+            Institutional buyers now expect AI diligence as standard. AI Fortress quadrant companies command 15–25% valuation premiums. The research takes 3–4 weeks. Every score derived from real customers — not internal benchmarks, not management spin.
           </p>
           <div style={{ display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href={`mailto:${CONTACT.email}`} style={{ background: 'rgba(255,255,255,.95)', color: '#050e1e', border: 'none', padding: '10px 24px', fontSize: 12, fontWeight: 700, cursor: 'pointer', textDecoration: 'none' }}>

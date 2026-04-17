@@ -21,7 +21,7 @@ export function HeroSection({ tab }: HeroSectionProps) {
 
         {/* Eyebrow */}
         <div style={{ fontSize:11, fontWeight:700, letterSpacing:'.22em', textTransform:'uppercase', color: 'rgba(255,255,255,.60)', marginBottom:28 }}>
-          The Crossover Intelligence Suite
+          Independent Research · Private Markets
         </div>
 
         {/* Divider line */}
@@ -38,9 +38,7 @@ export function HeroSection({ tab }: HeroSectionProps) {
           Our pitch enhancement work won <strong style={{ color: 'rgba(255,255,255,.82)', fontWeight:600 }}>J.P. Morgan</strong> the Nerdio mandate.
           Our deep dive research gave <strong style={{ color: 'rgba(255,255,255,.82)', fontWeight:600 }}>General Atlantic</strong> the conviction to invest $500M.
         </div>
-        <div style={{ fontSize:15, color: 'rgba(255,255,255,.68)', fontStyle:'italic', marginBottom:40 }}>
-          One deal. Both sides. Powered by Crossover Research.
-        </div>
+
 
 
 

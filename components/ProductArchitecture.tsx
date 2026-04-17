@@ -91,10 +91,10 @@ export function ProductArchitecture() {
         <div style={{ textAlign: 'center', marginBottom: 44, ...fadeIn(vis(1)) }}>
           <div className="ib-section-eyebrow" style={{ textAlign: 'center', marginBottom: 8 }}>Crossover Catalyst</div>
           <h2 style={{ fontSize: 'clamp(20px,3vw,28px)', fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.025em', marginBottom: 8 }}>
-            This is Crossover Catalyst.
+            One evidence base. Every party draws from it.
           </h2>
           <p style={{ fontSize: 13, color: 'rgba(255,255,255,.72)' }}>
-            The universal truth layer for private markets. Bankers win mandates. Operators control the narrative. Investors build conviction.
+            Collected independently. Uncoached by any party. The same verbatims power the mandate pitch, the CIM, and the IC memo.
           </p>
         </div>
 

@@ -159,7 +159,7 @@ export function DealProof() {
         <div style={{ textAlign: 'center', marginBottom: 28 }}>
           <div className="ib-section-eyebrow" style={{ textAlign: 'center', marginBottom: 8 }}>Proof of Impact</div>
           <h2 style={{ fontSize: 'clamp(22px,3vw,32px)', fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.025em', marginBottom: 6 }}>
-            VoC Intelligence that drives outcomes.
+            Independent evidence. Documented outcomes.
           </h2>
           <div style={{ fontSize: 13, color: 'rgba(255,255,255,.72)' }}>Three engagements. $11.2B in combined transaction value.</div>
         </div>

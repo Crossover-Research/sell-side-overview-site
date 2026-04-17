@@ -55,12 +55,12 @@ export function IntelligenceStandard() {
 
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: 48 }}>
-          <div className="ib-section-eyebrow" style={{ textAlign: 'center', marginBottom: 8 }}>The Standard</div>
+          <div className="ib-section-eyebrow" style={{ textAlign: 'center', marginBottom: 8 }}>The Evidence Layer</div>
           <h2 style={{ fontSize: 'clamp(20px,3vw,28px)', fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.025em', marginBottom: 10 }}>
-            One evidence base. Every party in the room.
+            Collected once. Used by all three.
           </h2>
           <p style={{ fontSize: 13, color: 'rgba(255,255,255,.68)', maxWidth: 560, margin: '0 auto' }}>
-            Customer verbatims collected independently. Uncoached. Defensible at IC. The mandate pitch deck is the baseline — the operator's CIM and the investor's diligence both draw from the same verbatim record.
+            Customer verbatims collected independently. Uncoached by any party. The same interviews power the mandate pitch, the operator's CIM, and the investor's IC memo.
           </p>
         </div>
 
@@ -72,7 +72,7 @@ export function IntelligenceStandard() {
             <div style={{ width: 360, ...nodeStyle(vis(1), vis(2)) }}>
               <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(77,144,254,.7)', marginBottom: 5 }}>Crossover Research · Intelligence Infrastructure</div>
               <div style={{ fontSize: 15, fontWeight: 700, color: 'rgba(255,255,255,.92)', marginBottom: 3 }}>Verbatim Truth Layer</div>
-              <div style={{ fontSize: 12, color: 'rgba(255,255,255,.72)', fontStyle: 'italic' }}>The verbatim truth layer that all parties can rely on.</div>
+              <div style={{ fontSize: 12, color: 'rgba(255,255,255,.72)', fontStyle: 'italic' }}>The source none of them produced — and all of them rely on.</div>
             </div>
           </div>
 

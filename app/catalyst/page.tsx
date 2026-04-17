@@ -303,11 +303,11 @@ export default function CatalystPage() {
             <div className="ib-section-eyebrow">Crossover Catalyst</div>
             <div style={{ display:'flex',alignItems:'flex-end',justifyContent:'space-between',gap:48,flexWrap:'wrap',marginTop:8 }}>
               <h2 style={{ fontSize:30,fontWeight:700,color:'#fff',lineHeight:1.15,letterSpacing:'-.02em',maxWidth:600,margin:0 }}>
-                The first dual-sided intelligence product for banked transactions.
+                The only intelligence library that serves both sides of the same deal.
               </h2>
               <div style={{ display:'flex',flexDirection:'column',gap:10,alignItems:'flex-end',flexShrink:0 }}>
                 <p style={{ fontSize:13,color: 'rgba(255,255,255,.70)',lineHeight:1.7,maxWidth:340,textAlign:'right',margin:0 }}>
-                  The universal truth layer for private markets. Bankers win mandates. Operators control the narrative. Investors build conviction.
+                  Every report collected independently. No party curated it for their side. That's why every party can rely on it.
                 </p>
                 <button onClick={()=>setRequestOpen(true)} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 22px',fontSize:12,fontWeight:700,cursor:'pointer',whiteSpace:'nowrap' }}>
                   Check Coverage &rarr;

@@ -51,7 +51,7 @@ export function CapabilitiesEngine() {
             Three entry points. Five capabilities. One infrastructure.
           </h2>
           <p style={{ fontSize: 13, color: 'rgba(255,255,255,.62)' }}>
-            Start where you are in the deal. Every stage draws from the same verbatim truth layer.
+            Every entry point draws from the same customer evidence. No restarts between mandate, CIM, and diligence.
           </p>
         </div>
 

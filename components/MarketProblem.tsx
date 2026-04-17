@@ -73,7 +73,7 @@ export function MarketProblem() {
 
         {/* Footer line */}
         <div style={{ textAlign:'center', marginTop:20, fontSize:13, color: 'rgba(255,255,255,.75)', fontStyle:'italic' }}>
-          Every party works from a different version of the truth. Crossover is the verbatim record they all share.
+          Every party works from a different version of the truth. Crossover is the one record none of them produced — and all of them rely on.
         </div>
 
       </div>

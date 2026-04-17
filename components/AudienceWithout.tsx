@@ -64,7 +64,7 @@ export function AudienceWithout() {
         <div style={{ marginBottom:28 }}>
           <div className="ib-section-eyebrow">The Difference</div>
           <h2 style={{ fontSize:'clamp(20px,3vw,28px)', fontWeight:700, color: 'rgba(255,255,255,.95)', letterSpacing:'-.025em', marginTop:8, marginBottom:20 }}>
-            What Changes When You Walk In With Crossover
+            The room changes when you walk in with evidence.
           </h2>
 
           <div style={{ display:'flex', gap:4 }}>
