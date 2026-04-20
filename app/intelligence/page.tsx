@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useCallback, Suspense } from 'react';
+import React, { useState, useEffect, useCallback, Suspense } from 'react';
 import { HeroSection } from '../../components/HeroSection';
 import { useSearchParams } from 'next/navigation';
 import { CATALYST_ASSETS } from '../../lib/data/catalystAssets';
@@ -92,26 +92,66 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
 }
 
 
-function SampleCard({ href, type, badge, logoSrc, logoAlt, logoInvert, cta }: {
-  href: string; type: string; badge: string;
+function SampleCard({ href, type, badge, codeName, logoSrc, logoAlt, logoInvert, cta }: {
+  href: string; type: string; badge: string; codeName: string;
   logoSrc: string; logoAlt: string; logoInvert: boolean; cta: string;
 }) {
+  const [hovered, setHovered] = React.useState(false);
   return (
-    <a href={href} className="ib-sample-card" style={{ position:'relative' }}>
+    <a
+      href={href}
+      className="ib-sample-card"
+      style={{ position:'relative', justifyContent:'space-between' }}
+      onMouseEnter={()=>setHovered(true)}
+      onMouseLeave={()=>setHovered(false)}
+    >
+      {/* Badge */}
       <div style={{
         position:'absolute', top:14, right:14,
         fontSize: 10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase',
         color:'rgba(77,144,254,.95)', background:'rgba(77,144,254,.12)',
         border:'1px solid rgba(77,144,254,.3)', padding:'2px 8px',
       }}>{badge}</div>
+
+      {/* Top: type label */}
       <div className="ib-sample-type">{type}</div>
-      <div className="ib-sample-logo-wrap">
-        <img
-          src={logoSrc} alt={logoAlt}
-          style={{ height:28, width:'auto', maxWidth:200, filter: logoInvert ? 'brightness(0) invert(1)' : 'none', opacity: logoInvert ? .85 : 1 }}
-        />
+
+      {/* Middle: code name → logo reveal */}
+      <div className="ib-sample-logo-wrap" style={{ position:'relative', overflow:'hidden', flex:1 }}>
+        {/* Code name — slides out up on hover */}
+        <div style={{
+          position:'absolute', top:0, left:0, width:'100%', height:'100%',
+          display:'flex', alignItems:'center',
+          transform: hovered ? 'translateY(-110%)' : 'translateY(0)',
+          opacity: hovered ? 0 : 1,
+          transition: 'transform .3s cubic-bezier(.4,0,.2,1), opacity .2s',
+        }}>
+          <span style={{ fontFamily:'var(--font-mono)', fontSize:20, fontWeight:700, letterSpacing:'.06em', color:'rgba(255,255,255,.55)' }}>
+            {codeName}
+          </span>
+        </div>
+        {/* Logo — slides in from below on hover */}
+        <div style={{
+          position:'absolute', top:0, left:0, width:'100%', height:'100%',
+          display:'flex', alignItems:'center',
+          transform: hovered ? 'translateY(0)' : 'translateY(110%)',
+          opacity: hovered ? 1 : 0,
+          transition: 'transform .3s cubic-bezier(.4,0,.2,1), opacity .2s .05s',
+        }}>
+          <img
+            src={logoSrc} alt={logoAlt}
+            style={{ height:28, width:'auto', maxWidth:180, filter: logoInvert ? 'brightness(0) invert(1)' : 'none', opacity: logoInvert ? .85 : 1 }}
+          />
+        </div>
       </div>
-      <div className="ib-sample-link" style={{ marginTop:'auto' }}>{cta} &rarr;</div>
+
+      {/* Hint text */}
+      <div style={{ fontSize:10, fontWeight:600, letterSpacing:'.08em', textTransform:'uppercase', color:'rgba(255,255,255,.30)', marginBottom:16, transition:'opacity .2s', opacity: hovered ? 0 : 1 }}>
+        Hover to reveal
+      </div>
+
+      {/* Bottom: CTA */}
+      <div className="ib-sample-link">{cta} &rarr;</div>
     </a>
   );
 }
