@@ -157,10 +157,10 @@ export default function QofAIPage() {
             <div>
               <div className="ib-section-eyebrow" style={{ marginBottom:8 }}>AI Resilience Matrix</div>
               <h2 style={{ fontSize:22, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.022em', marginBottom:12, lineHeight:1.25 }}>
-                Four quadrants. One determines valuation.
+                Map the AI position. Build the case before buyers define it.
               </h2>
               <p style={{ fontSize:13, color:'rgba(255,255,255,.72)', lineHeight:1.7, marginBottom:22 }}>
-                The Q of AI maps every asset against current AI strength and structural defensibility — two axes, four outcomes.
+                The Q of AI gives you a customer-validated framework to position the asset's AI story before the process opens — and the language to justify a premium multiple when it does.
               </p>
               <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:2, background:'rgba(255,255,255,.07)', border:'1px solid rgba(255,255,255,.09)' }}>
                 {[
