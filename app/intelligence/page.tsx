@@ -92,8 +92,6 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
 }
 
 
-
-
 function SampleCard({ href, type, badge, logoSrc, logoAlt, logoInvert, cta }: {
   href: string; type: string; badge: string;
   logoSrc: string; logoAlt: string; logoInvert: boolean; cta: string;
@@ -128,21 +126,16 @@ export default function IntelligencePage() {
       <Suspense fallback={null}><RequestParamWatcher onOpen={openRequest} /></Suspense>
       <DealProof />
       <CapabilitiesEngine />
-
       <MarketProblem />
       <AudienceWithout />
 
       {/* SAMPLE STUDIES */}
-
       <section id="samples" className="ib-section">
         <div className="ib-inner">
           <div className="ib-section-eyebrow">Live Deliverables</div>
           <h2 className="ib-section-title" style={{ marginBottom:4 }}>See exactly what your client receives</h2>
 
-          {/* Deliverable showcase — Volie first, Sample Report second */}
           <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:1, background:'rgba(255,255,255,.06)', marginBottom:1 }}>
-
-            {/* Volie — Client Proposal */}
             <a
               href="https://volie.crossoverintelligence.com/"
               target="_blank" rel="noopener noreferrer"
@@ -164,8 +157,6 @@ export default function IntelligencePage() {
               </div>
               <div style={{ fontSize:11, fontWeight:700, color:'rgba(130,175,255,.8)', marginTop:'auto' }}>View Live Portal ↗</div>
             </a>
-
-            {/* Sample VoC */}
             <a
               href="https://sample.crossoverintelligence.com/"
               target="_blank" rel="noopener noreferrer"
@@ -186,29 +177,11 @@ export default function IntelligencePage() {
               </div>
               <div style={{ fontSize:11, fontWeight:700, color: 'rgba(255,255,255,.6)', marginTop:'auto' }}>View Sample Report ↗</div>
             </a>
-
           </div>
 
-          {/* Study cards */}
           <div className="ib-samples" style={{ marginTop:1 }}>
-            <SampleCard
-              href="/redcanary"
-              type="Cybersecurity MDR"
-              badge="Catalyst"
-              logoSrc="/red-canary-logo.svg"
-              logoAlt="Red Canary"
-              logoInvert={false}
-              cta="View Study"
-            />
-            <SampleCard
-              href="/bluecat"
-              type="Network Infrastructure"
-              badge="Catalyst"
-              logoSrc="/bluecat-logo.svg"
-              logoAlt="BlueCat Networks"
-              logoInvert={true}
-              cta="View Study"
-            />
+            <SampleCard href="/redcanary" type="Cybersecurity MDR" badge="Catalyst" logoSrc="/red-canary-logo.svg" logoAlt="Red Canary" logoInvert={false} cta="View Study" />
+            <SampleCard href="/bluecat" type="Network Infrastructure" badge="Catalyst" logoSrc="/bluecat-logo.svg" logoAlt="BlueCat Networks" logoInvert={true} cta="View Study" />
             <a href="/catalyst" className="ib-sample-card ib-sample-cta">
               <div className="ib-sample-type">Catalyst Library</div>
               <div className="ib-sample-logo-wrap">
@@ -227,8 +200,68 @@ export default function IntelligencePage() {
         </div>
       </section>
 
-
-
+      {/* CLOSING CTA */}
+      <section style={{
+        padding:'80px var(--content-pad)',
+        background:'linear-gradient(168deg, #060f22 0%, #0a1c3a 60%, #071224 100%)',
+        borderTop:'1px solid rgba(77,144,254,.12)',
+        textAlign:'center',
+        position:'relative',
+        overflow:'hidden',
+      }}>
+        {/* Ambient glow */}
+        <div style={{ position:'absolute', inset:0, pointerEvents:'none', background:'radial-gradient(ellipse 60% 50% at 50% 60%, rgba(77,144,254,.08) 0%, transparent 65%)' }} />
+        <div style={{ maxWidth:680, margin:'0 auto', position:'relative', zIndex:1 }}>
+          <div style={{ fontSize:11, fontWeight:700, letterSpacing:'.18em', textTransform:'uppercase', color:'rgba(77,144,254,.75)', marginBottom:20 }}>
+            Start a Mandate
+          </div>
+          <h2 style={{
+            fontSize:'clamp(28px,4vw,48px)', fontWeight:800, lineHeight:1.1,
+            letterSpacing:'-.04em', color:'rgba(255,255,255,.97)', marginBottom:18,
+          }}>
+            The next $1B deal starts with<br />
+            <span style={{ color:'rgba(130,175,255,.85)' }}>the right customer intelligence.</span>
+          </h2>
+          <p style={{ fontSize:15, color:'rgba(255,255,255,.55)', lineHeight:1.75, marginBottom:40, maxWidth:520, margin:'0 auto 40px' }}>
+            Same-day turnaround if the company is in our Catalyst library. 14-day custom research if it isn&rsquo;t. $10,000 per report.
+          </p>
+          <div style={{ display:'flex', gap:14, justifyContent:'center', flexWrap:'wrap' }}>
+            <a
+              href="/intelligence?request=1"
+              style={{
+                display:'inline-flex', alignItems:'center',
+                background:'rgba(255,255,255,.95)', color:'#060e1c',
+                padding:'14px 36px', fontSize:14, fontWeight:700,
+                textDecoration:'none', letterSpacing:'.01em', whiteSpace:'nowrap',
+                boxShadow:'0 4px 32px rgba(255,255,255,.12)',
+                transition:'all .15s',
+              }}
+              onMouseEnter={e=>{(e.currentTarget as HTMLElement).style.transform='translateY(-2px)';(e.currentTarget as HTMLElement).style.boxShadow='0 8px 40px rgba(255,255,255,.18)';}}
+              onMouseLeave={e=>{(e.currentTarget as HTMLElement).style.transform='translateY(0)';(e.currentTarget as HTMLElement).style.boxShadow='0 4px 32px rgba(255,255,255,.12)';}}
+            >
+              Scope a Mandate →
+            </a>
+            <a
+              href={CONTACT.bookingUrl}
+              target="_blank" rel="noopener noreferrer"
+              style={{
+                display:'inline-flex', alignItems:'center',
+                background:'transparent', color:'rgba(180,210,255,.8)',
+                border:'1px solid rgba(77,144,254,.32)', padding:'14px 28px',
+                fontSize:14, fontWeight:500, textDecoration:'none', whiteSpace:'nowrap',
+                transition:'all .15s',
+              }}
+              onMouseEnter={e=>{const el=e.currentTarget as HTMLElement;el.style.borderColor='rgba(77,144,254,.6)';el.style.background='rgba(77,144,254,.09)';}}
+              onMouseLeave={e=>{const el=e.currentTarget as HTMLElement;el.style.borderColor='rgba(77,144,254,.32)';el.style.background='transparent';}}
+            >
+              Book a Meeting
+            </a>
+          </div>
+          <div style={{ marginTop:28, fontSize:12, color:'rgba(255,255,255,.30)', letterSpacing:'.04em' }}>
+            ian@crossoverresearch.com &nbsp;·&nbsp; 50+ mandates supported &nbsp;·&nbsp; 60% win rate
+          </div>
+        </div>
+      </section>
 
       {requestOpen && <RequestModal onClose={()=>setRequestOpen(false)} />}
     </>
