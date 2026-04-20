@@ -3,24 +3,24 @@ import { useState } from 'react';
 import { CONTACT } from '../../lib/config/site';
 
 const CAPABILITY_DIMS = [
-  { label: 'Feature Adoption & Daily Utility',   score: 8.9 },
-  { label: 'Competitive Differentiation',         score: 8.7 },
-  { label: 'Marketing Claims vs. Reality',        score: 8.6 },
-  { label: 'Business Differentiation',            score: 8.5 },
-  { label: 'Accuracy & Reliability',              score: 8.3 },
-  { label: 'Roadmap Confidence',                  score: 8.2 },
-  { label: 'Value Quantification & ROI',          score: 8.1 },
-  { label: 'AI Sophistication Level',             score: 8.0 },
-  { label: 'Implementation Ease',                 score: 7.8 },
-  { label: 'Innovation Velocity',                 score: 7.4 },
+  { label: 'Feature Adoption & Daily Utility',  score: 8.9 },
+  { label: 'Competitive Differentiation',        score: 8.7 },
+  { label: 'Marketing Claims vs. Reality',       score: 8.6 },
+  { label: 'Business Differentiation',           score: 8.5 },
+  { label: 'Accuracy & Reliability',             score: 8.3 },
+  { label: 'Roadmap Confidence',                 score: 8.2 },
+  { label: 'Value Quantification & ROI',         score: 8.1 },
+  { label: 'AI Sophistication Level',            score: 8.0 },
+  { label: 'Implementation Ease',                score: 7.8 },
+  { label: 'Innovation Velocity',                score: 7.4 },
 ];
 
 const RESILIENCE_DIMS = [
-  { label: 'Data & Workflow Lock-In',       score: 9.1 },
-  { label: 'AI Leapfrog Resistance',        score: 9.0 },
-  { label: 'AI-Native Replacement Risk',    score: 8.4 },
-  { label: 'Pricing Model Defense',         score: 8.2 },
-  { label: 'Vendor Strategy Credibility',   score: 8.0 },
+  { label: 'Data & Workflow Lock-In',      score: 9.1 },
+  { label: 'AI Leapfrog Resistance',       score: 9.0 },
+  { label: 'AI-Native Replacement Risk',   score: 8.4 },
+  { label: 'Pricing Model Defense',        score: 8.2 },
+  { label: 'Vendor Strategy Credibility',  score: 8.0 },
 ];
 
 const PACKAGES = [
@@ -29,84 +29,38 @@ const PACKAGES = [
     name: 'AI Capability',
     price: '$25–30k',
     timeline: '2–3 weeks',
-    desc: 'How good is your AI today? 10 dimensions measuring adoption, value, competitive position, innovation, and accuracy.',
+    desc: '10 dimensions measuring adoption, value, competitive position, innovation, and accuracy.',
     useCase: 'Marketing proof points · Competitive benchmarking · Pre-pitch positioning',
     dims: 10,
-    color: 'rgba(77,144,254,.8)',
-    colorBg: 'rgba(77,144,254,.1)',
-    colorBorder: 'rgba(77,144,254,.25)',
+    color: 'rgba(77,144,254,.95)',
   },
   {
     id: 'resilience',
     name: 'AI Displacement Risk',
     price: '$25–30k',
     timeline: '2–3 weeks',
-    desc: 'Will you survive AI-native competition? 5 dimensions measuring replacement risk, data moats, seat compression, leapfrog potential.',
+    desc: '5 dimensions measuring replacement risk, data moats, seat compression, leapfrog potential.',
     useCase: 'M&A diligence prep · Board presentations · Buyer objection pre-emption',
     dims: 5,
-    color: 'rgba(245,158,11,.85)',
-    colorBg: 'rgba(245,158,11,.08)',
-    colorBorder: 'rgba(245,158,11,.25)',
+    color: 'rgba(245,158,11,.95)',
   },
   {
     id: 'complete',
     name: 'Complete Q of AI',
     price: '$40–50k',
     timeline: '3–4 weeks',
-    desc: 'Dual scorecard: current AI strength and structural resilience. AI Fortress quadrant companies command 15–25% valuation premiums over peers.',
+    desc: 'Dual scorecard covering all 15 dimensions. AI Fortress companies command 15–25% valuation premiums.',
     useCase: 'Full sell-side process · CIM enhancement · Premium multiple justification',
     dims: 15,
-    color: 'rgba(45,212,160,.9)',
-    colorBg: 'rgba(45,212,160,.08)',
-    colorBorder: 'rgba(45,212,160,.25)',
+    color: 'rgba(45,212,160,.95)',
     featured: true,
-  },
-];
-
-const QUADRANTS = [
-  {
-    id: 'catalyst',
-    name: 'AI Catalyst',
-    badge: 'Growth Opportunity',
-    badgeColor: 'rgba(77,144,254,.9)',
-    badgeBg: 'rgba(77,144,254,.12)',
-    desc: 'High Resilience + Emerging AI capability. Strong structural moats with untapped AI potential.',
-    pos: 'top-left',
-  },
-  {
-    id: 'fortress',
-    name: 'AI Fortress',
-    badge: 'Premium Asset',
-    badgeColor: 'rgba(45,212,160,.95)',
-    badgeBg: 'rgba(45,212,160,.12)',
-    desc: 'High Capability + High Resilience. Deep moats, advanced AI. Commands premium valuations.',
-    pos: 'top-right',
-    highlight: true,
-  },
-  {
-    id: 'foundation',
-    name: 'AI Foundation',
-    badge: 'Rebuild Required',
-    badgeColor: 'rgba(255,77,94,.85)',
-    badgeBg: 'rgba(255,77,94,.1)',
-    desc: 'Emerging AI + Developing Moats. Requires investment in both capability and defensibility.',
-    pos: 'bottom-left',
-  },
-  {
-    id: 'accelerator',
-    name: 'AI Accelerator',
-    badge: 'Moat Investment Needed',
-    badgeColor: 'rgba(245,158,11,.9)',
-    badgeBg: 'rgba(245,158,11,.1)',
-    desc: 'Strong AI capability + Developing Moats. Building defensibility is the priority — without it, positioning erodes against AI-native competitors.',
-    pos: 'bottom-right',
   },
 ];
 
 const OBJECTIONS = [
   {
     q: '"Won\'t ChatGPT or Claude make this obsolete?"',
-    a: 'Counter with 9.1/10 data lock-in score and customer verbatim about failed replacement tests. 18–24 month replication barrier documented from actual users.',
+    a: 'Counter with a 9.1/10 data lock-in score and customer verbatims from actual failed replacement tests. 18–24 month replication barrier documented from real users — not internal estimates.',
   },
   {
     q: '"Is the company keeping pace with AI-native startups?"',
@@ -114,7 +68,7 @@ const OBJECTIONS = [
   },
   {
     q: '"Why pay a premium multiple?"',
-    a: 'AI Fortress quadrant positioning. Only 15–20% of software companies achieve High Capability + High Resilience. Customer-validated, not self-reported.',
+    a: 'AI Fortress quadrant positioning. Only 15–20% of software companies achieve High Capability + High Resilience. Customer-validated scores, not self-reported claims.',
   },
   {
     q: '"Can customers easily switch?"',
@@ -122,304 +76,314 @@ const OBJECTIONS = [
   },
 ];
 
-function ScoreBar({ score, color }: { score: number; color: string }) {
-  const pct = (score / 10) * 100;
-  return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-      <div style={{ flex: 1, height: 3, background: 'rgba(255,255,255,.08)', borderRadius: 2, overflow: 'hidden' }}>
-        <div style={{ width: `${pct}%`, height: '100%', background: color, borderRadius: 2, transition: 'width .6s cubic-bezier(.4,0,.2,1)' }} />
-      </div>
-      <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,.75)', minWidth: 28, textAlign: 'right' }}>
-        {score.toFixed(1)}
-      </div>
-    </div>
-  );
-}
-
 export default function QofAIPage() {
-  const [activePackage, setActivePackage] = useState('complete');
+  const [selectedQ, setSelectedQ] = useState(0);
 
   return (
     <>
-      {/* HERO */}
-      <section style={{ background: 'linear-gradient(168deg,#050e1e 0%,#081526 55%,#0c1e38 100%)', borderBottom: '1px solid rgba(255,255,255,.07)', padding: '52px 0 0' }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 36px' }}>
+      {/* ── HERO ─────────────────────────────────────────────────────────────── */}
+      <section style={{ background:'linear-gradient(168deg,#050e1e 0%,#081526 55%,#0c1e38 100%)', borderBottom:'1px solid rgba(255,255,255,.07)', padding:'44px 0 0' }}>
+        <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
+          <div style={{ display:'grid', gridTemplateColumns:'1fr 400px', gap:52, alignItems:'center', paddingBottom:36 }}>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 420px', gap: 60, alignItems: 'center', paddingBottom: 40 }}>
             <div>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 11, fontWeight: 700, letterSpacing: '.16em', textTransform: 'uppercase', color: 'rgba(45,212,160,.8)', background: 'rgba(45,212,160,.08)', border: '1px solid rgba(45,212,160,.2)', padding: '3px 10px', marginBottom: 20 }}>
+              <div style={{ display:'inline-flex', alignItems:'center', gap:8, fontSize:11, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(45,212,160,.9)', background:'rgba(45,212,160,.09)', border:'1px solid rgba(45,212,160,.25)', padding:'3px 12px', marginBottom:18 }}>
                 New Product
               </div>
-              <h1 style={{ fontSize: 44, fontWeight: 700, color: '#fff', lineHeight: 1.1, letterSpacing: '-.04em', marginBottom: 18 }}>
+              <h1 style={{ fontSize:42, fontWeight:700, color:'rgba(255,255,255,.97)', lineHeight:1.1, letterSpacing:'-.04em', marginBottom:16 }}>
                 Quality of AI<br />
-                <span style={{ color: 'rgba(255,255,255,.68)', fontWeight: 300 }}>Assessment</span>
+                <span style={{ color:'rgba(255,255,255,.60)', fontWeight:300 }}>Assessment</span>
               </h1>
-              <p style={{ fontSize: 15, color: 'rgba(255,255,255,.78)', lineHeight: 1.75, marginBottom: 28 }}>
-                Every PE fund and strategic acquirer now leads with: <em style={{ color: 'rgba(255,200,100,.8)', fontStyle: 'normal' }}>"Will this company be displaced by AI-native competition?"</em> Generic claims get discounted. Scores derived from actual customers — collected independently, uncoached — command premium multiples.
+              <p style={{ fontSize:14, color:'rgba(255,255,255,.80)', lineHeight:1.78, marginBottom:24 }}>
+                Every PE fund and strategic acquirer now leads with:{' '}
+                <em style={{ color:'rgba(255,200,100,.92)', fontStyle:'normal', fontWeight:500 }}>"Will this company be displaced by AI-native competition?"</em>{' '}
+                Generic claims get discounted. Scores derived from actual customers — collected independently, uncoached — command premium multiples.
               </p>
-              <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-                <a href={`mailto:${CONTACT.email}`} style={{ background: 'rgba(255,255,255,.95)', color: '#050e1e', border: 'none', padding: '8px 20px', fontSize: 12, fontWeight: 700, cursor: 'pointer', textDecoration: 'none', display: 'inline-flex', alignItems: 'center' }}>
+              <div style={{ display:'flex', gap:10, flexWrap:'wrap' }}>
+                <a href={`mailto:${CONTACT.email}`} style={{ background:'rgba(255,255,255,.95)', color:'#050e1e', padding:'9px 22px', fontSize:12, fontWeight:700, textDecoration:'none', display:'inline-flex', alignItems:'center' }}>
                   Request Assessment →
                 </a>
-                <a href={CONTACT.bookingUrl} target="_blank" rel="noopener noreferrer" style={{ background: 'transparent', color: 'rgba(255,255,255,.78)', border: '1px solid rgba(255,255,255,.22)', padding: '8px 18px', fontSize: 12, fontWeight: 500, cursor: 'pointer', textDecoration: 'none' }}>
+                <a href={CONTACT.bookingUrl} target="_blank" rel="noopener noreferrer" style={{ background:'transparent', color:'rgba(255,255,255,.85)', border:'1px solid rgba(255,255,255,.25)', padding:'9px 18px', fontSize:12, fontWeight:500, textDecoration:'none' }}>
                   Book a Call
                 </a>
               </div>
             </div>
 
             {/* Scorecard preview */}
-            <div style={{ background: 'rgba(255,255,255,.04)', border: '1px solid rgba(255,255,255,.1)', position: 'relative', overflow: 'hidden' }}>
-              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 1, background: 'linear-gradient(90deg,transparent,rgba(45,212,160,.4),transparent)' }} />
-              <div style={{ padding: '16px 20px', borderBottom: '1px solid rgba(255,255,255,.07)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div style={{ background:'rgba(255,255,255,.04)', border:'1px solid rgba(255,255,255,.12)', position:'relative', overflow:'hidden' }}>
+              <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,transparent,rgba(45,212,160,.4),transparent)' }} />
+              <div style={{ padding:'14px 18px', borderBottom:'1px solid rgba(255,255,255,.08)', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
                 <div>
-                  <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.62)', marginBottom: 3 }}>AI Assessment Scorecard</div>
-                  <div style={{ fontSize: 11, color: 'rgba(255,255,255,.68)' }}>Sample Assessment · Enterprise SaaS</div>
+                  <div style={{ fontSize:11, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.68)', marginBottom:2 }}>Sample Scorecard</div>
+                  <div style={{ fontSize:11, color:'rgba(255,255,255,.68)' }}>Enterprise SaaS · Anonymised</div>
                 </div>
-                <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(45,212,160,.9)', background: 'rgba(45,212,160,.12)', border: '1px solid rgba(45,212,160,.3)', padding: '3px 10px' }}>
+                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(45,212,160,.95)', background:'rgba(45,212,160,.13)', border:'1px solid rgba(45,212,160,.3)', padding:'3px 10px' }}>
                   AI FORTRESS
                 </div>
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 1, background: 'rgba(255,255,255,.06)', margin: '0' }}>
+              <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:1, background:'rgba(255,255,255,.07)' }}>
                 {[
-                  { val: '8.3', lbl: 'AI Capability', sub: '10 dimensions', color: 'rgba(77,144,254,.9)' },
-                  { val: '8.7', lbl: 'AI Resilience', sub: '5 dimensions', color: 'rgba(45,212,160,.9)' },
-                  { val: '82%', lbl: 'Daily AI Adoption', sub: '14.2 hrs/wk saved', color: 'rgba(255,255,255,.85)' },
-                  { val: '9.1', lbl: 'Data Lock-In', sub: '18–24 mo barrier', color: 'rgba(245,158,11,.9)' },
-                ].map((m, i) => (
-                  <div key={i} style={{ background: 'rgba(6,14,28,.9)', padding: '16px 18px' }}>
-                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: 28, fontWeight: 700, color: m.color, lineHeight: 1, letterSpacing: '-.03em', marginBottom: 4 }}>{m.val}</div>
-                    <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: 'rgba(255,255,255,.68)', marginBottom: 3 }}>{m.lbl}</div>
-                    <div style={{ fontSize: 10, color: 'rgba(255,255,255,.70)' }}>{m.sub}</div>
+                  { val:'8.3', lbl:'AI Capability',    sub:'10 dimensions',     color:'rgba(77,144,254,.95)'  },
+                  { val:'8.7', lbl:'AI Resilience',     sub:'5 dimensions',      color:'rgba(45,212,160,.95)'  },
+                  { val:'82%', lbl:'Daily AI Adoption', sub:'14.2 hrs/wk saved', color:'rgba(255,255,255,.90)' },
+                  { val:'9.1', lbl:'Data Lock-In',      sub:'18–24 mo barrier',  color:'rgba(245,158,11,.95)'  },
+                ].map((m,i) => (
+                  <div key={i} style={{ background:'rgba(6,14,28,.92)', padding:'14px 16px' }}>
+                    <div style={{ fontFamily:'var(--font-mono)', fontSize:26, fontWeight:700, color:m.color, lineHeight:1, letterSpacing:'-.03em', marginBottom:4 }}>{m.val}</div>
+                    <div style={{ fontSize:11, fontWeight:700, textTransform:'uppercase', letterSpacing:'.08em', color:'rgba(255,255,255,.78)', marginBottom:2 }}>{m.lbl}</div>
+                    <div style={{ fontSize:10, color:'rgba(255,255,255,.68)' }}>{m.sub}</div>
                   </div>
                 ))}
               </div>
-              <div style={{ padding: '14px 20px', borderTop: '1px solid rgba(255,255,255,.06)' }}>
-                <div style={{ fontSize: 11, color: 'rgba(255,255,255,.70)', fontStyle: 'italic', lineHeight: 1.6, marginBottom: 8 }}>
+              <div style={{ padding:'12px 18px' }}>
+                <div style={{ fontSize:11, color:'rgba(255,255,255,.75)', fontStyle:'italic', lineHeight:1.6, marginBottom:6 }}>
                   "We tested ChatGPT and Claude as replacements, but they failed completely without our domain data."
                 </div>
-                <div style={{ fontSize: 10, color: 'rgba(255,255,255,.70)' }}>VP of Operations · Enterprise Customer (12+ integrations)</div>
+                <div style={{ fontSize:10, color:'rgba(255,255,255,.65)' }}>VP of Operations · Enterprise Customer (12+ integrations)</div>
               </div>
             </div>
-          </div>
 
-        </div>
-      </section>
-
-      {/* QUADRANT MATRIX — full width, no separate key */}
-      <section style={{ padding: '64px 0', borderBottom: '1px solid rgba(255,255,255,.07)' }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 36px' }}>
-          <div className="ib-section-eyebrow">AI Resilience Matrix</div>
-          <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 40, flexWrap: 'wrap', marginTop: 8, marginBottom: 36 }}>
-            <h2 style={{ fontSize: 28, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.025em', lineHeight: 1.2, margin: 0 }}>
-              Four quadrants. One determines valuation.
-            </h2>
-            <p style={{ fontSize: 13, color: 'rgba(255,255,255,.70)', lineHeight: 1.7, margin: 0 }}>
-              SaaS valuations down $1.5T as investors reprice structural AI displacement risk. The Q of AI maps every asset against two axes — current AI strength and structural defensibility — into four quadrants with distinct M&A implications.
-            </p>
-          </div>
-
-          {/* Full-width 2×2 matrix with axis labels */}
-          <div style={{ position: 'relative', marginLeft: 32 }}>
-            {/* Y-axis label */}
-            <div style={{ position: 'absolute', left: -32, top: 0, bottom: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', width: 20 }}>
-              <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.70)', transform: 'rotate(-90deg)', whiteSpace: 'nowrap', transformOrigin: 'center center' }}>AI CAPABILITY →</div>
-            </div>
-            {/* X-axis label */}
-            <div style={{ textAlign: 'center', fontSize: 10, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.70)', marginBottom: 10 }}>AI RESILIENCE →</div>
-
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2, background: 'rgba(255,255,255,.06)', border: '1px solid rgba(255,255,255,.08)' }}>
-              {/* Top-left: AI Catalyst */}
-              <div style={{ background: 'rgba(6,14,28,.95)', padding: '32px 32px', minHeight: 200 }}>
-                <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(77,144,254,.8)', background: 'rgba(77,144,254,.1)', padding: '2px 8px', display: 'inline-block', marginBottom: 12 }}>Growth Opportunity</div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 18, fontWeight: 700, color: 'rgba(77,144,254,.9)', marginBottom: 10 }}>AI Catalyst</div>
-                <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.65)', lineHeight: 1.6 }}>High Resilience + Emerging AI capability. Strong structural moats with untapped AI potential. Valuation upside depends on AI execution.</div>
-              </div>
-              {/* Top-right: AI Fortress — highlighted */}
-              <div style={{ background: 'rgba(45,212,160,.05)', padding: '32px 32px', minHeight: 200, borderLeft: '2px solid rgba(45,212,160,.3)', position: 'relative', overflow: 'hidden' }}>
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 2, background: 'linear-gradient(90deg,transparent,rgba(45,212,160,.5),transparent)' }} />
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
-                  <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(45,212,160,.9)', background: 'rgba(45,212,160,.12)', padding: '2px 8px', display: 'inline-block' }}>Premium Asset</div>
-                  <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', color: 'rgba(45,212,160,.72)', fontFamily: 'var(--font-mono)' }}>← Target Quadrant</div>
-                </div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 18, fontWeight: 700, color: 'rgba(45,212,160,.95)', marginBottom: 10 }}>AI Fortress</div>
-                <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.68)', lineHeight: 1.6 }}>High Capability + High Resilience. Deep data moats, advanced AI, structural defensibility. Commands 15–25% valuation premium over peers.</div>
-              </div>
-              {/* Bottom-left: AI Foundation */}
-              <div style={{ background: 'rgba(6,14,28,.95)', padding: '32px 32px', minHeight: 200, borderTop: '1px solid rgba(255,255,255,.05)' }}>
-                <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(255,77,94,.8)', background: 'rgba(255,77,94,.07)', padding: '2px 8px', display: 'inline-block', marginBottom: 12 }}>Rebuild Required</div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 18, fontWeight: 700, color: 'rgba(255,77,94,.75)', marginBottom: 10 }}>AI Foundation</div>
-                <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.75)', lineHeight: 1.6 }}>Emerging AI + Developing Moats. Requires investment in both capability and structural defensibility. Valuation discount until trajectory is established.</div>
-              </div>
-              {/* Bottom-right: AI Accelerator */}
-              <div style={{ background: 'rgba(6,14,28,.95)', padding: '32px 32px', minHeight: 200, borderTop: '1px solid rgba(255,255,255,.05)', borderLeft: '1px solid rgba(255,255,255,.05)' }}>
-                <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(245,158,11,.85)', background: 'rgba(245,158,11,.07)', padding: '2px 8px', display: 'inline-block', marginBottom: 12 }}>Moat Investment Needed</div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 18, fontWeight: 700, color: 'rgba(245,158,11,.85)', marginBottom: 10 }}>AI Accelerator</div>
-                <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.75)', lineHeight: 1.6 }}>Strong AI capability + Developing Moats. Without structural defensibility, positioning erodes as AI-native competitors close the gap.</div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* 15 DIMENSIONS */}
-      <section style={{ padding: '64px 0', background: 'rgba(255,255,255,.04)', borderBottom: '1px solid rgba(255,255,255,.07)' }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 36px' }}>
-          <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 20 }}>
+      {/* ── MATRIX + DIMENSIONS (combined) ──────────────────────────────────── */}
+      <section style={{ padding:'56px 0', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
+        <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
+
+          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:40, alignItems:'start' }}>
+
+            {/* Left: Quadrant matrix */}
             <div>
-              <div className="ib-section-eyebrow" style={{ marginBottom: 4 }}>The Framework</div>
-              <h2 style={{ fontSize: 22, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.02em', margin: 0 }}>15 dimensions. Two independent scores.</h2>
+              <div className="ib-section-eyebrow" style={{ marginBottom:8 }}>AI Resilience Matrix</div>
+              <h2 style={{ fontSize:22, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.022em', marginBottom:12, lineHeight:1.25 }}>
+                Four quadrants. One determines valuation.
+              </h2>
+              <p style={{ fontSize:13, color:'rgba(255,255,255,.72)', lineHeight:1.7, marginBottom:22 }}>
+                The Q of AI maps every asset against current AI strength and structural defensibility — two axes, four outcomes.
+              </p>
+              <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:2, background:'rgba(255,255,255,.07)', border:'1px solid rgba(255,255,255,.09)' }}>
+                {[
+                  { name:'AI Catalyst',     badge:'Growth Opportunity', color:'rgba(77,144,254,.95)',  bg:'rgba(77,144,254,.08)',  desc:'High Resilience + Emerging AI. Strong structural moats with untapped AI potential.' },
+                  { name:'AI Fortress',     badge:'Premium Asset',       color:'rgba(45,212,160,.97)',  bg:'rgba(45,212,160,.07)',  desc:'High Capability + High Resilience. Commands 15–25% valuation premium.', highlight:true },
+                  { name:'AI Foundation',   badge:'Rebuild Required',    color:'rgba(255,77,94,.92)',   bg:'rgba(255,77,94,.06)',   desc:'Emerging AI + Developing Moats. Investment required in both dimensions.' },
+                  { name:'AI Accelerator',  badge:'Moat Investment',     color:'rgba(245,158,11,.95)',  bg:'rgba(245,158,11,.07)',  desc:'Strong AI + Developing Moats. Defensibility is the priority before positioning erodes.' },
+                ].map((q, i) => (
+                  <div key={i} style={{ background: q.highlight ? 'rgba(45,212,160,.05)' : 'rgba(6,14,28,.95)', padding:'20px 20px', borderTop: q.highlight ? '2px solid rgba(45,212,160,.4)' : '2px solid transparent', position:'relative' }}>
+                    <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:q.color, background:q.bg, padding:'2px 7px', display:'inline-block', marginBottom:8 }}>{q.badge}</div>
+                    <div style={{ fontFamily:'var(--font-mono)', fontSize:14, fontWeight:700, color:q.color, marginBottom:6 }}>{q.name}</div>
+                    <div style={{ fontSize:11.5, color:'rgba(255,255,255,.72)', lineHeight:1.55 }}>{q.desc}</div>
+                  </div>
+                ))}
+              </div>
+              <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.45)', marginTop:8, textAlign:'center' }}>
+                X: AI Resilience → &nbsp;&nbsp; Y: AI Capability →
+              </div>
             </div>
-            <p style={{ fontSize: 12.5, color: 'rgba(255,255,255,.68)', lineHeight: 1.65, margin: 0 }}>
-              Every score derived from structured customer interviews — not internal benchmarks. Capability alone does not predict valuation resilience.
+
+            {/* Right: 15 dimensions */}
+            <div>
+              <div className="ib-section-eyebrow" style={{ marginBottom:8 }}>The Framework</div>
+              <h2 style={{ fontSize:22, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.022em', marginBottom:12, lineHeight:1.25 }}>
+                15 dimensions. Two independent scores.
+              </h2>
+              <p style={{ fontSize:13, color:'rgba(255,255,255,.72)', lineHeight:1.7, marginBottom:16 }}>
+                Every score derived from structured customer interviews — not internal benchmarks.
+              </p>
+
+              {/* Capability */}
+              <div style={{ background:'rgba(6,14,28,.98)', border:'1px solid rgba(77,144,254,.2)', overflow:'hidden', marginBottom:2 }}>
+                <div style={{ background:'rgba(77,144,254,.07)', borderBottom:'1px solid rgba(77,144,254,.15)', padding:'12px 18px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
+                  <div>
+                    <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(77,144,254,.85)', marginBottom:2 }}>Part I · 10 Dimensions</div>
+                    <div style={{ fontSize:14, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.02em' }}>AI Capability Score</div>
+                  </div>
+                  <div style={{ textAlign:'right' }}>
+                    <div style={{ fontFamily:'var(--font-mono)', fontSize:32, fontWeight:700, color:'rgba(77,144,254,.97)', letterSpacing:'-.04em', lineHeight:1 }}>83</div>
+                    <div style={{ fontSize:10, color:'rgba(255,255,255,.68)', letterSpacing:'.06em' }}>/ 100</div>
+                  </div>
+                </div>
+                {CAPABILITY_DIMS.map((d,i) => (
+                  <div key={i} style={{ padding:'8px 18px', borderBottom: i < CAPABILITY_DIMS.length-1 ? '1px solid rgba(255,255,255,.04)' : 'none', display:'grid', gridTemplateColumns:'1fr 32px', alignItems:'center', gap:12 }}>
+                    <div>
+                      <div style={{ fontSize:11.5, color:'rgba(255,255,255,.82)', marginBottom:5, fontWeight:500 }}>{d.label}</div>
+                      <div style={{ height:2, background:'rgba(255,255,255,.08)', borderRadius:1, overflow:'hidden' }}>
+                        <div style={{ width:`${(d.score/10)*100}%`, height:'100%', background:'rgba(77,144,254,.8)' }} />
+                      </div>
+                    </div>
+                    <div style={{ fontFamily:'var(--font-mono)', fontSize:12, fontWeight:700, color:'rgba(77,144,254,.95)', textAlign:'right' }}>{d.score.toFixed(1)}</div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Resilience */}
+              <div style={{ background:'rgba(6,14,28,.98)', border:'1px solid rgba(45,212,160,.2)', overflow:'hidden' }}>
+                <div style={{ background:'rgba(45,212,160,.05)', borderBottom:'1px solid rgba(45,212,160,.15)', padding:'12px 18px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
+                  <div>
+                    <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(45,212,160,.85)', marginBottom:2 }}>Part II · 5 Dimensions</div>
+                    <div style={{ fontSize:14, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.02em' }}>AI Resilience Score</div>
+                  </div>
+                  <div style={{ textAlign:'right' }}>
+                    <div style={{ fontFamily:'var(--font-mono)', fontSize:32, fontWeight:700, color:'rgba(45,212,160,.97)', letterSpacing:'-.04em', lineHeight:1 }}>87</div>
+                    <div style={{ fontSize:10, color:'rgba(255,255,255,.68)', letterSpacing:'.06em' }}>/ 100</div>
+                  </div>
+                </div>
+                {RESILIENCE_DIMS.map((d,i) => (
+                  <div key={i} style={{ padding:'8px 18px', borderBottom: i < RESILIENCE_DIMS.length-1 ? '1px solid rgba(255,255,255,.04)' : 'none', display:'grid', gridTemplateColumns:'1fr 32px', alignItems:'center', gap:12 }}>
+                    <div>
+                      <div style={{ fontSize:11.5, color:'rgba(255,255,255,.82)', marginBottom:5, fontWeight:500 }}>{d.label}</div>
+                      <div style={{ height:2, background:'rgba(255,255,255,.08)', borderRadius:1, overflow:'hidden' }}>
+                        <div style={{ width:`${(d.score/10)*100}%`, height:'100%', background:'rgba(45,212,160,.8)' }} />
+                      </div>
+                    </div>
+                    <div style={{ fontFamily:'var(--font-mono)', fontSize:12, fontWeight:700, color:'rgba(45,212,160,.95)', textAlign:'right' }}>{d.score.toFixed(1)}</div>
+                  </div>
+                ))}
+                <div style={{ margin:'0 18px 14px', paddingTop:12 }}>
+                  <div style={{ background:'rgba(45,212,160,.07)', border:'1px solid rgba(45,212,160,.22)', padding:'10px 14px' }}>
+                    <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(45,212,160,.85)', marginBottom:3 }}>Verdict</div>
+                    <div style={{ fontSize:12, fontWeight:700, color:'rgba(45,212,160,.97)', marginBottom:2 }}>AI Fortress — Premium Asset</div>
+                    <div style={{ fontSize:11, color:'rgba(255,255,255,.72)' }}>Top 15–20% of assessed software companies</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── IC OBJECTION PREP — DROPDOWN ────────────────────────────────────── */}
+      <section style={{ padding:'56px 0', background:'rgba(255,255,255,.025)', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
+        <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
+
+          <div style={{ display:'grid', gridTemplateColumns:'340px 1fr', gap:48, alignItems:'start' }}>
+            <div>
+              <div className="ib-section-eyebrow" style={{ marginBottom:8 }}>IC Objection Prep</div>
+              <h2 style={{ fontSize:22, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.022em', lineHeight:1.25, marginBottom:12 }}>
+                Every IC has an AI question. You need a customer-backed answer.
+              </h2>
+              <p style={{ fontSize:13, color:'rgba(255,255,255,.72)', lineHeight:1.72, marginBottom:0 }}>
+                Generic "AI-powered" claims get discounted before the first page turn. The Q of AI produces customer-validated responses to every blocking objection.
+              </p>
+            </div>
+
+            <div>
+              {/* Dropdown question selector */}
+              <div style={{ marginBottom:16 }}>
+                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.55)', marginBottom:8 }}>
+                  Select IC objection
+                </div>
+                <div style={{ position:'relative' }}>
+                  <select
+                    value={selectedQ}
+                    onChange={e => setSelectedQ(Number(e.target.value))}
+                    style={{
+                      width:'100%', background:'rgba(6,14,28,.95)',
+                      border:'1px solid rgba(255,255,255,.18)',
+                      color:'rgba(255,255,255,.92)', padding:'12px 40px 12px 16px',
+                      fontSize:13, fontWeight:500, appearance:'none',
+                      cursor:'pointer', outline:'none',
+                      fontFamily:'var(--font-body)',
+                    }}
+                  >
+                    {OBJECTIONS.map((o, i) => (
+                      <option key={i} value={i}>{o.q}</option>
+                    ))}
+                  </select>
+                  <div style={{ position:'absolute', right:14, top:'50%', transform:'translateY(-50%)', pointerEvents:'none', color:'rgba(255,255,255,.55)', fontSize:12 }}>▾</div>
+                </div>
+              </div>
+
+              {/* Answer panel */}
+              <div style={{ background:'rgba(6,14,28,.95)', border:'1px solid rgba(255,255,255,.1)', borderTop:'2px solid rgba(45,212,160,.4)', padding:'20px 22px' }}>
+                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(45,212,160,.88)', marginBottom:10 }}>
+                  Q of AI Answer
+                </div>
+                <div style={{ fontSize:13.5, color:'rgba(255,255,255,.88)', lineHeight:1.75 }}>
+                  {OBJECTIONS[selectedQ].a}
+                </div>
+              </div>
+
+              {/* All questions as quick-nav chips */}
+              <div style={{ display:'flex', gap:6, flexWrap:'wrap', marginTop:12 }}>
+                {OBJECTIONS.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setSelectedQ(i)}
+                    style={{
+                      fontSize:11, fontWeight:600, padding:'4px 12px',
+                      background: selectedQ === i ? 'rgba(45,212,160,.12)' : 'rgba(255,255,255,.04)',
+                      border: `1px solid ${selectedQ === i ? 'rgba(45,212,160,.35)' : 'rgba(255,255,255,.1)'}`,
+                      color: selectedQ === i ? 'rgba(45,212,160,.95)' : 'rgba(255,255,255,.65)',
+                      cursor:'pointer', transition:'all .12s',
+                    }}
+                  >
+                    Q{i + 1}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PACKAGES ────────────────────────────────────────────────────────── */}
+      <section style={{ padding:'56px 0', background:'linear-gradient(168deg,#050e1e 0%,#081628 100%)', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
+        <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
+
+          <div style={{ display:'flex', alignItems:'flex-end', justifyContent:'space-between', gap:24, flexWrap:'wrap', marginBottom:28 }}>
+            <div>
+              <div className="ib-section-eyebrow" style={{ marginBottom:8 }}>Assessment Packages</div>
+              <h2 style={{ fontSize:22, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.022em', margin:0, lineHeight:1.25 }}>
+                Three scopes. Every score from real customers.
+              </h2>
+            </div>
+            <p style={{ fontSize:13, color:'rgba(255,255,255,.72)', margin:0, maxWidth:380, textAlign:'right', lineHeight:1.6 }}>
+              Every package includes a visual scorecard, 25+ slide VoC report, customer verbatims, and CIM-ready positioning language.
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }}>
-
-            {/* ── Capability Panel ── */}
-            <div style={{ background: 'rgba(6,14,28,.98)', border: '1px solid rgba(77,144,254,.18)', overflow: 'hidden' }}>
-              <div style={{ background: 'rgba(77,144,254,.06)', borderBottom: '1px solid rgba(77,144,254,.15)', padding: '18px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <div>
-                  <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(77,144,254,.7)', marginBottom: 4 }}>Part I · 10 Dimensions</div>
-                  <div style={{ fontSize: 16, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.02em' }}>AI Capability Score</div>
-                </div>
-                <div style={{ textAlign: 'right' }}>
-                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: 40, fontWeight: 700, color: 'rgba(77,144,254,.95)', letterSpacing: '-.04em', lineHeight: 1 }}>83</div>
-                  <div style={{ fontSize: 11, color: 'rgba(255,255,255,.70)', marginTop: 3, letterSpacing: '.06em' }}>OUT OF 100</div>
-                </div>
-              </div>
-              <div>
-                {CAPABILITY_DIMS.map((d, i) => (
-                  <div key={i} style={{ padding: '11px 24px', borderBottom: i < CAPABILITY_DIMS.length - 1 ? '1px solid rgba(255,255,255,.05)' : 'none', display: 'grid', gridTemplateColumns: '1fr 40px', alignItems: 'center', gap: 14 }}>
-                    <div>
-                      <div style={{ fontSize: 12, color: 'rgba(255,255,255,.8)', marginBottom: 6, fontWeight: 500 }}>{d.label}</div>
-                      <div style={{ height: 3, background: 'rgba(255,255,255,.08)', borderRadius: 2, overflow: 'hidden' }}>
-                        <div style={{ width: `${(d.score/10)*100}%`, height: '100%', background: 'linear-gradient(90deg,rgba(77,144,254,.6),rgba(77,144,254,.9))', borderRadius: 2 }} />
-                      </div>
-                    </div>
-                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, fontWeight: 700, color: 'rgba(77,144,254,.95)', textAlign: 'right' }}>{d.score.toFixed(1)}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* ── Resilience Panel ── */}
-            <div style={{ background: 'rgba(6,14,28,.98)', border: '1px solid rgba(45,212,160,.18)', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
-              <div style={{ background: 'rgba(45,212,160,.05)', borderBottom: '1px solid rgba(45,212,160,.15)', padding: '18px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <div>
-                  <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(45,212,160,.7)', marginBottom: 4 }}>Part II · 5 Dimensions</div>
-                  <div style={{ fontSize: 16, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.02em' }}>AI Resilience Score</div>
-                </div>
-                <div style={{ textAlign: 'right' }}>
-                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: 40, fontWeight: 700, color: 'rgba(45,212,160,.95)', letterSpacing: '-.04em', lineHeight: 1 }}>87</div>
-                  <div style={{ fontSize: 11, color: 'rgba(255,255,255,.70)', marginTop: 3, letterSpacing: '.06em' }}>OUT OF 100</div>
-                </div>
-              </div>
-              <div>
-                {RESILIENCE_DIMS.map((d, i) => (
-                  <div key={i} style={{ padding: '11px 24px', borderBottom: i < RESILIENCE_DIMS.length - 1 ? '1px solid rgba(255,255,255,.05)' : 'none', display: 'grid', gridTemplateColumns: '1fr 40px', alignItems: 'center', gap: 14 }}>
-                    <div>
-                      <div style={{ fontSize: 12, color: 'rgba(255,255,255,.8)', marginBottom: 6, fontWeight: 500 }}>{d.label}</div>
-                      <div style={{ height: 3, background: 'rgba(255,255,255,.08)', borderRadius: 2, overflow: 'hidden' }}>
-                        <div style={{ width: `${(d.score/10)*100}%`, height: '100%', background: 'linear-gradient(90deg,rgba(45,212,160,.6),rgba(45,212,160,.9))', borderRadius: 2 }} />
-                      </div>
-                    </div>
-                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, fontWeight: 700, color: 'rgba(45,212,160,.95)', textAlign: 'right' }}>{d.score.toFixed(1)}</div>
-                  </div>
-                ))}
-              </div>
-              {/* Verdict footer */}
-              <div style={{ margin: '0 24px 20px', marginTop: 'auto', paddingTop: 16 }}>
-                <div style={{ background: 'rgba(45,212,160,.06)', border: '1px solid rgba(45,212,160,.2)', padding: '12px 16px' }}>
-                  <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(45,212,160,.6)', marginBottom: 5 }}>Verdict</div>
-                  <div style={{ fontSize: 13, fontWeight: 700, color: 'rgba(45,212,160,.95)', marginBottom: 3 }}>AI Fortress Quadrant — Premium Asset</div>
-                  <div style={{ fontSize: 11, color: 'rgba(255,255,255,.68)' }}>Top 15–20% of assessed software companies</div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* BUYER OBJECTIONS */}
-      <section style={{ padding: '64px 0', borderBottom: '1px solid rgba(255,255,255,.07)' }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 36px' }}>
-          <div className="ib-section-eyebrow">IC Objection Prep</div>
-          <h2 style={{ fontSize: 24, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.022em', marginBottom: 6, marginTop: 8 }}>Every IC now has an AI question. You need a customer-backed answer.</h2>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,.70)', marginBottom: 32 }}>
-            Generic "AI-powered" claims get discounted before the first page turn. The Q of AI produces customer-validated responses to each blocking objection.
-          </p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 1, background: 'rgba(255,255,255,.07)' }}>
-            {OBJECTIONS.map((o, i) => (
-              <div key={i} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0, background: 'rgba(6,14,28,.95)' }}>
-                <div style={{ padding: '18px 24px', borderRight: '1px solid rgba(255,255,255,.07)' }}>
-                  <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(255,77,94,.6)', marginBottom: 6 }}>Buyer Objection</div>
-                  <div style={{ fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,.82)', lineHeight: 1.5, fontStyle: 'italic' }}>{o.q}</div>
-                </div>
-                <div style={{ padding: '18px 24px' }}>
-                  <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(45,212,160,.7)', marginBottom: 6 }}>Q of AI Answer</div>
-                  <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.75)', lineHeight: 1.65 }}>{o.a}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PACKAGES */}
-      <section style={{ padding: '64px 0', background: 'linear-gradient(168deg,#050e1e 0%,#081628 100%)', borderBottom: '1px solid rgba(255,255,255,.07)' }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 36px' }}>
-          <div className="ib-section-eyebrow">Assessment Packages</div>
-          <h2 style={{ fontSize: 24, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.022em', marginBottom: 6, marginTop: 8 }}>Three scopes. Every score sourced from real customers.</h2>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,.70)', marginBottom: 32 }}>
-            Every package includes a visual scorecard, 25+ slide VoC report, customer verbatims, and CIM-ready positioning language.
-          </p>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 1, background: 'rgba(255,255,255,.08)', marginBottom: 32 }}>
-            {PACKAGES.map((pkg) => (
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:1, background:'rgba(255,255,255,.09)', marginBottom:28 }}>
+            {PACKAGES.map(pkg => (
               <div
                 key={pkg.id}
-                onClick={() => setActivePackage(pkg.id)}
                 style={{
-                  background: pkg.featured ? 'rgba(45,212,160,.05)' : 'rgba(6,14,28,.95)',
-                  padding: '28px 28px',
-                  cursor: 'pointer',
+                  background: pkg.featured ? 'rgba(45,212,160,.04)' : 'rgba(6,14,28,.95)',
+                  padding:'24px 24px',
                   borderTop: pkg.featured ? '2px solid rgba(45,212,160,.5)' : '2px solid transparent',
-                  transition: 'background .15s',
-                  position: 'relative',
+                  position:'relative',
                 }}
               >
                 {pkg.featured && (
-                  <div style={{ position: 'absolute', top: 12, right: 14, fontSize: 10, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(45,212,160,.9)', background: 'rgba(45,212,160,.12)', padding: '2px 8px' }}>
+                  <div style={{ position:'absolute', top:12, right:14, fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(45,212,160,.95)', background:'rgba(45,212,160,.12)', padding:'2px 8px' }}>
                     Most Complete
                   </div>
                 )}
-                <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: pkg.color, marginBottom: 8 }}>
+                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:pkg.color, marginBottom:6 }}>
                   {pkg.dims} Dimension{pkg.dims > 1 ? 's' : ''}
                 </div>
-                <div style={{ fontSize: 16, fontWeight: 700, color: 'rgba(255,255,255,.92)', marginBottom: 6 }}>{pkg.name}</div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 22, fontWeight: 700, color: pkg.color, letterSpacing: '-.02em', marginBottom: 4 }}>{pkg.price}</div>
-                <div style={{ fontSize: 11, color: 'rgba(255,255,255,.72)', marginBottom: 16 }}>{pkg.timeline}</div>
-                <div style={{ fontSize: 13, color: 'rgba(255,255,255,.78)', lineHeight: 1.65, marginBottom: 14 }}>{pkg.desc}</div>
-                <div style={{ fontSize: 11, color: 'rgba(255,255,255,.72)', lineHeight: 1.6, fontStyle: 'italic' }}>{pkg.useCase}</div>
+                <div style={{ fontSize:15, fontWeight:700, color:'rgba(255,255,255,.95)', marginBottom:6 }}>{pkg.name}</div>
+                <div style={{ fontFamily:'var(--font-mono)', fontSize:20, fontWeight:700, color:pkg.color, letterSpacing:'-.02em', marginBottom:3 }}>{pkg.price}</div>
+                <div style={{ fontSize:11, color:'rgba(255,255,255,.72)', marginBottom:14 }}>{pkg.timeline}</div>
+                <div style={{ fontSize:12.5, color:'rgba(255,255,255,.80)', lineHeight:1.65, marginBottom:12 }}>{pkg.desc}</div>
+                <div style={{ fontSize:11, color:'rgba(255,255,255,.68)', lineHeight:1.6, fontStyle:'italic' }}>{pkg.useCase}</div>
               </div>
             ))}
           </div>
 
           {/* Every package includes */}
-          <div style={{ background: 'rgba(255,255,255,.03)', border: '1px solid rgba(255,255,255,.07)', padding: '20px 28px' }}>
-            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.62)', marginBottom: 14 }}>Every Package Includes</div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 16 }}>
+          <div style={{ background:'rgba(255,255,255,.03)', border:'1px solid rgba(255,255,255,.09)', padding:'18px 24px' }}>
+            <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.65)', marginBottom:14 }}>Every Package Includes</div>
+            <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:16 }}>
               {[
-                { title: 'Visual Scorecard', desc: 'CIM-ready slides with quantified scores across all dimensions' },
-                { title: 'Full VoC Report', desc: '25+ slides: executive summary, benchmarking, verbatim customer quotes' },
-                { title: 'AI Resilience Matrix', desc: 'Quadrant positioning: Fortress / Catalyst / Accelerator / Foundation' },
-                { title: 'Buyer Objection Pack', desc: 'Customer-backed responses to every standard AI IC objection' },
-              ].map((item, i) => (
-                <div key={i} style={{ borderLeft: '2px solid rgba(45,212,160,.3)', paddingLeft: 14 }}>
-                  <div style={{ fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,.75)', marginBottom: 4 }}>{item.title}</div>
-                  <div style={{ fontSize: 12, color: 'rgba(255,255,255,.72)', lineHeight: 1.5 }}>{item.desc}</div>
+                { title:'Visual Scorecard',      desc:'CIM-ready slides with quantified scores across all dimensions' },
+                { title:'Full VoC Report',        desc:'25+ slides: executive summary, benchmarking, verbatim customer quotes' },
+                { title:'AI Resilience Matrix',   desc:'Quadrant positioning: Fortress / Catalyst / Accelerator / Foundation' },
+                { title:'Buyer Objection Pack',   desc:'Customer-backed responses to every standard AI IC objection' },
+              ].map((item,i) => (
+                <div key={i} style={{ borderLeft:'2px solid rgba(45,212,160,.35)', paddingLeft:12 }}>
+                  <div style={{ fontSize:12, fontWeight:700, color:'rgba(255,255,255,.85)', marginBottom:4 }}>{item.title}</div>
+                  <div style={{ fontSize:11.5, color:'rgba(255,255,255,.72)', lineHeight:1.55 }}>{item.desc}</div>
                 </div>
               ))}
             </div>
@@ -427,27 +391,25 @@ export default function QofAIPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section style={{ padding: '52px 0', textAlign: 'center' }}>
-        <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 36px' }}>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(45,212,160,.7)', marginBottom: 16 }}>Commission the Q of AI</div>
-          <h2 style={{ fontSize: 28, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.025em', lineHeight: 1.2, marginBottom: 14 }}>
+      {/* ── CTA ─────────────────────────────────────────────────────────────── */}
+      <section style={{ padding:'52px 0', textAlign:'center' }}>
+        <div style={{ maxWidth:680, margin:'0 auto', padding:'0 36px' }}>
+          <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(45,212,160,.85)', marginBottom:14 }}>Commission the Q of AI</div>
+          <h2 style={{ fontSize:28, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.025em', lineHeight:1.2, marginBottom:12 }}>
             Pre-empt the objection.<br />Commission the Q of AI.
           </h2>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,.70)', lineHeight: 1.7, marginBottom: 28 }}>
-            Institutional buyers are repricing AI displacement risk across every software transaction. Companies without customer-validated positioning get discounted. AI Fortress quadrant: 15–25% valuation premium. Three to four weeks. Real customers. Independent collection.
+          <p style={{ fontSize:13, color:'rgba(255,255,255,.72)', lineHeight:1.75, marginBottom:28 }}>
+            Institutional buyers are repricing AI displacement risk across every software transaction. AI Fortress quadrant: 15–25% valuation premium. Three to four weeks. Real customers. Independent collection.
           </p>
-          <div style={{ display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href={`mailto:${CONTACT.email}`} style={{ background: 'rgba(255,255,255,.95)', color: '#050e1e', border: 'none', padding: '10px 24px', fontSize: 12, fontWeight: 700, cursor: 'pointer', textDecoration: 'none' }}>
+          <div style={{ display:'flex', gap:10, justifyContent:'center', flexWrap:'wrap', marginBottom:18 }}>
+            <a href={`mailto:${CONTACT.email}`} style={{ background:'rgba(255,255,255,.95)', color:'#050e1e', padding:'11px 26px', fontSize:13, fontWeight:700, textDecoration:'none' }}>
               Email Ian →
             </a>
-            <a href={CONTACT.bookingUrl} target="_blank" rel="noopener noreferrer" style={{ background: 'transparent', color: 'rgba(255,255,255,.78)', border: '1px solid rgba(255,255,255,.22)', padding: '10px 20px', fontSize: 12, fontWeight: 500, textDecoration: 'none' }}>
+            <a href={CONTACT.bookingUrl} target="_blank" rel="noopener noreferrer" style={{ background:'transparent', color:'rgba(255,255,255,.82)', border:'1px solid rgba(255,255,255,.25)', padding:'11px 20px', fontSize:13, fontWeight:500, textDecoration:'none' }}>
               Book a Call
             </a>
           </div>
-          <div style={{ marginTop: 20, fontSize: 11, color: 'rgba(255,255,255,.70)' }}>
-            {CONTACT.email}
-          </div>
+          <div style={{ fontSize:11, color:'rgba(255,255,255,.68)' }}>{CONTACT.email}</div>
         </div>
       </section>
     </>
