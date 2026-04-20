@@ -23,16 +23,17 @@ const DEALS = [
       outcomeText: 'rgba(130,175,255,.95)',
     },
     right: {
-      label: 'Buy-Side',
-      accentColor: 'rgba(45,212,160,.7)',
-      firmName: 'General Atlantic',
-      firmLogo: '/general-atlantic-logo.svg',
-      firmRole: 'Lead investor',
-      desc: 'Independent conviction brief. Research flagged Nerdio before the process opened. Arrived ahead of every competing bidder.',
+      label: 'Deal Parties',
+      accentColor: 'rgba(255,255,255,.35)',
       outcome: '$500M investment at unicorn valuation',
       outcomeBg: 'rgba(45,212,160,.07)',
       outcomeBorder: 'rgba(45,212,160,.2)',
       outcomeText: 'rgba(45,212,160,.95)',
+      parties: [
+        { role: 'CR Client', logo: '/nerdio-logo.svg', name: 'Nerdio', crClient: true },
+        { role: 'Sell-Side Advisor', logo: '/jpmorgan-logo.svg', name: 'J.P. Morgan', invert: true },
+        { role: 'Buy-Side Investor', logo: '/general-atlantic-logo.svg', name: 'General Atlantic' },
+      ],
     },
   },
   {
@@ -58,8 +59,12 @@ const DEALS = [
       outcomeText: 'rgba(130,175,255,.95)',
     },
     right: {
-      label: 'The Context',
-      accentColor: 'rgba(255,255,255,.25)',
+      label: 'Deal Parties',
+      accentColor: 'rgba(255,255,255,.35)',
+      parties: [
+        { role: 'CR Client', logo: '/mobile-de-logo.svg', name: 'Mobile.de', crClient: true },
+        { role: 'Sell-Side Advisor', logo: '/jpmorgan-logo.svg', name: 'J.P. Morgan', invert: true },
+      ],
       stats: [
         { val: '$10B', label: 'Transaction value' },
         { val: '30+', label: 'Customer interviews' },
@@ -89,11 +94,12 @@ const DEALS = [
       outcomeText: 'rgba(130,175,255,.95)',
     },
     right: {
-      label: 'Transaction Parties',
-      accentColor: 'rgba(255,255,255,.25)',
+      label: 'Deal Parties',
+      accentColor: 'rgba(255,255,255,.35)',
       parties: [
+        { role: 'CR Client', logo: '/red-canary-logo.svg', name: 'Red Canary', crClient: true },
         { role: 'Sell-Side Advisor', logo: '/jpmorgan-logo.svg', name: 'J.P. Morgan', invert: true },
-        { role: 'Acquirer', logo: '/zscaler-logo.svg', name: 'Zscaler', invert: true },
+        { role: 'Acquirer', logo: '/zscaler-logo.svg', name: 'Zscaler' },
       ],
     },
   },
@@ -279,23 +285,31 @@ export function DealProof() {
             )}
           </div>
 
-          {/* ── RIGHT: Context/Counterpart ── */}
+          {/* ── RIGHT: Deal Parties ── */}
           <div style={{ ...fade, padding: '24px 28px', display: 'flex', flexDirection: 'column', gap: 14 }}>
-            <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.16em', textTransform: 'uppercase' as const, color: s.right.accentColor ?? 'rgba(255,255,255,.25)' }}>
+            <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.16em', textTransform: 'uppercase' as const, color: s.right.accentColor ?? 'rgba(255,255,255,.35)' }}>
               {s.right.label}
             </div>
 
-            {s.right.firmLogo && (
-              <div>
-                <LogoImg src={s.right.firmLogo} alt={s.right.firmName} height={24} />
-                <div style={{ fontSize: 10, color: 'rgba(255,255,255,.72)', marginTop: 5 }}>{s.right.firmRole}</div>
-              </div>
-            )}
-
-            {s.right.desc && (
+            {s.right.parties && (
               <>
                 <div style={{ height: 1, background: 'rgba(255,255,255,.05)' }} />
-                <div style={{ flex: 1, fontSize: 12.5, color: 'rgba(255,255,255,.72)', lineHeight: 1.75 }}>{s.right.desc}</div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 18, flex: s.right.stats ? 0 : 1 }}>
+                  {s.right.parties.map((p: any, i: number) => (
+                    <div key={i}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+                        <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase' as const, color: p.crClient ? 'rgba(45,212,160,.7)' : 'rgba(255,255,255,.50)' }}>{p.role}</div>
+                        {p.crClient && (
+                          <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase' as const, color: 'rgba(45,212,160,.9)', background: 'rgba(45,212,160,.1)', border: '1px solid rgba(45,212,160,.25)', padding: '1px 6px', lineHeight: 1.6 }}>CR Client</div>
+                        )}
+                      </div>
+                      <LogoImg src={p.logo} alt={p.name} height={p.crClient ? 26 : 22} invert={p.invert} />
+                      {i < s.right.parties.length - 1 && (
+                        <div style={{ height: 1, background: 'rgba(255,255,255,.05)', marginTop: 18 }} />
+                      )}
+                    </div>
+                  ))}
+                </div>
               </>
             )}
 
@@ -307,23 +321,6 @@ export function DealProof() {
                     <div key={i} style={{ padding: '14px 16px', background: 'rgba(6,14,28,.95)' }}>
                       <div style={{ fontFamily: 'var(--font-mono)', fontSize: 22, fontWeight: 700, color: 'rgba(255,255,255,.92)', marginBottom: 5, letterSpacing: '-.02em' }}>{st.val}</div>
                       <div style={{ fontSize: 11, color: 'rgba(255,255,255,.72)', lineHeight: 1.4, textTransform: 'uppercase' as const, letterSpacing: '.04em' }}>{st.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </>
-            )}
-
-            {s.right.parties && (
-              <>
-                <div style={{ height: 1, background: 'rgba(255,255,255,.05)' }} />
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 20, flex: 1 }}>
-                  {s.right.parties.map((p: any, i: number) => (
-                    <div key={i}>
-                      <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,.55)', marginBottom: 10 }}>{p.role}</div>
-                      <LogoImg src={p.logo} alt={p.name} height={24} invert={p.invert} />
-                      {i < s.right.parties.length - 1 && (
-                        <div style={{ height: 1, background: 'rgba(255,255,255,.05)', marginTop: 20 }} />
-                      )}
                     </div>
                   ))}
                 </div>
