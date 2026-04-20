@@ -36,11 +36,11 @@ const PACKAGES = [
   },
   {
     id: 'resilience',
-    name: 'AI Displacement Risk',
+    name: 'AI Structural Position',
     price: '$25–30k',
     timeline: '2–3 weeks',
-    desc: '5 dimensions measuring replacement risk, data moats, seat compression, leapfrog potential.',
-    useCase: 'M&A diligence prep · Board presentations · Buyer objection pre-emption',
+    desc: '5 dimensions documenting data moats, integration depth, and structural defensibility — the customer evidence behind your durability story.',
+    useCase: 'M&A diligence prep · Board presentations · Durability narrative',
     dims: 5,
     color: 'rgba(245,158,11,.95)',
   },
@@ -166,8 +166,8 @@ export default function QofAIPage() {
                 {[
                   { name:'AI Catalyst',     badge:'Growth Opportunity', color:'rgba(77,144,254,.95)',  bg:'rgba(77,144,254,.08)',  desc:'High Resilience + Emerging AI. Strong structural moats with untapped AI potential.' },
                   { name:'AI Fortress',     badge:'Premium Asset',       color:'rgba(45,212,160,.97)',  bg:'rgba(45,212,160,.07)',  desc:'High Capability + High Resilience. Commands 15–25% valuation premium.', highlight:true },
-                  { name:'AI Foundation',   badge:'Rebuild Required',    color:'rgba(255,77,94,.92)',   bg:'rgba(255,77,94,.06)',   desc:'Emerging AI + Developing Moats. Investment required in both dimensions.' },
-                  { name:'AI Accelerator',  badge:'Moat Investment',     color:'rgba(245,158,11,.95)',  bg:'rgba(245,158,11,.07)',  desc:'Strong AI + Developing Moats. Defensibility is the priority before positioning erodes.' },
+                  { name:'AI Foundation',   badge:'AI Growth Story',     color:'rgba(255,77,94,.92)',   bg:'rgba(255,77,94,.06)',   desc:'Early-stage AI with meaningful upside on both axes — a clear growth narrative and value creation roadmap for the right acquirer.' },
+                  { name:'AI Accelerator',  badge:'Structural Upside',   color:'rgba(245,158,11,.95)',  bg:'rgba(245,158,11,.07)',  desc:'Strong current AI with near-term opportunity to lock in structural moats — a natural value creation lever for the next owner.' },
                 ].map((q, i) => (
                   <div key={i} style={{ background: q.highlight ? 'rgba(45,212,160,.05)' : 'rgba(6,14,28,.95)', padding:'20px 20px', borderTop: q.highlight ? '2px solid rgba(45,212,160,.4)' : '2px solid transparent', position:'relative' }}>
                     <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:q.color, background:q.bg, padding:'2px 7px', display:'inline-block', marginBottom:8 }}>{q.badge}</div>
@@ -260,10 +260,10 @@ export default function QofAIPage() {
             <div>
               <div className="ib-section-eyebrow" style={{ marginBottom:8 }}>IC Objection Prep</div>
               <h2 style={{ fontSize:22, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.022em', lineHeight:1.25, marginBottom:12 }}>
-                Every IC has an AI question. You need a customer-backed answer.
+                Every IC has an AI question. Walk in with a customer-backed answer.
               </h2>
               <p style={{ fontSize:13, color:'rgba(255,255,255,.72)', lineHeight:1.72, marginBottom:0 }}>
-                Generic "AI-powered" claims get discounted before the first page turn. The Q of AI produces customer-validated responses to every blocking objection.
+                Generic "AI-powered" claims get challenged at the first IC. The Q of AI gives you customer-validated language for every question — so management walks in with evidence, not assertions.
               </p>
             </div>
 
@@ -271,7 +271,7 @@ export default function QofAIPage() {
               {/* Dropdown question selector */}
               <div style={{ marginBottom:16 }}>
                 <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.55)', marginBottom:8 }}>
-                  Select IC objection
+                  Select an IC question
                 </div>
                 <div style={{ position:'relative' }}>
                   <select
@@ -297,7 +297,7 @@ export default function QofAIPage() {
               {/* Answer panel */}
               <div style={{ background:'rgba(6,14,28,.95)', border:'1px solid rgba(255,255,255,.1)', borderTop:'2px solid rgba(45,212,160,.4)', padding:'20px 22px' }}>
                 <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(45,212,160,.88)', marginBottom:10 }}>
-                  Q of AI Answer
+                  Prepared Answer
                 </div>
                 <div style={{ fontSize:13.5, color:'rgba(255,255,255,.88)', lineHeight:1.75 }}>
                   {OBJECTIONS[selectedQ].a}
@@ -379,7 +379,7 @@ export default function QofAIPage() {
                 { title:'Visual Scorecard',      desc:'CIM-ready slides with quantified scores across all dimensions' },
                 { title:'Full VoC Report',        desc:'25+ slides: executive summary, benchmarking, verbatim customer quotes' },
                 { title:'AI Resilience Matrix',   desc:'Quadrant positioning: Fortress / Catalyst / Accelerator / Foundation' },
-                { title:'Buyer Objection Pack',   desc:'Customer-backed responses to every standard AI IC objection' },
+                { title:'IC Preparation Pack',    desc:'Customer-backed language for every AI question an IC will raise' },
               ].map((item,i) => (
                 <div key={i} style={{ borderLeft:'2px solid rgba(45,212,160,.35)', paddingLeft:12 }}>
                   <div style={{ fontSize:12, fontWeight:700, color:'rgba(255,255,255,.85)', marginBottom:4 }}>{item.title}</div>
@@ -399,7 +399,7 @@ export default function QofAIPage() {
             Pre-empt the objection.<br />Commission the Q of AI.
           </h2>
           <p style={{ fontSize:13, color:'rgba(255,255,255,.72)', lineHeight:1.75, marginBottom:28 }}>
-            Institutional buyers are repricing AI displacement risk across every software transaction. AI Fortress quadrant: 15–25% valuation premium. Three to four weeks. Real customers. Independent collection.
+            Institutional buyers are pricing AI capability and defensibility into every bid. Companies that arrive with customer-validated evidence don't just answer the question — they set the terms. AI Fortress positioning: 15–25% valuation premium. Three to four weeks. Real customers. Independent collection.
           </p>
           <div style={{ display:'flex', gap:10, justifyContent:'center', flexWrap:'wrap', marginBottom:18 }}>
             <a href={`mailto:${CONTACT.email}`} style={{ background:'rgba(255,255,255,.95)', color:'#050e1e', padding:'11px 26px', fontSize:13, fontWeight:700, textDecoration:'none' }}>
