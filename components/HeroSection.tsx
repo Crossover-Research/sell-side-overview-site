@@ -4,7 +4,7 @@ import type { Tab } from '../lib/types';
 import { IB_TRACK_RECORD } from '../lib/data/ibCapabilities';
 
 const METRICS = [
-  { val: '$1B+',  label: 'Single transaction outcome' },
+  { val: '$1B+',  label: 'Single deal outcome' },
   { val: IB_TRACK_RECORD.mandatesSupported,   label: 'Sell-side mandates' },
   { val: '60+',   label: 'Buy-side engagements' },
   { val: IB_TRACK_RECORD.winRateWithCrossover, label: 'Mandate win rate' },

@@ -52,7 +52,7 @@ const DEALS = [
       quote: '"Having a Voice of Customer document was seen as a differentiator by the client. The findings from your report were a key part of the equity story materials we presented."',
       quoteAttr: 'Executive Director, J.P. Morgan',
       desc: '',
-      outcome: 'VoC report cited as the mandate-winning differentiator',
+      outcome: 'Customer research cited as the mandate-winning differentiator',
       outcomeBg: 'rgba(77,144,254,.07)',
       outcomeBorder: 'rgba(77,144,254,.2)',
       outcomeText: 'rgba(130,175,255,.95)',
@@ -161,7 +161,7 @@ export function DealProof() {
           <h2 style={{ fontSize: 'clamp(22px,3vw,32px)', fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.025em', marginBottom: 6 }}>
             $11.2B in transactions. Three engagements. Zero internal benchmarks.
           </h2>
-          <div style={{ fontSize: 13, color: 'rgba(255,255,255,.72)' }}>Three engagements. $11.2B in combined transaction value.</div>
+
         </div>
 
         {/* Tab selectors — dots only, timed rotation */}

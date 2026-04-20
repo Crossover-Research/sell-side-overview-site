@@ -53,7 +53,7 @@ const PACKAGES = [
     name: 'Complete Q of AI',
     price: '$40–50k',
     timeline: '3–4 weeks',
-    desc: 'The full picture. Dual scorecard showing both current strength and future resilience. AI Fortress quadrant companies command 15–25% valuation premiums.',
+    desc: 'Dual scorecard: current AI strength and structural resilience. AI Fortress quadrant companies command 15–25% valuation premiums over peers.',
     useCase: 'Full sell-side process · CIM enhancement · Premium multiple justification',
     dims: 15,
     color: 'rgba(45,212,160,.9)',
@@ -98,7 +98,7 @@ const QUADRANTS = [
     badge: 'Moat Investment Needed',
     badgeColor: 'rgba(245,158,11,.9)',
     badgeBg: 'rgba(245,158,11,.1)',
-    desc: 'Strong AI + Developing Moats. Needs deeper structural defensibility to sustain positioning.',
+    desc: 'Strong AI capability + Developing Moats. Building defensibility is the priority — without it, positioning erodes against AI-native competitors.',
     pos: 'bottom-right',
   },
 ];
@@ -173,7 +173,7 @@ export default function QofAIPage() {
               <div style={{ padding: '16px 20px', borderBottom: '1px solid rgba(255,255,255,.07)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <div>
                   <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.62)', marginBottom: 3 }}>AI Assessment Scorecard</div>
-                  <div style={{ fontSize: 11, color: 'rgba(255,255,255,.68)' }}>[Company Name] · Enterprise SaaS</div>
+                  <div style={{ fontSize: 11, color: 'rgba(255,255,255,.68)' }}>Sample Assessment · Enterprise SaaS</div>
                 </div>
                 <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(45,212,160,.9)', background: 'rgba(45,212,160,.12)', border: '1px solid rgba(45,212,160,.3)', padding: '3px 10px' }}>
                   AI FORTRESS
@@ -254,7 +254,7 @@ export default function QofAIPage() {
               <div style={{ background: 'rgba(6,14,28,.95)', padding: '32px 32px', minHeight: 200, borderTop: '1px solid rgba(255,255,255,.05)', borderLeft: '1px solid rgba(255,255,255,.05)' }}>
                 <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(245,158,11,.85)', background: 'rgba(245,158,11,.07)', padding: '2px 8px', display: 'inline-block', marginBottom: 12 }}>Moat Investment Needed</div>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 18, fontWeight: 700, color: 'rgba(245,158,11,.85)', marginBottom: 10 }}>AI Accelerator</div>
-                <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.75)', lineHeight: 1.6 }}>Strong AI capability + Developing Moats. Needs deeper structural defensibility to sustain positioning against AI-native competition long-term.</div>
+                <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.75)', lineHeight: 1.6 }}>Strong AI capability + Developing Moats. Without structural defensibility, positioning erodes as AI-native competitors close the gap.</div>
               </div>
             </div>
           </div>
@@ -345,7 +345,7 @@ export default function QofAIPage() {
       {/* BUYER OBJECTIONS */}
       <section style={{ padding: '64px 0', borderBottom: '1px solid rgba(255,255,255,.07)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 36px' }}>
-          <div className="ib-section-eyebrow">Buyer Objection Handling</div>
+          <div className="ib-section-eyebrow">IC Objection Prep</div>
           <h2 style={{ fontSize: 24, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.022em', marginBottom: 6, marginTop: 8 }}>Every IC now has an AI question. You need a customer-backed answer.</h2>
           <p style={{ fontSize: 13, color: 'rgba(255,255,255,.70)', marginBottom: 32 }}>
             Generic "AI-powered" claims get discounted before the first page turn. The Q of AI produces customer-validated responses to each blocking objection.
@@ -371,7 +371,7 @@ export default function QofAIPage() {
       <section style={{ padding: '64px 0', background: 'linear-gradient(168deg,#050e1e 0%,#081628 100%)', borderBottom: '1px solid rgba(255,255,255,.07)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 36px' }}>
           <div className="ib-section-eyebrow">Assessment Packages</div>
-          <h2 style={{ fontSize: 24, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.022em', marginBottom: 6, marginTop: 8 }}>Commission the right scope. Every package derives from real customers.</h2>
+          <h2 style={{ fontSize: 24, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.022em', marginBottom: 6, marginTop: 8 }}>Three scopes. Every score sourced from real customers.</h2>
           <p style={{ fontSize: 13, color: 'rgba(255,255,255,.70)', marginBottom: 32 }}>
             Every package includes a visual scorecard, 25+ slide VoC report, customer verbatims, and CIM-ready positioning language.
           </p>
@@ -430,7 +430,7 @@ export default function QofAIPage() {
       {/* CTA */}
       <section style={{ padding: '52px 0', textAlign: 'center' }}>
         <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 36px' }}>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(45,212,160,.7)', marginBottom: 16 }}>Get Started</div>
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(45,212,160,.7)', marginBottom: 16 }}>Commission the Q of AI</div>
           <h2 style={{ fontSize: 28, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.025em', lineHeight: 1.2, marginBottom: 14 }}>
             Pre-empt the objection.<br />Commission the Q of AI.
           </h2>

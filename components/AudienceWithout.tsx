@@ -62,9 +62,9 @@ export function AudienceWithout() {
       <div style={{ maxWidth:'var(--content-max)', margin:'0 auto', padding:'0 var(--content-pad)' }}>
 
         <div style={{ marginBottom:28 }}>
-          <div className="ib-section-eyebrow">The Difference</div>
+          <div className="ib-section-eyebrow">With vs. Without Crossover</div>
           <h2 style={{ fontSize:'clamp(20px,3vw,28px)', fontWeight:700, color: 'rgba(255,255,255,.95)', letterSpacing:'-.025em', marginTop:8, marginBottom:20 }}>
-            Walk in with customer proof that wins the mandate.
+            Evidence changes every outcome in the room.
           </h2>
 
           <div style={{ display:'flex', gap:4 }}>

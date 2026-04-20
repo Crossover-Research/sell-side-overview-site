@@ -5,8 +5,8 @@ const STAGES = [
   {
     num: '01',
     name: 'Sector Research',
-    headline: 'Demonstrate sector expertise. Convert pipeline before competitors arrive.',
-    desc: 'Demonstrate sector expertise and use the underlying work to solicit operators and improve pipeline conversion.',
+    headline: 'Convert pipeline before competitors know the process is live.',
+    desc: 'Independent sector research gives you defensible customer evidence before management has briefed anyone. Enter every initial conversation already ahead.',
     tags: ['6–12mo pre-process', 'No management contact', 'Operator sourcing'],
     cta: 'Start Sector Research',
   },
@@ -21,8 +21,8 @@ const STAGES = [
   {
     num: '03',
     name: 'CIM Enhancement',
-    headline: "The pitch deck becomes the basis for the CIM.",
-    desc: "The bank's pitch deck serves as the basis for CIM development — Crossover helps operators get customer-backed proof points to counter the weakest elements of the story.",
+    headline: "Customer-backed proof points that close the CIM gaps before buyers open them.",
+    desc: "Every weak claim in the CIM gets pre-validated against independent customer evidence. Buyers find no gaps — because they were found and closed first.",
     tags: ['Customer-backed proof points', '40+ benchmark studies', 'Buyer-proof narrative'],
     cta: 'Enhance the CIM',
   },
@@ -30,8 +30,8 @@ const STAGES = [
 
 const CAPS = [
   { num: '01', stat: '1st', label: 'Mandate Pitch', hook: 'First bank in the room with independent customer proof.' },
-  { num: '02', stat: '9',   label: 'CIM Narrative', hook: 'Every claim benchmarked across 40+ comparable studies.' },
-  { num: '03', stat: '50',  label: 'Buyer Mapping', hook: 'Buyers ranked by conviction before the first call goes out.' },
+  { num: '02', stat: '40+', label: 'CIM Narrative', hook: 'Every claim benchmarked across 40+ comparable studies.' },
+  { num: '03', stat: '1st', label: 'Buyer Mapping', hook: 'Target buyers ranked and prioritised before the first call goes out.' },
   { num: '04', stat: '5',   label: 'AI IC Prep',    hook: 'Fund-specific adversarial personas. Management arrives knowing every question.' },
   { num: '05', stat: '30+', label: 'Cortex Engine', hook: 'Signal sources. The intelligence infrastructure beneath everything.' },
 ];
@@ -46,9 +46,9 @@ export function CapabilitiesEngine() {
 
         {/* Header */}
         <div style={{ marginBottom: 36 }}>
-          <div className="ib-section-eyebrow" style={{ marginBottom: 8 }}>How It Works</div>
+          <div className="ib-section-eyebrow" style={{ marginBottom: 8 }}>The Engagement Model</div>
           <h2 style={{ fontSize: 'clamp(20px,3vw,28px)', fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.025em', marginBottom: 6 }}>
-            Three entry points. Five capabilities. One infrastructure.
+            Three ways in. Five capabilities. One customer evidence base.
           </h2>
           <p style={{ fontSize: 13, color: 'rgba(255,255,255,.62)' }}>
             Every entry point draws from the same customer evidence. No restarts between mandate, CIM, and diligence.

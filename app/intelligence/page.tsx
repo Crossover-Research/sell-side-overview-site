@@ -155,9 +155,10 @@ export default function IntelligencePage() {
                 <div style={{ fontSize: 10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(77,144,254,.9)', background:'rgba(77,144,254,.12)', border:'1px solid rgba(77,144,254,.3)', padding:'2px 8px' }}>Client Proposal</div>
                 <div style={{ fontSize: 10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(77,144,254,.7)', padding:'2px 0' }}>Live Portal ↗</div>
               </div>
-              <div style={{ fontSize:17, fontWeight:700, color: 'rgba(255,255,255,.92)', marginBottom:8, letterSpacing:'-.02em' }}>Volie</div>
+              <div style={{ fontSize:17, fontWeight:700, color: 'rgba(255,255,255,.92)', marginBottom:4, letterSpacing:'-.02em' }}>Volie</div>
+              <div style={{ fontSize:12, color: 'rgba(255,255,255,.62)', marginBottom:8, lineHeight:1.5 }}>Operator outreach powered by independent customer intelligence.</div>
               <div style={{ display:'flex', gap:5, flexWrap:'wrap', marginBottom:16 }}>
-                {['Targeted Outreach','Cortex AI','Operator Intelligence','Shareable'].map((t,i)=>(
+                {['Targeted Outreach','AI-Powered','Operator Intelligence','Shareable'].map((t,i)=>(
                   <span key={i} style={{ fontSize: 11, fontWeight:600, color:'rgba(130,175,255,.8)', background:'rgba(77,144,254,.07)', border:'1px solid rgba(77,144,254,.15)', padding:'2px 7px' }}>{t}</span>
                 ))}
               </div>
