@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="5" fill="#0B1929"/>
-  <text x="5" y="23" font-family="'Arial Black', 'Helvetica Neue', sans-serif" font-size="17" font-weight="900" fill="#ffffff" letter-spacing="-1">C</text>
-  <text x="17" y="23" font-family="'Arial Black', 'Helvetica Neue', sans-serif" font-size="17" font-weight="900" fill="#2096de" letter-spacing="-1">R</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 110">
+  <rect width="110" height="110" rx="18" fill="#0B1929"/>
+  <polygon fill="#ffffff" points="63.9 91.7 0 110 18.3 46.1 63.9 46.1 63.9 76.6 63.9 77 63.9 91.6 63.9 91.7"/>
+  <path fill="#ffffff" d="M96.6,13.4c-17.9-17.9-46.9-17.9-64.8,0-6.7,6.7-10.8,14.9-12.5,23.4h15.4c1.4-4.7,4-9.2,7.7-12.9,12.1-12.1,31.6-12.1,43.6,0,12.1,12.1,12.1,31.6,0,43.6-3.7,3.7-8.2,6.3-12.9,7.7v15.4c8.6-1.7,16.8-5.9,23.4-12.5,17.9-17.9,17.9-46.9,0-64.8M63.9,76.6c-7.8,0-15.6-3.1-21.5-9-5.9-5.9-9-13.7-9-21.5h-14.9c0,11.6,4.5,23.2,13.4,32.1,8.9,8.9,20.5,13.3,32.1,13.4v-14.9Z"/>
 </svg>
