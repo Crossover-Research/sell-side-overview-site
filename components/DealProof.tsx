@@ -23,17 +23,16 @@ const DEALS = [
       outcomeText: 'rgba(130,175,255,.95)',
     },
     right: {
-      label: 'Deal Parties',
-      accentColor: 'rgba(255,255,255,.35)',
+      label: 'Buy-Side',
+      accentColor: 'rgba(45,212,160,.7)',
+      firmName: 'General Atlantic',
+      firmLogo: '/general-atlantic-logo.svg',
+      firmRole: 'Lead investor',
+      desc: 'Independent conviction brief. Research flagged Nerdio before the process opened. Arrived ahead of every competing bidder.',
       outcome: '$500M investment at unicorn valuation',
       outcomeBg: 'rgba(45,212,160,.07)',
       outcomeBorder: 'rgba(45,212,160,.2)',
       outcomeText: 'rgba(45,212,160,.95)',
-      parties: [
-        { role: 'CR Client', logo: '/nerdio-logo.svg', name: 'Nerdio', crClient: true },
-        { role: 'Sell-Side Advisor', logo: '/jpmorgan-logo.svg', name: 'J.P. Morgan', invert: true },
-        { role: 'Buy-Side Investor', logo: '/general-atlantic-logo.svg', name: 'General Atlantic' },
-      ],
     },
   },
   {
@@ -59,12 +58,8 @@ const DEALS = [
       outcomeText: 'rgba(130,175,255,.95)',
     },
     right: {
-      label: 'Deal Parties',
-      accentColor: 'rgba(255,255,255,.35)',
-      parties: [
-        { role: 'CR Client', logo: '/mobile-de-logo.svg', name: 'Mobile.de', crClient: true },
-        { role: 'Sell-Side Advisor', logo: '/jpmorgan-logo.svg', name: 'J.P. Morgan', invert: true },
-      ],
+      label: 'The Context',
+      accentColor: 'rgba(255,255,255,.25)',
       stats: [
         { val: '$10B', label: 'Transaction value' },
         { val: '30+', label: 'Customer interviews' },
@@ -94,12 +89,11 @@ const DEALS = [
       outcomeText: 'rgba(130,175,255,.95)',
     },
     right: {
-      label: 'Deal Parties',
-      accentColor: 'rgba(255,255,255,.35)',
+      label: 'Transaction Parties',
+      accentColor: 'rgba(255,255,255,.25)',
       parties: [
-        { role: 'CR Client', logo: '/red-canary-logo.svg', name: 'Red Canary', crClient: true },
         { role: 'Sell-Side Advisor', logo: '/jpmorgan-logo.svg', name: 'J.P. Morgan', invert: true },
-        { role: 'Acquirer', logo: '/zscaler-logo.svg', name: 'Zscaler' },
+        { role: 'Acquirer', logo: '/zscaler-logo.svg', name: 'Zscaler', invert: true },
       ],
     },
   },
@@ -155,23 +149,28 @@ export function DealProof() {
 
   return (
     <section
-      style={{ padding: '64px 0', borderBottom: '1px solid rgba(255,255,255,.07)' }}
+      style={{ padding:'72px 0 0', borderBottom:'1px solid rgba(255,255,255,.07)' }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div style={{ maxWidth: 'var(--content-max)', margin: '0 auto', padding: '0 var(--content-pad)' }}>
+      <div style={{ maxWidth:'var(--content-max)', margin:'0 auto', padding:'0 var(--content-pad)' }}>
 
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: 28 }}>
-          <div className="ib-section-eyebrow" style={{ textAlign: 'center', marginBottom: 8 }}>Proof of Impact</div>
-          <h2 style={{ fontSize: 'clamp(22px,3vw,32px)', fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.025em', marginBottom: 6 }}>
-            $11.2B in transactions. Three engagements. Zero internal benchmarks.
+        <div style={{ textAlign:'center', marginBottom:32 }}>
+          <div className="ib-section-eyebrow" style={{ textAlign:'center', marginBottom:10 }}>Proof of Impact</div>
+          <h2 style={{
+            fontSize:'clamp(22px,3vw,34px)', fontWeight:700,
+            color:'rgba(255,255,255,.95)', letterSpacing:'-.025em', marginBottom:10, lineHeight:1.2,
+          }}>
+            $11.2B in transactions.<br />
+            <span style={{ color:'rgba(255,255,255,.60)', fontWeight:400, fontSize:'0.82em' }}>
+              Three engagements. One independent evidence base. Neither side chose the respondents.
+            </span>
           </h2>
-
         </div>
 
-        {/* Tab selectors — dots only, timed rotation */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: 12, marginBottom: 20 }}>
+        {/* Tab selectors */}
+        <div style={{ display:'flex', justifyContent:'center', gap:12, marginBottom:20 }}>
           {DEALS.map((_, i) => (
             <button
               key={i}
@@ -191,151 +190,168 @@ export function DealProof() {
         </div>
 
         {/* Progress bar */}
-        <div style={{ height: 1, background: 'rgba(255,255,255,.06)', marginBottom: 20, overflow: 'hidden' }}>
+        <div style={{ height:1, background:'rgba(255,255,255,.06)', marginBottom:20, overflow:'hidden' }}>
           <div key={`${active}-${paused}`} style={{
-            height: '100%',
-            background: 'linear-gradient(90deg, rgba(77,144,254,.3), rgba(130,175,255,.6))',
+            height:'100%',
+            background:'linear-gradient(90deg, rgba(77,144,254,.3), rgba(130,175,255,.6))',
             width: paused ? '0%' : '100%',
             transition: paused ? 'none' : 'width 6s linear',
           }} />
         </div>
 
-        {/* Card — 3 column grid */}
+        {/* Card */}
         <div style={{
-          border: '1px solid rgba(255,255,255,.09)',
-          background: 'rgba(6,14,28,.98)',
-          display: 'grid',
-          gridTemplateColumns: '220px 1fr 1fr',
-          overflow: 'hidden',
-          position: 'relative',
-          minHeight: 300,
+          border:'1px solid rgba(255,255,255,.09)',
+          background:'rgba(6,14,28,.98)',
+          display:'grid',
+          gridTemplateColumns:'220px 1fr 1fr',
+          overflow:'hidden',
+          position:'relative',
+          minHeight:300,
         }}>
-          {/* Top accent line */}
-          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 1, background: 'linear-gradient(90deg,transparent 0%,rgba(77,144,254,.35) 25%,rgba(130,175,255,.5) 50%,rgba(77,144,254,.35) 75%,transparent 100%)' }} />
+          <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,transparent 0%,rgba(77,144,254,.35) 25%,rgba(130,175,255,.5) 50%,rgba(77,144,254,.35) 75%,transparent 100%)' }} />
 
-          {/* ── LEFT: Identity ── */}
+          {/* LEFT: Identity */}
           <div style={{
             ...fade,
-            background: 'rgba(255,255,255,.018)',
-            borderRight: '1px solid rgba(255,255,255,.07)',
-            padding: '28px 24px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
+            background:'rgba(255,255,255,.018)',
+            borderRight:'1px solid rgba(255,255,255,.07)',
+            padding:'28px 24px',
+            display:'flex', flexDirection:'column', justifyContent:'space-between',
           }}>
-            {/* Logo */}
-            <div style={{ marginBottom: 0 }}>
-              <LogoImg src={deal.companyLogo} alt={deal.company} height={deal.logoHeight} />
-            </div>
-
-            {/* Size — centered vertically */}
-            <div style={{ textAlign: 'left' }}>
-              <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,.55)', marginBottom: 7 }}>
+            <div><LogoImg src={deal.companyLogo} alt={deal.company} height={deal.logoHeight} /></div>
+            <div>
+              <div style={{ fontSize:11, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(255,255,255,.55)', marginBottom:7 }}>
                 {deal.sizeLabel}
               </div>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 44, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.04em', lineHeight: 1, marginBottom: 7 }}>
+              <div style={{ fontFamily:'var(--font-mono)', fontSize:44, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.04em', lineHeight:1, marginBottom:7 }}>
                 {deal.size}
               </div>
-              <div style={{ fontSize: 10, color: 'rgba(255,255,255,.72)', letterSpacing: '.03em' }}>
+              <div style={{ fontSize:10, color:'rgba(255,255,255,.72)', letterSpacing:'.03em' }}>
                 {deal.badge} &middot; {deal.company}
               </div>
             </div>
-
-            {/* Involvement */}
             <div>
-              <div style={{ height: 1, background: 'rgba(255,255,255,.06)', marginBottom: 18 }} />
-              <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,.70)', marginBottom: 5 }}>Involvement</div>
-              <div style={{ fontSize: 11, fontWeight: 600, color: 'rgba(45,212,160,.75)', letterSpacing: '.02em' }}>{deal.involvement}</div>
+              <div style={{ height:1, background:'rgba(255,255,255,.06)', marginBottom:18 }} />
+              <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.70)', marginBottom:5 }}>Involvement</div>
+              <div style={{ fontSize:11, fontWeight:600, color:'rgba(45,212,160,.75)', letterSpacing:'.02em' }}>{deal.involvement}</div>
             </div>
           </div>
 
-          {/* ── CENTRE: Primary ── */}
-          <div style={{ ...fade, borderRight: '1px solid rgba(255,255,255,.07)', padding: '24px 28px', display: 'flex', flexDirection: 'column', gap: 14 }}>
-            <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.16em', textTransform: 'uppercase' as const, color: s.left.accentColor }}>
+          {/* CENTRE: Primary */}
+          <div style={{ ...fade, borderRight:'1px solid rgba(255,255,255,.07)', padding:'24px 28px', display:'flex', flexDirection:'column', gap:14 }}>
+            <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:s.left.accentColor }}>
               {s.left.label}
             </div>
-
             {s.left.firmLogo && (
               <div>
                 <LogoImg src={s.left.firmLogo} alt={s.left.firmName} height={24} />
-                <div style={{ fontSize: 10, color: 'rgba(255,255,255,.72)', marginTop: 5 }}>{s.left.firmRole}</div>
+                <div style={{ fontSize:10, color:'rgba(255,255,255,.72)', marginTop:5 }}>{s.left.firmRole}</div>
               </div>
             )}
-
-            <div style={{ height: 1, background: 'rgba(255,255,255,.05)' }} />
-
+            <div style={{ height:1, background:'rgba(255,255,255,.05)' }} />
             {s.left.quote ? (
-              <div style={{ flex: 1 }}>
-                <div style={{ fontSize: 13, fontStyle: 'italic', color: 'rgba(255,255,255,.82)', lineHeight: 1.75, borderLeft: '2px solid rgba(77,144,254,.28)', paddingLeft: 14, marginBottom: 10 }}>
+              <div style={{ flex:1 }}>
+                <div style={{ fontSize:13, fontStyle:'italic', color:'rgba(255,255,255,.82)', lineHeight:1.75, borderLeft:'2px solid rgba(77,144,254,.28)', paddingLeft:14, marginBottom:10 }}>
                   {s.left.quote}
                 </div>
-                <div style={{ fontSize: 10, color: 'rgba(255,255,255,.70)', paddingLeft: 16 }}>{s.left.quoteAttr}</div>
+                <div style={{ fontSize:10, color:'rgba(255,255,255,.70)', paddingLeft:16 }}>{s.left.quoteAttr}</div>
               </div>
             ) : (
-              <div style={{ flex: 1, fontSize: 12.5, color: 'rgba(255,255,255,.72)', lineHeight: 1.75 }}>
+              <div style={{ flex:1, fontSize:12.5, color:'rgba(255,255,255,.72)', lineHeight:1.75 }}>
                 {s.left.desc}
               </div>
             )}
-
             {s.left.outcome && (
-              <div style={{ background: s.left.outcomeBg, border: `1px solid ${s.left.outcomeBorder}`, padding: '10px 14px' }}>
-                <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,.55)', marginBottom: 5 }}>Outcome</div>
-                <div style={{ fontSize: 12, fontWeight: 600, color: s.left.outcomeText, lineHeight: 1.4 }}>{s.left.outcome}</div>
+              <div style={{ background:s.left.outcomeBg, border:`1px solid ${s.left.outcomeBorder}`, padding:'10px 14px' }}>
+                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.55)', marginBottom:5 }}>Outcome</div>
+                <div style={{ fontSize:12, fontWeight:600, color:s.left.outcomeText, lineHeight:1.4 }}>{s.left.outcome}</div>
               </div>
             )}
           </div>
 
-          {/* ── RIGHT: Deal Parties ── */}
-          <div style={{ ...fade, padding: '24px 28px', display: 'flex', flexDirection: 'column', gap: 14 }}>
-            <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.16em', textTransform: 'uppercase' as const, color: s.right.accentColor ?? 'rgba(255,255,255,.35)' }}>
+          {/* RIGHT: Context */}
+          <div style={{ ...fade, padding:'24px 28px', display:'flex', flexDirection:'column', gap:14 }}>
+            <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:s.right.accentColor ?? 'rgba(255,255,255,.25)' }}>
               {s.right.label}
             </div>
-
+            {s.right.firmLogo && (
+              <div>
+                <LogoImg src={s.right.firmLogo} alt={s.right.firmName} height={24} />
+                <div style={{ fontSize:10, color:'rgba(255,255,255,.72)', marginTop:5 }}>{s.right.firmRole}</div>
+              </div>
+            )}
+            {s.right.desc && (
+              <>
+                <div style={{ height:1, background:'rgba(255,255,255,.05)' }} />
+                <div style={{ flex:1, fontSize:12.5, color:'rgba(255,255,255,.72)', lineHeight:1.75 }}>{s.right.desc}</div>
+              </>
+            )}
+            {s.right.stats && (
+              <>
+                <div style={{ height:1, background:'rgba(255,255,255,.05)' }} />
+                <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:1, background:'rgba(255,255,255,.05)', flex:1 }}>
+                  {s.right.stats.map((st: any, i: number) => (
+                    <div key={i} style={{ padding:'14px 16px', background:'rgba(6,14,28,.95)' }}>
+                      <div style={{ fontFamily:'var(--font-mono)', fontSize:22, fontWeight:700, color:'rgba(255,255,255,.92)', marginBottom:5, letterSpacing:'-.02em' }}>{st.val}</div>
+                      <div style={{ fontSize:11, color:'rgba(255,255,255,.72)', lineHeight:1.4, textTransform:'uppercase', letterSpacing:'.04em' }}>{st.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
             {s.right.parties && (
               <>
-                <div style={{ height: 1, background: 'rgba(255,255,255,.05)' }} />
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 18, flex: s.right.stats ? 0 : 1 }}>
+                <div style={{ height:1, background:'rgba(255,255,255,.05)' }} />
+                <div style={{ display:'flex', flexDirection:'column', gap:20, flex:1 }}>
                   {s.right.parties.map((p: any, i: number) => (
                     <div key={i}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
-                        <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase' as const, color: p.crClient ? 'rgba(45,212,160,.7)' : 'rgba(255,255,255,.50)' }}>{p.role}</div>
-                        {p.crClient && (
-                          <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase' as const, color: 'rgba(45,212,160,.9)', background: 'rgba(45,212,160,.1)', border: '1px solid rgba(45,212,160,.25)', padding: '1px 6px', lineHeight: 1.6 }}>CR Client</div>
-                        )}
-                      </div>
-                      <LogoImg src={p.logo} alt={p.name} height={p.crClient ? 26 : 22} invert={p.invert} />
+                      <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.55)', marginBottom:10 }}>{p.role}</div>
+                      <LogoImg src={p.logo} alt={p.name} height={24} invert={p.invert} />
                       {i < s.right.parties.length - 1 && (
-                        <div style={{ height: 1, background: 'rgba(255,255,255,.05)', marginTop: 18 }} />
+                        <div style={{ height:1, background:'rgba(255,255,255,.05)', marginTop:20 }} />
                       )}
                     </div>
                   ))}
                 </div>
               </>
             )}
-
-            {s.right.stats && (
-              <>
-                <div style={{ height: 1, background: 'rgba(255,255,255,.05)' }} />
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 1, background: 'rgba(255,255,255,.05)', flex: 1 }}>
-                  {s.right.stats.map((st: any, i: number) => (
-                    <div key={i} style={{ padding: '14px 16px', background: 'rgba(6,14,28,.95)' }}>
-                      <div style={{ fontFamily: 'var(--font-mono)', fontSize: 22, fontWeight: 700, color: 'rgba(255,255,255,.92)', marginBottom: 5, letterSpacing: '-.02em' }}>{st.val}</div>
-                      <div style={{ fontSize: 11, color: 'rgba(255,255,255,.72)', lineHeight: 1.4, textTransform: 'uppercase' as const, letterSpacing: '.04em' }}>{st.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </>
-            )}
-
             {s.right.outcome && (
-              <div style={{ background: s.right.outcomeBg, border: `1px solid ${s.right.outcomeBorder}`, padding: '10px 14px', marginTop: 'auto' }}>
-                <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,.55)', marginBottom: 5 }}>Outcome</div>
-                <div style={{ fontSize: 12, fontWeight: 600, color: s.right.outcomeText, lineHeight: 1.4 }}>{s.right.outcome}</div>
+              <div style={{ background:s.right.outcomeBg, border:`1px solid ${s.right.outcomeBorder}`, padding:'10px 14px', marginTop:'auto' }}>
+                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.55)', marginBottom:5 }}>Outcome</div>
+                <div style={{ fontSize:12, fontWeight:600, color:s.right.outcomeText, lineHeight:1.4 }}>{s.right.outcome}</div>
               </div>
             )}
           </div>
-
         </div>
+
+        {/* Bottom CTA strip */}
+        <div style={{
+          marginTop:1,
+          display:'flex', alignItems:'center', justifyContent:'space-between',
+          background:'rgba(77,144,254,.05)', border:'1px solid rgba(77,144,254,.12)',
+          borderTop:'none', padding:'16px 24px', gap:16, flexWrap:'wrap',
+        }}>
+          <div style={{ fontSize:13, color:'rgba(255,255,255,.65)', lineHeight:1.5 }}>
+            <span style={{ color:'rgba(130,175,255,.9)', fontWeight:600 }}>50+ sell-side mandates. 60+ buy-side engagements.</span>
+            {' '}The same customer evidence that closed these deals is available for your next one.
+          </div>
+          <a
+            href="/intelligence?request=1"
+            style={{
+              display:'inline-flex', alignItems:'center',
+              background:'rgba(255,255,255,.9)', color:'#060e1c',
+              padding:'10px 22px', fontSize:12, fontWeight:700,
+              textDecoration:'none', whiteSpace:'nowrap', flexShrink:0,
+              transition:'all .15s',
+            }}
+            onMouseEnter={e=>{(e.currentTarget as HTMLElement).style.transform='translateY(-1px)';}}
+            onMouseLeave={e=>{(e.currentTarget as HTMLElement).style.transform='translateY(0)';}}
+          >
+            Scope a Mandate →
+          </a>
+        </div>
+
       </div>
     </section>
   );
