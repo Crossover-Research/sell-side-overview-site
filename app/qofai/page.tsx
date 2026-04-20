@@ -95,9 +95,9 @@ export default function QofAIPage() {
                 <span style={{ color:'rgba(255,255,255,.60)', fontWeight:300 }}>Assessment</span>
               </h1>
               <p style={{ fontSize:14, color:'rgba(255,255,255,.80)', lineHeight:1.78, marginBottom:24 }}>
-                Every PE fund and strategic acquirer now leads with:{' '}
-                <em style={{ color:'rgba(255,200,100,.92)', fontStyle:'normal', fontWeight:500 }}>"Will this company be displaced by AI-native competition?"</em>{' '}
-                Generic claims get discounted. Scores derived from actual customers — collected independently, uncoached — command premium multiples.
+                Every PE fund and strategic acquirer now opens with the same question:{' '}
+                <em style={{ color:'rgba(255,200,100,.92)', fontStyle:'normal', fontWeight:500 }}>"How durable is this company's AI advantage?"</em>{' '}
+                Generic claims get challenged at first IC. Scores derived from actual customers — collected independently, uncoached — give you the language to justify a premium.
               </p>
               <div style={{ display:'flex', gap:10, flexWrap:'wrap' }}>
                 <a href={`mailto:${CONTACT.email}`} style={{ background:'rgba(255,255,255,.95)', color:'#050e1e', padding:'9px 22px', fontSize:12, fontWeight:700, textDecoration:'none', display:'inline-flex', alignItems:'center' }}>
