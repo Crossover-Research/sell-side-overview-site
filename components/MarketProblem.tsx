@@ -32,7 +32,19 @@ export function MarketProblem() {
     <section style={{ padding:'72px 0', background:'rgba(255,255,255,.04)', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
       <div style={{ maxWidth:'var(--content-max)', margin:'0 auto', padding:'0 var(--content-pad)' }}>
 
-        {/* Table first */}
+        {/* Header first — frame before evidence */}
+        <div style={{ textAlign:'center', marginBottom:36 }}>
+          <h2 style={{ fontSize:'clamp(20px,3vw,30px)', fontWeight:700, color:'rgba(255,255,255,.92)', letterSpacing:'-.025em', lineHeight:1.2, marginBottom:10 }}>
+            Private markets are structurally broken.<br />
+            <span style={{ color:'rgba(255,255,255,.70)', fontWeight:400 }}>Everyone knows it. Nobody wants to admit it.</span>
+          </h2>
+          <p style={{ fontSize:13, color:'rgba(255,255,255,.72)', lineHeight:1.7 }}>
+            Bankers coach operators to glorify. Investors assume everything is curated.<br />
+            Every party enters the room working from a different version of the truth.
+          </p>
+        </div>
+
+        {/* Table */}
         <div style={{ border:'1px solid rgba(255,255,255,.1)', overflow:'hidden', marginBottom:20 }}>
           {/* Header row */}
           <div style={{ display:'grid', gridTemplateColumns:'120px 1fr 1fr', background:'rgba(255,255,255,.06)', borderBottom:'1px solid rgba(255,255,255,.1)' }}>
@@ -59,12 +71,8 @@ export function MarketProblem() {
           ))}
         </div>
 
-        {/* Header below table */}
-        <div style={{ textAlign:'center', marginBottom:0 }}>
-          <h2 style={{ fontSize:'clamp(20px,3vw,30px)', fontWeight:700, color:'rgba(255,255,255,.92)', letterSpacing:'-.025em', lineHeight:1.2, marginBottom:10 }}>
-            Private markets are structurally broken.<br />
-            <span style={{ color:'rgba(255,255,255,.70)', fontWeight:400 }}>Everyone knows it. Nobody wants to admit it.</span>
-          </h2>
+        {/* Footer line */}
+        <div style={{ textAlign:'center', marginTop:0 }}>
           <p style={{ fontSize:13, color:'rgba(255,255,255,.72)', lineHeight:1.7, fontStyle:'italic' }}>
             Every party works from a different version of the truth. Crossover is the one record none of them produced — and all of them rely on.
           </p>

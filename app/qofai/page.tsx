@@ -371,7 +371,7 @@ export default function QofAIPage() {
       <section style={{ padding: '64px 0', background: 'linear-gradient(168deg,#050e1e 0%,#081628 100%)', borderBottom: '1px solid rgba(255,255,255,.07)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 36px' }}>
           <div className="ib-section-eyebrow">Assessment Packages</div>
-          <h2 style={{ fontSize: 24, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.022em', marginBottom: 6, marginTop: 8 }}>Three packages. One methodology.</h2>
+          <h2 style={{ fontSize: 24, fontWeight: 700, color: 'rgba(255,255,255,.95)', letterSpacing: '-.022em', marginBottom: 6, marginTop: 8 }}>Commission the right scope. Every package derives from real customers.</h2>
           <p style={{ fontSize: 13, color: 'rgba(255,255,255,.70)', marginBottom: 32 }}>
             Every package includes a visual scorecard, 25+ slide VoC report, customer verbatims, and CIM-ready positioning language.
           </p>

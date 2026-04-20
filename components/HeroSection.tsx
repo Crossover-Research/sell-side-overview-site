@@ -35,8 +35,7 @@ export function HeroSection({ tab }: HeroSectionProps) {
 
         {/* Sub-copy */}
         <div style={{ fontSize:'clamp(14px,1.6vw,17px)', color: 'rgba(255,255,255,.72)', lineHeight:1.75, maxWidth:760, margin:'0 auto 40px' }}>
-          Our pitch enhancement work won <strong style={{ color: 'rgba(255,255,255,.82)', fontWeight:600 }}>J.P. Morgan</strong> the Nerdio mandate.
-          Our deep dive research gave <strong style={{ color: 'rgba(255,255,255,.82)', fontWeight:600 }}>General Atlantic</strong> the conviction to invest $500M.
+          J.P. Morgan won the Nerdio mandate with our research. General Atlantic used the same research to invest $500M. One deal. Both sides.
         </div>
 
 
