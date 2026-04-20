@@ -101,7 +101,7 @@ const DEALS = [
 
 function LogoImg({ src, alt, height = 18, invert }: { src: string; alt: string; height?: number; invert?: boolean }) {
   if (!src) return null;
-  const needsInvert = invert ?? (src.includes('jpmorgan') || src.includes('zscaler'));
+  const needsInvert = invert ?? src.includes('jpmorgan');
   const isGA = src.includes('general-atlantic');
   return (
     <img
