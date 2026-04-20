@@ -94,7 +94,7 @@ export function AudienceWithout() {
         {/* Table */}
         <div style={{ border:'1px solid rgba(255,255,255,.1)', overflow:'hidden' }}>
           {/* Header */}
-          <div style={{ display:'grid', gridTemplateColumns:'80px 1fr 40px 1fr', background:'rgba(255,255,255,.03)', borderBottom:'1px solid rgba(255,255,255,.08)' }}>
+          <div style={{ display:'grid', gridTemplateColumns:'100px 1fr 40px 1fr', background:'rgba(255,255,255,.03)', borderBottom:'1px solid rgba(255,255,255,.08)' }}>
             <div />
             <div style={{ padding:'10px 18px', fontSize:11, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(255,255,255,.60)' }}>
               Without Crossover
@@ -107,7 +107,7 @@ export function AudienceWithout() {
 
           {d.rows.map((row, i) => (
             <div key={i} style={{
-              display:'grid', gridTemplateColumns:'80px 1fr 40px 1fr',
+              display:'grid', gridTemplateColumns:'100px 1fr 40px 1fr',
               borderBottom: i < d.rows.length-1 ? '1px solid rgba(255,255,255,.05)' : 'none',
               background:'rgba(6,14,28,.95)',
             }}>
