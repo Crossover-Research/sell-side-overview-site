@@ -6,7 +6,7 @@ const ROWS = [
     audienceColor: 'rgba(77,144,254,.9)',
     audienceBg: 'rgba(77,144,254,.12)',
     what: 'Walk in with desk research and management interviews. Coach operators to minimize weaknesses. Hope buyers don\'t ask the right questions.',
-    cost: 'Lose mandates to incumbents. When buyers surface gaps the bank never saw, there\'s no answer ready.',
+    cost: '',
     costBold: 'The deal stalls or reprices. The bank takes the blame.',
   },
   {
@@ -14,7 +14,7 @@ const ROWS = [
     audienceColor: 'rgba(45,212,160,.9)',
     audienceBg: 'rgba(45,212,160,.12)',
     what: 'Told to glorify the story. No way to find weaknesses before buyers do. Enter diligence hoping nobody looks too hard.',
-    cost: 'Blindsided in management presentations. Weaknesses become buyer leverage.',
+    cost: '',
     costBold: 'The operator had no chance to respond — and no one told them to prepare.',
   },
   {
@@ -22,7 +22,7 @@ const ROWS = [
     audienceColor: 'rgba(168,130,255,.9)',
     audienceBg: 'rgba(168,130,255,.12)',
     what: 'Assume everything is curated. Restart diligence from scratch. Find the gaps late — and use them to reprice.',
-    cost: 'Months rebuilding diligence the sell-side already ran. Conviction built on curated data.',
+    cost: '',
     costBold: 'Retrades at IC. Value destroyed at the moment it should be captured.',
   },
 ];
@@ -34,7 +34,6 @@ export function MarketProblem() {
 
         {/* Header */}
         <div style={{ marginBottom:40 }}>
-          <div className="ib-section-eyebrow" style={{ marginBottom:10 }}>The Structural Problem</div>
           <h2 style={{
             fontSize:'clamp(22px,3vw,32px)', fontWeight:700,
             color:'rgba(255,255,255,.92)', letterSpacing:'-.025em', lineHeight:1.2, marginBottom:12,
@@ -45,7 +44,6 @@ export function MarketProblem() {
           <p style={{ fontSize:14, color:'rgba(255,255,255,.60)', lineHeight:1.75, maxWidth:680 }}>
             Bankers coach operators to glorify. Operators hope no one looks too hard.
             Investors assume everything is curated and restart diligence anyway.
-            The result is wasted time, repriced deals, and eroded trust on all sides.
           </p>
         </div>
 
@@ -69,7 +67,7 @@ export function MarketProblem() {
                 {row.what}
               </div>
               <div style={{ padding:'26px 22px', borderLeft:'1px solid rgba(255,255,255,.06)' }}>
-                <div style={{ fontSize:13, color:'rgba(255,255,255,.75)', lineHeight:1.8, marginBottom:10 }}>{row.cost}</div>
+                {row.cost && <div style={{ fontSize:13, color:'rgba(255,255,255,.75)', lineHeight:1.8, marginBottom:10 }}>{row.cost}</div>}
                 <div style={{ fontSize:13, fontWeight:600, color:'rgba(245,158,11,.9)', lineHeight:1.6 }}>{row.costBold}</div>
               </div>
             </div>
