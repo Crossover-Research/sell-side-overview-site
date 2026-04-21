@@ -7,8 +7,8 @@ const STAGES = [
     name: 'Sector Research',
     timing: '6–12 months pre-process',
     headline: 'Convert pipeline before competitors know the process is live.',
-    desc: 'Independent sector research gives you defensible customer evidence before management has briefed anyone. Enter every initial conversation already ahead.',
-    tags: ['No management contact', 'Operator sourcing', 'Line of sight'],
+    desc: 'Customer evidence before management has briefed anyone.',
+    tags: ['No management contact', 'Line of sight'],
     cta: 'Start Sector Research',
   },
   {
@@ -16,8 +16,8 @@ const STAGES = [
     name: 'Mandate Pitch',
     timing: 'Pre-process / RFP stage',
     headline: 'Win RFPs with proof the operator has never seen.',
-    desc: 'Win RFPs by bringing proprietary customer insights that show management teams you know the story better than every competing bank in the room.',
-    tags: ['Independent verbatims', 'No competing bank has them', 'Operator-resonant'],
+    desc: '',
+    tags: ['Independent verbatims', 'Operator-resonant'],
     cta: 'Prep a Mandate Pitch',
   },
   {
@@ -25,14 +25,14 @@ const STAGES = [
     name: 'CIM Enhancement',
     timing: 'Pre-launch / CIM stage',
     headline: 'Customer-backed proof points that close the CIM gaps before buyers open them.',
-    desc: 'Every weak claim in the CIM gets pre-validated against independent customer evidence. Buyers find no gaps — because they were found and closed first.',
-    tags: ['Customer-backed proof points', '40+ benchmark studies', 'Buyer-proof narrative'],
+    desc: 'Every weak claim pre-validated before diligence opens.',
+    tags: ['40+ benchmark studies', 'Buyer-proof narrative'],
     cta: 'Enhance the CIM',
   },
 ];
 
 const CAPS = [
-  { num: '01', stat: '1st', label: 'Mandate Pitch',  hook: 'First bank in the room with independent customer proof.' },
+  { num: '01', stat: '1st', label: 'Mandate Pitch',  hook: 'First bank in the room with customer proof no other bank has.' },
   { num: '02', stat: '40+', label: 'CIM Narrative',  hook: 'Every claim benchmarked across 40+ comparable studies.' },
   { num: '03', stat: '1st', label: 'Buyer Mapping',  hook: 'Target buyers ranked and prioritised before the first call.' },
   { num: '04', stat: '5',   label: 'AI IC Prep',     hook: 'Fund-specific adversarial personas. Management arrives knowing every question.' },
@@ -49,7 +49,6 @@ export function CapabilitiesEngine() {
 
         {/* Header */}
         <div style={{ marginBottom:40 }}>
-          <div className="ib-section-eyebrow" style={{ marginBottom:10 }}>The Engagement Model</div>
           <div style={{ display:'flex', alignItems:'flex-end', justifyContent:'space-between', gap:24, flexWrap:'wrap' }}>
             <h2 style={{
               fontSize:'clamp(20px,3vw,30px)', fontWeight:700,
