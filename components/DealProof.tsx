@@ -123,9 +123,9 @@ export function DealProof() {
             fontSize:'clamp(22px,3vw,34px)', fontWeight:700,
             color:'rgba(255,255,255,.95)', letterSpacing:'-.025em', marginBottom:10, lineHeight:1.2,
           }}>
-            $11.2B in transactions.<br />
+            Neither party briefed the respondents.<br />
             <span style={{ color:'rgba(255,255,255,.55)', fontWeight:400, fontSize:'0.82em' }}>
-              Three engagements. Independent data. Neither party briefed the respondents.
+              $11.2B followed.
             </span>
           </h2>
         </div>
