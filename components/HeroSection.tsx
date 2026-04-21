@@ -19,7 +19,6 @@ export function HeroSection({ tab }: HeroSectionProps) {
     <div className="hero" style={{ textAlign:'center', padding:'88px var(--content-pad) 0' }}>
       <div className="hero-inner" style={{ maxWidth:'var(--content-max)', margin:'0 auto' }}>
 
-        {/* Eyebrow pill */}
         <div style={{
           display:'inline-flex', alignItems:'center', gap:8,
           fontSize:11, fontWeight:700, letterSpacing:'.18em', textTransform:'uppercase',
@@ -30,7 +29,6 @@ export function HeroSection({ tab }: HeroSectionProps) {
           Independent Research · Private Markets
         </div>
 
-        {/* Headline */}
         <h1 style={{
           fontSize:'clamp(38px,5.5vw,68px)', fontWeight:800, lineHeight:1.06,
           letterSpacing:'-.04em', color:'rgba(255,255,255,.97)', marginBottom:22,
@@ -41,19 +39,14 @@ export function HeroSection({ tab }: HeroSectionProps) {
           </span>
         </h1>
 
-        {/* Sub-copy */}
         <p style={{
-          fontSize:'clamp(15px,1.7vw,18px)', color:'rgba(255,255,255,.62)',
-          lineHeight:1.8, maxWidth:680, margin:'0 auto 40px',
+          fontSize:'clamp(15px,1.7vw,18px)', color:'rgba(255,255,255,.68)',
+          lineHeight:1.8, maxWidth:640, margin:'0 auto 40px',
         }}>
           J.P. Morgan won the Nerdio mandate using our research.
-          General Atlantic used the same data to invest $500M.{' '}
-          <span style={{ color:'rgba(255,255,255,.88)', fontWeight:500 }}>
-            Verified by both sides. Controlled by neither.
-          </span>
+          General Atlantic used the same data to invest $500M.
         </p>
 
-        {/* CTAs */}
         <div style={{ display:'flex', gap:12, justifyContent:'center', marginBottom:52, flexWrap:'wrap' }}>
           <a
             href="/intelligence?request=1"
@@ -105,7 +98,6 @@ export function HeroSection({ tab }: HeroSectionProps) {
           </a>
         </div>
 
-        {/* Metrics strip */}
         <div style={{ display:'flex', borderTop:'1px solid rgba(255,255,255,.07)' }}>
           {METRICS.map((m, i) => (
             <div key={i} style={{
