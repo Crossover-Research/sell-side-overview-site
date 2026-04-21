@@ -96,14 +96,12 @@ function SampleCard({ href, type, badge, codeName, logoSrc, logoAlt, logoInvert,
   href: string; type: string; badge: string; codeName: string;
   logoSrc: string; logoAlt: string; logoInvert: boolean; cta: string;
 }) {
-  const [hovered, setHovered] = React.useState(false);
+  const [revealed, setRevealed] = React.useState(false);
   return (
-    <a
-      href={href}
+    <div
       className="ib-sample-card"
-      style={{ position:'relative', justifyContent:'space-between' }}
-      onMouseEnter={()=>setHovered(true)}
-      onMouseLeave={()=>setHovered(false)}
+      style={{ position:'relative', justifyContent:'space-between', cursor:'pointer' }}
+      onClick={() => setRevealed(r => !r)}
     >
       {/* Badge */}
       <div style={{
@@ -118,24 +116,24 @@ function SampleCard({ href, type, badge, codeName, logoSrc, logoAlt, logoInvert,
 
       {/* Middle: code name → logo reveal */}
       <div className="ib-sample-logo-wrap" style={{ position:'relative', overflow:'hidden', flex:1 }}>
-        {/* Code name — slides out up on hover */}
+        {/* Code name — slides out up on tap */}
         <div style={{
           position:'absolute', top:0, left:0, width:'100%', height:'100%',
           display:'flex', alignItems:'center',
-          transform: hovered ? 'translateY(-110%)' : 'translateY(0)',
-          opacity: hovered ? 0 : 1,
+          transform: revealed ? 'translateY(-110%)' : 'translateY(0)',
+          opacity: revealed ? 0 : 1,
           transition: 'transform .3s cubic-bezier(.4,0,.2,1), opacity .2s',
         }}>
           <span style={{ fontFamily:'var(--font-mono)', fontSize:20, fontWeight:700, letterSpacing:'.06em', color:'rgba(255,255,255,.55)' }}>
             {codeName}
           </span>
         </div>
-        {/* Logo — slides in from below on hover */}
+        {/* Logo — slides in from below on tap */}
         <div style={{
           position:'absolute', top:0, left:0, width:'100%', height:'100%',
           display:'flex', alignItems:'center',
-          transform: hovered ? 'translateY(0)' : 'translateY(110%)',
-          opacity: hovered ? 1 : 0,
+          transform: revealed ? 'translateY(0)' : 'translateY(110%)',
+          opacity: revealed ? 1 : 0,
           transition: 'transform .3s cubic-bezier(.4,0,.2,1), opacity .2s .05s',
         }}>
           <img
@@ -145,14 +143,23 @@ function SampleCard({ href, type, badge, codeName, logoSrc, logoAlt, logoInvert,
         </div>
       </div>
 
-      {/* Hint text */}
-      <div style={{ fontSize:10, fontWeight:600, letterSpacing:'.08em', textTransform:'uppercase', color:'rgba(255,255,255,.30)', marginBottom:16, transition:'opacity .2s', opacity: hovered ? 0 : 1 }}>
-        Hover to reveal
+      {/* Hint / collapse affordance */}
+      <div style={{ fontSize:10, fontWeight:600, letterSpacing:'.08em', textTransform:'uppercase', color:'rgba(255,255,255,.30)', marginBottom:16, transition:'opacity .2s' }}>
+        {revealed ? '× tap to hide' : 'Tap to reveal'}
       </div>
 
-      {/* Bottom: CTA */}
-      <div className="ib-sample-link">{cta} &rarr;</div>
-    </a>
+      {/* Bottom: CTA — only navigate when revealed */}
+      {revealed ? (
+        <a
+          href={href}
+          onClick={e => e.stopPropagation()}
+          className="ib-sample-link"
+          style={{ textDecoration:'none' }}
+        >{cta} &rarr;</a>
+      ) : (
+        <div className="ib-sample-link" style={{ opacity:.45 }}>{cta} &rarr;</div>
+      )}
+    </div>
   );
 }
 
@@ -230,63 +237,68 @@ export default function IntelligencePage() {
 
       {/* CLOSING CTA */}
       <section style={{
-        padding:'80px var(--content-pad)',
-        background:'linear-gradient(168deg, #060f22 0%, #0a1c3a 60%, #071224 100%)',
-        borderTop:'1px solid rgba(77,144,254,.12)',
-        textAlign:'center',
+        padding:'64px var(--content-pad)',
+        background:'rgba(6,12,24,.95)',
+        borderTop:'1px solid rgba(255,255,255,.08)',
         position:'relative',
         overflow:'hidden',
       }}>
-        {/* Ambient glow */}
-        <div style={{ position:'absolute', inset:0, pointerEvents:'none', background:'radial-gradient(ellipse 60% 50% at 50% 60%, rgba(77,144,254,.08) 0%, transparent 65%)' }} />
-        <div style={{ maxWidth:680, margin:'0 auto', position:'relative', zIndex:1 }}>
-          <div style={{ fontSize:11, fontWeight:700, letterSpacing:'.18em', textTransform:'uppercase', color:'rgba(77,144,254,.75)', marginBottom:20 }}>
-            Start a Mandate
-          </div>
-          <h2 style={{
-            fontSize:'clamp(28px,4vw,48px)', fontWeight:800, lineHeight:1.1,
-            letterSpacing:'-.04em', color:'rgba(255,255,255,.97)', marginBottom:18,
+        <div style={{ maxWidth:'var(--content-max)', margin:'0 auto', position:'relative', zIndex:1 }}>
+          <div style={{
+            border:'1px solid rgba(255,255,255,.1)',
+            background:'rgba(255,255,255,.025)',
+            padding:'40px 48px',
+            display:'grid',
+            gridTemplateColumns:'1fr auto',
+            gap:48,
+            alignItems:'center',
           }}>
-            The next $1B deal starts with<br />
-            <span style={{ color:'rgba(130,175,255,.85)' }}>the right customer intelligence.</span>
-          </h2>
-          <p style={{ fontSize:15, color:'rgba(255,255,255,.55)', lineHeight:1.75, marginBottom:40, maxWidth:520, margin:'0 auto 40px' }}>
-            Same-day turnaround if the company is in our Catalyst library. 14-day custom research if it isn&rsquo;t. $10,000 per report.
-          </p>
-          <div style={{ display:'flex', gap:14, justifyContent:'center', flexWrap:'wrap' }}>
-            <a
-              href="/intelligence?request=1"
-              style={{
-                display:'inline-flex', alignItems:'center',
-                background:'rgba(255,255,255,.95)', color:'#060e1c',
-                padding:'14px 36px', fontSize:14, fontWeight:700,
-                textDecoration:'none', letterSpacing:'.01em', whiteSpace:'nowrap',
-                boxShadow:'0 4px 32px rgba(255,255,255,.12)',
-                transition:'all .15s',
-              }}
-              onMouseEnter={e=>{(e.currentTarget as HTMLElement).style.transform='translateY(-2px)';(e.currentTarget as HTMLElement).style.boxShadow='0 8px 40px rgba(255,255,255,.18)';}}
-              onMouseLeave={e=>{(e.currentTarget as HTMLElement).style.transform='translateY(0)';(e.currentTarget as HTMLElement).style.boxShadow='0 4px 32px rgba(255,255,255,.12)';}}
-            >
-              Scope a Mandate →
-            </a>
-            <a
-              href={CONTACT.bookingUrl}
-              target="_blank" rel="noopener noreferrer"
-              style={{
-                display:'inline-flex', alignItems:'center',
-                background:'transparent', color:'rgba(180,210,255,.8)',
-                border:'1px solid rgba(77,144,254,.32)', padding:'14px 28px',
-                fontSize:14, fontWeight:500, textDecoration:'none', whiteSpace:'nowrap',
-                transition:'all .15s',
-              }}
-              onMouseEnter={e=>{const el=e.currentTarget as HTMLElement;el.style.borderColor='rgba(77,144,254,.6)';el.style.background='rgba(77,144,254,.09)';}}
-              onMouseLeave={e=>{const el=e.currentTarget as HTMLElement;el.style.borderColor='rgba(77,144,254,.32)';el.style.background='transparent';}}
-            >
-              Book a Meeting
-            </a>
-          </div>
-          <div style={{ marginTop:28, fontSize:12, color:'rgba(255,255,255,.30)', letterSpacing:'.04em' }}>
-            ian@crossoverresearch.com &nbsp;·&nbsp; 50+ mandates supported &nbsp;·&nbsp; 60% win rate
+            <div>
+              <h2 style={{
+                fontSize:'clamp(22px,3vw,36px)', fontWeight:800, lineHeight:1.15,
+                letterSpacing:'-.03em', color:'rgba(255,255,255,.97)', marginBottom:14,
+              }}>
+                The next $1B deal starts with<br />
+                <span style={{ color:'rgba(130,175,255,.85)' }}>the right customer intelligence.</span>
+              </h2>
+              <p style={{ fontSize:14, color:'rgba(255,255,255,.52)', lineHeight:1.72, maxWidth:520, margin:0 }}>
+                Same-day turnaround if the company is in our Catalyst library. 14-day custom research if it isn&rsquo;t. At $10,000 against a $500M+ mandate fee, it&rsquo;s the highest-ROI line item in your pitch budget.
+              </p>
+            </div>
+            <div style={{ display:'flex', flexDirection:'column', gap:12, alignItems:'flex-end', flexShrink:0 }}>
+              <a
+                href={CONTACT.bookingUrl}
+                target="_blank" rel="noopener noreferrer"
+                style={{
+                  display:'inline-flex', alignItems:'center',
+                  background:'rgba(255,255,255,.95)', color:'#060e1c',
+                  padding:'13px 28px', fontSize:13, fontWeight:700,
+                  textDecoration:'none', whiteSpace:'nowrap',
+                  transition:'all .15s',
+                }}
+                onMouseEnter={e=>{(e.currentTarget as HTMLElement).style.transform='translateY(-1px)';}}
+                onMouseLeave={e=>{(e.currentTarget as HTMLElement).style.transform='translateY(0)';}}
+              >
+                Book a Meeting
+              </a>
+              <a
+                href="/intelligence?request=1"
+                style={{
+                  display:'inline-flex', alignItems:'center',
+                  background:'transparent', color:'rgba(180,210,255,.75)',
+                  border:'1px solid rgba(77,144,254,.28)', padding:'13px 28px',
+                  fontSize:13, fontWeight:500, textDecoration:'none', whiteSpace:'nowrap',
+                  transition:'all .15s',
+                }}
+                onMouseEnter={e=>{const el=e.currentTarget as HTMLElement;el.style.borderColor='rgba(77,144,254,.55)';el.style.background='rgba(77,144,254,.08)';}}
+                onMouseLeave={e=>{const el=e.currentTarget as HTMLElement;el.style.borderColor='rgba(77,144,254,.28)';el.style.background='transparent';}}
+              >
+                Scope a Mandate →
+              </a>
+              <div style={{ fontSize:11, color:'rgba(255,255,255,.28)', letterSpacing:'.02em', textAlign:'right', lineHeight:1.5 }}>
+                Trusted by M&A advisors at J.P. Morgan<br />and General Atlantic · 50+ mandates · 60% win rate
+              </div>
+            </div>
           </div>
         </div>
       </section>
