@@ -6,7 +6,6 @@ import { CATALYST_ASSETS } from '../../lib/data/catalystAssets';
 import { CONTACT } from '../../lib/config/site';
 import { SelectField } from '../../components/SelectField';
 import { CapabilitiesEngine } from '../../components/CapabilitiesEngine';
-import { DealProof } from '../../components/DealProof';
 import { MarketProblem } from '../../components/MarketProblem';
 import { AudienceWithout } from '../../components/AudienceWithout';
 
@@ -135,7 +134,6 @@ export default function IntelligencePage() {
     <>
       <HeroSection />
       <Suspense fallback={null}><RequestParamWatcher onOpen={openRequest} /></Suspense>
-      <DealProof />
       <CapabilitiesEngine />
       <MarketProblem />
       <AudienceWithout />
@@ -143,58 +141,83 @@ export default function IntelligencePage() {
       {/* SAMPLE STUDIES */}
       <section id="samples" className="ib-section">
         <div className="ib-inner">
-          <h2 className="ib-section-title" style={{ marginBottom:4 }}>See exactly what your client receives</h2>
+          <h2 className="ib-section-title" style={{ marginBottom:16 }}>See exactly what your client receives</h2>
 
-          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:1, background:'rgba(255,255,255,.06)', marginBottom:1 }}>
+          {/* 4 equal-width sample cards */}
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:1, background:'rgba(255,255,255,.07)', marginBottom:1 }}>
+            <SampleCard href="/redcanary" type="Cybersecurity MDR" badge="Catalyst" logoSrc="/red-canary-logo.svg" logoAlt="Red Canary" logoInvert={false} cta="View Study" />
+            <SampleCard href="/bluecat" type="Network Infrastructure" badge="Catalyst" logoSrc="/bluecat-logo.svg" logoAlt="BlueCat Networks" logoInvert={true} cta="View Study" />
+
+            {/* Volie card */}
             <a
               href="https://volie.crossoverintelligence.com/"
               target="_blank" rel="noopener noreferrer"
-              style={{ display:'flex', flexDirection:'column', textDecoration:'none', background:'rgba(6,14,28,.95)', padding:'22px 26px', position:'relative', overflow:'hidden', transition:'background .15s' }}
-              onMouseEnter={e=>(e.currentTarget.style.background='rgba(10,20,40,.95)')}
-              onMouseLeave={e=>(e.currentTarget.style.background='rgba(6,14,28,.95)')}
+              className="ib-sample-card"
+              style={{ display:'flex', flexDirection:'column', justifyContent:'space-between', textDecoration:'none', position:'relative' }}
             >
-              <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,transparent,rgba(77,144,254,.35),transparent)' }} />
-              <div style={{ display:'flex', alignItems:'flex-start', justifyContent:'space-between', marginBottom:14 }}>
-                <div style={{ fontSize:17, fontWeight:700, color:'rgba(255,255,255,.92)', letterSpacing:'-.02em' }}>Volie</div>
-                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(77,144,254,.9)', background:'rgba(77,144,254,.12)', border:'1px solid rgba(77,144,254,.3)', padding:'2px 8px', flexShrink:0 }}>Client Proposal</div>
+              <div style={{ position:'absolute', top:14, right:14, fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(77,144,254,.95)', background:'rgba(77,144,254,.12)', border:'1px solid rgba(77,144,254,.3)', padding:'2px 8px' }}>
+                Live Portal
               </div>
-              <div style={{ fontSize:12, color:'rgba(255,255,255,.68)', marginBottom:8, lineHeight:1.5 }}>Operator outreach powered by customer intelligence.</div>
-              <div style={{ fontSize:11, fontWeight:700, color:'rgba(130,175,255,.85)', marginTop:'auto' }}>View Live Portal ↗</div>
+              <div className="ib-sample-type">Client Proposal</div>
+              <div className="ib-sample-logo-wrap" style={{ display:'flex', alignItems:'center', flex:1 }}>
+                <div style={{ fontSize:20, fontWeight:700, color:'rgba(255,255,255,.92)', letterSpacing:'-.02em' }}>Volie</div>
+              </div>
+              <div className="ib-sample-link">View Live Portal ↗</div>
             </a>
+
+            {/* Intelligence Report card */}
             <a
               href="https://sample.crossoverintelligence.com/"
               target="_blank" rel="noopener noreferrer"
-              style={{ display:'flex', flexDirection:'column', textDecoration:'none', background:'rgba(6,14,28,.95)', padding:'22px 26px', position:'relative', overflow:'hidden', transition:'background .15s', borderLeft:'1px solid rgba(255,255,255,.06)' }}
-              onMouseEnter={e=>(e.currentTarget.style.background='rgba(10,20,40,.95)')}
-              onMouseLeave={e=>(e.currentTarget.style.background='rgba(6,14,28,.95)')}
+              className="ib-sample-card"
+              style={{ display:'flex', flexDirection:'column', justifyContent:'space-between', textDecoration:'none', position:'relative' }}
             >
-              <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent)' }} />
-              <div style={{ display:'flex', alignItems:'flex-start', justifyContent:'space-between', marginBottom:14 }}>
-                <div style={{ fontSize:17, fontWeight:700, color:'rgba(255,255,255,.92)', letterSpacing:'-.02em' }}>Intelligence Report + GTM Playbook</div>
-                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(45,212,160,.9)', background:'rgba(45,212,160,.08)', border:'1px solid rgba(45,212,160,.25)', padding:'2px 8px', flexShrink:0, marginLeft:12 }}>Sample VoC</div>
+              <div style={{ position:'absolute', top:14, right:14, fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(45,212,160,.9)', background:'rgba(45,212,160,.08)', border:'1px solid rgba(45,212,160,.25)', padding:'2px 8px' }}>
+                Sample VoC
               </div>
-              <div style={{ fontSize:11, fontWeight:700, color:'rgba(255,255,255,.68)', marginTop:'auto' }}>View Sample Report ↗</div>
+              <div className="ib-sample-type">Research Report</div>
+              <div className="ib-sample-logo-wrap" style={{ display:'flex', alignItems:'center', flex:1 }}>
+                <div style={{ fontSize:14, fontWeight:700, color:'rgba(255,255,255,.88)', lineHeight:1.35, maxWidth:160 }}>Intelligence Report + GTM Playbook</div>
+              </div>
+              <div className="ib-sample-link">View Sample Report ↗</div>
             </a>
           </div>
 
-          <div className="ib-samples" style={{ marginTop:1 }}>
-            <SampleCard href="/redcanary" type="Cybersecurity MDR" badge="Catalyst" logoSrc="/red-canary-logo.svg" logoAlt="Red Canary" logoInvert={false} cta="View Study" />
-            <SampleCard href="/bluecat" type="Network Infrastructure" badge="Catalyst" logoSrc="/bluecat-logo.svg" logoAlt="BlueCat Networks" logoInvert={true} cta="View Study" />
-            <a href="/catalyst" className="ib-sample-card ib-sample-cta">
-              <div className="ib-sample-type">Catalyst Library</div>
-              <div className="ib-sample-logo-wrap">
-                <div className="ib-sample-name">{CATALYST_ASSETS.length} Assets</div>
+          {/* Catalog strip — full width */}
+          <a href="/catalyst" style={{
+            display:'flex', alignItems:'center', justifyContent:'space-between',
+            background:'rgba(6,14,28,.97)', border:'1px solid rgba(255,255,255,.07)',
+            padding:'18px 24px', textDecoration:'none', gap:20,
+            transition:'background .15s',
+          }}
+          onMouseEnter={e=>(e.currentTarget.style.background='rgba(10,20,40,.95)')}
+          onMouseLeave={e=>(e.currentTarget.style.background='rgba(6,14,28,.97)')}
+          >
+            <div style={{ display:'flex', alignItems:'center', gap:24 }}>
+              <div>
+                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.45)', marginBottom:4 }}>Catalyst Library</div>
+                <div style={{ fontFamily:'var(--font-mono)', fontSize:22, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.02em' }}>
+                  {CATALYST_ASSETS.length} Assets
+                </div>
               </div>
-              <div style={{ display:'flex', gap:8, flexWrap:'wrap', marginBottom:10 }}>
+              <div style={{ width:1, height:36, background:'rgba(255,255,255,.08)' }} />
+              <div style={{ display:'flex', gap:16 }}>
                 {(['transacted','active','new'] as const).map(s => {
                   const n = CATALYST_ASSETS.filter(a => a.status === s).length;
-                  const cfg = { transacted:{ color:'rgba(180,180,200,.7)', label:'Closed' }, active:{ color:'rgba(45,212,160,.85)', label:'Active' }, new:{ color:'rgba(245,158,11,.85)', label:'New' } };
-                  return n > 0 ? <span key={s} style={{ fontSize:11, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase' as const, color:cfg[s].color }}>{n} {cfg[s].label}</span> : null;
+                  const cfg = { transacted:{ color:'rgba(180,180,200,.72)' as const, label:'Closed' }, active:{ color:'rgba(45,212,160,.88)' as const, label:'Active' }, new:{ color:'rgba(245,158,11,.88)' as const, label:'New' } };
+                  return n > 0 ? (
+                    <div key={s} style={{ textAlign:'center' }}>
+                      <div style={{ fontFamily:'var(--font-mono)', fontSize:18, fontWeight:700, color:cfg[s].color, letterSpacing:'-.02em', lineHeight:1 }}>{n}</div>
+                      <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase', color:cfg[s].color, opacity:.7, marginTop:3 }}>{cfg[s].label}</div>
+                    </div>
+                  ) : null;
                 })}
               </div>
-              <div className="ib-sample-link" style={{ marginTop:'auto' }}>Browse Library &rarr;</div>
-            </a>
-          </div>
+            </div>
+            <div style={{ fontSize:13, fontWeight:700, color:'rgba(130,175,255,.85)', whiteSpace:'nowrap' }}>
+              Browse Library &rarr;
+            </div>
+          </a>
         </div>
       </section>
 
