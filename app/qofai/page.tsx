@@ -513,7 +513,7 @@ export default function QofAIPage() {
                           key={i}
                           style={{
                             width:16, height:16, borderRadius:2,
-                            background: i < tier.dims
+                            background: i < (tier.dims as number)
                               ? (i < 5 ? 'rgba(245,158,11,.7)' : 'rgba(77,144,254,.7)')
                               : 'rgba(255,255,255,.06)',
                             transition:'all .2s',
