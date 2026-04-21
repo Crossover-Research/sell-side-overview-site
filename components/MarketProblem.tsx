@@ -15,13 +15,13 @@ const ROWS = [
     audienceBg: 'rgba(45,212,160,.12)',
     what: 'Told to glorify the story. No way to find weaknesses before buyers do. Enter diligence hoping nobody looks too hard.',
     cost: '',
-    costBold: 'The operator had no chance to respond — and no one told them to prepare.',
+    costBold: 'The operator had no chance to respond. No one told them to prepare.',
   },
   {
     audience: 'Investors',
     audienceColor: 'rgba(168,130,255,.9)',
     audienceBg: 'rgba(168,130,255,.12)',
-    what: 'Assume everything is curated. Restart diligence from scratch. Find the gaps late — and use them to reprice.',
+    what: 'Assume everything is curated. Restart diligence from scratch. Find the gaps late. Use them to reprice.',
     cost: '',
     costBold: 'Retrades at IC. Value destroyed at the moment it should be captured.',
   },
@@ -85,8 +85,7 @@ export function MarketProblem() {
             flexShrink:0, borderRadius:2,
           }} />
           <p style={{ fontSize:13.5, color:'rgba(200,220,255,.85)', lineHeight:1.7, margin:0, fontStyle:'italic' }}>
-            Crossover Research is the only record in the room that none of them produced —
-            and the only one all of them can rely on.
+            Crossover Research is the only record in the room that none of them produced, and the only one all of them can rely on.
           </p>
         </div>
 
