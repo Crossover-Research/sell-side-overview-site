@@ -58,13 +58,11 @@ const DEALS = [
       outcomeText: 'rgba(130,175,255,.95)',
     },
     right: {
-      label: 'The Context',
-      accentColor: 'rgba(255,255,255,.25)',
-      stats: [
-        { val: '$10B', label: 'Transaction value' },
-        { val: '30+', label: 'Customer interviews' },
-        { val: 'Flagship', label: 'European sell-side' },
-        { val: '1st', label: 'Bank with independent VoC' },
+      label: 'Deal Parties',
+      accentColor: 'rgba(255,255,255,.35)',
+      parties: [
+        { role: 'CR Client', logo: '/mobile-de-logo.svg', name: 'Mobile.de', crClient: true },
+        { role: 'Sell-Side Advisor', logo: '/jpmorgan-logo.svg', name: 'J.P. Morgan', invert: true },
       ],
     },
   },
