@@ -11,10 +11,9 @@ export function Footer() {
           style={{ height: 18, opacity: .7 }}
         />
         <div className="site-footer-links">
-          <a href="/partner">Work With Us</a>
           <a href="/intelligence">Intelligence Platform</a>
           <a href="/samples">Case Studies</a>
-          <a href="/qofai">AI Research Engine</a>
+          <a href="/qofai">Q of AI</a>
           <a href={`mailto:${CONTACT.email}`}>Contact</a>
         </div>
         <div className="site-footer-legal">
