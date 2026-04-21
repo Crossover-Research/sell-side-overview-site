@@ -262,7 +262,7 @@ export default function IntelligencePage() {
                 <span style={{ color:'rgba(130,175,255,.85)' }}>the right customer intelligence.</span>
               </h2>
               <p style={{ fontSize:14, color:'rgba(255,255,255,.52)', lineHeight:1.72, maxWidth:520, margin:0 }}>
-                Same-day turnaround if the company is in our Catalyst library. 14-day custom research if it isn&rsquo;t. At $10,000 against a $500M+ mandate fee, it&rsquo;s the highest-ROI line item in your pitch budget.
+                At $10,000 against a $500M+ mandate fee, the highest-ROI line item in any pitch budget.
               </p>
             </div>
             <div style={{ display:'flex', flexDirection:'column', gap:12, alignItems:'flex-end', flexShrink:0 }}>
