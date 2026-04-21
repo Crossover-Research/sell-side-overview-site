@@ -252,7 +252,7 @@ export function DealProof() {
             <div style={{ height:1, background:'rgba(255,255,255,.05)' }} />
             {s.left.quote ? (
               <div style={{ flex:1 }}>
-                <div style={{ fontSize:13, fontStyle:'italic', color:'rgba(255,255,255,.82)', lineHeight:1.75, borderLeft:'2px solid rgba(77,144,254,.28)', paddingLeft:14, marginBottom:10 }}>
+                <div style={{ fontSize:13, fontStyle:'italic', color:'rgba(255,255,255,.82)', lineHeight:1.75, borderLeft:'1px solid rgba(77,144,254,.25)', paddingLeft:14, marginBottom:10 }}>
                   {s.left.quote}
                 </div>
                 <div style={{ fontSize:10, color:'rgba(255,255,255,.70)', paddingLeft:16 }}>{s.left.quoteAttr}</div>
@@ -263,7 +263,7 @@ export function DealProof() {
               </div>
             )}
             {s.left.outcome && (
-              <div style={{ borderLeft:`3px solid ${s.left.outcomeBorder}`, paddingLeft:14, marginTop:'auto' }}>
+              <div style={{ marginTop:'auto', paddingTop: s.left.quote ? 14 : 0, borderTop: s.left.quote ? '1px solid rgba(255,255,255,.06)' : 'none', borderLeft: s.left.quote ? 'none' : `1px solid ${s.left.outcomeBorder}`, paddingLeft: s.left.quote ? 0 : 12 }}>
                 <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.40)', marginBottom:6 }}>Outcome</div>
                 <div style={{ fontSize:13, fontWeight:700, color:s.left.outcomeText, lineHeight:1.4 }}>{s.left.outcome}</div>
               </div>
@@ -317,7 +317,7 @@ export function DealProof() {
               </>
             )}
             {s.right.outcome && (
-              <div style={{ borderLeft:`3px solid ${s.right.outcomeBorder}`, paddingLeft:14, marginTop:'auto' }}>
+              <div style={{ borderLeft:`1px solid ${s.right.outcomeBorder}`, paddingLeft:12, marginTop:'auto' }}>
                 <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.40)', marginBottom:6 }}>Outcome</div>
                 <div style={{ fontSize:13, fontWeight:700, color:s.right.outcomeText, lineHeight:1.4 }}>{s.right.outcome}</div>
               </div>
