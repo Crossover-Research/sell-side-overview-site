@@ -176,9 +176,9 @@ export function DealProof() {
               key={i}
               onClick={() => goTo(i)}
               style={{
-                width: active === i ? 28 : 8,
-                height: 8,
-                borderRadius: 4,
+                width: active === i ? 24 : 6,
+                height: 4,
+                borderRadius: 2,
                 padding: 0,
                 border: 'none',
                 background: active === i ? 'rgba(130,175,255,.85)' : 'rgba(255,255,255,.25)',
