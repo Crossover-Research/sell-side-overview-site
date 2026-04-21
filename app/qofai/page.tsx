@@ -23,61 +23,53 @@ const RESILIENCE_DIMS = [
   { label: 'Vendor Strategy Credibility',  score: 8.0 },
 ];
 
-const PACKAGES = [
-  {
-    id: 'capability',
-    name: 'AI Capability',
-    price: '$25–30k',
-    timeline: '2–3 weeks',
-    desc: '10 dimensions measuring adoption, value, competitive position, innovation, and accuracy.',
-    useCase: 'Marketing proof points · Competitive benchmarking · Pre-pitch positioning',
-    dims: 10,
-    color: 'rgba(77,144,254,.95)',
-  },
-  {
-    id: 'resilience',
-    name: 'AI Structural Position',
-    price: '$25–30k',
-    timeline: '2–3 weeks',
-    desc: '5 dimensions documenting data moats, integration depth, and structural defensibility — the customer evidence behind your durability story.',
-    useCase: 'M&A diligence prep · Board presentations · Durability narrative',
-    dims: 5,
-    color: 'rgba(245,158,11,.95)',
-  },
-  {
-    id: 'complete',
-    name: 'Complete Q of AI',
-    price: '$40–50k',
-    timeline: '3–4 weeks',
-    desc: 'Dual scorecard covering all 15 dimensions. AI Fortress companies command 15–25% valuation premiums.',
-    useCase: 'Full sell-side process · CIM enhancement · Premium multiple justification',
-    dims: 15,
-    color: 'rgba(45,212,160,.95)',
-    featured: true,
-  },
+const FEATURES = [
+  { label: 'AI Capability Score (10 dims)',  capability: true,  structural: false, complete: true  },
+  { label: 'AI Resilience Score (5 dims)',   capability: false, structural: true,  complete: true  },
+  { label: 'AI Fortress Matrix',             capability: false, structural: true,  complete: true  },
+  { label: 'Visual Scorecard (CIM-ready)',   capability: true,  structural: true,  complete: true  },
+  { label: 'VoC Report (25+ slides)',        capability: true,  structural: true,  complete: true  },
+  { label: 'Customer verbatims',             capability: true,  structural: true,  complete: true  },
+  { label: 'IC Preparation Pack',           capability: false, structural: false, complete: true  },
+  { label: 'Competitor benchmarking',       capability: true,  structural: false, complete: true  },
+  { label: 'CIM positioning language',      capability: true,  structural: true,  complete: true  },
 ];
 
 const OBJECTIONS = [
   {
     q: '"Won\'t ChatGPT or Claude make this obsolete?"',
-    a: 'Counter with a 9.1/10 data lock-in score and customer verbatims from actual failed replacement tests. 18–24 month replication barrier documented from real users — not internal estimates.',
+    a: 'Lead with the 9.1/10 data lock-in score and the 18–24 month documented replication barrier from actual customer interviews — not analyst projections. Customers in the study report that ChatGPT and Claude fail without the domain-specific training data this company has accumulated over years of operation. Then pivot: foundation models actually validate the moat, because every integration that makes the product more intelligent widens the barrier. Quote verbatims from customers who tested alternatives and couldn\'t replicate functionality. The objection answers itself when buyers hear it from users.',
   },
   {
     q: '"Is the company keeping pace with AI-native startups?"',
-    a: 'Acknowledge 7.4/10 innovation velocity transparently. Pivot to roadmap credibility (8.0/10) and structural moats that AI-native startups cannot replicate on any timeline.',
+    a: 'Acknowledge the 7.4/10 innovation velocity score directly — it demonstrates the data is real and uncoached, which builds credibility for everything else. Then reframe what innovation velocity actually measures: feature release cadence, not structural position. AI-native startups are building on generic infrastructure. This company has 8.9/10 feature adoption, 8+ integrations per customer, and years of domain-specific usage patterns creating proprietary data loops that cannot be replicated from scratch. The relevant comparison isn\'t how fast each side ships features — it\'s how defensible their positions are once you\'re embedded. Roadmap credibility at 8.0/10 means customers believe the company knows what to build next and why.',
   },
   {
     q: '"Why pay a premium multiple?"',
-    a: 'AI Fortress quadrant positioning. Only 15–20% of software companies achieve High Capability + High Resilience. Customer-validated scores, not self-reported claims.',
+    a: 'Only 15–20% of software companies assessed achieve AI Fortress positioning — High Capability combined with High Resilience. Present the AI Resilience Matrix as independent benchmarking, not a self-assessment: these scores come from the company\'s actual customers, collected without management present or briefed, using the same methodology applied across 50+ mandates. That independence is what justifies a 15–25% premium over peer comps. The ask isn\'t to trust management\'s AI narrative. It\'s to trust 30+ independent customer voices who had no stake in the valuation outcome.',
   },
   {
     q: '"Can customers easily switch?"',
-    a: 'System-of-record status with 8+ integrations per customer. 6+ month migration timeline. 82% daily active usage creates deep dependency that foundation models cannot overcome.',
+    a: 'Eight or more integrations per customer means migration is not a switching decision — it\'s a 6+ month cross-functional re-platforming project that requires executive sponsorship and carries significant operational risk. The 9.1/10 data lock-in score reflects customers\' own assessment of how embedded the product is in their daily workflows. 82% daily active usage means it\'s in the critical path of everyday operations, not a peripheral tool. Layer on the 18–24 month barrier for any competitor to replicate domain-specific training data, and the switching economics break down entirely. A foundation model cannot replace a system-of-record without the entire historical decision log, integration layer, and institutional knowledge that defines it.',
+  },
+  {
+    q: '"How do we know the AI claims aren\'t marketing?"',
+    a: 'The 8.6/10 Marketing Claims vs. Reality dimension specifically measures this: do customers experience what the company says publicly? It is the single most powerful answer to this objection, because the evaluation is done by buyers, not the seller. Every score in the Q of AI is derived from structured interviews with the company\'s own customers — collected by Crossover independently, without management present, briefed, or given advance sight of the questions. A high score here is customer-validated proof that the company\'s AI positioning is grounded in actual product experience, not aspirational marketing language.',
+  },
+  {
+    q: '"What happens if a larger vendor acquires a competing AI provider?"',
+    a: 'The 9.0/10 AI Leapfrog Resistance score documents how vulnerable customers perceive the product to be against a competitive leapfrog — and the answer is: not very. The company\'s AI advantage is not dependent on any single foundational model. It is built on years of domain-specific usage patterns, proprietary workflows, and integrations that cannot be replicated by acquiring a generic AI infrastructure provider. Customers who attempted to replicate functionality with alternative AI providers report an 18–24 month replication barrier. The moat is in the data and the context, not the underlying model — which means a vendor acquisition of an AI layer doesn\'t change the competitive calculus.',
   },
 ];
 
 export default function QofAIPage() {
   const [selectedQ, setSelectedQ] = useState(0);
+
+  const check = (val: boolean) => (
+    <span style={{ fontSize:14, color: val ? 'rgba(45,212,160,.95)' : 'rgba(255,255,255,.18)', lineHeight:1 }}>
+      {val ? '✓' : '—'}
+    </span>
+  );
 
   return (
     <>
@@ -147,10 +139,9 @@ export default function QofAIPage() {
         </div>
       </section>
 
-      {/* ── MATRIX + DIMENSIONS (combined) ──────────────────────────────────── */}
+      {/* ── MATRIX + DIMENSIONS ─────────────────────────────────────────────── */}
       <section style={{ padding:'56px 0', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
-
           <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:40, alignItems:'start' }}>
 
             {/* Left: Quadrant matrix */}
@@ -164,19 +155,19 @@ export default function QofAIPage() {
               </p>
               <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:2, background:'rgba(255,255,255,.07)', border:'1px solid rgba(255,255,255,.09)' }}>
                 {[
-                  { name:'AI Catalyst',     badge:'Growth Opportunity', color:'rgba(77,144,254,.95)',  bg:'rgba(77,144,254,.08)',  desc:'High Resilience + Emerging AI. Strong structural moats with untapped AI potential.' },
-                  { name:'AI Fortress',     badge:'Premium Asset',       color:'rgba(45,212,160,.97)',  bg:'rgba(45,212,160,.07)',  desc:'High Capability + High Resilience. Commands 15–25% valuation premium.', highlight:true },
-                  { name:'AI Foundation',   badge:'AI Growth Story',     color:'rgba(255,77,94,.92)',   bg:'rgba(255,77,94,.06)',   desc:'Early-stage AI with meaningful upside on both axes — a clear growth narrative and value creation roadmap for the right acquirer.' },
-                  { name:'AI Accelerator',  badge:'Structural Upside',   color:'rgba(245,158,11,.95)',  bg:'rgba(245,158,11,.07)',  desc:'Strong current AI with near-term opportunity to lock in structural moats — a natural value creation lever for the next owner.' },
+                  { name:'AI Catalyst',    badge:'Growth Opportunity', color:'rgba(77,144,254,.95)',  bg:'rgba(77,144,254,.08)',  desc:'High Resilience + Emerging AI. Strong structural moats with untapped AI potential.' },
+                  { name:'AI Fortress',    badge:'Premium Asset',       color:'rgba(45,212,160,.97)',  bg:'rgba(45,212,160,.07)',  desc:'High Capability + High Resilience. Commands 15–25% valuation premium.', highlight:true },
+                  { name:'AI Foundation',  badge:'AI Growth Story',     color:'rgba(255,77,94,.92)',   bg:'rgba(255,77,94,.06)',   desc:'Early-stage AI with meaningful upside on both axes — a clear growth narrative for the right acquirer.' },
+                  { name:'AI Accelerator', badge:'Structural Upside',   color:'rgba(245,158,11,.95)',  bg:'rgba(245,158,11,.07)',  desc:'Strong current AI with near-term opportunity to lock in structural moats — a value creation lever for the next owner.' },
                 ].map((q, i) => (
-                  <div key={i} style={{ background: q.highlight ? 'rgba(45,212,160,.05)' : 'rgba(6,14,28,.95)', padding:'20px 20px', borderTop: q.highlight ? '2px solid rgba(45,212,160,.4)' : '2px solid transparent', position:'relative' }}>
+                  <div key={i} style={{ background: q.highlight ? 'rgba(45,212,160,.05)' : 'rgba(6,14,28,.95)', padding:'20px 20px', borderTop: q.highlight ? '2px solid rgba(45,212,160,.4)' : '2px solid transparent' }}>
                     <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:q.color, background:q.bg, padding:'2px 7px', display:'inline-block', marginBottom:8 }}>{q.badge}</div>
                     <div style={{ fontFamily:'var(--font-mono)', fontSize:14, fontWeight:700, color:q.color, marginBottom:6 }}>{q.name}</div>
                     <div style={{ fontSize:11.5, color:'rgba(255,255,255,.72)', lineHeight:1.55 }}>{q.desc}</div>
                   </div>
                 ))}
               </div>
-              <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.45)', marginTop:8, textAlign:'center' }}>
+              <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.38)', marginTop:8, textAlign:'center' }}>
                 X: AI Resilience → &nbsp;&nbsp; Y: AI Capability →
               </div>
             </div>
@@ -190,8 +181,6 @@ export default function QofAIPage() {
               <p style={{ fontSize:13, color:'rgba(255,255,255,.72)', lineHeight:1.7, marginBottom:16 }}>
                 Every score derived from structured customer interviews — not internal benchmarks.
               </p>
-
-              {/* Capability */}
               <div style={{ background:'rgba(6,14,28,.98)', border:'1px solid rgba(77,144,254,.2)', overflow:'hidden', marginBottom:2 }}>
                 <div style={{ background:'rgba(77,144,254,.07)', borderBottom:'1px solid rgba(77,144,254,.15)', padding:'12px 18px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
                   <div>
@@ -215,8 +204,6 @@ export default function QofAIPage() {
                   </div>
                 ))}
               </div>
-
-              {/* Resilience */}
               <div style={{ background:'rgba(6,14,28,.98)', border:'1px solid rgba(45,212,160,.2)', overflow:'hidden' }}>
                 <div style={{ background:'rgba(45,212,160,.05)', borderBottom:'1px solid rgba(45,212,160,.15)', padding:'12px 18px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
                   <div>
@@ -252,13 +239,12 @@ export default function QofAIPage() {
         </div>
       </section>
 
-      {/* ── IC OBJECTION PREP — DROPDOWN ────────────────────────────────────── */}
+      {/* ── IC PREP — DROPDOWN ──────────────────────────────────────────────── */}
       <section style={{ padding:'56px 0', background:'rgba(255,255,255,.025)', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
-
           <div style={{ display:'grid', gridTemplateColumns:'340px 1fr', gap:48, alignItems:'start' }}>
             <div>
-              <div className="ib-section-eyebrow" style={{ marginBottom:8 }}>IC Objection Prep</div>
+              <div className="ib-section-eyebrow" style={{ marginBottom:8 }}>IC Preparation</div>
               <h2 style={{ fontSize:22, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.022em', lineHeight:1.25, marginBottom:12 }}>
                 Every IC has an AI question. Walk in with a customer-backed answer.
               </h2>
@@ -268,7 +254,6 @@ export default function QofAIPage() {
             </div>
 
             <div>
-              {/* Dropdown question selector */}
               <div style={{ marginBottom:16 }}>
                 <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.55)', marginBottom:8 }}>
                   Select an IC question
@@ -294,17 +279,15 @@ export default function QofAIPage() {
                 </div>
               </div>
 
-              {/* Answer panel */}
               <div style={{ background:'rgba(6,14,28,.95)', border:'1px solid rgba(255,255,255,.1)', borderTop:'2px solid rgba(45,212,160,.4)', padding:'20px 22px' }}>
                 <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(45,212,160,.88)', marginBottom:10 }}>
                   Prepared Answer
                 </div>
-                <div style={{ fontSize:13.5, color:'rgba(255,255,255,.88)', lineHeight:1.75 }}>
+                <div style={{ fontSize:13, color:'rgba(255,255,255,.85)', lineHeight:1.8 }}>
                   {OBJECTIONS[selectedQ].a}
                 </div>
               </div>
 
-              {/* All questions as quick-nav chips */}
               <div style={{ display:'flex', gap:6, flexWrap:'wrap', marginTop:12 }}>
                 {OBJECTIONS.map((_, i) => (
                   <button
@@ -327,11 +310,11 @@ export default function QofAIPage() {
         </div>
       </section>
 
-      {/* ── PACKAGES ────────────────────────────────────────────────────────── */}
+      {/* ── PRICING TABLE ───────────────────────────────────────────────────── */}
       <section style={{ padding:'56px 0', background:'linear-gradient(168deg,#050e1e 0%,#081628 100%)', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
 
-          <div style={{ display:'flex', alignItems:'flex-end', justifyContent:'space-between', gap:24, flexWrap:'wrap', marginBottom:28 }}>
+          <div style={{ display:'flex', alignItems:'flex-end', justifyContent:'space-between', gap:24, flexWrap:'wrap', marginBottom:32 }}>
             <div>
               <div className="ib-section-eyebrow" style={{ marginBottom:8 }}>Assessment Packages</div>
               <h2 style={{ fontSize:22, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.022em', margin:0, lineHeight:1.25 }}>
@@ -339,54 +322,76 @@ export default function QofAIPage() {
               </h2>
             </div>
             <p style={{ fontSize:13, color:'rgba(255,255,255,.72)', margin:0, maxWidth:380, textAlign:'right', lineHeight:1.6 }}>
-              Every package includes a visual scorecard, 25+ slide VoC report, customer verbatims, and CIM-ready positioning language.
+              Commission the full assessment or individual modules. All scores from independent customer interviews.
             </p>
           </div>
 
-          <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:1, background:'rgba(255,255,255,.09)', marginBottom:28 }}>
-            {PACKAGES.map(pkg => (
-              <div
-                key={pkg.id}
-                style={{
-                  background: pkg.featured ? 'rgba(45,212,160,.04)' : 'rgba(6,14,28,.95)',
-                  padding:'24px 24px',
-                  borderTop: pkg.featured ? '2px solid rgba(45,212,160,.5)' : '2px solid transparent',
-                  position:'relative',
-                }}
-              >
-                {pkg.featured && (
-                  <div style={{ position:'absolute', top:12, right:14, fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(45,212,160,.95)', background:'rgba(45,212,160,.12)', padding:'2px 8px' }}>
-                    Most Complete
-                  </div>
-                )}
-                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:pkg.color, marginBottom:6 }}>
-                  {pkg.dims} Dimension{pkg.dims > 1 ? 's' : ''}
-                </div>
-                <div style={{ fontSize:15, fontWeight:700, color:'rgba(255,255,255,.95)', marginBottom:6 }}>{pkg.name}</div>
-                <div style={{ fontFamily:'var(--font-mono)', fontSize:20, fontWeight:700, color:pkg.color, letterSpacing:'-.02em', marginBottom:3 }}>{pkg.price}</div>
-                <div style={{ fontSize:11, color:'rgba(255,255,255,.72)', marginBottom:14 }}>{pkg.timeline}</div>
-                <div style={{ fontSize:12.5, color:'rgba(255,255,255,.80)', lineHeight:1.65, marginBottom:12 }}>{pkg.desc}</div>
-                <div style={{ fontSize:11, color:'rgba(255,255,255,.68)', lineHeight:1.6, fontStyle:'italic' }}>{pkg.useCase}</div>
-              </div>
-            ))}
-          </div>
+          {/* Pricing comparison table */}
+          <div style={{ border:'1px solid rgba(255,255,255,.1)', overflow:'hidden', marginBottom:24 }}>
 
-          {/* Every package includes */}
-          <div style={{ background:'rgba(255,255,255,.03)', border:'1px solid rgba(255,255,255,.09)', padding:'18px 24px' }}>
-            <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.65)', marginBottom:14 }}>Every Package Includes</div>
-            <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:16 }}>
+            {/* Header row */}
+            <div style={{ display:'grid', gridTemplateColumns:'1fr 160px 160px 200px', background:'rgba(255,255,255,.04)', borderBottom:'1px solid rgba(255,255,255,.1)' }}>
+              <div style={{ padding:'14px 20px' }} />
               {[
-                { title:'Visual Scorecard',      desc:'CIM-ready slides with quantified scores across all dimensions' },
-                { title:'Full VoC Report',        desc:'25+ slides: executive summary, benchmarking, verbatim customer quotes' },
-                { title:'AI Resilience Matrix',   desc:'Quadrant positioning: Fortress / Catalyst / Accelerator / Foundation' },
-                { title:'IC Preparation Pack',    desc:'Customer-backed language for every AI question an IC will raise' },
-              ].map((item,i) => (
-                <div key={i} style={{ borderLeft:'2px solid rgba(45,212,160,.35)', paddingLeft:12 }}>
-                  <div style={{ fontSize:12, fontWeight:700, color:'rgba(255,255,255,.85)', marginBottom:4 }}>{item.title}</div>
-                  <div style={{ fontSize:11.5, color:'rgba(255,255,255,.72)', lineHeight:1.55 }}>{item.desc}</div>
+                { name:'AI Capability', price:'$25–30k', time:'2–3 wks', color:'rgba(77,144,254,.95)',  featured:false },
+                { name:'AI Structural', price:'$25–30k', time:'2–3 wks', color:'rgba(245,158,11,.95)',  featured:false },
+                { name:'Complete Q of AI', price:'$40–50k', time:'3–4 wks', color:'rgba(45,212,160,.97)', featured:true },
+              ].map((col, i) => (
+                <div key={i} style={{
+                  padding:'14px 18px',
+                  borderLeft:'1px solid rgba(255,255,255,.08)',
+                  borderTop: col.featured ? `2px solid ${col.color}` : '2px solid transparent',
+                  background: col.featured ? 'rgba(45,212,160,.04)' : 'transparent',
+                  position:'relative',
+                }}>
+                  {col.featured && (
+                    <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(45,212,160,.9)', background:'rgba(45,212,160,.12)', padding:'2px 7px', display:'inline-block', marginBottom:6 }}>Recommended</div>
+                  )}
+                  <div style={{ fontSize:13, fontWeight:700, color:'rgba(255,255,255,.92)', marginBottom:4 }}>{col.name}</div>
+                  <div style={{ fontFamily:'var(--font-mono)', fontSize:18, fontWeight:700, color:col.color, letterSpacing:'-.02em', marginBottom:2 }}>{col.price}</div>
+                  <div style={{ fontSize:11, color:'rgba(255,255,255,.52)' }}>{col.time}</div>
                 </div>
               ))}
             </div>
+
+            {/* Feature rows */}
+            {FEATURES.map((f, i) => (
+              <div key={i} style={{ display:'grid', gridTemplateColumns:'1fr 160px 160px 200px', borderBottom: i < FEATURES.length-1 ? '1px solid rgba(255,255,255,.05)' : 'none', background:'rgba(6,14,28,.95)' }}>
+                <div style={{ padding:'11px 20px', fontSize:12.5, color:'rgba(255,255,255,.78)', display:'flex', alignItems:'center' }}>{f.label}</div>
+                <div style={{ padding:'11px 18px', borderLeft:'1px solid rgba(255,255,255,.05)', display:'flex', alignItems:'center' }}>{check(f.capability)}</div>
+                <div style={{ padding:'11px 18px', borderLeft:'1px solid rgba(255,255,255,.05)', display:'flex', alignItems:'center' }}>{check(f.structural)}</div>
+                <div style={{ padding:'11px 18px', borderLeft:'1px solid rgba(255,255,255,.05)', background:'rgba(45,212,160,.025)', display:'flex', alignItems:'center' }}>{check(f.complete)}</div>
+              </div>
+            ))}
+
+            {/* CTA row */}
+            <div style={{ display:'grid', gridTemplateColumns:'1fr 160px 160px 200px', background:'rgba(255,255,255,.03)', borderTop:'1px solid rgba(255,255,255,.08)' }}>
+              <div style={{ padding:'14px 20px', fontSize:12, color:'rgba(255,255,255,.52)', display:'flex', alignItems:'center' }}>
+                Commission a scope →
+              </div>
+              {[false, false, true].map((featured, i) => (
+                <div key={i} style={{ padding:'12px 18px', borderLeft:'1px solid rgba(255,255,255,.08)', background: featured ? 'rgba(45,212,160,.04)' : 'transparent', display:'flex', alignItems:'center' }}>
+                  <a
+                    href={`mailto:${CONTACT.email}`}
+                    style={{
+                      fontSize:11, fontWeight:700, textDecoration:'none', whiteSpace:'nowrap',
+                      color: featured ? 'rgba(45,212,160,.97)' : 'rgba(255,255,255,.65)',
+                      background: featured ? 'rgba(45,212,160,.12)' : 'rgba(255,255,255,.06)',
+                      border: `1px solid ${featured ? 'rgba(45,212,160,.3)' : 'rgba(255,255,255,.1)'}`,
+                      padding:'6px 14px',
+                      display:'inline-block',
+                    }}
+                  >
+                    Get started →
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Footnote */}
+          <div style={{ fontSize:12, color:'rgba(255,255,255,.45)', textAlign:'center' }}>
+            All packages include visual scorecard, 25+ slide VoC report, customer verbatims, and CIM-ready positioning language.
           </div>
         </div>
       </section>
