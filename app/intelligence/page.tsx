@@ -31,7 +31,7 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
     'Evercore','Moelis & Company','Jefferies','RBC Capital Markets','Wells Fargo',
     'Other',
   ];
-  const inp: React.CSSProperties = { width:'100%',background:'rgba(255,255,255,.05)',border:'1px solid rgba(255,255,255,.12)',color: 'rgba(255,255,255,.88)',padding:'9px 12px',fontSize:13,outline:'none',boxSizing:'border-box' };
+  const inp: React.CSSProperties = { width:'100%',background:'rgba(255,255,255,.05)',border:'1px solid rgba(255,255,255,.15)',color:'rgba(255,255,255,.90)',padding:'9px 12px',fontSize:13,outline:'none',boxSizing:'border-box' };
   const set = (k:string,v:string)=>setForm(f=>({...f,[k]:v}));
   const handleFirmSelect = (v:string) => {
     if (v === 'Other') { setFirmOther(true); set('firm',''); }
@@ -50,7 +50,7 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
       <div style={{ background:'#0c1a2e',border:'1px solid rgba(255,255,255,.12)',padding:'40px 32px',maxWidth:380,width:'100%',textAlign:'center' }}>
         <div style={{ fontSize:26,color:'#2dd4a0',marginBottom:10 }}>&#10003;</div>
         <div style={{ fontSize:16,fontWeight:700,color:'#fff',marginBottom:7 }}>Request Submitted</div>
-        <p style={{ fontSize:12,color: 'rgba(255,255,255,.68)',lineHeight:1.6,marginBottom:20 }}>We&rsquo;ll confirm coverage within 24 hours.</p>
+        <p style={{ fontSize:12,color:'rgba(255,255,255,.72)',lineHeight:1.6,marginBottom:20 }}>We&rsquo;ll confirm coverage within 24 hours.</p>
         <button onClick={onClose} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 24px',fontSize:12,fontWeight:700,cursor:'pointer' }}>Done</button>
       </div>
     </div>
@@ -59,30 +59,30 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
     <div style={{ position:'fixed',inset:0,zIndex:600,background:'rgba(4,9,18,.75)',backdropFilter:'blur(6px)',display:'flex',alignItems:'center',justifyContent:'center',padding:20 }} onClick={onClose}>
       <div style={{ background:'#0c1a2e',border:'1px solid rgba(255,255,255,.12)',maxWidth:460,width:'100%',position:'relative' }} onClick={e=>e.stopPropagation()}>
         <div style={{ background:'linear-gradient(135deg,#0f1f38,#162d4a)',padding:'18px 22px',borderBottom:'1px solid rgba(255,255,255,.08)',position:'relative' }}>
-          <button onClick={onClose} style={{ position:'absolute',top:12,right:12,background:'rgba(255,255,255,.12)',border:'1px solid rgba(255,255,255,.18)',color: 'rgba(255,255,255,.9)',width:28,height:28,cursor:'pointer',fontSize:16,lineHeight:'26px',textAlign:'center',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0 }}>&#215;</button>
+          <button onClick={onClose} style={{ position:'absolute',top:12,right:12,background:'rgba(255,255,255,.12)',border:'1px solid rgba(255,255,255,.18)',color:'rgba(255,255,255,.9)',width:28,height:28,cursor:'pointer',fontSize:16,display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0 }}>&#215;</button>
           <div style={{ fontSize:14,fontWeight:700,color:'#fff',marginBottom:2 }}>Check Catalyst Coverage</div>
-          <p style={{ fontSize:11,color: 'rgba(255,255,255,.60)',margin:0 }}>Same-day if covered &middot; 14-day custom if not</p>
+          <p style={{ fontSize:11,color:'rgba(255,255,255,.65)',margin:0 }}>Same-day if covered &middot; 14-day custom if not</p>
         </div>
         <form onSubmit={submit} style={{ padding:'18px 22px',display:'flex',flexDirection:'column',gap:11 }}>
           <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:9 }}>
-            <div><label style={{ display:'block',fontSize: 11,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>First Name *</label><input required style={inp} placeholder="Jordan" onChange={e=>set('firstName',e.target.value)} /></div>
-            <div><label style={{ display:'block',fontSize: 11,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>Last Name *</label><input required style={inp} placeholder="Keller" onChange={e=>set('lastName',e.target.value)} /></div>
+            <div><label style={{ display:'block',fontSize:11,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.65)',marginBottom:4 }}>First Name *</label><input required style={inp} placeholder="Jordan" onChange={e=>set('firstName',e.target.value)} /></div>
+            <div><label style={{ display:'block',fontSize:11,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.65)',marginBottom:4 }}>Last Name *</label><input required style={inp} placeholder="Keller" onChange={e=>set('lastName',e.target.value)} /></div>
           </div>
-          <div><label style={{ display:'block',fontSize: 11,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>Work Email *</label><input required type="email" style={inp} placeholder="jordan@bank.com" onChange={e=>set('email',e.target.value)} /></div>
+          <div><label style={{ display:'block',fontSize:11,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.65)',marginBottom:4 }}>Work Email *</label><input required type="email" style={inp} placeholder="jordan@bank.com" onChange={e=>set('email',e.target.value)} /></div>
           <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:9 }}>
             <div>
               {!firmOther
                 ? <SelectField label="Firm" options={BANKS} value={form.firm} onChange={v=>handleFirmSelect(v)} placeholder="Select firm..." required />
                 : <div>
-                    <label style={{ display:'block',fontSize: 11,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>Firm *</label>
+                    <label style={{ display:'block',fontSize:11,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.65)',marginBottom:4 }}>Firm *</label>
                     <input required autoFocus style={inp} placeholder="Firm name" onChange={e=>set('firm',e.target.value)} />
-                    <button type="button" onClick={()=>setFirmOther(false)} style={{ fontSize: 11,color: 'rgba(255,255,255,.62)',background:'none',border:'none',cursor:'pointer',marginTop:4,padding:0 }}>← Back to list</button>
+                    <button type="button" onClick={()=>setFirmOther(false)} style={{ fontSize:11,color:'rgba(255,255,255,.65)',background:'none',border:'none',cursor:'pointer',marginTop:4,padding:0 }}>Back to list</button>
                   </div>
               }
             </div>
             <SelectField label="Org Type" options={ORG} value={form.orgType} onChange={v=>set('orgType',v)} required />
           </div>
-          <div><label style={{ display:'block',fontSize: 11,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>Target Company or Mandate</label><input style={inp} placeholder="Company name" onChange={e=>set('mandate',e.target.value)} /></div>
+          <div><label style={{ display:'block',fontSize:11,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.65)',marginBottom:4 }}>Target Company or Mandate</label><input style={inp} placeholder="Company name" onChange={e=>set('mandate',e.target.value)} /></div>
           {error && <div style={{ fontSize:12,color:'#f87171',background:'rgba(248,113,113,.08)',border:'1px solid rgba(248,113,113,.2)',padding:'8px 12px' }}>{error}</div>}
           <button type="submit" style={{ width:'100%',background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'10px',fontSize:13,fontWeight:700,cursor:'pointer',marginTop:2 }}>Submit &rarr;</button>
         </form>
@@ -91,7 +91,7 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
   );
 }
 
-
+/* SampleCard — click to reveal, works on touch */
 function SampleCard({ href, type, badge, codeName, logoSrc, logoAlt, logoInvert, cta }: {
   href: string; type: string; badge: string; codeName: string;
   logoSrc: string; logoAlt: string; logoInvert: boolean; cta: string;
@@ -100,23 +100,22 @@ function SampleCard({ href, type, badge, codeName, logoSrc, logoAlt, logoInvert,
   return (
     <div
       className="ib-sample-card"
-      style={{ position:'relative', justifyContent:'space-between', cursor:'pointer' }}
+      style={{ position:'relative', display:'flex', flexDirection:'column', justifyContent:'space-between', cursor:'pointer' }}
       onClick={() => setRevealed(r => !r)}
     >
       {/* Badge */}
       <div style={{
         position:'absolute', top:14, right:14,
-        fontSize: 10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase',
+        fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase',
         color:'rgba(77,144,254,.95)', background:'rgba(77,144,254,.12)',
         border:'1px solid rgba(77,144,254,.3)', padding:'2px 8px',
       }}>{badge}</div>
 
-      {/* Top: type label */}
+      {/* Type label */}
       <div className="ib-sample-type">{type}</div>
 
-      {/* Middle: code name → logo reveal */}
+      {/* Code name / logo */}
       <div className="ib-sample-logo-wrap" style={{ position:'relative', overflow:'hidden', flex:1 }}>
-        {/* Code name — slides out up on tap */}
         <div style={{
           position:'absolute', top:0, left:0, width:'100%', height:'100%',
           display:'flex', alignItems:'center',
@@ -124,11 +123,10 @@ function SampleCard({ href, type, badge, codeName, logoSrc, logoAlt, logoInvert,
           opacity: revealed ? 0 : 1,
           transition: 'transform .3s cubic-bezier(.4,0,.2,1), opacity .2s',
         }}>
-          <span style={{ fontFamily:'var(--font-mono)', fontSize:20, fontWeight:700, letterSpacing:'.06em', color:'rgba(255,255,255,.55)' }}>
+          <span style={{ fontFamily:'var(--font-mono)', fontSize:20, fontWeight:700, letterSpacing:'.06em', color:'rgba(255,255,255,.60)' }}>
             {codeName}
           </span>
         </div>
-        {/* Logo — slides in from below on tap */}
         <div style={{
           position:'absolute', top:0, left:0, width:'100%', height:'100%',
           display:'flex', alignItems:'center',
@@ -143,21 +141,18 @@ function SampleCard({ href, type, badge, codeName, logoSrc, logoAlt, logoInvert,
         </div>
       </div>
 
-      {/* Hint / collapse affordance */}
-      <div style={{ fontSize:10, fontWeight:600, letterSpacing:'.08em', textTransform:'uppercase', color:'rgba(255,255,255,.30)', marginBottom:16, transition:'opacity .2s' }}>
-        {revealed ? '× tap to hide' : 'Tap to reveal'}
+      {/* Hint */}
+      <div style={{ fontSize:10, fontWeight:600, letterSpacing:'.08em', textTransform:'uppercase', color:'rgba(255,255,255,.38)', marginBottom:16 }}>
+        {revealed ? 'Tap to close' : 'Tap to reveal'}
       </div>
 
-      {/* Bottom: CTA — only navigate when revealed */}
+      {/* CTA */}
       {revealed ? (
-        <a
-          href={href}
-          onClick={e => e.stopPropagation()}
-          className="ib-sample-link"
-          style={{ textDecoration:'none' }}
-        >{cta} &rarr;</a>
+        <a href={href} onClick={e => e.stopPropagation()} className="ib-sample-link" style={{ textDecoration:'none' }}>
+          {cta} &rarr;
+        </a>
       ) : (
-        <div className="ib-sample-link" style={{ opacity:.45 }}>{cta} &rarr;</div>
+        <div className="ib-sample-link" style={{ color:'rgba(255,255,255,.35)' }}>{cta} &rarr;</div>
       )}
     </div>
   );
@@ -195,8 +190,8 @@ export default function IntelligencePage() {
                 <div style={{ fontSize:17, fontWeight:700, color:'rgba(255,255,255,.92)', letterSpacing:'-.02em' }}>Volie</div>
                 <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(77,144,254,.9)', background:'rgba(77,144,254,.12)', border:'1px solid rgba(77,144,254,.3)', padding:'2px 8px', flexShrink:0 }}>Client Proposal</div>
               </div>
-              <div style={{ fontSize:12, color:'rgba(255,255,255,.62)', marginBottom:8, lineHeight:1.5 }}>Operator outreach powered by independent customer intelligence.</div>
-              <div style={{ fontSize:11, fontWeight:700, color:'rgba(130,175,255,.8)', marginTop:'auto' }}>View Live Portal ↗</div>
+              <div style={{ fontSize:12, color:'rgba(255,255,255,.68)', marginBottom:8, lineHeight:1.5 }}>Operator outreach powered by customer intelligence.</div>
+              <div style={{ fontSize:11, fontWeight:700, color:'rgba(130,175,255,.85)', marginTop:'auto' }}>View Live Portal ↗</div>
             </a>
             <a
               href="https://sample.crossoverintelligence.com/"
@@ -210,7 +205,7 @@ export default function IntelligencePage() {
                 <div style={{ fontSize:17, fontWeight:700, color:'rgba(255,255,255,.92)', letterSpacing:'-.02em' }}>Intelligence Report + GTM Playbook</div>
                 <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(45,212,160,.9)', background:'rgba(45,212,160,.08)', border:'1px solid rgba(45,212,160,.25)', padding:'2px 8px', flexShrink:0, marginLeft:12 }}>Sample VoC</div>
               </div>
-              <div style={{ fontSize:11, fontWeight:700, color:'rgba(255,255,255,.6)', marginTop:'auto' }}>View Sample Report ↗</div>
+              <div style={{ fontSize:11, fontWeight:700, color:'rgba(255,255,255,.68)', marginTop:'auto' }}>View Sample Report ↗</div>
             </a>
           </div>
 
@@ -225,8 +220,8 @@ export default function IntelligencePage() {
               <div style={{ display:'flex', gap:8, flexWrap:'wrap', marginBottom:10 }}>
                 {(['transacted','active','new'] as const).map(s => {
                   const n = CATALYST_ASSETS.filter(a => a.status === s).length;
-                  const cfg = { transacted:{ color:'rgba(180,180,200,.6)', label:'Closed' }, active:{ color:'rgba(45,212,160,.8)', label:'Active' }, new:{ color:'rgba(245,158,11,.8)', label:'New' } };
-                  return n > 0 ? <span key={s} style={{ fontSize: 11, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase' as const, color:cfg[s].color }}>{n} {cfg[s].label}</span> : null;
+                  const cfg = { transacted:{ color:'rgba(180,180,200,.7)', label:'Closed' }, active:{ color:'rgba(45,212,160,.85)', label:'Active' }, new:{ color:'rgba(245,158,11,.85)', label:'New' } };
+                  return n > 0 ? <span key={s} style={{ fontSize:11, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase' as const, color:cfg[s].color }}>{n} {cfg[s].label}</span> : null;
                 })}
               </div>
               <div className="ib-sample-link" style={{ marginTop:'auto' }}>Browse Library &rarr;</div>
@@ -259,9 +254,9 @@ export default function IntelligencePage() {
                 letterSpacing:'-.03em', color:'rgba(255,255,255,.97)', marginBottom:14,
               }}>
                 The next $1B deal starts with<br />
-                <span style={{ color:'rgba(130,175,255,.85)' }}>the right customer intelligence.</span>
+                <span style={{ color:'rgba(130,175,255,.88)' }}>the right customer intelligence.</span>
               </h2>
-              <p style={{ fontSize:14, color:'rgba(255,255,255,.52)', lineHeight:1.72, maxWidth:520, margin:0 }}>
+              <p style={{ fontSize:14, color:'rgba(255,255,255,.65)', lineHeight:1.72, maxWidth:520, margin:0 }}>
                 At $10,000 against a $500M+ mandate fee, the highest-ROI line item in any pitch budget.
               </p>
             </div>
@@ -285,19 +280,16 @@ export default function IntelligencePage() {
                 href="/intelligence?request=1"
                 style={{
                   display:'inline-flex', alignItems:'center',
-                  background:'transparent', color:'rgba(180,210,255,.75)',
-                  border:'1px solid rgba(77,144,254,.28)', padding:'13px 28px',
+                  background:'transparent', color:'rgba(180,210,255,.82)',
+                  border:'1px solid rgba(77,144,254,.32)', padding:'13px 28px',
                   fontSize:13, fontWeight:500, textDecoration:'none', whiteSpace:'nowrap',
                   transition:'all .15s',
                 }}
-                onMouseEnter={e=>{const el=e.currentTarget as HTMLElement;el.style.borderColor='rgba(77,144,254,.55)';el.style.background='rgba(77,144,254,.08)';}}
-                onMouseLeave={e=>{const el=e.currentTarget as HTMLElement;el.style.borderColor='rgba(77,144,254,.28)';el.style.background='transparent';}}
+                onMouseEnter={e=>{const el=e.currentTarget as HTMLElement;el.style.borderColor='rgba(77,144,254,.6)';el.style.background='rgba(77,144,254,.09)';}}
+                onMouseLeave={e=>{const el=e.currentTarget as HTMLElement;el.style.borderColor='rgba(77,144,254,.32)';el.style.background='transparent';}}
               >
                 Scope a Mandate →
               </a>
-              <div style={{ fontSize:11, color:'rgba(255,255,255,.28)', letterSpacing:'.02em', textAlign:'right', lineHeight:1.5 }}>
-                Trusted by M&A advisors at J.P. Morgan<br />and General Atlantic · 50+ mandates · 60% win rate
-              </div>
             </div>
           </div>
         </div>
