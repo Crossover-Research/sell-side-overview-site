@@ -394,7 +394,7 @@ export default function QofAIPage() {
                   'Extended CIM language',
                 ],
               },
-            ] as const;
+            ];
 
             const tier = TIERS[tierIdx];
             const pct = (tierIdx / (TIERS.length - 1)) * 100;
