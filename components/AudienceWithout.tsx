@@ -31,7 +31,7 @@ const DATA: Record<Audience, {
       { label:'Valuation', without:'Sit at the mercy of the bidding process. Hope valuation holds.', with:'Set the valuation narrative.', withBold:'Negotiate from evidence, not hope.' },
       { label:'Control',   without:'PE fund defines the value-creation plan. Operator reacts.', with:'Operator sets the baseline.', withBold:"The fund's plan starts from your roadmap." },
     ],
-    outcome: { stat:'Your terms', statLabel:'The Outcome', desc:"Operators who surface uncomfortable truths early don't just close faster. They set the terms." },
+    outcome: { stat:'', statLabel:'', desc:"Operators who surface uncomfortable truths early don't just close faster. They set the terms." },
   },
   investors: {
     sub: 'Build conviction months before the process even opens.',
@@ -137,16 +137,20 @@ export function AudienceWithout() {
           borderTop:`2px solid ${d.accent}`, padding:'22px 24px',
           display:'flex', alignItems:'center', gap:28,
         }}>
-          <div style={{ flexShrink:0, textAlign:'center', minWidth:80 }}>
-            <div style={{
-              fontFamily:'var(--font-mono)', fontSize:28, fontWeight:700,
-              color:d.accent, lineHeight:1, letterSpacing:'-.02em', marginBottom:4,
-            }}>{d.outcome.stat}</div>
-            <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.60)' }}>
-              {d.outcome.statLabel}
-            </div>
-          </div>
-          <div style={{ width:1, height:44, background:'rgba(255,255,255,.08)', flexShrink:0 }} />
+          {d.outcome.stat && (
+            <>
+              <div style={{ flexShrink:0, textAlign:'center', minWidth:80 }}>
+                <div style={{
+                  fontFamily:'var(--font-mono)', fontSize:28, fontWeight:700,
+                  color:d.accent, lineHeight:1, letterSpacing:'-.02em', marginBottom:4,
+                }}>{d.outcome.stat}</div>
+                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.60)' }}>
+                  {d.outcome.statLabel}
+                </div>
+              </div>
+              <div style={{ width:1, height:44, background:'rgba(255,255,255,.08)', flexShrink:0 }} />
+            </>
+          )}
           <div style={{ fontSize:13, color:'rgba(255,255,255,.65)', lineHeight:1.7 }}>{d.outcome.desc}</div>
         </div>
 
