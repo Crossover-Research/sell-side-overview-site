@@ -263,9 +263,9 @@ export function DealProof() {
               </div>
             )}
             {s.left.outcome && (
-              <div style={{ background:s.left.outcomeBg, border:`1px solid ${s.left.outcomeBorder}`, padding:'10px 14px' }}>
-                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.55)', marginBottom:5 }}>Outcome</div>
-                <div style={{ fontSize:12, fontWeight:600, color:s.left.outcomeText, lineHeight:1.4 }}>{s.left.outcome}</div>
+              <div style={{ borderLeft:`3px solid ${s.left.outcomeBorder}`, paddingLeft:14, marginTop:'auto' }}>
+                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.40)', marginBottom:6 }}>Outcome</div>
+                <div style={{ fontSize:13, fontWeight:700, color:s.left.outcomeText, lineHeight:1.4 }}>{s.left.outcome}</div>
               </div>
             )}
           </div>
@@ -317,9 +317,9 @@ export function DealProof() {
               </>
             )}
             {s.right.outcome && (
-              <div style={{ background:s.right.outcomeBg, border:`1px solid ${s.right.outcomeBorder}`, padding:'10px 14px', marginTop:'auto' }}>
-                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.55)', marginBottom:5 }}>Outcome</div>
-                <div style={{ fontSize:12, fontWeight:600, color:s.right.outcomeText, lineHeight:1.4 }}>{s.right.outcome}</div>
+              <div style={{ borderLeft:`3px solid ${s.right.outcomeBorder}`, paddingLeft:14, marginTop:'auto' }}>
+                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.40)', marginBottom:6 }}>Outcome</div>
+                <div style={{ fontSize:13, fontWeight:700, color:s.right.outcomeText, lineHeight:1.4 }}>{s.right.outcome}</div>
               </div>
             )}
           </div>
