@@ -91,17 +91,16 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
   );
 }
 
-/* SampleCard — click to reveal, works on touch */
-function SampleCard({ href, type, badge, codeName, logoSrc, logoAlt, logoInvert, cta }: {
-  href: string; type: string; badge: string; codeName: string;
+/* SampleCard — direct link, logo shown immediately */
+function SampleCard({ href, type, badge, logoSrc, logoAlt, logoInvert, cta }: {
+  href: string; type: string; badge: string;
   logoSrc: string; logoAlt: string; logoInvert: boolean; cta: string;
 }) {
-  const [revealed, setRevealed] = React.useState(false);
   return (
-    <div
+    <a
+      href={href}
       className="ib-sample-card"
-      style={{ position:'relative', display:'flex', flexDirection:'column', justifyContent:'space-between', cursor:'pointer' }}
-      onClick={() => setRevealed(r => !r)}
+      style={{ position:'relative', display:'flex', flexDirection:'column', justifyContent:'space-between', textDecoration:'none' }}
     >
       {/* Badge */}
       <div style={{
@@ -114,47 +113,17 @@ function SampleCard({ href, type, badge, codeName, logoSrc, logoAlt, logoInvert,
       {/* Type label */}
       <div className="ib-sample-type">{type}</div>
 
-      {/* Code name / logo */}
-      <div className="ib-sample-logo-wrap" style={{ position:'relative', overflow:'hidden', flex:1 }}>
-        <div style={{
-          position:'absolute', top:0, left:0, width:'100%', height:'100%',
-          display:'flex', alignItems:'center',
-          transform: revealed ? 'translateY(-110%)' : 'translateY(0)',
-          opacity: revealed ? 0 : 1,
-          transition: 'transform .3s cubic-bezier(.4,0,.2,1), opacity .2s',
-        }}>
-          <span style={{ fontFamily:'var(--font-mono)', fontSize:20, fontWeight:700, letterSpacing:'.06em', color:'rgba(255,255,255,.60)' }}>
-            {codeName}
-          </span>
-        </div>
-        <div style={{
-          position:'absolute', top:0, left:0, width:'100%', height:'100%',
-          display:'flex', alignItems:'center',
-          transform: revealed ? 'translateY(0)' : 'translateY(110%)',
-          opacity: revealed ? 1 : 0,
-          transition: 'transform .3s cubic-bezier(.4,0,.2,1), opacity .2s .05s',
-        }}>
-          <img
-            src={logoSrc} alt={logoAlt}
-            style={{ height:28, width:'auto', maxWidth:180, filter: logoInvert ? 'brightness(0) invert(1)' : 'none', opacity: logoInvert ? .85 : 1 }}
-          />
-        </div>
-      </div>
-
-      {/* Hint */}
-      <div style={{ fontSize:10, fontWeight:600, letterSpacing:'.08em', textTransform:'uppercase', color:'rgba(255,255,255,.38)', marginBottom:16 }}>
-        {revealed ? 'Tap to close' : 'Tap to reveal'}
+      {/* Logo */}
+      <div className="ib-sample-logo-wrap" style={{ display:'flex', alignItems:'center', flex:1 }}>
+        <img
+          src={logoSrc} alt={logoAlt}
+          style={{ height:28, width:'auto', maxWidth:180, filter: logoInvert ? 'brightness(0) invert(1)' : 'none', opacity: logoInvert ? .85 : 1 }}
+        />
       </div>
 
       {/* CTA */}
-      {revealed ? (
-        <a href={href} onClick={e => e.stopPropagation()} className="ib-sample-link" style={{ textDecoration:'none' }}>
-          {cta} &rarr;
-        </a>
-      ) : (
-        <div className="ib-sample-link" style={{ color:'rgba(255,255,255,.35)' }}>{cta} &rarr;</div>
-      )}
-    </div>
+      <div className="ib-sample-link">{cta} &rarr;</div>
+    </a>
   );
 }
 
@@ -174,7 +143,6 @@ export default function IntelligencePage() {
       {/* SAMPLE STUDIES */}
       <section id="samples" className="ib-section">
         <div className="ib-inner">
-          <div className="ib-section-eyebrow">Live Deliverables</div>
           <h2 className="ib-section-title" style={{ marginBottom:4 }}>See exactly what your client receives</h2>
 
           <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:1, background:'rgba(255,255,255,.06)', marginBottom:1 }}>
@@ -210,8 +178,8 @@ export default function IntelligencePage() {
           </div>
 
           <div className="ib-samples" style={{ marginTop:1 }}>
-            <SampleCard href="/redcanary" type="Cybersecurity MDR" badge="Catalyst" codeName="SENTINEL" logoSrc="/red-canary-logo.svg" logoAlt="Red Canary" logoInvert={false} cta="View Study" />
-            <SampleCard href="/bluecat" type="Network Infrastructure" badge="Catalyst" codeName="FORTRESS" logoSrc="/bluecat-logo.svg" logoAlt="BlueCat Networks" logoInvert={true} cta="View Study" />
+            <SampleCard href="/redcanary" type="Cybersecurity MDR" badge="Catalyst" logoSrc="/red-canary-logo.svg" logoAlt="Red Canary" logoInvert={false} cta="View Study" />
+            <SampleCard href="/bluecat" type="Network Infrastructure" badge="Catalyst" logoSrc="/bluecat-logo.svg" logoAlt="BlueCat Networks" logoInvert={true} cta="View Study" />
             <a href="/catalyst" className="ib-sample-card ib-sample-cta">
               <div className="ib-sample-type">Catalyst Library</div>
               <div className="ib-sample-logo-wrap">
@@ -256,9 +224,7 @@ export default function IntelligencePage() {
                 The next $1B deal starts with<br />
                 <span style={{ color:'rgba(130,175,255,.88)' }}>the right customer intelligence.</span>
               </h2>
-              <p style={{ fontSize:14, color:'rgba(255,255,255,.65)', lineHeight:1.72, maxWidth:520, margin:0 }}>
-                At $10,000 against a $500M+ mandate fee, the highest-ROI line item in any pitch budget.
-              </p>
+
             </div>
             <div style={{ display:'flex', flexDirection:'column', gap:12, alignItems:'flex-end', flexShrink:0 }}>
               <a
