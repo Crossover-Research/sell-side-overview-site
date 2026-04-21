@@ -536,14 +536,14 @@ export default function QofAIPage() {
 
                 {/* RIGHT: What's included */}
                 <div style={{
-                  background: tier.recommended ? 'rgba(45,212,160,.04)' : 'rgba(255,255,255,.02)',
+                  background: (tier as any).recommended ? 'rgba(45,212,160,.04)' : 'rgba(255,255,255,.02)',
                   borderLeft: `2px solid ${tier.color}`,
                   padding:'32px 28px',
                   display:'flex', flexDirection:'column', gap:20,
                   transition:'all .2s',
                 }}>
                   <div>
-                    {tier.recommended && (
+                    {(tier as any).recommended && (
                       <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(45,212,160,.9)', background:'rgba(45,212,160,.1)', padding:'2px 8px', display:'inline-block', marginBottom:8 }}>
                         Recommended for sell-side
                       </div>
