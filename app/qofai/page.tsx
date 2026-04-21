@@ -23,23 +23,7 @@ const RESILIENCE_DIMS = [
   { label: 'Vendor Strategy Credibility',  score: 8.0 },
 ];
 
-const MODULES = {
-  capability: {
-    name: 'AI Capability Module',
-    dims: 10,
-    color: 'rgba(77,144,254,.95)',
-    desc: 'Measures how effective, adopted, and differentiated the AI is today — the story of current strength across feature adoption, competitive positioning, ROI, and accuracy.',
-    best: 'Pre-pitch positioning · Competitive benchmarking · CIM narrative proof points',
-  },
-  structural: {
-    name: 'AI Structural Position Module',
-    dims: 5,
-    color: 'rgba(245,158,11,.95)',
-    desc: 'Documents the durability of the AI advantage — data moats, integration depth, leapfrog resistance, and vendor credibility. The evidence behind long-term defensibility.',
-    best: 'Durability narrative · Diligence prep · Board presentations',
-  },
-} as const;
-type ModuleKey = keyof typeof MODULES;
+
 
 const OBJECTIONS = [
   {
@@ -88,9 +72,6 @@ const OBJECTIONS = [
 
 export default function QofAIPage() {
   const [selectedQ, setSelectedQ] = useState(0);
-  const [activeModule, setActiveModule] = useState<ModuleKey>('capability');
-  const mod = MODULES[activeModule];
-
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────────────────────── */}
