@@ -379,7 +379,8 @@ export default function QofAIPage() {
                 ],
               },
               {
-                dims: 15,
+                dims: 15 as number,
+                dimsDisplay: '15+',
                 label: 'Complete',
                 name: 'Complete Q of AI',
                 price: 40,
@@ -573,9 +574,9 @@ export default function QofAIPage() {
                     style={{
                       display:'inline-flex', alignItems:'center', justifyContent:'center',
                       fontSize:12, fontWeight:700, textDecoration:'none', padding:'11px 20px',
-                      color: tier.recommended ? '#050e1e' : 'rgba(255,255,255,.9)',
-                      background: tier.recommended ? 'rgba(45,212,160,.92)' : 'rgba(255,255,255,.08)',
-                      border: tier.recommended ? 'none' : `1px solid rgba(255,255,255,.18)`,
+                      color: (tier as any).recommended ? '#050e1e' : 'rgba(255,255,255,.9)',
+                      background: (tier as any).recommended ? 'rgba(45,212,160,.92)' : 'rgba(255,255,255,.08)',
+                      border: (tier as any).recommended ? 'none' : `1px solid rgba(255,255,255,.18)`,
                       transition:'all .15s',
                     }}
                   >
