@@ -71,6 +71,7 @@ const OBJECTIONS = [
 export default function QofAIPage() {
   const [selectedQ, setSelectedQ] = useState(0);
   const [tierIdx, setTierIdx] = useState(2); // default: Full Assessment
+  const [scoreTab, setScoreTab] = useState<'capability'|'resilience'>('capability');
 
   return (
     <>
@@ -137,7 +138,7 @@ export default function QofAIPage() {
       </section>
 
       {/* MATRIX + DIMENSIONS */}
-      <section style={{ padding:'56px 0', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
+      <section style={{ padding:'40px 0', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
           <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:40, alignItems:'start' }}>
             <div>
@@ -162,62 +163,75 @@ export default function QofAIPage() {
             </div>
 
             <div>
-              <h2 style={{ fontSize:22, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.022em', marginBottom:16, lineHeight:1.25 }}>
+              <h2 style={{ fontSize:22, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.022em', marginBottom:14, lineHeight:1.25 }}>
                 15 dimensions. Two independent scores.
               </h2>
-              <div style={{ background:'rgba(6,14,28,.98)', border:'1px solid rgba(77,144,254,.2)', overflow:'hidden', marginBottom:2 }}>
-                <div style={{ background:'rgba(77,144,254,.07)', borderBottom:'1px solid rgba(77,144,254,.15)', padding:'12px 18px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
-                  <div>
-                    <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(77,144,254,.88)', marginBottom:2 }}>Part I · 10 Dimensions</div>
-                    <div style={{ fontSize:14, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.02em' }}>AI Capability Score</div>
-                  </div>
-                  <div style={{ textAlign:'right' }}>
-                    <div style={{ fontFamily:'var(--font-mono)', fontSize:32, fontWeight:700, color:'rgba(77,144,254,.97)', letterSpacing:'-.04em', lineHeight:1 }}>83</div>
-                    <div style={{ fontSize:10, color:'rgba(255,255,255,.65)', letterSpacing:'.06em' }}>/ 100</div>
-                  </div>
-                </div>
-                {CAPABILITY_DIMS.map((d,i) => (
-                  <div key={i} style={{ padding:'8px 18px', borderBottom: i < CAPABILITY_DIMS.length-1 ? '1px solid rgba(255,255,255,.04)' : 'none', display:'grid', gridTemplateColumns:'1fr 32px', alignItems:'center', gap:12 }}>
+
+              {/* Score tab selector */}
+              <div style={{ display:'flex', gap:1, background:'rgba(255,255,255,.07)', marginBottom:2 }}>
+                {([
+                  { id:'capability' as const, label:'AI Capability', sub:'10 dimensions', score:83, color:'rgba(77,144,254,.95)', bg:'rgba(77,144,254,.07)' },
+                  { id:'resilience' as const, label:'AI Resilience', sub:'5 dimensions', score:87, color:'rgba(45,212,160,.97)', bg:'rgba(45,212,160,.05)' },
+                ] as const).map(tab => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setScoreTab(tab.id)}
+                    style={{
+                      all:'unset', cursor:'pointer', flex:1, padding:'12px 16px',
+                      background: scoreTab === tab.id ? tab.bg : 'rgba(6,14,28,.95)',
+                      borderBottom: `2px solid ${scoreTab === tab.id ? tab.color : 'transparent'}`,
+                      display:'flex', alignItems:'center', justifyContent:'space-between',
+                      transition:'all .12s',
+                    }}
+                  >
                     <div>
-                      <div style={{ fontSize:11.5, color:'rgba(255,255,255,.85)', marginBottom:5, fontWeight:500 }}>{d.label}</div>
-                      <div style={{ height:2, background:'rgba(255,255,255,.08)', borderRadius:1, overflow:'hidden' }}>
-                        <div style={{ width:`${(d.score/10)*100}%`, height:'100%', background:'rgba(77,144,254,.8)' }} />
-                      </div>
+                      <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color: scoreTab === tab.id ? tab.color : 'rgba(255,255,255,.45)', marginBottom:2 }}>{tab.label}</div>
+                      <div style={{ fontSize:11, color:'rgba(255,255,255,.55)' }}>{tab.sub}</div>
                     </div>
-                    <div style={{ fontFamily:'var(--font-mono)', fontSize:12, fontWeight:700, color:'rgba(77,144,254,.95)', textAlign:'right' }}>{d.score.toFixed(1)}</div>
-                  </div>
+                    <div style={{ fontFamily:'var(--font-mono)', fontSize:24, fontWeight:700, color: scoreTab === tab.id ? tab.color : 'rgba(255,255,255,.35)', letterSpacing:'-.03em' }}>{tab.score}</div>
+                  </button>
                 ))}
               </div>
-              <div style={{ background:'rgba(6,14,28,.98)', border:'1px solid rgba(45,212,160,.2)', overflow:'hidden' }}>
-                <div style={{ background:'rgba(45,212,160,.05)', borderBottom:'1px solid rgba(45,212,160,.15)', padding:'12px 18px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
-                  <div>
-                    <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(45,212,160,.88)', marginBottom:2 }}>Part II · 5 Dimensions</div>
-                    <div style={{ fontSize:14, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.02em' }}>AI Resilience Score</div>
-                  </div>
-                  <div style={{ textAlign:'right' }}>
-                    <div style={{ fontFamily:'var(--font-mono)', fontSize:32, fontWeight:700, color:'rgba(45,212,160,.97)', letterSpacing:'-.04em', lineHeight:1 }}>87</div>
-                    <div style={{ fontSize:10, color:'rgba(255,255,255,.65)', letterSpacing:'.06em' }}>/ 100</div>
-                  </div>
-                </div>
-                {RESILIENCE_DIMS.map((d,i) => (
-                  <div key={i} style={{ padding:'8px 18px', borderBottom: i < RESILIENCE_DIMS.length-1 ? '1px solid rgba(255,255,255,.04)' : 'none', display:'grid', gridTemplateColumns:'1fr 32px', alignItems:'center', gap:12 }}>
-                    <div>
-                      <div style={{ fontSize:11.5, color:'rgba(255,255,255,.85)', marginBottom:5, fontWeight:500 }}>{d.label}</div>
-                      <div style={{ height:2, background:'rgba(255,255,255,.08)', borderRadius:1, overflow:'hidden' }}>
-                        <div style={{ width:`${(d.score/10)*100}%`, height:'100%', background:'rgba(45,212,160,.8)' }} />
+
+              {/* Capability dimensions */}
+              {scoreTab === 'capability' && (
+                <div style={{ background:'rgba(6,14,28,.98)', border:'1px solid rgba(77,144,254,.2)', overflow:'hidden' }}>
+                  {CAPABILITY_DIMS.map((d,i) => (
+                    <div key={i} style={{ padding:'7px 16px', borderBottom: i < CAPABILITY_DIMS.length-1 ? '1px solid rgba(255,255,255,.04)' : 'none', display:'grid', gridTemplateColumns:'1fr 32px', alignItems:'center', gap:12 }}>
+                      <div>
+                        <div style={{ fontSize:11, color:'rgba(255,255,255,.82)', marginBottom:4, fontWeight:500 }}>{d.label}</div>
+                        <div style={{ height:2, background:'rgba(255,255,255,.08)', borderRadius:1, overflow:'hidden' }}>
+                          <div style={{ width:`${(d.score/10)*100}%`, height:'100%', background:'rgba(77,144,254,.8)' }} />
+                        </div>
                       </div>
+                      <div style={{ fontFamily:'var(--font-mono)', fontSize:11, fontWeight:700, color:'rgba(77,144,254,.95)', textAlign:'right' }}>{d.score.toFixed(1)}</div>
                     </div>
-                    <div style={{ fontFamily:'var(--font-mono)', fontSize:12, fontWeight:700, color:'rgba(45,212,160,.95)', textAlign:'right' }}>{d.score.toFixed(1)}</div>
-                  </div>
-                ))}
-                <div style={{ margin:'0 18px 14px', paddingTop:12 }}>
-                  <div style={{ background:'rgba(45,212,160,.07)', border:'1px solid rgba(45,212,160,.22)', padding:'10px 14px' }}>
-                    <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(45,212,160,.88)', marginBottom:3 }}>Verdict</div>
-                    <div style={{ fontSize:12, fontWeight:700, color:'rgba(45,212,160,.97)', marginBottom:2 }}>AI Fortress: Premium Asset</div>
-                    <div style={{ fontSize:11, color:'rgba(255,255,255,.75)' }}>Top 15-20% of assessed software companies</div>
+                  ))}
+                </div>
+              )}
+
+              {/* Resilience dimensions */}
+              {scoreTab === 'resilience' && (
+                <div style={{ background:'rgba(6,14,28,.98)', border:'1px solid rgba(45,212,160,.2)', overflow:'hidden' }}>
+                  {RESILIENCE_DIMS.map((d,i) => (
+                    <div key={i} style={{ padding:'7px 16px', borderBottom: i < RESILIENCE_DIMS.length-1 ? '1px solid rgba(255,255,255,.04)' : 'none', display:'grid', gridTemplateColumns:'1fr 32px', alignItems:'center', gap:12 }}>
+                      <div>
+                        <div style={{ fontSize:11, color:'rgba(255,255,255,.82)', marginBottom:4, fontWeight:500 }}>{d.label}</div>
+                        <div style={{ height:2, background:'rgba(255,255,255,.08)', borderRadius:1, overflow:'hidden' }}>
+                          <div style={{ width:`${(d.score/10)*100}%`, height:'100%', background:'rgba(45,212,160,.8)' }} />
+                        </div>
+                      </div>
+                      <div style={{ fontFamily:'var(--font-mono)', fontSize:11, fontWeight:700, color:'rgba(45,212,160,.95)', textAlign:'right' }}>{d.score.toFixed(1)}</div>
+                    </div>
+                  ))}
+                  <div style={{ margin:'0 16px 12px', paddingTop:10 }}>
+                    <div style={{ background:'rgba(45,212,160,.07)', border:'1px solid rgba(45,212,160,.2)', padding:'8px 12px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
+                      <div style={{ fontSize:11, fontWeight:700, color:'rgba(45,212,160,.97)' }}>AI Fortress: Premium Asset</div>
+                      <div style={{ fontSize:10, color:'rgba(255,255,255,.65)' }}>Top 15-20% of assessed cos.</div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
@@ -353,7 +367,7 @@ export default function QofAIPage() {
                 dims: 15,
                 label: 'Full Assessment',
                 name: 'Full Assessment',
-                price: 40,
+                price: 35,
                 weeks: '3 weeks',
                 color: 'rgba(200,220,255,.92)',
                 features: [
@@ -368,7 +382,7 @@ export default function QofAIPage() {
                 dims: 15,
                 label: 'Complete',
                 name: 'Complete Q of AI',
-                price: 50,
+                price: 40,
                 weeks: '3-4 weeks',
                 color: 'rgba(45,212,160,.97)',
                 recommended: true,
@@ -473,8 +487,8 @@ export default function QofAIPage() {
                     <div style={{ display:'flex', justifyContent:'space-between', fontSize:11, color:'rgba(255,255,255,.38)', marginBottom:6, fontFamily:'var(--font-mono)' }}>
                       <span>$25k</span>
                       <span style={{ color:'rgba(255,255,255,.22)' }}>$30k</span>
-                      <span style={{ color:'rgba(255,255,255,.22)' }}>$40k</span>
-                      <span>$50k</span>
+                      <span style={{ color:'rgba(255,255,255,.22)' }}>$35k</span>
+                      <span>$40k</span>
                     </div>
                     <div style={{ height:4, background:'rgba(255,255,255,.07)', borderRadius:2, overflow:'hidden' }}>
                       <div style={{
