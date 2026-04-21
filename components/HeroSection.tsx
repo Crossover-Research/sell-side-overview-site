@@ -49,7 +49,7 @@ export function HeroSection({ tab }: HeroSectionProps) {
           J.P. Morgan won the Nerdio mandate using our research.
           General Atlantic used the same data to invest $500M.{' '}
           <span style={{ color:'rgba(255,255,255,.88)', fontWeight:500 }}>
-            One independent evidence base. Neither side chose the respondents.
+            Verified by both sides. Controlled by neither.
           </span>
         </p>
 
