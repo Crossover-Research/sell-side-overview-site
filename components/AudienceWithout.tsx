@@ -19,7 +19,7 @@ const DATA: Record<Audience, {
       { label:'Speed',    without:'Show up to the first meeting cold. Rebuild context from scratch.', with:"Enter every initial meeting with the company's full customer proof already in hand.", withBold:"You're ahead of every other bank in the room." },
       { label:'Edge',     without:'Win on relationship, not insight.', with:'', withBold:"Evidence can't be copied overnight." },
     ],
-    outcome: { stat:'60%', statLabel:'Win Rate', desc:'60% sell-side mandate win rate. Not because of better relationships — because pitches are built from what customers actually say.' },
+    outcome: { stat:'60%', statLabel:'Win Rate', desc:'60% sell-side mandate win rate. Not because of better relationships. Pitches built from what customers actually say.' },
   },
   operators: {
     sub: 'Surface every weakness before buyers use it against you.',
@@ -31,7 +31,7 @@ const DATA: Record<Audience, {
       { label:'Valuation', without:'Sit at the mercy of the bidding process. Hope valuation holds.', with:'Set the valuation narrative.', withBold:'Negotiate from evidence, not hope.' },
       { label:'Control',   without:'PE fund defines the value-creation plan. Operator reacts.', with:'Operator sets the baseline.', withBold:"The fund's plan starts from your roadmap." },
     ],
-    outcome: { stat:'Your terms', statLabel:'The Outcome', desc:"Operators who surface uncomfortable truths early don't just close faster — they set the terms." },
+    outcome: { stat:'Your terms', statLabel:'The Outcome', desc:"Operators who surface uncomfortable truths early don't just close faster. They set the terms." },
   },
   investors: {
     sub: 'Build conviction months before the process even opens.',
@@ -39,7 +39,7 @@ const DATA: Record<Audience, {
     rows: [
       { label:'Timing',  without:'Teaser arrives. Restart diligence from zero.', with:'Catalyst report arrives', withBold:'before the teaser does.' },
       { label:'Speed',   without:'Commission expert calls. Wait weeks. Compress timeline.', with:'Customer data already in hand.', withBold:'Weeks of work compressed into hours.' },
-      { label:'Proof',   without:'Assume the CIM is curated. Rerun diligence anyway.', with:"Evidence base the sell-side can't curate.", withBold:"You're not starting from suspicion — you're starting from proof." },
+      { label:'Proof',   without:'Assume the CIM is curated. Rerun diligence anyway.', with:"Evidence base the sell-side can't curate.", withBold:"You're not starting from suspicion. You're starting from proof." },
       { label:'Edge',    without:'Compete on the same compressed timeline as every other fund.', with:'Build conviction', withBold:'6–12 months before the process opens.' },
       { label:'IC Prep', without:'Arrive at IC with assumptions. Reprice or pass at the eleventh hour.', with:'Arrive at IC with answers.', withBold:'Pre-emptive bid wins.' },
     ],
