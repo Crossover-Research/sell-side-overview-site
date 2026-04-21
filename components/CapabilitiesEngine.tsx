@@ -55,9 +55,9 @@ export function CapabilitiesEngine() {
               fontSize:'clamp(20px,3vw,30px)', fontWeight:700,
               color:'rgba(255,255,255,.95)', letterSpacing:'-.025em', margin:0, lineHeight:1.2,
             }}>
-              Three entry points. Five capabilities.<br />
+              We enter before the pitch. We stay through the CIM.<br />
               <span style={{ color:'rgba(255,255,255,.55)', fontWeight:400, fontSize:'.88em' }}>
-                One shared customer evidence base.
+                You win with evidence no one else has.
               </span>
             </h2>
             <a
