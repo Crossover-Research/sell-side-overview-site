@@ -208,8 +208,8 @@ export default function IntelligencePage() {
           </div>
 
           <div className="ib-samples" style={{ marginTop:1 }}>
-            <SampleCard href="/redcanary" type="Cybersecurity MDR" badge="Catalyst" logoSrc="/red-canary-logo.svg" logoAlt="Red Canary" logoInvert={false} cta="View Study" />
-            <SampleCard href="/bluecat" type="Network Infrastructure" badge="Catalyst" logoSrc="/bluecat-logo.svg" logoAlt="BlueCat Networks" logoInvert={true} cta="View Study" />
+            <SampleCard href="/redcanary" type="Cybersecurity MDR" badge="Catalyst" codeName="SENTINEL" logoSrc="/red-canary-logo.svg" logoAlt="Red Canary" logoInvert={false} cta="View Study" />
+            <SampleCard href="/bluecat" type="Network Infrastructure" badge="Catalyst" codeName="FORTRESS" logoSrc="/bluecat-logo.svg" logoAlt="BlueCat Networks" logoInvert={true} cta="View Study" />
             <a href="/catalyst" className="ib-sample-card ib-sample-cta">
               <div className="ib-sample-type">Catalyst Library</div>
               <div className="ib-sample-logo-wrap">
