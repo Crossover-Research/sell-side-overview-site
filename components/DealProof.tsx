@@ -130,23 +130,27 @@ export function DealProof() {
           </h2>
         </div>
 
-        {/* Tab selectors */}
-        <div style={{ display:'flex', justifyContent:'center', gap:12, marginBottom:20 }}>
+        {/* Tab selectors — 44x28 touch targets wrapping visual dots */}
+        <div style={{ display:'flex', justifyContent:'center', gap:4, marginBottom:20 }}>
           {DEALS.map((_, i) => (
             <button
               key={i}
               onClick={() => goTo(i)}
               style={{
-                width: active === i ? 24 : 6,
+                width:44, height:28,
+                display:'flex', alignItems:'center', justifyContent:'center',
+                padding:0, border:'none', background:'transparent',
+                cursor:'pointer',
+              }}
+            >
+              <div style={{
+                width: active === i ? 28 : 8,
                 height: 4,
                 borderRadius: 2,
-                padding: 0,
-                border: 'none',
-                background: active === i ? 'rgba(130,175,255,.85)' : 'rgba(255,255,255,.25)',
-                cursor: 'pointer',
+                background: active === i ? 'rgba(130,175,255,.88)' : 'rgba(255,255,255,.28)',
                 transition: 'all .3s ease',
-              }}
-            />
+              }} />
+            </button>
           ))}
         </div>
 
