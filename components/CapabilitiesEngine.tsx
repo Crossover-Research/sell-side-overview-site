@@ -31,17 +31,8 @@ const STAGES = [
   },
 ];
 
-const CAPS = [
-  { num: '01', stat: '1st', label: 'Mandate Pitch',  hook: 'First bank in the room with customer proof no other bank has.' },
-  { num: '02', stat: '40+', label: 'CIM Narrative',  hook: 'Every claim benchmarked across 40+ comparable studies.' },
-  { num: '03', stat: '1st', label: 'Buyer Mapping',  hook: 'Target buyers ranked and prioritised before the first call.' },
-  { num: '04', stat: '5',   label: 'AI IC Prep',     hook: 'Fund-specific adversarial personas. Management arrives knowing every question.' },
-  { num: '05', stat: '30+', label: 'Cortex Engine',  hook: 'Signal sources beneath every engagement.' },
-];
-
 export function CapabilitiesEngine() {
   const [activeStage, setActiveStage] = useState<number | null>(null);
-  const [activeCap, setActiveCap] = useState<number | null>(null);
 
   return (
     <section style={{ padding:'72px 0', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
@@ -81,7 +72,7 @@ export function CapabilitiesEngine() {
         </div>
 
         {/* Stage rows */}
-        <div style={{ display:'flex', flexDirection:'column', gap:1, background:'rgba(255,255,255,.06)', marginBottom:40 }}>
+        <div style={{ display:'flex', flexDirection:'column', gap:1, background:'rgba(255,255,255,.06)' }}>
           {STAGES.map((s, i) => {
             const isActive = activeStage === i;
             return (
@@ -141,43 +132,6 @@ export function CapabilitiesEngine() {
           })}
         </div>
 
-        {/* Capabilities label */}
-        <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(255,255,255,.38)', marginBottom:8 }}>
-          Capabilities deployed
-        </div>
-
-        {/* Capabilities grid */}
-        <div style={{ display:'grid', gridTemplateColumns:'repeat(5,1fr)', gap:1, background:'rgba(255,255,255,.06)' }}>
-          {CAPS.map((cap, i) => {
-            const isActive = activeCap === i;
-            return (
-              <div
-                key={i}
-                onClick={() => setActiveCap(isActive ? null : i)}
-                style={{
-                  background: isActive ? 'rgba(77,144,254,.07)' : 'rgba(6,14,28,.97)',
-                  padding:'22px 20px', cursor:'pointer', transition:'background .15s',
-                  borderTop:`2px solid ${isActive ? 'rgba(77,144,254,.45)' : 'transparent'}`,
-                }}
-                onMouseEnter={e => { if (!isActive) (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,.02)'; }}
-                onMouseLeave={e => { if (!isActive) (e.currentTarget as HTMLElement).style.background = 'rgba(6,14,28,.97)'; }}
-              >
-                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', color:'rgba(255,255,255,.35)', marginBottom:12 }}>{cap.num}</div>
-                <div style={{
-                  fontFamily:'var(--font-mono)', fontSize:30, fontWeight:700,
-                  color: isActive ? 'rgba(130,175,255,.97)' : 'rgba(255,255,255,.88)',
-                  letterSpacing:'-.03em', lineHeight:1, marginBottom:8,
-                }}>{cap.stat}</div>
-                <div style={{
-                  fontSize:11, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase',
-                  color: isActive ? 'rgba(45,212,160,.95)' : 'rgba(45,212,160,.65)',
-                  marginBottom:10,
-                }}>{cap.label}</div>
-                <div style={{ fontSize:12, color:'rgba(255,255,255,.62)', lineHeight:1.55 }}>{cap.hook}</div>
-              </div>
-            );
-          })}
-        </div>
 
       </div>
     </section>
