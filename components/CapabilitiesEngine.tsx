@@ -72,7 +72,7 @@ export function CapabilitiesEngine() {
         </div>
 
         {/* Stage rows */}
-        <div style={{ display:'flex', flexDirection:'column', gap:1, background:'rgba(255,255,255,.06)' }}>
+        <div style={{ display:'flex', flexDirection:'column', border:'1px solid rgba(255,255,255,.07)' }}>
           {STAGES.map((s, i) => {
             const isActive = activeStage === i;
             return (
@@ -84,6 +84,7 @@ export function CapabilitiesEngine() {
                   background: isActive ? 'rgba(77,144,254,.07)' : 'rgba(6,14,28,.97)',
                   cursor:'pointer', transition:'background .15s',
                   borderLeft:`2px solid ${isActive ? 'rgba(77,144,254,.5)' : 'transparent'}`,
+                  borderBottom: i < STAGES.length - 1 ? '1px solid rgba(255,255,255,.06)' : 'none',
                 }}
                 onMouseEnter={e => { if (!isActive) (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,.02)'; }}
                 onMouseLeave={e => { if (!isActive) (e.currentTarget as HTMLElement).style.background = 'rgba(6,14,28,.97)'; }}
@@ -113,7 +114,7 @@ export function CapabilitiesEngine() {
                 </div>
 
                 {/* CTA */}
-                <div style={{ padding:'22px 22px', display:'flex', alignItems:'center', borderLeft:'1px solid rgba(255,255,255,.05)' }}>
+                <div style={{ padding:'22px 22px', display:'flex', alignItems:'center', borderLeft:'1px solid rgba(255,255,255,.06)' }}>
                   <a
                     href="/intelligence?request=1"
                     onClick={e => e.stopPropagation()}
