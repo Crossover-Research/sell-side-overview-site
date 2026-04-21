@@ -9,30 +9,18 @@ const DEALS = [
     badge: 'Series C',
     size: '$500M',
     sizeLabel: 'Transaction',
-    involvement: 'Catalyst Dual-Side',
-    left: {
-      label: 'Sell-Side',
-      accentColor: 'rgba(77,144,254,.7)',
-      firmName: 'J.P. Morgan',
-      firmLogo: '/jpmorgan-logo.svg',
-      firmRole: 'Exclusive advisor',
-      desc: '30+ customer interviews differentiated their pitch. Walked in with verbatims the operator had never seen. No competing bank had them.',
-      outcome: 'Won the exclusive mandate',
-      outcomeBg: 'rgba(77,144,254,.07)',
-      outcomeBorder: 'rgba(77,144,254,.2)',
-      outcomeText: 'rgba(130,175,255,.95)',
-    },
-    right: {
-      label: 'Buy-Side',
-      accentColor: 'rgba(45,212,160,.7)',
-      firmName: 'General Atlantic',
-      firmLogo: '/general-atlantic-logo.svg',
-      firmRole: 'Lead investor',
-      desc: 'Independent conviction brief. Research flagged Nerdio before the process opened. Arrived ahead of every competing bidder.',
-      outcome: '$500M investment at unicorn valuation',
-      outcomeBg: 'rgba(45,212,160,.07)',
-      outcomeBorder: 'rgba(45,212,160,.2)',
-      outcomeText: 'rgba(45,212,160,.95)',
+    type: 'Dual-Side Engagement',
+    parties: [
+      { role: 'Sell-Side Advisor', name: 'J.P. Morgan',       logo: '/jpmorgan-logo.svg',         invert: true  },
+      { role: 'Lead Investor',     name: 'General Atlantic',   logo: '/general-atlantic-logo.svg', invert: false },
+    ],
+    crossover: {
+      involvement: 'Catalyst Dual-Side',
+      desc: '30+ independent customer interviews delivered to both parties — neither side briefed or selected the respondents. J.P. Morgan used the research to differentiate their mandate pitch. General Atlantic used the same dataset to build conviction before the process opened.',
+      outcomes: [
+        { party: 'J.P. Morgan',      color: 'rgba(130,175,255,.95)', result: 'Won the exclusive mandate' },
+        { party: 'General Atlantic', color: 'rgba(45,212,160,.95)',  result: '$500M investment at unicorn valuation' },
+      ],
     },
   },
   {
@@ -42,56 +30,36 @@ const DEALS = [
     badge: 'Mandate Pitch',
     size: '$10B',
     sizeLabel: 'Transaction',
-    involvement: 'Mandate Pitch Deck',
-    left: {
-      label: 'Sell-Side',
-      accentColor: 'rgba(77,144,254,.7)',
-      firmName: 'J.P. Morgan',
-      firmLogo: '/jpmorgan-logo.svg',
-      firmRole: 'Sell-side advisor',
+    type: 'Sell-Side Mandate Pitch',
+    parties: [
+      { role: 'Sell-Side Advisor', name: 'J.P. Morgan', logo: '/jpmorgan-logo.svg', invert: true },
+    ],
+    crossover: {
+      involvement: 'Mandate Pitch Deck',
       quote: '"Having a Voice of Customer document was seen as a differentiator by the client. The findings from your report were a key part of the equity story materials we presented."',
       quoteAttr: 'Executive Director, J.P. Morgan',
-      desc: '',
-      outcome: 'Customer research cited as the mandate-winning differentiator',
-      outcomeBg: 'rgba(77,144,254,.07)',
-      outcomeBorder: 'rgba(77,144,254,.2)',
-      outcomeText: 'rgba(130,175,255,.95)',
-    },
-    right: {
-      label: 'Deal Parties',
-      accentColor: 'rgba(255,255,255,.35)',
-      parties: [
-        { role: 'CR Client', logo: '/mobile-de-logo.svg', name: 'Mobile.de', crClient: true },
-        { role: 'Sell-Side Advisor', logo: '/jpmorgan-logo.svg', name: 'J.P. Morgan', invert: true },
+      outcomes: [
+        { party: 'J.P. Morgan', color: 'rgba(130,175,255,.95)', result: 'Customer research cited as the mandate-winning differentiator' },
       ],
     },
   },
   {
     company: 'Red Canary',
     companyLogo: '/red-canary-logo.svg',
-    logoHeight: 32,
+    logoHeight: 30,
     badge: 'Acquisition',
     size: '$675M',
     sizeLabel: 'Exit',
-    involvement: 'CIM Enhancement',
-    left: {
-      label: 'CIM Enhancement',
-      accentColor: 'rgba(77,144,254,.7)',
-      firmName: 'J.P. Morgan',
-      firmLogo: '/jpmorgan-logo.svg',
-      firmRole: 'Sell-side advisor',
-      desc: 'Independent customer research strengthened the CIM narrative. Every customer claim pre-validated — no surprises in diligence.',
-      outcome: '$675M exit — CIM backed by independent evidence',
-      outcomeBg: 'rgba(77,144,254,.07)',
-      outcomeBorder: 'rgba(77,144,254,.2)',
-      outcomeText: 'rgba(130,175,255,.95)',
-    },
-    right: {
-      label: 'Transaction Parties',
-      accentColor: 'rgba(255,255,255,.25)',
-      parties: [
-        { role: 'Sell-Side Advisor', logo: '/jpmorgan-logo.svg', name: 'J.P. Morgan', invert: true },
-        { role: 'Acquirer', logo: '/zscaler-logo.svg', name: 'Zscaler', invert: true },
+    type: 'CIM Enhancement',
+    parties: [
+      { role: 'Sell-Side Advisor', name: 'J.P. Morgan', logo: '/jpmorgan-logo.svg',    invert: true },
+      { role: 'Acquirer',          name: 'Zscaler',     logo: '/zscaler-logo.svg',     invert: true },
+    ],
+    crossover: {
+      involvement: 'CIM Enhancement',
+      desc: 'Independent customer research was woven into the CIM narrative. Every customer claim pre-validated against actual user interviews — no gaps for buyers to exploit in diligence.',
+      outcomes: [
+        { party: 'Outcome', color: 'rgba(130,175,255,.95)', result: '$675M exit — CIM backed by independent evidence' },
       ],
     },
   },
@@ -106,9 +74,9 @@ function LogoImg({ src, alt, height = 18, invert }: { src: string; alt: string; 
       src={src}
       alt={alt}
       style={{
-        height: isGA ? 22 : height,
+        height: isGA ? 20 : height,
         width: 'auto',
-        maxWidth: isGA ? 180 : 220,
+        maxWidth: isGA ? 160 : 200,
         display: 'block',
         filter: (!isGA && needsInvert) ? 'brightness(0) invert(1)' : 'none',
         opacity: (!isGA && needsInvert) ? 0.85 : 1,
@@ -138,12 +106,7 @@ export function DealProof() {
   }, [paused]);
 
   const deal = DEALS[active];
-  const s = deal as any;
-
-  const fade: React.CSSProperties = {
-    opacity: fading ? 0 : 1,
-    transition: 'opacity .2s ease',
-  };
+  const fade: React.CSSProperties = { opacity: fading ? 0 : 1, transition: 'opacity .2s ease' };
 
   return (
     <section
@@ -161,8 +124,8 @@ export function DealProof() {
             color:'rgba(255,255,255,.95)', letterSpacing:'-.025em', marginBottom:10, lineHeight:1.2,
           }}>
             $11.2B in transactions.<br />
-            <span style={{ color:'rgba(255,255,255,.60)', fontWeight:400, fontSize:'0.82em' }}>
-              Three engagements. One independent evidence base. Neither side chose the respondents.
+            <span style={{ color:'rgba(255,255,255,.55)', fontWeight:400, fontSize:'0.82em' }}>
+              Three engagements. Independent data. Neither party briefed the respondents.
             </span>
           </h2>
         </div>
@@ -197,129 +160,106 @@ export function DealProof() {
           }} />
         </div>
 
-        {/* Card */}
+        {/* Card — LEFT: Transaction parties  |  RIGHT: Crossover's role */}
         <div style={{
           border:'1px solid rgba(255,255,255,.09)',
           background:'rgba(6,14,28,.98)',
           display:'grid',
-          gridTemplateColumns:'220px 1fr 1fr',
+          gridTemplateColumns:'280px 1fr',
           overflow:'hidden',
           position:'relative',
-          minHeight:300,
+          minHeight:280,
         }}>
           <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,transparent 0%,rgba(77,144,254,.35) 25%,rgba(130,175,255,.5) 50%,rgba(77,144,254,.35) 75%,transparent 100%)' }} />
 
-          {/* LEFT: Identity */}
+          {/* LEFT: Transaction parties */}
           <div style={{
             ...fade,
             background:'rgba(255,255,255,.018)',
-            borderRight:'1px solid rgba(255,255,255,.07)',
-            padding:'28px 24px',
-            display:'flex', flexDirection:'column', justifyContent:'space-between',
+            borderRight:'1px solid rgba(255,255,255,.08)',
+            padding:'28px 26px',
+            display:'flex', flexDirection:'column', gap:0,
           }}>
-            <div><LogoImg src={deal.companyLogo} alt={deal.company} height={deal.logoHeight} /></div>
-            <div>
-              <div style={{ fontSize:11, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(255,255,255,.55)', marginBottom:7 }}>
-                {deal.sizeLabel}
-              </div>
-              <div style={{ fontFamily:'var(--font-mono)', fontSize:44, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.04em', lineHeight:1, marginBottom:7 }}>
-                {deal.size}
-              </div>
-              <div style={{ fontSize:10, color:'rgba(255,255,255,.72)', letterSpacing:'.03em' }}>
-                {deal.badge} &middot; {deal.company}
+            {/* Company + size */}
+            <div style={{ marginBottom:20 }}>
+              <LogoImg src={deal.companyLogo} alt={deal.company} height={deal.logoHeight} />
+              <div style={{ marginTop:16 }}>
+                <div style={{ fontSize:11, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.45)', marginBottom:5 }}>
+                  {deal.sizeLabel}
+                </div>
+                <div style={{ fontFamily:'var(--font-mono)', fontSize:38, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.04em', lineHeight:1, marginBottom:5 }}>
+                  {deal.size}
+                </div>
+                <div style={{ fontSize:11, color:'rgba(255,255,255,.55)', letterSpacing:'.04em' }}>
+                  {deal.badge} &middot; {deal.company}
+                </div>
               </div>
             </div>
-            <div>
-              <div style={{ height:1, background:'rgba(255,255,255,.06)', marginBottom:18 }} />
-              <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.70)', marginBottom:5 }}>Involvement</div>
-              <div style={{ fontSize:11, fontWeight:600, color:'rgba(45,212,160,.75)', letterSpacing:'.02em' }}>{deal.involvement}</div>
+
+            {/* Divider */}
+            <div style={{ height:1, background:'rgba(255,255,255,.07)', marginBottom:20 }} />
+
+            {/* Deal type label */}
+            <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.38)', marginBottom:14 }}>
+              Transaction Parties
+            </div>
+
+            {/* Parties */}
+            <div style={{ display:'flex', flexDirection:'column', gap:16 }}>
+              {deal.parties.map((p, i) => (
+                <div key={i}>
+                  <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.40)', marginBottom:8 }}>{p.role}</div>
+                  <LogoImg src={p.logo} alt={p.name} height={18} invert={p.invert} />
+                  {i < deal.parties.length - 1 && (
+                    <div style={{ height:1, background:'rgba(255,255,255,.05)', marginTop:16 }} />
+                  )}
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* CENTRE: Primary */}
-          <div style={{ ...fade, borderRight:'1px solid rgba(255,255,255,.07)', padding:'24px 28px', display:'flex', flexDirection:'column', gap:14 }}>
-            <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:s.left.accentColor }}>
-              {s.left.label}
-            </div>
-            {s.left.firmLogo && (
-              <div>
-                <LogoImg src={s.left.firmLogo} alt={s.left.firmName} height={24} />
-                <div style={{ fontSize:10, color:'rgba(255,255,255,.72)', marginTop:5 }}>{s.left.firmRole}</div>
+          {/* RIGHT: Crossover's role */}
+          <div style={{ ...fade, padding:'28px 32px', display:'flex', flexDirection:'column', gap:0 }}>
+
+            {/* Involvement badge */}
+            <div style={{ display:'flex', alignItems:'center', gap:10, marginBottom:20 }}>
+              <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(45,212,160,.9)', background:'rgba(45,212,160,.09)', border:'1px solid rgba(45,212,160,.22)', padding:'3px 10px' }}>
+                {deal.crossover.involvement}
               </div>
-            )}
-            <div style={{ height:1, background:'rgba(255,255,255,.05)' }} />
-            {s.left.quote ? (
-              <div style={{ flex:1 }}>
-                <div style={{ fontSize:13, fontStyle:'italic', color:'rgba(255,255,255,.82)', lineHeight:1.75, borderLeft:'1px solid rgba(77,144,254,.25)', paddingLeft:14, marginBottom:10 }}>
-                  {s.left.quote}
+              <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.35)' }}>
+                Crossover Research
+              </div>
+            </div>
+
+            {/* Quote or description */}
+            {(deal.crossover as any).quote ? (
+              <div style={{ marginBottom:24, flex:1 }}>
+                <div style={{ fontSize:14, fontStyle:'italic', color:'rgba(255,255,255,.85)', lineHeight:1.75, borderLeft:'2px solid rgba(77,144,254,.3)', paddingLeft:16, marginBottom:10 }}>
+                  {(deal.crossover as any).quote}
                 </div>
-                <div style={{ fontSize:10, color:'rgba(255,255,255,.70)', paddingLeft:16 }}>{s.left.quoteAttr}</div>
+                <div style={{ fontSize:11, color:'rgba(255,255,255,.52)', paddingLeft:18 }}>{(deal.crossover as any).quoteAttr}</div>
               </div>
             ) : (
-              <div style={{ flex:1, fontSize:12.5, color:'rgba(255,255,255,.72)', lineHeight:1.75 }}>
-                {s.left.desc}
+              <div style={{ fontSize:13, color:'rgba(255,255,255,.75)', lineHeight:1.78, marginBottom:24, flex:1 }}>
+                {(deal.crossover as any).desc}
               </div>
             )}
-            {s.left.outcome && (
-              <div style={{ marginTop:'auto', paddingTop: s.left.quote ? 14 : 0, borderTop: s.left.quote ? '1px solid rgba(255,255,255,.06)' : 'none', borderLeft: s.left.quote ? 'none' : `1px solid ${s.left.outcomeBorder}`, paddingLeft: s.left.quote ? 0 : 12 }}>
-                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.40)', marginBottom:6 }}>Outcome</div>
-                <div style={{ fontSize:13, fontWeight:700, color:s.left.outcomeText, lineHeight:1.4 }}>{s.left.outcome}</div>
-              </div>
-            )}
-          </div>
 
-          {/* RIGHT: Context */}
-          <div style={{ ...fade, padding:'24px 28px', display:'flex', flexDirection:'column', gap:14 }}>
-            <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:s.right.accentColor ?? 'rgba(255,255,255,.25)' }}>
-              {s.right.label}
+            {/* Divider */}
+            <div style={{ height:1, background:'rgba(255,255,255,.06)', marginBottom:20 }} />
+
+            {/* Outcomes */}
+            <div style={{ display:'flex', flexDirection:'column', gap:12 }}>
+              {deal.crossover.outcomes.map((o, i) => (
+                <div key={i} style={{ display:'flex', alignItems:'center', gap:14 }}>
+                  <div style={{ width:3, height:36, background:o.color, borderRadius:2, flexShrink:0, opacity:.6 }} />
+                  <div>
+                    <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.38)', marginBottom:3 }}>{o.party}</div>
+                    <div style={{ fontSize:13, fontWeight:600, color:o.color, lineHeight:1.3 }}>{o.result}</div>
+                  </div>
+                </div>
+              ))}
             </div>
-            {s.right.firmLogo && (
-              <div>
-                <LogoImg src={s.right.firmLogo} alt={s.right.firmName} height={24} />
-                <div style={{ fontSize:10, color:'rgba(255,255,255,.72)', marginTop:5 }}>{s.right.firmRole}</div>
-              </div>
-            )}
-            {s.right.desc && (
-              <>
-                <div style={{ height:1, background:'rgba(255,255,255,.05)' }} />
-                <div style={{ flex:1, fontSize:12.5, color:'rgba(255,255,255,.72)', lineHeight:1.75 }}>{s.right.desc}</div>
-              </>
-            )}
-            {s.right.stats && (
-              <>
-                <div style={{ height:1, background:'rgba(255,255,255,.05)' }} />
-                <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:1, background:'rgba(255,255,255,.05)', flex:1 }}>
-                  {s.right.stats.map((st: any, i: number) => (
-                    <div key={i} style={{ padding:'14px 16px', background:'rgba(6,14,28,.95)' }}>
-                      <div style={{ fontFamily:'var(--font-mono)', fontSize:22, fontWeight:700, color:'rgba(255,255,255,.92)', marginBottom:5, letterSpacing:'-.02em' }}>{st.val}</div>
-                      <div style={{ fontSize:11, color:'rgba(255,255,255,.72)', lineHeight:1.4, textTransform:'uppercase', letterSpacing:'.04em' }}>{st.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </>
-            )}
-            {s.right.parties && (
-              <>
-                <div style={{ height:1, background:'rgba(255,255,255,.05)' }} />
-                <div style={{ display:'flex', flexDirection:'column', gap:20, flex:1 }}>
-                  {s.right.parties.map((p: any, i: number) => (
-                    <div key={i}>
-                      <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.55)', marginBottom:10 }}>{p.role}</div>
-                      <LogoImg src={p.logo} alt={p.name} height={24} invert={p.invert} />
-                      {i < s.right.parties.length - 1 && (
-                        <div style={{ height:1, background:'rgba(255,255,255,.05)', marginTop:20 }} />
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </>
-            )}
-            {s.right.outcome && (
-              <div style={{ borderLeft:`1px solid ${s.right.outcomeBorder}`, paddingLeft:12, marginTop:'auto' }}>
-                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.40)', marginBottom:6 }}>Outcome</div>
-                <div style={{ fontSize:13, fontWeight:700, color:s.right.outcomeText, lineHeight:1.4 }}>{s.right.outcome}</div>
-              </div>
-            )}
           </div>
         </div>
 
