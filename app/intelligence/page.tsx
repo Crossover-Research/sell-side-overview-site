@@ -184,13 +184,11 @@ export default function IntelligencePage() {
               onMouseLeave={e=>(e.currentTarget.style.background='rgba(6,14,28,.95)')}
             >
               <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,transparent,rgba(77,144,254,.35),transparent)' }} />
-              <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:16 }}>
-                <div style={{ fontSize: 10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(77,144,254,.9)', background:'rgba(77,144,254,.12)', border:'1px solid rgba(77,144,254,.3)', padding:'2px 8px' }}>Client Proposal</div>
-                <div style={{ fontSize: 10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(77,144,254,.7)', padding:'2px 0' }}>Live Portal ↗</div>
+              <div style={{ display:'flex', alignItems:'flex-start', justifyContent:'space-between', marginBottom:14 }}>
+                <div style={{ fontSize:17, fontWeight:700, color:'rgba(255,255,255,.92)', letterSpacing:'-.02em' }}>Volie</div>
+                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(77,144,254,.9)', background:'rgba(77,144,254,.12)', border:'1px solid rgba(77,144,254,.3)', padding:'2px 8px', flexShrink:0 }}>Client Proposal</div>
               </div>
-              <div style={{ fontSize:17, fontWeight:700, color: 'rgba(255,255,255,.92)', marginBottom:4, letterSpacing:'-.02em' }}>Volie</div>
-              <div style={{ fontSize:12, color: 'rgba(255,255,255,.62)', marginBottom:8, lineHeight:1.5 }}>Operator outreach powered by independent customer intelligence.</div>
-
+              <div style={{ fontSize:12, color:'rgba(255,255,255,.62)', marginBottom:8, lineHeight:1.5 }}>Operator outreach powered by independent customer intelligence.</div>
               <div style={{ fontSize:11, fontWeight:700, color:'rgba(130,175,255,.8)', marginTop:'auto' }}>View Live Portal ↗</div>
             </a>
             <a
@@ -201,13 +199,11 @@ export default function IntelligencePage() {
               onMouseLeave={e=>(e.currentTarget.style.background='rgba(6,14,28,.95)')}
             >
               <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent)' }} />
-              <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:16 }}>
-                <div style={{ fontSize: 10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(45,212,160,.9)', background:'rgba(45,212,160,.08)', border:'1px solid rgba(45,212,160,.25)', padding:'2px 8px' }}>Sample VoC</div>
-                <div style={{ fontSize: 10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.70)', padding:'2px 0' }}>Full Report ↗</div>
+              <div style={{ display:'flex', alignItems:'flex-start', justifyContent:'space-between', marginBottom:14 }}>
+                <div style={{ fontSize:17, fontWeight:700, color:'rgba(255,255,255,.92)', letterSpacing:'-.02em' }}>Intelligence Report + GTM Playbook</div>
+                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(45,212,160,.9)', background:'rgba(45,212,160,.08)', border:'1px solid rgba(45,212,160,.25)', padding:'2px 8px', flexShrink:0, marginLeft:12 }}>Sample VoC</div>
               </div>
-              <div style={{ fontSize:17, fontWeight:700, color: 'rgba(255,255,255,.92)', marginBottom:8, letterSpacing:'-.02em' }}>Intelligence Report + GTM Playbook</div>
-
-              <div style={{ fontSize:11, fontWeight:700, color: 'rgba(255,255,255,.6)', marginTop:'auto' }}>View Sample Report ↗</div>
+              <div style={{ fontSize:11, fontWeight:700, color:'rgba(255,255,255,.6)', marginTop:'auto' }}>View Sample Report ↗</div>
             </a>
           </div>
 
