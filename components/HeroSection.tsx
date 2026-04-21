@@ -4,10 +4,10 @@ import { IB_TRACK_RECORD } from '../lib/data/ibCapabilities';
 import { CONTACT } from '../lib/config/site';
 
 const METRICS = [
-  { val: '$1B+',                               label: 'Single deal outcome',    qualifier: 'Single transaction, Nerdio exit'                        },
-  { val: IB_TRACK_RECORD.mandatesSupported,    label: 'Sell-side mandates',     qualifier: 'Across technology sector, 2022–present'                 },
-  { val: '60+',                                label: 'Buy-side engagements',   qualifier: 'PE and growth equity firms'                             },
-  { val: IB_TRACK_RECORD.winRateWithCrossover, label: 'Mandate win rate',       qualifier: 'Mandates where Crossover was engaged pre-pitch'         },
+  { val: '$1B+',                               label: 'Single deal outcome'   },
+  { val: IB_TRACK_RECORD.mandatesSupported,    label: 'Sell-side mandates'    },
+  { val: '60+',                                label: 'Buy-side engagements'  },
+  { val: IB_TRACK_RECORD.winRateWithCrossover, label: 'Mandate win rate'      },
 ];
 
 interface HeroSectionProps { tab?: Tab; }
@@ -42,20 +42,12 @@ export function HeroSection({ tab }: HeroSectionProps) {
         {/* Sub-copy */}
         <p style={{
           fontSize:'clamp(15px,1.7vw,18px)', color:'rgba(255,255,255,.68)',
-          lineHeight:1.8, maxWidth:640, margin:'0 auto 16px',
+          lineHeight:1.8, maxWidth:640, margin:'0 auto 40px',
         }}>
           J.P. Morgan won the Nerdio mandate using our research.
           General Atlantic used the same data to invest $500M.
         </p>
 
-        {/* Same-day callout */}
-        <p style={{
-          fontSize:12, color:'rgba(255,255,255,.40)',
-          lineHeight:1.6, maxWidth:480, margin:'0 auto 36px',
-          letterSpacing:'.01em',
-        }}>
-          Same-day delivery for companies already in our Catalyst library.
-        </p>
 
         {/* CTAs — Book a Meeting primary, Scope secondary */}
         <div style={{ display:'flex', gap:12, justifyContent:'center', marginBottom:52, flexWrap:'wrap' }}>
@@ -125,7 +117,6 @@ export function HeroSection({ tab }: HeroSectionProps) {
                 letterSpacing:'-.03em', lineHeight:1,
               }}>{m.val}</div>
               <div style={{ width:16, height:2, background:'rgba(77,144,254,.4)', borderRadius:1 }} />
-              <div style={{ fontSize:10, color:'rgba(255,255,255,.28)', lineHeight:1.4, textAlign:'center', maxWidth:130, marginTop:2 }}>{m.qualifier}</div>
             </div>
           ))}
         </div>
