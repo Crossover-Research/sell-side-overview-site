@@ -4,10 +4,10 @@ import { IB_TRACK_RECORD } from '../lib/data/ibCapabilities';
 import { CONTACT } from '../lib/config/site';
 
 const METRICS = [
-  { val: '$1B+',                               label: 'Single deal outcome'   },
-  { val: IB_TRACK_RECORD.mandatesSupported,    label: 'Sell-side mandates'    },
-  { val: '60+',                                label: 'Buy-side engagements'  },
-  { val: IB_TRACK_RECORD.winRateWithCrossover, label: 'Mandate win rate'      },
+  { val: '$1B+',                               label: 'Single deal outcome',    qualifier: 'Single transaction, Nerdio exit'                        },
+  { val: IB_TRACK_RECORD.mandatesSupported,    label: 'Sell-side mandates',     qualifier: 'Across technology sector, 2022–present'                 },
+  { val: '60+',                                label: 'Buy-side engagements',   qualifier: 'PE and growth equity firms'                             },
+  { val: IB_TRACK_RECORD.winRateWithCrossover, label: 'Mandate win rate',       qualifier: 'Mandates where Crossover was engaged pre-pitch'         },
 ];
 
 interface HeroSectionProps { tab?: Tab; }
@@ -19,6 +19,7 @@ export function HeroSection({ tab }: HeroSectionProps) {
     <div className="hero" style={{ textAlign:'center', padding:'88px var(--content-pad) 0' }}>
       <div className="hero-inner" style={{ maxWidth:'var(--content-max)', margin:'0 auto' }}>
 
+        {/* Eyebrow */}
         <div style={{
           display:'inline-flex', alignItems:'center', gap:8,
           fontSize:11, fontWeight:700, letterSpacing:'.18em', textTransform:'uppercase',
@@ -29,27 +30,38 @@ export function HeroSection({ tab }: HeroSectionProps) {
           Independent Research · Private Markets
         </div>
 
+        {/* Headline — uniform weight, both lines equal */}
         <h1 style={{
-          fontSize:'clamp(38px,5.5vw,68px)', fontWeight:800, lineHeight:1.06,
+          fontSize:'clamp(34px,4.8vw,60px)', fontWeight:800, lineHeight:1.1,
           letterSpacing:'-.04em', color:'rgba(255,255,255,.97)', marginBottom:22,
         }}>
-          The only research that powered<br />
-          <span style={{ color:'rgba(130,175,255,.88)', fontWeight:700 }}>
-            both sides of a $1B transaction.
-          </span>
+          The only research that powered both sides<br />
+          of a $1B transaction.
         </h1>
 
+        {/* Sub-copy */}
         <p style={{
           fontSize:'clamp(15px,1.7vw,18px)', color:'rgba(255,255,255,.68)',
-          lineHeight:1.8, maxWidth:640, margin:'0 auto 40px',
+          lineHeight:1.8, maxWidth:640, margin:'0 auto 16px',
         }}>
           J.P. Morgan won the Nerdio mandate using our research.
           General Atlantic used the same data to invest $500M.
         </p>
 
+        {/* Same-day callout */}
+        <p style={{
+          fontSize:12, color:'rgba(255,255,255,.40)',
+          lineHeight:1.6, maxWidth:480, margin:'0 auto 36px',
+          letterSpacing:'.01em',
+        }}>
+          Same-day delivery for companies already in our Catalyst library.
+        </p>
+
+        {/* CTAs — Book a Meeting primary, Scope secondary */}
         <div style={{ display:'flex', gap:12, justifyContent:'center', marginBottom:52, flexWrap:'wrap' }}>
           <a
-            href="/intelligence?request=1"
+            href={CONTACT.bookingUrl}
+            target="_blank" rel="noopener noreferrer"
             style={{
               display:'inline-flex', alignItems:'center', gap:8,
               background:'rgba(255,255,255,.95)', color:'#060e1c',
@@ -69,11 +81,10 @@ export function HeroSection({ tab }: HeroSectionProps) {
               el.style.boxShadow='0 4px 24px rgba(255,255,255,.1)';
             }}
           >
-            Scope a Mandate →
+            Book a Meeting
           </a>
           <a
-            href={CONTACT.bookingUrl}
-            target="_blank" rel="noopener noreferrer"
+            href="/intelligence?request=1"
             style={{
               display:'inline-flex', alignItems:'center', gap:8,
               background:'transparent', color:'rgba(180,210,255,.82)',
@@ -94,28 +105,27 @@ export function HeroSection({ tab }: HeroSectionProps) {
               el.style.color='rgba(180,210,255,.82)';
             }}
           >
-            Book a Meeting
+            Scope a Mandate →
           </a>
         </div>
 
+        {/* Metrics strip with qualifiers */}
         <div style={{ display:'flex', borderTop:'1px solid rgba(255,255,255,.07)' }}>
           {METRICS.map((m, i) => (
             <div key={i} style={{
               flex:1,
               borderRight: i < METRICS.length-1 ? '1px solid rgba(255,255,255,.07)' : 'none',
-              padding:'26px 0',
-              display:'flex', flexDirection:'column', alignItems:'center', gap:6,
+              padding:'24px 0',
+              display:'flex', flexDirection:'column', alignItems:'center', gap:4,
             }}>
+              <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.40)' }}>{m.label}</div>
               <div style={{
-                fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase',
-                color:'rgba(255,255,255,.45)',
-              }}>{m.label}</div>
-              <div style={{
-                fontFamily:'var(--font-mono)', fontSize:'clamp(24px,2.8vw,40px)',
+                fontFamily:'var(--font-mono)', fontSize:'clamp(22px,2.6vw,36px)',
                 fontWeight:700, color:'rgba(255,255,255,.97)',
                 letterSpacing:'-.03em', lineHeight:1,
               }}>{m.val}</div>
-              <div style={{ width:20, height:2, background:'rgba(77,144,254,.4)', borderRadius:1 }} />
+              <div style={{ width:16, height:2, background:'rgba(77,144,254,.4)', borderRadius:1 }} />
+              <div style={{ fontSize:10, color:'rgba(255,255,255,.28)', lineHeight:1.4, textAlign:'center', maxWidth:130, marginTop:2 }}>{m.qualifier}</div>
             </div>
           ))}
         </div>
