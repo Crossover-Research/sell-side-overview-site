@@ -19,18 +19,18 @@ export function Topbar() {
       </div>
       <div className="topbar-right">
         <a
-          href="/intelligence?request=1"
-          className="topbar-scope-btn"
-        >
-          Scope a Mandate →
-        </a>
-        <a
           href={CONTACT.bookingUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="topbar-book-btn"
         >
           Book a Meeting
+        </a>
+        <a
+          href="/intelligence?request=1"
+          className="topbar-scope-btn"
+        >
+          Scope a Mandate →
         </a>
       </div>
     </div>
