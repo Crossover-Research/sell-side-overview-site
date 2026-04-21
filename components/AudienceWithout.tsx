@@ -17,9 +17,9 @@ const DATA: Record<Audience, {
       { label:'Story',    without:'Assemble standard deck. Recycle public comps and industry reports.', with:'Customer-validated equity story', withBold:'no competing bank can replicate.' },
       { label:'Intel',    without:"Hope buyers don't find the gaps before you do.", with:'Know every buyer objection before they ask it.', withBold:'Have the answer ready.' },
       { label:'Speed',    without:'Show up to the first meeting cold. Rebuild context from scratch.', with:"Enter every initial meeting with the company's full customer proof already in hand.", withBold:"You're ahead of every other bank in the room." },
-      { label:'Edge',     without:'Win on relationship, not insight.', with:'Win on substance.', withBold:"Independent evidence can't be copied overnight." },
+      { label:'Edge',     without:'Win on relationship, not insight.', with:'', withBold:"Evidence can't be copied overnight." },
     ],
-    outcome: { stat:'60%', statLabel:'Win Rate', desc:'60% sell-side mandate win rate. Not because of better relationships — because Crossover-backed pitches are built from what customers actually say. No competing bank can walk in with that.' },
+    outcome: { stat:'60%', statLabel:'Win Rate', desc:'60% sell-side mandate win rate. Not because of better relationships — because pitches are built from what customers actually say.' },
   },
   operators: {
     sub: 'Surface every weakness before buyers use it against you.',
@@ -31,19 +31,19 @@ const DATA: Record<Audience, {
       { label:'Valuation', without:'Sit at the mercy of the bidding process. Hope valuation holds.', with:'Set the valuation narrative.', withBold:'Negotiate from evidence, not hope.' },
       { label:'Control',   without:'PE fund defines the value-creation plan. Operator reacts.', with:'Operator sets the baseline.', withBold:"The fund's plan starts from your roadmap." },
     ],
-    outcome: { stat:'Your terms', statLabel:'The Outcome', desc:"Operators who surface uncomfortable truths early don't just close faster — they set the terms. Crossover gives you the mechanism to find what's real, fix it before buyers do, and walk into every room from a position of strength." },
+    outcome: { stat:'Your terms', statLabel:'The Outcome', desc:"Operators who surface uncomfortable truths early don't just close faster — they set the terms." },
   },
   investors: {
     sub: 'Build conviction months before the process even opens.',
     accent: 'rgba(168,130,255,.9)',
     rows: [
       { label:'Timing',  without:'Teaser arrives. Restart diligence from zero.', with:'Catalyst report arrives', withBold:'before the teaser does.' },
-      { label:'Speed',   without:'Commission expert calls. Wait weeks. Compress timeline.', with:'Independent customer data already in hand.', withBold:'Weeks of work compressed into hours.' },
+      { label:'Speed',   without:'Commission expert calls. Wait weeks. Compress timeline.', with:'Customer data already in hand.', withBold:'Weeks of work compressed into hours.' },
       { label:'Proof',   without:'Assume the CIM is curated. Rerun diligence anyway.', with:"Evidence base the sell-side can't curate.", withBold:"You're not starting from suspicion — you're starting from proof." },
       { label:'Edge',    without:'Compete on the same compressed timeline as every other fund.', with:'Build conviction', withBold:'6–12 months before the process opens.' },
       { label:'IC Prep', without:'Arrive at IC with assumptions. Reprice or pass at the eleventh hour.', with:'Arrive at IC with answers.', withBold:'Pre-emptive bid wins.' },
     ],
-    outcome: { stat:'6–12mo', statLabel:'Ahead', desc:"Rushed diligence produces bad conviction. Bad conviction traps capital. Crossover puts independent customer evidence in your hands before the process begins — so you arrive at IC with proof, not assumptions." },
+    outcome: { stat:'6–12mo', statLabel:'Ahead', desc:"Rushed diligence produces bad conviction. Customer evidence in hand before the process begins means you arrive at IC with proof, not assumptions." },
   },
 };
 
@@ -62,7 +62,6 @@ export function AudienceWithout() {
       <div style={{ maxWidth:'var(--content-max)', margin:'0 auto', padding:'0 var(--content-pad)' }}>
 
         <div style={{ marginBottom:32 }}>
-          <div className="ib-section-eyebrow" style={{ marginBottom:10 }}>With vs. Without Crossover</div>
           <div style={{ display:'flex', alignItems:'flex-end', justifyContent:'space-between', gap:24, flexWrap:'wrap', marginBottom:20 }}>
             <h2 style={{
               fontSize:'clamp(20px,3vw,30px)', fontWeight:700,
