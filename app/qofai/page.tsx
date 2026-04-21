@@ -70,6 +70,7 @@ const OBJECTIONS = [
 
 export default function QofAIPage() {
   const [selectedQ, setSelectedQ] = useState(0);
+  const [tierIdx, setTierIdx] = useState(2); // default: Full Assessment
 
   return (
     <>
@@ -299,15 +300,15 @@ export default function QofAIPage() {
         </div>
       </section>
 
-      {/* PRICING — single scope, price scales with n dimensions */}
+      {/* PRICING — interactive scope slider */}
       <section style={{ padding:'56px 0', background:'linear-gradient(168deg,#050e1e 0%,#081628 100%)', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
 
-          <div style={{ display:'flex', alignItems:'flex-end', justifyContent:'space-between', gap:24, flexWrap:'wrap', marginBottom:32 }}>
+          <div style={{ display:'flex', alignItems:'flex-end', justifyContent:'space-between', gap:24, flexWrap:'wrap', marginBottom:40 }}>
             <div>
               <div className="ib-section-eyebrow" style={{ marginBottom:8 }}>Pricing</div>
               <h2 style={{ fontSize:22, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.022em', margin:0, lineHeight:1.25 }}>
-                One assessment. Price scales with scope.
+                One assessment. Scope it to fit the mandate.
               </h2>
             </div>
             <p style={{ fontSize:13, color:'rgba(255,255,255,.68)', margin:0, maxWidth:360, textAlign:'right', lineHeight:1.6 }}>
@@ -315,110 +316,264 @@ export default function QofAIPage() {
             </p>
           </div>
 
-          {/* Scope table */}
-          <div style={{ border:'1px solid rgba(255,255,255,.1)', overflow:'hidden', marginBottom:24 }}>
-
-            {/* Column header */}
-            <div style={{ display:'grid', gridTemplateColumns:'80px 1fr 1fr 160px 160px', background:'rgba(255,255,255,.04)', borderBottom:'1px solid rgba(255,255,255,.08)' }}>
-              <div style={{ padding:'11px 16px', fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.45)' }}>Dims</div>
-              <div style={{ padding:'11px 16px', fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.45)', borderLeft:'1px solid rgba(255,255,255,.07)' }}>Scope</div>
-              <div style={{ padding:'11px 16px', fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.45)', borderLeft:'1px solid rgba(255,255,255,.07)' }}>What's included</div>
-              <div style={{ padding:'11px 16px', fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.45)', borderLeft:'1px solid rgba(255,255,255,.07)' }}>Price</div>
-              <div style={{ padding:'11px 16px', borderLeft:'1px solid rgba(255,255,255,.07)' }} />
-            </div>
-
-            {[
+          {/* Slider widget */}
+          {(() => {
+            const TIERS = [
               {
                 dims: 5,
+                label: 'AI Structural',
                 name: 'AI Structural Position',
-                includes: 'Resilience score only: data moats, leapfrog resistance, defensibility',
-                price: 'From $25k',
-                timeline: '2 wks',
-                color: 'rgba(245,158,11,.9)',
-                featured: false,
+                price: 25,
+                weeks: '2 weeks',
+                color: 'rgba(245,158,11,.95)',
+                features: [
+                  'AI Resilience Score (5 dimensions)',
+                  'Data moat analysis',
+                  'Leapfrog resistance score',
+                  'Defensibility map',
+                  'Visual scorecard + VoC report',
+                ],
               },
               {
                 dims: 10,
+                label: 'AI Capability',
                 name: 'AI Capability',
-                includes: 'Capability score only: adoption, differentiation, accuracy, ROI, roadmap',
-                price: 'From $30k',
-                timeline: '2 wks',
-                color: 'rgba(77,144,254,.9)',
-                featured: false,
+                price: 30,
+                weeks: '2 weeks',
+                color: 'rgba(77,144,254,.95)',
+                features: [
+                  'AI Capability Score (10 dimensions)',
+                  'Adoption, accuracy & ROI scoring',
+                  'Competitive differentiation',
+                  'Roadmap credibility',
+                  'Visual scorecard + VoC report',
+                ],
               },
               {
                 dims: 15,
+                label: 'Full Assessment',
                 name: 'Full Assessment',
-                includes: 'Both scores across all 15 dimensions. AI Fortress Matrix included.',
-                price: 'From $40k',
-                timeline: '3 wks',
-                color: 'rgba(255,255,255,.88)',
-                featured: false,
+                price: 40,
+                weeks: '3 weeks',
+                color: 'rgba(200,220,255,.92)',
+                features: [
+                  'AI Capability Score (10 dimensions)',
+                  'AI Resilience Score (5 dimensions)',
+                  'AI Fortress Resilience Matrix',
+                  'Visual scorecard + VoC report',
+                  'CIM-ready positioning language',
+                ],
               },
               {
-                dims: '15+',
+                dims: 15,
+                label: 'Complete',
                 name: 'Complete Q of AI',
-                includes: 'Full Assessment + IC Preparation Pack + competitor benchmarking',
-                price: 'From $50k',
-                timeline: '3-4 wks',
+                price: 50,
+                weeks: '3-4 weeks',
                 color: 'rgba(45,212,160,.97)',
-                featured: true,
+                recommended: true,
+                features: [
+                  'Everything in Full Assessment',
+                  'IC Preparation Pack (6 objections)',
+                  'Competitor benchmarking',
+                  'Extended CIM language',
+                ],
               },
-            ].map((row, i, arr) => (
-              <div
-                key={i}
-                style={{
-                  display:'grid', gridTemplateColumns:'80px 1fr 1fr 160px 160px',
-                  borderBottom: i < arr.length-1 ? '1px solid rgba(255,255,255,.05)' : 'none',
-                  background: row.featured ? 'rgba(45,212,160,.04)' : 'rgba(6,14,28,.97)',
-                  borderLeft: row.featured ? '2px solid rgba(45,212,160,.45)' : '2px solid transparent',
-                }}
-              >
-                {/* Dim count */}
-                <div style={{ padding:'18px 16px', display:'flex', alignItems:'center' }}>
-                  <div style={{ fontFamily:'var(--font-mono)', fontSize:18, fontWeight:700, color:row.color, letterSpacing:'-.02em' }}>{row.dims}</div>
-                </div>
-                {/* Scope name */}
-                <div style={{ padding:'18px 16px', borderLeft:'1px solid rgba(255,255,255,.05)', display:'flex', flexDirection:'column', justifyContent:'center', gap:4 }}>
-                  <div style={{ fontSize:13, fontWeight:700, color:'rgba(255,255,255,.95)' }}>{row.name}</div>
-                  {row.featured && (
-                    <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(45,212,160,.88)', background:'rgba(45,212,160,.1)', padding:'1px 6px', display:'inline-block', width:'fit-content' }}>
-                      Recommended
+            ] as const;
+
+            const tier = TIERS[tierIdx];
+            const pct = (tierIdx / (TIERS.length - 1)) * 100;
+
+            return (
+              <div style={{ display:'grid', gridTemplateColumns:'1fr 360px', gap:2, background:'rgba(255,255,255,.08)', alignItems:'stretch' }}>
+
+                {/* LEFT: Slider */}
+                <div style={{ background:'rgba(6,14,28,.97)', padding:'32px 36px', display:'flex', flexDirection:'column', gap:28 }}>
+
+                  {/* Price display */}
+                  <div style={{ display:'flex', alignItems:'flex-end', gap:16 }}>
+                    <div>
+                      <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.45)', marginBottom:6 }}>Starting from</div>
+                      <div style={{ fontFamily:'var(--font-mono)', fontSize:52, fontWeight:700, color:tier.color, letterSpacing:'-.04em', lineHeight:1 }}>
+                        ${tier.price}k
+                      </div>
                     </div>
-                  )}
+                    <div style={{ paddingBottom:8 }}>
+                      <div style={{ fontSize:12, color:'rgba(255,255,255,.52)', lineHeight:1.5 }}>{tier.weeks}</div>
+                      <div style={{ fontSize:12, color:'rgba(255,255,255,.52)' }}>{tier.dims} dimensions</div>
+                    </div>
+                  </div>
+
+                  {/* Slider track */}
+                  <div>
+                    <div style={{ position:'relative', height:28, display:'flex', alignItems:'center', marginBottom:8 }}>
+                      {/* Track background */}
+                      <div style={{ position:'absolute', left:0, right:0, height:3, background:'rgba(255,255,255,.1)', borderRadius:2 }} />
+                      {/* Track fill */}
+                      <div style={{ position:'absolute', left:0, width:`${pct}%`, height:3, background:tier.color, borderRadius:2, transition:'all .2s' }} />
+                      {/* Tick marks */}
+                      {TIERS.map((t, i) => {
+                        const tickPct = (i / (TIERS.length - 1)) * 100;
+                        const isActive = i <= tierIdx;
+                        return (
+                          <div
+                            key={i}
+                            style={{
+                              position:'absolute',
+                              left:`${tickPct}%`,
+                              transform:'translateX(-50%)',
+                              width: i === tierIdx ? 14 : 8,
+                              height: i === tierIdx ? 14 : 8,
+                              borderRadius:'50%',
+                              background: isActive ? tier.color : 'rgba(255,255,255,.15)',
+                              border: i === tierIdx ? `2px solid ${tier.color}` : 'none',
+                              boxShadow: i === tierIdx ? `0 0 12px ${tier.color}` : 'none',
+                              transition:'all .2s',
+                              cursor:'pointer',
+                              zIndex:2,
+                            }}
+                            onClick={() => setTierIdx(i)}
+                          />
+                        );
+                      })}
+                      {/* Invisible range input for drag */}
+                      <input
+                        type="range" min={0} max={3} step={1} value={tierIdx}
+                        onChange={e => setTierIdx(Number(e.target.value))}
+                        style={{
+                          position:'absolute', left:0, right:0, width:'100%',
+                          opacity:0, cursor:'pointer', height:28, margin:0, padding:0,
+                          zIndex:3,
+                        }}
+                      />
+                    </div>
+
+                    {/* Tier labels */}
+                    <div style={{ display:'flex', justifyContent:'space-between' }}>
+                      {TIERS.map((t, i) => (
+                        <div
+                          key={i}
+                          onClick={() => setTierIdx(i)}
+                          style={{
+                            fontSize:10, fontWeight:700, letterSpacing:'.06em', textTransform:'uppercase',
+                            color: i === tierIdx ? tier.color : 'rgba(255,255,255,.35)',
+                            cursor:'pointer',
+                            transition:'color .2s',
+                            textAlign: i === 0 ? 'left' : i === TIERS.length-1 ? 'right' : 'center',
+                          }}
+                        >
+                          {t.label}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Price scale bar */}
+                  <div>
+                    <div style={{ display:'flex', justifyContent:'space-between', fontSize:11, color:'rgba(255,255,255,.38)', marginBottom:6, fontFamily:'var(--font-mono)' }}>
+                      <span>$25k</span>
+                      <span style={{ color:'rgba(255,255,255,.22)' }}>$30k</span>
+                      <span style={{ color:'rgba(255,255,255,.22)' }}>$40k</span>
+                      <span>$50k</span>
+                    </div>
+                    <div style={{ height:4, background:'rgba(255,255,255,.07)', borderRadius:2, overflow:'hidden' }}>
+                      <div style={{
+                        height:'100%',
+                        width:`${pct}%`,
+                        background: `linear-gradient(90deg, rgba(245,158,11,.8), ${tier.color})`,
+                        borderRadius:2,
+                        transition:'all .3s ease',
+                      }} />
+                    </div>
+                  </div>
+
+                  {/* Dimension bar */}
+                  <div>
+                    <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.40)', marginBottom:8 }}>
+                      Dimensions included
+                    </div>
+                    <div style={{ display:'flex', gap:3, flexWrap:'wrap' }}>
+                      {Array.from({ length: 15 }, (_, i) => (
+                        <div
+                          key={i}
+                          style={{
+                            width:16, height:16, borderRadius:2,
+                            background: i < tier.dims
+                              ? (i < 5 ? 'rgba(245,158,11,.7)' : 'rgba(77,144,254,.7)')
+                              : 'rgba(255,255,255,.06)',
+                            transition:'all .2s',
+                            transitionDelay: `${i * 0.015}s`,
+                          }}
+                        />
+                      ))}
+                    </div>
+                    <div style={{ display:'flex', gap:16, marginTop:8 }}>
+                      <div style={{ display:'flex', alignItems:'center', gap:5, fontSize:10, color:'rgba(245,158,11,.75)' }}>
+                        <div style={{ width:8, height:8, background:'rgba(245,158,11,.7)', borderRadius:1 }} />
+                        Resilience (5)
+                      </div>
+                      <div style={{ display:'flex', alignItems:'center', gap:5, fontSize:10, color:'rgba(77,144,254,.75)' }}>
+                        <div style={{ width:8, height:8, background:'rgba(77,144,254,.7)', borderRadius:1 }} />
+                        Capability (10)
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                {/* What's included */}
-                <div style={{ padding:'18px 16px', borderLeft:'1px solid rgba(255,255,255,.05)', display:'flex', alignItems:'center' }}>
-                  <div style={{ fontSize:12, color:'rgba(255,255,255,.65)', lineHeight:1.55 }}>{row.includes}</div>
-                </div>
-                {/* Price + timeline */}
-                <div style={{ padding:'18px 16px', borderLeft:'1px solid rgba(255,255,255,.05)', display:'flex', flexDirection:'column', justifyContent:'center', gap:3 }}>
-                  <div style={{ fontFamily:'var(--font-mono)', fontSize:15, fontWeight:700, color:row.color, letterSpacing:'-.01em' }}>{row.price}</div>
-                  <div style={{ fontSize:11, color:'rgba(255,255,255,.45)' }}>{row.timeline}</div>
-                </div>
-                {/* CTA */}
-                <div style={{ padding:'18px 16px', borderLeft:'1px solid rgba(255,255,255,.05)', display:'flex', alignItems:'center' }}>
+
+                {/* RIGHT: What's included */}
+                <div style={{
+                  background: tier.recommended ? 'rgba(45,212,160,.04)' : 'rgba(255,255,255,.02)',
+                  borderLeft: `2px solid ${tier.color}`,
+                  padding:'32px 28px',
+                  display:'flex', flexDirection:'column', gap:20,
+                  transition:'all .2s',
+                }}>
+                  <div>
+                    {tier.recommended && (
+                      <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(45,212,160,.9)', background:'rgba(45,212,160,.1)', padding:'2px 8px', display:'inline-block', marginBottom:8 }}>
+                        Recommended for sell-side
+                      </div>
+                    )}
+                    <div style={{ fontSize:16, fontWeight:700, color:'rgba(255,255,255,.95)', marginBottom:4, letterSpacing:'-.01em' }}>{tier.name}</div>
+                    <div style={{ fontFamily:'var(--font-mono)', fontSize:24, fontWeight:700, color:tier.color, letterSpacing:'-.03em' }}>
+                      ${tier.price}k
+                    </div>
+                  </div>
+
+                  <div style={{ height:1, background:'rgba(255,255,255,.07)' }} />
+
+                  <div style={{ display:'flex', flexDirection:'column', gap:10, flex:1 }}>
+                    <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.42)', marginBottom:2 }}>
+                      Included
+                    </div>
+                    {tier.features.map((f, i) => (
+                      <div key={i} style={{ display:'flex', alignItems:'flex-start', gap:10, fontSize:12.5, color:'rgba(255,255,255,.82)', lineHeight:1.45 }}>
+                        <span style={{ color:tier.color, flexShrink:0, marginTop:1 }}>✓</span>
+                        {f}
+                      </div>
+                    ))}
+                  </div>
+
                   <a
                     href={`mailto:${CONTACT.email}`}
                     style={{
-                      fontSize:11, fontWeight:700, textDecoration:'none', whiteSpace:'nowrap',
-                      color: row.featured ? '#050e1e' : 'rgba(255,255,255,.82)',
-                      background: row.featured ? 'rgba(45,212,160,.92)' : 'rgba(255,255,255,.07)',
-                      border: row.featured ? 'none' : '1px solid rgba(255,255,255,.15)',
-                      padding: '7px 14px',
-                      display:'inline-block',
+                      display:'inline-flex', alignItems:'center', justifyContent:'center',
+                      fontSize:12, fontWeight:700, textDecoration:'none', padding:'11px 20px',
+                      color: tier.recommended ? '#050e1e' : 'rgba(255,255,255,.9)',
+                      background: tier.recommended ? 'rgba(45,212,160,.92)' : 'rgba(255,255,255,.08)',
+                      border: tier.recommended ? 'none' : `1px solid rgba(255,255,255,.18)`,
                       transition:'all .15s',
                     }}
                   >
-                    Get started →
+                    Commission this scope →
                   </a>
                 </div>
               </div>
-            ))}
-          </div>
+            );
+          })()}
 
-          <div style={{ fontSize:11, color:'rgba(255,255,255,.45)', textAlign:'center' }}>
-            Pricing depends on company size, data availability, and timeline. All scopes include the full deliverable pack.
+          <div style={{ fontSize:11, color:'rgba(255,255,255,.42)', textAlign:'center', marginTop:16 }}>
+            Exact pricing depends on company size, data availability, and timeline.
           </div>
         </div>
       </section>
