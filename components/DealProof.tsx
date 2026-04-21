@@ -16,7 +16,7 @@ const DEALS = [
     ],
     crossover: {
       involvement: 'Catalyst Dual-Side',
-      desc: '30+ independent customer interviews delivered to both parties — neither side briefed or selected the respondents. J.P. Morgan used the research to differentiate their mandate pitch. General Atlantic used the same dataset to build conviction before the process opened.',
+      desc: '30+ customer interviews delivered to both parties. Neither side briefed or selected the respondents. J.P. Morgan used the research to differentiate their mandate pitch. General Atlantic used the same dataset to build conviction before the process opened.',
       outcomes: [
         { party: 'J.P. Morgan',      color: 'rgba(130,175,255,.95)', result: 'Won the exclusive mandate' },
         { party: 'General Atlantic', color: 'rgba(45,212,160,.95)',  result: '$500M investment at unicorn valuation' },
@@ -57,9 +57,9 @@ const DEALS = [
     ],
     crossover: {
       involvement: 'CIM Enhancement',
-      desc: 'Independent customer research was woven into the CIM narrative. Every customer claim pre-validated against actual user interviews — no gaps for buyers to exploit in diligence.',
+      desc: 'Customer research woven into the CIM narrative. Every customer claim pre-validated against actual user interviews. No gaps for buyers to exploit in diligence.',
       outcomes: [
-        { party: 'Outcome', color: 'rgba(130,175,255,.95)', result: '$675M exit — CIM backed by independent evidence' },
+        { party: 'Outcome', color: 'rgba(130,175,255,.95)', result: '$675M exit. CIM backed by independent evidence' },
       ],
     },
   },
