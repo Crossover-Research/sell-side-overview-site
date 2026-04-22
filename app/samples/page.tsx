@@ -23,28 +23,38 @@ export default function SamplesPage() {
         </a>
       </div>
 
-      {/* Battery Ventures research */}
+      {/* Battery Ventures — Crossover provided the underlying research */}
       <a
         href="https://www.battery.com/blog/first-coding-next-finance-ai-adoption-comes-to-the-cfo-suite/"
         target="_blank"
         rel="noopener noreferrer"
-        style={{ display:'flex',flexDirection:'column',background:'rgba(255,255,255,.03)',border:'1px solid rgba(255,255,255,.1)',padding:'28px 32px',textDecoration:'none',minHeight:120 }}
+        style={{
+          display:'flex', flexDirection:'column',
+          background:'rgba(45,212,160,.03)',
+          border:'1px solid rgba(45,212,160,.18)',
+          borderLeft:'3px solid rgba(45,212,160,.55)',
+          padding:'28px 32px', textDecoration:'none',
+        }}
       >
-        <div style={{ display:'flex',alignItems:'flex-start',justifyContent:'space-between',gap:24,marginBottom:14 }}>
-          <div style={{ fontSize:10,fontWeight:700,letterSpacing:'.12em',textTransform:'uppercase',color:'rgba(130,175,255,.6)' }}>
-            Battery Ventures &middot; External Research
+        <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', gap:24, marginBottom:16, flexWrap:'wrap' }}>
+          <div style={{ display:'flex', alignItems:'center', gap:10 }}>
+            <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(45,212,160,.88)', background:'rgba(45,212,160,.1)', border:'1px solid rgba(45,212,160,.25)', padding:'3px 10px' }}>
+              Crossover Data
+            </div>
+            <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.45)' }}>
+              Published by Battery Ventures
+            </div>
           </div>
-          <div style={{ fontSize:10,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(45,212,160,.8)',background:'rgba(45,212,160,.08)',border:'1px solid rgba(45,212,160,.2)',padding:'2px 8px',whiteSpace:'nowrap',flexShrink:0 }}>
-            April 2026
-          </div>
+          <div style={{ fontSize:11, color:'rgba(255,255,255,.40)', letterSpacing:'.04em' }}>April 2026</div>
         </div>
-        <div style={{ fontSize:16,fontWeight:700,color:'rgba(255,255,255,.92)',lineHeight:1.35,marginBottom:10,maxWidth:680 }}>
+
+        <div style={{ fontSize:17, fontWeight:700, color:'rgba(255,255,255,.92)', lineHeight:1.35, marginBottom:10, maxWidth:680 }}>
           First coding, next finance? AI adoption comes to the CFO suite.
         </div>
-        <div style={{ fontSize:13,color:'rgba(255,255,255,.58)',lineHeight:1.6,marginBottom:16,maxWidth:640 }}>
-          Battery Ventures research on AI adoption across knowledge-work functions, with finance emerging as the next major wave. Relevant context for any mandate involving AI-enabled software in the office of the CFO.
+        <div style={{ fontSize:13, color:'rgba(255,255,255,.62)', lineHeight:1.68, marginBottom:18, maxWidth:640 }}>
+          Battery Ventures published this report using customer interview data collected by Crossover Research. The findings — on AI adoption rates, workflow integration, and displacement risk in finance — draw directly from our primary research methodology.
         </div>
-        <div style={{ fontSize:12,fontWeight:600,color:'rgba(130,175,255,.8)',marginTop:'auto' }}>Read Research ↗</div>
+        <div style={{ fontSize:12, fontWeight:600, color:'rgba(45,212,160,.85)' }}>Read the Battery Report ↗</div>
       </a>
     </section>
   );
