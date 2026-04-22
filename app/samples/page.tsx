@@ -6,6 +6,7 @@ export default function SamplesPage() {
       <p style={{ fontSize: 14, color: 'rgba(255,255,255,.72)', lineHeight: 1.65, marginBottom: 40 }}>
         Two live examples of the intelligence your deal team receives. Verbatim evidence, competitive benchmarking, IC-ready data, accessible now.
       </p>
+
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
         <a href="/redcanary" style={{ display:'flex',flexDirection:'column',background:'rgba(255,255,255,.03)',border:'1px solid rgba(255,255,255,.1)',padding:'28px 32px',textDecoration:'none',minHeight:180 }}>
           <div style={{ fontSize:10,fontWeight:700,letterSpacing:'.12em',textTransform:'uppercase',color:'rgba(130,175,255,.6)',marginBottom:14 }}>SENTINEL &middot; Cybersecurity MDR</div>
@@ -29,32 +30,61 @@ export default function SamplesPage() {
         target="_blank"
         rel="noopener noreferrer"
         style={{
-          display:'flex', flexDirection:'column',
-          background:'rgba(45,212,160,.03)',
-          border:'1px solid rgba(45,212,160,.18)',
-          borderLeft:'3px solid rgba(45,212,160,.55)',
-          padding:'28px 32px', textDecoration:'none',
+          display:'block', textDecoration:'none',
+          background:'rgba(6,12,26,.98)',
+          border:'1px solid rgba(255,255,255,.1)',
+          overflow:'hidden',
+          position:'relative',
         }}
       >
-        <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', gap:24, marginBottom:16, flexWrap:'wrap' }}>
-          <div style={{ display:'flex', alignItems:'center', gap:10 }}>
-            <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(45,212,160,.88)', background:'rgba(45,212,160,.1)', border:'1px solid rgba(45,212,160,.25)', padding:'3px 10px' }}>
-              Crossover Data
+        {/* Top accent line */}
+        <div style={{ position:'absolute', top:0, left:0, right:0, height:2, background:'linear-gradient(90deg, rgba(45,212,160,.8) 0%, rgba(77,144,254,.6) 50%, transparent 100%)' }} />
+
+        <div style={{ display:'grid', gridTemplateColumns:'1fr auto', gap:32, alignItems:'center', padding:'28px 32px' }}>
+          <div>
+            {/* Tag row */}
+            <div style={{ display:'flex', alignItems:'center', gap:10, marginBottom:14, flexWrap:'wrap' }}>
+              <div style={{
+                fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase',
+                color:'rgba(45,212,160,.92)', background:'rgba(45,212,160,.1)',
+                border:'1px solid rgba(45,212,160,.25)', padding:'3px 10px',
+              }}>
+                Crossover Research Data
+              </div>
+              <div style={{ fontSize:10, color:'rgba(255,255,255,.38)', letterSpacing:'.06em' }}>
+                &middot;
+              </div>
+              <div style={{ fontSize:10, fontWeight:600, letterSpacing:'.08em', textTransform:'uppercase', color:'rgba(255,255,255,.45)' }}>
+                Published by Battery Ventures
+              </div>
+              <div style={{ fontSize:10, color:'rgba(255,255,255,.28)', letterSpacing:'.04em', marginLeft:'auto' }}>
+                April 2026
+              </div>
             </div>
-            <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.45)' }}>
-              Published by Battery Ventures
+
+            {/* Title */}
+            <div style={{ fontSize:18, fontWeight:700, color:'rgba(255,255,255,.95)', lineHeight:1.3, marginBottom:10 }}>
+              First coding, next finance? AI adoption comes to the CFO suite.
+            </div>
+
+            {/* Descriptor */}
+            <div style={{ fontSize:13, color:'rgba(255,255,255,.58)', lineHeight:1.65 }}>
+              Battery Ventures published this report using primary customer interview data collected by Crossover Research. The methodology, interview design, and raw findings are ours. Battery provided the distribution.
             </div>
           </div>
-          <div style={{ fontSize:11, color:'rgba(255,255,255,.40)', letterSpacing:'.04em' }}>April 2026</div>
-        </div>
 
-        <div style={{ fontSize:17, fontWeight:700, color:'rgba(255,255,255,.92)', lineHeight:1.35, marginBottom:10, maxWidth:680 }}>
-          First coding, next finance? AI adoption comes to the CFO suite.
+          {/* Right: CTA column */}
+          <div style={{ display:'flex', flexDirection:'column', alignItems:'flex-end', gap:12, flexShrink:0 }}>
+            <div style={{
+              fontSize:11, fontWeight:700, letterSpacing:'.04em',
+              color:'rgba(45,212,160,.92)', border:'1px solid rgba(45,212,160,.3)',
+              padding:'9px 18px', whiteSpace:'nowrap',
+              background:'rgba(45,212,160,.06)',
+            }}>
+              Read Report ↗
+            </div>
+          </div>
         </div>
-        <div style={{ fontSize:13, color:'rgba(255,255,255,.62)', lineHeight:1.68, marginBottom:18, maxWidth:640 }}>
-          Battery Ventures published this report using customer interview data collected by Crossover Research. The findings — on AI adoption rates, workflow integration, and displacement risk in finance — draw directly from our primary research methodology.
-        </div>
-        <div style={{ fontSize:12, fontWeight:600, color:'rgba(45,212,160,.85)' }}>Read the Battery Report ↗</div>
       </a>
     </section>
   );
