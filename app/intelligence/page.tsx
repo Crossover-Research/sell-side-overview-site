@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useCallback, Suspense } from 'react';
 import { HeroSection } from '../../components/HeroSection';
 import { useSearchParams } from 'next/navigation';
-import { CATALYST_ASSETS } from '../../lib/data/catalystAssets';
+import { CATALYST_ASSETS, CATALYST_LIVE_COUNT, CATALYST_LIVE_STATUS } from '../../lib/data/catalystAssets';
 import { CONTACT } from '../../lib/config/site';
 import { SelectField } from '../../components/SelectField';
 import { CapabilitiesEngine } from '../../components/CapabilitiesEngine';
@@ -197,13 +197,13 @@ export default function IntelligencePage() {
               <div>
                 <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.45)', marginBottom:4 }}>Catalyst Library</div>
                 <div style={{ fontFamily:'var(--font-mono)', fontSize:22, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.02em' }}>
-                  {CATALYST_ASSETS.length} Assets
+                  {CATALYST_LIVE_COUNT} Assets
                 </div>
               </div>
               <div style={{ width:1, height:36, background:'rgba(255,255,255,.08)' }} />
               <div style={{ display:'flex', gap:16 }}>
                 {(['transacted','active','new'] as const).map(s => {
-                  const n = CATALYST_ASSETS.filter(a => a.status === s).length;
+                  const n = CATALYST_LIVE_STATUS[s];
                   const cfg = { transacted:{ color:'rgba(180,180,200,.72)' as const, label:'Closed' }, active:{ color:'rgba(45,212,160,.88)' as const, label:'Active' }, new:{ color:'rgba(245,158,11,.88)' as const, label:'New' } };
                   return n > 0 ? (
                     <div key={s} style={{ textAlign:'center' }}>
