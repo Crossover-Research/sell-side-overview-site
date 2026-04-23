@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { ProductArchitecture } from '../../components/ProductArchitecture';
 import { FlywheelDiagram } from '../../components/FlywheelDiagram';
-import { CATALYST_ASSETS, type CatalystAsset } from '../../lib/data/catalystAssets';
+import { CATALYST_ASSETS, CATALYST_LIVE_COUNT, CATALYST_LIVE_STATUS, type CatalystAsset } from '../../lib/data/catalystAssets';
 import { CONTACT } from '../../lib/config/site';
 import { SelectField } from '../../components/SelectField';
 
