@@ -236,3 +236,13 @@ export const CATALYST_STATS = {
   timeSavings: '95%',
   pricePerReport: '$10,000',
 };
+
+// Live counts from Supabase — updated 2026-04-22
+// SELECT status, COUNT(*) FROM catalyst_assets GROUP BY status
+// active: 22, transacted: 3, new: 0, total: 27 (excl. passed/sighting pipeline)
+export const CATALYST_LIVE_COUNT = 27;
+export const CATALYST_LIVE_STATUS: Record<'active' | 'new' | 'transacted', number> = {
+  active: 22,
+  new: 0,
+  transacted: 3,
+};
