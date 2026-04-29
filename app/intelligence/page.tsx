@@ -6,8 +6,8 @@ import { CATALYST_ASSETS, CATALYST_LIVE_COUNT, CATALYST_LIVE_STATUS } from '../.
 import { CONTACT } from '../../lib/config/site';
 import { SelectField } from '../../components/SelectField';
 import { CapabilitiesEngine } from '../../components/CapabilitiesEngine';
-import { MarketProblem } from '../../components/MarketProblem';
-import { AudienceWithout } from '../../components/AudienceWithout';
+import { EvidenceTable } from '../../components/EvidenceTable';
+
 
 function RequestParamWatcher({ onOpen }: { onOpen: () => void }) {
   const searchParams = useSearchParams();
@@ -135,8 +135,8 @@ export default function IntelligencePage() {
       <HeroSection />
       <Suspense fallback={null}><RequestParamWatcher onOpen={openRequest} /></Suspense>
       <CapabilitiesEngine />
-      <MarketProblem />
-      <AudienceWithout />
+      <EvidenceTable />
+      
 
       {/* SAMPLE STUDIES */}
       <section id="samples" className="ib-section">
