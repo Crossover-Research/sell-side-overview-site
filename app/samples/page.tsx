@@ -26,30 +26,20 @@ export default function SamplesPage() {
           <div style={{ fontSize:12, fontWeight:600, color:'rgba(130,175,255,.8)', marginTop:16 }}>View Study &rarr;</div>
         </a>
 
-        {/* Battery Ventures card — same structure, Crossover as data source */}
+        {/* Battery Ventures card — matches other card structure */}
         <a
           href="https://www.battery.com/blog/first-coding-next-finance-ai-adoption-comes-to-the-cfo-suite/"
           target="_blank"
           rel="noopener noreferrer"
-          style={{ display:'flex', flexDirection:'column', background:'rgba(255,255,255,.03)', border:'1px solid rgba(255,255,255,.1)', padding:'28px 32px', textDecoration:'none', minHeight:220, position:'relative' }}
+          style={{ display:'flex', flexDirection:'column', background:'rgba(255,255,255,.03)', border:'1px solid rgba(255,255,255,.1)', padding:'28px 32px', textDecoration:'none', minHeight:220 }}
         >
-          {/* Subtle teal top accent to signal "different type" without breaking grid */}
-          <div style={{ position:'absolute', top:0, left:0, right:0, height:2, background:'linear-gradient(90deg, rgba(45,212,160,.5) 0%, transparent 60%)' }} />
-
-          <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(45,212,160,.7)', marginBottom:14 }}>
-            Crossover Research Data &middot; Battery Ventures
+          <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(130,175,255,.6)', marginBottom:14 }}>
+            Office of the CFO Study &middot; Crossover Research Market Study
           </div>
-
-          <div style={{ flex:1 }}>
-            <div style={{ fontSize:14, fontWeight:700, color:'rgba(255,255,255,.88)', lineHeight:1.4, marginBottom:8 }}>
-              First coding, next finance?
-            </div>
-            <div style={{ fontSize:12, color:'rgba(255,255,255,.52)', lineHeight:1.6 }}>
-              AI adoption comes to the CFO suite. Our data. Their publication.
-            </div>
+          <div style={{ flex:1, display:'flex', alignItems:'center' }}>
+            <img src="/battery-ventures-logo.svg" alt="Battery Ventures" style={{ height:28, width:'auto', maxWidth:200 }} />
           </div>
-
-          <div style={{ fontSize:12, fontWeight:600, color:'rgba(45,212,160,.8)', marginTop:16 }}>Read Report ↗</div>
+          <div style={{ fontSize:12, fontWeight:600, color:'rgba(130,175,255,.8)', marginTop:16 }}>Read Report &rarr;</div>
         </a>
 
       </div>
