@@ -23,6 +23,115 @@ const RESILIENCE_DIMS = [
   { label: 'Vendor Strategy Credibility',  score: 8.0 },
 ];
 
+
+const QUESTIONS = [
+  {
+    part: 'I', num: 'Q1', label: 'Feature Adoption & Daily Utility',
+    rating: 'On a scale of 1-10, how frequently do you use AI-powered features in [Software Name]? (1 = Never, 5 = Occasionally, 10 = Multiple times daily)',
+    open: 'Which specific AI features do you use most often, and what tasks do they help you accomplish? Please be as specific as possible.',
+    why: 'Separates AI marketing from actual adoption. The open-ended response reveals which features have sticky usage versus which are ignored.',
+    color: 'rgba(77,144,254,.9)',
+  },
+  {
+    part: 'I', num: 'Q2', label: 'Value Quantification & ROI',
+    rating: 'Rate the business impact of AI features in [Software Name]. (1 = No measurable impact, 5 = Moderate value, 10 = Mission-critical)',
+    open: 'Can you quantify the value you get from AI features? Examples: hours saved per week, cost reductions, revenue enabled, errors prevented.',
+    why: 'Forces respondents to articulate ROI in concrete terms. Produces the executive soundbites needed for pitch materials.',
+    color: 'rgba(77,144,254,.9)',
+  },
+  {
+    part: 'I', num: 'Q3', label: 'Competitive Differentiation',
+    rating: 'Compared to alternatives you've evaluated, how would you rate [Software Name]'s AI capabilities? (1 = Significantly behind, 5 = On par, 10 = Clear market leader)',
+    open: 'Which specific AI capabilities set [Software Name] apart from competitors? Please name specific competing products if possible.',
+    why: 'Direct competitive positioning data. Reveals the actual battleground features and which competitors are winning on AI.',
+    color: 'rgba(77,144,254,.9)',
+  },
+  {
+    part: 'I', num: 'Q4', label: 'Innovation Velocity',
+    rating: 'How would you rate [Software Name]'s pace of AI innovation and new feature releases? (1 = Stagnant, 5 = Keeping pace, 10 = Leading edge)',
+    open: 'What recent AI improvements have impressed you, or what AI capabilities have you been waiting for that haven't been delivered?',
+    why: 'Assesses innovation velocity and roadmap execution. Reveals whether the company is actually shipping or just promising.',
+    color: 'rgba(77,144,254,.9)',
+  },
+  {
+    part: 'I', num: 'Q5', label: 'Accuracy & Reliability',
+    rating: 'Rate the accuracy and reliability of AI-generated outputs in [Software Name]. (1 = Frequently inaccurate, 5 = Generally reliable, 10 = Consistently accurate)',
+    open: 'Describe any instances where AI outputs were inaccurate. How often does this happen, and does it impact your trust in the system?',
+    why: 'Critical for risk assessment. AI that doesn't work creates massive churn risk and kills valuation stories.',
+    color: 'rgba(77,144,254,.9)',
+  },
+  {
+    part: 'I', num: 'Q6', label: 'Marketing Claims vs. Reality',
+    rating: 'How well do [Software Name]'s actual AI capabilities match what was promised during the sales process? (1 = Significantly overpromised, 5 = Mostly aligned, 10 = Exceeded expectations)',
+    open: 'Were there AI features that were promised but underdelivered, or capabilities that turned out to be more valuable than expected?',
+    why: 'Exposes AI washing and credibility issues. Creates a reality check on whether the AI story is real or aspirational.',
+    color: 'rgba(77,144,254,.9)',
+  },
+  {
+    part: 'I', num: 'Q7', label: 'Implementation Ease',
+    rating: 'How easy was it to implement and get value from AI features in [Software Name]? (1 = Extremely difficult, 5 = Moderate effort, 10 = Worked immediately)',
+    open: 'What obstacles did you encounter when implementing AI features, and what training was required to get your team using them effectively?',
+    why: 'Time-to-value is critical for expansion and retention. Reveals onboarding friction that limits market expansion.',
+    color: 'rgba(77,144,254,.9)',
+  },
+  {
+    part: 'I', num: 'Q8', label: 'Business Differentiation',
+    rating: 'Rate how much [Software Name]'s AI capabilities help differentiate your business or improve your competitive position. (1 = No competitive advantage, 10 = Significant strategic advantage)',
+    open: 'How have AI features changed how your team works or enabled new capabilities you couldn't achieve before?',
+    why: 'Measures stickiness and strategic value. Produces case study material demonstrating moat and switching costs.',
+    color: 'rgba(77,144,254,.9)',
+  },
+  {
+    part: 'I', num: 'Q9', label: 'Roadmap Confidence',
+    rating: 'Based on what you've seen so far, how confident are you that [Software Name] will continue to lead with AI innovation? (1 = Not confident, 10 = Extremely confident, committed long-term)',
+    open: 'What would need to happen with AI capabilities for you to consider switching to a competitor?',
+    why: 'Forward-looking retention indicator. Reveals competitive vulnerabilities and moat defensibility.',
+    color: 'rgba(77,144,254,.9)',
+  },
+  {
+    part: 'I', num: 'Q10', label: 'AI Sophistication Level',
+    rating: 'Rate the overall sophistication and maturity of AI technology in [Software Name]. (1 = Basic automation, 5 = Smart ML features, 10 = Cutting-edge AI, generative capabilities)',
+    open: 'Which AI capabilities feel truly advanced versus basic automation relabeled as 'AI'? What specific AI technologies do you see being used?',
+    why: 'Distinguishes real AI from rebranded if/then logic. Provides technical validation from actual users.',
+    color: 'rgba(77,144,254,.9)',
+  },
+  {
+    part: 'II', num: 'Q11', label: 'AI-Native Replacement Risk',
+    rating: 'Have you evaluated AI-native tools (e.g., ChatGPT, Claude, Gemini, vertical AI agents) as a partial or full replacement? (1 = Actively replacing; 10 = Never considered, no viable alternative)',
+    open: 'If you explored AI-native alternatives, what tasks did you test? What was the result — did the AI tool perform comparably, and what stopped you from switching?',
+    why: 'The single most valuable displacement question. Directly measures whether customers are already testing the replacement thesis.',
+    color: 'rgba(45,212,160,.9)',
+  },
+  {
+    part: 'II', num: 'Q12', label: 'Data & Workflow Lock-In',
+    rating: 'How deeply is [Software Name] embedded in your organization's data infrastructure and workflows? (1 = Standalone tool, easily replaceable; 10 = Deeply embedded, major restructuring required)',
+    open: 'Describe the integrations, data dependencies, and workflow automations connecting [Software Name] to your tech stack. Could you replicate this with an AI-native tool?',
+    why: 'Measures the structural moat. AI displacement is easiest for standalone tools and hardest for deeply integrated systems serving as the data layer.',
+    color: 'rgba(45,212,160,.9)',
+  },
+  {
+    part: 'II', num: 'Q13', label: 'Pricing Model Defense',
+    rating: 'If [Software Name] switched from per-seat to outcome-based pricing, would that change how you evaluate it versus AI-native alternatives? (1 = Makes no difference; 10 = Would significantly increase commitment)',
+    open: 'How many seats does your organization pay for? What percentage are active power users? If AI could do the work of 3-5 seats, would you reduce licenses?',
+    why: 'Probes the pricing model vulnerability that IDC predicts will force 70% of vendors to restructure by 2028.',
+    color: 'rgba(45,212,160,.9)',
+  },
+  {
+    part: 'II', num: 'Q14', label: 'AI Leapfrog Resistance',
+    rating: 'Could a new AI-first company build a better version of [Software Name] from scratch using current AI technology? (1 = Absolutely, inevitable; 10 = Impossible, domain expertise too specialized)',
+    open: 'What aspects of [Software Name] would be hardest for an AI-native startup to replicate? What parts would be easiest? Consider data complexity, regulatory requirements, domain expertise, integration depth.',
+    why: 'Customers understand their domain better than any analyst. Produces the exact defensibility map buyers need at IC.',
+    color: 'rgba(45,212,160,.9)',
+  },
+  {
+    part: 'II', num: 'Q15', label: 'Vendor Strategy Credibility',
+    rating: 'How confident are you that [Software Name]'s leadership understands and is effectively responding to the AI transformation of your industry? (1 = Clueless; 10 = Leading the charge)',
+    open: 'What has [Software Name]'s leadership communicated about their AI strategy? Have you seen evidence of foundational AI investment versus just adding chatbot wrappers?',
+    why: 'Management credibility on AI is the leading indicator of whether a company will navigate or be disrupted by the transition.',
+    color: 'rgba(45,212,160,.9)',
+  },
+];
+
 const OBJECTIONS = [
   {
     tag: 'Foundation model risk',
@@ -72,6 +181,7 @@ export default function QofAIPage() {
   const [selectedQ, setSelectedQ] = useState(0);
   const [tierIdx, setTierIdx] = useState(2); // default: Full Assessment
   const [scoreTab, setScoreTab] = useState<'capability'|'resilience'>('capability');
+  const [openQ, setOpenQ] = useState<number|null>(null);
 
   return (
     <>
@@ -167,72 +277,136 @@ export default function QofAIPage() {
                 15 dimensions. Two independent scores.
               </h2>
 
-              {/* Score tab selector */}
-              <div style={{ display:'flex', gap:1, background:'rgba(255,255,255,.07)', marginBottom:2 }}>
-                {([
-                  { id:'capability' as const, label:'AI Capability', sub:'10 dimensions', score:83, color:'rgba(77,144,254,.95)', bg:'rgba(77,144,254,.07)' },
-                  { id:'resilience' as const, label:'AI Resilience', sub:'5 dimensions', score:87, color:'rgba(45,212,160,.97)', bg:'rgba(45,212,160,.05)' },
-                ] as const).map(tab => (
-                  <button
-                    key={tab.id}
-                    onClick={() => setScoreTab(tab.id)}
-                    style={{
-                      all:'unset', cursor:'pointer', flex:1, padding:'12px 16px',
-                      background: scoreTab === tab.id ? tab.bg : 'rgba(6,14,28,.95)',
-                      borderBottom: `2px solid ${scoreTab === tab.id ? tab.color : 'transparent'}`,
-                      display:'flex', alignItems:'center', justifyContent:'space-between',
-                      transition:'all .12s',
-                    }}
-                  >
-                    <div>
-                      <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color: scoreTab === tab.id ? tab.color : 'rgba(255,255,255,.45)', marginBottom:2 }}>{tab.label}</div>
-                      <div style={{ fontSize:11, color:'rgba(255,255,255,.55)' }}>{tab.sub}</div>
-                    </div>
-                    <div style={{ fontFamily:'var(--font-mono)', fontSize:24, fontWeight:700, color: scoreTab === tab.id ? tab.color : 'rgba(255,255,255,.35)', letterSpacing:'-.03em' }}>{tab.score}</div>
-                  </button>
-                ))}
-              </div>
+              {/* Side-by-side scorecard panels */}
+              <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:2 }}>
 
-              {/* Capability dimensions */}
-              {scoreTab === 'capability' && (
-                <div style={{ background:'rgba(6,14,28,.98)', border:'1px solid rgba(77,144,254,.2)', overflow:'hidden' }}>
+                {/* Capability panel */}
+                <div style={{ background:'rgba(6,14,28,.98)', border:'1px solid rgba(77,144,254,.18)', overflow:'hidden' }}>
+                  <div style={{ background:'rgba(77,144,254,.06)', borderBottom:'1px solid rgba(77,144,254,.15)', padding:'14px 18px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
+                    <div>
+                      <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(77,144,254,.7)', marginBottom:3 }}>Part I · 10 Dimensions</div>
+                      <div style={{ fontSize:13, fontWeight:700, color:'rgba(255,255,255,.92)' }}>AI Capability</div>
+                    </div>
+                    <div style={{ textAlign:'right' }}>
+                      <div style={{ fontFamily:'var(--font-mono)', fontSize:32, fontWeight:700, color:'rgba(77,144,254,.97)', letterSpacing:'-.04em', lineHeight:1 }}>83</div>
+                      <div style={{ fontSize:9, color:'rgba(255,255,255,.42)', letterSpacing:'.06em' }}>OUT OF 100</div>
+                    </div>
+                  </div>
                   {CAPABILITY_DIMS.map((d,i) => (
-                    <div key={i} style={{ padding:'7px 16px', borderBottom: i < CAPABILITY_DIMS.length-1 ? '1px solid rgba(255,255,255,.04)' : 'none', display:'grid', gridTemplateColumns:'1fr 32px', alignItems:'center', gap:12 }}>
+                    <div key={i} style={{ padding:'9px 18px', borderBottom: i < CAPABILITY_DIMS.length-1 ? '1px solid rgba(255,255,255,.05)' : 'none', display:'grid', gridTemplateColumns:'1fr 36px', alignItems:'center', gap:10 }}>
                       <div>
-                        <div style={{ fontSize:11, color:'rgba(255,255,255,.82)', marginBottom:4, fontWeight:500 }}>{d.label}</div>
-                        <div style={{ height:2, background:'rgba(255,255,255,.08)', borderRadius:1, overflow:'hidden' }}>
-                          <div style={{ width:`${(d.score/10)*100}%`, height:'100%', background:'rgba(77,144,254,.8)' }} />
+                        <div style={{ fontSize:11.5, color:'rgba(255,255,255,.82)', marginBottom:5, fontWeight:500 }}>{d.label}</div>
+                        <div style={{ height:3, background:'rgba(255,255,255,.07)', borderRadius:2, overflow:'hidden' }}>
+                          <div style={{ width:`${(d.score/10)*100}%`, height:'100%', background:'linear-gradient(90deg,rgba(77,144,254,.5),rgba(77,144,254,.9))', borderRadius:2 }} />
                         </div>
                       </div>
-                      <div style={{ fontFamily:'var(--font-mono)', fontSize:11, fontWeight:700, color:'rgba(77,144,254,.95)', textAlign:'right' }}>{d.score.toFixed(1)}</div>
+                      <div style={{ fontFamily:'var(--font-mono)', fontSize:12, fontWeight:700, color:'rgba(77,144,254,.97)', textAlign:'right' }}>{d.score.toFixed(1)}</div>
                     </div>
                   ))}
                 </div>
-              )}
 
-              {/* Resilience dimensions */}
-              {scoreTab === 'resilience' && (
-                <div style={{ background:'rgba(6,14,28,.98)', border:'1px solid rgba(45,212,160,.2)', overflow:'hidden' }}>
+                {/* Resilience panel */}
+                <div style={{ background:'rgba(6,14,28,.98)', border:'1px solid rgba(45,212,160,.18)', overflow:'hidden', display:'flex', flexDirection:'column' }}>
+                  <div style={{ background:'rgba(45,212,160,.05)', borderBottom:'1px solid rgba(45,212,160,.15)', padding:'14px 18px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
+                    <div>
+                      <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(45,212,160,.7)', marginBottom:3 }}>Part II · 5 Dimensions</div>
+                      <div style={{ fontSize:13, fontWeight:700, color:'rgba(255,255,255,.92)' }}>AI Resilience</div>
+                    </div>
+                    <div style={{ textAlign:'right' }}>
+                      <div style={{ fontFamily:'var(--font-mono)', fontSize:32, fontWeight:700, color:'rgba(45,212,160,.97)', letterSpacing:'-.04em', lineHeight:1 }}>87</div>
+                      <div style={{ fontSize:9, color:'rgba(255,255,255,.42)', letterSpacing:'.06em' }}>OUT OF 100</div>
+                    </div>
+                  </div>
                   {RESILIENCE_DIMS.map((d,i) => (
-                    <div key={i} style={{ padding:'7px 16px', borderBottom: i < RESILIENCE_DIMS.length-1 ? '1px solid rgba(255,255,255,.04)' : 'none', display:'grid', gridTemplateColumns:'1fr 32px', alignItems:'center', gap:12 }}>
+                    <div key={i} style={{ padding:'9px 18px', borderBottom: i < RESILIENCE_DIMS.length-1 ? '1px solid rgba(255,255,255,.05)' : 'none', display:'grid', gridTemplateColumns:'1fr 36px', alignItems:'center', gap:10 }}>
                       <div>
-                        <div style={{ fontSize:11, color:'rgba(255,255,255,.82)', marginBottom:4, fontWeight:500 }}>{d.label}</div>
-                        <div style={{ height:2, background:'rgba(255,255,255,.08)', borderRadius:1, overflow:'hidden' }}>
-                          <div style={{ width:`${(d.score/10)*100}%`, height:'100%', background:'rgba(45,212,160,.8)' }} />
+                        <div style={{ fontSize:11.5, color:'rgba(255,255,255,.82)', marginBottom:5, fontWeight:500 }}>{d.label}</div>
+                        <div style={{ height:3, background:'rgba(255,255,255,.07)', borderRadius:2, overflow:'hidden' }}>
+                          <div style={{ width:`${(d.score/10)*100}%`, height:'100%', background:'linear-gradient(90deg,rgba(45,212,160,.5),rgba(45,212,160,.9))', borderRadius:2 }} />
                         </div>
                       </div>
-                      <div style={{ fontFamily:'var(--font-mono)', fontSize:11, fontWeight:700, color:'rgba(45,212,160,.95)', textAlign:'right' }}>{d.score.toFixed(1)}</div>
+                      <div style={{ fontFamily:'var(--font-mono)', fontSize:12, fontWeight:700, color:'rgba(45,212,160,.97)', textAlign:'right' }}>{d.score.toFixed(1)}</div>
                     </div>
                   ))}
-                  <div style={{ margin:'0 16px 12px', paddingTop:10 }}>
-                    <div style={{ background:'rgba(45,212,160,.07)', border:'1px solid rgba(45,212,160,.2)', padding:'8px 12px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
-                      <div style={{ fontSize:11, fontWeight:700, color:'rgba(45,212,160,.97)' }}>AI Fortress: Premium Asset</div>
-                      <div style={{ fontSize:10, color:'rgba(255,255,255,.65)' }}>Top 15-20% of assessed cos.</div>
+                  <div style={{ padding:'12px 18px', marginTop:'auto' }}>
+                    <div style={{ background:'rgba(45,212,160,.06)', border:'1px solid rgba(45,212,160,.2)', padding:'10px 14px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
+                      <div style={{ fontSize:11, fontWeight:700, color:'rgba(45,212,160,.95)' }}>AI Fortress — Premium Asset</div>
+                      <div style={{ fontSize:10, color:'rgba(255,255,255,.55)' }}>Top 15–20% assessed</div>
                     </div>
                   </div>
                 </div>
-              )}
+
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* THE 15 QUESTIONS */}
+      <section style={{ padding:'56px 0', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
+        <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
+          <div style={{ marginBottom:36 }}>
+            <div className="ib-section-eyebrow" style={{ marginBottom:8 }}>The Research Instrument</div>
+            <div style={{ display:'flex', alignItems:'flex-end', justifyContent:'space-between', gap:24, flexWrap:'wrap' }}>
+              <h2 style={{ fontSize:22, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.022em', lineHeight:1.25, margin:0 }}>
+                15 questions. Every score sourced from verbatim customer responses.
+              </h2>
+              <p style={{ fontSize:13, color:'rgba(255,255,255,.68)', margin:0, maxWidth:380, textAlign:'right', lineHeight:1.65 }}>
+                No management briefing. No internal benchmarks. Customers are interviewed independently — the scores reflect what they actually said.
+              </p>
+            </div>
+          </div>
+
+          {/* Part headers */}
+          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:2, marginBottom:2 }}>
+            <div style={{ background:'rgba(77,144,254,.06)', border:'1px solid rgba(77,144,254,.15)', padding:'10px 18px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
+              <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(77,144,254,.8)' }}>Part I — AI Capability</div>
+              <div style={{ fontSize:10, color:'rgba(255,255,255,.45)' }}>Questions 1–10</div>
+            </div>
+            <div style={{ background:'rgba(45,212,160,.05)', border:'1px solid rgba(45,212,160,.15)', padding:'10px 18px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
+              <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(45,212,160,.8)' }}>Part II — AI Displacement Risk</div>
+              <div style={{ fontSize:10, color:'rgba(255,255,255,.45)' }}>Questions 11–15</div>
+            </div>
+          </div>
+
+          {/* Accordion */}
+          <div style={{ border:'1px solid rgba(255,255,255,.08)', overflow:'hidden' }}>
+            {QUESTIONS.map((q, i) => (
+              <div key={i} style={{ borderBottom: i < QUESTIONS.length-1 ? '1px solid rgba(255,255,255,.06)' : 'none' }}>
+                <button
+                  onClick={() => setOpenQ(openQ === i ? null : i)}
+                  style={{
+                    all:'unset', cursor:'pointer', width:'100%', display:'flex', alignItems:'center',
+                    padding:'14px 20px', gap:16, background: openQ === i ? 'rgba(255,255,255,.03)' : 'rgba(6,14,28,.97)',
+                    transition:'background .12s',
+                  }}
+                >
+                  <div style={{ fontFamily:'var(--font-mono)', fontSize:11, fontWeight:700, color: q.part === 'I' ? 'rgba(77,144,254,.7)' : 'rgba(45,212,160,.7)', flexShrink:0, width:28 }}>{q.num}</div>
+                  <div style={{ flex:1, fontSize:13, fontWeight:600, color:'rgba(255,255,255,.88)', textAlign:'left' }}>{q.label}</div>
+                  <div style={{ fontSize:11, color: q.part === 'I' ? 'rgba(77,144,254,.6)' : 'rgba(45,212,160,.6)', flexShrink:0, fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase' }}>Part {q.part}</div>
+                  <div style={{ color:'rgba(255,255,255,.35)', flexShrink:0, fontSize:14, transform: openQ === i ? 'rotate(180deg)' : 'none', transition:'transform .2s' }}>↓</div>
+                </button>
+                {openQ === i && (
+                  <div style={{ padding:'0 20px 20px 64px', background:'rgba(6,14,28,.97)' }}>
+                    <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:16, marginBottom:14 }}>
+                      <div>
+                        <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color: q.part === 'I' ? 'rgba(77,144,254,.6)' : 'rgba(45,212,160,.6)', marginBottom:6 }}>Rating prompt</div>
+                        <div style={{ fontSize:12, color:'rgba(255,255,255,.72)', lineHeight:1.7 }}>{q.rating}</div>
+                      </div>
+                      <div>
+                        <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color: q.part === 'I' ? 'rgba(77,144,254,.6)' : 'rgba(45,212,160,.6)', marginBottom:6 }}>Open-ended prompt</div>
+                        <div style={{ fontSize:12, color:'rgba(255,255,255,.72)', lineHeight:1.7 }}>{q.open}</div>
+                      </div>
+                    </div>
+                    <div style={{ borderLeft:`1px solid ${q.part === 'I' ? 'rgba(77,144,254,.3)' : 'rgba(45,212,160,.3)'}`, paddingLeft:12 }}>
+                      <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.35)', marginBottom:4 }}>Why it matters</div>
+                      <div style={{ fontSize:12, color:'rgba(255,255,255,.65)', lineHeight:1.65, fontStyle:'italic' }}>{q.why}</div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
