@@ -315,7 +315,7 @@ export default function QofAIPage() {
       </section>
 
       {/* PRICING — interactive scope slider */}
-      <section style={{ padding:'56px 0', background:'linear-gradient(168deg,#050e1e 0%,#081628 100%)', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
+      <section style={{ padding:'56px 0', background:'linear-gradient(168deg,#040c1a 0%,#060f22 50%,#040c1a 100%)', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
 
           <div style={{ display:'flex', alignItems:'flex-end', justifyContent:'space-between', gap:24, flexWrap:'wrap', marginBottom:40 }}>
@@ -339,7 +339,7 @@ export default function QofAIPage() {
                 name: 'AI Structural Position',
                 price: 25,
                 weeks: '2 weeks',
-                color: 'rgba(245,158,11,.95)',
+                color: 'rgba(130,175,255,.95)',
                 features: [
                   'AI Resilience Score (5 dimensions)',
                   'Data moat analysis',
@@ -369,7 +369,7 @@ export default function QofAIPage() {
                 name: 'Full Assessment',
                 price: 35,
                 weeks: '3 weeks',
-                color: 'rgba(200,220,255,.92)',
+                color: 'rgba(168,130,255,.95)',
                 features: [
                   'AI Capability Score (10 dimensions)',
                   'AI Resilience Score (5 dimensions)',
@@ -414,8 +414,8 @@ export default function QofAIPage() {
                       </div>
                     </div>
                     <div style={{ paddingBottom:8 }}>
-                      <div style={{ fontSize:12, color:'rgba(255,255,255,.52)', lineHeight:1.5 }}>{tier.weeks}</div>
-                      <div style={{ fontSize:12, color:'rgba(255,255,255,.52)' }}>{tier.dims} dimensions</div>
+                      <div style={{ fontSize:13, color:'rgba(255,255,255,.68)', lineHeight:1.5 }}>{tier.weeks}</div>
+                      <div style={{ fontSize:13, color:'rgba(255,255,255,.68)' }}>{tier.dims} dimensions</div>
                     </div>
                   </div>
 
@@ -495,7 +495,7 @@ export default function QofAIPage() {
                       <div style={{
                         height:'100%',
                         width:`${pct}%`,
-                        background: `linear-gradient(90deg, rgba(245,158,11,.8), ${tier.color})`,
+                        background: `linear-gradient(90deg, rgba(130,175,255,.6), ${tier.color})`,
                         borderRadius:2,
                         transition:'all .3s ease',
                       }} />
@@ -512,9 +512,9 @@ export default function QofAIPage() {
                         <div
                           key={i}
                           style={{
-                            width:16, height:16, borderRadius:2,
+                            width:18, height:18, borderRadius:3,
                             background: i < (tier.dims as number)
-                              ? (i < 5 ? 'rgba(245,158,11,.7)' : 'rgba(77,144,254,.7)')
+                              ? (i < 5 ? 'rgba(45,212,160,.75)' : 'rgba(77,144,254,.75)')
                               : 'rgba(255,255,255,.06)',
                             transition:'all .2s',
                             transitionDelay: `${i * 0.015}s`,
@@ -523,8 +523,8 @@ export default function QofAIPage() {
                       ))}
                     </div>
                     <div style={{ display:'flex', gap:16, marginTop:8 }}>
-                      <div style={{ display:'flex', alignItems:'center', gap:5, fontSize:10, color:'rgba(245,158,11,.75)' }}>
-                        <div style={{ width:8, height:8, background:'rgba(245,158,11,.7)', borderRadius:1 }} />
+                      <div style={{ display:'flex', alignItems:'center', gap:5, fontSize:10, color:'rgba(45,212,160,.85)' }}>
+                        <div style={{ width:8, height:8, background:'rgba(45,212,160,.75)', borderRadius:1 }} />
                         Resilience (5)
                       </div>
                       <div style={{ display:'flex', alignItems:'center', gap:5, fontSize:10, color:'rgba(77,144,254,.75)' }}>
@@ -537,12 +537,15 @@ export default function QofAIPage() {
 
                 {/* RIGHT: What's included */}
                 <div style={{
-                  background: (tier as any).recommended ? 'rgba(45,212,160,.04)' : 'rgba(255,255,255,.02)',
+                  background: `linear-gradient(160deg, rgba(6,14,36,.98) 0%, rgba(10,20,48,.95) 100%)`,
                   borderLeft: `2px solid ${tier.color}`,
                   padding:'32px 28px',
                   display:'flex', flexDirection:'column', gap:20,
                   transition:'all .2s',
+                  position:'relative',
+                  overflow:'hidden',
                 }}>
+                  <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:`linear-gradient(90deg, ${tier.color}, transparent)`, opacity:.5 }} />
                   <div>
                     {(tier as any).recommended && (
                       <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(45,212,160,.9)', background:'rgba(45,212,160,.1)', padding:'2px 8px', display:'inline-block', marginBottom:8 }}>
