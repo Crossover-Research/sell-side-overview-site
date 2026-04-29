@@ -1,5 +1,5 @@
 export const IB_TRACK_RECORD = {
-  mandatesSupported: '50+',
+  mandatesSupported: '30+',
   jpmEngagements: '22+',
   totalTransactionValue: '$25B+',
   winRateWithCrossover: '60%',
