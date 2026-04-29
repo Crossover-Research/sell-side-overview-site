@@ -40,9 +40,9 @@ const QUESTIONS = [
     color: 'rgba(77,144,254,.9)',
   },
   {
-    part: 'I', num: 'Q3', label: 'Competitive Differentiation',
-    rating: 'Compared to alternatives you've evaluated, how would you rate [Software Name]'s AI capabilities? (1 = Significantly behind, 5 = On par, 10 = Clear market leader)',
-    open: 'Which specific AI capabilities set [Software Name] apart from competitors? Please name specific competing products if possible.',
+    part: 'I', num: 'Q3', label: 'Competitive Differentiation",
+    rating: "Compared to alternatives you've evaluated, how would you rate [Software Name]"s AI capabilities? (1 = Significantly behind, 5 = On par, 10 = Clear market leader)",
+    open: "Which specific AI capabilities set [Software Name] apart from competitors? Please name specific competing products if possible.",
     why: 'Direct competitive positioning data. Reveals the actual battleground features and which competitors are winning on AI.',
     color: 'rgba(77,144,254,.9)',
   },
@@ -57,7 +57,7 @@ const QUESTIONS = [
     part: 'I', num: 'Q5', label: 'Accuracy & Reliability',
     rating: 'Rate the accuracy and reliability of AI-generated outputs in [Software Name]. (1 = Frequently inaccurate, 5 = Generally reliable, 10 = Consistently accurate)',
     open: 'Describe any instances where AI outputs were inaccurate. How often does this happen, and does it impact your trust in the system?',
-    why: 'Critical for risk assessment. AI that doesn't work creates massive churn risk and kills valuation stories.',
+    why: "Critical for risk assessment. AI that doesn't work creates massive churn risk and kills valuation stories.",
     color: 'rgba(77,144,254,.9)',
   },
   {
@@ -83,7 +83,7 @@ const QUESTIONS = [
   },
   {
     part: 'I', num: 'Q9', label: 'Roadmap Confidence',
-    rating: 'Based on what you've seen so far, how confident are you that [Software Name] will continue to lead with AI innovation? (1 = Not confident, 10 = Extremely confident, committed long-term)',
+    rating: "Based on what you've seen so far, how confident are you that [Software Name] will continue to lead with AI innovation? (1 = Not confident, 10 = Extremely confident, committed long-term)",
     open: 'What would need to happen with AI capabilities for you to consider switching to a competitor?',
     why: 'Forward-looking retention indicator. Reveals competitive vulnerabilities and moat defensibility.',
     color: 'rgba(77,144,254,.9)',
@@ -137,28 +137,28 @@ const OBJECTIONS = [
     tag: 'Foundation model risk',
     q: 'What stops a foundation model from replacing this in 12 months?',
     stat: { label: 'Data Lock-In Score', val: '9.1/10' },
-    answer: "Lead with the 9.1/10 data lock-in score and the 18-24 month replication barrier documented from actual customer interviews, not analyst projections. Customers tested ChatGPT and Claude as alternatives and failed — the product requires domain-specific training data accumulated over years. Pivot: foundation models validate the moat, because every new integration makes the product more intelligent and the barrier wider. Quote verbatims from customers who attempted to migrate. The objection answers itself when buyers hear it from the company's own users.",
+    answer: "Lead with the 9.1/10 data lock-in score and the 18-24 month replication barrier documented from actual customer interviews, not analyst projections. Customers tested ChatGPT and Claude as alternatives and failed — the product requires domain-specific training data accumulated over years. Pivot: foundation models validate the moat, because every new integration makes the product more intelligent and the barrier wider. Quote verbatims from customers who attempted to migrate. The objection answers itself when buyers hear it from the company"s own users.",
     close: "Foundation models don't replace domain data. They expose how much of it this company has.",
   },
   {
-    tag: 'AI-native competition',
+    tag: "AI-native competition',
     q: 'Why can\'t a well-funded AI-native startup take this market?',
-    stat: { label: 'Feature Adoption Score', val: '8.9/10' },
-    answer: "Acknowledge the 7.4/10 innovation velocity score directly — transparency builds credibility for every other number. Then reframe the question: AI-native startups are building on generic infrastructure. This company has 8.9/10 feature adoption, 8+ integrations per customer, and years of domain-specific usage patterns creating proprietary data loops no startup can replicate from scratch. They can ship faster. They cannot replicate the data. Roadmap credibility at 8.0/10 means customers believe this company knows what to build next — the comparison isn't feature cadence, it's defensibility once embedded.",
+    stat: { label: 'Feature Adoption Score', val: '8.9/10" },
+    answer: "Acknowledge the 7.4/10 innovation velocity score directly — transparency builds credibility for every other number. Then reframe the question: AI-native startups are building on generic infrastructure. This company has 8.9/10 feature adoption, 8+ integrations per customer, and years of domain-specific usage patterns creating proprietary data loops no startup can replicate from scratch. They can ship faster. They cannot replicate the data. Roadmap credibility at 8.0/10 means customers believe this company knows what to build next — the comparison isn't feature cadence, it"s defensibility once embedded.",
     close: "They can copy the features. They can't copy the data.",
   },
   {
     tag: 'Valuation premium',
     q: 'What justifies paying above the peer comp set?',
-    stat: { label: 'AI Fortress rate (all assessed cos.)', val: '15-20%' },
-    answer: "Only 15-20% of software companies assessed achieve AI Fortress positioning: High Capability combined with High Resilience. Present the AI Resilience Matrix as third-party benchmarking, not self-assessment. These scores come from actual customers collected by Crossover without management present or briefed, using the same methodology across 50+ mandates. That independence is what supports a 15-25% premium over peer comps. The ask isn't to trust management's narrative. It's to trust 30+ customer voices who had no stake in the outcome.",
+    stat: { label: 'AI Fortress rate (all assessed cos.)', val: '15-20%" },
+    answer: "Only 15-20% of software companies assessed achieve AI Fortress positioning: High Capability combined with High Resilience. Present the AI Resilience Matrix as third-party benchmarking, not self-assessment. These scores come from actual customers collected by Crossover without management present or briefed, using the same methodology across 50+ mandates. That independence is what supports a 15-25% premium over peer comps. The ask isn't to trust management"s narrative. It's to trust 30+ customer voices who had no stake in the outcome.",
     close: "Customer-validated AI Fortress positioning supports 15-25% above peer comps.",
   },
   {
     tag: 'Customer retention',
     q: 'What\'s the realistic cost and timeline to migrate off this platform?',
-    stat: { label: 'Data Lock-In Score', val: '9.1/10' },
-    answer: "Eight or more integrations per customer means migration isn't a switching decision — it's a 6+ month cross-functional re-platforming project requiring executive sponsorship and carrying real operational risk. The 9.1/10 data lock-in score reflects customers' own assessment of how embedded the product is. 82% daily active usage places it in the critical path of everyday operations. Layer on the 18-24 month barrier to replicate domain-specific training data and the economics collapse. A foundation model cannot replace a system-of-record without its entire historical decision log.",
+    stat: { label: 'Data Lock-In Score', val: '9.1/10" },
+    answer: "Eight or more integrations per customer means migration isn't a switching decision — it"s a 6+ month cross-functional re-platforming project requiring executive sponsorship and carrying real operational risk. The 9.1/10 data lock-in score reflects customers' own assessment of how embedded the product is. 82% daily active usage places it in the critical path of everyday operations. Layer on the 18-24 month barrier to replicate domain-specific training data and the economics collapse. A foundation model cannot replace a system-of-record without its entire historical decision log.",
     close: "Migration requires board approval. Switching is not the right frame.",
   },
   {
@@ -172,7 +172,7 @@ const OBJECTIONS = [
     tag: 'Competitive disruption',
     q: 'What happens if OpenAI or Google enters this market directly?',
     stat: { label: 'AI Leapfrog Resistance', val: '9.0/10' },
-    answer: "The 9.0/10 AI Leapfrog Resistance score documents customers' own assessment of vulnerability to competitive leapfrog — and the answer is: low. This company's AI advantage is not dependent on any single foundational model. It is built on years of domain-specific usage patterns, proprietary workflows, and integrations that cannot be replicated by any new entrant, regardless of capital or brand. Customers who tested alternative AI providers report an 18-24 month replication barrier. OpenAI entering the market doesn't change the competitive calculus — the moat is in the data, not the model.",
+    answer: "The 9.0/10 AI Leapfrog Resistance score documents customers' own assessment of vulnerability to competitive leapfrog — and the answer is: low. This company"s AI advantage is not dependent on any single foundational model. It is built on years of domain-specific usage patterns, proprietary workflows, and integrations that cannot be replicated by any new entrant, regardless of capital or brand. Customers who tested alternative AI providers report an 18-24 month replication barrier. OpenAI entering the market doesn't change the competitive calculus — the moat is in the data, not the model.",
     close: "The moat is domain data and institutional context. Not the model on top of it.",
   },
 ];
@@ -180,7 +180,7 @@ const OBJECTIONS = [
 export default function QofAIPage() {
   const [selectedQ, setSelectedQ] = useState(0);
   const [tierIdx, setTierIdx] = useState(2); // default: Full Assessment
-  const [scoreTab, setScoreTab] = useState<'capability'|'resilience'>('capability');
+  const [scoreTab, setScoreTab] = useState<"capability'|'resilience'>('capability');
   const [openQ, setOpenQ] = useState<number|null>(null);
 
   return (
@@ -777,10 +777,10 @@ export default function QofAIPage() {
           <h2 style={{ fontSize:28, fontWeight:700, color:'rgba(255,255,255,.97)', letterSpacing:'-.025em', lineHeight:1.2, marginBottom:12 }}>
             Pre-empt the objection.<br />Commission the Q of AI.
           </h2>
-          <p style={{ fontSize:13, color:'rgba(255,255,255,.72)', lineHeight:1.78, marginBottom:28 }}>
+          <p style={{ fontSize:13, color:'rgba(255,255,255,.72)", lineHeight:1.78, marginBottom:28 }}>
             Institutional buyers are pricing AI capability and defensibility into every bid. Companies that arrive with customer-validated evidence don't just answer the question. They set the terms.
           </p>
-          <div style={{ display:'flex', gap:10, justifyContent:'center', flexWrap:'wrap', marginBottom:18 }}>
+          <div style={{ display:"flex', gap:10, justifyContent:'center', flexWrap:'wrap', marginBottom:18 }}>
             <a href={`mailto:${CONTACT.email}`} style={{ background:'rgba(255,255,255,.95)', color:'#050e1e', padding:'11px 26px', fontSize:13, fontWeight:700, textDecoration:'none' }}>
               Email Ian →
             </a>
