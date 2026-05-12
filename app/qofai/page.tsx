@@ -40,8 +40,8 @@ const QUESTIONS = [
     color: 'rgba(77,144,254,.9)',
   },
   {
-    part: 'I', num: 'Q3', label: 'Competitive Differentiation",
-    rating: "Compared to alternatives you've evaluated, how would you rate [Software Name]"s AI capabilities? (1 = Significantly behind, 5 = On par, 10 = Clear market leader)",
+    part: 'I', num: 'Q3', label: 'Competitive Differentiation',
+    rating: "Compared to alternatives you've evaluated, how would you rate [Software Name]\'s AI capabilities? (1 = Significantly behind, 5 = On par, 10 = Clear market leader)",
     open: "Which specific AI capabilities set [Software Name] apart from competitors? Please name specific competing products if possible.",
     why: 'Direct competitive positioning data. Reveals the actual battleground features and which competitors are winning on AI.',
     color: 'rgba(77,144,254,.9)',
