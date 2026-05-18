@@ -179,7 +179,7 @@ export function EvidenceTable() {
         <div style={{ border:'1px solid rgba(255,255,255,.1)', overflow:'hidden' }}>
 
           {/* Column headers */}
-          <div style={{ display:'grid', gridTemplateColumns:'150px 1fr 36px 1fr', background:'rgba(255,255,255,.04)', borderBottom:'1px solid rgba(255,255,255,.09)' }}>
+          <div style={{ display:'grid', gridTemplateColumns:'200px 1fr 36px 1fr', background:'rgba(255,255,255,.04)', borderBottom:'1px solid rgba(255,255,255,.09)' }}>
             <div style={{ padding:'12px 18px' }} />
             <div style={{ padding:'12px 18px', fontSize:13, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(255,255,255,.78)', borderLeft:'1px solid rgba(255,255,255,.07)' }}>
               Without Crossover
@@ -195,14 +195,14 @@ export function EvidenceTable() {
             <div
               key={i}
               style={{
-                display:'grid', gridTemplateColumns:'150px 1fr 36px 1fr',
+                display:'grid', gridTemplateColumns:'200px 1fr 36px 1fr',
                 borderBottom: i < ROWS.length-1 ? '1px solid rgba(255,255,255,.05)' : 'none',
                 background:'rgba(6,14,28,.97)',
               }}
             >
               {/* Row label */}
-              <div style={{ padding:'20px 16px', display:'flex', alignItems:'center', borderRight:'1px solid rgba(255,255,255,.05)' }}>
-                <span style={{ fontSize:11.5, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase', color:'rgba(255,255,255,.78)', background:'rgba(255,255,255,.08)', padding:'3px 9px', whiteSpace:'nowrap', maxWidth:'100%', overflow:'hidden', textOverflow:'ellipsis' }}>
+              <div style={{ padding:'20px 14px', display:'flex', alignItems:'center', borderRight:'1px solid rgba(255,255,255,.05)' }}>
+                <span style={{ fontSize:11, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase', color:'rgba(255,255,255,.88)', background:'rgba(255,255,255,.10)', padding:'4px 10px', whiteSpace:'nowrap' }}>
                   {row.label}
                 </span>
               </div>

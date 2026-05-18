@@ -80,7 +80,7 @@ export function CapabilitiesEngine() {
                 key={i}
                 onClick={() => setActiveStage(isActive ? null : i)}
                 style={{
-                  display:'grid', gridTemplateColumns:'140px 1fr auto',
+                  display:'grid', gridTemplateColumns:'180px 1fr 220px',
                   background: isActive ? 'rgba(120,144,178,.07)' : 'rgba(6,14,28,.97)',
                   cursor:'pointer', transition:'background .15s',
                   borderLeft:`2px solid ${isActive ? 'rgba(120,144,178,.5)' : 'transparent'}`,
