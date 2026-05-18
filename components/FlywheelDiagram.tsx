@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 const STEPS = [
   { id: 1, label: 'Sell-Side Mandate',   sub: 'J.P. Morgan engages Crossover', color: 'rgba(120,144,178,.8)' },
   { id: 2, label: 'Line of Sight',       sub: 'Primary research → high-conviction asset', color: 'rgba(120,144,178,.8)' },
-  { id: 3, label: 'Fundamental View',    sub: 'Original thesis — independent, not curated', color: 'rgba(120,144,178,.8)' },
+  { id: 3, label: 'Fundamental View',    sub: 'Original thesis. independent, not curated', color: 'rgba(120,144,178,.8)' },
   { id: 4, label: 'Buy-Side Match',      sub: 'GA alerted · 30-min brief · early positioning', color: 'rgba(120,144,178,.8)' },
   { id: 5, label: 'Secondary Diligence', sub: '$500M Series C at $1B+ valuation', color: '#5974a0' },
 ];

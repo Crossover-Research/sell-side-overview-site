@@ -30,7 +30,7 @@ export function HeroSection({ tab }: HeroSectionProps) {
           Independent Research · Private Markets
         </div>
 
-        {/* Headline — uniform weight, both lines equal */}
+        {/* Headline. uniform weight, both lines equal */}
         <h1 style={{
           fontSize:'clamp(34px,4.8vw,60px)', fontWeight:800, lineHeight:1.1,
           letterSpacing:'-.04em', color:'rgba(255,255,255,.97)', marginBottom:22,
@@ -45,11 +45,11 @@ export function HeroSection({ tab }: HeroSectionProps) {
           lineHeight:1.8, maxWidth:640, margin:'0 auto 40px',
         }}>
           J.P. Morgan won the Nerdio mandate using our research.
-          General Atlantic used the same research to build conviction &mdash; and invested $500M.
+          General Atlantic used the same research to build conviction and invested $500M.
         </p>
 
 
-        {/* CTAs — Book a Meeting primary, Scope secondary */}
+        {/* CTAs. Book a Meeting primary, Scope secondary */}
         <div style={{ display:'flex', gap:12, justifyContent:'center', marginBottom:52, flexWrap:'wrap' }}>
           <a
             href={CONTACT.bookingUrl}
@@ -112,7 +112,7 @@ export function HeroSection({ tab }: HeroSectionProps) {
             }}>
               <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.70)' }}>{m.label}</div>
               <div style={{
-                fontFamily:'var(--font-mono)', fontSize:'clamp(22px,2.6vw,36px)',
+                fontSize:'clamp(22px,2.6vw,36px)',
                 fontWeight:700, color:'rgba(255,255,255,.97)',
                 letterSpacing:'-.03em', lineHeight:1,
               }}>{m.val}</div>

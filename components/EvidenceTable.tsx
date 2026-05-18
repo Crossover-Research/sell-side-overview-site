@@ -238,7 +238,7 @@ export function EvidenceTable() {
           {outcome.stat && (
             <>
               <div style={{ flexShrink:0, textAlign:'center', minWidth:80 }}>
-                <div style={{ fontFamily:'var(--font-mono)', fontSize:30, fontWeight:700, color:aud.color, lineHeight:1, letterSpacing:'-.02em', marginBottom:4 }}>{outcome.stat}</div>
+                <div style={{ fontSize:30, fontWeight:700, color:aud.color, lineHeight:1, letterSpacing:'-.02em', marginBottom:4 }}>{outcome.stat}</div>
                 <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.75)' }}>{outcome.statLabel}</div>
               </div>
               <div style={{ width:1, height:44, background:'rgba(255,255,255,.08)', flexShrink:0 }} />

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { CONTACT } from '../../lib/config/site';
 
 /**
- * Voice of Customer — The Methodology
+ * Voice of Customer: The Methodology
  *
  * Methodology-focused page. No products or pricing here (those live
  * on /intelligence). The job of this page is to convince a banker
@@ -114,7 +114,7 @@ const MGMT_FAILURE_REASONS = [
   },
 ];
 
-// Crossover Core 9 — the standardized methodology
+// Crossover Core 9 - the standardized methodology
 const CORE_9 = [
   { num: '01', name: 'Net Promoter Score',           body: 'Customer loyalty benchmarked against 40+ comparable studies in the database.' },
   { num: '02', name: 'Renewal Intent',               body: 'Forward-looking signal of retention risk. The cleanest predictor of churn.' },
@@ -158,15 +158,15 @@ export default function VoiceOfCustomerPage() {
 
   return (
     <>
-      {/* HERO — methodology angle */}
+      {/* HERO: methodology angle */}
       <section style={{ background:'linear-gradient(168deg,#050e1e 0%,#081526 55%,#0c1e38 100%)', borderBottom:'1px solid rgba(255,255,255,.07)', padding:'68px 0 56px' }}>
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
           <div style={{ display:'inline-flex', alignItems:'center', fontSize:13, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', background:'rgba(120,144,178,.10)', border:'1px solid rgba(166,183,210,.35)', padding:'5px 14px', marginBottom:22 }}>
             Voice of Customer &middot; The Methodology
           </div>
           <h1 style={{ fontSize:'clamp(34px, 5vw, 52px)', fontWeight:700, color:'rgba(255,255,255,.98)', lineHeight:1.08, letterSpacing:'-.035em', margin:'0 0 18px', maxWidth:1040 }}>
-            Buyers discount management-sourced references.
-            <span style={{ display:'block', color:'rgba(166,183,210,.95)' }}>We do not take them.</span>
+            Management-sourced reference lists do not survive diligence.
+            <span style={{ display:'block', color:'rgba(166,183,210,.95)' }}>Crossover sources customers independently of the operator.</span>
           </h1>
           <p style={{ fontSize:17, color:'rgba(255,255,255,.90)', lineHeight:1.7, maxWidth:820, margin:'0 0 30px' }}>
             Crossover sources customers independently, screens them blind to the operator, and scores them on a fixed nine-dimension instrument. The evidence base is one of one in the market. No competing research provider does all three. The banker walks into the pitch with research that survives diligence, not a curated reference list that does not.
@@ -245,7 +245,7 @@ export default function VoiceOfCustomerPage() {
         </div>
       </section>
 
-      {/* WALKTHROUGH — Source / Interview / Score / Deliver */}
+      {/* WALKTHROUGH: Source / Interview / Score / Deliver */}
       <section style={{ padding:'72px 0', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
           <div style={{ marginBottom:32 }}>
@@ -437,7 +437,7 @@ export default function VoiceOfCustomerPage() {
         </div>
       </section>
 
-      {/* ARTIFACTS — what ships */}
+      {/* ARTIFACTS: what ships */}
       <section style={{ padding:'72px 0', background:'rgba(255,255,255,.018)', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
           <div style={{ marginBottom:24 }}>
@@ -481,7 +481,7 @@ export default function VoiceOfCustomerPage() {
                 padding:'22px 24px',
                 borderLeft: !c.muted ? '3px solid rgba(166,183,210,.6)' : 'none',
               }}>
-                <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color: c.muted ? 'rgba(255,255,255,.62)' : 'rgba(166,183,210,.95)', marginBottom:10 }}>
+                <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color: c.muted ? 'rgba(255,255,255,.82)' : 'rgba(166,183,210,.95)', marginBottom:10 }}>
                   {c.kind}
                 </div>
                 <div style={{ fontSize:13.5, color: c.muted ? 'rgba(255,255,255,.78)' : 'rgba(255,255,255,.94)', fontWeight: c.muted ? 400 : 500, lineHeight:1.65 }} dangerouslySetInnerHTML={{ __html: c.detail }} />

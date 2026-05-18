@@ -60,7 +60,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { firstName, lastName, email, firm, orgType, mandate } = body;
 
-    // ── Supabase write (service role key — bypasses RLS) ────────────────────
+    // ── Supabase write (service role key. bypasses RLS) ────────────────────
     try {
       const supabase = createClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -82,7 +82,7 @@ export async function POST(request: Request) {
 
     // ── Email + Cliq notification ────────────────────────────────────────────
     const notifyTo    = process.env.NOTIFY_TO_EMAIL ?? 'ian@crossoverresearch.com';
-    const subject     = `New Catalyst Request — ${firstName} ${lastName} · ${firm}`;
+    const subject     = `New Catalyst Request. ${firstName} ${lastName} · ${firm}`;
     const htmlBody    = `
       <div style="font-family:sans-serif;max-width:520px;margin:0 auto;padding:24px">
         <h2 style="margin:0 0 16px">New Catalyst Request</h2>
@@ -102,8 +102,8 @@ export async function POST(request: Request) {
       emailSent = await sendZohoEmail(accessToken, notifyTo, subject, htmlBody);
     }
 
-    // Always send Cliq — guaranteed channel
-    const cliqText = `*New Catalyst Request*\n*Name:* ${firstName} ${lastName}\n*Email:* ${email}\n*Firm:* ${firm} (${orgType})\n*Target:* ${mandate || 'not specified'}${emailSent ? '' : '\n_(email notification failed — check Zoho scopes)_'}`;
+    // Always send Cliq. guaranteed channel
+    const cliqText = `*New Catalyst Request*\n*Name:* ${firstName} ${lastName}\n*Email:* ${email}\n*Firm:* ${firm} (${orgType})\n*Target:* ${mandate || 'not specified'}${emailSent ? '' : '\n_(email notification failed. check Zoho scopes)_'}`;
     await sendCliqNotification(cliqText);
 
     return NextResponse.json({ success: true });

@@ -26,7 +26,7 @@ export default function SamplesPage() {
           <div style={{ fontSize:15, fontWeight:600, color:'rgba(166,183,210,.8)', marginTop:16 }}>View Study &rarr;</div>
         </a>
 
-        {/* Battery Ventures card — matches other card structure */}
+        {/* Battery Ventures card. matches other card structure */}
         <a
           href="https://www.battery.com/blog/first-coding-next-finance-ai-adoption-comes-to-the-cfo-suite/"
           target="_blank"

@@ -130,7 +130,7 @@ export function DealProof() {
           </h2>
         </div>
 
-        {/* Tab selectors — 44x28 touch targets wrapping visual dots */}
+        {/* Tab selectors. 44x28 touch targets wrapping visual dots */}
         <div style={{ display:'flex', justifyContent:'center', gap:4, marginBottom:20 }}>
           {DEALS.map((_, i) => (
             <button
@@ -164,7 +164,7 @@ export function DealProof() {
           }} />
         </div>
 
-        {/* Card — LEFT: Transaction parties  |  RIGHT: Crossover's role */}
+        {/* Card. LEFT: Transaction parties  |  RIGHT: Crossover's role */}
         <div style={{
           border:'1px solid rgba(255,255,255,.09)',
           background:'rgba(6,14,28,.98)',
@@ -191,7 +191,7 @@ export function DealProof() {
                 <div style={{ fontSize:13.5, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.72)', marginBottom:5 }}>
                   {deal.sizeLabel}
                 </div>
-                <div style={{ fontFamily:'var(--font-mono)', fontSize:38, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.04em', lineHeight:1, marginBottom:5 }}>
+                <div style={{ fontSize:38, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.04em', lineHeight:1, marginBottom:5 }}>
                   {deal.size}
                 </div>
                 <div style={{ fontSize:13.5, color:'rgba(255,255,255,.78)', letterSpacing:'.04em' }}>

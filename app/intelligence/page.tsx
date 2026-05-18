@@ -7,6 +7,7 @@ import { CONTACT } from '../../lib/config/site';
 import { SelectField } from '../../components/SelectField';
 import { CapabilitiesEngine } from '../../components/CapabilitiesEngine';
 import { EvidenceTable } from '../../components/EvidenceTable';
+import { DealProof } from '../../components/DealProof';
 
 
 function RequestParamWatcher({ onOpen }: { onOpen: () => void }) {
@@ -90,7 +91,7 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
   );
 }
 
-/* SampleCard — direct link, logo shown immediately */
+/* SampleCard. direct link, logo shown immediately */
 function SampleCard({ href, type, badge, logoSrc, logoAlt, logoInvert, cta }: {
   href: string; type: string; badge: string;
   logoSrc: string; logoAlt: string; logoInvert: boolean; cta: string;
@@ -136,6 +137,7 @@ export default function IntelligencePage() {
       <Suspense fallback={null}><RequestParamWatcher onOpen={openRequest} /></Suspense>
       <CapabilitiesEngine />
       <EvidenceTable />
+      <DealProof />
       
 
       {/* SAMPLE STUDIES */}
@@ -183,7 +185,7 @@ export default function IntelligencePage() {
             </a>
           </div>
 
-          {/* Catalog strip — full width */}
+          {/* Catalog strip. full width */}
           <a href="/catalyst" style={{
             display:'flex', alignItems:'center', justifyContent:'space-between',
             background:'rgba(6,14,28,.97)', border:'1px solid rgba(255,255,255,.07)',
@@ -196,7 +198,7 @@ export default function IntelligencePage() {
             <div style={{ display:'flex', alignItems:'center', gap:24 }}>
               <div>
                 <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.72)', marginBottom:4 }}>Catalyst Library</div>
-                <div style={{ fontFamily:'var(--font-mono)', fontSize:22, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.02em' }}>
+                <div style={{ fontSize:22, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.02em' }}>
                   {CATALYST_LIVE_COUNT} Assets
                 </div>
               </div>
@@ -207,7 +209,7 @@ export default function IntelligencePage() {
                   const cfg = { transacted:{ color:'rgba(180,180,200,.72)' as const, label:'Closed' }, active:{ color:'rgba(89,116,154,.88)' as const, label:'Active' }, new:{ color:'rgba(245,158,11,.88)' as const, label:'New' } };
                   return n > 0 ? (
                     <div key={s} style={{ textAlign:'center' }}>
-                      <div style={{ fontFamily:'var(--font-mono)', fontSize:20, fontWeight:700, color:cfg[s].color, letterSpacing:'-.02em', lineHeight:1 }}>{n}</div>
+                      <div style={{ fontSize:20, fontWeight:700, color:cfg[s].color, letterSpacing:'-.02em', lineHeight:1 }}>{n}</div>
                       <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase', color:cfg[s].color, opacity:.7, marginTop:3 }}>{cfg[s].label}</div>
                     </div>
                   ) : null;

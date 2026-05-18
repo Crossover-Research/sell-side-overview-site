@@ -7,7 +7,7 @@ const STAGES = [
     name: 'Sector Research',
     timing: 'Pipeline build · pre-mandate',
     headline: 'Build pipeline before competitors know the market is in play.',
-    desc: 'Independent customer evidence across a sector — no management contact required.',
+    desc: 'Independent customer evidence across a sector. no management contact required.',
     tags: ['3–6 weeks', '40–80 customers'],
     cta: 'Scope Sector Research',
   },

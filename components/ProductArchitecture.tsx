@@ -100,7 +100,7 @@ export function ProductArchitecture() {
 
         <div style={{ maxWidth: 860, margin: '0 auto' }}>
 
-          {/* Mandate Deck — top */}
+          {/* Mandate Deck. top */}
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 0 }}>
             <div style={{
               width: 480, padding: '18px 28px',
@@ -168,7 +168,7 @@ export function ProductArchitecture() {
               No restarts. No surprises. No retrades at the eleventh hour.
             </div>
             <div style={{ marginTop: 10, fontSize: 11, color: 'rgba(255,255,255,.70)', fontStyle: 'italic' }}>
-              Nerdio's $500M round — one verbatim truth layer, the bank's mandate, the investor's conviction, the operator's outcome.
+              Nerdio's $500M round. one verbatim truth layer, the bank's mandate, the investor's conviction, the operator's outcome.
             </div>
           </div>
 

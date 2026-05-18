@@ -25,12 +25,12 @@ export function ICCard({ card, isOpen, onToggle }: ICCardProps) {
         <div className="ic-verdict-chip">&#10003; {card.verdict.split(';')[0].split(',')[0]}</div>
       </div>
 
-      {/* EXPANDED BODY — clean 3-col layout */}
+      {/* EXPANDED BODY. clean 3-col layout */}
       <div className="ic-body">
         <div style={{ display: 'grid', gridTemplateColumns: '88px 1fr 1fr', gap: 0, padding: '0 20px 20px', alignItems: 'start' }}>
           {/* Col 1: Stat */}
           <div style={{ paddingTop: 16, paddingRight: 16, borderRight: '1px solid rgba(255,255,255,.06)' }}>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 32, fontWeight: 700, color: 'rgba(166,183,210,.9)', lineHeight: 1, letterSpacing: '-.02em', marginBottom: 5 }}>
+            <div style={{ fontSize: 32, fontWeight: 700, color: 'rgba(166,183,210,.9)', lineHeight: 1, letterSpacing: '-.02em', marginBottom: 5 }}>
               {card.stat.num}
             </div>
             <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,.82)', lineHeight: 1.4 }}>

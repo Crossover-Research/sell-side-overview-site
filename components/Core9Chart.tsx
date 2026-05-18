@@ -45,7 +45,7 @@ export function Core9Chart({ title = 'Red Canary' }: { title?: string }) {
     <div ref={ref} style={{ padding: '20px 0' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 16 }}>
         <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.80)' }}>
-          Crossover Core 9 — {title}
+          Crossover Core 9. {title}
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginLeft: 'auto' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
