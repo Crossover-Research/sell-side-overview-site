@@ -3,11 +3,12 @@ import { useState } from 'react';
 import { CONTACT, BRAND } from '../../lib/config/site';
 
 /**
- * Voice of Customer · The Crossover Intelligence Suite
+ * Voice of Customer · The Sell-Side Intelligence Suite
  *
- * Banker-facing suite page. One independent evidence base, four
- * deliverables across the transaction lifecycle. Q of AI as a
- * premium-defense add-on. Pricing slider aligned to milestones.
+ * MD-grade landing page. Pain-naming hero, proof up front,
+ * banker testimonial moment, suite as 4-row grid, deliverable
+ * preview, competitive callout, premium-defense Q of AI,
+ * module + N-count pricing slider, explicit closing CTA.
  */
 
 type DeliverableId = 'sector' | 'mandate' | 'cim' | 'diligence';
@@ -15,10 +16,8 @@ type DeliverableId = 'sector' | 'mandate' | 'cim' | 'diligence';
 const DELIVERABLES: {
   id: DeliverableId;
   stage: string;
-  audience: string;
   name: string;
   oneLine: string;
-  detail: string;
   timeline: string;
   customers: string;
   idealFor: string;
@@ -27,18 +26,13 @@ const DELIVERABLES: {
   {
     id: 'sector',
     stage: 'Pipeline',
-    audience: 'For the banker · pre-mandate',
     name: 'Sector Research',
-    oneLine:
-      'Build pipeline before competitors know the market is in play.',
-    detail:
-      'Independent customer evidence across a sector — no management contact required. Identify the assets buyers will want before they enter formal process and arrive at the operator with a thesis already built.',
+    oneLine: 'Build pipeline before competitors know the market is in play.',
     timeline: '3–6 weeks',
     customers: '40–80',
-    idealFor: 'Pipeline build',
+    idealFor: 'Pre-mandate · pipeline build',
     bullets: [
-      'Sector-wide customer interview base',
-      'Competitive positioning and switching dynamics',
+      'Sector-wide independent interview base',
       'No management contact required',
       'Two to three named conviction assets',
     ],
@@ -46,31 +40,22 @@ const DELIVERABLES: {
   {
     id: 'mandate',
     stage: 'Mandate',
-    audience: 'For the banker · pitch window',
     name: 'Mandate Pitch Deck',
-    oneLine:
-      'Walk into the pitch with customer evidence no competing bank can replicate.',
-    detail:
-      'Independent verbatims and benchmark scores delivered in time for the pitch. Three to five proof points your competitors do not have. The mandate is won on substance, not relationship.',
+    oneLine: 'Walk into the pitch with customer evidence no competing bank can replicate.',
     timeline: '2–3 weeks',
     customers: '20–30',
-    idealFor: 'Mandate pursuit',
+    idealFor: 'Mandate pursuit · pitch window',
     bullets: [
       'Customer-validated equity story',
       'Three to five mandate-winning proof points',
-      'Comparable benchmarks from 40+ prior studies',
       'Banker-ready slides; no analyst rework',
     ],
   },
   {
     id: 'cim',
     stage: 'CIM',
-    audience: 'For the operator · sell-side launch',
     name: 'VoC-Enhanced CIM',
-    oneLine:
-      'Every weak claim in the CIM pre-validated before buyers find it.',
-    detail:
-      'The CIM is built on independent customer evidence, not management assertions. Vulnerable claims are surfaced internally first so the rebuttal is already in the deck when buyers raise it in diligence.',
+    oneLine: 'Every weak claim in the CIM pre-validated before buyers find it.',
     timeline: '4–5 weeks',
     customers: '30–50',
     idealFor: 'Sell-side process launch',
@@ -78,25 +63,19 @@ const DELIVERABLES: {
       'Every claim mapped to independent customer evidence',
       'Pre-emptive rebuttal for every buyer objection',
       'NPS, criticality, switching difficulty benchmarked',
-      'Operators shape the conversation before it begins',
     ],
   },
   {
     id: 'diligence',
     stage: 'Diligence',
-    audience: 'For the buyer · pre-process',
     name: 'Customer Diligence Report',
-    oneLine:
-      'Conviction before the teaser drops. Bid with evidence, not assumptions.',
-    detail:
-      'Independent commercial diligence delivered ahead of the formal process. The buyer arrives at the first management call already ahead of every other fund and pre-empts the auction timeline.',
+    oneLine: 'Conviction before the teaser drops. Bid with evidence, not assumptions.',
     timeline: '5–7 weeks',
     customers: '50–100+',
-    idealFor: 'Pre-process conviction',
+    idealFor: 'Pre-process · IC prep',
     bullets: [
       'Independent customer interviews at scale',
       'Pricing elasticity and TAM validation',
-      'Competitive displacement and switching risk',
       'IC-ready evidence, no curated references',
     ],
   },
@@ -106,7 +85,7 @@ const PROOF_POINTS = [
   {
     label: 'Nerdio · Series C',
     value: '$500M',
-    sub: 'JP Morgan mandate + General Atlantic conviction',
+    sub: 'J.P. Morgan mandate + General Atlantic conviction',
     note: 'Customer interviews won the mandate; same research built General Atlantic’s thesis in a 30-minute call.',
   },
   {
@@ -123,13 +102,40 @@ const PROOF_POINTS = [
   },
 ];
 
-const Q_OF_AI_DIMS = [
-  { name: 'AI Capability', count: 10, hint: 'Adoption · ROI · Differentiation · Roadmap · Accuracy' },
-  { name: 'AI Displacement Risk', count: 5, hint: 'Lock-in · Leapfrog resistance · Replacement risk · Pricing defense' },
+const ARTIFACTS = [
+  {
+    title: '30+ customer verbatims',
+    body: 'Independently sourced, attributed, slide-ready. Drop directly into the pitch.',
+  },
+  {
+    title: 'Crossover Core 9 scorecard',
+    body: 'Nine standardized dimensions scored against 40+ comparable studies. Benchmarks every claim.',
+  },
+  {
+    title: 'Rebuttal map',
+    body: 'Every weak claim in the equity story paired with the customer evidence that defends it.',
+  },
+  {
+    title: 'IC-ready data appendix',
+    body: 'Raw transcripts, segment-level scoring, full audit trail. Survives the toughest buyer diligence.',
+  },
 ];
 
-// Pricing tiers — by module + N count. Fees scale with the number of
-// customer interviews, not engagement type.
+// Sample scorecard preview (anonymized — visual proof of the artifact)
+const SAMPLE_SCORES = [
+  { label: 'Customer Adoption',        score: 8.4, accent: 'rgba(166,183,210,.85)' },
+  { label: 'Switching Difficulty',     score: 9.1, accent: 'rgba(166,183,210,.85)' },
+  { label: 'Mission Criticality',      score: 8.2, accent: 'rgba(166,183,210,.85)' },
+  { label: 'Pricing Power',            score: 7.6, accent: 'rgba(166,183,210,.85)' },
+  { label: 'Competitive Displacement', score: 6.3, accent: 'rgba(245,158,11,.85)' },
+];
+
+const Q_OF_AI_DIMS = [
+  { name: 'AI Capability',         count: 10, hint: 'Adoption · ROI · Differentiation · Roadmap · Accuracy' },
+  { name: 'AI Displacement Risk',  count: 5,  hint: 'Lock-in · Leapfrog resistance · Replacement risk · Pricing defense' },
+];
+
+// Pricing tiers — by module + N count. Mandate Pitch baseline 25-35K.
 const PRICE_TIERS = [
   {
     name: 'Mandate Pitch Deck',
@@ -165,7 +171,7 @@ const PRICE_TIERS = [
   },
 ];
 
-// Shared spec rail label/value typography (kills the awful mono on numbers)
+// Shared spec rail label/value typography (no mono)
 const SPEC_LABEL: React.CSSProperties = {
   fontSize: 12, fontWeight: 700, letterSpacing: '.12em',
   textTransform: 'uppercase', color: 'rgba(255,255,255,.78)', marginBottom: 8,
@@ -176,28 +182,28 @@ const SPEC_VALUE_LARGE: React.CSSProperties = {
 };
 
 export default function QofAIPage() {
-  const [activeDeliverable, setActiveDeliverable] = useState<DeliverableId>('mandate');
   const [priceIdx, setPriceIdx] = useState<number>(0);
-  const active = DELIVERABLES.find(d => d.id === activeDeliverable)!;
   const price = PRICE_TIERS[priceIdx];
 
   return (
     <>
-      {/* HERO */}
-      <section style={{ background:'linear-gradient(168deg,#050e1e 0%,#081526 55%,#0c1e38 100%)', borderBottom:'1px solid rgba(255,255,255,.07)', padding:'56px 0 48px' }}>
+      {/* HERO — Option 1: pain hook + independence + Nerdio proof */}
+      <section style={{ background:'linear-gradient(168deg,#050e1e 0%,#081526 55%,#0c1e38 100%)', borderBottom:'1px solid rgba(255,255,255,.07)', padding:'68px 0 56px' }}>
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
           <div style={{ display:'inline-flex', alignItems:'center', fontSize:13, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', background:'rgba(120,144,178,.10)', border:'1px solid rgba(166,183,210,.35)', padding:'5px 14px', marginBottom:22 }}>
-            Voice of Customer · The Intelligence Suite
+            The Sell-Side Intelligence Suite
           </div>
-          <h1 style={{ fontSize:'clamp(34px, 5vw, 52px)', fontWeight:700, color:'rgba(255,255,255,.98)', lineHeight:1.08, letterSpacing:'-.035em', margin:'0 0 18px', maxWidth:980 }}>
-            One independent evidence base.<br />
-            <span style={{ color:'rgba(166,183,210,.95)' }}>Four deliverables across the transaction.</span>
+          <h1 style={{ fontSize:'clamp(34px, 5vw, 52px)', fontWeight:700, color:'rgba(255,255,255,.98)', lineHeight:1.05, letterSpacing:'-.035em', margin:'0 0 14px', maxWidth:1040 }}>
+            Five banks. Same comps. Same management quotes.
           </h1>
-          <p style={{ fontSize:17, color:'rgba(255,255,255,.90)', lineHeight:1.7, maxWidth:760, margin:'0 0 30px' }}>
-            Crossover enters before the pitch and stays through the CIM. Every output is built on raw customer verbatims — collected independently, uncoached, sourced from the operator&rsquo;s actual customers. No competing bank walks in with the same evidence.
+          <h2 style={{ fontSize:'clamp(20px, 2.4vw, 26px)', fontWeight:400, color:'rgba(166,183,210,.95)', lineHeight:1.3, letterSpacing:'-.015em', margin:'0 0 22px', maxWidth:920 }}>
+            Be the one with 30+ independent customer interviews in the deck.
+          </h2>
+          <p style={{ fontSize:17, color:'rgba(255,255,255,.90)', lineHeight:1.7, maxWidth:820, margin:'0 0 30px' }}>
+            Crossover is the only research independent of the bank, the buyer, and the operator. J.P. Morgan won the Nerdio Series C mandate with it. General Atlantic used the same evidence to build conviction in a 30-minute call. <strong style={{ color:'rgba(255,255,255,.97)', fontWeight:600 }}>$500M closed at unicorn valuation. 70% mandate win rate</strong> for banks who walk in with it.
           </p>
 
-          <div style={{ display:'flex', gap:12, flexWrap:'wrap', marginBottom:40 }}>
+          <div style={{ display:'flex', gap:12, flexWrap:'wrap', marginBottom:44 }}>
             <a href={`mailto:${CONTACT.email}?subject=Scope%20a%20mandate`} style={{ background:'rgba(255,255,255,.96)', color:'#050e1e', padding:'12px 26px', fontSize:15, fontWeight:700, textDecoration:'none', display:'inline-flex', alignItems:'center', borderRadius:2 }}>
               Scope a Mandate →
             </a>
@@ -223,115 +229,224 @@ export default function QofAIPage() {
         </div>
       </section>
 
-      {/* THE SUITE */}
+      {/* PROOF POINTS — lifted under hero */}
+      <section style={{ padding:'64px 0', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
+        <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
+          <div style={{ marginBottom:28 }}>
+            <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:10 }}>
+              Track Record · $11B+ Transacted
+            </div>
+            <h2 style={{ fontSize:'clamp(24px, 2.8vw, 30px)', fontWeight:700, color:'rgba(255,255,255,.97)', letterSpacing:'-.025em', lineHeight:1.2, margin:'0 0 10px', maxWidth:820 }}>
+              Voice of Customer intelligence that drives outcomes.
+            </h2>
+            <p style={{ fontSize:15, color:'rgba(255,255,255,.88)', lineHeight:1.7, maxWidth:720, margin:0 }}>
+              Three named transactions. Different stages of the deal. Same independent customer evidence base.
+            </p>
+          </div>
+
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:14 }}>
+            {PROOF_POINTS.map((p, i) => (
+              <div key={i} style={{ background:'rgba(6,14,28,.97)', border:'1px solid rgba(255,255,255,.10)', padding:'26px 28px' }}>
+                <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:10 }}>
+                  {p.label}
+                </div>
+                <div style={{ fontSize:32, fontWeight:600, color:'rgba(255,255,255,.97)', letterSpacing:'-.025em', lineHeight:1, marginBottom:10 }}>
+                  {p.value}
+                </div>
+                <div style={{ fontSize:14, fontWeight:600, color:'rgba(255,255,255,.92)', marginBottom:12 }}>{p.sub}</div>
+                <div style={{ fontSize:13.5, color:'rgba(255,255,255,.82)', lineHeight:1.65 }}>{p.note}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* BANKER TESTIMONIAL — its own moment */}
+      <section style={{ padding:'72px 0', background:'rgba(255,255,255,.018)', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
+        <div style={{ maxWidth:920, margin:'0 auto', padding:'0 36px', textAlign:'center' }}>
+          <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:26 }}>
+            From the pitch room
+          </div>
+          <blockquote style={{
+            fontFamily:'var(--font-serif, Georgia, "Times New Roman", serif)',
+            fontSize:'clamp(22px, 2.8vw, 32px)', fontWeight:400, fontStyle:'italic',
+            color:'rgba(255,255,255,.97)', lineHeight:1.35, letterSpacing:'-.005em',
+            margin:'0 0 28px', maxWidth:780, marginLeft:'auto', marginRight:'auto',
+          }}>
+            &ldquo;Having a Voice of Customer document was seen as a differentiator by the client.&rdquo;
+          </blockquote>
+          <div style={{ fontSize:14, fontWeight:600, color:'rgba(166,183,210,.95)', letterSpacing:'.04em' }}>
+            EXECUTIVE DIRECTOR · J.P. MORGAN
+          </div>
+        </div>
+      </section>
+
+      {/* THE SUITE — 4 horizontal rows (no tabs) */}
       <section style={{ padding:'72px 0', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
-          <div style={{ marginBottom:36 }}>
+          <div style={{ marginBottom:32 }}>
             <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:10 }}>
               The Suite
             </div>
             <h2 style={{ fontSize:'clamp(26px, 3vw, 34px)', fontWeight:700, color:'rgba(255,255,255,.97)', letterSpacing:'-.025em', lineHeight:1.15, margin:'0 0 14px', maxWidth:820 }}>
-              Four deliverables. One methodology. Deployed across the deal.
+              One evidence base. Four entry points across the deal.
             </h2>
-            <p style={{ fontSize:15, color:'rgba(255,255,255,.88)', lineHeight:1.7, maxWidth:720, margin:0 }}>
-              The same independent customer evidence powers the pipeline build, the pitch, the CIM, and the diligence. Pick the entry point that matches the stage of the deal.
+            <p style={{ fontSize:15, color:'rgba(255,255,255,.88)', lineHeight:1.7, maxWidth:760, margin:0 }}>
+              The same independent customer interviews power the pipeline build, the pitch, the CIM, and the diligence. Pick the entry point that matches the stage of the mandate.
             </p>
           </div>
 
-          {/* Stage tabs */}
-          <div style={{ display:'flex', gap:8, marginBottom:24, flexWrap:'wrap' }}>
-            {DELIVERABLES.map(d => {
-              const isActive = activeDeliverable === d.id;
-              return (
-                <button
-                  key={d.id}
-                  onClick={() => setActiveDeliverable(d.id)}
-                  style={{
-                    all:'unset', cursor:'pointer',
-                    padding:'10px 20px',
-                    fontSize:13.5, fontWeight:600,
-                    background: isActive ? 'rgba(120,144,178,.20)' : 'rgba(255,255,255,.04)',
-                    border:`1px solid ${isActive ? 'rgba(166,183,210,.65)' : 'rgba(255,255,255,.20)'}`,
-                    color: isActive ? 'rgba(230,240,252,.97)' : 'rgba(255,255,255,.85)',
-                    transition:'all .15s ease',
-                  }}
-                >
-                  {d.stage} · {d.name}
-                </button>
-              );
-            })}
+          {/* 4-row grid */}
+          <div style={{ display:'flex', flexDirection:'column', border:'1px solid rgba(255,255,255,.10)' }}>
+            {DELIVERABLES.map((d, i) => (
+              <div key={d.id} style={{
+                display:'grid', gridTemplateColumns:'200px 1fr 180px',
+                borderBottom: i < DELIVERABLES.length - 1 ? '1px solid rgba(255,255,255,.08)' : 'none',
+                background:'rgba(6,14,28,.97)',
+                transition:'background .15s',
+              }}>
+                {/* Left: stage + name + specs */}
+                <div style={{ padding:'24px 22px', borderRight:'1px solid rgba(255,255,255,.06)' }}>
+                  <div style={{ display:'inline-block', fontSize:11, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', background:'rgba(120,144,178,.14)', border:'1px solid rgba(166,183,210,.3)', padding:'3px 9px', marginBottom:12 }}>
+                    {d.stage}
+                  </div>
+                  <div style={{ fontSize:17, fontWeight:700, color:'rgba(255,255,255,.97)', letterSpacing:'-.01em', lineHeight:1.3, marginBottom:14 }}>
+                    {d.name}
+                  </div>
+                  <div style={{ fontSize:13, color:'rgba(255,255,255,.82)', lineHeight:1.55 }}>
+                    <div style={{ marginBottom:4 }}><span style={{ color:'rgba(255,255,255,.62)' }}>Timeline:</span> {d.timeline}</div>
+                    <div><span style={{ color:'rgba(255,255,255,.62)' }}>Customers:</span> {d.customers}</div>
+                  </div>
+                </div>
+
+                {/* Middle: one-line + bullets */}
+                <div style={{ padding:'24px 26px', borderRight:'1px solid rgba(255,255,255,.06)' }}>
+                  <div style={{ fontSize:16, fontWeight:600, color:'rgba(255,255,255,.95)', lineHeight:1.5, marginBottom:14 }}>
+                    {d.oneLine}
+                  </div>
+                  <ul style={{ listStyle:'none', padding:0, margin:0, display:'flex', flexDirection:'column', gap:6 }}>
+                    {d.bullets.map((b, bi) => (
+                      <li key={bi} style={{ display:'flex', alignItems:'flex-start', gap:10, fontSize:14, color:'rgba(255,255,255,.85)', lineHeight:1.55 }}>
+                        <span aria-hidden="true" style={{ color:'rgba(166,183,210,.95)', flexShrink:0, marginTop:1 }}>
+                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                            <polyline points="20 6 9 17 4 12" />
+                          </svg>
+                        </span>
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Right: CTA */}
+                <div style={{ padding:'24px 22px', display:'flex', flexDirection:'column', justifyContent:'space-between', gap:14 }}>
+                  <div>
+                    <div style={{ fontSize:11, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.72)', marginBottom:6 }}>
+                      Ideal for
+                    </div>
+                    <div style={{ fontSize:13.5, color:'rgba(255,255,255,.88)', lineHeight:1.5 }}>
+                      {d.idealFor}
+                    </div>
+                  </div>
+                  <a
+                    href={`mailto:${CONTACT.email}?subject=Scope%20a%20${encodeURIComponent(d.name)}`}
+                    style={{
+                      alignSelf:'flex-start',
+                      display:'inline-flex', alignItems:'center', justifyContent:'center',
+                      padding:'8px 14px', fontSize:13, fontWeight:600, textDecoration:'none',
+                      background:'rgba(120,144,178,.92)', color:'rgba(255,255,255,.98)',
+                      border:'1px solid rgba(166,183,210,.55)',
+                      whiteSpace:'nowrap',
+                    }}
+                  >
+                    Scope this →
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHAT YOU ACTUALLY GET — artifacts + sample scorecard */}
+      <section style={{ padding:'72px 0', background:'rgba(255,255,255,.018)', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
+        <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
+          <div style={{ marginBottom:32 }}>
+            <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:10 }}>
+              What you actually get
+            </div>
+            <h2 style={{ fontSize:'clamp(24px, 2.8vw, 30px)', fontWeight:700, color:'rgba(255,255,255,.97)', letterSpacing:'-.025em', lineHeight:1.2, margin:'0 0 12px', maxWidth:820 }}>
+              Every engagement ships four artifacts. All slide-ready.
+            </h2>
           </div>
 
-          {/* Active deliverable detail */}
-          <div style={{ display:'grid', gridTemplateColumns:'1.45fr 1fr', gap:1, background:'rgba(255,255,255,.10)', border:'1px solid rgba(255,255,255,.10)' }}>
-            {/* Left: copy */}
-            <div style={{ background:'rgba(6,14,28,.97)', padding:'32px 36px' }}>
-              <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:8 }}>
-                {active.audience}
-              </div>
-              <h3 style={{ fontSize:26, fontWeight:700, color:'rgba(255,255,255,.97)', letterSpacing:'-.02em', margin:'0 0 14px' }}>
-                {active.name}
-              </h3>
-              <p style={{ fontSize:17, fontWeight:500, color:'rgba(255,255,255,.95)', lineHeight:1.55, margin:'0 0 16px' }}>
-                {active.oneLine}
-              </p>
-              <p style={{ fontSize:15, color:'rgba(255,255,255,.85)', lineHeight:1.75, margin:'0 0 22px' }}>
-                {active.detail}
-              </p>
-
-              <ul style={{ listStyle:'none', padding:0, margin:0, display:'flex', flexDirection:'column', gap:10 }}>
-                {active.bullets.map((b, i) => (
-                  <li key={i} style={{ display:'flex', alignItems:'flex-start', gap:12, fontSize:14.5, color:'rgba(255,255,255,.92)', lineHeight:1.6 }}>
-                    <span aria-hidden="true" style={{ color:'rgba(166,183,210,.95)', flexShrink:0, marginTop:1 }}>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
-                    </span>
-                    {b}
-                  </li>
-                ))}
-              </ul>
+          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:32, alignItems:'start' }}>
+            {/* Left: 4-bullet artifacts */}
+            <div style={{ display:'flex', flexDirection:'column', gap:14 }}>
+              {ARTIFACTS.map((a, i) => (
+                <div key={i} style={{ background:'rgba(6,14,28,.97)', border:'1px solid rgba(255,255,255,.10)', padding:'20px 24px' }}>
+                  <div style={{ display:'flex', alignItems:'baseline', gap:14, marginBottom:8 }}>
+                    <div style={{ fontSize:13, fontWeight:700, color:'rgba(166,183,210,.95)', letterSpacing:'.04em', minWidth:18 }}>
+                      0{i + 1}
+                    </div>
+                    <div style={{ fontSize:16, fontWeight:700, color:'rgba(255,255,255,.97)' }}>
+                      {a.title}
+                    </div>
+                  </div>
+                  <div style={{ fontSize:14, color:'rgba(255,255,255,.84)', lineHeight:1.65, paddingLeft:32 }}>
+                    {a.body}
+                  </div>
+                </div>
+              ))}
             </div>
 
-            {/* Right: spec — no mono font */}
-            <div style={{ background:'rgba(6,14,28,.97)', padding:'32px 32px', display:'flex', flexDirection:'column', gap:22 }}>
-              <div>
-                <div style={SPEC_LABEL}>Timeline</div>
-                <div style={SPEC_VALUE_LARGE}>{active.timeline}</div>
-              </div>
-              <div style={{ height:1, background:'rgba(255,255,255,.08)' }} />
-              <div>
-                <div style={SPEC_LABEL}>Customers interviewed</div>
-                <div style={SPEC_VALUE_LARGE}>{active.customers}</div>
-              </div>
-              <div style={{ height:1, background:'rgba(255,255,255,.08)' }} />
-              <div>
-                <div style={SPEC_LABEL}>Ideal for</div>
-                <div style={{ fontSize:15, fontWeight:600, color:'rgba(255,255,255,.92)' }}>{active.idealFor}</div>
+            {/* Right: sample scorecard preview */}
+            <div style={{ background:'rgba(6,14,28,.97)', border:'1px solid rgba(255,255,255,.10)', padding:'24px 28px', position:'sticky', top:24 }}>
+              <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:18, paddingBottom:14, borderBottom:'1px solid rgba(255,255,255,.10)' }}>
+                <div>
+                  <div style={{ fontSize:11, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(255,255,255,.72)', marginBottom:4 }}>
+                    Sample Deliverable
+                  </div>
+                  <div style={{ fontSize:15, fontWeight:700, color:'rgba(255,255,255,.95)' }}>Mandate Pitch Scorecard</div>
+                </div>
+                <div style={{ fontSize:11, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', background:'rgba(120,144,178,.14)', border:'1px solid rgba(166,183,210,.3)', padding:'3px 10px' }}>
+                  Anonymised
+                </div>
               </div>
 
-              <div style={{ marginTop:'auto', paddingTop:14 }}>
-                <a
-                  href={`mailto:${CONTACT.email}?subject=Scope%20a%20${encodeURIComponent(active.name)}`}
-                  style={{
-                    alignSelf:'flex-start',
-                    display:'inline-flex', alignItems:'center', justifyContent:'center',
-                    padding:'8px 16px', fontSize:13, fontWeight:600, textDecoration:'none',
-                    background:'rgba(120,144,178,.92)', color:'rgba(255,255,255,.98)',
-                    border:'1px solid rgba(166,183,210,.55)',
-                    transition:'background .15s', whiteSpace:'nowrap',
-                  }}
-                >
-                  Scope this engagement →
-                </a>
+              <div style={{ fontSize:13, color:'rgba(255,255,255,.78)', marginBottom:18 }}>
+                Enterprise SaaS · 27 customer interviews · benchmarked against 41 prior studies
+              </div>
+
+              <div style={{ display:'flex', flexDirection:'column', gap:12, marginBottom:20 }}>
+                {SAMPLE_SCORES.map((s, i) => (
+                  <div key={i} style={{ display:'grid', gridTemplateColumns:'1fr 36px', gap:14, alignItems:'center' }}>
+                    <div>
+                      <div style={{ fontSize:13, color:'rgba(255,255,255,.88)', marginBottom:6, fontWeight:500 }}>{s.label}</div>
+                      <div style={{ height:6, background:'rgba(255,255,255,.08)', borderRadius:1 }}>
+                        <div style={{ height:'100%', width:`${(s.score / 10) * 100}%`, background:s.accent, borderRadius:1, transition:'width .3s' }} />
+                      </div>
+                    </div>
+                    <div style={{ fontSize:15, fontWeight:700, color:s.accent, textAlign:'right' }}>{s.score.toFixed(1)}</div>
+                  </div>
+                ))}
+              </div>
+
+              <div style={{ background:'rgba(6,14,28,.6)', borderLeft:'3px solid rgba(166,183,210,.6)', padding:'14px 16px' }}>
+                <div style={{ fontSize:14, fontStyle:'italic', color:'rgba(255,255,255,.92)', lineHeight:1.6, marginBottom:8 }}>
+                  &ldquo;We&rsquo;ve never seriously evaluated a replacement. It&rsquo;s too embedded in our reporting workflows.&rdquo;
+                </div>
+                <div style={{ fontSize:12, color:'rgba(255,255,255,.72)', fontWeight:500 }}>
+                  VP Operations · Enterprise customer
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* METHODOLOGY */}
-      <section style={{ padding:'68px 0', background:'rgba(255,255,255,.018)', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
+      {/* METHODOLOGY — banker-relevant callouts */}
+      <section style={{ padding:'72px 0', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
           <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:48, alignItems:'start' }}>
             <div>
@@ -345,7 +460,7 @@ export default function QofAIPage() {
                 Every Catalyst report is built on raw verbatims — not curated, not management-supplied, not the operator&rsquo;s reference list. Customers are interviewed independently and answer freely.
               </p>
               <p style={{ fontSize:15, color:'rgba(255,255,255,.88)', lineHeight:1.75, margin:0 }}>
-                The same independent evidence is the foundation of every deliverable in the suite — the banker&rsquo;s pitch, the operator&rsquo;s CIM, the investor&rsquo;s diligence. No restarts. No surprises.
+                The same independent evidence is the foundation of every deliverable in the suite — the pitch, the CIM, the buyer&rsquo;s diligence. No restarts. No surprises.
               </p>
             </div>
 
@@ -357,11 +472,11 @@ export default function QofAIPage() {
                 },
                 {
                   title: 'No coaching, no script bias',
-                  body: 'Interview structure is fixed across studies. The same questions every time. Scores are comparable to 40+ prior engagements.',
+                  body: 'Interview structure is fixed across studies. Same questions every time. Scores comparable to 40+ prior engagements.',
                 },
                 {
                   title: 'Banker-ready output',
-                  body: 'Verbatims arrive in slide-ready form: quoted, attributed, scored, mapped to the proof points your pitch needs to win.',
+                  body: 'Verbatims arrive in slide-ready form: quoted, attributed, scored, mapped to the proof points the pitch needs to win.',
                 },
               ].map((c, i) => (
                 <div key={i} style={{ background:'rgba(6,14,28,.97)', border:'1px solid rgba(255,255,255,.10)', borderLeft:'3px solid rgba(166,183,210,.6)', padding:'18px 22px' }}>
@@ -374,7 +489,46 @@ export default function QofAIPage() {
         </div>
       </section>
 
-      {/* Q OF AI — premium defense framing */}
+      {/* COMPETITIVE CALLOUT — single line, three columns */}
+      <section style={{ padding:'56px 0', background:'rgba(255,255,255,.025)', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
+        <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
+          <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:18 }}>
+            Why not expert networks or desk research
+          </div>
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:1, background:'rgba(255,255,255,.10)', border:'1px solid rgba(255,255,255,.10)' }}>
+            {[
+              {
+                kind: 'Expert networks',
+                detail: 'What one expert thinks. One voice. One bias. No score, no benchmark.',
+                muted: true,
+              },
+              {
+                kind: 'Desk research',
+                detail: 'What is already public. The same comps and headlines every other bank is reading.',
+                muted: true,
+              },
+              {
+                kind: 'Crossover',
+                detail: 'What 30+ of the target&rsquo;s actual customers said — attributed, scored, benchmarked, slide-ready.',
+                muted: false,
+              },
+            ].map((c, i) => (
+              <div key={i} style={{
+                background: c.muted ? 'rgba(6,14,28,.97)' : 'rgba(120,144,178,.10)',
+                padding:'22px 26px',
+                borderLeft: !c.muted ? '3px solid rgba(166,183,210,.6)' : 'none',
+              }}>
+                <div style={{ fontSize:13, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color: c.muted ? 'rgba(255,255,255,.62)' : 'rgba(166,183,210,.95)', marginBottom:10 }}>
+                  {c.kind}
+                </div>
+                <div style={{ fontSize:15, color: c.muted ? 'rgba(255,255,255,.80)' : 'rgba(255,255,255,.95)', fontWeight: c.muted ? 400 : 500, lineHeight:1.6 }} dangerouslySetInnerHTML={{ __html: c.detail }} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Q OF AI — premium defense */}
       <section style={{ padding:'72px 0', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
           <div style={{ display:'grid', gridTemplateColumns:'1.05fr 1fr', gap:52, alignItems:'start' }}>
@@ -426,14 +580,14 @@ export default function QofAIPage() {
               </div>
 
               <div style={{ borderTop:'1px solid rgba(255,255,255,.10)', paddingTop:14, fontSize:13.5, color:'rgba(255,255,255,.82)', lineHeight:1.65 }}>
-                The Q of AI plugs into any suite deliverable — Mandate Pitch Deck, VoC-Enhanced CIM, or Customer Diligence Report. Two extra weeks of fieldwork; delivered with the parent engagement.
+                Plugs into any suite deliverable — Mandate Pitch Deck, VoC-Enhanced CIM, or Customer Diligence Report. Two extra weeks of fieldwork; delivered with the parent engagement.
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* PRICING — milestone-aligned slider */}
+      {/* PRICING — milestone-aligned slider, by module + N count */}
       <section style={{ padding:'72px 0', background:'linear-gradient(168deg,#040c1a 0%,#060f22 50%,#040c1a 100%)', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
           <div style={{ display:'flex', alignItems:'flex-end', justifyContent:'space-between', gap:24, flexWrap:'wrap', marginBottom:32 }}>
@@ -450,7 +604,6 @@ export default function QofAIPage() {
             </p>
           </div>
 
-          {/* Slider */}
           <div style={{ background:'rgba(6,14,28,.97)', border:'1px solid rgba(255,255,255,.10)', padding:'30px 34px' }}>
             <div style={{ display:'grid', gridTemplateColumns:'1.2fr 1fr', gap:36, alignItems:'flex-start' }}>
               <div>
@@ -472,7 +625,6 @@ export default function QofAIPage() {
                   {price.desc}
                 </div>
 
-                {/* Slider track */}
                 <div style={{ position:'relative', height:30, display:'flex', alignItems:'center' }}>
                   <div style={{ position:'absolute', left:0, right:0, height:3, background:'rgba(255,255,255,.10)', borderRadius:2 }} />
                   <div style={{ position:'absolute', left:0, width:`${(priceIdx / (PRICE_TIERS.length - 1)) * 100}%`, height:3, background:'rgba(166,183,210,.85)', borderRadius:2, transition:'width .2s' }} />
@@ -517,7 +669,7 @@ export default function QofAIPage() {
                         maxWidth: 200,
                       }}
                     >
-                      {t.name.split(' / ')[0]}
+                      {t.name.split(' ')[0]}
                     </button>
                   ))}
                 </div>
@@ -555,56 +707,27 @@ export default function QofAIPage() {
         </div>
       </section>
 
-      {/* PROOF POINTS */}
-      <section style={{ padding:'72px 0', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
-        <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
-          <div style={{ marginBottom:30 }}>
-            <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:10 }}>
-              The Track Record
-            </div>
-            <h2 style={{ fontSize:'clamp(24px, 2.8vw, 30px)', fontWeight:700, color:'rgba(255,255,255,.97)', letterSpacing:'-.025em', lineHeight:1.2, margin:'0 0 12px', maxWidth:820 }}>
-              Voice of Customer intelligence that drives outcomes.
-            </h2>
-            <p style={{ fontSize:15, color:'rgba(255,255,255,.88)', lineHeight:1.7, maxWidth:720, margin:0 }}>
-              Three proof points. $11B+ in combined transaction value.
-            </p>
+      {/* FINAL CTA — explicit ask, explicit response, explicit cadence */}
+      <section style={{ padding:'80px 0' }}>
+        <div style={{ maxWidth:820, margin:'0 auto', padding:'0 36px', textAlign:'center' }}>
+          <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:18 }}>
+            How to start
           </div>
-
-          <div style={{ display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:14 }}>
-            {PROOF_POINTS.map((p, i) => (
-              <div key={i} style={{ background:'rgba(6,14,28,.97)', border:'1px solid rgba(255,255,255,.10)', padding:'26px 28px' }}>
-                <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:10 }}>
-                  {p.label}
-                </div>
-                <div style={{ fontSize:32, fontWeight:600, color:'rgba(255,255,255,.97)', letterSpacing:'-.025em', lineHeight:1, marginBottom:10 }}>
-                  {p.value}
-                </div>
-                <div style={{ fontSize:14, fontWeight:600, color:'rgba(255,255,255,.92)', marginBottom:12 }}>{p.sub}</div>
-                <div style={{ fontSize:13.5, color:'rgba(255,255,255,.82)', lineHeight:1.65 }}>{p.note}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FINAL CTA */}
-      <section style={{ padding:'72px 0' }}>
-        <div style={{ maxWidth:780, margin:'0 auto', padding:'0 36px', textAlign:'center' }}>
-          <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:14 }}>
+          <h2 style={{ fontSize:'clamp(30px, 3.4vw, 40px)', fontWeight:700, color:'rgba(255,255,255,.98)', letterSpacing:'-.025em', lineHeight:1.15, margin:'0 0 18px' }}>
             Name an asset.
-          </div>
-          <h2 style={{ fontSize:'clamp(28px, 3vw, 36px)', fontWeight:700, color:'rgba(255,255,255,.97)', letterSpacing:'-.025em', lineHeight:1.2, margin:'0 0 14px' }}>
-            Tell us what you&rsquo;re working on. We&rsquo;ll show you what we&rsquo;d find.
           </h2>
-          <p style={{ fontSize:15, color:'rgba(255,255,255,.88)', lineHeight:1.7, margin:'0 0 26px' }}>
-            Walk into the next pitch knowing exactly what customers say — and exactly how to answer the questions buyers will ask.
+          <p style={{ fontSize:16, color:'rgba(255,255,255,.90)', lineHeight:1.75, margin:'0 0 14px' }}>
+            Reply to <a href={`mailto:${CONTACT.email}`} style={{ color:'rgba(230,240,252,.98)', textDecoration:'underline', textDecorationColor:'rgba(166,183,210,.5)', textUnderlineOffset:'3px' }}>{CONTACT.email}</a> with the company name and your pitch date.
+          </p>
+          <p style={{ fontSize:16, color:'rgba(255,255,255,.84)', lineHeight:1.75, margin:'0 0 32px' }}>
+            We&rsquo;ll send back a 1-page Catalyst preview by end of week — what we&rsquo;d find, what proof points we&rsquo;d surface, and what the full scope would look like.
           </p>
           <div style={{ display:'flex', gap:12, justifyContent:'center', flexWrap:'wrap' }}>
-            <a href={`mailto:${CONTACT.email}?subject=Scope%20a%20mandate`} style={{ background:'rgba(255,255,255,.96)', color:'#050e1e', padding:'12px 28px', fontSize:15, fontWeight:700, textDecoration:'none', borderRadius:2 }}>
-              Scope a Mandate →
+            <a href={`mailto:${CONTACT.email}?subject=Catalyst%20preview%20request`} style={{ background:'rgba(255,255,255,.96)', color:'#050e1e', padding:'12px 28px', fontSize:15, fontWeight:700, textDecoration:'none', borderRadius:2 }}>
+              Email Ian →
             </a>
             <a href={CONTACT.bookingUrl} target="_blank" rel="noopener noreferrer" style={{ background:'transparent', color:'rgba(255,255,255,.92)', border:'1px solid rgba(255,255,255,.30)', padding:'12px 24px', fontSize:15, fontWeight:500, textDecoration:'none', borderRadius:2 }}>
-              Book a call
+              Book a 20-min call →
             </a>
           </div>
         </div>
