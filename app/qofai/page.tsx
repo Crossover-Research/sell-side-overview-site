@@ -385,7 +385,24 @@ export default function QofAIPage() {
                   <div style={{ fontFamily:'var(--font-mono)', fontSize:11, fontWeight:700, color: q.part === 'I' ? 'rgba(120,144,178,.7)' : 'rgba(89,116,154,.7)', flexShrink:0, width:28 }}>{q.num}</div>
                   <div style={{ flex:1, fontSize:13, fontWeight:600, color:'rgba(255,255,255,.88)', textAlign:'left' }}>{q.label}</div>
                   <div style={{ color: q.part === 'I' ? 'rgba(120,144,178,.6)' : 'rgba(89,116,154,.6)', flexShrink:0, fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase' }}>Part {q.part}</div>
-                  <div style={{ color:'rgba(255,255,255,.35)', flexShrink:0, fontSize:14, transform: openQ === i ? 'rotate(180deg)' : 'none', transition:'transform .2s' }}>↓</div>
+                  <div
+                    aria-hidden="true"
+                    style={{
+                      flexShrink:0,
+                      width:26, height:26,
+                      display:'flex', alignItems:'center', justifyContent:'center',
+                      borderRadius:4,
+                      border:'1px solid rgba(255,255,255,.12)',
+                      background: openQ === i ? 'rgba(166,183,210,.12)' : 'rgba(255,255,255,.03)',
+                      color: openQ === i ? 'rgba(166,183,210,.95)' : 'rgba(255,255,255,.6)',
+                      transform: openQ === i ? 'rotate(180deg)' : 'rotate(0deg)',
+                      transition:'transform .2s ease, background .15s ease, color .15s ease',
+                    }}
+                  >
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </div>
                 </button>
                 {openQ === i && (
                   <div style={{ padding:'0 20px 20px 64px', background:'rgba(6,14,28,.97)' }}>
