@@ -23,7 +23,7 @@ export function DriversChart({ labels, redCanaryData, avgData }: DriversChartPro
       data: {
         labels,
         datasets: [
-          { label: 'Red Canary', data: redCanaryData, backgroundColor: 'rgba(130,175,255,.7)', borderRadius: 3, borderSkipped: false },
+          { label: 'Red Canary', data: redCanaryData, backgroundColor: 'rgba(166,183,210,.7)', borderRadius: 3, borderSkipped: false },
           { label: 'All-vendor avg', data: avgData, backgroundColor: 'rgba(255,255,255,.15)', borderRadius: 3, borderSkipped: false },
         ],
       },

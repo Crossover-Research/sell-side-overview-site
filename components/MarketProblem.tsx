@@ -3,24 +3,24 @@
 const ROWS = [
   {
     audience: 'Bankers',
-    audienceColor: 'rgba(77,144,254,.9)',
-    audienceBg: 'rgba(77,144,254,.12)',
+    audienceColor: 'rgba(120,144,178,.9)',
+    audienceBg: 'rgba(120,144,178,.12)',
     what: 'Walk in with desk research and management interviews. Coach operators to minimize weaknesses. Hope buyers don\'t ask the right questions.',
     cost: '',
     costBold: 'The deal stalls or reprices. The bank takes the blame.',
   },
   {
     audience: 'Operators',
-    audienceColor: 'rgba(45,212,160,.9)',
-    audienceBg: 'rgba(45,212,160,.12)',
+    audienceColor: 'rgba(89,116,154,.9)',
+    audienceBg: 'rgba(89,116,154,.12)',
     what: 'Told to glorify the story. No way to find weaknesses before buyers do. Enter diligence hoping nobody looks too hard.',
     cost: '',
     costBold: 'The operator had no chance to respond. No one told them to prepare.',
   },
   {
     audience: 'Investors',
-    audienceColor: 'rgba(168,130,255,.9)',
-    audienceBg: 'rgba(168,130,255,.12)',
+    audienceColor: 'rgba(140,151,178,.9)',
+    audienceBg: 'rgba(140,151,178,.12)',
     what: 'Assume everything is curated. Restart diligence from scratch. Find the gaps late. Use them to reprice.',
     cost: '',
     costBold: 'Retrades at IC. Value destroyed at the moment it should be captured.',
@@ -77,11 +77,11 @@ export function MarketProblem() {
         {/* Positioning callout */}
         <div style={{
           display:'flex', alignItems:'center', gap:20,
-          background:'rgba(77,144,254,.05)', border:'1px solid rgba(77,144,254,.15)',
+          background:'rgba(120,144,178,.05)', border:'1px solid rgba(120,144,178,.15)',
           padding:'18px 24px',
         }}>
           <div style={{
-            width:3, height:40, background:'rgba(77,144,254,.5)',
+            width:3, height:40, background:'rgba(120,144,178,.5)',
             flexShrink:0, borderRadius:2,
           }} />
           <p style={{ fontSize:13.5, color:'rgba(200,220,255,.85)', lineHeight:1.7, margin:0, fontStyle:'italic' }}>

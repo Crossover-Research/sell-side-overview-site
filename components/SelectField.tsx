@@ -29,7 +29,7 @@ export function SelectField({ label, options, value, onChange, placeholder = 'Se
         type="button"
         onClick={() => setOpen(o => !o)}
         style={{
-          width:'100%', background:'rgba(255,255,255,.05)', border:`1px solid ${open ? 'rgba(77,144,254,.5)' : 'rgba(255,255,255,.12)'}`,
+          width:'100%', background:'rgba(255,255,255,.05)', border:`1px solid ${open ? 'rgba(120,144,178,.5)' : 'rgba(255,255,255,.12)'}`,
           color: value ? 'rgba(255,255,255,.88)' : 'rgba(255,255,255,.28)',
           padding:'9px 32px 9px 12px', fontSize:13, outline:'none', boxSizing:'border-box',
           textAlign:'left', cursor:'pointer', display:'flex', alignItems:'center', justifyContent:'space-between',
@@ -45,7 +45,7 @@ export function SelectField({ label, options, value, onChange, placeholder = 'Se
       {open && (
         <div style={{
           position:'absolute', top:'calc(100% + 3px)', left:0, right:0, zIndex:800,
-          background:'#0d1e38', border:'1px solid rgba(77,144,254,.25)',
+          background:'#0d1e38', border:'1px solid rgba(120,144,178,.25)',
           boxShadow:'0 12px 32px rgba(0,0,0,.6)', maxHeight:220, overflowY:'auto',
         }}>
           {options.map(opt => (
@@ -55,8 +55,8 @@ export function SelectField({ label, options, value, onChange, placeholder = 'Se
               style={{
                 padding:'9px 14px', fontSize:12.5, cursor:'pointer',
                 color: opt === value ? 'rgba(130,200,255,.95)' : 'rgba(255,255,255,.7)',
-                background: opt === value ? 'rgba(77,144,254,.12)' : 'transparent',
-                borderLeft: opt === value ? '2px solid rgba(77,144,254,.6)' : '2px solid transparent',
+                background: opt === value ? 'rgba(120,144,178,.12)' : 'transparent',
+                borderLeft: opt === value ? '2px solid rgba(120,144,178,.6)' : '2px solid transparent',
                 transition:'background .1s',
                 display:'flex', alignItems:'center', justifyContent:'space-between',
               }}
@@ -66,7 +66,7 @@ export function SelectField({ label, options, value, onChange, placeholder = 'Se
               {opt}
               {opt === value && (
                 <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                  <path d="M1 4l3 3 5-6" stroke="rgba(77,144,254,.8)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M1 4l3 3 5-6" stroke="rgba(120,144,178,.8)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               )}
             </div>

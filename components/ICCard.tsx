@@ -11,7 +11,7 @@ const STAT_LABELS: Record<string, string> = {
 
 export function ICCard({ card, isOpen, onToggle }: ICCardProps) {
   const statLabel = STAT_LABELS[card.stat.num] || card.num;
-  const accentColor = isOpen ? 'rgba(77,144,254,.7)' : 'transparent';
+  const accentColor = isOpen ? 'rgba(120,144,178,.7)' : 'transparent';
 
   return (
     <div className={`ic-accordion-row${isOpen ? ' open' : ''}`}>
@@ -30,7 +30,7 @@ export function ICCard({ card, isOpen, onToggle }: ICCardProps) {
         <div style={{ display: 'grid', gridTemplateColumns: '88px 1fr 1fr', gap: 0, padding: '0 20px 20px', alignItems: 'start' }}>
           {/* Col 1: Stat */}
           <div style={{ paddingTop: 16, paddingRight: 16, borderRight: '1px solid rgba(255,255,255,.06)' }}>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 32, fontWeight: 700, color: 'rgba(130,175,255,.9)', lineHeight: 1, letterSpacing: '-.02em', marginBottom: 5 }}>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 32, fontWeight: 700, color: 'rgba(166,183,210,.9)', lineHeight: 1, letterSpacing: '-.02em', marginBottom: 5 }}>
               {card.stat.num}
             </div>
             <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,.62)', lineHeight: 1.4 }}>
@@ -47,7 +47,7 @@ export function ICCard({ card, isOpen, onToggle }: ICCardProps) {
           {/* Col 3: Verbatim */}
           <div style={{ padding: '16px 0 16px 20px' }}>
             <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.72)', marginBottom: 7 }}>Customer Verbatim</div>
-            <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.75)', fontStyle: 'italic', lineHeight: 1.65, borderLeft: '2px solid rgba(77,144,254,.3)', paddingLeft: 12, marginBottom: 8 }}>
+            <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.75)', fontStyle: 'italic', lineHeight: 1.65, borderLeft: '2px solid rgba(120,144,178,.3)', paddingLeft: 12, marginBottom: 8 }}>
               &ldquo;{card.quote.text.replace(/^\"|\"$/g, '')}&rdquo;
             </div>
             <div style={{ fontSize: 10, color: 'rgba(255,255,255,.72)' }}>{card.quote.cite}</div>

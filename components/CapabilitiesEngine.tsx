@@ -54,12 +54,12 @@ export function CapabilitiesEngine() {
               href="/intelligence?request=1"
               style={{
                 fontSize:12, fontWeight:600, color:'rgba(180,210,255,.85)',
-                border:'1px solid rgba(77,144,254,.28)', padding:'8px 18px',
+                border:'1px solid rgba(120,144,178,.28)', padding:'8px 18px',
                 textDecoration:'none', whiteSpace:'nowrap', flexShrink:0,
-                transition:'all .15s', background:'rgba(77,144,254,.05)',
+                transition:'all .15s', background:'rgba(120,144,178,.05)',
               }}
-              onMouseEnter={e=>{const el=e.currentTarget as HTMLElement;el.style.borderColor='rgba(77,144,254,.55)';el.style.background='rgba(77,144,254,.1)';}}
-              onMouseLeave={e=>{const el=e.currentTarget as HTMLElement;el.style.borderColor='rgba(77,144,254,.28)';el.style.background='rgba(77,144,254,.05)';}}
+              onMouseEnter={e=>{const el=e.currentTarget as HTMLElement;el.style.borderColor='rgba(120,144,178,.55)';el.style.background='rgba(120,144,178,.1)';}}
+              onMouseLeave={e=>{const el=e.currentTarget as HTMLElement;el.style.borderColor='rgba(120,144,178,.28)';el.style.background='rgba(120,144,178,.05)';}}
             >
               Scope a Mandate →
             </a>
@@ -81,9 +81,9 @@ export function CapabilitiesEngine() {
                 onClick={() => setActiveStage(isActive ? null : i)}
                 style={{
                   display:'grid', gridTemplateColumns:'140px 1fr auto',
-                  background: isActive ? 'rgba(77,144,254,.07)' : 'rgba(6,14,28,.97)',
+                  background: isActive ? 'rgba(120,144,178,.07)' : 'rgba(6,14,28,.97)',
                   cursor:'pointer', transition:'background .15s',
-                  borderLeft:`2px solid ${isActive ? 'rgba(77,144,254,.5)' : 'transparent'}`,
+                  borderLeft:`2px solid ${isActive ? 'rgba(120,144,178,.5)' : 'transparent'}`,
                   borderBottom: i < STAGES.length - 1 ? '1px solid rgba(255,255,255,.06)' : 'none',
                 }}
                 onMouseEnter={e => { if (!isActive) (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,.02)'; }}
@@ -93,7 +93,7 @@ export function CapabilitiesEngine() {
                 <div style={{ padding:'22px 20px', borderRight:'1px solid rgba(255,255,255,.06)' }}>
                   <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.35)', marginBottom:4 }}>Stage {s.num}</div>
                   <div style={{ fontSize:13, fontWeight:700, color: isActive ? 'rgba(255,255,255,.97)' : 'rgba(255,255,255,.82)', lineHeight:1.3, marginBottom:4 }}>{s.name}</div>
-                  <div style={{ fontSize:10, color:'rgba(77,144,254,.7)', letterSpacing:'.03em' }}>{s.timing}</div>
+                  <div style={{ fontSize:10, color:'rgba(120,144,178,.7)', letterSpacing:'.03em' }}>{s.timing}</div>
                 </div>
 
                 {/* Content */}
@@ -104,9 +104,9 @@ export function CapabilitiesEngine() {
                     {s.tags.map((t, ti) => (
                       <span key={ti} style={{
                         fontSize:11, fontWeight:600,
-                        color: isActive ? 'rgba(130,175,255,.8)' : 'rgba(255,255,255,.52)',
-                        background: isActive ? 'rgba(77,144,254,.09)' : 'rgba(255,255,255,.04)',
-                        border:`1px solid ${isActive ? 'rgba(77,144,254,.22)' : 'rgba(255,255,255,.07)'}`,
+                        color: isActive ? 'rgba(166,183,210,.8)' : 'rgba(255,255,255,.52)',
+                        background: isActive ? 'rgba(120,144,178,.09)' : 'rgba(255,255,255,.04)',
+                        border:`1px solid ${isActive ? 'rgba(120,144,178,.22)' : 'rgba(255,255,255,.07)'}`,
                         padding:'2px 8px',
                       }}>{t}</span>
                     ))}
@@ -120,7 +120,7 @@ export function CapabilitiesEngine() {
                     onClick={e => e.stopPropagation()}
                     style={{
                       fontSize:11, fontWeight:700,
-                      color: isActive ? 'rgba(130,175,255,.9)' : 'rgba(255,255,255,.45)',
+                      color: isActive ? 'rgba(166,183,210,.9)' : 'rgba(255,255,255,.45)',
                       letterSpacing:'.03em', textDecoration:'none', whiteSpace:'nowrap',
                       transition:'color .15s',
                     }}

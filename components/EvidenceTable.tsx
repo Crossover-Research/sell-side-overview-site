@@ -4,9 +4,9 @@ import { useState } from 'react';
 type Audience = 'bankers' | 'operators' | 'investors';
 
 const AUDIENCES: { id: Audience; label: string; color: string; bg: string }[] = [
-  { id:'bankers',   label:'Bankers',   color:'rgba(77,144,254,.9)',  bg:'rgba(77,144,254,.07)'  },
-  { id:'operators', label:'Operators', color:'rgba(45,212,160,.9)',  bg:'rgba(45,212,160,.06)'  },
-  { id:'investors', label:'Investors', color:'rgba(168,130,255,.9)', bg:'rgba(168,130,255,.06)' },
+  { id:'bankers',   label:'Bankers',   color:'rgba(120,144,178,.9)',  bg:'rgba(120,144,178,.07)'  },
+  { id:'operators', label:'Operators', color:'rgba(89,116,154,.9)',  bg:'rgba(89,116,154,.06)'  },
+  { id:'investors', label:'Investors', color:'rgba(140,151,178,.9)', bg:'rgba(140,151,178,.06)' },
 ];
 
 const ROWS: {

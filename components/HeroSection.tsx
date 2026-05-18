@@ -23,8 +23,8 @@ export function HeroSection({ tab }: HeroSectionProps) {
         <div style={{
           display:'inline-flex', alignItems:'center', gap:8,
           fontSize:11, fontWeight:700, letterSpacing:'.18em', textTransform:'uppercase',
-          color:'rgba(77,144,254,.9)', background:'rgba(77,144,254,.08)',
-          border:'1px solid rgba(77,144,254,.22)', padding:'5px 16px',
+          color:'rgba(120,144,178,.9)', background:'rgba(120,144,178,.08)',
+          border:'1px solid rgba(120,144,178,.22)', padding:'5px 16px',
           marginBottom:32,
         }}>
           Independent Research · Private Markets
@@ -80,19 +80,19 @@ export function HeroSection({ tab }: HeroSectionProps) {
             style={{
               display:'inline-flex', alignItems:'center', gap:8,
               background:'transparent', color:'rgba(180,210,255,.82)',
-              border:'1px solid rgba(77,144,254,.32)', padding:'13px 26px',
+              border:'1px solid rgba(120,144,178,.32)', padding:'13px 26px',
               fontSize:13, fontWeight:500, textDecoration:'none', whiteSpace:'nowrap',
               transition:'all .15s',
             }}
             onMouseEnter={e=>{
               const el = e.currentTarget as HTMLElement;
-              el.style.borderColor='rgba(77,144,254,.6)';
-              el.style.background='rgba(77,144,254,.09)';
+              el.style.borderColor='rgba(120,144,178,.6)';
+              el.style.background='rgba(120,144,178,.09)';
               el.style.color='rgba(200,225,255,.95)';
             }}
             onMouseLeave={e=>{
               const el = e.currentTarget as HTMLElement;
-              el.style.borderColor='rgba(77,144,254,.32)';
+              el.style.borderColor='rgba(120,144,178,.32)';
               el.style.background='transparent';
               el.style.color='rgba(180,210,255,.82)';
             }}
@@ -116,7 +116,7 @@ export function HeroSection({ tab }: HeroSectionProps) {
                 fontWeight:700, color:'rgba(255,255,255,.97)',
                 letterSpacing:'-.03em', lineHeight:1,
               }}>{m.val}</div>
-              <div style={{ width:16, height:2, background:'rgba(77,144,254,.4)', borderRadius:1 }} />
+              <div style={{ width:16, height:2, background:'rgba(120,144,178,.4)', borderRadius:1 }} />
             </div>
           ))}
         </div>

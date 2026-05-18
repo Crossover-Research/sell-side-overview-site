@@ -9,7 +9,7 @@ import { SelectField } from '../../components/SelectField';
 type FilterType = 'all' | 'active' | 'new' | 'transacted';
 
 const statusCfg = {
-  active:     { color:'#2dd4a0', bg:'rgba(45,212,160,.12)', border:'rgba(45,212,160,.3)',  label:'Active' },
+  active:     { color:'#5974a0', bg:'rgba(89,116,154,.12)', border:'rgba(89,116,154,.3)',  label:'Active' },
   new:        { color:'#f59e0b', bg:'rgba(245,158,11,.12)', border:'rgba(245,158,11,.3)',  label:'New' },
   transacted: { color:'rgba(180,180,200,.7)', bg:'rgba(255,255,255,.04)', border:'rgba(255,255,255,.15)', label:'Closed' },
 };
@@ -37,7 +37,7 @@ function AssetNameCell({ asset, isFirst }: { asset: CatalystAsset; isFirst?: boo
 
   if (!isTransacted) return (
     <div style={cellStyle}>
-      <div style={{ fontSize:13,fontWeight:700,color:'rgba(130,175,255,.75)',marginBottom:4,display:'flex',alignItems:'center' }}>
+      <div style={{ fontSize:13,fontWeight:700,color:'rgba(166,183,210,.75)',marginBottom:4,display:'flex',alignItems:'center' }}>
         <LockIcon />{asset.code}
       </div>
       <div style={{ fontSize:10,color: 'rgba(255,255,255,.70)',letterSpacing:'.06em',textTransform:'uppercase' }}>Identity locked</div>
@@ -92,29 +92,29 @@ function TeaserModal({ asset, onClose, onRequest }: { asset: CatalystAsset; onCl
         <div style={{ background:'linear-gradient(135deg,#0f1f38,#162d4a)',padding:'22px 26px',borderBottom:'1px solid rgba(255,255,255,.08)',position:'relative' }}>
           <button onClick={onClose} style={{ position:'absolute',top:11,right:11,background:'rgba(255,255,255,.1)',border:'none',color: 'rgba(255,255,255,.7)',width:26,height:26,cursor:'pointer',fontSize:15,lineHeight:'26px',textAlign:'center' }}>x</button>
           <div style={{ display:'flex',alignItems:'center',gap:10,marginBottom:4 }}>
-            <div style={{ fontSize:10,fontWeight:700,color:'rgba(130,175,255,.75)',letterSpacing:'.1em',textTransform:'uppercase' }}>{asset.code}</div>
-            {isTransacted&&asset.realName&&<div style={{ fontSize:10,fontWeight:700,color:'#2dd4a0' }}>Unblinded: {asset.realName}</div>}
+            <div style={{ fontSize:10,fontWeight:700,color:'rgba(166,183,210,.75)',letterSpacing:'.1em',textTransform:'uppercase' }}>{asset.code}</div>
+            {isTransacted&&asset.realName&&<div style={{ fontSize:10,fontWeight:700,color:'#5974a0' }}>Unblinded: {asset.realName}</div>}
           </div>
           <div style={{ fontSize:18,fontWeight:700,color:'#fff',marginBottom:3 }}>{isTransacted&&asset.realName?asset.realName:asset.code} &mdash; {asset.category}</div>
           <div style={{ fontSize:11,color: 'rgba(255,255,255,.58)',textTransform:'uppercase',letterSpacing:'.06em' }}>{asset.subtitle}{asset.dealNote?` · ${asset.dealNote}`:''}</div>
         </div>
         <div style={{ padding:'20px 26px' }}>
-          {isTransacted&&<div style={{ background:'rgba(45,212,160,.07)',border:'1px solid rgba(45,212,160,.2)',padding:'10px 14px',marginBottom:14,fontSize:12,color:'rgba(45,212,160,.85)',lineHeight:1.5 }}>This asset has transacted. Identity unblinded post-close.</div>}
-          <div style={{ background:'rgba(77,144,254,.1)',border:'1px solid rgba(77,144,254,.2)',padding:'13px 16px',marginBottom:16 }}>
-            <div style={{ fontSize: 11,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(130,175,255,.6)',marginBottom:6 }}>Investment Hook</div>
+          {isTransacted&&<div style={{ background:'rgba(89,116,154,.07)',border:'1px solid rgba(89,116,154,.2)',padding:'10px 14px',marginBottom:14,fontSize:12,color:'rgba(89,116,154,.85)',lineHeight:1.5 }}>This asset has transacted. Identity unblinded post-close.</div>}
+          <div style={{ background:'rgba(120,144,178,.1)',border:'1px solid rgba(120,144,178,.2)',padding:'13px 16px',marginBottom:16 }}>
+            <div style={{ fontSize: 11,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(166,183,210,.6)',marginBottom:6 }}>Investment Hook</div>
             <p style={{ fontSize:13,color: 'rgba(255,255,255,.85)',lineHeight:1.65,margin:0 }}>{asset.hook}</p>
           </div>
           <div className="catalyst-modal-metrics" style={{ display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:7,marginBottom:16 }}>
             {asset.metrics.map((m,i)=>(
               <div key={i} style={{ background:'rgba(255,255,255,.04)',border:'1px solid rgba(255,255,255,.07)',padding:'9px 11px',textAlign:'center' }}>
                 <div style={{ fontSize: 10,fontWeight:700,textTransform:'uppercase',letterSpacing:'.08em',color: 'rgba(255,255,255,.62)',marginBottom:4 }}>{m.label}</div>
-                <div style={{ fontSize:15,fontWeight:700,color:'rgba(130,175,255,.95)',lineHeight:1,marginBottom:2 }}>{m.value}</div>
+                <div style={{ fontSize:15,fontWeight:700,color:'rgba(166,183,210,.95)',lineHeight:1,marginBottom:2 }}>{m.value}</div>
                 <div style={{ fontSize: 11,color: 'rgba(255,255,255,.62)' }}>{m.context}</div>
               </div>
             ))}
           </div>
           {asset.quotes.slice(0,2).map((q,i)=>(
-            <div key={i} style={{ borderLeft:'2px solid rgba(77,144,254,.3)',paddingLeft:11,marginBottom:9,fontSize:12.5,color: 'rgba(255,255,255,.75)',fontStyle:'italic',lineHeight:1.6 }}>"{q}"</div>
+            <div key={i} style={{ borderLeft:'2px solid rgba(120,144,178,.3)',paddingLeft:11,marginBottom:9,fontSize:12.5,color: 'rgba(255,255,255,.75)',fontStyle:'italic',lineHeight:1.6 }}>"{q}"</div>
           ))}
           <div style={{ display:'flex',gap:9,marginTop:18,justifyContent:'flex-end' }}>
             {!isTransacted&&<button onClick={onRequest} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 20px',fontSize:12,fontWeight:700,cursor:'pointer' }}>Request Full Report &rarr;</button>}
@@ -155,7 +155,7 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
   if(sent) return(
     <div style={{ position:'fixed',inset:0,zIndex:600,background:'rgba(4,9,18,.92)',display:'flex',alignItems:'center',justifyContent:'center',padding:20 }}>
       <div style={{ background:'#0c1a2e',border:'1px solid rgba(255,255,255,.12)',padding:'40px 32px',maxWidth:380,width:'100%',textAlign:'center' }}>
-        <div style={{ fontSize:26,color:'#2dd4a0',marginBottom:10 }}>&#10003;</div>
+        <div style={{ fontSize:26,color:'#5974a0',marginBottom:10 }}>&#10003;</div>
         <div style={{ fontSize:16,fontWeight:700,color:'#fff',marginBottom:7 }}>Request Submitted</div>
         <p style={{ fontSize:12,color: 'rgba(255,255,255,.68)',lineHeight:1.6,marginBottom:20 }}>We&rsquo;ll confirm coverage within 24 hours.</p>
         <button onClick={onClose} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 24px',fontSize:12,fontWeight:700,cursor:'pointer' }}>Done</button>
@@ -322,14 +322,14 @@ export default function CatalystPage() {
         <div className="ib-inner">
 
           {/* Nerdio proof */}
-          <div style={{ marginBottom:32,border:'1px solid rgba(77,144,254,.15)',background:'rgba(77,144,254,.04)',padding:'28px 32px' }}>
+          <div style={{ marginBottom:32,border:'1px solid rgba(120,144,178,.15)',background:'rgba(120,144,178,.04)',padding:'28px 32px' }}>
             <div className="catalyst-proof-grid" style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:48,alignItems:'start' }}>
               <div>
-                <div style={{ fontSize: 11,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(77,144,254,.7)',marginBottom:10 }}>Proof &mdash; Both Sides of One Deal</div>
+                <div style={{ fontSize: 11,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(120,144,178,.7)',marginBottom:10 }}>Proof &mdash; Both Sides of One Deal</div>
                 <p style={{ fontSize:14,fontWeight:300,color: 'rgba(255,255,255,.75)',lineHeight:1.75,marginBottom:4,fontStyle:'italic' }}>
                   &ldquo;The same infrastructure that wins mandates for bankers identifies the next great asset for funds. It only works because the data is never curated for either side.&rdquo;
                 </p>
-                <div style={{ marginTop:16,paddingTop:16,borderTop:'1px solid rgba(77,144,254,.12)' }}>
+                <div style={{ marginTop:16,paddingTop:16,borderTop:'1px solid rgba(120,144,178,.12)' }}>
                   <div style={{ fontSize:11,fontWeight:700,color: 'rgba(255,255,255,.72)',letterSpacing:'.04em',marginBottom:2 }}>THE NERDIO DEAL</div>
                   <div style={{ fontSize:11,color: 'rgba(255,255,255,.62)' }}>J.P. Morgan sell-side &middot; General Atlantic buy-side &middot; $500M Series C</div>
                 </div>
@@ -378,7 +378,7 @@ export default function CatalystPage() {
                           <div style={{ fontSize:12,color: 'rgba(255,255,255,.75)' }}>{a.category}</div>
                           <div style={{ fontSize:11,color: 'rgba(255,255,255,.72)',fontStyle:'italic' }}>{a.subtitle}</div>
                         </td>
-                        <td style={{ padding:'12px 14px',fontSize:12,fontWeight:600,color:'rgba(130,175,255,.8)',fontFamily:'JetBrains Mono,monospace' }}>{a.keyMetric}</td>
+                        <td style={{ padding:'12px 14px',fontSize:12,fontWeight:600,color:'rgba(166,183,210,.8)',fontFamily:'JetBrains Mono,monospace' }}>{a.keyMetric}</td>
                         <td style={{ padding:'12px 14px' }}>
                           <span style={{ fontSize: 11,fontWeight:700,color:s.color,background:s.bg,border:`1px solid ${s.border}`,padding:'3px 9px',letterSpacing:'.06em',textTransform:'uppercase',whiteSpace:'nowrap' }}>{s.label}</span>
                         </td>

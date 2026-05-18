@@ -2,11 +2,11 @@
 import { useEffect, useRef, useState } from 'react';
 
 const STEPS = [
-  { id: 1, label: 'Sell-Side Mandate',   sub: 'J.P. Morgan engages Crossover', color: 'rgba(77,144,254,.8)' },
-  { id: 2, label: 'Line of Sight',       sub: 'Primary research → high-conviction asset', color: 'rgba(77,144,254,.8)' },
-  { id: 3, label: 'Fundamental View',    sub: 'Original thesis — independent, not curated', color: 'rgba(77,144,254,.8)' },
-  { id: 4, label: 'Buy-Side Match',      sub: 'GA alerted · 30-min brief · early positioning', color: 'rgba(77,144,254,.8)' },
-  { id: 5, label: 'Secondary Diligence', sub: '$500M Series C at $1B+ valuation', color: '#2dd4a0' },
+  { id: 1, label: 'Sell-Side Mandate',   sub: 'J.P. Morgan engages Crossover', color: 'rgba(120,144,178,.8)' },
+  { id: 2, label: 'Line of Sight',       sub: 'Primary research → high-conviction asset', color: 'rgba(120,144,178,.8)' },
+  { id: 3, label: 'Fundamental View',    sub: 'Original thesis — independent, not curated', color: 'rgba(120,144,178,.8)' },
+  { id: 4, label: 'Buy-Side Match',      sub: 'GA alerted · 30-min brief · early positioning', color: 'rgba(120,144,178,.8)' },
+  { id: 5, label: 'Secondary Diligence', sub: '$500M Series C at $1B+ valuation', color: '#5974a0' },
 ];
 
 export function FlywheelDiagram() {
@@ -51,15 +51,15 @@ export function FlywheelDiagram() {
               {/* Circle */}
               <div style={{
                 width: 28, height: 28, borderRadius: '50%', flexShrink:0,
-                border: `2px solid ${isActive ? (isFinal ? '#2dd4a0' : 'rgba(77,144,254,.7)') : 'rgba(255,255,255,.12)'}`,
-                background: isActive ? (isFinal ? 'rgba(45,212,160,.15)' : 'rgba(77,144,254,.15)') : 'transparent',
+                border: `2px solid ${isActive ? (isFinal ? '#5974a0' : 'rgba(120,144,178,.7)') : 'rgba(255,255,255,.12)'}`,
+                background: isActive ? (isFinal ? 'rgba(89,116,154,.15)' : 'rgba(120,144,178,.15)') : 'transparent',
                 display:'flex', alignItems:'center', justifyContent:'center',
                 transition:'all .4s ease',
-                boxShadow: isCurrent ? `0 0 12px ${isFinal ? 'rgba(45,212,160,.4)' : 'rgba(77,144,254,.4)'}` : 'none',
+                boxShadow: isCurrent ? `0 0 12px ${isFinal ? 'rgba(89,116,154,.4)' : 'rgba(120,144,178,.4)'}` : 'none',
               }}>
                 <span style={{
                   fontSize: 10, fontWeight: 700,
-                  color: isActive ? (isFinal ? '#2dd4a0' : 'rgba(130,175,255,.9)') : 'rgba(255,255,255,.25)',
+                  color: isActive ? (isFinal ? '#5974a0' : 'rgba(166,183,210,.9)') : 'rgba(255,255,255,.25)',
                   fontFamily: 'JetBrains Mono, monospace',
                   transition: 'color .4s',
                 }}>
@@ -71,7 +71,7 @@ export function FlywheelDiagram() {
                 <div style={{
                   width: 2, flex:1, minHeight: 20,
                   background: isActive && activeStep > i
-                    ? 'linear-gradient(to bottom, rgba(77,144,254,.5), rgba(77,144,254,.2))'
+                    ? 'linear-gradient(to bottom, rgba(120,144,178,.5), rgba(120,144,178,.2))'
                     : 'rgba(255,255,255,.07)',
                   transition: 'background .4s',
                   margin: '3px 0',
@@ -88,13 +88,13 @@ export function FlywheelDiagram() {
             }}>
               <div style={{
                 fontSize: 14, fontWeight: 700, lineHeight: 1.3,
-                color: isFinal ? '#2dd4a0' : 'rgba(255,255,255,.88)',
+                color: isFinal ? '#5974a0' : 'rgba(255,255,255,.88)',
                 marginBottom: 4,
               }}>
                 {step.label}
               </div>
               <div style={{
-                fontSize: 12, color: isFinal ? 'rgba(45,212,160,.7)' : 'rgba(255,255,255,.42)',
+                fontSize: 12, color: isFinal ? 'rgba(89,116,154,.7)' : 'rgba(255,255,255,.42)',
                 lineHeight: 1.55,
               }}>
                 {step.sub}

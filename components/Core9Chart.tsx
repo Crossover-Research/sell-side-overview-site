@@ -49,7 +49,7 @@ export function Core9Chart({ title = 'Red Canary' }: { title?: string }) {
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginLeft: 'auto' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-            <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'rgba(130,175,255,.85)' }} />
+            <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'rgba(166,183,210,.85)' }} />
             <span style={{ fontSize: 10, color: 'rgba(255,255,255,.70)' }}>{title}</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
@@ -79,12 +79,12 @@ export function Core9Chart({ title = 'Red Canary' }: { title?: string }) {
                 <div style={{
                   position: 'absolute', left: 0, top: 5, height: 10,
                   width: `${(d.score / 10) * 100 * p}%`,
-                  background: 'linear-gradient(90deg, rgba(77,144,254,.6), rgba(130,175,255,.85))',
+                  background: 'linear-gradient(90deg, rgba(120,144,178,.6), rgba(166,183,210,.85))',
                   borderRadius: 2,
                   transition: 'width .05s',
                 }} />
               </div>
-              <div style={{ fontSize: 11, fontWeight: 700, color: 'rgba(130,175,255,.9)', fontFamily: 'JetBrains Mono, monospace' }}>
+              <div style={{ fontSize: 11, fontWeight: 700, color: 'rgba(166,183,210,.9)', fontFamily: 'JetBrains Mono, monospace' }}>
                 {(d.score * p).toFixed(p < 0.98 ? 0 : 1)}
               </div>
             </div>

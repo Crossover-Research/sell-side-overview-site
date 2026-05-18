@@ -11,7 +11,7 @@ const DATA: Record<Audience, {
 }> = {
   bankers: {
     sub: 'Walk in with evidence no competing bank can replicate.',
-    accent: 'rgba(77,144,254,.9)',
+    accent: 'rgba(120,144,178,.9)',
     rows: [
       { label:'Mandate',  without:'Pitch alongside 3–5 identical banks. Hope relationship wins.', with:'Walk in with customer evidence no competing bank has.', withBold:'The room is already yours.' },
       { label:'Story',    without:'Assemble standard deck. Recycle public comps and industry reports.', with:'Customer-validated equity story', withBold:'no competing bank can replicate.' },
@@ -23,7 +23,7 @@ const DATA: Record<Audience, {
   },
   operators: {
     sub: 'Surface every weakness before buyers use it against you.',
-    accent: 'rgba(45,212,160,.9)',
+    accent: 'rgba(89,116,154,.9)',
     rows: [
       { label:'Diligence', without:'Weaknesses surface during buyer diligence. Too late to fix.', with:'Every weakness found', withBold:'before buyers find it for you.' },
       { label:'CIM',       without:'CIM built on curated references buyers already discount.', with:'CIM backed by evidence', withBold:"buyers can't dismiss as operator spin." },
@@ -35,7 +35,7 @@ const DATA: Record<Audience, {
   },
   investors: {
     sub: 'Build conviction months before the process even opens.',
-    accent: 'rgba(168,130,255,.9)',
+    accent: 'rgba(140,151,178,.9)',
     rows: [
       { label:'Timing',  without:'Teaser arrives. Restart diligence from zero.', with:'Catalyst report arrives', withBold:'before the teaser does.' },
       { label:'Speed',   without:'Commission expert calls. Wait weeks. Compress timeline.', with:'Customer data already in hand.', withBold:'Weeks of work compressed into hours.' },

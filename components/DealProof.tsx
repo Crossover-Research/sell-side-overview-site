@@ -18,8 +18,8 @@ const DEALS = [
       involvement: 'Catalyst Dual-Side',
       desc: '30+ customer interviews delivered to both parties. Neither side briefed or selected the respondents. J.P. Morgan used the research to differentiate their mandate pitch. General Atlantic used the same dataset to build conviction before the process opened.',
       outcomes: [
-        { party: 'J.P. Morgan',      color: 'rgba(130,175,255,.95)', result: 'Won the exclusive mandate' },
-        { party: 'General Atlantic', color: 'rgba(45,212,160,.95)',  result: '$500M investment at unicorn valuation' },
+        { party: 'J.P. Morgan',      color: 'rgba(166,183,210,.95)', result: 'Won the exclusive mandate' },
+        { party: 'General Atlantic', color: 'rgba(89,116,154,.95)',  result: '$500M investment at unicorn valuation' },
       ],
     },
   },
@@ -39,7 +39,7 @@ const DEALS = [
       quote: '"Having a Voice of Customer document was seen as a differentiator by the client. The findings from your report were a key part of the equity story materials we presented."',
       quoteAttr: 'Executive Director, J.P. Morgan',
       outcomes: [
-        { party: 'J.P. Morgan', color: 'rgba(130,175,255,.95)', result: 'Customer research cited as the mandate-winning differentiator' },
+        { party: 'J.P. Morgan', color: 'rgba(166,183,210,.95)', result: 'Customer research cited as the mandate-winning differentiator' },
       ],
     },
   },
@@ -59,7 +59,7 @@ const DEALS = [
       involvement: 'CIM Enhancement',
       desc: 'Customer research woven into the CIM narrative. Every customer claim pre-validated against actual user interviews. No gaps for buyers to exploit in diligence.',
       outcomes: [
-        { party: 'Outcome', color: 'rgba(130,175,255,.95)', result: '$675M exit. CIM backed by independent evidence' },
+        { party: 'Outcome', color: 'rgba(166,183,210,.95)', result: '$675M exit. CIM backed by independent evidence' },
       ],
     },
   },
@@ -147,7 +147,7 @@ export function DealProof() {
                 width: active === i ? 28 : 8,
                 height: 4,
                 borderRadius: 2,
-                background: active === i ? 'rgba(130,175,255,.88)' : 'rgba(255,255,255,.28)',
+                background: active === i ? 'rgba(166,183,210,.88)' : 'rgba(255,255,255,.28)',
                 transition: 'all .3s ease',
               }} />
             </button>
@@ -158,7 +158,7 @@ export function DealProof() {
         <div style={{ height:1, background:'rgba(255,255,255,.06)', marginBottom:20, overflow:'hidden' }}>
           <div key={`${active}-${paused}`} style={{
             height:'100%',
-            background:'linear-gradient(90deg, rgba(77,144,254,.3), rgba(130,175,255,.6))',
+            background:'linear-gradient(90deg, rgba(120,144,178,.3), rgba(166,183,210,.6))',
             width: paused ? '0%' : '100%',
             transition: paused ? 'none' : 'width 6s linear',
           }} />
@@ -174,7 +174,7 @@ export function DealProof() {
           position:'relative',
           minHeight:280,
         }}>
-          <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,transparent 0%,rgba(77,144,254,.35) 25%,rgba(130,175,255,.5) 50%,rgba(77,144,254,.35) 75%,transparent 100%)' }} />
+          <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,transparent 0%,rgba(120,144,178,.35) 25%,rgba(166,183,210,.5) 50%,rgba(120,144,178,.35) 75%,transparent 100%)' }} />
 
           {/* LEFT: Transaction parties */}
           <div style={{
@@ -227,7 +227,7 @@ export function DealProof() {
 
             {/* Involvement badge */}
             <div style={{ display:'flex', alignItems:'center', gap:10, marginBottom:20 }}>
-              <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(45,212,160,.9)', background:'rgba(45,212,160,.09)', border:'1px solid rgba(45,212,160,.22)', padding:'3px 10px' }}>
+              <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(89,116,154,.9)', background:'rgba(89,116,154,.09)', border:'1px solid rgba(89,116,154,.22)', padding:'3px 10px' }}>
                 {deal.crossover.involvement}
               </div>
               <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.35)' }}>
@@ -238,7 +238,7 @@ export function DealProof() {
             {/* Quote or description */}
             {(deal.crossover as any).quote ? (
               <div style={{ marginBottom:24, flex:1 }}>
-                <div style={{ fontSize:14, fontStyle:'italic', color:'rgba(255,255,255,.85)', lineHeight:1.75, borderLeft:'2px solid rgba(77,144,254,.3)', paddingLeft:16, marginBottom:10 }}>
+                <div style={{ fontSize:14, fontStyle:'italic', color:'rgba(255,255,255,.85)', lineHeight:1.75, borderLeft:'2px solid rgba(120,144,178,.3)', paddingLeft:16, marginBottom:10 }}>
                   {(deal.crossover as any).quote}
                 </div>
                 <div style={{ fontSize:11, color:'rgba(255,255,255,.52)', paddingLeft:18 }}>{(deal.crossover as any).quoteAttr}</div>
@@ -271,11 +271,11 @@ export function DealProof() {
         <div style={{
           marginTop:1,
           display:'flex', alignItems:'center', justifyContent:'space-between',
-          background:'rgba(77,144,254,.05)', border:'1px solid rgba(77,144,254,.12)',
+          background:'rgba(120,144,178,.05)', border:'1px solid rgba(120,144,178,.12)',
           borderTop:'none', padding:'16px 24px', gap:16, flexWrap:'wrap',
         }}>
           <div style={{ fontSize:13, color:'rgba(255,255,255,.65)', lineHeight:1.5 }}>
-            <span style={{ color:'rgba(130,175,255,.9)', fontWeight:600 }}>50+ sell-side mandates. 60+ buy-side engagements.</span>
+            <span style={{ color:'rgba(166,183,210,.9)', fontWeight:600 }}>50+ sell-side mandates. 60+ buy-side engagements.</span>
             {' '}The same customer evidence that closed these deals is available for your next one.
           </div>
           <a

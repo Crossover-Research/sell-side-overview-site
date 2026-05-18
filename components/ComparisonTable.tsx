@@ -18,7 +18,7 @@ const DOMAINS: Record<string, string> = {
 
 function Bar({ value, hi, lo }: { value: number; hi: boolean; lo: boolean }) {
   const pct = `${(value / 10) * 100}%`;
-  const color = hi ? 'rgba(45,212,160,.7)' : lo ? 'rgba(255,77,94,.5)' : 'rgba(130,170,255,.5)';
+  const color = hi ? 'rgba(89,116,154,.7)' : lo ? 'rgba(255,77,94,.5)' : 'rgba(130,170,255,.5)';
   return (
     <div className="vbar-row">
       <div className="vbar"><div className="vbar-fill" style={{ width: pct, background: color }} /></div>

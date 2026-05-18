@@ -30,105 +30,105 @@ const QUESTIONS = [
     rating: 'On a scale of 1-10, how frequently do you use AI-powered features in [Software Name]? (1 = Never, 5 = Occasionally, 10 = Multiple times daily)',
     open: 'Which specific AI features do you use most often, and what tasks do they help you accomplish? Please be as specific as possible.',
     why: 'Separates AI marketing from actual adoption. The open-ended response reveals which features have sticky usage versus which are ignored.',
-    color: 'rgba(77,144,254,.9)',
+    color: 'rgba(120,144,178,.9)',
   },
   {
     part: 'I', num: 'Q2', label: 'Value Quantification & ROI',
     rating: 'Rate the business impact of AI features in [Software Name]. (1 = No measurable impact, 5 = Moderate value, 10 = Mission-critical)',
     open: 'Can you quantify the value you get from AI features? Examples: hours saved per week, cost reductions, revenue enabled, errors prevented.',
     why: 'Forces respondents to articulate ROI in concrete terms. Produces the executive soundbites needed for pitch materials.',
-    color: 'rgba(77,144,254,.9)',
+    color: 'rgba(120,144,178,.9)',
   },
   {
     part: 'I', num: 'Q3', label: 'Competitive Differentiation',
     rating: "Compared to alternatives you've evaluated, how would you rate [Software Name]'s AI capabilities? (1 = Significantly behind, 5 = On par, 10 = Clear market leader)",
     open: "Which specific AI capabilities set [Software Name] apart from competitors? Please name specific competing products if possible.",
     why: 'Direct competitive positioning data. Reveals the actual battleground features and which competitors are winning on AI.',
-    color: 'rgba(77,144,254,.9)',
+    color: 'rgba(120,144,178,.9)',
   },
   {
     part: 'I', num: 'Q4', label: 'Innovation Velocity',
     rating: `How would you rate [Software Name]'s pace of AI innovation and new feature releases? (1 = Stagnant, 5 = Keeping pace, 10 = Leading edge)`,
     open: `What recent AI improvements have impressed you, or what AI capabilities have you been waiting for that haven't been delivered?`,
     why: 'Assesses innovation velocity and roadmap execution. Reveals whether the company is actually shipping or just promising.',
-    color: 'rgba(77,144,254,.9)',
+    color: 'rgba(120,144,178,.9)',
   },
   {
     part: 'I', num: 'Q5', label: 'Accuracy & Reliability',
     rating: 'Rate the accuracy and reliability of AI-generated outputs in [Software Name]. (1 = Frequently inaccurate, 5 = Generally reliable, 10 = Consistently accurate)',
     open: 'Describe any instances where AI outputs were inaccurate. How often does this happen, and does it impact your trust in the system?',
     why: "Critical for risk assessment. AI that doesn't work creates massive churn risk and kills valuation stories.",
-    color: 'rgba(77,144,254,.9)',
+    color: 'rgba(120,144,178,.9)',
   },
   {
     part: 'I', num: 'Q6', label: 'Marketing Claims vs. Reality',
     rating: `How well do [Software Name]'s actual AI capabilities match what was promised during the sales process? (1 = Significantly overpromised, 5 = Mostly aligned, 10 = Exceeded expectations)`,
     open: 'Were there AI features that were promised but underdelivered, or capabilities that turned out to be more valuable than expected?',
     why: 'Exposes AI washing and credibility issues. Creates a reality check on whether the AI story is real or aspirational.',
-    color: 'rgba(77,144,254,.9)',
+    color: 'rgba(120,144,178,.9)',
   },
   {
     part: 'I', num: 'Q7', label: 'Implementation Ease',
     rating: 'How easy was it to implement and get value from AI features in [Software Name]? (1 = Extremely difficult, 5 = Moderate effort, 10 = Worked immediately)',
     open: 'What obstacles did you encounter when implementing AI features, and what training was required to get your team using them effectively?',
     why: 'Time-to-value is critical for expansion and retention. Reveals onboarding friction that limits market expansion.',
-    color: 'rgba(77,144,254,.9)',
+    color: 'rgba(120,144,178,.9)',
   },
   {
     part: 'I', num: 'Q8', label: 'Business Differentiation',
     rating: `Rate how much [Software Name]'s AI capabilities help differentiate your business or improve your competitive position. (1 = No competitive advantage, 10 = Significant strategic advantage)`,
     open: `How have AI features changed how your team works or enabled new capabilities you couldn't achieve before?`,
     why: 'Measures stickiness and strategic value. Produces case study material demonstrating moat and switching costs.',
-    color: 'rgba(77,144,254,.9)',
+    color: 'rgba(120,144,178,.9)',
   },
   {
     part: 'I', num: 'Q9', label: 'Roadmap Confidence',
     rating: "Based on what you've seen so far, how confident are you that [Software Name] will continue to lead with AI innovation? (1 = Not confident, 10 = Extremely confident, committed long-term)",
     open: 'What would need to happen with AI capabilities for you to consider switching to a competitor?',
     why: 'Forward-looking retention indicator. Reveals competitive vulnerabilities and moat defensibility.',
-    color: 'rgba(77,144,254,.9)',
+    color: 'rgba(120,144,178,.9)',
   },
   {
     part: 'I', num: 'Q10', label: 'AI Sophistication Level',
     rating: 'Rate the overall sophistication and maturity of AI technology in [Software Name]. (1 = Basic automation, 5 = Smart ML features, 10 = Cutting-edge AI, generative capabilities)',
     open: `Which AI capabilities feel truly advanced versus basic automation relabeled as 'AI'? What specific AI technologies do you see being used?`,
     why: 'Distinguishes real AI from rebranded if/then logic. Provides technical validation from actual users.',
-    color: 'rgba(77,144,254,.9)',
+    color: 'rgba(120,144,178,.9)',
   },
   {
     part: 'II', num: 'Q11', label: 'AI-Native Replacement Risk',
     rating: 'Have you evaluated AI-native tools (e.g., ChatGPT, Claude, Gemini, vertical AI agents) as a partial or full replacement? (1 = Actively replacing; 10 = Never considered, no viable alternative)',
     open: 'If you explored AI-native alternatives, what tasks did you test? What was the result — did the AI tool perform comparably, and what stopped you from switching?',
     why: 'The single most valuable displacement question. Directly measures whether customers are already testing the replacement thesis.',
-    color: 'rgba(45,212,160,.9)',
+    color: 'rgba(89,116,154,.9)',
   },
   {
     part: 'II', num: 'Q12', label: 'Data & Workflow Lock-In',
     rating: `How deeply is [Software Name] embedded in your organization's data infrastructure and workflows? (1 = Standalone tool, easily replaceable; 10 = Deeply embedded, major restructuring required)`,
     open: 'Describe the integrations, data dependencies, and workflow automations connecting [Software Name] to your tech stack. Could you replicate this with an AI-native tool?',
     why: 'Measures the structural moat. AI displacement is easiest for standalone tools and hardest for deeply integrated systems serving as the data layer.',
-    color: 'rgba(45,212,160,.9)',
+    color: 'rgba(89,116,154,.9)',
   },
   {
     part: 'II', num: 'Q13', label: 'Pricing Model Defense',
     rating: 'If [Software Name] switched from per-seat to outcome-based pricing, would that change how you evaluate it versus AI-native alternatives? (1 = Makes no difference; 10 = Would significantly increase commitment)',
     open: 'How many seats does your organization pay for? What percentage are active power users? If AI could do the work of 3-5 seats, would you reduce licenses?',
     why: 'Probes the pricing model vulnerability that IDC predicts will force 70% of vendors to restructure by 2028.',
-    color: 'rgba(45,212,160,.9)',
+    color: 'rgba(89,116,154,.9)',
   },
   {
     part: 'II', num: 'Q14', label: 'AI Leapfrog Resistance',
     rating: 'Could a new AI-first company build a better version of [Software Name] from scratch using current AI technology? (1 = Absolutely, inevitable; 10 = Impossible, domain expertise too specialized)',
     open: 'What aspects of [Software Name] would be hardest for an AI-native startup to replicate? What parts would be easiest? Consider data complexity, regulatory requirements, domain expertise, integration depth.',
     why: 'Customers understand their domain better than any analyst. Produces the exact defensibility map buyers need at IC.',
-    color: 'rgba(45,212,160,.9)',
+    color: 'rgba(89,116,154,.9)',
   },
   {
     part: 'II', num: 'Q15', label: 'Vendor Strategy Credibility',
     rating: `How confident are you that [Software Name]'s leadership understands and is effectively responding to the AI transformation of your industry? (1 = Clueless; 10 = Leading the charge)`,
     open: `What has [Software Name]'s leadership communicated about their AI strategy? Have you seen evidence of foundational AI investment versus just adding chatbot wrappers?`,
     why: 'Management credibility on AI is the leading indicator of whether a company will navigate or be disrupted by the transition.',
-    color: 'rgba(45,212,160,.9)',
+    color: 'rgba(89,116,154,.9)',
   },
 ];
 
@@ -190,7 +190,7 @@ export default function QofAIPage() {
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
           <div style={{ display:'grid', gridTemplateColumns:'1fr 400px', gap:52, alignItems:'center', paddingBottom:36 }}>
             <div>
-              <div style={{ display:'inline-flex', alignItems:'center', fontSize:11, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(45,212,160,.9)', background:'rgba(45,212,160,.09)', border:'1px solid rgba(45,212,160,.25)', padding:'3px 12px', marginBottom:18 }}>
+              <div style={{ display:'inline-flex', alignItems:'center', fontSize:11, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(89,116,154,.9)', background:'rgba(89,116,154,.09)', border:'1px solid rgba(89,116,154,.25)', padding:'3px 12px', marginBottom:18 }}>
                 New Product
               </div>
               <h1 style={{ fontSize:42, fontWeight:700, color:'rgba(255,255,255,.97)', lineHeight:1.1, letterSpacing:'-.04em', marginBottom:16 }}>
@@ -214,18 +214,18 @@ export default function QofAIPage() {
 
             {/* Scorecard preview */}
             <div style={{ background:'rgba(255,255,255,.04)', border:'1px solid rgba(255,255,255,.12)', position:'relative', overflow:'hidden' }}>
-              <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,transparent,rgba(45,212,160,.4),transparent)' }} />
+              <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,transparent,rgba(89,116,154,.4),transparent)' }} />
               <div style={{ padding:'14px 18px', borderBottom:'1px solid rgba(255,255,255,.08)', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
                 <div>
                   <div style={{ fontSize:11, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.72)', marginBottom:2 }}>Sample Scorecard</div>
                   <div style={{ fontSize:11, color:'rgba(255,255,255,.65)' }}>Enterprise SaaS · Anonymised</div>
                 </div>
-                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(45,212,160,.95)', background:'rgba(45,212,160,.13)', border:'1px solid rgba(45,212,160,.3)', padding:'3px 10px' }}>AI FORTRESS</div>
+                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(89,116,154,.95)', background:'rgba(89,116,154,.13)', border:'1px solid rgba(89,116,154,.3)', padding:'3px 10px' }}>AI FORTRESS</div>
               </div>
               <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:1, background:'rgba(255,255,255,.07)' }}>
                 {[
-                  { val:'8.3', lbl:'AI Capability',    sub:'10 dimensions',     color:'rgba(77,144,254,.95)'  },
-                  { val:'8.7', lbl:'AI Resilience',     sub:'5 dimensions',      color:'rgba(45,212,160,.95)'  },
+                  { val:'8.3', lbl:'AI Capability',    sub:'10 dimensions',     color:'rgba(120,144,178,.95)'  },
+                  { val:'8.7', lbl:'AI Resilience',     sub:'5 dimensions',      color:'rgba(89,116,154,.95)'  },
                   { val:'82%', lbl:'Daily AI Adoption', sub:'14.2 hrs/wk saved', color:'rgba(255,255,255,.92)' },
                   { val:'9.1', lbl:'Data Lock-In',      sub:'18-24 mo barrier',  color:'rgba(245,158,11,.95)'  },
                 ].map((m,i) => (
@@ -257,12 +257,12 @@ export default function QofAIPage() {
               </h2>
               <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:2, background:'rgba(255,255,255,.07)', border:'1px solid rgba(255,255,255,.09)' }}>
                 {[
-                  { name:'AI Catalyst',    badge:'Growth Opportunity', color:'rgba(77,144,254,.95)',  bg:'rgba(77,144,254,.08)',  desc:'High Resilience, emerging AI capability. Strong moats with untapped upside.' },
-                  { name:'AI Fortress',    badge:'Premium Asset',       color:'rgba(45,212,160,.97)',  bg:'rgba(45,212,160,.07)',  desc:'High Capability + High Resilience. Top 15-20% of all companies assessed.', highlight:true },
+                  { name:'AI Catalyst',    badge:'Growth Opportunity', color:'rgba(120,144,178,.95)',  bg:'rgba(120,144,178,.08)',  desc:'High Resilience, emerging AI capability. Strong moats with untapped upside.' },
+                  { name:'AI Fortress',    badge:'Premium Asset',       color:'rgba(89,116,154,.97)',  bg:'rgba(89,116,154,.07)',  desc:'High Capability + High Resilience. Top 15-20% of all companies assessed.', highlight:true },
                   { name:'AI Foundation',  badge:'AI Growth Story',     color:'rgba(255,77,94,.92)',   bg:'rgba(255,77,94,.06)',   desc:'Early-stage AI with upside on both axes. A growth narrative for the right acquirer.' },
                   { name:'AI Accelerator', badge:'Structural Upside',   color:'rgba(245,158,11,.95)',  bg:'rgba(245,158,11,.07)',  desc:'Strong AI capability. Near-term opportunity to lock in structural defensibility.' },
                 ].map((q, i) => (
-                  <div key={i} style={{ background: (q as any).highlight ? 'rgba(45,212,160,.05)' : 'rgba(6,14,28,.95)', padding:'20px', borderTop: (q as any).highlight ? '2px solid rgba(45,212,160,.4)' : '2px solid transparent' }}>
+                  <div key={i} style={{ background: (q as any).highlight ? 'rgba(89,116,154,.05)' : 'rgba(6,14,28,.95)', padding:'20px', borderTop: (q as any).highlight ? '2px solid rgba(89,116,154,.4)' : '2px solid transparent' }}>
                     <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:q.color, background:q.bg, padding:'2px 7px', display:'inline-block', marginBottom:8 }}>{q.badge}</div>
                     <div style={{ fontFamily:'var(--font-mono)', fontSize:14, fontWeight:700, color:q.color, marginBottom:6 }}>{q.name}</div>
                     <div style={{ fontSize:11.5, color:'rgba(255,255,255,.75)', lineHeight:1.55 }}>{q.desc}</div>
@@ -281,14 +281,14 @@ export default function QofAIPage() {
               <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:2 }}>
 
                 {/* Capability panel */}
-                <div style={{ background:'rgba(6,14,28,.98)', border:'1px solid rgba(77,144,254,.18)', overflow:'hidden' }}>
-                  <div style={{ background:'rgba(77,144,254,.06)', borderBottom:'1px solid rgba(77,144,254,.15)', padding:'14px 18px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
+                <div style={{ background:'rgba(6,14,28,.98)', border:'1px solid rgba(120,144,178,.18)', overflow:'hidden' }}>
+                  <div style={{ background:'rgba(120,144,178,.06)', borderBottom:'1px solid rgba(120,144,178,.15)', padding:'14px 18px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
                     <div>
-                      <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(77,144,254,.7)', marginBottom:3 }}>Part I · 10 Dimensions</div>
+                      <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(120,144,178,.7)', marginBottom:3 }}>Part I · 10 Dimensions</div>
                       <div style={{ fontSize:13, fontWeight:700, color:'rgba(255,255,255,.92)' }}>AI Capability</div>
                     </div>
                     <div style={{ textAlign:'right' }}>
-                      <div style={{ fontFamily:'var(--font-mono)', fontSize:32, fontWeight:700, color:'rgba(77,144,254,.97)', letterSpacing:'-.04em', lineHeight:1 }}>83</div>
+                      <div style={{ fontFamily:'var(--font-mono)', fontSize:32, fontWeight:700, color:'rgba(120,144,178,.97)', letterSpacing:'-.04em', lineHeight:1 }}>83</div>
                       <div style={{ fontSize:9, color:'rgba(255,255,255,.42)', letterSpacing:'.06em' }}>OUT OF 100</div>
                     </div>
                   </div>
@@ -297,23 +297,23 @@ export default function QofAIPage() {
                       <div>
                         <div style={{ fontSize:11.5, color:'rgba(255,255,255,.82)', marginBottom:5, fontWeight:500 }}>{d.label}</div>
                         <div style={{ height:3, background:'rgba(255,255,255,.07)', borderRadius:2, overflow:'hidden' }}>
-                          <div style={{ width:`${(d.score/10)*100}%`, height:'100%', background:'linear-gradient(90deg,rgba(77,144,254,.5),rgba(77,144,254,.9))', borderRadius:2 }} />
+                          <div style={{ width:`${(d.score/10)*100}%`, height:'100%', background:'linear-gradient(90deg,rgba(120,144,178,.5),rgba(120,144,178,.9))', borderRadius:2 }} />
                         </div>
                       </div>
-                      <div style={{ fontFamily:'var(--font-mono)', fontSize:12, fontWeight:700, color:'rgba(77,144,254,.97)', textAlign:'right' }}>{d.score.toFixed(1)}</div>
+                      <div style={{ fontFamily:'var(--font-mono)', fontSize:12, fontWeight:700, color:'rgba(120,144,178,.97)', textAlign:'right' }}>{d.score.toFixed(1)}</div>
                     </div>
                   ))}
                 </div>
 
                 {/* Resilience panel */}
-                <div style={{ background:'rgba(6,14,28,.98)', border:'1px solid rgba(45,212,160,.18)', overflow:'hidden', display:'flex', flexDirection:'column' }}>
-                  <div style={{ background:'rgba(45,212,160,.05)', borderBottom:'1px solid rgba(45,212,160,.15)', padding:'14px 18px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
+                <div style={{ background:'rgba(6,14,28,.98)', border:'1px solid rgba(89,116,154,.18)', overflow:'hidden', display:'flex', flexDirection:'column' }}>
+                  <div style={{ background:'rgba(89,116,154,.05)', borderBottom:'1px solid rgba(89,116,154,.15)', padding:'14px 18px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
                     <div>
-                      <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(45,212,160,.7)', marginBottom:3 }}>Part II · 5 Dimensions</div>
+                      <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(89,116,154,.7)', marginBottom:3 }}>Part II · 5 Dimensions</div>
                       <div style={{ fontSize:13, fontWeight:700, color:'rgba(255,255,255,.92)' }}>AI Resilience</div>
                     </div>
                     <div style={{ textAlign:'right' }}>
-                      <div style={{ fontFamily:'var(--font-mono)', fontSize:32, fontWeight:700, color:'rgba(45,212,160,.97)', letterSpacing:'-.04em', lineHeight:1 }}>87</div>
+                      <div style={{ fontFamily:'var(--font-mono)', fontSize:32, fontWeight:700, color:'rgba(89,116,154,.97)', letterSpacing:'-.04em', lineHeight:1 }}>87</div>
                       <div style={{ fontSize:9, color:'rgba(255,255,255,.42)', letterSpacing:'.06em' }}>OUT OF 100</div>
                     </div>
                   </div>
@@ -322,15 +322,15 @@ export default function QofAIPage() {
                       <div>
                         <div style={{ fontSize:11.5, color:'rgba(255,255,255,.82)', marginBottom:5, fontWeight:500 }}>{d.label}</div>
                         <div style={{ height:3, background:'rgba(255,255,255,.07)', borderRadius:2, overflow:'hidden' }}>
-                          <div style={{ width:`${(d.score/10)*100}%`, height:'100%', background:'linear-gradient(90deg,rgba(45,212,160,.5),rgba(45,212,160,.9))', borderRadius:2 }} />
+                          <div style={{ width:`${(d.score/10)*100}%`, height:'100%', background:'linear-gradient(90deg,rgba(89,116,154,.5),rgba(89,116,154,.9))', borderRadius:2 }} />
                         </div>
                       </div>
-                      <div style={{ fontFamily:'var(--font-mono)', fontSize:12, fontWeight:700, color:'rgba(45,212,160,.97)', textAlign:'right' }}>{d.score.toFixed(1)}</div>
+                      <div style={{ fontFamily:'var(--font-mono)', fontSize:12, fontWeight:700, color:'rgba(89,116,154,.97)', textAlign:'right' }}>{d.score.toFixed(1)}</div>
                     </div>
                   ))}
                   <div style={{ padding:'12px 18px', marginTop:'auto' }}>
-                    <div style={{ background:'rgba(45,212,160,.06)', border:'1px solid rgba(45,212,160,.2)', padding:'10px 14px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
-                      <div style={{ fontSize:11, fontWeight:700, color:'rgba(45,212,160,.95)' }}>AI Fortress — Premium Asset</div>
+                    <div style={{ background:'rgba(89,116,154,.06)', border:'1px solid rgba(89,116,154,.2)', padding:'10px 14px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
+                      <div style={{ fontSize:11, fontWeight:700, color:'rgba(89,116,154,.95)' }}>AI Fortress — Premium Asset</div>
                       <div style={{ fontSize:10, color:'rgba(255,255,255,.55)' }}>Top 15–20% assessed</div>
                     </div>
                   </div>
@@ -360,12 +360,12 @@ export default function QofAIPage() {
 
           {/* Part headers */}
           <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:2, marginBottom:2 }}>
-            <div style={{ background:'rgba(77,144,254,.06)', border:'1px solid rgba(77,144,254,.15)', padding:'10px 18px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
-              <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(77,144,254,.8)' }}>Part I — AI Capability</div>
+            <div style={{ background:'rgba(120,144,178,.06)', border:'1px solid rgba(120,144,178,.15)', padding:'10px 18px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
+              <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(120,144,178,.8)' }}>Part I — AI Capability</div>
               <div style={{ fontSize:10, color:'rgba(255,255,255,.45)' }}>Questions 1–10</div>
             </div>
-            <div style={{ background:'rgba(45,212,160,.05)', border:'1px solid rgba(45,212,160,.15)', padding:'10px 18px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
-              <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(45,212,160,.8)' }}>Part II — AI Displacement Risk</div>
+            <div style={{ background:'rgba(89,116,154,.05)', border:'1px solid rgba(89,116,154,.15)', padding:'10px 18px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
+              <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(89,116,154,.8)' }}>Part II — AI Displacement Risk</div>
               <div style={{ fontSize:10, color:'rgba(255,255,255,.45)' }}>Questions 11–15</div>
             </div>
           </div>
@@ -382,24 +382,24 @@ export default function QofAIPage() {
                     transition:'background .12s',
                   }}
                 >
-                  <div style={{ fontFamily:'var(--font-mono)', fontSize:11, fontWeight:700, color: q.part === 'I' ? 'rgba(77,144,254,.7)' : 'rgba(45,212,160,.7)', flexShrink:0, width:28 }}>{q.num}</div>
+                  <div style={{ fontFamily:'var(--font-mono)', fontSize:11, fontWeight:700, color: q.part === 'I' ? 'rgba(120,144,178,.7)' : 'rgba(89,116,154,.7)', flexShrink:0, width:28 }}>{q.num}</div>
                   <div style={{ flex:1, fontSize:13, fontWeight:600, color:'rgba(255,255,255,.88)', textAlign:'left' }}>{q.label}</div>
-                  <div style={{ color: q.part === 'I' ? 'rgba(77,144,254,.6)' : 'rgba(45,212,160,.6)', flexShrink:0, fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase' }}>Part {q.part}</div>
+                  <div style={{ color: q.part === 'I' ? 'rgba(120,144,178,.6)' : 'rgba(89,116,154,.6)', flexShrink:0, fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase' }}>Part {q.part}</div>
                   <div style={{ color:'rgba(255,255,255,.35)', flexShrink:0, fontSize:14, transform: openQ === i ? 'rotate(180deg)' : 'none', transition:'transform .2s' }}>↓</div>
                 </button>
                 {openQ === i && (
                   <div style={{ padding:'0 20px 20px 64px', background:'rgba(6,14,28,.97)' }}>
                     <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:16, marginBottom:14 }}>
                       <div>
-                        <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color: q.part === 'I' ? 'rgba(77,144,254,.6)' : 'rgba(45,212,160,.6)', marginBottom:6 }}>Rating prompt</div>
+                        <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color: q.part === 'I' ? 'rgba(120,144,178,.6)' : 'rgba(89,116,154,.6)', marginBottom:6 }}>Rating prompt</div>
                         <div style={{ fontSize:12, color:'rgba(255,255,255,.72)', lineHeight:1.7 }}>{q.rating}</div>
                       </div>
                       <div>
-                        <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color: q.part === 'I' ? 'rgba(77,144,254,.6)' : 'rgba(45,212,160,.6)', marginBottom:6 }}>Open-ended prompt</div>
+                        <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color: q.part === 'I' ? 'rgba(120,144,178,.6)' : 'rgba(89,116,154,.6)', marginBottom:6 }}>Open-ended prompt</div>
                         <div style={{ fontSize:12, color:'rgba(255,255,255,.72)', lineHeight:1.7 }}>{q.open}</div>
                       </div>
                     </div>
-                    <div style={{ borderLeft:`1px solid ${q.part === 'I' ? 'rgba(77,144,254,.3)' : 'rgba(45,212,160,.3)'}`, paddingLeft:12 }}>
+                    <div style={{ borderLeft:`1px solid ${q.part === 'I' ? 'rgba(120,144,178,.3)' : 'rgba(89,116,154,.3)'}`, paddingLeft:12 }}>
                       <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.35)', marginBottom:4 }}>Why it matters</div>
                       <div style={{ fontSize:12, color:'rgba(255,255,255,.65)', lineHeight:1.65, fontStyle:'italic' }}>{q.why}</div>
                     </div>
@@ -436,8 +436,8 @@ export default function QofAIPage() {
                     all:'unset', cursor:'pointer',
                     padding:'16px 22px',
                     borderBottom: i < OBJECTIONS.length-1 ? '1px solid rgba(255,255,255,.05)' : 'none',
-                    borderLeft: `2px solid ${selectedQ === i ? 'rgba(45,212,160,.6)' : 'transparent'}`,
-                    background: selectedQ === i ? 'rgba(45,212,160,.05)' : 'transparent',
+                    borderLeft: `2px solid ${selectedQ === i ? 'rgba(89,116,154,.6)' : 'transparent'}`,
+                    background: selectedQ === i ? 'rgba(89,116,154,.05)' : 'transparent',
                     transition:'all .12s',
                     display:'block',
                     textAlign:'left',
@@ -445,7 +445,7 @@ export default function QofAIPage() {
                   onMouseEnter={e => { if (selectedQ !== i) (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,.02)'; }}
                   onMouseLeave={e => { if (selectedQ !== i) (e.currentTarget as HTMLElement).style.background = 'transparent'; }}
                 >
-                  <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color: selectedQ === i ? 'rgba(45,212,160,.85)' : 'rgba(255,255,255,.45)', marginBottom:5 }}>
+                  <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color: selectedQ === i ? 'rgba(89,116,154,.85)' : 'rgba(255,255,255,.45)', marginBottom:5 }}>
                     {o.tag}
                   </div>
                   <div style={{ fontSize:12.5, fontWeight:500, color: selectedQ === i ? 'rgba(255,255,255,.95)' : 'rgba(255,255,255,.72)', lineHeight:1.5 }}>
@@ -457,7 +457,7 @@ export default function QofAIPage() {
 
             <div style={{ background:'rgba(6,14,28,.95)', padding:'28px 28px', display:'flex', flexDirection:'column', gap:20 }}>
               <div style={{ display:'flex', alignItems:'center', gap:16, padding:'14px 18px', background:'rgba(255,255,255,.03)', border:'1px solid rgba(255,255,255,.08)' }}>
-                <div style={{ fontFamily:'var(--font-mono)', fontSize:28, fontWeight:700, color:'rgba(45,212,160,.97)', letterSpacing:'-.03em', lineHeight:1, flexShrink:0 }}>
+                <div style={{ fontFamily:'var(--font-mono)', fontSize:28, fontWeight:700, color:'rgba(89,116,154,.97)', letterSpacing:'-.03em', lineHeight:1, flexShrink:0 }}>
                   {OBJECTIONS[selectedQ].stat.val}
                 </div>
                 <div style={{ width:1, height:32, background:'rgba(255,255,255,.1)', flexShrink:0 }} />
@@ -467,7 +467,7 @@ export default function QofAIPage() {
               </div>
 
               <div>
-                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(45,212,160,.85)', marginBottom:10 }}>
+                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(89,116,154,.85)', marginBottom:10 }}>
                   How to answer
                 </div>
                 <div style={{ fontSize:13, color:'rgba(255,255,255,.85)', lineHeight:1.82 }}>
@@ -475,11 +475,11 @@ export default function QofAIPage() {
                 </div>
               </div>
 
-              <div style={{ borderLeft:'2px solid rgba(45,212,160,.4)', paddingLeft:14 }}>
+              <div style={{ borderLeft:'2px solid rgba(89,116,154,.4)', paddingLeft:14 }}>
                 <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.45)', marginBottom:6 }}>
                   Close with
                 </div>
-                <div style={{ fontSize:13, fontWeight:600, color:'rgba(45,212,160,.95)', lineHeight:1.55, fontStyle:'italic' }}>
+                <div style={{ fontSize:13, fontWeight:600, color:'rgba(89,116,154,.95)', lineHeight:1.55, fontStyle:'italic' }}>
                   "{OBJECTIONS[selectedQ].close}"
                 </div>
               </div>
@@ -517,7 +517,7 @@ export default function QofAIPage() {
                 priceRange: '$25K-40K',
                 weeks: '2.5-4 weeks',
                 useCase: 'Pre-LOI validation',
-                color: 'rgba(130,175,255,.95)',
+                color: 'rgba(166,183,210,.95)',
                 features: [
                   'Voice-of-Customer fieldwork (25+ inputs)',
                   'Investment thesis validation',
@@ -535,7 +535,7 @@ export default function QofAIPage() {
                 priceRange: '$50K-65K',
                 weeks: '4 weeks',
                 useCase: 'Final bid differentiation',
-                color: 'rgba(77,144,254,.95)',
+                color: 'rgba(120,144,178,.95)',
                 recommended: true,
                 features: [
                   'Includes Everything in Early Intelligence',
@@ -554,7 +554,7 @@ export default function QofAIPage() {
                 priceRange: '$75K-100K',
                 weeks: '5 weeks',
                 useCase: 'Exclusive processes',
-                color: 'rgba(45,212,160,.97)',
+                color: 'rgba(89,116,154,.97)',
                 features: [
                   'Includes Everything in Focused Diligence',
                   'Extensive VoC research (80+ inputs)',
@@ -663,7 +663,7 @@ export default function QofAIPage() {
                       <div style={{
                         height:'100%',
                         width:`${pct}%`,
-                        background: `linear-gradient(90deg, rgba(130,175,255,.6), ${tier.color})`,
+                        background: `linear-gradient(90deg, rgba(166,183,210,.6), ${tier.color})`,
                         borderRadius:2,
                         transition:'all .3s ease',
                       }} />
@@ -687,7 +687,7 @@ export default function QofAIPage() {
                           style={{
                             width:8, height:14, borderRadius:1.5,
                             background: i < (tier.inputs as number)
-                              ? (i < 25 ? 'rgba(130,175,255,.75)' : i < 40 ? 'rgba(77,144,254,.75)' : 'rgba(45,212,160,.75)')
+                              ? (i < 25 ? 'rgba(166,183,210,.75)' : i < 40 ? 'rgba(120,144,178,.75)' : 'rgba(89,116,154,.75)')
                               : 'rgba(255,255,255,.06)',
                             transition:'all .2s',
                             transitionDelay: `${i * 0.005}s`,
@@ -696,16 +696,16 @@ export default function QofAIPage() {
                       ))}
                     </div>
                     <div style={{ display:'flex', gap:16, marginTop:8, flexWrap:'wrap' }}>
-                      <div style={{ display:'flex', alignItems:'center', gap:5, fontSize:10, color:'rgba(130,175,255,.85)' }}>
-                        <div style={{ width:8, height:8, background:'rgba(130,175,255,.75)', borderRadius:1 }} />
+                      <div style={{ display:'flex', alignItems:'center', gap:5, fontSize:10, color:'rgba(166,183,210,.85)' }}>
+                        <div style={{ width:8, height:8, background:'rgba(166,183,210,.75)', borderRadius:1 }} />
                         Early (25)
                       </div>
-                      <div style={{ display:'flex', alignItems:'center', gap:5, fontSize:10, color:'rgba(77,144,254,.85)' }}>
-                        <div style={{ width:8, height:8, background:'rgba(77,144,254,.75)', borderRadius:1 }} />
+                      <div style={{ display:'flex', alignItems:'center', gap:5, fontSize:10, color:'rgba(120,144,178,.85)' }}>
+                        <div style={{ width:8, height:8, background:'rgba(120,144,178,.75)', borderRadius:1 }} />
                         Focused (40)
                       </div>
-                      <div style={{ display:'flex', alignItems:'center', gap:5, fontSize:10, color:'rgba(45,212,160,.85)' }}>
-                        <div style={{ width:8, height:8, background:'rgba(45,212,160,.75)', borderRadius:1 }} />
+                      <div style={{ display:'flex', alignItems:'center', gap:5, fontSize:10, color:'rgba(89,116,154,.85)' }}>
+                        <div style={{ width:8, height:8, background:'rgba(89,116,154,.75)', borderRadius:1 }} />
                         Full CDD (80)
                       </div>
                     </div>
@@ -725,7 +725,7 @@ export default function QofAIPage() {
                   <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:`linear-gradient(90deg, ${tier.color}, transparent)`, opacity:.5 }} />
                   <div>
                     {(tier as any).recommended && (
-                      <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(77,144,254,.95)', background:'rgba(77,144,254,.12)', padding:'2px 8px', display:'inline-block', marginBottom:8 }}>
+                      <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(120,144,178,.95)', background:'rgba(120,144,178,.12)', padding:'2px 8px', display:'inline-block', marginBottom:8 }}>
                         Most Popular
                       </div>
                     )}
@@ -757,9 +757,9 @@ export default function QofAIPage() {
                     style={{
                       display:'inline-flex', alignItems:'center', justifyContent:'center',
                       fontSize:12, fontWeight:700, textDecoration:'none', padding:'11px 20px',
-                      color: (tier as any).recommended ? '#050e1e' : 'rgba(255,255,255,.9)',
-                      background: (tier as any).recommended ? 'rgba(45,212,160,.92)' : 'rgba(255,255,255,.08)',
-                      border: (tier as any).recommended ? 'none' : `1px solid rgba(255,255,255,.18)`,
+                      color: 'rgba(255,255,255,.95)',
+                      background: (tier as any).recommended ? 'rgba(120,144,178,.92)' : 'rgba(255,255,255,.06)',
+                      border: (tier as any).recommended ? '1px solid rgba(166,183,210,.55)' : '1px solid rgba(255,255,255,.18)',
                       transition:'all .15s',
                     }}
                   >
@@ -779,7 +779,7 @@ export default function QofAIPage() {
       {/* CTA */}
       <section style={{ padding:'52px 0', textAlign:'center' }}>
         <div style={{ maxWidth:640, margin:'0 auto', padding:'0 36px' }}>
-          <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(45,212,160,.88)', marginBottom:14 }}>Commission the Q of AI</div>
+          <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(89,116,154,.88)', marginBottom:14 }}>Commission the Q of AI</div>
           <h2 style={{ fontSize:28, fontWeight:700, color:'rgba(255,255,255,.97)', letterSpacing:'-.025em', lineHeight:1.2, marginBottom:12 }}>
             Pre-empt the objection.<br />Commission the Q of AI.
           </h2>

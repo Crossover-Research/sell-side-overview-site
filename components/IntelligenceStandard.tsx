@@ -37,8 +37,8 @@ export function IntelligenceStandard() {
     opacity: show ? 1 : 0,
     transform: show ? 'translateY(0)' : 'translateY(10px)',
     transition: 'opacity .5s ease, transform .5s ease, border-color .4s, background .4s',
-    border: `1px solid ${active ? 'rgba(77,144,254,.4)' : 'rgba(255,255,255,.1)'}`,
-    background: active ? 'rgba(77,144,254,.08)' : 'rgba(6,14,28,.95)',
+    border: `1px solid ${active ? 'rgba(120,144,178,.4)' : 'rgba(255,255,255,.1)'}`,
+    background: active ? 'rgba(120,144,178,.08)' : 'rgba(6,14,28,.95)',
     padding: '16px 24px',
     textAlign: 'center' as const,
   });
@@ -70,7 +70,7 @@ export function IntelligenceStandard() {
           {/* SOURCE */}
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 0 }}>
             <div style={{ width: 360, ...nodeStyle(vis(1), vis(2)) }}>
-              <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(77,144,254,.7)', marginBottom: 5 }}>Crossover Research · Intelligence Infrastructure</div>
+              <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(120,144,178,.7)', marginBottom: 5 }}>Crossover Research · Intelligence Infrastructure</div>
               <div style={{ fontSize: 15, fontWeight: 700, color: 'rgba(255,255,255,.92)', marginBottom: 3 }}>Verbatim Truth Layer</div>
               <div style={{ fontSize: 12, color: 'rgba(255,255,255,.72)', fontStyle: 'italic' }}>The source none of them produced — and all of them rely on.</div>
             </div>
@@ -83,8 +83,8 @@ export function IntelligenceStandard() {
 
           {/* BANKER */}
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 0 }}>
-            <div style={{ width: 360, ...nodeStyle(vis(3), vis(3)), borderColor: vis(3) ? 'rgba(77,144,254,.5)' : 'rgba(255,255,255,.08)', background: vis(3) ? 'rgba(77,144,254,.1)' : 'rgba(6,14,28,.95)' }}>
-              <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(77,144,254,.85)', marginBottom: 5 }}>For Bankers</div>
+            <div style={{ width: 360, ...nodeStyle(vis(3), vis(3)), borderColor: vis(3) ? 'rgba(120,144,178,.5)' : 'rgba(255,255,255,.08)', background: vis(3) ? 'rgba(120,144,178,.1)' : 'rgba(6,14,28,.95)' }}>
+              <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(120,144,178,.85)', marginBottom: 5 }}>For Bankers</div>
               <div style={{ fontSize: 15, fontWeight: 700, color: 'rgba(255,255,255,.92)', marginBottom: 3 }}>Mandate pitch deck</div>
               <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,.72)' }}>Walk in first. Walk in with proof no competing bank has.</div>
             </div>
@@ -105,8 +105,8 @@ export function IntelligenceStandard() {
           {/* OPERATORS + INVESTORS */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
             {/* Operators */}
-            <div style={{ ...nodeStyle(vis(5), false), borderColor: vis(5) ? 'rgba(45,212,160,.3)' : 'rgba(255,255,255,.06)' }}>
-              <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(45,212,160,.8)', marginBottom: 5 }}>For Operators</div>
+            <div style={{ ...nodeStyle(vis(5), false), borderColor: vis(5) ? 'rgba(89,116,154,.3)' : 'rgba(255,255,255,.06)' }}>
+              <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(89,116,154,.8)', marginBottom: 5 }}>For Operators</div>
               <div style={{ fontSize: 14, fontWeight: 700, color: 'rgba(255,255,255,.88)', marginBottom: 4 }}>Preemptive CIM</div>
               <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,.68)', lineHeight: 1.6 }}>Weaknesses surfaced and closed before buyers use them as leverage.</div>
             </div>

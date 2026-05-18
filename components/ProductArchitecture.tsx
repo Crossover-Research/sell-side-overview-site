@@ -17,33 +17,33 @@ function useInView(threshold = 0.15) {
 const PRODUCTS = [
   {
     audience: 'Investor',
-    color: 'rgba(168,130,255,.85)',
-    bg: 'rgba(168,130,255,.08)',
-    border: 'rgba(168,130,255,.25)',
+    color: 'rgba(140,151,178,.85)',
+    bg: 'rgba(140,151,178,.08)',
+    border: 'rgba(140,151,178,.25)',
     title: 'Catalyst Conviction Brief',
     desc: 'Conviction before the first founder call. 6–12 months before the process opens.',
   },
   {
     audience: 'Operator',
-    color: 'rgba(45,212,160,.85)',
-    bg: 'rgba(45,212,160,.08)',
-    border: 'rgba(45,212,160,.25)',
+    color: 'rgba(89,116,154,.85)',
+    bg: 'rgba(89,116,154,.08)',
+    border: 'rgba(89,116,154,.25)',
     title: 'Catalyst Preemptive CIM',
     desc: 'Surface your weaknesses before buyers do. Enter diligence with the rebuttal already built.',
   },
   {
     audience: 'Investor',
-    color: 'rgba(168,130,255,.85)',
-    bg: 'rgba(168,130,255,.08)',
-    border: 'rgba(168,130,255,.25)',
+    color: 'rgba(140,151,178,.85)',
+    bg: 'rgba(140,151,178,.08)',
+    border: 'rgba(140,151,178,.25)',
     title: 'Commercial Due Diligence',
     desc: 'Diligence that starts from conviction, not from zero.',
   },
   {
     audience: 'Operator',
-    color: 'rgba(45,212,160,.85)',
-    bg: 'rgba(45,212,160,.08)',
-    border: 'rgba(45,212,160,.25)',
+    color: 'rgba(89,116,154,.85)',
+    bg: 'rgba(89,116,154,.08)',
+    border: 'rgba(89,116,154,.25)',
     title: 'Catalyst CIM',
     desc: 'A CIM where every claim is pre-validated by independent customer verbatims.',
   },
@@ -104,13 +104,13 @@ export function ProductArchitecture() {
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 0 }}>
             <div style={{
               width: 480, padding: '18px 28px',
-              background: 'rgba(77,144,254,.08)', border: '1px solid rgba(77,144,254,.3)',
+              background: 'rgba(120,144,178,.08)', border: '1px solid rgba(120,144,178,.3)',
               position: 'relative', overflow: 'hidden', textAlign: 'center',
               ...fadeIn(vis(2)),
             }}>
-              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 1, background: 'linear-gradient(90deg,transparent,rgba(77,144,254,.5),transparent)' }} />
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 1, background: 'linear-gradient(90deg,transparent,rgba(120,144,178,.5),transparent)' }} />
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, marginBottom: 6 }}>
-                <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(77,144,254,.9)', background: 'rgba(77,144,254,.15)', border: '1px solid rgba(77,144,254,.3)', padding: '2px 8px' }}>Banker</span>
+                <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(120,144,178,.9)', background: 'rgba(120,144,178,.15)', border: '1px solid rgba(120,144,178,.3)', padding: '2px 8px' }}>Banker</span>
               </div>
               <div style={{ fontSize: 15, fontWeight: 700, color: 'rgba(255,255,255,.92)', marginBottom: 4 }}>Catalyst Mandate Deck</div>
               <div style={{ fontSize: 12, color: 'rgba(255,255,255,.70)' }}>Win the mandate with live customer verbatims instead of desk research.</div>
@@ -177,7 +177,7 @@ export function ProductArchitecture() {
             <p style={{ fontSize: 'clamp(15px,2.2vw,20px)', fontWeight: 500, color: 'rgba(255,255,255,.78)', lineHeight: 1.5 }}>
               When every party is working from the same truth,<br />
               they don't just negotiate.{' '}
-              <span style={{ color: 'rgba(45,212,160,.9)', fontWeight: 700 }}>They transact. That's Crossover Catalyst.</span>
+              <span style={{ color: 'rgba(89,116,154,.9)', fontWeight: 700 }}>They transact. That's Crossover Catalyst.</span>
             </p>
           </div>
 

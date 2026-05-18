@@ -47,7 +47,7 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
   if(sent) return(
     <div style={{ position:'fixed',inset:0,zIndex:600,background:'rgba(4,9,18,.92)',display:'flex',alignItems:'center',justifyContent:'center',padding:20 }}>
       <div style={{ background:'#0c1a2e',border:'1px solid rgba(255,255,255,.12)',padding:'40px 32px',maxWidth:380,width:'100%',textAlign:'center' }}>
-        <div style={{ fontSize:26,color:'#2dd4a0',marginBottom:10 }}>&#10003;</div>
+        <div style={{ fontSize:26,color:'#5974a0',marginBottom:10 }}>&#10003;</div>
         <div style={{ fontSize:16,fontWeight:700,color:'#fff',marginBottom:7 }}>Request Submitted</div>
         <p style={{ fontSize:12,color:'rgba(255,255,255,.72)',lineHeight:1.6,marginBottom:20 }}>We&rsquo;ll confirm coverage within 24 hours.</p>
         <button onClick={onClose} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 24px',fontSize:12,fontWeight:700,cursor:'pointer' }}>Done</button>
@@ -105,8 +105,8 @@ function SampleCard({ href, type, badge, logoSrc, logoAlt, logoInvert, cta }: {
       <div style={{
         position:'absolute', top:14, right:14,
         fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase',
-        color:'rgba(77,144,254,.95)', background:'rgba(77,144,254,.12)',
-        border:'1px solid rgba(77,144,254,.3)', padding:'2px 8px',
+        color:'rgba(120,144,178,.95)', background:'rgba(120,144,178,.12)',
+        border:'1px solid rgba(120,144,178,.3)', padding:'2px 8px',
       }}>{badge}</div>
 
       {/* Type label */}
@@ -155,7 +155,7 @@ export default function IntelligencePage() {
               className="ib-sample-card"
               style={{ display:'flex', flexDirection:'column', justifyContent:'space-between', textDecoration:'none', position:'relative' }}
             >
-              <div style={{ position:'absolute', top:14, right:14, fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(77,144,254,.95)', background:'rgba(77,144,254,.12)', border:'1px solid rgba(77,144,254,.3)', padding:'2px 8px' }}>
+              <div style={{ position:'absolute', top:14, right:14, fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(120,144,178,.95)', background:'rgba(120,144,178,.12)', border:'1px solid rgba(120,144,178,.3)', padding:'2px 8px' }}>
                 Live Portal
               </div>
               <div className="ib-sample-type">Client Proposal</div>
@@ -172,7 +172,7 @@ export default function IntelligencePage() {
               className="ib-sample-card"
               style={{ display:'flex', flexDirection:'column', justifyContent:'space-between', textDecoration:'none', position:'relative' }}
             >
-              <div style={{ position:'absolute', top:14, right:14, fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(45,212,160,.9)', background:'rgba(45,212,160,.08)', border:'1px solid rgba(45,212,160,.25)', padding:'2px 8px' }}>
+              <div style={{ position:'absolute', top:14, right:14, fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(89,116,154,.9)', background:'rgba(89,116,154,.08)', border:'1px solid rgba(89,116,154,.25)', padding:'2px 8px' }}>
                 Sample VoC
               </div>
               <div className="ib-sample-type">Research Report</div>
@@ -204,7 +204,7 @@ export default function IntelligencePage() {
               <div style={{ display:'flex', gap:16 }}>
                 {(['transacted','active','new'] as const).map(s => {
                   const n = CATALYST_LIVE_STATUS[s];
-                  const cfg = { transacted:{ color:'rgba(180,180,200,.72)' as const, label:'Closed' }, active:{ color:'rgba(45,212,160,.88)' as const, label:'Active' }, new:{ color:'rgba(245,158,11,.88)' as const, label:'New' } };
+                  const cfg = { transacted:{ color:'rgba(180,180,200,.72)' as const, label:'Closed' }, active:{ color:'rgba(89,116,154,.88)' as const, label:'Active' }, new:{ color:'rgba(245,158,11,.88)' as const, label:'New' } };
                   return n > 0 ? (
                     <div key={s} style={{ textAlign:'center' }}>
                       <div style={{ fontFamily:'var(--font-mono)', fontSize:18, fontWeight:700, color:cfg[s].color, letterSpacing:'-.02em', lineHeight:1 }}>{n}</div>
@@ -214,7 +214,7 @@ export default function IntelligencePage() {
                 })}
               </div>
             </div>
-            <div style={{ fontSize:13, fontWeight:700, color:'rgba(130,175,255,.85)', whiteSpace:'nowrap' }}>
+            <div style={{ fontSize:13, fontWeight:700, color:'rgba(166,183,210,.85)', whiteSpace:'nowrap' }}>
               Browse Library &rarr;
             </div>
           </a>
@@ -245,7 +245,7 @@ export default function IntelligencePage() {
                 letterSpacing:'-.03em', color:'rgba(255,255,255,.97)', marginBottom:14,
               }}>
                 The next $1B deal starts with<br />
-                <span style={{ color:'rgba(130,175,255,.88)' }}>the right customer intelligence.</span>
+                <span style={{ color:'rgba(166,183,210,.88)' }}>the right customer intelligence.</span>
               </h2>
 
             </div>
@@ -270,12 +270,12 @@ export default function IntelligencePage() {
                 style={{
                   display:'inline-flex', alignItems:'center',
                   background:'transparent', color:'rgba(180,210,255,.82)',
-                  border:'1px solid rgba(77,144,254,.32)', padding:'13px 28px',
+                  border:'1px solid rgba(120,144,178,.32)', padding:'13px 28px',
                   fontSize:13, fontWeight:500, textDecoration:'none', whiteSpace:'nowrap',
                   transition:'all .15s',
                 }}
-                onMouseEnter={e=>{const el=e.currentTarget as HTMLElement;el.style.borderColor='rgba(77,144,254,.6)';el.style.background='rgba(77,144,254,.09)';}}
-                onMouseLeave={e=>{const el=e.currentTarget as HTMLElement;el.style.borderColor='rgba(77,144,254,.32)';el.style.background='transparent';}}
+                onMouseEnter={e=>{const el=e.currentTarget as HTMLElement;el.style.borderColor='rgba(120,144,178,.6)';el.style.background='rgba(120,144,178,.09)';}}
+                onMouseLeave={e=>{const el=e.currentTarget as HTMLElement;el.style.borderColor='rgba(120,144,178,.32)';el.style.background='transparent';}}
               >
                 Scope a Mandate →
               </a>
