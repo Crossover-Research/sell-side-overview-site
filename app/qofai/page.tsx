@@ -1,134 +1,15 @@
 'use client';
 import { useState } from 'react';
-import { CONTACT, BRAND } from '../../lib/config/site';
+import { CONTACT } from '../../lib/config/site';
 
 /**
- * Voice of Customer · The Sell-Side Intelligence Suite
+ * Voice of Customer — The Methodology
  *
- * MD-grade landing page. Pain-naming hero, proof up front,
- * banker testimonial moment, suite as 4-row grid, deliverable
- * preview, competitive callout, premium-defense Q of AI,
- * module + N-count pricing slider, explicit closing CTA.
+ * Methodology-focused page. No products or pricing here (those live
+ * on /intelligence). The job of this page is to convince a banker
+ * the Crossover methodology is one of one and that management-sourced
+ * customer references cannot substitute for it.
  */
-
-type DeliverableId = 'sector' | 'mandate' | 'cim' | 'diligence';
-
-const DELIVERABLES: {
-  id: DeliverableId;
-  stage: string;
-  name: string;
-  oneLine: string;
-  timeline: string;
-  customers: string;
-  idealFor: string;
-  bullets: string[];
-}[] = [
-  {
-    id: 'sector',
-    stage: 'Pipeline',
-    name: 'Sector Research',
-    oneLine: 'Build pipeline before competitors know the market is in play.',
-    timeline: '3–6 weeks',
-    customers: '40–80',
-    idealFor: 'Pre-mandate · pipeline build',
-    bullets: [
-      'Sector-wide independent interview base',
-      'No management contact required',
-      'Two to three named conviction assets',
-    ],
-  },
-  {
-    id: 'mandate',
-    stage: 'Mandate',
-    name: 'Mandate Pitch Deck',
-    oneLine: 'Walk into the pitch with customer evidence no competing bank can replicate.',
-    timeline: '2–3 weeks',
-    customers: '20–30',
-    idealFor: 'Mandate pursuit · pitch window',
-    bullets: [
-      'Customer-validated equity story',
-      'Three to five mandate-winning proof points',
-      'Banker-ready slides; no analyst rework',
-    ],
-  },
-  {
-    id: 'cim',
-    stage: 'CIM',
-    name: 'VoC-Enhanced CIM',
-    oneLine: 'Every weak claim in the CIM pre-validated before buyers find it.',
-    timeline: '4–5 weeks',
-    customers: '30–50',
-    idealFor: 'Sell-side process launch',
-    bullets: [
-      'Every claim mapped to independent customer evidence',
-      'Pre-emptive rebuttal for every buyer objection',
-      'NPS, criticality, switching difficulty benchmarked',
-    ],
-  },
-  {
-    id: 'diligence',
-    stage: 'Diligence',
-    name: 'Customer Diligence Report',
-    oneLine: 'Conviction before the teaser drops. Bid with evidence, not assumptions.',
-    timeline: '5–7 weeks',
-    customers: '50–100+',
-    idealFor: 'Pre-process · IC prep',
-    bullets: [
-      'Independent customer interviews at scale',
-      'Pricing elasticity and TAM validation',
-      'IC-ready evidence, no curated references',
-    ],
-  },
-];
-
-const PROOF_POINTS = [
-  {
-    label: 'Nerdio · Series C',
-    value: '$500M',
-    sub: 'J.P. Morgan mandate + General Atlantic conviction',
-    note: 'Customer interviews won the mandate; same research built General Atlantic&rsquo;s thesis for the round.',
-  },
-  {
-    label: 'Mobile.de · Sell-side',
-    value: '$10B',
-    sub: 'Mandate pitch differentiator',
-    note: 'VoC report cited as the reason the bank was selected to lead the process.',
-  },
-  {
-    label: 'Red Canary · Exit',
-    value: '$675M',
-    sub: 'Acquired by Zscaler',
-    note: 'CIM built on independent customer evidence rather than management assertions.',
-  },
-];
-
-const ARTIFACTS = [
-  {
-    title: '30+ customer verbatims',
-    body: 'Independently sourced, attributed, slide-ready. Drop directly into the pitch.',
-  },
-  {
-    title: 'Crossover Core 9 scorecard',
-    body: 'Nine standardized dimensions scored against 40+ comparable studies. Benchmarks every claim.',
-  },
-  {
-    title: 'Rebuttal map',
-    body: 'Every weak claim in the equity story paired with the customer evidence that defends it.',
-  },
-  {
-    title: 'IC-ready data appendix',
-    body: 'Raw transcripts, segment-level scoring, full audit trail. Survives the toughest buyer diligence.',
-  },
-];
-
-// Sample scorecard preview (anonymized. visual proof of the artifact)
-const SAMPLE_SCORES = [
-  { label: 'Customer Adoption',        score: 8.4, accent: 'rgba(166,183,210,.85)' },
-  { label: 'Switching Difficulty',     score: 9.1, accent: 'rgba(166,183,210,.85)' },
-  { label: 'Mission Criticality',      score: 8.2, accent: 'rgba(166,183,210,.85)' },
-  { label: 'Pricing Power',            score: 7.6, accent: 'rgba(166,183,210,.85)' },
-  { label: 'Competitive Displacement', score: 6.3, accent: 'rgba(245,158,11,.85)' },
-];
 
 const CAPABILITY_DIMS = [
   { label: 'Feature Adoption & Daily Utility',  score: 8.9 },
@@ -214,507 +95,271 @@ const QUESTIONS = [
     why: 'If customers do not understand the strategy, buyers will not either.' },
 ];
 
-const Q_OF_AI_DIMS = [
-  { name: 'AI Capability',         count: 10, hint: 'Adoption · ROI · Differentiation · Roadmap · Accuracy' },
-  { name: 'AI Displacement Risk',  count: 5,  hint: 'Lock-in · Leapfrog resistance · Replacement risk · Pricing defense' },
-];
-
-// Pricing tiers. by module + N count. Mandate Pitch baseline 25-35K.
-const PRICE_TIERS = [
+const MGMT_FAILURE_REASONS = [
   {
-    name: 'Mandate Pitch Deck',
-    nCount: '20–30',
-    range: '$25K – 35K',
-    weeks: '2–3 weeks',
-    milestone: 'Mandate pursuit',
-    desc: 'Customer verbatims and benchmark scores in time for the pitch window. The volume most mandate pitches land at.',
+    title: 'The operator picks the happy ones',
+    body: 'Reference lists are curated. The customers who would not return calls do not appear. The unhappy customer is precisely the diligence risk buyers will find.',
   },
   {
-    name: 'VoC-Enhanced CIM',
-    nCount: '30–50',
-    range: '$40K – 65K',
-    weeks: '4–5 weeks',
-    milestone: 'Sell-side process launch',
-    desc: 'Wider customer base inside the CIM. Every weak claim pre-validated; every objection mapped to a rebuttal.',
+    title: 'Sophisticated buyers already discount it',
+    body: 'PE diligence teams treat operator-supplied reference calls as marketing input, not evidence. The data is scored down before the call even happens.',
   },
   {
-    name: 'Sector Research',
-    nCount: '40–80',
-    range: '$50K – 90K',
-    weeks: '3–6 weeks',
-    milestone: 'Pipeline build · pre-mandate',
-    desc: 'Sector-wide customer intelligence. No management contact. Arrives at the operator with a thesis already built.',
+    title: 'The list runs out',
+    body: 'After five reference calls, buyers source their own customers via LinkedIn, expert networks, and ex-employees. They find what the curated list excluded.',
   },
   {
-    name: 'Customer Diligence Report',
-    nCount: '50–100+',
-    range: '$85K – 150K',
-    weeks: '5–7 weeks',
-    milestone: 'Pre-process · IC prep',
-    desc: 'Full commercial diligence at scale. IC-ready evidence; fee aligned to the bid milestone.',
+    title: 'The risk lives in what was excluded',
+    body: 'Recent churn, failed pilots, contract downgrades. These are the findings that compress the multiple. Independent sourcing surfaces them first so the operator can address them in the deck.',
   },
 ];
 
-// Shared spec rail label/value typography (no mono)
-const SPEC_LABEL: React.CSSProperties = {
-  fontSize: 12, fontWeight: 700, letterSpacing: '.12em',
-  textTransform: 'uppercase', color: 'rgba(255,255,255,.78)', marginBottom: 8,
-};
-const SPEC_VALUE_LARGE: React.CSSProperties = {
-  fontSize: 22, fontWeight: 600, color: 'rgba(255,255,255,.97)',
-  letterSpacing: '-.01em', lineHeight: 1.2,
-};
+// Crossover Core 9 — the standardized methodology
+const CORE_9 = [
+  { num: '01', name: 'Net Promoter Score',           body: 'Customer loyalty benchmarked against 40+ comparable studies in the database.' },
+  { num: '02', name: 'Renewal Intent',               body: 'Forward-looking signal of retention risk. The cleanest predictor of churn.' },
+  { num: '03', name: 'Switching Difficulty',         body: 'Hard-to-leave is the moat. Quantified directly from customers, not management estimates.' },
+  { num: '04', name: 'Mission Criticality',          body: 'Does the product survive cost-cutting cycles. The recession test buyers run mentally.' },
+  { num: '05', name: 'Competitive Advantage',        body: 'Where the asset truly differentiates against the alternatives customers actually evaluate.' },
+  { num: '06', name: 'Replication Cost',             body: 'How hard would a well-funded competitor be to build from scratch. The build-vs-buy answer.' },
+  { num: '07', name: 'Pricing Power',                body: 'Headroom for price increases without elevated churn. Van Westendorp pricing where the deal warrants.' },
+  { num: '08', name: 'Management Quality',           body: 'How customers perceive operator strategy, communication, and execution discipline.' },
+  { num: '09', name: 'Growth Driver Durability',     body: 'What will still be working in three to five years. Roadmap conviction sourced from buyers, not sellers.' },
+];
 
-export default function QofAIPage() {
-  const [priceIdx, setPriceIdx] = useState<number>(0);
+const WALKTHROUGH = [
+  {
+    num: '01', step: 'Source',
+    body: 'Independent panel infrastructure. No operator-supplied list. Customers are screened blind on role, tenure, deployment size, and recency. The pool is 100x larger than any reference list.',
+  },
+  {
+    num: '02', step: 'Interview',
+    body: 'Every customer answers the same fixed instrument. Closed-ended ratings on the Crossover Core 9 plus open-ended follow-ups. Same questions every time. Results are comparable across 40+ prior studies.',
+  },
+  {
+    num: '03', step: 'Score',
+    body: 'Aggregated scores benchmarked against the comparable library. Outliers flagged. Verbatims attributed by segment, tenure, and role. The scorecard renders the evidence base, not an interpretation of it.',
+  },
+  {
+    num: '04', step: 'Deliver',
+    body: 'Slide-ready verbatims, the scorecard itself, a rebuttal map for every weak claim, and an IC-ready data appendix. Two to seven weeks depending on N count. No analyst rework on the banker side.',
+  },
+];
+
+const ARTIFACTS = [
+  { title: '30+ customer verbatims',         body: 'Independently sourced, attributed, slide-ready. Drop directly into the pitch.' },
+  { title: 'Crossover Core 9 scorecard',     body: 'Nine standardized dimensions scored against 40+ comparable studies. Benchmarks every claim.' },
+  { title: 'Rebuttal map',                   body: 'Every weak claim in the equity story paired with the customer evidence that defends it.' },
+  { title: 'IC-ready data appendix',         body: 'Raw transcripts, segment-level scoring, full audit trail. Survives the toughest buyer diligence.' },
+];
+
+export default function VoiceOfCustomerPage() {
   const [openQ, setOpenQ] = useState<number>(0);
-  const price = PRICE_TIERS[priceIdx];
 
   return (
     <>
-      {/* HERO. Option 1: pain hook + independence + Nerdio proof */}
+      {/* HERO — methodology angle */}
       <section style={{ background:'linear-gradient(168deg,#050e1e 0%,#081526 55%,#0c1e38 100%)', borderBottom:'1px solid rgba(255,255,255,.07)', padding:'68px 0 56px' }}>
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
           <div style={{ display:'inline-flex', alignItems:'center', fontSize:13, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', background:'rgba(120,144,178,.10)', border:'1px solid rgba(166,183,210,.35)', padding:'5px 14px', marginBottom:22 }}>
-            The Sell-Side Intelligence Suite
+            Voice of Customer &middot; The Methodology
           </div>
-          <h1 style={{ fontSize:'clamp(34px, 5vw, 52px)', fontWeight:700, color:'rgba(255,255,255,.98)', lineHeight:1.05, letterSpacing:'-.035em', margin:'0 0 14px', maxWidth:1040 }}>
-            Five banks. Same comps. Same management quotes.
+          <h1 style={{ fontSize:'clamp(34px, 5vw, 52px)', fontWeight:700, color:'rgba(255,255,255,.98)', lineHeight:1.08, letterSpacing:'-.035em', margin:'0 0 18px', maxWidth:1040 }}>
+            Buyers discount management-sourced references.
+            <span style={{ display:'block', color:'rgba(166,183,210,.95)' }}>We do not take them.</span>
           </h1>
-          <h2 style={{ fontSize:'clamp(20px, 2.4vw, 26px)', fontWeight:400, color:'rgba(166,183,210,.95)', lineHeight:1.3, letterSpacing:'-.015em', margin:'0 0 22px', maxWidth:920 }}>
-            Be the one with 30+ independent customer interviews in the deck.
-          </h2>
           <p style={{ fontSize:17, color:'rgba(255,255,255,.90)', lineHeight:1.7, maxWidth:820, margin:'0 0 30px' }}>
-            Crossover is the only research provider independent of the bank, the buyer, and the operator. J.P. Morgan won the Nerdio Series C mandate with it. General Atlantic used the same evidence to build conviction. <strong style={{ color:'rgba(255,255,255,.97)', fontWeight:600 }}>$500M closed at unicorn valuation. 70% mandate win rate</strong> for banks who walk in with it.
+            Crossover sources customers independently, screens them blind to the operator, and scores them on a fixed nine-dimension instrument. The evidence base is one of one in the market. No competing research provider does all three. The banker walks into the pitch with research that survives diligence, not a curated reference list that does not.
           </p>
 
-          <div style={{ display:'flex', gap:12, flexWrap:'wrap', marginBottom:44 }}>
-            <a href={`mailto:${CONTACT.email}?subject=Scope%20a%20mandate`} style={{ background:'rgba(255,255,255,.96)', color:'#050e1e', padding:'12px 26px', fontSize:15, fontWeight:700, textDecoration:'none', display:'inline-flex', alignItems:'center', borderRadius:2 }}>
-              Scope a Mandate →
+          <div style={{ display:'flex', gap:12, flexWrap:'wrap' }}>
+            <a href={`mailto:${CONTACT.email}?subject=Sample%20Crossover%20Voice%20of%20Customer%20report`} style={{ background:'rgba(255,255,255,.96)', color:'#050e1e', padding:'12px 26px', fontSize:15, fontWeight:700, textDecoration:'none', display:'inline-flex', alignItems:'center', borderRadius:2 }}>
+              See a sample report →
             </a>
-            <a href={BRAND.demoUrl} target="_blank" rel="noopener noreferrer" style={{ background:'transparent', color:'rgba(255,255,255,.92)', border:'1px solid rgba(255,255,255,.30)', padding:'12px 22px', fontSize:15, fontWeight:500, textDecoration:'none', borderRadius:2 }}>
-              See a live Catalyst report →
+            <a href="/intelligence" style={{ background:'transparent', color:'rgba(255,255,255,.92)', border:'1px solid rgba(255,255,255,.30)', padding:'12px 22px', fontSize:15, fontWeight:500, textDecoration:'none', borderRadius:2 }}>
+              See the Intelligence Suite →
             </a>
           </div>
-
-          {/* Stat strip */}
-          <div style={{ display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:1, background:'rgba(255,255,255,.08)', border:'1px solid rgba(255,255,255,.10)' }}>
-            {[
-              { v: '$11B+', l: 'Combined transaction value' },
-              { v: '30+',   l: 'Sell-side mandates supported' },
-              { v: '60+',   l: 'Buy-side engagements' },
-              { v: '70%',   l: 'Mandate win rate' },
-            ].map((s, i) => (
-              <div key={i} style={{ background:'rgba(6,14,28,.97)', padding:'20px 22px' }}>
-                <div style={{ fontSize:30, fontWeight:600, color:'rgba(255,255,255,.97)', letterSpacing:'-.025em', lineHeight:1, marginBottom:8 }}>{s.v}</div>
-                <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.82)' }}>{s.l}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* PROOF POINTS. lifted under hero */}
-      <section style={{ padding:'64px 0', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
-        <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
-          <div style={{ marginBottom:28 }}>
-            <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:10 }}>
-              Track Record · $11B+ Transacted
-            </div>
-            <h2 style={{ fontSize:'clamp(24px, 2.8vw, 30px)', fontWeight:700, color:'rgba(255,255,255,.97)', letterSpacing:'-.025em', lineHeight:1.2, margin:'0 0 10px', maxWidth:820 }}>
-              Voice of Customer intelligence that drives outcomes.
-            </h2>
-            <p style={{ fontSize:15, color:'rgba(255,255,255,.88)', lineHeight:1.7, maxWidth:720, margin:0 }}>
-              Three named transactions. Different stages of the deal. Same independent customer evidence base.
-            </p>
-          </div>
-
-          <div style={{ display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:14 }}>
-            {PROOF_POINTS.map((p, i) => (
-              <div key={i} style={{ background:'rgba(6,14,28,.97)', border:'1px solid rgba(255,255,255,.10)', padding:'26px 28px' }}>
-                <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:10 }}>
-                  {p.label}
-                </div>
-                <div style={{ fontSize:32, fontWeight:600, color:'rgba(255,255,255,.97)', letterSpacing:'-.025em', lineHeight:1, marginBottom:10 }}>
-                  {p.value}
-                </div>
-                <div style={{ fontSize:14, fontWeight:600, color:'rgba(255,255,255,.92)', marginBottom:12 }}>{p.sub}</div>
-                <div style={{ fontSize:13.5, color:'rgba(255,255,255,.82)', lineHeight:1.65 }}>{p.note}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* BANKER TESTIMONIAL. its own moment */}
-      <section style={{ padding:'72px 0', background:'rgba(255,255,255,.018)', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
-        <div style={{ maxWidth:920, margin:'0 auto', padding:'0 36px', textAlign:'center' }}>
-          <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:26 }}>
-            From the pitch room
-          </div>
-          <blockquote style={{
-            fontFamily:'var(--font-serif, Georgia, "Times New Roman", serif)',
-            fontSize:'clamp(22px, 2.8vw, 32px)', fontWeight:400, fontStyle:'italic',
-            color:'rgba(255,255,255,.97)', lineHeight:1.35, letterSpacing:'-.005em',
-            margin:'0 0 28px', maxWidth:780, marginLeft:'auto', marginRight:'auto',
-          }}>
-            &ldquo;Having a Voice of Customer document was seen as a differentiator by the client.&rdquo;
-          </blockquote>
-          <div style={{ fontSize:14, fontWeight:600, color:'rgba(166,183,210,.95)', letterSpacing:'.04em' }}>
-            EXECUTIVE DIRECTOR · J.P. MORGAN
-          </div>
-        </div>
-      </section>
-
-      {/* THE SUITE. 4 horizontal rows (no tabs) */}
+      {/* WHY MGMT-SOURCED CUSTOMERS FAIL */}
       <section style={{ padding:'72px 0', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
           <div style={{ marginBottom:32 }}>
             <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:10 }}>
-              The Suite
+              The problem
             </div>
-            <h2 style={{ fontSize:'clamp(26px, 3vw, 34px)', fontWeight:700, color:'rgba(255,255,255,.97)', letterSpacing:'-.025em', lineHeight:1.15, margin:'0 0 14px', maxWidth:820 }}>
-              One evidence base. Four entry points across the deal.
+            <h2 style={{ fontSize:'clamp(26px, 3vw, 34px)', fontWeight:700, color:'rgba(255,255,255,.97)', letterSpacing:'-.025em', lineHeight:1.15, margin:'0 0 14px', maxWidth:880 }}>
+              Why a management-sourced reference list does not survive diligence.
             </h2>
             <p style={{ fontSize:15, color:'rgba(255,255,255,.88)', lineHeight:1.7, maxWidth:760, margin:0 }}>
-              The same independent customer interviews power the pipeline build, the pitch, the CIM, and the diligence. Pick the entry point that matches the stage of the mandate.
+              Curated references are how most CIMs back their customer claims. Every sophisticated buyer knows it. Here is what actually happens when those references hit the diligence team.
             </p>
           </div>
 
-          {/* 4-row grid */}
-          <div style={{ display:'flex', flexDirection:'column', border:'1px solid rgba(255,255,255,.10)' }}>
-            {DELIVERABLES.map((d, i) => (
-              <div key={d.id} style={{
-                display:'grid', gridTemplateColumns:'200px 1fr 180px',
-                borderBottom: i < DELIVERABLES.length - 1 ? '1px solid rgba(255,255,255,.08)' : 'none',
-                background:'rgba(6,14,28,.97)',
-                transition:'background .15s',
-              }}>
-                {/* Left: stage + name + specs */}
-                <div style={{ padding:'24px 22px', borderRight:'1px solid rgba(255,255,255,.06)' }}>
-                  <div style={{ display:'inline-block', fontSize:11, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', background:'rgba(120,144,178,.14)', border:'1px solid rgba(166,183,210,.3)', padding:'3px 9px', marginBottom:12 }}>
-                    {d.stage}
-                  </div>
-                  <div style={{ fontSize:17, fontWeight:700, color:'rgba(255,255,255,.97)', letterSpacing:'-.01em', lineHeight:1.3, marginBottom:14 }}>
-                    {d.name}
-                  </div>
-                  <div style={{ fontSize:13, color:'rgba(255,255,255,.82)', lineHeight:1.55 }}>
-                    <div style={{ marginBottom:4 }}><span style={{ color:'rgba(255,255,255,.62)' }}>Timeline:</span> {d.timeline}</div>
-                    <div><span style={{ color:'rgba(255,255,255,.62)' }}>Customers:</span> {d.customers}</div>
-                  </div>
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(2, 1fr)', gap:14 }}>
+            {MGMT_FAILURE_REASONS.map((r, i) => (
+              <div key={i} style={{ background:'rgba(6,14,28,.97)', border:'1px solid rgba(255,255,255,.10)', borderLeft:'3px solid rgba(245,158,11,.7)', padding:'22px 26px' }}>
+                <div style={{ display:'flex', alignItems:'baseline', gap:14, marginBottom:10 }}>
+                  <div style={{ fontSize:13, fontWeight:700, color:'rgba(245,158,11,.95)', letterSpacing:'.06em', minWidth:24 }}>0{i + 1}</div>
+                  <div style={{ fontSize:17, fontWeight:700, color:'rgba(255,255,255,.97)' }}>{r.title}</div>
                 </div>
-
-                {/* Middle: one-line + bullets */}
-                <div style={{ padding:'24px 26px', borderRight:'1px solid rgba(255,255,255,.06)' }}>
-                  <div style={{ fontSize:16, fontWeight:600, color:'rgba(255,255,255,.95)', lineHeight:1.5, marginBottom:14 }}>
-                    {d.oneLine}
-                  </div>
-                  <ul style={{ listStyle:'none', padding:0, margin:0, display:'flex', flexDirection:'column', gap:6 }}>
-                    {d.bullets.map((b, bi) => (
-                      <li key={bi} style={{ display:'flex', alignItems:'flex-start', gap:10, fontSize:14, color:'rgba(255,255,255,.85)', lineHeight:1.55 }}>
-                        <span aria-hidden="true" style={{ color:'rgba(166,183,210,.95)', flexShrink:0, marginTop:1 }}>
-                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                            <polyline points="20 6 9 17 4 12" />
-                          </svg>
-                        </span>
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Right: CTA */}
-                <div style={{ padding:'24px 22px', display:'flex', flexDirection:'column', justifyContent:'space-between', gap:14 }}>
-                  <div>
-                    <div style={{ fontSize:11, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.72)', marginBottom:6 }}>
-                      Ideal for
-                    </div>
-                    <div style={{ fontSize:13.5, color:'rgba(255,255,255,.88)', lineHeight:1.5 }}>
-                      {d.idealFor}
-                    </div>
-                  </div>
-                  <a
-                    href={`mailto:${CONTACT.email}?subject=Scope%20a%20${encodeURIComponent(d.name)}`}
-                    style={{
-                      alignSelf:'flex-start',
-                      display:'inline-flex', alignItems:'center', justifyContent:'center',
-                      padding:'8px 14px', fontSize:13, fontWeight:600, textDecoration:'none',
-                      background:'rgba(120,144,178,.92)', color:'rgba(255,255,255,.98)',
-                      border:'1px solid rgba(166,183,210,.55)',
-                      whiteSpace:'nowrap',
-                    }}
-                  >
-                    Scope this →
-                  </a>
-                </div>
+                <div style={{ fontSize:14.5, color:'rgba(255,255,255,.85)', lineHeight:1.7, paddingLeft:38 }}>{r.body}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* WHAT YOU ACTUALLY GET. artifacts + sample scorecard */}
+      {/* CORE 9 FRAMEWORK */}
       <section style={{ padding:'72px 0', background:'rgba(255,255,255,.018)', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
           <div style={{ marginBottom:32 }}>
             <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:10 }}>
-              What you actually get
+              The framework
             </div>
+            <h2 style={{ fontSize:'clamp(26px, 3vw, 34px)', fontWeight:700, color:'rgba(255,255,255,.97)', letterSpacing:'-.025em', lineHeight:1.15, margin:'0 0 14px', maxWidth:880 }}>
+              The Crossover Core 9.
+            </h2>
+            <p style={{ fontSize:15, color:'rgba(255,255,255,.88)', lineHeight:1.7, maxWidth:780, margin:0 }}>
+              Every study scores the same nine dimensions. Same instrument across 40+ prior engagements. Same rating prompt plus open-ended follow-up for every customer. Comparable benchmarks every time.
+            </p>
           </div>
 
-          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:32, alignItems:'start' }}>
-            {/* Left: 4-bullet artifacts */}
-            <div style={{ display:'flex', flexDirection:'column', gap:14 }}>
-              {ARTIFACTS.map((a, i) => (
-                <div key={i} style={{ background:'rgba(6,14,28,.97)', border:'1px solid rgba(255,255,255,.10)', padding:'20px 24px' }}>
-                  <div style={{ display:'flex', alignItems:'baseline', gap:14, marginBottom:8 }}>
-                    <div style={{ fontSize:13, fontWeight:700, color:'rgba(166,183,210,.95)', letterSpacing:'.04em', minWidth:18 }}>
-                      0{i + 1}
-                    </div>
-                    <div style={{ fontSize:16, fontWeight:700, color:'rgba(255,255,255,.97)' }}>
-                      {a.title}
-                    </div>
-                  </div>
-                  <div style={{ fontSize:14, color:'rgba(255,255,255,.84)', lineHeight:1.65, paddingLeft:32 }}>
-                    {a.body}
-                  </div>
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:1, background:'rgba(255,255,255,.08)', border:'1px solid rgba(255,255,255,.10)' }}>
+            {CORE_9.map((d, i) => (
+              <div key={i} style={{ background:'rgba(6,14,28,.97)', padding:'22px 24px' }}>
+                <div style={{ display:'flex', alignItems:'baseline', gap:12, marginBottom:8 }}>
+                  <div style={{ fontSize:13, fontWeight:700, color:'rgba(166,183,210,.95)', letterSpacing:'.06em' }}>{d.num}</div>
+                  <div style={{ fontSize:15, fontWeight:700, color:'rgba(255,255,255,.97)' }}>{d.name}</div>
                 </div>
-              ))}
+                <div style={{ fontSize:13.5, color:'rgba(255,255,255,.84)', lineHeight:1.6 }}>{d.body}</div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ marginTop:18, fontSize:13, color:'rgba(255,255,255,.78)', lineHeight:1.65 }}>
+            Each dimension carries a closed-ended rating prompt plus an open-ended follow-up. Both are part of the deliverable, both are attributed by segment, tenure, and role. Verbatims sit next to scores.
+          </div>
+        </div>
+      </section>
+
+      {/* WALKTHROUGH — Source / Interview / Score / Deliver */}
+      <section style={{ padding:'72px 0', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
+        <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
+          <div style={{ marginBottom:32 }}>
+            <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:10 }}>
+              How an engagement runs
             </div>
+            <h2 style={{ fontSize:'clamp(26px, 3vw, 34px)', fontWeight:700, color:'rgba(255,255,255,.97)', letterSpacing:'-.025em', lineHeight:1.15, margin:'0 0 14px', maxWidth:880 }}>
+              Four phases. No black box.
+            </h2>
+            <p style={{ fontSize:15, color:'rgba(255,255,255,.88)', lineHeight:1.7, maxWidth:780, margin:0 }}>
+              Sourcing through delivery. Same shape on every engagement. The fee scales with N. The methodology does not change.
+            </p>
+          </div>
 
-            {/* Right: sample scorecard preview */}
-            <div style={{ background:'rgba(6,14,28,.97)', border:'1px solid rgba(255,255,255,.10)', padding:'24px 28px', position:'sticky', top:24 }}>
-              <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:18, paddingBottom:14, borderBottom:'1px solid rgba(255,255,255,.10)' }}>
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:1, background:'rgba(255,255,255,.08)', border:'1px solid rgba(255,255,255,.10)' }}>
+            {WALKTHROUGH.map((p, i) => (
+              <div key={i} style={{ background:'rgba(6,14,28,.97)', padding:'26px 24px' }}>
+                <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:8 }}>
+                  Phase {p.num}
+                </div>
+                <div style={{ fontSize:20, fontWeight:700, color:'rgba(255,255,255,.97)', letterSpacing:'-.015em', marginBottom:12 }}>
+                  {p.step}
+                </div>
+                <div style={{ fontSize:14, color:'rgba(255,255,255,.85)', lineHeight:1.7 }}>{p.body}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SAMPLE SCORECARD */}
+      <section style={{ padding:'72px 0', background:'rgba(255,255,255,.018)', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
+        <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
+          <div style={{ marginBottom:24 }}>
+            <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:10 }}>
+              A live deliverable
+            </div>
+            <h2 style={{ fontSize:'clamp(24px, 2.8vw, 30px)', fontWeight:700, color:'rgba(255,255,255,.97)', letterSpacing:'-.025em', lineHeight:1.2, margin:'0 0 14px', maxWidth:820 }}>
+              Sample Q of AI Scorecard. Anonymised.
+            </h2>
+            <p style={{ fontSize:14, color:'rgba(255,255,255,.78)' }}>
+              Enterprise SaaS &middot; 27 customer interviews &middot; benchmarked against 41 prior studies. This is what arrives in your inbox.
+            </p>
+          </div>
+
+          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:14, marginBottom:18 }}>
+            <div style={{ background:'rgba(6,14,28,.97)', border:'1px solid rgba(255,255,255,.10)', padding:'22px 24px' }}>
+              <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:14, paddingBottom:12, borderBottom:'1px solid rgba(255,255,255,.10)' }}>
                 <div>
-                  <div style={{ fontSize:11, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(255,255,255,.72)', marginBottom:4 }}>
-                    Sample Deliverable
-                  </div>
-                  <div style={{ fontSize:15, fontWeight:700, color:'rgba(255,255,255,.95)' }}>Mandate Pitch Scorecard</div>
+                  <div style={{ fontSize:11, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:3 }}>Part I &middot; 10 Dimensions</div>
+                  <div style={{ fontSize:16, fontWeight:700, color:'rgba(255,255,255,.97)' }}>AI Capability</div>
                 </div>
-                <div style={{ fontSize:11, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', background:'rgba(120,144,178,.14)', border:'1px solid rgba(166,183,210,.3)', padding:'3px 10px' }}>
-                  Anonymised
-                </div>
+                <div style={{ fontSize:32, fontWeight:600, color:'rgba(166,183,210,.97)', letterSpacing:'-.025em', lineHeight:1 }}>8.3</div>
               </div>
-
-              <div style={{ fontSize:13, color:'rgba(255,255,255,.78)', marginBottom:18 }}>
-                Enterprise SaaS · 27 customer interviews · benchmarked against 41 prior studies
-              </div>
-
-              <div style={{ display:'flex', flexDirection:'column', gap:12, marginBottom:20 }}>
-                {SAMPLE_SCORES.map((s, i) => (
-                  <div key={i} style={{ display:'grid', gridTemplateColumns:'1fr 36px', gap:14, alignItems:'center' }}>
+              <div style={{ display:'flex', flexDirection:'column', gap:8 }}>
+                {CAPABILITY_DIMS.map((d, i) => (
+                  <div key={i} style={{ display:'grid', gridTemplateColumns:'1fr 32px', gap:12, alignItems:'center' }}>
                     <div>
-                      <div style={{ fontSize:13, color:'rgba(255,255,255,.88)', marginBottom:6, fontWeight:500 }}>{s.label}</div>
-                      <div style={{ height:6, background:'rgba(255,255,255,.08)', borderRadius:1 }}>
-                        <div style={{ height:'100%', width:`${(s.score / 10) * 100}%`, background:s.accent, borderRadius:1, transition:'width .3s' }} />
+                      <div style={{ fontSize:12.5, color:'rgba(255,255,255,.85)', marginBottom:4 }}>{d.label}</div>
+                      <div style={{ height:5, background:'rgba(255,255,255,.06)' }}>
+                        <div style={{ height:'100%', width:`${(d.score/10)*100}%`, background:'rgba(166,183,210,.85)' }} />
                       </div>
                     </div>
-                    <div style={{ fontSize:15, fontWeight:700, color:s.accent, textAlign:'right' }}>{s.score.toFixed(1)}</div>
+                    <div style={{ fontSize:13, fontWeight:700, color:'rgba(166,183,210,.95)', textAlign:'right' }}>{d.score.toFixed(1)}</div>
                   </div>
                 ))}
               </div>
+            </div>
 
-              <div style={{ background:'rgba(6,14,28,.6)', borderLeft:'3px solid rgba(166,183,210,.6)', padding:'14px 16px' }}>
-                <div style={{ fontSize:14, fontStyle:'italic', color:'rgba(255,255,255,.92)', lineHeight:1.6, marginBottom:8 }}>
-                  &ldquo;We&rsquo;ve never seriously evaluated a replacement. It&rsquo;s too embedded in our reporting workflows.&rdquo;
+            <div style={{ background:'rgba(6,14,28,.97)', border:'1px solid rgba(255,255,255,.10)', padding:'22px 24px' }}>
+              <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:14, paddingBottom:12, borderBottom:'1px solid rgba(255,255,255,.10)' }}>
+                <div>
+                  <div style={{ fontSize:11, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(140,160,196,.95)', marginBottom:3 }}>Part II &middot; 5 Dimensions</div>
+                  <div style={{ fontSize:16, fontWeight:700, color:'rgba(255,255,255,.97)' }}>AI Displacement Risk</div>
                 </div>
-                <div style={{ fontSize:12, color:'rgba(255,255,255,.72)', fontWeight:500 }}>
-                  VP Operations · Enterprise customer
-                </div>
+                <div style={{ fontSize:32, fontWeight:600, color:'rgba(140,160,196,.97)', letterSpacing:'-.025em', lineHeight:1 }}>8.7</div>
+              </div>
+              <div style={{ display:'flex', flexDirection:'column', gap:8 }}>
+                {RESILIENCE_DIMS.map((d, i) => (
+                  <div key={i} style={{ display:'grid', gridTemplateColumns:'1fr 32px', gap:12, alignItems:'center' }}>
+                    <div>
+                      <div style={{ fontSize:12.5, color:'rgba(255,255,255,.85)', marginBottom:4 }}>{d.label}</div>
+                      <div style={{ height:5, background:'rgba(255,255,255,.06)' }}>
+                        <div style={{ height:'100%', width:`${(d.score/10)*100}%`, background:'rgba(140,160,196,.85)' }} />
+                      </div>
+                    </div>
+                    <div style={{ fontSize:13, fontWeight:700, color:'rgba(140,160,196,.95)', textAlign:'right' }}>{d.score.toFixed(1)}</div>
+                  </div>
+                ))}
               </div>
             </div>
+          </div>
+
+          <div style={{ fontSize:13.5, color:'rgba(255,255,255,.82)' }}>
+            Composite verdict: <strong style={{ color:'rgba(166,183,210,.97)', fontWeight:600 }}>AI Fortress</strong>. Top 15&ndash;20% of assets we have scored.
           </div>
         </div>
       </section>
 
-      {/* METHODOLOGY. banker-relevant callouts */}
+      {/* THE 15-QUESTION INSTRUMENT (carousel) */}
       <section style={{ padding:'72px 0', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
-          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:48, alignItems:'start' }}>
-            <div>
-              <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:10 }}>
-                The methodology
-              </div>
-              <h2 style={{ fontSize:30, fontWeight:700, color:'rgba(255,255,255,.97)', letterSpacing:'-.02em', lineHeight:1.2, margin:'0 0 16px' }}>
-                Raw customer feedback. Independently sourced. No coaching.
-              </h2>
-              <p style={{ fontSize:15, color:'rgba(255,255,255,.88)', lineHeight:1.75, margin:'0 0 16px' }}>
-                Every Catalyst report is built on raw verbatims. not curated, not management-supplied, not the operator&rsquo;s reference list. Customers are interviewed independently and answer freely.
-              </p>
-              <p style={{ fontSize:15, color:'rgba(255,255,255,.88)', lineHeight:1.75, margin:0 }}>
-                The same independent evidence is the foundation of every deliverable in the suite. the pitch, the CIM, the buyer&rsquo;s diligence. No restarts. No surprises.
-              </p>
+          <div style={{ marginBottom:24 }}>
+            <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:10 }}>
+              The instrument
             </div>
-
-            <div style={{ display:'flex', flexDirection:'column', gap:14 }}>
-              {[
-                {
-                  title: 'No management list',
-                  body: 'Respondents are sourced independently. The operator does not pick who we call. The reference list is not the evidence base.',
-                },
-                {
-                  title: 'No coaching, no script bias',
-                  body: 'Interview structure is fixed across studies. Same questions every time. Scores comparable to 40+ prior engagements.',
-                },
-                {
-                  title: 'Banker-ready output',
-                  body: 'Verbatims arrive in slide-ready form: quoted, attributed, scored, mapped to the proof points the pitch needs to win.',
-                },
-              ].map((c, i) => (
-                <div key={i} style={{ background:'rgba(6,14,28,.97)', border:'1px solid rgba(255,255,255,.10)', borderLeft:'3px solid rgba(166,183,210,.6)', padding:'18px 22px' }}>
-                  <div style={{ fontSize:14, fontWeight:700, color:'rgba(230,240,252,.97)', marginBottom:6 }}>{c.title}</div>
-                  <div style={{ fontSize:14, color:'rgba(255,255,255,.85)', lineHeight:1.65 }}>{c.body}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* COMPETITIVE CALLOUT. single line, three columns */}
-      <section style={{ padding:'56px 0', background:'rgba(255,255,255,.025)', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
-        <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
-          <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:18 }}>
-            Why not expert networks or desk research
-          </div>
-          <div style={{ display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:1, background:'rgba(255,255,255,.10)', border:'1px solid rgba(255,255,255,.10)' }}>
-            {[
-              {
-                kind: 'Expert networks',
-                detail: 'What one expert thinks. One voice. One bias. No score, no benchmark. No way to properly screen the right voices. Hours wasted on calls that do not hold up in diligence.',
-                muted: true,
-              },
-              {
-                kind: 'Desk research',
-                detail: 'What is already public. The same comps and headlines every other bank is reading.',
-                muted: true,
-              },
-              {
-                kind: 'Crossover',
-                detail: 'What 30+ of the target&rsquo;s actual customers said. attributed, scored, benchmarked, slide-ready.',
-                muted: false,
-              },
-            ].map((c, i) => (
-              <div key={i} style={{
-                background: c.muted ? 'rgba(6,14,28,.97)' : 'rgba(120,144,178,.10)',
-                padding:'22px 26px',
-                borderLeft: !c.muted ? '3px solid rgba(166,183,210,.6)' : 'none',
-              }}>
-                <div style={{ fontSize:13, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color: c.muted ? 'rgba(255,255,255,.62)' : 'rgba(166,183,210,.95)', marginBottom:10 }}>
-                  {c.kind}
-                </div>
-                <div style={{ fontSize:15, color: c.muted ? 'rgba(255,255,255,.80)' : 'rgba(255,255,255,.95)', fontWeight: c.muted ? 400 : 500, lineHeight:1.6 }} dangerouslySetInnerHTML={{ __html: c.detail }} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Q OF AI. premium defense + sample scorecard + 15Q carousel */}
-      <section style={{ padding:'72px 0', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
-        <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
-
-          {/* Header */}
-          <div style={{ display:'grid', gridTemplateColumns:'1.2fr 1fr', gap:48, alignItems:'start', marginBottom:48 }}>
-            <div>
-              <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:10 }}>
-                Specialty module &middot; Q of AI
-              </div>
-              <h2 style={{ fontSize:30, fontWeight:700, color:'rgba(255,255,255,.97)', letterSpacing:'-.02em', lineHeight:1.18, margin:'0 0 18px' }}>
-                Buyers price AI defensibility into every bid.<br />
-                <span style={{ color:'rgba(166,183,210,.95)' }}>The Q of AI gives management the customer-validated language to defend the premium.</span>
-              </h2>
-              <p style={{ fontSize:15, color:'rgba(255,255,255,.88)', lineHeight:1.75, margin:'0 0 14px' }}>
-                Every PE fund and strategic acquirer now opens with the same diligence question:{' '}
-                <em style={{ fontStyle:'italic', color:'rgba(245,200,140,.95)', fontWeight:500 }}>&ldquo;How durable is this company&rsquo;s AI advantage?&rdquo;</em>{' '}
-                Generic claims get challenged at first IC and the multiple compresses.
-              </p>
-              <p style={{ fontSize:15, color:'rgba(255,255,255,.88)', lineHeight:1.75, margin:0 }}>
-                The Q of AI module turns the AI story into a defendable score. 15 customer-validated dimensions across capability and displacement risk. Management walks in with the evidence to hold the premium, not hope for it.
-              </p>
-            </div>
-
-            <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr 1fr', gap:1, background:'rgba(255,255,255,.10)', border:'1px solid rgba(255,255,255,.10)' }}>
-              {[
-                { v: '15', l: 'Customer-validated dimensions' },
-                { v: '+2 wks', l: 'On top of any deliverable' },
-                { v: '40+', l: 'Benchmark comparables' },
-              ].map((s, i) => (
-                <div key={i} style={{ background:'rgba(6,14,28,.97)', padding:'18px 18px' }}>
-                  <div style={{ fontSize:24, fontWeight:600, color:'rgba(255,255,255,.97)', letterSpacing:'-.015em', lineHeight:1.1, marginBottom:6 }}>{s.v}</div>
-                  <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.78)' }}>{s.l}</div>
-                </div>
-              ))}
-            </div>
+            <h2 style={{ fontSize:'clamp(24px, 2.8vw, 30px)', fontWeight:700, color:'rgba(255,255,255,.97)', letterSpacing:'-.025em', lineHeight:1.2, margin:'0 0 14px', maxWidth:820 }}>
+              Fifteen questions. Every score sourced from verbatim customer responses.
+            </h2>
+            <p style={{ fontSize:15, color:'rgba(255,255,255,.88)', lineHeight:1.7, maxWidth:760, margin:0 }}>
+              The Q of AI extension on top of the Core 9. Ten dimensions of AI capability plus five of displacement risk. Every customer answers all fifteen on the same instrument.
+            </p>
           </div>
 
-          {/* Sample scorecard preview */}
-          <div style={{ marginBottom:48 }}>
-            <div style={{ display:'flex', alignItems:'baseline', justifyContent:'space-between', flexWrap:'wrap', gap:14, marginBottom:18 }}>
-              <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(255,255,255,.78)' }}>
-                Sample Q of AI Scorecard
-              </div>
-              <div style={{ fontSize:13, color:'rgba(255,255,255,.72)' }}>
-                Enterprise SaaS &middot; 27 customer interviews &middot; benchmarked against 41 prior studies
-              </div>
-            </div>
-
-            <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:14 }}>
-              {/* AI Capability */}
-              <div style={{ background:'rgba(6,14,28,.97)', border:'1px solid rgba(255,255,255,.10)', padding:'22px 24px' }}>
-                <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:14, paddingBottom:12, borderBottom:'1px solid rgba(255,255,255,.10)' }}>
-                  <div>
-                    <div style={{ fontSize:11, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:3 }}>Part I &middot; 10 Dimensions</div>
-                    <div style={{ fontSize:16, fontWeight:700, color:'rgba(255,255,255,.97)' }}>AI Capability</div>
-                  </div>
-                  <div style={{ fontSize:32, fontWeight:600, color:'rgba(166,183,210,.97)', letterSpacing:'-.025em', lineHeight:1 }}>8.3</div>
-                </div>
-                <div style={{ display:'flex', flexDirection:'column', gap:8 }}>
-                  {CAPABILITY_DIMS.map((d, i) => (
-                    <div key={i} style={{ display:'grid', gridTemplateColumns:'1fr 32px', gap:12, alignItems:'center' }}>
-                      <div>
-                        <div style={{ fontSize:12.5, color:'rgba(255,255,255,.85)', marginBottom:4 }}>{d.label}</div>
-                        <div style={{ height:5, background:'rgba(255,255,255,.06)' }}>
-                          <div style={{ height:'100%', width:`${(d.score/10)*100}%`, background:'rgba(166,183,210,.85)' }} />
-                        </div>
-                      </div>
-                      <div style={{ fontSize:13, fontWeight:700, color:'rgba(166,183,210,.95)', textAlign:'right' }}>{d.score.toFixed(1)}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* AI Resilience */}
-              <div style={{ background:'rgba(6,14,28,.97)', border:'1px solid rgba(255,255,255,.10)', padding:'22px 24px' }}>
-                <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:14, paddingBottom:12, borderBottom:'1px solid rgba(255,255,255,.10)' }}>
-                  <div>
-                    <div style={{ fontSize:11, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(140,160,196,.95)', marginBottom:3 }}>Part II &middot; 5 Dimensions</div>
-                    <div style={{ fontSize:16, fontWeight:700, color:'rgba(255,255,255,.97)' }}>AI Displacement Risk</div>
-                  </div>
-                  <div style={{ fontSize:32, fontWeight:600, color:'rgba(140,160,196,.97)', letterSpacing:'-.025em', lineHeight:1 }}>8.7</div>
-                </div>
-                <div style={{ display:'flex', flexDirection:'column', gap:8 }}>
-                  {RESILIENCE_DIMS.map((d, i) => (
-                    <div key={i} style={{ display:'grid', gridTemplateColumns:'1fr 32px', gap:12, alignItems:'center' }}>
-                      <div>
-                        <div style={{ fontSize:12.5, color:'rgba(255,255,255,.85)', marginBottom:4 }}>{d.label}</div>
-                        <div style={{ height:5, background:'rgba(255,255,255,.06)' }}>
-                          <div style={{ height:'100%', width:`${(d.score/10)*100}%`, background:'rgba(140,160,196,.85)' }} />
-                        </div>
-                      </div>
-                      <div style={{ fontSize:13, fontWeight:700, color:'rgba(140,160,196,.95)', textAlign:'right' }}>{d.score.toFixed(1)}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div style={{ marginTop:14, fontSize:13, color:'rgba(255,255,255,.72)' }}>
-              Composite verdict: <strong style={{ color:'rgba(166,183,210,.95)', fontWeight:600 }}>AI Fortress</strong>. Top 15&ndash;20% of assets we have scored.
-            </div>
-          </div>
-
-          {/* 15-question carousel */}
           {(() => {
             const q = QUESTIONS[openQ];
             const partColor = q.part === 'I' ? 'rgba(166,183,210,.95)' : 'rgba(140,160,196,.95)';
@@ -724,15 +369,6 @@ export default function QofAIPage() {
 
             return (
               <div>
-                <div style={{ display:'flex', alignItems:'baseline', justifyContent:'space-between', flexWrap:'wrap', gap:14, marginBottom:16 }}>
-                  <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(255,255,255,.78)' }}>
-                    The 15-question instrument
-                  </div>
-                  <div style={{ fontSize:13, color:'rgba(255,255,255,.72)' }}>
-                    Every score sourced from verbatim customer responses.
-                  </div>
-                </div>
-
                 <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', gap:16, marginBottom:14, flexWrap:'wrap' }}>
                   <div style={{ display:'flex', alignItems:'center', gap:14 }}>
                     <div style={{ fontSize:13, fontWeight:700, letterSpacing:'.06em', color:'rgba(255,255,255,.85)' }}>
@@ -798,155 +434,84 @@ export default function QofAIPage() {
               </div>
             );
           })()}
-
-          {/* Footnote */}
-          <div style={{ marginTop:24, fontSize:13, color:'rgba(255,255,255,.78)', lineHeight:1.65, textAlign:'center' }}>
-            Plugs into any suite deliverable. Two extra weeks of fieldwork. Delivered with the parent engagement.
-          </div>
         </div>
       </section>
 
-      {/* PRICING. milestone-aligned slider, by module + N count */}
-      <section style={{ padding:'72px 0', background:'linear-gradient(168deg,#040c1a 0%,#060f22 50%,#040c1a 100%)', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
+      {/* ARTIFACTS — what ships */}
+      <section style={{ padding:'72px 0', background:'rgba(255,255,255,.018)', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
-          <div style={{ display:'flex', alignItems:'flex-end', justifyContent:'space-between', gap:24, flexWrap:'wrap', marginBottom:32 }}>
-            <div>
-              <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:10 }}>
-                Pricing
-              </div>
-              <h2 style={{ fontSize:30, fontWeight:700, color:'rgba(255,255,255,.97)', letterSpacing:'-.02em', margin:0, lineHeight:1.2 }}>
-                Priced by module and customer N.
-              </h2>
+          <div style={{ marginBottom:24 }}>
+            <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:10 }}>
+              What ships
             </div>
-            <p style={{ fontSize:13.5, color:'rgba(255,255,255,.82)', margin:0, maxWidth:400, textAlign:'right', lineHeight:1.65 }}>
-              Fee scales with the number of customer interviews. Flat fee or outcome-based, aligned to your transaction milestone.
-            </p>
+            <h2 style={{ fontSize:'clamp(24px, 2.8vw, 30px)', fontWeight:700, color:'rgba(255,255,255,.97)', letterSpacing:'-.025em', lineHeight:1.2, margin:'0 0 12px', maxWidth:820 }}>
+              Four artifacts. Banker-ready, no analyst rework.
+            </h2>
           </div>
 
-          <div style={{ background:'rgba(6,14,28,.97)', border:'1px solid rgba(255,255,255,.10)', padding:'30px 34px' }}>
-            <div style={{ display:'grid', gridTemplateColumns:'1.2fr 1fr', gap:36, alignItems:'flex-start' }}>
-              <div>
-                <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.78)', marginBottom:8 }}>
-                  Module
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(2, 1fr)', gap:14 }}>
+            {ARTIFACTS.map((a, i) => (
+              <div key={i} style={{ background:'rgba(6,14,28,.97)', border:'1px solid rgba(255,255,255,.10)', padding:'22px 26px' }}>
+                <div style={{ display:'flex', alignItems:'baseline', gap:14, marginBottom:8 }}>
+                  <div style={{ fontSize:13, fontWeight:700, color:'rgba(166,183,210,.95)', letterSpacing:'.06em', minWidth:24 }}>0{i + 1}</div>
+                  <div style={{ fontSize:16, fontWeight:700, color:'rgba(255,255,255,.97)' }}>{a.title}</div>
                 </div>
-                <div style={{ fontSize:22, fontWeight:600, color:'rgba(255,255,255,.97)', letterSpacing:'-.01em', marginBottom:18 }}>
-                  {price.name}
-                </div>
-                <div style={{ display:'flex', alignItems:'baseline', gap:16, flexWrap:'wrap', marginBottom:14 }}>
-                  <div style={{ fontSize:38, fontWeight:600, color:'rgba(166,183,210,.97)', letterSpacing:'-.02em', lineHeight:1 }}>
-                    {price.range}
-                  </div>
-                  <div style={{ fontSize:14, color:'rgba(255,255,255,.78)' }}>
-                    based on <strong style={{ color:'rgba(230,240,252,.97)', fontWeight:600 }}>{price.nCount} customer interviews</strong>
-                  </div>
-                </div>
-                <div style={{ fontSize:14.5, color:'rgba(255,255,255,.92)', lineHeight:1.65, marginBottom:24 }}>
-                  {price.desc}
-                </div>
-
-                <div style={{ position:'relative', height:30, display:'flex', alignItems:'center' }}>
-                  <div style={{ position:'absolute', left:0, right:0, height:3, background:'rgba(255,255,255,.10)', borderRadius:2 }} />
-                  <div style={{ position:'absolute', left:0, width:`${(priceIdx / (PRICE_TIERS.length - 1)) * 100}%`, height:3, background:'rgba(166,183,210,.85)', borderRadius:2, transition:'width .2s' }} />
-                  {PRICE_TIERS.map((_, i) => {
-                    const pct = (i / (PRICE_TIERS.length - 1)) * 100;
-                    const isActive = i === priceIdx;
-                    return (
-                      <div
-                        key={i}
-                        onClick={() => setPriceIdx(i)}
-                        style={{
-                          position:'absolute',
-                          left:`${pct}%`, transform:'translateX(-50%)',
-                          width: isActive ? 18 : 12, height: isActive ? 18 : 12,
-                          borderRadius:'50%',
-                          background: isActive ? 'rgba(166,183,210,.95)' : 'rgba(255,255,255,.20)',
-                          border: isActive ? '2px solid rgba(220,232,250,.95)' : 'none',
-                          boxShadow: isActive ? '0 0 12px rgba(166,183,210,.55)' : 'none',
-                          cursor:'pointer', zIndex:2,
-                          transition:'all .2s',
-                        }}
-                      />
-                    );
-                  })}
-                  <input
-                    type="range" min={0} max={PRICE_TIERS.length - 1} step={1} value={priceIdx}
-                    onChange={e => setPriceIdx(Number(e.target.value))}
-                    style={{ position:'absolute', left:0, right:0, width:'100%', opacity:0, height:30, margin:0, padding:0, cursor:'pointer', zIndex:3 }}
-                  />
-                </div>
-                <div style={{ display:'flex', justifyContent:'space-between', marginTop:12 }}>
-                  {PRICE_TIERS.map((t, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setPriceIdx(i)}
-                      style={{
-                        all:'unset', cursor:'pointer',
-                        fontSize:12, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase',
-                        color: i === priceIdx ? 'rgba(230,240,252,.97)' : 'rgba(255,255,255,.65)',
-                        transition:'color .15s',
-                        textAlign: i === 0 ? 'left' : i === PRICE_TIERS.length - 1 ? 'right' : 'center',
-                        maxWidth: 200,
-                      }}
-                    >
-                      {t.name.split(' ')[0]}
-                    </button>
-                  ))}
-                </div>
+                <div style={{ fontSize:14, color:'rgba(255,255,255,.85)', lineHeight:1.7, paddingLeft:38 }}>{a.body}</div>
               </div>
-
-              <div style={{ display:'flex', flexDirection:'column', gap:20, paddingLeft:32, borderLeft:'1px solid rgba(255,255,255,.10)' }}>
-                <div>
-                  <div style={SPEC_LABEL}>Customer N</div>
-                  <div style={SPEC_VALUE_LARGE}>{price.nCount}</div>
-                </div>
-                <div style={{ height:1, background:'rgba(255,255,255,.08)' }} />
-                <div>
-                  <div style={SPEC_LABEL}>Timeline</div>
-                  <div style={SPEC_VALUE_LARGE}>{price.weeks}</div>
-                </div>
-                <div style={{ height:1, background:'rgba(255,255,255,.08)' }} />
-                <div>
-                  <div style={SPEC_LABEL}>Milestone</div>
-                  <div style={{ fontSize:15, fontWeight:600, color:'rgba(255,255,255,.95)' }}>{price.milestone}</div>
-                </div>
-                <div style={{ height:1, background:'rgba(255,255,255,.08)' }} />
-                <div>
-                  <div style={SPEC_LABEL}>Structure</div>
-                  <div style={{ fontSize:14, color:'rgba(255,255,255,.88)', lineHeight:1.65 }}>
-                    Flat fee or outcome-based. Cost scoped to the milestone, not the hour.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div style={{ fontSize:13, color:'rgba(255,255,255,.72)', textAlign:'center', marginTop:18 }}>
-            Customer N is the primary fee driver. Company size, data availability, and timeline tune it. We&rsquo;ll lock the final number before kickoff and align it to your transaction milestone.
+            ))}
           </div>
         </div>
       </section>
 
-      {/* FINAL CTA. explicit ask, explicit response, explicit cadence */}
+      {/* COMPETITIVE CALLOUT */}
+      <section style={{ padding:'56px 0', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
+        <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
+          <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:18 }}>
+            Why not expert networks, desk research, or the operator&rsquo;s reference list
+          </div>
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:1, background:'rgba(255,255,255,.10)', border:'1px solid rgba(255,255,255,.10)' }}>
+            {[
+              { kind: 'Operator reference list', detail: 'Five to ten curated customers. Buyers know to discount the calls before they happen. The unhappy customer is never on the list.', muted: true },
+              { kind: 'Expert networks',         detail: 'What one expert thinks. One voice. One bias. No score, no benchmark. No way to properly screen the right voices. Hours wasted on calls that do not hold up in diligence.', muted: true },
+              { kind: 'Desk research',           detail: 'What is already public. The same comps and headlines every other bank is reading. No customer evidence at all.', muted: true },
+              { kind: 'Crossover',               detail: 'What 30+ of the target&rsquo;s actual customers said, sourced independently, scored on a fixed nine-dimension instrument, benchmarked against 40+ prior studies. Attributed, slide-ready, IC-grade.', muted: false },
+            ].map((c, i) => (
+              <div key={i} style={{
+                background: c.muted ? 'rgba(6,14,28,.97)' : 'rgba(120,144,178,.10)',
+                padding:'22px 24px',
+                borderLeft: !c.muted ? '3px solid rgba(166,183,210,.6)' : 'none',
+              }}>
+                <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color: c.muted ? 'rgba(255,255,255,.62)' : 'rgba(166,183,210,.95)', marginBottom:10 }}>
+                  {c.kind}
+                </div>
+                <div style={{ fontSize:13.5, color: c.muted ? 'rgba(255,255,255,.78)' : 'rgba(255,255,255,.94)', fontWeight: c.muted ? 400 : 500, lineHeight:1.65 }} dangerouslySetInnerHTML={{ __html: c.detail }} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
       <section style={{ padding:'80px 0' }}>
         <div style={{ maxWidth:820, margin:'0 auto', padding:'0 36px', textAlign:'center' }}>
           <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:18 }}>
-            How to start
+            See the methodology in practice
           </div>
           <h2 style={{ fontSize:'clamp(30px, 3.4vw, 40px)', fontWeight:700, color:'rgba(255,255,255,.98)', letterSpacing:'-.025em', lineHeight:1.15, margin:'0 0 18px' }}>
-            Name an asset.
+            Ask for a sample report.
           </h2>
           <p style={{ fontSize:16, color:'rgba(255,255,255,.90)', lineHeight:1.75, margin:'0 0 14px' }}>
-            Reply to <a href={`mailto:${CONTACT.email}`} style={{ color:'rgba(230,240,252,.98)', textDecoration:'underline', textDecorationColor:'rgba(166,183,210,.5)', textUnderlineOffset:'3px' }}>{CONTACT.email}</a> with the company name and your pitch date.
+            Email <a href={`mailto:${CONTACT.email}`} style={{ color:'rgba(230,240,252,.98)', textDecoration:'underline', textDecorationColor:'rgba(166,183,210,.5)', textUnderlineOffset:'3px' }}>{CONTACT.email}</a> and we will send a redacted Voice of Customer report. Same instrument, real verbatims, real scores, no asset attribution.
           </p>
           <p style={{ fontSize:16, color:'rgba(255,255,255,.84)', lineHeight:1.75, margin:'0 0 32px' }}>
-            We&rsquo;ll send back a 1-page Catalyst preview by end of week. what we&rsquo;d find, what proof points we&rsquo;d surface, and what the full scope would look like.
+            See what arrives in the deck before you scope an engagement.
           </p>
           <div style={{ display:'flex', gap:12, justifyContent:'center', flexWrap:'wrap' }}>
-            <a href={`mailto:${CONTACT.email}?subject=Catalyst%20preview%20request`} style={{ background:'rgba(255,255,255,.96)', color:'#050e1e', padding:'12px 28px', fontSize:15, fontWeight:700, textDecoration:'none', borderRadius:2 }}>
-              Email Ian →
+            <a href={`mailto:${CONTACT.email}?subject=Sample%20Crossover%20Voice%20of%20Customer%20report`} style={{ background:'rgba(255,255,255,.96)', color:'#050e1e', padding:'12px 28px', fontSize:15, fontWeight:700, textDecoration:'none', borderRadius:2 }}>
+              Email Ian for a sample →
             </a>
-            <a href={CONTACT.bookingUrl} target="_blank" rel="noopener noreferrer" style={{ background:'transparent', color:'rgba(255,255,255,.92)', border:'1px solid rgba(255,255,255,.30)', padding:'12px 24px', fontSize:15, fontWeight:500, textDecoration:'none', borderRadius:2 }}>
-              Book a 20-min call →
+            <a href="/intelligence" style={{ background:'transparent', color:'rgba(255,255,255,.92)', border:'1px solid rgba(255,255,255,.30)', padding:'12px 24px', fontSize:15, fontWeight:500, textDecoration:'none', borderRadius:2 }}>
+              See the Intelligence Suite →
             </a>
           </div>
         </div>

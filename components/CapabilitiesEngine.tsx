@@ -122,7 +122,7 @@ export function CapabilitiesEngine() {
                 </div>
 
                 {/* CTA */}
-                <div style={{ padding:'22px 22px', display:'flex', alignItems:'center', borderLeft:'1px solid rgba(255,255,255,.06)' }}>
+                <div style={{ padding:'22px 28px 22px 24px', display:'flex', alignItems:'center', borderLeft:'1px solid rgba(255,255,255,.06)', boxSizing:'border-box', overflow:'hidden' }}>
                   <a
                     href="/intelligence?request=1"
                     onClick={e => e.stopPropagation()}
