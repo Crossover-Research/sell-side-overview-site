@@ -128,28 +128,40 @@ const Q_OF_AI_DIMS = [
   { name: 'AI Displacement Risk', count: 5, hint: 'Lock-in · Leapfrog resistance · Replacement risk · Pricing defense' },
 ];
 
-// Pricing tiers — three engagement bands aligned to transaction milestones.
+// Pricing tiers — by module + N count. Fees scale with the number of
+// customer interviews, not engagement type.
 const PRICE_TIERS = [
   {
-    name: 'Sector Research',
-    range: '$35K – 65K',
-    weeks: '3–6 weeks',
-    milestone: 'Pipeline build',
-    desc: 'Pre-mandate. Independent sector intelligence to identify assets and arrive with a thesis already built.',
+    name: 'Mandate Pitch Deck',
+    nCount: '20–30',
+    range: '$25K – 35K',
+    weeks: '2–3 weeks',
+    milestone: 'Mandate pursuit',
+    desc: 'Customer verbatims and benchmark scores in time for the pitch window. The volume most mandate pitches land at.',
   },
   {
-    name: 'Mandate Pitch / VoC CIM',
-    range: '$45K – 95K',
-    weeks: '2–5 weeks',
-    milestone: 'Mandate pursuit · CIM launch',
-    desc: 'In time for the pitch window or aligned to CIM drafting. Customer evidence inside the deck and the narrative.',
+    name: 'VoC-Enhanced CIM',
+    nCount: '30–50',
+    range: '$40K – 65K',
+    weeks: '4–5 weeks',
+    milestone: 'Sell-side process launch',
+    desc: 'Wider customer base inside the CIM. Every weak claim pre-validated; every objection mapped to a rebuttal.',
+  },
+  {
+    name: 'Sector Research',
+    nCount: '40–80',
+    range: '$50K – 90K',
+    weeks: '3–6 weeks',
+    milestone: 'Pipeline build · pre-mandate',
+    desc: 'Sector-wide customer intelligence. No management contact. Arrives at the operator with a thesis already built.',
   },
   {
     name: 'Customer Diligence Report',
-    range: '$95K – 175K',
+    nCount: '50–100+',
+    range: '$85K – 150K',
     weeks: '5–7 weeks',
     milestone: 'Pre-process · IC prep',
-    desc: 'Full commercial diligence ahead of the formal process. IC-ready evidence; pricing aligned to bid milestone.',
+    desc: 'Full commercial diligence at scale. IC-ready evidence; fee aligned to the bid milestone.',
   },
 ];
 
@@ -165,7 +177,7 @@ const SPEC_VALUE_LARGE: React.CSSProperties = {
 
 export default function QofAIPage() {
   const [activeDeliverable, setActiveDeliverable] = useState<DeliverableId>('mandate');
-  const [priceIdx, setPriceIdx] = useState<number>(1);
+  const [priceIdx, setPriceIdx] = useState<number>(0);
   const active = DELIVERABLES.find(d => d.id === activeDeliverable)!;
   const price = PRICE_TIERS[priceIdx];
 
@@ -338,22 +350,25 @@ export default function QofAIPage() {
             </div>
 
             <div style={{ display:'flex', flexDirection:'column', gap:14 }}>
-              <div style={{ background:'rgba(6,14,28,.97)', border:'1px solid rgba(255,255,255,.10)', borderLeft:'3px solid rgba(166,183,210,.6)', padding:'20px 24px' }}>
-                <div style={{ fontSize:15, fontStyle:'italic', color:'rgba(255,255,255,.94)', lineHeight:1.7, marginBottom:10 }}>
-                  &ldquo;We have never had an outside provider push back on an investment.&rdquo;
+              {[
+                {
+                  title: 'No management list',
+                  body: 'Respondents are sourced independently. The operator does not pick who we call. The reference list is not the evidence base.',
+                },
+                {
+                  title: 'No coaching, no script bias',
+                  body: 'Interview structure is fixed across studies. The same questions every time. Scores are comparable to 40+ prior engagements.',
+                },
+                {
+                  title: 'Banker-ready output',
+                  body: 'Verbatims arrive in slide-ready form: quoted, attributed, scored, mapped to the proof points your pitch needs to win.',
+                },
+              ].map((c, i) => (
+                <div key={i} style={{ background:'rgba(6,14,28,.97)', border:'1px solid rgba(255,255,255,.10)', borderLeft:'3px solid rgba(166,183,210,.6)', padding:'18px 22px' }}>
+                  <div style={{ fontSize:14, fontWeight:700, color:'rgba(230,240,252,.97)', marginBottom:6 }}>{c.title}</div>
+                  <div style={{ fontSize:14, color:'rgba(255,255,255,.85)', lineHeight:1.65 }}>{c.body}</div>
                 </div>
-                <div style={{ fontSize:13.5, color:'rgba(255,255,255,.82)', fontWeight:500 }}>
-                  Investor on unfiltered truth
-                </div>
-              </div>
-              <div style={{ background:'rgba(6,14,28,.97)', border:'1px solid rgba(255,255,255,.10)', borderLeft:'3px solid rgba(166,183,210,.6)', padding:'20px 24px' }}>
-                <div style={{ fontSize:15, fontStyle:'italic', color:'rgba(255,255,255,.94)', lineHeight:1.7, marginBottom:10 }}>
-                  &ldquo;Every advisory firm validates why to deploy. No one tells us why to avoid.&rdquo;
-                </div>
-                <div style={{ fontSize:13.5, color:'rgba(255,255,255,.82)', fontWeight:500 }}>
-                  Investor on systematic bias in research
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
@@ -427,11 +442,11 @@ export default function QofAIPage() {
                 Pricing
               </div>
               <h2 style={{ fontSize:30, fontWeight:700, color:'rgba(255,255,255,.97)', letterSpacing:'-.02em', margin:0, lineHeight:1.2 }}>
-                Pricing aligned to your transaction milestones.
+                Priced by module and customer N.
               </h2>
             </div>
-            <p style={{ fontSize:13.5, color:'rgba(255,255,255,.82)', margin:0, maxWidth:380, textAlign:'right', lineHeight:1.65 }}>
-              Engagements are scoped to where the deal is. Flat fee or outcome-based — structured so cost lands where value is unlocked.
+            <p style={{ fontSize:13.5, color:'rgba(255,255,255,.82)', margin:0, maxWidth:400, textAlign:'right', lineHeight:1.65 }}>
+              Fee scales with the number of customer interviews. Flat fee or outcome-based, aligned to your transaction milestone.
             </p>
           </div>
 
@@ -440,13 +455,18 @@ export default function QofAIPage() {
             <div style={{ display:'grid', gridTemplateColumns:'1.2fr 1fr', gap:36, alignItems:'flex-start' }}>
               <div>
                 <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.78)', marginBottom:8 }}>
-                  Engagement
+                  Module
                 </div>
-                <div style={{ fontSize:22, fontWeight:600, color:'rgba(255,255,255,.97)', letterSpacing:'-.01em', marginBottom:14 }}>
+                <div style={{ fontSize:22, fontWeight:600, color:'rgba(255,255,255,.97)', letterSpacing:'-.01em', marginBottom:18 }}>
                   {price.name}
                 </div>
-                <div style={{ fontSize:38, fontWeight:600, color:'rgba(166,183,210,.97)', letterSpacing:'-.02em', lineHeight:1, marginBottom:14 }}>
-                  {price.range}
+                <div style={{ display:'flex', alignItems:'baseline', gap:16, flexWrap:'wrap', marginBottom:14 }}>
+                  <div style={{ fontSize:38, fontWeight:600, color:'rgba(166,183,210,.97)', letterSpacing:'-.02em', lineHeight:1 }}>
+                    {price.range}
+                  </div>
+                  <div style={{ fontSize:14, color:'rgba(255,255,255,.78)' }}>
+                    based on <strong style={{ color:'rgba(230,240,252,.97)', fontWeight:600 }}>{price.nCount} customer interviews</strong>
+                  </div>
                 </div>
                 <div style={{ fontSize:14.5, color:'rgba(255,255,255,.92)', lineHeight:1.65, marginBottom:24 }}>
                   {price.desc}
@@ -505,6 +525,11 @@ export default function QofAIPage() {
 
               <div style={{ display:'flex', flexDirection:'column', gap:20, paddingLeft:32, borderLeft:'1px solid rgba(255,255,255,.10)' }}>
                 <div>
+                  <div style={SPEC_LABEL}>Customer N</div>
+                  <div style={SPEC_VALUE_LARGE}>{price.nCount}</div>
+                </div>
+                <div style={{ height:1, background:'rgba(255,255,255,.08)' }} />
+                <div>
                   <div style={SPEC_LABEL}>Timeline</div>
                   <div style={SPEC_VALUE_LARGE}>{price.weeks}</div>
                 </div>
@@ -525,7 +550,7 @@ export default function QofAIPage() {
           </div>
 
           <div style={{ fontSize:13, color:'rgba(255,255,255,.72)', textAlign:'center', marginTop:18 }}>
-            Final pricing depends on company size, data availability, and timeline. We&rsquo;ll align the fee to your transaction milestone before kickoff.
+            Customer N is the primary fee driver. Company size, data availability, and timeline tune it. We&rsquo;ll lock the final number before kickoff and align it to your transaction milestone.
           </div>
         </div>
       </section>
