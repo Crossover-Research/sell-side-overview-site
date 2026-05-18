@@ -389,17 +389,25 @@ export default function QofAIPage() {
                     aria-hidden="true"
                     style={{
                       flexShrink:0,
-                      width:26, height:26,
-                      display:'flex', alignItems:'center', justifyContent:'center',
-                      borderRadius:4,
-                      border:'1px solid rgba(255,255,255,.12)',
-                      background: openQ === i ? 'rgba(166,183,210,.12)' : 'rgba(255,255,255,.03)',
-                      color: openQ === i ? 'rgba(166,183,210,.95)' : 'rgba(255,255,255,.6)',
-                      transform: openQ === i ? 'rotate(180deg)' : 'rotate(0deg)',
-                      transition:'transform .2s ease, background .15s ease, color .15s ease',
+                      display:'inline-flex', alignItems:'center', gap:8,
+                      padding:'6px 12px',
+                      borderRadius:999,
+                      border:`1px solid ${openQ === i ? 'rgba(166,183,210,.55)' : 'rgba(166,183,210,.28)'}`,
+                      background: openQ === i ? 'rgba(120,144,178,.22)' : 'rgba(120,144,178,.10)',
+                      color: openQ === i ? 'rgba(230,240,252,.98)' : 'rgba(200,215,235,.85)',
+                      fontSize:10, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase',
+                      transition:'background .15s ease, color .15s ease, border-color .15s ease',
                     }}
                   >
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <span>{openQ === i ? 'Hide' : 'View'}</span>
+                    <svg
+                      width="11" height="11" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"
+                      style={{
+                        transform: openQ === i ? 'rotate(180deg)' : 'rotate(0deg)',
+                        transition:'transform .2s ease',
+                      }}
+                    >
                       <polyline points="6 9 12 15 18 9" />
                     </svg>
                   </div>
