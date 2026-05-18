@@ -44,7 +44,7 @@ export function Core9Chart({ title = 'Red Canary' }: { title?: string }) {
   return (
     <div ref={ref} style={{ padding: '20px 0' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 16 }}>
-        <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.58)' }}>
+        <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.80)' }}>
           Crossover Core 9 — {title}
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginLeft: 'auto' }}>
@@ -54,7 +54,7 @@ export function Core9Chart({ title = 'Red Canary' }: { title?: string }) {
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
             <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'rgba(255,255,255,.2)' }} />
-            <span style={{ fontSize: 10, color: 'rgba(255,255,255,.58)' }}>Benchmark avg</span>
+            <span style={{ fontSize: 10, color: 'rgba(255,255,255,.80)' }}>Benchmark avg</span>
           </div>
         </div>
       </div>
@@ -65,7 +65,7 @@ export function Core9Chart({ title = 'Red Canary' }: { title?: string }) {
           const p = Math.max(0, eased);
           return (
             <div key={i} style={{ display: 'grid', gridTemplateColumns: '140px 1fr 36px', alignItems: 'center', gap: 10 }}>
-              <div style={{ fontSize: 11, color: 'rgba(255,255,255,.55)', textAlign: 'right' }}>{d.label}</div>
+              <div style={{ fontSize: 11, color: 'rgba(255,255,255,.78)', textAlign: 'right' }}>{d.label}</div>
               <div style={{ position: 'relative', height: 20 }}>
                 {/* Benchmark bar */}
                 <div style={{
@@ -79,7 +79,7 @@ export function Core9Chart({ title = 'Red Canary' }: { title?: string }) {
                 <div style={{
                   position: 'absolute', left: 0, top: 5, height: 10,
                   width: `${(d.score / 10) * 100 * p}%`,
-                  background: 'linear-gradient(90deg, rgba(120,144,178,.6), rgba(166,183,210,.85))',
+                  background: 'linear-gradient(90deg, rgba(120,144,178,.85), rgba(166,183,210,.85))',
                   borderRadius: 2,
                   transition: 'width .05s',
                 }} />
@@ -91,7 +91,7 @@ export function Core9Chart({ title = 'Red Canary' }: { title?: string }) {
           );
         })}
       </div>
-      <div style={{ marginTop: 12, fontSize: 10, color: 'rgba(255,255,255,.55)', fontStyle: 'italic' }}>
+      <div style={{ marginTop: 12, fontSize: 10, color: 'rgba(255,255,255,.78)', fontStyle: 'italic' }}>
         Scored from 75+ verified respondents across 9 benchmark dimensions. Category benchmark derived from 40+ comparable studies.
       </div>
     </div>

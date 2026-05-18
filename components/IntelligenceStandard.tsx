@@ -70,7 +70,7 @@ export function IntelligenceStandard() {
           {/* SOURCE */}
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 0 }}>
             <div style={{ width: 360, ...nodeStyle(vis(1), vis(2)) }}>
-              <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(120,144,178,.7)', marginBottom: 5 }}>Crossover Research · Intelligence Infrastructure</div>
+              <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(120,144,178,.9)', marginBottom: 5 }}>Crossover Research · Intelligence Infrastructure</div>
               <div style={{ fontSize: 15, fontWeight: 700, color: 'rgba(255,255,255,.92)', marginBottom: 3 }}>Verbatim Truth Layer</div>
               <div style={{ fontSize: 12, color: 'rgba(255,255,255,.72)', fontStyle: 'italic' }}>The source none of them produced — and all of them rely on.</div>
             </div>

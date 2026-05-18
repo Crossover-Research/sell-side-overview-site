@@ -124,7 +124,7 @@ export function DealProof() {
             color:'rgba(255,255,255,.95)', letterSpacing:'-.025em', marginBottom:10, lineHeight:1.2,
           }}>
             Neither party briefed the respondents.<br />
-            <span style={{ color:'rgba(255,255,255,.55)', fontWeight:400, fontSize:'0.82em' }}>
+            <span style={{ color:'rgba(255,255,255,.78)', fontWeight:400, fontSize:'0.82em' }}>
               $11.2B followed.
             </span>
           </h2>
@@ -158,7 +158,7 @@ export function DealProof() {
         <div style={{ height:1, background:'rgba(255,255,255,.06)', marginBottom:20, overflow:'hidden' }}>
           <div key={`${active}-${paused}`} style={{
             height:'100%',
-            background:'linear-gradient(90deg, rgba(120,144,178,.3), rgba(166,183,210,.6))',
+            background:'linear-gradient(90deg, rgba(120,144,178,.3), rgba(166,183,210,.85))',
             width: paused ? '0%' : '100%',
             transition: paused ? 'none' : 'width 6s linear',
           }} />
@@ -188,13 +188,13 @@ export function DealProof() {
             <div style={{ marginBottom:20 }}>
               <LogoImg src={deal.companyLogo} alt={deal.company} height={deal.logoHeight} />
               <div style={{ marginTop:16 }}>
-                <div style={{ fontSize:11, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.45)', marginBottom:5 }}>
+                <div style={{ fontSize:13, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.72)', marginBottom:5 }}>
                   {deal.sizeLabel}
                 </div>
                 <div style={{ fontFamily:'var(--font-mono)', fontSize:38, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.04em', lineHeight:1, marginBottom:5 }}>
                   {deal.size}
                 </div>
-                <div style={{ fontSize:11, color:'rgba(255,255,255,.55)', letterSpacing:'.04em' }}>
+                <div style={{ fontSize:13, color:'rgba(255,255,255,.78)', letterSpacing:'.04em' }}>
                   {deal.badge} &middot; {deal.company}
                 </div>
               </div>
@@ -204,7 +204,7 @@ export function DealProof() {
             <div style={{ height:1, background:'rgba(255,255,255,.07)', marginBottom:20 }} />
 
             {/* Deal type label */}
-            <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.38)', marginBottom:14 }}>
+            <div style={{ fontSize:11.5, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.68)', marginBottom:14 }}>
               Transaction Parties
             </div>
 
@@ -212,7 +212,7 @@ export function DealProof() {
             <div style={{ display:'flex', flexDirection:'column', gap:16 }}>
               {deal.parties.map((p, i) => (
                 <div key={i}>
-                  <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.40)', marginBottom:8 }}>{p.role}</div>
+                  <div style={{ fontSize:11.5, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.70)', marginBottom:8 }}>{p.role}</div>
                   <LogoImg src={p.logo} alt={p.name} height={18} invert={p.invert} />
                   {i < deal.parties.length - 1 && (
                     <div style={{ height:1, background:'rgba(255,255,255,.05)', marginTop:16 }} />
@@ -227,10 +227,10 @@ export function DealProof() {
 
             {/* Involvement badge */}
             <div style={{ display:'flex', alignItems:'center', gap:10, marginBottom:20 }}>
-              <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(89,116,154,.9)', background:'rgba(89,116,154,.09)', border:'1px solid rgba(89,116,154,.22)', padding:'3px 10px' }}>
+              <div style={{ fontSize:11.5, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(89,116,154,.9)', background:'rgba(89,116,154,.09)', border:'1px solid rgba(89,116,154,.22)', padding:'3px 10px' }}>
                 {deal.crossover.involvement}
               </div>
-              <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.35)' }}>
+              <div style={{ fontSize:11.5, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.65)' }}>
                 Crossover Research
               </div>
             </div>
@@ -241,10 +241,10 @@ export function DealProof() {
                 <div style={{ fontSize:14, fontStyle:'italic', color:'rgba(255,255,255,.85)', lineHeight:1.75, borderLeft:'2px solid rgba(120,144,178,.3)', paddingLeft:16, marginBottom:10 }}>
                   {(deal.crossover as any).quote}
                 </div>
-                <div style={{ fontSize:11, color:'rgba(255,255,255,.52)', paddingLeft:18 }}>{(deal.crossover as any).quoteAttr}</div>
+                <div style={{ fontSize:13, color:'rgba(255,255,255,.76)', paddingLeft:18 }}>{(deal.crossover as any).quoteAttr}</div>
               </div>
             ) : (
-              <div style={{ fontSize:13, color:'rgba(255,255,255,.75)', lineHeight:1.78, marginBottom:24, flex:1 }}>
+              <div style={{ fontSize:14, color:'rgba(255,255,255,.75)', lineHeight:1.78, marginBottom:24, flex:1 }}>
                 {(deal.crossover as any).desc}
               </div>
             )}
@@ -258,8 +258,8 @@ export function DealProof() {
                 <div key={i} style={{ display:'flex', alignItems:'center', gap:14 }}>
                   <div style={{ width:3, height:36, background:o.color, borderRadius:2, flexShrink:0, opacity:.6 }} />
                   <div>
-                    <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.38)', marginBottom:3 }}>{o.party}</div>
-                    <div style={{ fontSize:13, fontWeight:600, color:o.color, lineHeight:1.3 }}>{o.result}</div>
+                    <div style={{ fontSize:11.5, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.68)', marginBottom:3 }}>{o.party}</div>
+                    <div style={{ fontSize:14, fontWeight:600, color:o.color, lineHeight:1.3 }}>{o.result}</div>
                   </div>
                 </div>
               ))}
@@ -274,7 +274,7 @@ export function DealProof() {
           background:'rgba(120,144,178,.05)', border:'1px solid rgba(120,144,178,.12)',
           borderTop:'none', padding:'16px 24px', gap:16, flexWrap:'wrap',
         }}>
-          <div style={{ fontSize:13, color:'rgba(255,255,255,.65)', lineHeight:1.5 }}>
+          <div style={{ fontSize:14, color:'rgba(255,255,255,.84)', lineHeight:1.5 }}>
             <span style={{ color:'rgba(166,183,210,.9)', fontWeight:600 }}>50+ sell-side mandates. 60+ buy-side engagements.</span>
             {' '}The same customer evidence that closed these deals is available for your next one.
           </div>
@@ -283,7 +283,7 @@ export function DealProof() {
             style={{
               display:'inline-flex', alignItems:'center',
               background:'rgba(255,255,255,.9)', color:'#060e1c',
-              padding:'10px 22px', fontSize:12, fontWeight:700,
+              padding:'10px 22px', fontSize:14.5, fontWeight:700,
               textDecoration:'none', whiteSpace:'nowrap', flexShrink:0,
               transition:'all .15s',
             }}

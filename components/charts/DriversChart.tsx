@@ -23,7 +23,7 @@ export function DriversChart({ labels, redCanaryData, avgData }: DriversChartPro
       data: {
         labels,
         datasets: [
-          { label: 'Red Canary', data: redCanaryData, backgroundColor: 'rgba(166,183,210,.7)', borderRadius: 3, borderSkipped: false },
+          { label: 'Red Canary', data: redCanaryData, backgroundColor: 'rgba(166,183,210,.9)', borderRadius: 3, borderSkipped: false },
           { label: 'All-vendor avg', data: avgData, backgroundColor: 'rgba(255,255,255,.15)', borderRadius: 3, borderSkipped: false },
         ],
       },
@@ -32,12 +32,12 @@ export function DriversChart({ labels, redCanaryData, avgData }: DriversChartPro
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-          legend: { position: 'top', align: 'start', labels: { font: { size: 11 }, usePointStyle: true, pointStyle: 'rect', boxWidth: 10, color: 'rgba(255,255,255,.55)' } },
+          legend: { position: 'top', align: 'start', labels: { font: { size: 11 }, usePointStyle: true, pointStyle: 'rect', boxWidth: 10, color: 'rgba(255,255,255,.78)' } },
           tooltip: { callbacks: { label: (c: { dataset: { label: string }; raw: number }) => ` ${c.dataset.label}: ${c.raw}%` } },
         },
         scales: {
           x: { min: 0, max: 100, grid: { color: 'rgba(255,255,255,.07)' }, ticks: { color: 'rgba(255,255,255,.68)', callback: (v: number | string) => `${v}%` } },
-          y: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,.55)', font: { size: 11 } } },
+          y: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,.78)', font: { size: 11 } } },
         },
       },
     });

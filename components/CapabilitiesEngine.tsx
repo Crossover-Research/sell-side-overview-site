@@ -46,14 +46,14 @@ export function CapabilitiesEngine() {
               color:'rgba(255,255,255,.95)', letterSpacing:'-.025em', margin:0, lineHeight:1.2,
             }}>
               We enter before the pitch. We stay through the CIM.<br />
-              <span style={{ color:'rgba(255,255,255,.55)', fontWeight:400, fontSize:'.88em' }}>
+              <span style={{ color:'rgba(255,255,255,.78)', fontWeight:400, fontSize:'.88em' }}>
                 You win with evidence no one else has.
               </span>
             </h2>
             <a
               href="/intelligence?request=1"
               style={{
-                fontSize:12, fontWeight:600, color:'rgba(180,210,255,.85)',
+                fontSize:14.5, fontWeight:600, color:'rgba(180,210,255,.85)',
                 border:'1px solid rgba(120,144,178,.28)', padding:'8px 18px',
                 textDecoration:'none', whiteSpace:'nowrap', flexShrink:0,
                 transition:'all .15s', background:'rgba(120,144,178,.05)',
@@ -67,7 +67,7 @@ export function CapabilitiesEngine() {
         </div>
 
         {/* Entry point label */}
-        <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(255,255,255,.38)', marginBottom:8 }}>
+        <div style={{ fontSize:13, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(255,255,255,.82)', marginBottom:10 }}>
           Entry points
         </div>
 
@@ -91,23 +91,22 @@ export function CapabilitiesEngine() {
               >
                 {/* Stage label */}
                 <div style={{ padding:'22px 20px', borderRight:'1px solid rgba(255,255,255,.06)' }}>
-                  <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.35)', marginBottom:4 }}>Stage {s.num}</div>
-                  <div style={{ fontSize:13, fontWeight:700, color: isActive ? 'rgba(255,255,255,.97)' : 'rgba(255,255,255,.82)', lineHeight:1.3, marginBottom:4 }}>{s.name}</div>
-                  <div style={{ fontSize:10, color:'rgba(120,144,178,.7)', letterSpacing:'.03em' }}>{s.timing}</div>
+                  <div style={{ fontSize:15, fontWeight:700, color: isActive ? 'rgba(255,255,255,.97)' : 'rgba(255,255,255,.92)', lineHeight:1.3, marginBottom:6 }}>{s.name}</div>
+                  <div style={{ fontSize:13, color:'rgba(166,183,210,.85)', letterSpacing:'.02em' }}>{s.timing}</div>
                 </div>
 
                 {/* Content */}
                 <div style={{ padding:'22px 28px' }}>
-                  <div style={{ fontSize:13.5, fontWeight:600, color:'rgba(255,255,255,.92)', marginBottom:8, lineHeight:1.4 }}>{s.headline}</div>
-                  <div style={{ fontSize:12.5, color:'rgba(255,255,255,.65)', lineHeight:1.7, marginBottom:10 }}>{s.desc}</div>
+                  <div style={{ fontSize:15, fontWeight:600, color:'rgba(255,255,255,.96)', marginBottom:8, lineHeight:1.4 }}>{s.headline}</div>
+                  <div style={{ fontSize:14.5, color:'rgba(255,255,255,.82)', lineHeight:1.7, marginBottom:10 }}>{s.desc}</div>
                   <div style={{ display:'flex', gap:5, flexWrap:'wrap' }}>
                     {s.tags.map((t, ti) => (
                       <span key={ti} style={{
-                        fontSize:11, fontWeight:600,
-                        color: isActive ? 'rgba(166,183,210,.8)' : 'rgba(255,255,255,.52)',
-                        background: isActive ? 'rgba(120,144,178,.09)' : 'rgba(255,255,255,.04)',
-                        border:`1px solid ${isActive ? 'rgba(120,144,178,.22)' : 'rgba(255,255,255,.07)'}`,
-                        padding:'2px 8px',
+                        fontSize:14.5, fontWeight:600,
+                        color: isActive ? 'rgba(190,210,232,.95)' : 'rgba(255,255,255,.78)',
+                        background: isActive ? 'rgba(120,144,178,.16)' : 'rgba(255,255,255,.06)',
+                        border:`1px solid ${isActive ? 'rgba(120,144,178,.35)' : 'rgba(255,255,255,.12)'}`,
+                        padding:'4px 10px',
                       }}>{t}</span>
                     ))}
                   </div>
@@ -119,8 +118,8 @@ export function CapabilitiesEngine() {
                     href="/intelligence?request=1"
                     onClick={e => e.stopPropagation()}
                     style={{
-                      fontSize:11, fontWeight:700,
-                      color: isActive ? 'rgba(166,183,210,.9)' : 'rgba(255,255,255,.45)',
+                      fontSize:14, fontWeight:700,
+                      color: isActive ? 'rgba(190,210,232,.97)' : 'rgba(255,255,255,.75)',
                       letterSpacing:'.03em', textDecoration:'none', whiteSpace:'nowrap',
                       transition:'color .15s',
                     }}

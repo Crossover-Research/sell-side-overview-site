@@ -51,7 +51,7 @@ export function FlywheelDiagram() {
               {/* Circle */}
               <div style={{
                 width: 28, height: 28, borderRadius: '50%', flexShrink:0,
-                border: `2px solid ${isActive ? (isFinal ? '#5974a0' : 'rgba(120,144,178,.7)') : 'rgba(255,255,255,.12)'}`,
+                border: `2px solid ${isActive ? (isFinal ? '#5974a0' : 'rgba(120,144,178,.9)') : 'rgba(255,255,255,.12)'}`,
                 background: isActive ? (isFinal ? 'rgba(89,116,154,.15)' : 'rgba(120,144,178,.15)') : 'transparent',
                 display:'flex', alignItems:'center', justifyContent:'center',
                 transition:'all .4s ease',
@@ -94,7 +94,7 @@ export function FlywheelDiagram() {
                 {step.label}
               </div>
               <div style={{
-                fontSize: 12, color: isFinal ? 'rgba(89,116,154,.7)' : 'rgba(255,255,255,.42)',
+                fontSize: 12, color: isFinal ? 'rgba(89,116,154,.9)' : 'rgba(255,255,255,.70)',
                 lineHeight: 1.55,
               }}>
                 {step.sub}

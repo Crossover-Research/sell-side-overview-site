@@ -151,27 +151,23 @@ export function EvidenceTable() {
         {/* Header */}
         <div style={{ marginBottom:36 }}>
           <div className="ib-section-eyebrow" style={{ marginBottom:10 }}>With vs. Without Crossover</div>
-          <div style={{ display:'flex', alignItems:'flex-end', justifyContent:'space-between', gap:24, flexWrap:'wrap', marginBottom:24 }}>
+          <div style={{ marginBottom:24 }}>
             <h2 style={{ fontSize:'clamp(22px,3vw,34px)', fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.03em', margin:0, lineHeight:1.15 }}>
               Every party works from a different version<br />of the truth. Evidence fixes that.
             </h2>
-            <p style={{ fontSize:13, color:'rgba(255,255,255,.52)', margin:0, maxWidth:320, textAlign:'right', fontStyle:'italic', lineHeight:1.65 }}>
-              Bankers coach operators to glorify. Operators hope no one looks too hard.
-              Investors assume everything is curated. Crossover is the record none of them produced.
-            </p>
           </div>
 
           {/* Audience tabs */}
-          <div style={{ display:'flex', gap:4 }}>
+          <div style={{ display:'flex', gap:8, flexWrap:'wrap' }}>
             {AUDIENCES.map(a => (
               <button
                 key={a.id}
                 onClick={() => setActive(a.id)}
                 style={{
-                  fontSize:12, fontWeight:600, padding:'9px 24px', cursor:'pointer',
-                  background: active===a.id ? a.bg : 'transparent',
-                  border: `1px solid ${active===a.id ? a.color : 'rgba(255,255,255,.1)'}`,
-                  color: active===a.id ? a.color : 'rgba(255,255,255,.45)',
+                  fontSize:14, fontWeight:600, padding:'10px 26px', cursor:'pointer',
+                  background: active===a.id ? a.bg : 'rgba(255,255,255,.03)',
+                  border: `1px solid ${active===a.id ? a.color : 'rgba(255,255,255,.18)'}`,
+                  color: active===a.id ? a.color : 'rgba(255,255,255,.78)',
                   transition:'all .15s',
                 }}
               >{a.label}</button>
@@ -183,13 +179,13 @@ export function EvidenceTable() {
         <div style={{ border:'1px solid rgba(255,255,255,.1)', overflow:'hidden' }}>
 
           {/* Column headers */}
-          <div style={{ display:'grid', gridTemplateColumns:'120px 1fr 36px 1fr', background:'rgba(255,255,255,.04)', borderBottom:'1px solid rgba(255,255,255,.09)' }}>
+          <div style={{ display:'grid', gridTemplateColumns:'150px 1fr 36px 1fr', background:'rgba(255,255,255,.04)', borderBottom:'1px solid rgba(255,255,255,.09)' }}>
             <div style={{ padding:'12px 18px' }} />
-            <div style={{ padding:'12px 18px', fontSize:11, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(255,255,255,.55)', borderLeft:'1px solid rgba(255,255,255,.07)' }}>
+            <div style={{ padding:'12px 18px', fontSize:13, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(255,255,255,.78)', borderLeft:'1px solid rgba(255,255,255,.07)' }}>
               Without Crossover
             </div>
             <div />
-            <div style={{ padding:'12px 18px', fontSize:11, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:aud.color, borderLeft:'1px solid rgba(255,255,255,.07)', transition:'color .2s' }}>
+            <div style={{ padding:'12px 18px', fontSize:13, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:aud.color, borderLeft:'1px solid rgba(255,255,255,.07)', transition:'color .2s' }}>
               With Crossover
             </div>
           </div>
@@ -199,36 +195,36 @@ export function EvidenceTable() {
             <div
               key={i}
               style={{
-                display:'grid', gridTemplateColumns:'120px 1fr 36px 1fr',
+                display:'grid', gridTemplateColumns:'150px 1fr 36px 1fr',
                 borderBottom: i < ROWS.length-1 ? '1px solid rgba(255,255,255,.05)' : 'none',
                 background:'rgba(6,14,28,.97)',
               }}
             >
               {/* Row label */}
               <div style={{ padding:'20px 16px', display:'flex', alignItems:'center', borderRight:'1px solid rgba(255,255,255,.05)' }}>
-                <span style={{ fontSize:10, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase', color:'rgba(255,255,255,.45)', background:'rgba(255,255,255,.05)', padding:'2px 7px', whiteSpace:'nowrap' }}>
+                <span style={{ fontSize:11.5, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase', color:'rgba(255,255,255,.78)', background:'rgba(255,255,255,.08)', padding:'3px 9px', whiteSpace:'nowrap', maxWidth:'100%', overflow:'hidden', textOverflow:'ellipsis' }}>
                   {row.label}
                 </span>
               </div>
 
               {/* Without */}
               <div style={{ padding:'20px 20px', borderRight:'1px solid rgba(255,255,255,.05)' }}>
-                <div style={{ fontSize:13, color:'rgba(255,255,255,.58)', lineHeight:1.75, marginBottom:8 }}>
+                <div style={{ fontSize:14.5, color:'rgba(255,255,255,.85)', lineHeight:1.75, marginBottom:8 }}>
                   {row.without[active]}
                 </div>
-                <div style={{ fontSize:12, fontWeight:600, color:'rgba(245,158,11,.8)', lineHeight:1.5 }}>
+                <div style={{ fontSize:14, fontWeight:600, color:'rgba(245,158,11,.95)', lineHeight:1.5 }}>
                   {row.cost[active]}
                 </div>
               </div>
 
               {/* Arrow */}
               <div style={{ display:'flex', alignItems:'center', justifyContent:'center', borderRight:'1px solid rgba(255,255,255,.05)' }}>
-                <span style={{ fontSize:13, color:aud.color, opacity:.5 }}>→</span>
+                <span style={{ fontSize:14, color:aud.color, opacity:.5 }}>→</span>
               </div>
 
               {/* With */}
               <div style={{ padding:'20px 20px' }}>
-                <div style={{ fontSize:13, color:'rgba(255,255,255,.78)', lineHeight:1.75 }}>
+                <div style={{ fontSize:14.5, color:'rgba(255,255,255,.92)', lineHeight:1.75 }}>
                   {row.withText[active]}{row.withText[active] ? ' ' : ''}
                   <strong style={{ color:aud.color, fontWeight:600 }}>{row.withBold[active]}</strong>
                 </div>
@@ -243,12 +239,12 @@ export function EvidenceTable() {
             <>
               <div style={{ flexShrink:0, textAlign:'center', minWidth:80 }}>
                 <div style={{ fontFamily:'var(--font-mono)', fontSize:28, fontWeight:700, color:aud.color, lineHeight:1, letterSpacing:'-.02em', marginBottom:4 }}>{outcome.stat}</div>
-                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.50)' }}>{outcome.statLabel}</div>
+                <div style={{ fontSize:11.5, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.75)' }}>{outcome.statLabel}</div>
               </div>
               <div style={{ width:1, height:44, background:'rgba(255,255,255,.08)', flexShrink:0 }} />
             </>
           )}
-          <div style={{ fontSize:13, color:'rgba(255,255,255,.68)', lineHeight:1.75 }}>{outcome.desc}</div>
+          <div style={{ fontSize:14.5, color:'rgba(255,255,255,.88)', lineHeight:1.75 }}>{outcome.desc}</div>
         </div>
 
       </div>

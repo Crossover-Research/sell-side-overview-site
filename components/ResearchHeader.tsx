@@ -66,7 +66,7 @@ export function ResearchHeader({ tab }: ResearchHeaderProps) {
                 Catalyst Study
               </span>
             </div>
-            <div style={{ fontSize: 10, color: 'rgba(255,255,255,.55)', letterSpacing: '.02em', whiteSpace: 'nowrap' as const, overflow: 'hidden', textOverflow: 'ellipsis' }}>
+            <div style={{ fontSize: 10, color: 'rgba(255,255,255,.78)', letterSpacing: '.02em', whiteSpace: 'nowrap' as const, overflow: 'hidden', textOverflow: 'ellipsis' }}>
               {cfg.product}&nbsp;&middot;&nbsp;{cfg.studyId}
             </div>
           </div>

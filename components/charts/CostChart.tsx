@@ -29,7 +29,7 @@ export function CostChart({ labels, data, colors }: CostChartProps) {
         maintainAspectRatio: false,
         cutout: '68%',
         plugins: {
-          legend: { display: true, position: 'bottom', labels: { font: { size: 11 }, padding: 12, boxWidth: 10, usePointStyle: true, color: 'rgba(255,255,255,.55)' } },
+          legend: { display: true, position: 'bottom', labels: { font: { size: 11 }, padding: 12, boxWidth: 10, usePointStyle: true, color: 'rgba(255,255,255,.78)' } },
           tooltip: { callbacks: { label: (c: { label: string; raw: number }) => ` ${c.label}: ${c.raw}%` } },
         },
       },

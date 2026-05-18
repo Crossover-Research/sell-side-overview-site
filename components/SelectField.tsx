@@ -20,7 +20,7 @@ export function SelectField({ label, options, value, onChange, placeholder = 'Se
     return () => document.removeEventListener('mousedown', handler);
   }, []);
 
-  const lbl: React.CSSProperties = { display:'block', fontSize: 11, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.62)', marginBottom:4 };
+  const lbl: React.CSSProperties = { display:'block', fontSize: 11, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.82)', marginBottom:4 };
 
   return (
     <div ref={ref} style={{ position:'relative' }}>
@@ -31,14 +31,14 @@ export function SelectField({ label, options, value, onChange, placeholder = 'Se
         style={{
           width:'100%', background:'rgba(255,255,255,.05)', border:`1px solid ${open ? 'rgba(120,144,178,.5)' : 'rgba(255,255,255,.12)'}`,
           color: value ? 'rgba(255,255,255,.88)' : 'rgba(255,255,255,.28)',
-          padding:'9px 32px 9px 12px', fontSize:13, outline:'none', boxSizing:'border-box',
+          padding:'9px 32px 9px 12px', fontSize:14, outline:'none', boxSizing:'border-box',
           textAlign:'left', cursor:'pointer', display:'flex', alignItems:'center', justifyContent:'space-between',
           transition:'border-color .15s',
         }}
       >
         <span>{value || placeholder}</span>
         <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style={{ flexShrink:0, transition:'transform .15s', transform: open ? 'rotate(180deg)' : 'none' }}>
-          <path d="M1 1l4 4 4-4" stroke="rgba(255,255,255,.35)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M1 1l4 4 4-4" stroke="rgba(255,255,255,.65)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </button>
 
@@ -53,10 +53,10 @@ export function SelectField({ label, options, value, onChange, placeholder = 'Se
               key={opt}
               onClick={() => { onChange(opt); setOpen(false); }}
               style={{
-                padding:'9px 14px', fontSize:12.5, cursor:'pointer',
+                padding:'9px 14px', fontSize:14, cursor:'pointer',
                 color: opt === value ? 'rgba(130,200,255,.95)' : 'rgba(255,255,255,.7)',
                 background: opt === value ? 'rgba(120,144,178,.12)' : 'transparent',
-                borderLeft: opt === value ? '2px solid rgba(120,144,178,.6)' : '2px solid transparent',
+                borderLeft: opt === value ? '2px solid rgba(120,144,178,.85)' : '2px solid transparent',
                 transition:'background .1s',
                 display:'flex', alignItems:'center', justifyContent:'space-between',
               }}

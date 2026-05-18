@@ -181,7 +181,7 @@ export default function QofAIPage() {
   const [selectedQ, setSelectedQ] = useState(0);
   const [tierIdx, setTierIdx] = useState(1); // default: Focused Diligence (Most Popular)
   const [scoreTab, setScoreTab] = useState<'capability'|'resilience'>('capability');
-  const [openQ, setOpenQ] = useState<number|null>(null);
+  const [openQ, setOpenQ] = useState<number>(0);
 
   return (
     <>
@@ -190,12 +190,12 @@ export default function QofAIPage() {
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
           <div style={{ display:'grid', gridTemplateColumns:'1fr 400px', gap:52, alignItems:'center', paddingBottom:36 }}>
             <div>
-              <div style={{ display:'inline-flex', alignItems:'center', fontSize:11, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(89,116,154,.9)', background:'rgba(89,116,154,.09)', border:'1px solid rgba(89,116,154,.25)', padding:'3px 12px', marginBottom:18 }}>
+              <div style={{ display:'inline-flex', alignItems:'center', fontSize:13, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(89,116,154,.9)', background:'rgba(89,116,154,.09)', border:'1px solid rgba(89,116,154,.25)', padding:'3px 12px', marginBottom:18 }}>
                 New Product
               </div>
               <h1 style={{ fontSize:42, fontWeight:700, color:'rgba(255,255,255,.97)', lineHeight:1.1, letterSpacing:'-.04em', marginBottom:16 }}>
                 Quality of AI<br />
-                <span style={{ color:'rgba(255,255,255,.55)', fontWeight:300 }}>Assessment</span>
+                <span style={{ color:'rgba(255,255,255,.78)', fontWeight:300 }}>Assessment</span>
               </h1>
               <p style={{ fontSize:14, color:'rgba(255,255,255,.82)', lineHeight:1.78, marginBottom:24 }}>
                 Every PE fund and strategic acquirer now opens with the same question:{' '}
@@ -203,10 +203,10 @@ export default function QofAIPage() {
                 Generic claims get challenged at first IC. Scores derived from actual customers, collected independently, uncoached, give you the language to justify a premium.
               </p>
               <div style={{ display:'flex', gap:10, flexWrap:'wrap' }}>
-                <a href={`mailto:${CONTACT.email}`} style={{ background:'rgba(255,255,255,.95)', color:'#050e1e', padding:'9px 22px', fontSize:12, fontWeight:700, textDecoration:'none', display:'inline-flex', alignItems:'center' }}>
+                <a href={`mailto:${CONTACT.email}`} style={{ background:'rgba(255,255,255,.95)', color:'#050e1e', padding:'9px 22px', fontSize:14.5, fontWeight:700, textDecoration:'none', display:'inline-flex', alignItems:'center' }}>
                   Request Assessment →
                 </a>
-                <a href={CONTACT.bookingUrl} target="_blank" rel="noopener noreferrer" style={{ background:'transparent', color:'rgba(255,255,255,.85)', border:'1px solid rgba(255,255,255,.25)', padding:'9px 18px', fontSize:12, fontWeight:500, textDecoration:'none' }}>
+                <a href={CONTACT.bookingUrl} target="_blank" rel="noopener noreferrer" style={{ background:'transparent', color:'rgba(255,255,255,.85)', border:'1px solid rgba(255,255,255,.25)', padding:'9px 18px', fontSize:14.5, fontWeight:500, textDecoration:'none' }}>
                   Book a Call
                 </a>
               </div>
@@ -217,10 +217,10 @@ export default function QofAIPage() {
               <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,transparent,rgba(89,116,154,.4),transparent)' }} />
               <div style={{ padding:'14px 18px', borderBottom:'1px solid rgba(255,255,255,.08)', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
                 <div>
-                  <div style={{ fontSize:11, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.72)', marginBottom:2 }}>Sample Scorecard</div>
-                  <div style={{ fontSize:11, color:'rgba(255,255,255,.65)' }}>Enterprise SaaS · Anonymised</div>
+                  <div style={{ fontSize:13, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.72)', marginBottom:2 }}>Sample Scorecard</div>
+                  <div style={{ fontSize:13, color:'rgba(255,255,255,.84)' }}>Enterprise SaaS · Anonymised</div>
                 </div>
-                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(89,116,154,.95)', background:'rgba(89,116,154,.13)', border:'1px solid rgba(89,116,154,.3)', padding:'3px 10px' }}>AI FORTRESS</div>
+                <div style={{ fontSize:11.5, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(89,116,154,.95)', background:'rgba(89,116,154,.13)', border:'1px solid rgba(89,116,154,.3)', padding:'3px 10px' }}>AI FORTRESS</div>
               </div>
               <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:1, background:'rgba(255,255,255,.07)' }}>
                 {[
@@ -231,16 +231,16 @@ export default function QofAIPage() {
                 ].map((m,i) => (
                   <div key={i} style={{ background:'rgba(6,14,28,.92)', padding:'14px 16px' }}>
                     <div style={{ fontFamily:'var(--font-mono)', fontSize:26, fontWeight:700, color:m.color, lineHeight:1, letterSpacing:'-.03em', marginBottom:4 }}>{m.val}</div>
-                    <div style={{ fontSize:11, fontWeight:700, textTransform:'uppercase', letterSpacing:'.08em', color:'rgba(255,255,255,.82)', marginBottom:2 }}>{m.lbl}</div>
-                    <div style={{ fontSize:10, color:'rgba(255,255,255,.68)' }}>{m.sub}</div>
+                    <div style={{ fontSize:13, fontWeight:700, textTransform:'uppercase', letterSpacing:'.08em', color:'rgba(255,255,255,.82)', marginBottom:2 }}>{m.lbl}</div>
+                    <div style={{ fontSize:11.5, color:'rgba(255,255,255,.68)' }}>{m.sub}</div>
                   </div>
                 ))}
               </div>
               <div style={{ padding:'12px 18px' }}>
-                <div style={{ fontSize:11, color:'rgba(255,255,255,.78)', fontStyle:'italic', lineHeight:1.6, marginBottom:6 }}>
+                <div style={{ fontSize:13, color:'rgba(255,255,255,.78)', fontStyle:'italic', lineHeight:1.6, marginBottom:6 }}>
                   "We tested ChatGPT and Claude as replacements, but they failed completely without our domain data."
                 </div>
-                <div style={{ fontSize:10, color:'rgba(255,255,255,.60)' }}>VP of Operations · Enterprise Customer (12+ integrations)</div>
+                <div style={{ fontSize:11.5, color:'rgba(255,255,255,.80)' }}>VP of Operations · Enterprise Customer (12+ integrations)</div>
               </div>
             </div>
           </div>
@@ -263,9 +263,9 @@ export default function QofAIPage() {
                   { name:'AI Accelerator', badge:'Structural Upside',   color:'rgba(245,158,11,.95)',  bg:'rgba(245,158,11,.07)',  desc:'Strong AI capability. Near-term opportunity to lock in structural defensibility.' },
                 ].map((q, i) => (
                   <div key={i} style={{ background: (q as any).highlight ? 'rgba(89,116,154,.05)' : 'rgba(6,14,28,.95)', padding:'20px', borderTop: (q as any).highlight ? '2px solid rgba(89,116,154,.4)' : '2px solid transparent' }}>
-                    <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:q.color, background:q.bg, padding:'2px 7px', display:'inline-block', marginBottom:8 }}>{q.badge}</div>
+                    <div style={{ fontSize:11, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:q.color, background:q.bg, padding:'2px 7px', display:'inline-block', marginBottom:8 }}>{q.badge}</div>
                     <div style={{ fontFamily:'var(--font-mono)', fontSize:14, fontWeight:700, color:q.color, marginBottom:6 }}>{q.name}</div>
-                    <div style={{ fontSize:11.5, color:'rgba(255,255,255,.75)', lineHeight:1.55 }}>{q.desc}</div>
+                    <div style={{ fontSize:13, color:'rgba(255,255,255,.75)', lineHeight:1.7 }}>{q.desc}</div>
                   </div>
                 ))}
               </div>
@@ -284,23 +284,23 @@ export default function QofAIPage() {
                 <div style={{ background:'rgba(6,14,28,.98)', border:'1px solid rgba(120,144,178,.18)', overflow:'hidden' }}>
                   <div style={{ background:'rgba(120,144,178,.06)', borderBottom:'1px solid rgba(120,144,178,.15)', padding:'14px 18px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
                     <div>
-                      <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(120,144,178,.7)', marginBottom:3 }}>Part I · 10 Dimensions</div>
-                      <div style={{ fontSize:13, fontWeight:700, color:'rgba(255,255,255,.92)' }}>AI Capability</div>
+                      <div style={{ fontSize:11, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(120,144,178,.9)', marginBottom:3 }}>Part I · 10 Dimensions</div>
+                      <div style={{ fontSize:14, fontWeight:700, color:'rgba(255,255,255,.92)' }}>AI Capability</div>
                     </div>
                     <div style={{ textAlign:'right' }}>
                       <div style={{ fontFamily:'var(--font-mono)', fontSize:32, fontWeight:700, color:'rgba(120,144,178,.97)', letterSpacing:'-.04em', lineHeight:1 }}>83</div>
-                      <div style={{ fontSize:9, color:'rgba(255,255,255,.42)', letterSpacing:'.06em' }}>OUT OF 100</div>
+                      <div style={{ fontSize:11, color:'rgba(255,255,255,.70)', letterSpacing:'.06em' }}>OUT OF 100</div>
                     </div>
                   </div>
                   {CAPABILITY_DIMS.map((d,i) => (
                     <div key={i} style={{ padding:'9px 18px', borderBottom: i < CAPABILITY_DIMS.length-1 ? '1px solid rgba(255,255,255,.05)' : 'none', display:'grid', gridTemplateColumns:'1fr 36px', alignItems:'center', gap:10 }}>
                       <div>
-                        <div style={{ fontSize:11.5, color:'rgba(255,255,255,.82)', marginBottom:5, fontWeight:500 }}>{d.label}</div>
+                        <div style={{ fontSize:13, color:'rgba(255,255,255,.82)', marginBottom:5, fontWeight:500 }}>{d.label}</div>
                         <div style={{ height:3, background:'rgba(255,255,255,.07)', borderRadius:2, overflow:'hidden' }}>
                           <div style={{ width:`${(d.score/10)*100}%`, height:'100%', background:'linear-gradient(90deg,rgba(120,144,178,.5),rgba(120,144,178,.9))', borderRadius:2 }} />
                         </div>
                       </div>
-                      <div style={{ fontFamily:'var(--font-mono)', fontSize:12, fontWeight:700, color:'rgba(120,144,178,.97)', textAlign:'right' }}>{d.score.toFixed(1)}</div>
+                      <div style={{ fontFamily:'var(--font-mono)', fontSize:14.5, fontWeight:700, color:'rgba(120,144,178,.97)', textAlign:'right' }}>{d.score.toFixed(1)}</div>
                     </div>
                   ))}
                 </div>
@@ -309,29 +309,29 @@ export default function QofAIPage() {
                 <div style={{ background:'rgba(6,14,28,.98)', border:'1px solid rgba(89,116,154,.18)', overflow:'hidden', display:'flex', flexDirection:'column' }}>
                   <div style={{ background:'rgba(89,116,154,.05)', borderBottom:'1px solid rgba(89,116,154,.15)', padding:'14px 18px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
                     <div>
-                      <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(89,116,154,.7)', marginBottom:3 }}>Part II · 5 Dimensions</div>
-                      <div style={{ fontSize:13, fontWeight:700, color:'rgba(255,255,255,.92)' }}>AI Resilience</div>
+                      <div style={{ fontSize:11, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(89,116,154,.9)', marginBottom:3 }}>Part II · 5 Dimensions</div>
+                      <div style={{ fontSize:14, fontWeight:700, color:'rgba(255,255,255,.92)' }}>AI Resilience</div>
                     </div>
                     <div style={{ textAlign:'right' }}>
                       <div style={{ fontFamily:'var(--font-mono)', fontSize:32, fontWeight:700, color:'rgba(89,116,154,.97)', letterSpacing:'-.04em', lineHeight:1 }}>87</div>
-                      <div style={{ fontSize:9, color:'rgba(255,255,255,.42)', letterSpacing:'.06em' }}>OUT OF 100</div>
+                      <div style={{ fontSize:11, color:'rgba(255,255,255,.70)', letterSpacing:'.06em' }}>OUT OF 100</div>
                     </div>
                   </div>
                   {RESILIENCE_DIMS.map((d,i) => (
                     <div key={i} style={{ padding:'9px 18px', borderBottom: i < RESILIENCE_DIMS.length-1 ? '1px solid rgba(255,255,255,.05)' : 'none', display:'grid', gridTemplateColumns:'1fr 36px', alignItems:'center', gap:10 }}>
                       <div>
-                        <div style={{ fontSize:11.5, color:'rgba(255,255,255,.82)', marginBottom:5, fontWeight:500 }}>{d.label}</div>
+                        <div style={{ fontSize:13, color:'rgba(255,255,255,.82)', marginBottom:5, fontWeight:500 }}>{d.label}</div>
                         <div style={{ height:3, background:'rgba(255,255,255,.07)', borderRadius:2, overflow:'hidden' }}>
                           <div style={{ width:`${(d.score/10)*100}%`, height:'100%', background:'linear-gradient(90deg,rgba(89,116,154,.5),rgba(89,116,154,.9))', borderRadius:2 }} />
                         </div>
                       </div>
-                      <div style={{ fontFamily:'var(--font-mono)', fontSize:12, fontWeight:700, color:'rgba(89,116,154,.97)', textAlign:'right' }}>{d.score.toFixed(1)}</div>
+                      <div style={{ fontFamily:'var(--font-mono)', fontSize:14.5, fontWeight:700, color:'rgba(89,116,154,.97)', textAlign:'right' }}>{d.score.toFixed(1)}</div>
                     </div>
                   ))}
                   <div style={{ padding:'12px 18px', marginTop:'auto' }}>
                     <div style={{ background:'rgba(89,116,154,.06)', border:'1px solid rgba(89,116,154,.2)', padding:'10px 14px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
-                      <div style={{ fontSize:11, fontWeight:700, color:'rgba(89,116,154,.95)' }}>AI Fortress — Premium Asset</div>
-                      <div style={{ fontSize:10, color:'rgba(255,255,255,.55)' }}>Top 15–20% assessed</div>
+                      <div style={{ fontSize:13, fontWeight:700, color:'rgba(89,116,154,.95)' }}>AI Fortress — Premium Asset</div>
+                      <div style={{ fontSize:11.5, color:'rgba(255,255,255,.78)' }}>Top 15–20% assessed</div>
                     </div>
                   </div>
                 </div>
@@ -352,87 +352,128 @@ export default function QofAIPage() {
               <h2 style={{ fontSize:22, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.022em', lineHeight:1.25, margin:0 }}>
                 15 questions. Every score sourced from verbatim customer responses.
               </h2>
-              <p style={{ fontSize:13, color:'rgba(255,255,255,.68)', margin:0, maxWidth:380, textAlign:'right', lineHeight:1.65 }}>
+              <p style={{ fontSize:14, color:'rgba(255,255,255,.68)', margin:0, maxWidth:380, textAlign:'right', lineHeight:1.65 }}>
                 No management briefing. No internal benchmarks. Customers are interviewed independently — the scores reflect what they actually said.
               </p>
             </div>
           </div>
 
-          {/* Part headers */}
-          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:2, marginBottom:2 }}>
-            <div style={{ background:'rgba(120,144,178,.06)', border:'1px solid rgba(120,144,178,.15)', padding:'10px 18px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
-              <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(120,144,178,.8)' }}>Part I — AI Capability</div>
-              <div style={{ fontSize:10, color:'rgba(255,255,255,.45)' }}>Questions 1–10</div>
-            </div>
-            <div style={{ background:'rgba(89,116,154,.05)', border:'1px solid rgba(89,116,154,.15)', padding:'10px 18px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
-              <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(89,116,154,.8)' }}>Part II — AI Displacement Risk</div>
-              <div style={{ fontSize:10, color:'rgba(255,255,255,.45)' }}>Questions 11–15</div>
-            </div>
-          </div>
+          {/* Carousel */}
+          {(() => {
+            const q = QUESTIONS[openQ];
+            const partColor = q.part === 'I' ? 'rgba(166,183,210,.95)' : 'rgba(140,160,196,.95)';
+            const partAccent = q.part === 'I' ? 'rgba(120,144,178,.55)' : 'rgba(89,116,154,.55)';
+            const prev = () => setOpenQ((openQ - 1 + QUESTIONS.length) % QUESTIONS.length);
+            const next = () => setOpenQ((openQ + 1) % QUESTIONS.length);
 
-          {/* Accordion */}
-          <div style={{ border:'1px solid rgba(255,255,255,.08)', overflow:'hidden' }}>
-            {QUESTIONS.map((q, i) => (
-              <div key={i} style={{ borderBottom: i < QUESTIONS.length-1 ? '1px solid rgba(255,255,255,.06)' : 'none' }}>
-                <button
-                  onClick={() => setOpenQ(openQ === i ? null : i)}
-                  style={{
-                    all:'unset', cursor:'pointer', width:'100%', display:'flex', alignItems:'center',
-                    padding:'14px 20px', gap:16, background: openQ === i ? 'rgba(255,255,255,.03)' : 'rgba(6,14,28,.97)',
-                    transition:'background .12s',
-                  }}
-                >
-                  <div style={{ fontFamily:'var(--font-mono)', fontSize:11, fontWeight:700, color: q.part === 'I' ? 'rgba(120,144,178,.7)' : 'rgba(89,116,154,.7)', flexShrink:0, width:28 }}>{q.num}</div>
-                  <div style={{ flex:1, fontSize:13, fontWeight:600, color:'rgba(255,255,255,.88)', textAlign:'left' }}>{q.label}</div>
-                  <div style={{ color: q.part === 'I' ? 'rgba(120,144,178,.6)' : 'rgba(89,116,154,.6)', flexShrink:0, fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase' }}>Part {q.part}</div>
-                  <div
-                    aria-hidden="true"
-                    style={{
-                      flexShrink:0,
-                      display:'inline-flex', alignItems:'center', gap:8,
-                      padding:'6px 12px',
-                      borderRadius:999,
-                      border:`1px solid ${openQ === i ? 'rgba(166,183,210,.55)' : 'rgba(166,183,210,.28)'}`,
-                      background: openQ === i ? 'rgba(120,144,178,.22)' : 'rgba(120,144,178,.10)',
-                      color: openQ === i ? 'rgba(230,240,252,.98)' : 'rgba(200,215,235,.85)',
-                      fontSize:10, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase',
-                      transition:'background .15s ease, color .15s ease, border-color .15s ease',
-                    }}
-                  >
-                    <span>{openQ === i ? 'Hide' : 'View'}</span>
-                    <svg
-                      width="11" height="11" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"
+            return (
+              <div>
+                {/* Header row: counter + prev/next */}
+                <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', gap:16, marginBottom:14, flexWrap:'wrap' }}>
+                  <div style={{ display:'flex', alignItems:'center', gap:14 }}>
+                    <div style={{ fontFamily:'var(--font-mono)', fontSize:14.5, fontWeight:700, letterSpacing:'.06em', color:'rgba(255,255,255,.78)' }}>
+                      {String(openQ + 1).padStart(2,'0')} <span style={{ color:'rgba(255,255,255,.5)' }}>/ {QUESTIONS.length}</span>
+                    </div>
+                    <div style={{ fontSize:13, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:partColor, background:`${partAccent.replace(',.55',',.15')}`, border:`1px solid ${partAccent}`, padding:'4px 10px', borderRadius:4 }}>
+                      Part {q.part}
+                    </div>
+                  </div>
+                  <div style={{ display:'flex', alignItems:'center', gap:8 }}>
+                    <button
+                      aria-label="Previous question"
+                      onClick={prev}
                       style={{
-                        transform: openQ === i ? 'rotate(180deg)' : 'rotate(0deg)',
-                        transition:'transform .2s ease',
+                        all:'unset', cursor:'pointer', display:'inline-flex', alignItems:'center', justifyContent:'center',
+                        width:38, height:38, borderRadius:999,
+                        border:'1px solid rgba(166,183,210,.35)',
+                        background:'rgba(120,144,178,.10)',
+                        color:'rgba(220,232,250,.95)',
+                        transition:'background .15s ease, border-color .15s ease',
                       }}
+                      onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background='rgba(120,144,178,.22)'; el.style.borderColor='rgba(166,183,210,.85)'; }}
+                      onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background='rgba(120,144,178,.10)'; el.style.borderColor='rgba(166,183,210,.35)'; }}
                     >
-                      <polyline points="6 9 12 15 18 9" />
-                    </svg>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="15 18 9 12 15 6" />
+                      </svg>
+                    </button>
+                    <button
+                      aria-label="Next question"
+                      onClick={next}
+                      style={{
+                        all:'unset', cursor:'pointer', display:'inline-flex', alignItems:'center', justifyContent:'center',
+                        width:38, height:38, borderRadius:999,
+                        border:'1px solid rgba(166,183,210,.35)',
+                        background:'rgba(120,144,178,.10)',
+                        color:'rgba(220,232,250,.95)',
+                        transition:'background .15s ease, border-color .15s ease',
+                      }}
+                      onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background='rgba(120,144,178,.22)'; el.style.borderColor='rgba(166,183,210,.85)'; }}
+                      onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background='rgba(120,144,178,.10)'; el.style.borderColor='rgba(166,183,210,.35)'; }}
+                    >
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
+                    </button>
                   </div>
-                </button>
-                {openQ === i && (
-                  <div style={{ padding:'0 20px 20px 64px', background:'rgba(6,14,28,.97)' }}>
-                    <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:16, marginBottom:14 }}>
-                      <div>
-                        <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color: q.part === 'I' ? 'rgba(120,144,178,.6)' : 'rgba(89,116,154,.6)', marginBottom:6 }}>Rating prompt</div>
-                        <div style={{ fontSize:12, color:'rgba(255,255,255,.72)', lineHeight:1.7 }}>{q.rating}</div>
-                      </div>
-                      <div>
-                        <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color: q.part === 'I' ? 'rgba(120,144,178,.6)' : 'rgba(89,116,154,.6)', marginBottom:6 }}>Open-ended prompt</div>
-                        <div style={{ fontSize:12, color:'rgba(255,255,255,.72)', lineHeight:1.7 }}>{q.open}</div>
-                      </div>
+                </div>
+
+                {/* Detail card */}
+                <div style={{ background:'rgba(6,14,28,.97)', border:'1px solid rgba(255,255,255,.10)', borderLeft:`3px solid ${partAccent}`, padding:'28px 32px', marginBottom:18 }}>
+                  <div style={{ display:'flex', alignItems:'center', gap:14, marginBottom:20 }}>
+                    <div style={{ fontFamily:'var(--font-mono)', fontSize:14, fontWeight:700, color:partColor }}>{q.num}</div>
+                    <h3 style={{ fontSize:20, fontWeight:700, color:'rgba(255,255,255,.97)', margin:0, letterSpacing:'-.015em', lineHeight:1.3 }}>{q.label}</h3>
+                  </div>
+
+                  <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:24, marginBottom:22 }}>
+                    <div>
+                      <div style={{ fontSize:13, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:partColor, marginBottom:10 }}>Rating prompt</div>
+                      <div style={{ fontSize:14, color:'rgba(255,255,255,.92)', lineHeight:1.75 }}>{q.rating}</div>
                     </div>
-                    <div style={{ borderLeft:`1px solid ${q.part === 'I' ? 'rgba(120,144,178,.3)' : 'rgba(89,116,154,.3)'}`, paddingLeft:12 }}>
-                      <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.35)', marginBottom:4 }}>Why it matters</div>
-                      <div style={{ fontSize:12, color:'rgba(255,255,255,.65)', lineHeight:1.65, fontStyle:'italic' }}>{q.why}</div>
+                    <div>
+                      <div style={{ fontSize:13, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:partColor, marginBottom:10 }}>Open-ended prompt</div>
+                      <div style={{ fontSize:14, color:'rgba(255,255,255,.92)', lineHeight:1.75 }}>{q.open}</div>
                     </div>
                   </div>
-                )}
+
+                  <div style={{ borderTop:'1px solid rgba(255,255,255,.10)', paddingTop:16 }}>
+                    <div style={{ fontSize:13, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.72)', marginBottom:8 }}>Why it matters</div>
+                    <div style={{ fontSize:14.5, color:'rgba(255,255,255,.86)', lineHeight:1.75, fontStyle:'italic' }}>{q.why}</div>
+                  </div>
+                </div>
+
+                {/* Question dot strip */}
+                <div style={{ display:'flex', gap:6, flexWrap:'wrap', justifyContent:'center', alignItems:'center' }}>
+                  {QUESTIONS.map((qi, i) => {
+                    const isActive = i === openQ;
+                    const partA = qi.part === 'I';
+                    const dotColor = partA ? 'rgba(166,183,210,1)' : 'rgba(140,160,196,1)';
+                    return (
+                      <button
+                        key={i}
+                        aria-label={`Go to question ${i + 1}`}
+                        onClick={() => setOpenQ(i)}
+                        style={{
+                          all:'unset', cursor:'pointer',
+                          minWidth: isActive ? 44 : 28, height:28,
+                          padding:'0 8px',
+                          display:'inline-flex', alignItems:'center', justifyContent:'center',
+                          borderRadius:999,
+                          fontFamily:'var(--font-mono)', fontSize:13, fontWeight:700,
+                          color: isActive ? 'rgba(10,18,32,.95)' : 'rgba(255,255,255,.78)',
+                          background: isActive ? dotColor : 'rgba(255,255,255,.06)',
+                          border: `1px solid ${isActive ? dotColor : 'rgba(255,255,255,.14)'}`,
+                          transition:'all .15s ease',
+                        }}
+                      >
+                        {qi.num}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
-            ))}
-          </div>
+            );
+          })()}
         </div>
       </section>
 
@@ -445,7 +486,7 @@ export default function QofAIPage() {
               <h2 style={{ fontSize:22, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.022em', lineHeight:1.25, margin:0 }}>
                 Every IC has an AI question. Walk in with a customer-backed answer.
               </h2>
-              <p style={{ fontSize:13, color:'rgba(255,255,255,.68)', margin:0, maxWidth:360, textAlign:'right', lineHeight:1.65 }}>
+              <p style={{ fontSize:14, color:'rgba(255,255,255,.68)', margin:0, maxWidth:360, textAlign:'right', lineHeight:1.65 }}>
                 The Q of AI gives you customer-validated language for every question. Management walks in with evidence, not assertions.
               </p>
             </div>
@@ -461,7 +502,7 @@ export default function QofAIPage() {
                     all:'unset', cursor:'pointer',
                     padding:'16px 22px',
                     borderBottom: i < OBJECTIONS.length-1 ? '1px solid rgba(255,255,255,.05)' : 'none',
-                    borderLeft: `2px solid ${selectedQ === i ? 'rgba(89,116,154,.6)' : 'transparent'}`,
+                    borderLeft: `2px solid ${selectedQ === i ? 'rgba(89,116,154,.85)' : 'transparent'}`,
                     background: selectedQ === i ? 'rgba(89,116,154,.05)' : 'transparent',
                     transition:'all .12s',
                     display:'block',
@@ -470,10 +511,10 @@ export default function QofAIPage() {
                   onMouseEnter={e => { if (selectedQ !== i) (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,.02)'; }}
                   onMouseLeave={e => { if (selectedQ !== i) (e.currentTarget as HTMLElement).style.background = 'transparent'; }}
                 >
-                  <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color: selectedQ === i ? 'rgba(89,116,154,.85)' : 'rgba(255,255,255,.45)', marginBottom:5 }}>
+                  <div style={{ fontSize:11, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color: selectedQ === i ? 'rgba(89,116,154,.85)' : 'rgba(255,255,255,.72)', marginBottom:5 }}>
                     {o.tag}
                   </div>
-                  <div style={{ fontSize:12.5, fontWeight:500, color: selectedQ === i ? 'rgba(255,255,255,.95)' : 'rgba(255,255,255,.72)', lineHeight:1.5 }}>
+                  <div style={{ fontSize:14, fontWeight:500, color: selectedQ === i ? 'rgba(255,255,255,.95)' : 'rgba(255,255,255,.72)', lineHeight:1.5 }}>
                     "{o.q}"
                   </div>
                 </button>
@@ -486,25 +527,25 @@ export default function QofAIPage() {
                   {OBJECTIONS[selectedQ].stat.val}
                 </div>
                 <div style={{ width:1, height:32, background:'rgba(255,255,255,.1)', flexShrink:0 }} />
-                <div style={{ fontSize:11, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase', color:'rgba(255,255,255,.65)' }}>
+                <div style={{ fontSize:13, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase', color:'rgba(255,255,255,.84)' }}>
                   {OBJECTIONS[selectedQ].stat.label}
                 </div>
               </div>
 
               <div>
-                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(89,116,154,.85)', marginBottom:10 }}>
+                <div style={{ fontSize:11.5, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(89,116,154,.85)', marginBottom:10 }}>
                   How to answer
                 </div>
-                <div style={{ fontSize:13, color:'rgba(255,255,255,.85)', lineHeight:1.82 }}>
+                <div style={{ fontSize:14, color:'rgba(255,255,255,.85)', lineHeight:1.82 }}>
                   {OBJECTIONS[selectedQ].answer}
                 </div>
               </div>
 
               <div style={{ borderLeft:'2px solid rgba(89,116,154,.4)', paddingLeft:14 }}>
-                <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.45)', marginBottom:6 }}>
+                <div style={{ fontSize:11.5, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.72)', marginBottom:6 }}>
                   Close with
                 </div>
-                <div style={{ fontSize:13, fontWeight:600, color:'rgba(89,116,154,.95)', lineHeight:1.55, fontStyle:'italic' }}>
+                <div style={{ fontSize:14, fontWeight:600, color:'rgba(89,116,154,.95)', lineHeight:1.7, fontStyle:'italic' }}>
                   "{OBJECTIONS[selectedQ].close}"
                 </div>
               </div>
@@ -524,7 +565,7 @@ export default function QofAIPage() {
                 One assessment. Scope it to fit the mandate.
               </h2>
             </div>
-            <p style={{ fontSize:13, color:'rgba(255,255,255,.68)', margin:0, maxWidth:360, textAlign:'right', lineHeight:1.6 }}>
+            <p style={{ fontSize:14, color:'rgba(255,255,255,.68)', margin:0, maxWidth:360, textAlign:'right', lineHeight:1.6 }}>
               Every scope includes a visual scorecard, 25+ slide VoC report, customer verbatims, and CIM-ready positioning language.
             </p>
           </div>
@@ -601,14 +642,14 @@ export default function QofAIPage() {
                   {/* Price display */}
                   <div style={{ display:'flex', alignItems:'flex-end', gap:16 }}>
                     <div>
-                      <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.45)', marginBottom:6 }}>Engagement range</div>
+                      <div style={{ fontSize:11.5, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.72)', marginBottom:6 }}>Engagement range</div>
                       <div style={{ fontFamily:'var(--font-mono)', fontSize:48, fontWeight:700, color:tier.color, letterSpacing:'-.04em', lineHeight:1 }}>
                         {tier.priceRange}
                       </div>
                     </div>
                     <div style={{ paddingBottom:8 }}>
-                      <div style={{ fontSize:13, color:'rgba(255,255,255,.68)', lineHeight:1.5 }}>{tier.weeks}</div>
-                      <div style={{ fontSize:13, color:'rgba(255,255,255,.68)' }}>{tier.useCase}</div>
+                      <div style={{ fontSize:14, color:'rgba(255,255,255,.68)', lineHeight:1.5 }}>{tier.weeks}</div>
+                      <div style={{ fontSize:14, color:'rgba(255,255,255,.68)' }}>{tier.useCase}</div>
                     </div>
                   </div>
 
@@ -663,8 +704,8 @@ export default function QofAIPage() {
                           key={i}
                           onClick={() => setTierIdx(i)}
                           style={{
-                            fontSize:10, fontWeight:700, letterSpacing:'.06em', textTransform:'uppercase',
-                            color: i === tierIdx ? tier.color : 'rgba(255,255,255,.35)',
+                            fontSize:11.5, fontWeight:700, letterSpacing:'.06em', textTransform:'uppercase',
+                            color: i === tierIdx ? tier.color : 'rgba(255,255,255,.65)',
                             cursor:'pointer',
                             transition:'color .2s',
                             textAlign: i === 0 ? 'left' : i === TIERS.length-1 ? 'right' : 'center',
@@ -678,7 +719,7 @@ export default function QofAIPage() {
 
                   {/* Price scale bar */}
                   <div>
-                    <div style={{ display:'flex', justifyContent:'space-between', fontSize:11, color:'rgba(255,255,255,.38)', marginBottom:6, fontFamily:'var(--font-mono)' }}>
+                    <div style={{ display:'flex', justifyContent:'space-between', fontSize:13, color:'rgba(255,255,255,.68)', marginBottom:6, fontFamily:'var(--font-mono)' }}>
                       <span>$25k</span>
                       <span style={{ color:'rgba(255,255,255,.22)' }}>$50k</span>
                       <span style={{ color:'rgba(255,255,255,.22)' }}>$75k</span>
@@ -688,7 +729,7 @@ export default function QofAIPage() {
                       <div style={{
                         height:'100%',
                         width:`${pct}%`,
-                        background: `linear-gradient(90deg, rgba(166,183,210,.6), ${tier.color})`,
+                        background: `linear-gradient(90deg, rgba(166,183,210,.85), ${tier.color})`,
                         borderRadius:2,
                         transition:'all .3s ease',
                       }} />
@@ -698,10 +739,10 @@ export default function QofAIPage() {
                   {/* Inputs (customer interviews) bar */}
                   <div>
                     <div style={{ display:'flex', alignItems:'baseline', justifyContent:'space-between', marginBottom:8 }}>
-                      <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.40)' }}>
+                      <div style={{ fontSize:11.5, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.70)' }}>
                         Customer inputs included
                       </div>
-                      <div style={{ fontFamily:'var(--font-mono)', fontSize:13, fontWeight:700, color:tier.color }}>
+                      <div style={{ fontFamily:'var(--font-mono)', fontSize:14, fontWeight:700, color:tier.color }}>
                         {tier.inputsDisplay}
                       </div>
                     </div>
@@ -721,15 +762,15 @@ export default function QofAIPage() {
                       ))}
                     </div>
                     <div style={{ display:'flex', gap:16, marginTop:8, flexWrap:'wrap' }}>
-                      <div style={{ display:'flex', alignItems:'center', gap:5, fontSize:10, color:'rgba(166,183,210,.85)' }}>
+                      <div style={{ display:'flex', alignItems:'center', gap:5, fontSize:11.5, color:'rgba(166,183,210,.85)' }}>
                         <div style={{ width:8, height:8, background:'rgba(166,183,210,.75)', borderRadius:1 }} />
                         Early (25)
                       </div>
-                      <div style={{ display:'flex', alignItems:'center', gap:5, fontSize:10, color:'rgba(120,144,178,.85)' }}>
+                      <div style={{ display:'flex', alignItems:'center', gap:5, fontSize:11.5, color:'rgba(120,144,178,.85)' }}>
                         <div style={{ width:8, height:8, background:'rgba(120,144,178,.75)', borderRadius:1 }} />
                         Focused (40)
                       </div>
-                      <div style={{ display:'flex', alignItems:'center', gap:5, fontSize:10, color:'rgba(89,116,154,.85)' }}>
+                      <div style={{ display:'flex', alignItems:'center', gap:5, fontSize:11.5, color:'rgba(89,116,154,.85)' }}>
                         <div style={{ width:8, height:8, background:'rgba(89,116,154,.75)', borderRadius:1 }} />
                         Full CDD (80)
                       </div>
@@ -750,7 +791,7 @@ export default function QofAIPage() {
                   <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:`linear-gradient(90deg, ${tier.color}, transparent)`, opacity:.5 }} />
                   <div>
                     {(tier as any).recommended && (
-                      <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(120,144,178,.95)', background:'rgba(120,144,178,.12)', padding:'2px 8px', display:'inline-block', marginBottom:8 }}>
+                      <div style={{ fontSize:11, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(120,144,178,.95)', background:'rgba(120,144,178,.12)', padding:'2px 8px', display:'inline-block', marginBottom:8 }}>
                         Most Popular
                       </div>
                     )}
@@ -758,7 +799,7 @@ export default function QofAIPage() {
                     <div style={{ fontFamily:'var(--font-mono)', fontSize:22, fontWeight:700, color:tier.color, letterSpacing:'-.03em' }}>
                       {tier.priceRange}
                     </div>
-                    <div style={{ fontSize:11, color:'rgba(255,255,255,.55)', marginTop:6 }}>
+                    <div style={{ fontSize:13, color:'rgba(255,255,255,.78)', marginTop:6 }}>
                       {tier.weeks} &middot; {tier.useCase}
                     </div>
                   </div>
@@ -766,11 +807,11 @@ export default function QofAIPage() {
                   <div style={{ height:1, background:'rgba(255,255,255,.07)' }} />
 
                   <div style={{ display:'flex', flexDirection:'column', gap:10, flex:1 }}>
-                    <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.42)', marginBottom:2 }}>
+                    <div style={{ fontSize:11.5, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.70)', marginBottom:2 }}>
                       Included
                     </div>
                     {tier.features.map((f, i) => (
-                      <div key={i} style={{ display:'flex', alignItems:'flex-start', gap:10, fontSize:12.5, color:'rgba(255,255,255,.82)', lineHeight:1.45 }}>
+                      <div key={i} style={{ display:'flex', alignItems:'flex-start', gap:10, fontSize:14, color:'rgba(255,255,255,.82)', lineHeight:1.6 }}>
                         <span style={{ color:tier.color, flexShrink:0, marginTop:1 }}>✓</span>
                         {f}
                       </div>
@@ -781,7 +822,7 @@ export default function QofAIPage() {
                     href={`mailto:${CONTACT.email}`}
                     style={{
                       display:'inline-flex', alignItems:'center', justifyContent:'center',
-                      fontSize:12, fontWeight:700, textDecoration:'none', padding:'11px 20px',
+                      fontSize:14.5, fontWeight:700, textDecoration:'none', padding:'11px 20px',
                       color: 'rgba(255,255,255,.95)',
                       background: (tier as any).recommended ? 'rgba(120,144,178,.92)' : 'rgba(255,255,255,.06)',
                       border: (tier as any).recommended ? '1px solid rgba(166,183,210,.55)' : '1px solid rgba(255,255,255,.18)',
@@ -795,7 +836,7 @@ export default function QofAIPage() {
             );
           })()}
 
-          <div style={{ fontSize:11, color:'rgba(255,255,255,.42)', textAlign:'center', marginTop:16 }}>
+          <div style={{ fontSize:13, color:'rgba(255,255,255,.70)', textAlign:'center', marginTop:16 }}>
             Exact pricing depends on company size, data availability, and timeline.
           </div>
         </div>
@@ -804,22 +845,22 @@ export default function QofAIPage() {
       {/* CTA */}
       <section style={{ padding:'52px 0', textAlign:'center' }}>
         <div style={{ maxWidth:640, margin:'0 auto', padding:'0 36px' }}>
-          <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(89,116,154,.88)', marginBottom:14 }}>Commission the Q of AI</div>
+          <div style={{ fontSize:11.5, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(89,116,154,.88)', marginBottom:14 }}>Commission the Q of AI</div>
           <h2 style={{ fontSize:28, fontWeight:700, color:'rgba(255,255,255,.97)', letterSpacing:'-.025em', lineHeight:1.2, marginBottom:12 }}>
             Pre-empt the objection.<br />Commission the Q of AI.
           </h2>
-          <p style={{ fontSize:13, color:'rgba(255,255,255,.72)', lineHeight:1.78, marginBottom:28 }}>
+          <p style={{ fontSize:14, color:'rgba(255,255,255,.72)', lineHeight:1.78, marginBottom:28 }}>
             Institutional buyers are pricing AI capability and defensibility into every bid. Companies that arrive with customer-validated evidence don't just answer the question. They set the terms.
           </p>
           <div style={{ display:'flex', gap:10, justifyContent:'center', flexWrap:'wrap', marginBottom:18 }}>
-            <a href={`mailto:${CONTACT.email}`} style={{ background:'rgba(255,255,255,.95)', color:'#050e1e', padding:'11px 26px', fontSize:13, fontWeight:700, textDecoration:'none' }}>
+            <a href={`mailto:${CONTACT.email}`} style={{ background:'rgba(255,255,255,.95)', color:'#050e1e', padding:'11px 26px', fontSize:14, fontWeight:700, textDecoration:'none' }}>
               Email Ian →
             </a>
-            <a href={CONTACT.bookingUrl} target="_blank" rel="noopener noreferrer" style={{ background:'transparent', color:'rgba(255,255,255,.82)', border:'1px solid rgba(255,255,255,.25)', padding:'11px 20px', fontSize:13, fontWeight:500, textDecoration:'none' }}>
+            <a href={CONTACT.bookingUrl} target="_blank" rel="noopener noreferrer" style={{ background:'transparent', color:'rgba(255,255,255,.82)', border:'1px solid rgba(255,255,255,.25)', padding:'11px 20px', fontSize:14, fontWeight:500, textDecoration:'none' }}>
               Book a Call
             </a>
           </div>
-          <div style={{ fontSize:11, color:'rgba(255,255,255,.55)' }}>{CONTACT.email}</div>
+          <div style={{ fontSize:13, color:'rgba(255,255,255,.78)' }}>{CONTACT.email}</div>
         </div>
       </section>
     </>

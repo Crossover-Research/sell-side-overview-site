@@ -22,7 +22,7 @@ export function HeroSection({ tab }: HeroSectionProps) {
         {/* Eyebrow */}
         <div style={{
           display:'inline-flex', alignItems:'center', gap:8,
-          fontSize:11, fontWeight:700, letterSpacing:'.18em', textTransform:'uppercase',
+          fontSize:13, fontWeight:700, letterSpacing:'.18em', textTransform:'uppercase',
           color:'rgba(120,144,178,.9)', background:'rgba(120,144,178,.08)',
           border:'1px solid rgba(120,144,178,.22)', padding:'5px 16px',
           marginBottom:32,
@@ -57,7 +57,7 @@ export function HeroSection({ tab }: HeroSectionProps) {
             style={{
               display:'inline-flex', alignItems:'center', gap:8,
               background:'rgba(255,255,255,.95)', color:'#060e1c',
-              padding:'13px 30px', fontSize:13, fontWeight:700,
+              padding:'13px 30px', fontSize:14, fontWeight:700,
               textDecoration:'none', letterSpacing:'.01em', whiteSpace:'nowrap',
               boxShadow:'0 4px 24px rgba(255,255,255,.1)',
               transition:'box-shadow .15s, transform .15s',
@@ -81,12 +81,12 @@ export function HeroSection({ tab }: HeroSectionProps) {
               display:'inline-flex', alignItems:'center', gap:8,
               background:'transparent', color:'rgba(180,210,255,.82)',
               border:'1px solid rgba(120,144,178,.32)', padding:'13px 26px',
-              fontSize:13, fontWeight:500, textDecoration:'none', whiteSpace:'nowrap',
+              fontSize:14, fontWeight:500, textDecoration:'none', whiteSpace:'nowrap',
               transition:'all .15s',
             }}
             onMouseEnter={e=>{
               const el = e.currentTarget as HTMLElement;
-              el.style.borderColor='rgba(120,144,178,.6)';
+              el.style.borderColor='rgba(120,144,178,.85)';
               el.style.background='rgba(120,144,178,.09)';
               el.style.color='rgba(200,225,255,.95)';
             }}
@@ -110,7 +110,7 @@ export function HeroSection({ tab }: HeroSectionProps) {
               padding:'24px 0',
               display:'flex', flexDirection:'column', alignItems:'center', gap:4,
             }}>
-              <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.40)' }}>{m.label}</div>
+              <div style={{ fontSize:11.5, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.70)' }}>{m.label}</div>
               <div style={{
                 fontFamily:'var(--font-mono)', fontSize:'clamp(22px,2.6vw,36px)',
                 fontWeight:700, color:'rgba(255,255,255,.97)',

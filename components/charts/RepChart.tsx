@@ -25,7 +25,7 @@ export function RepChart({ labels, data, highlightIndex = 2 }: RepChartProps) {
         datasets: [{
           data,
           backgroundColor: data.map((_, i) =>
-            i === highlightIndex ? 'rgba(255,77,94,.85)' : i < 3 ? 'rgba(166,183,210,.6)' : 'rgba(255,255,255,.12)'
+            i === highlightIndex ? 'rgba(255,77,94,.85)' : i < 3 ? 'rgba(166,183,210,.85)' : 'rgba(255,255,255,.12)'
           ),
           borderRadius: 3,
           borderSkipped: false,
@@ -38,7 +38,7 @@ export function RepChart({ labels, data, highlightIndex = 2 }: RepChartProps) {
         plugins: { legend: { display: false }, tooltip: { callbacks: { label: (c: { raw: number }) => ` ${c.raw.toFixed(1)} / 10` } } },
         scales: {
           x: { min: 0, max: 10, grid: { color: 'rgba(255,255,255,.07)' }, ticks: { color: 'rgba(255,255,255,.68)', font: { family: "'JetBrains Mono',monospace", size: 11 } } },
-          y: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,.55)', font: { size: 12 } } },
+          y: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,.78)', font: { size: 12 } } },
         },
       },
     });
