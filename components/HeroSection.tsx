@@ -45,7 +45,7 @@ export function HeroSection({ tab }: HeroSectionProps) {
           lineHeight:1.8, maxWidth:640, margin:'0 auto 40px',
         }}>
           J.P. Morgan won the Nerdio mandate using our research.
-          General Atlantic used the same data to invest $500M.
+          General Atlantic used the same research to build conviction &mdash; and invested $500M.
         </p>
 
 

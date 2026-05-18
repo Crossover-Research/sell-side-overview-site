@@ -4,6 +4,15 @@ import { useState } from 'react';
 const STAGES = [
   {
     num: '01',
+    name: 'Sector Research',
+    timing: 'Pipeline build · pre-mandate',
+    headline: 'Build pipeline before competitors know the market is in play.',
+    desc: 'Independent customer evidence across a sector — no management contact required.',
+    tags: ['3–6 weeks', '40–80 customers'],
+    cta: 'Scope Sector Research',
+  },
+  {
+    num: '02',
     name: 'Mandate Pitch Deck',
     timing: 'Mandate pursuit',
     headline: 'Win the mandate with customer evidence no competing bank can replicate.',
@@ -12,7 +21,7 @@ const STAGES = [
     cta: 'Scope a Mandate Pitch',
   },
   {
-    num: '02',
+    num: '03',
     name: 'VoC-Enhanced CIM',
     timing: 'Sell-side process launch',
     headline: 'Every weak claim pre-validated before buyers find it.',
@@ -21,7 +30,7 @@ const STAGES = [
     cta: 'Scope a VoC CIM',
   },
   {
-    num: '03',
+    num: '04',
     name: 'Customer Diligence Report',
     timing: 'Pre-process conviction',
     headline: 'Conviction before the teaser drops.',
