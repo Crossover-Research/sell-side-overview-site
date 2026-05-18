@@ -179,7 +179,7 @@ const OBJECTIONS = [
 
 export default function QofAIPage() {
   const [selectedQ, setSelectedQ] = useState(0);
-  const [tierIdx, setTierIdx] = useState(2); // default: Full Assessment
+  const [tierIdx, setTierIdx] = useState(1); // default: Focused Diligence (Most Popular)
   const [scoreTab, setScoreTab] = useState<'capability'|'resilience'>('capability');
   const [openQ, setOpenQ] = useState<number|null>(null);
 
@@ -508,64 +508,58 @@ export default function QofAIPage() {
           {(() => {
             const TIERS = [
               {
-                dims: 5,
-                label: 'AI Structural',
-                name: 'AI Structural Position',
+                inputs: 25,
+                inputsDisplay: '25+',
+                label: 'Early Intelligence',
+                name: 'Early Intelligence',
                 price: 25,
-                weeks: '2 weeks',
+                priceMax: 40,
+                priceRange: '$25K-40K',
+                weeks: '2.5-4 weeks',
+                useCase: 'Pre-LOI validation',
                 color: 'rgba(130,175,255,.95)',
                 features: [
-                  'AI Resilience Score (5 dimensions)',
-                  'Data moat analysis',
-                  'Leapfrog resistance score',
-                  'Defensibility map',
-                  'Visual scorecard + VoC report',
+                  'Voice-of-Customer fieldwork (25+ inputs)',
+                  'Investment thesis validation',
+                  'Competitive landscape mapping',
+                  'Secondary desk research',
                 ],
               },
               {
-                dims: 10,
-                label: 'AI Capability',
-                name: 'AI Capability',
-                price: 30,
-                weeks: '2 weeks',
+                inputs: 40,
+                inputsDisplay: '40+',
+                label: 'Focused Diligence',
+                name: 'Focused Diligence',
+                price: 50,
+                priceMax: 65,
+                priceRange: '$50K-65K',
+                weeks: '4 weeks',
+                useCase: 'Final bid differentiation',
                 color: 'rgba(77,144,254,.95)',
-                features: [
-                  'AI Capability Score (10 dimensions)',
-                  'Adoption, accuracy & ROI scoring',
-                  'Competitive differentiation',
-                  'Roadmap credibility',
-                  'Visual scorecard + VoC report',
-                ],
-              },
-              {
-                dims: 15,
-                label: 'Full Assessment',
-                name: 'Full Assessment',
-                price: 35,
-                weeks: '3 weeks',
-                color: 'rgba(168,130,255,.95)',
-                features: [
-                  'AI Capability Score (10 dimensions)',
-                  'AI Resilience Score (5 dimensions)',
-                  'AI Fortress Resilience Matrix',
-                  'Visual scorecard + VoC report',
-                  'CIM-ready positioning language',
-                ],
-              },
-              {
-                dims: 15 as number,
-                dimsDisplay: '15+',
-                label: 'Complete',
-                name: 'Complete Q of AI',
-                price: 40,
-                weeks: '3-4 weeks',
-                color: 'rgba(45,212,160,.97)',
                 recommended: true,
                 features: [
-                  'Everything in Full Assessment',
-                  'IC Preparation Pack (6 objections)',
-                  'Competitor benchmarking',
-                  'Extended CIM language',
+                  'Includes Everything in Early Intelligence',
+                  'Comprehensive VoC study (40+ inputs)',
+                  'Pricing elasticity analysis',
+                  'TAM & market sizing validation',
+                ],
+              },
+              {
+                inputs: 80,
+                inputsDisplay: '80+',
+                label: 'Full CDD',
+                name: 'Full CDD',
+                price: 75,
+                priceMax: 100,
+                priceRange: '$75K-100K',
+                weeks: '5 weeks',
+                useCase: 'Exclusive processes',
+                color: 'rgba(45,212,160,.97)',
+                features: [
+                  'Includes Everything in Focused Diligence',
+                  'Extensive VoC research (80+ inputs)',
+                  'Full competitive positioning study',
+                  'Growth driver & add-on analysis',
                 ],
               },
             ];
@@ -582,14 +576,14 @@ export default function QofAIPage() {
                   {/* Price display */}
                   <div style={{ display:'flex', alignItems:'flex-end', gap:16 }}>
                     <div>
-                      <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.45)', marginBottom:6 }}>Starting from</div>
-                      <div style={{ fontFamily:'var(--font-mono)', fontSize:52, fontWeight:700, color:tier.color, letterSpacing:'-.04em', lineHeight:1 }}>
-                        ${tier.price}k
+                      <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.45)', marginBottom:6 }}>Engagement range</div>
+                      <div style={{ fontFamily:'var(--font-mono)', fontSize:48, fontWeight:700, color:tier.color, letterSpacing:'-.04em', lineHeight:1 }}>
+                        {tier.priceRange}
                       </div>
                     </div>
                     <div style={{ paddingBottom:8 }}>
                       <div style={{ fontSize:13, color:'rgba(255,255,255,.68)', lineHeight:1.5 }}>{tier.weeks}</div>
-                      <div style={{ fontSize:13, color:'rgba(255,255,255,.68)' }}>{tier.dims} dimensions</div>
+                      <div style={{ fontSize:13, color:'rgba(255,255,255,.68)' }}>{tier.useCase}</div>
                     </div>
                   </div>
 
@@ -627,7 +621,7 @@ export default function QofAIPage() {
                       })}
                       {/* Invisible range input for drag */}
                       <input
-                        type="range" min={0} max={3} step={1} value={tierIdx}
+                        type="range" min={0} max={2} step={1} value={tierIdx}
                         onChange={e => setTierIdx(Number(e.target.value))}
                         style={{
                           position:'absolute', left:0, right:0, width:'100%',
@@ -661,9 +655,9 @@ export default function QofAIPage() {
                   <div>
                     <div style={{ display:'flex', justifyContent:'space-between', fontSize:11, color:'rgba(255,255,255,.38)', marginBottom:6, fontFamily:'var(--font-mono)' }}>
                       <span>$25k</span>
-                      <span style={{ color:'rgba(255,255,255,.22)' }}>$30k</span>
-                      <span style={{ color:'rgba(255,255,255,.22)' }}>$35k</span>
-                      <span>$40k</span>
+                      <span style={{ color:'rgba(255,255,255,.22)' }}>$50k</span>
+                      <span style={{ color:'rgba(255,255,255,.22)' }}>$75k</span>
+                      <span>$100k</span>
                     </div>
                     <div style={{ height:4, background:'rgba(255,255,255,.07)', borderRadius:2, overflow:'hidden' }}>
                       <div style={{
@@ -676,34 +670,43 @@ export default function QofAIPage() {
                     </div>
                   </div>
 
-                  {/* Dimension bar */}
+                  {/* Inputs (customer interviews) bar */}
                   <div>
-                    <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.40)', marginBottom:8 }}>
-                      Dimensions included
+                    <div style={{ display:'flex', alignItems:'baseline', justifyContent:'space-between', marginBottom:8 }}>
+                      <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.40)' }}>
+                        Customer inputs included
+                      </div>
+                      <div style={{ fontFamily:'var(--font-mono)', fontSize:13, fontWeight:700, color:tier.color }}>
+                        {tier.inputsDisplay}
+                      </div>
                     </div>
                     <div style={{ display:'flex', gap:3, flexWrap:'wrap' }}>
-                      {Array.from({ length: 15 }, (_, i) => (
+                      {Array.from({ length: 80 }, (_, i) => (
                         <div
                           key={i}
                           style={{
-                            width:18, height:18, borderRadius:3,
-                            background: i < (tier.dims as number)
-                              ? (i < 5 ? 'rgba(45,212,160,.75)' : 'rgba(77,144,254,.75)')
+                            width:8, height:14, borderRadius:1.5,
+                            background: i < (tier.inputs as number)
+                              ? (i < 25 ? 'rgba(130,175,255,.75)' : i < 40 ? 'rgba(77,144,254,.75)' : 'rgba(45,212,160,.75)')
                               : 'rgba(255,255,255,.06)',
                             transition:'all .2s',
-                            transitionDelay: `${i * 0.015}s`,
+                            transitionDelay: `${i * 0.005}s`,
                           }}
                         />
                       ))}
                     </div>
-                    <div style={{ display:'flex', gap:16, marginTop:8 }}>
+                    <div style={{ display:'flex', gap:16, marginTop:8, flexWrap:'wrap' }}>
+                      <div style={{ display:'flex', alignItems:'center', gap:5, fontSize:10, color:'rgba(130,175,255,.85)' }}>
+                        <div style={{ width:8, height:8, background:'rgba(130,175,255,.75)', borderRadius:1 }} />
+                        Early (25)
+                      </div>
+                      <div style={{ display:'flex', alignItems:'center', gap:5, fontSize:10, color:'rgba(77,144,254,.85)' }}>
+                        <div style={{ width:8, height:8, background:'rgba(77,144,254,.75)', borderRadius:1 }} />
+                        Focused (40)
+                      </div>
                       <div style={{ display:'flex', alignItems:'center', gap:5, fontSize:10, color:'rgba(45,212,160,.85)' }}>
                         <div style={{ width:8, height:8, background:'rgba(45,212,160,.75)', borderRadius:1 }} />
-                        Resilience (5)
-                      </div>
-                      <div style={{ display:'flex', alignItems:'center', gap:5, fontSize:10, color:'rgba(77,144,254,.75)' }}>
-                        <div style={{ width:8, height:8, background:'rgba(77,144,254,.7)', borderRadius:1 }} />
-                        Capability (10)
+                        Full CDD (80)
                       </div>
                     </div>
                   </div>
@@ -722,13 +725,16 @@ export default function QofAIPage() {
                   <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:`linear-gradient(90deg, ${tier.color}, transparent)`, opacity:.5 }} />
                   <div>
                     {(tier as any).recommended && (
-                      <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(45,212,160,.9)', background:'rgba(45,212,160,.1)', padding:'2px 8px', display:'inline-block', marginBottom:8 }}>
-                        Recommended for sell-side
+                      <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(77,144,254,.95)', background:'rgba(77,144,254,.12)', padding:'2px 8px', display:'inline-block', marginBottom:8 }}>
+                        Most Popular
                       </div>
                     )}
                     <div style={{ fontSize:16, fontWeight:700, color:'rgba(255,255,255,.95)', marginBottom:4, letterSpacing:'-.01em' }}>{tier.name}</div>
-                    <div style={{ fontFamily:'var(--font-mono)', fontSize:24, fontWeight:700, color:tier.color, letterSpacing:'-.03em' }}>
-                      ${tier.price}k
+                    <div style={{ fontFamily:'var(--font-mono)', fontSize:22, fontWeight:700, color:tier.color, letterSpacing:'-.03em' }}>
+                      {tier.priceRange}
+                    </div>
+                    <div style={{ fontSize:11, color:'rgba(255,255,255,.55)', marginTop:6 }}>
+                      {tier.weeks} &middot; {tier.useCase}
                     </div>
                   </div>
 

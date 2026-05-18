@@ -19,7 +19,7 @@ const DATA: Record<Audience, {
       { label:'Speed',    without:'Show up to the first meeting cold. Rebuild context from scratch.', with:"Enter every initial meeting with the company's full customer proof already in hand.", withBold:"You're ahead of every other bank in the room." },
       { label:'Edge',     without:'Win on relationship, not insight.', with:'', withBold:"Evidence can't be copied overnight." },
     ],
-    outcome: { stat:'60%', statLabel:'Win Rate', desc:'60% sell-side mandate win rate. Not because of better relationships. Pitches built from what customers actually say.' },
+    outcome: { stat:'70%', statLabel:'Win Rate', desc:'70% sell-side mandate win rate. Not because of better relationships. Pitches built from what customers actually say.' },
   },
   operators: {
     sub: 'Surface every weakness before buyers use it against you.',
