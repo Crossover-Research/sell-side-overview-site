@@ -30,7 +30,7 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
     'Evercore','Moelis & Company','Jefferies','RBC Capital Markets','Wells Fargo',
     'Other',
   ];
-  const inp: React.CSSProperties = { width:'100%',background:'rgba(255,255,255,.05)',border:'1px solid rgba(255,255,255,.15)',color:'rgba(255,255,255,.90)',padding:'9px 12px',fontSize:14,outline:'none',boxSizing:'border-box' };
+  const inp: React.CSSProperties = { width:'100%',background:'rgba(255,255,255,.05)',border:'1px solid rgba(255,255,255,.15)',color:'rgba(255,255,255,.90)',padding:'9px 12px',fontSize:15,outline:'none',boxSizing:'border-box' };
   const set = (k:string,v:string)=>setForm(f=>({...f,[k]:v}));
   const handleFirmSelect = (v:string) => {
     if (v === 'Other') { setFirmOther(true); set('firm',''); }
@@ -48,9 +48,9 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
     <div style={{ position:'fixed',inset:0,zIndex:600,background:'rgba(4,9,18,.92)',display:'flex',alignItems:'center',justifyContent:'center',padding:20 }}>
       <div style={{ background:'#0c1a2e',border:'1px solid rgba(255,255,255,.12)',padding:'40px 32px',maxWidth:380,width:'100%',textAlign:'center' }}>
         <div style={{ fontSize:26,color:'#5974a0',marginBottom:10 }}>&#10003;</div>
-        <div style={{ fontSize:16,fontWeight:700,color:'#fff',marginBottom:7 }}>Request Submitted</div>
-        <p style={{ fontSize:14.5,color:'rgba(255,255,255,.72)',lineHeight:1.6,marginBottom:20 }}>We&rsquo;ll confirm coverage within 24 hours.</p>
-        <button onClick={onClose} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 24px',fontSize:14.5,fontWeight:700,cursor:'pointer' }}>Done</button>
+        <div style={{ fontSize:17,fontWeight:700,color:'#fff',marginBottom:7 }}>Request Submitted</div>
+        <p style={{ fontSize:15,color:'rgba(255,255,255,.72)',lineHeight:1.6,marginBottom:20 }}>We&rsquo;ll confirm coverage within 24 hours.</p>
+        <button onClick={onClose} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 24px',fontSize:15,fontWeight:700,cursor:'pointer' }}>Done</button>
       </div>
     </div>
   );
@@ -58,32 +58,32 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
     <div style={{ position:'fixed',inset:0,zIndex:600,background:'rgba(4,9,18,.75)',backdropFilter:'blur(6px)',display:'flex',alignItems:'center',justifyContent:'center',padding:20 }} onClick={onClose}>
       <div style={{ background:'#0c1a2e',border:'1px solid rgba(255,255,255,.12)',maxWidth:460,width:'100%',position:'relative' }} onClick={e=>e.stopPropagation()}>
         <div style={{ background:'linear-gradient(135deg,#0f1f38,#162d4a)',padding:'18px 22px',borderBottom:'1px solid rgba(255,255,255,.08)',position:'relative' }}>
-          <button onClick={onClose} style={{ position:'absolute',top:12,right:12,background:'rgba(255,255,255,.12)',border:'1px solid rgba(255,255,255,.18)',color:'rgba(255,255,255,.9)',width:28,height:28,cursor:'pointer',fontSize:16,display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0 }}>&#215;</button>
-          <div style={{ fontSize:14,fontWeight:700,color:'#fff',marginBottom:2 }}>Check Catalyst Coverage</div>
-          <p style={{ fontSize:13,color:'rgba(255,255,255,.84)',margin:0 }}>Same-day if covered &middot; 14-day custom if not</p>
+          <button onClick={onClose} style={{ position:'absolute',top:12,right:12,background:'rgba(255,255,255,.12)',border:'1px solid rgba(255,255,255,.18)',color:'rgba(255,255,255,.9)',width:28,height:28,cursor:'pointer',fontSize:17,display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0 }}>&#215;</button>
+          <div style={{ fontSize:15,fontWeight:700,color:'#fff',marginBottom:2 }}>Check Catalyst Coverage</div>
+          <p style={{ fontSize:13.5,color:'rgba(255,255,255,.84)',margin:0 }}>Same-day if covered &middot; 14-day custom if not</p>
         </div>
         <form onSubmit={submit} style={{ padding:'18px 22px',display:'flex',flexDirection:'column',gap:11 }}>
           <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:9 }}>
-            <div><label style={{ display:'block',fontSize:13,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.84)',marginBottom:4 }}>First Name *</label><input required style={inp} placeholder="Jordan" onChange={e=>set('firstName',e.target.value)} /></div>
-            <div><label style={{ display:'block',fontSize:13,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.84)',marginBottom:4 }}>Last Name *</label><input required style={inp} placeholder="Keller" onChange={e=>set('lastName',e.target.value)} /></div>
+            <div><label style={{ display:'block',fontSize:13.5,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.84)',marginBottom:4 }}>First Name *</label><input required style={inp} placeholder="Jordan" onChange={e=>set('firstName',e.target.value)} /></div>
+            <div><label style={{ display:'block',fontSize:13.5,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.84)',marginBottom:4 }}>Last Name *</label><input required style={inp} placeholder="Keller" onChange={e=>set('lastName',e.target.value)} /></div>
           </div>
-          <div><label style={{ display:'block',fontSize:13,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.84)',marginBottom:4 }}>Work Email *</label><input required type="email" style={inp} placeholder="jordan@bank.com" onChange={e=>set('email',e.target.value)} /></div>
+          <div><label style={{ display:'block',fontSize:13.5,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.84)',marginBottom:4 }}>Work Email *</label><input required type="email" style={inp} placeholder="jordan@bank.com" onChange={e=>set('email',e.target.value)} /></div>
           <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:9 }}>
             <div>
               {!firmOther
                 ? <SelectField label="Firm" options={BANKS} value={form.firm} onChange={v=>handleFirmSelect(v)} placeholder="Select firm..." required />
                 : <div>
-                    <label style={{ display:'block',fontSize:13,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.84)',marginBottom:4 }}>Firm *</label>
+                    <label style={{ display:'block',fontSize:13.5,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.84)',marginBottom:4 }}>Firm *</label>
                     <input required autoFocus style={inp} placeholder="Firm name" onChange={e=>set('firm',e.target.value)} />
-                    <button type="button" onClick={()=>setFirmOther(false)} style={{ fontSize:13,color:'rgba(255,255,255,.84)',background:'none',border:'none',cursor:'pointer',marginTop:4,padding:0 }}>Back to list</button>
+                    <button type="button" onClick={()=>setFirmOther(false)} style={{ fontSize:13.5,color:'rgba(255,255,255,.84)',background:'none',border:'none',cursor:'pointer',marginTop:4,padding:0 }}>Back to list</button>
                   </div>
               }
             </div>
             <SelectField label="Org Type" options={ORG} value={form.orgType} onChange={v=>set('orgType',v)} required />
           </div>
-          <div><label style={{ display:'block',fontSize:13,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.84)',marginBottom:4 }}>Target Company or Mandate</label><input style={inp} placeholder="Company name" onChange={e=>set('mandate',e.target.value)} /></div>
-          {error && <div style={{ fontSize:14.5,color:'#f87171',background:'rgba(248,113,113,.08)',border:'1px solid rgba(248,113,113,.2)',padding:'8px 12px' }}>{error}</div>}
-          <button type="submit" style={{ width:'100%',background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'10px',fontSize:14,fontWeight:700,cursor:'pointer',marginTop:2 }}>Submit &rarr;</button>
+          <div><label style={{ display:'block',fontSize:13.5,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.84)',marginBottom:4 }}>Target Company or Mandate</label><input style={inp} placeholder="Company name" onChange={e=>set('mandate',e.target.value)} /></div>
+          {error && <div style={{ fontSize:15,color:'#f87171',background:'rgba(248,113,113,.08)',border:'1px solid rgba(248,113,113,.2)',padding:'8px 12px' }}>{error}</div>}
+          <button type="submit" style={{ width:'100%',background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'10px',fontSize:15,fontWeight:700,cursor:'pointer',marginTop:2 }}>Submit &rarr;</button>
         </form>
       </div>
     </div>
@@ -104,7 +104,7 @@ function SampleCard({ href, type, badge, logoSrc, logoAlt, logoInvert, cta }: {
       {/* Badge */}
       <div style={{
         position:'absolute', top:14, right:14,
-        fontSize:11.5, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase',
+        fontSize:12, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase',
         color:'rgba(120,144,178,.95)', background:'rgba(120,144,178,.12)',
         border:'1px solid rgba(120,144,178,.3)', padding:'2px 8px',
       }}>{badge}</div>
@@ -155,7 +155,7 @@ export default function IntelligencePage() {
               className="ib-sample-card"
               style={{ display:'flex', flexDirection:'column', justifyContent:'space-between', textDecoration:'none', position:'relative' }}
             >
-              <div style={{ position:'absolute', top:14, right:14, fontSize:11.5, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(120,144,178,.95)', background:'rgba(120,144,178,.12)', border:'1px solid rgba(120,144,178,.3)', padding:'2px 8px' }}>
+              <div style={{ position:'absolute', top:14, right:14, fontSize:12, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(120,144,178,.95)', background:'rgba(120,144,178,.12)', border:'1px solid rgba(120,144,178,.3)', padding:'2px 8px' }}>
                 Live Portal
               </div>
               <div className="ib-sample-type">Client Proposal</div>
@@ -172,12 +172,12 @@ export default function IntelligencePage() {
               className="ib-sample-card"
               style={{ display:'flex', flexDirection:'column', justifyContent:'space-between', textDecoration:'none', position:'relative' }}
             >
-              <div style={{ position:'absolute', top:14, right:14, fontSize:11.5, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(89,116,154,.9)', background:'rgba(89,116,154,.08)', border:'1px solid rgba(89,116,154,.25)', padding:'2px 8px' }}>
+              <div style={{ position:'absolute', top:14, right:14, fontSize:12, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(89,116,154,.9)', background:'rgba(89,116,154,.08)', border:'1px solid rgba(89,116,154,.25)', padding:'2px 8px' }}>
                 Sample VoC
               </div>
               <div className="ib-sample-type">Research Report</div>
               <div className="ib-sample-logo-wrap" style={{ display:'flex', alignItems:'center', flex:1 }}>
-                <div style={{ fontSize:14, fontWeight:700, color:'rgba(255,255,255,.88)', lineHeight:1.35, maxWidth:160 }}>Intelligence Report + GTM Playbook</div>
+                <div style={{ fontSize:15, fontWeight:700, color:'rgba(255,255,255,.88)', lineHeight:1.35, maxWidth:160 }}>Intelligence Report + GTM Playbook</div>
               </div>
               <div className="ib-sample-link">View Sample Report ↗</div>
             </a>
@@ -195,7 +195,7 @@ export default function IntelligencePage() {
           >
             <div style={{ display:'flex', alignItems:'center', gap:24 }}>
               <div>
-                <div style={{ fontSize:11.5, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.72)', marginBottom:4 }}>Catalyst Library</div>
+                <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.72)', marginBottom:4 }}>Catalyst Library</div>
                 <div style={{ fontFamily:'var(--font-mono)', fontSize:22, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.02em' }}>
                   {CATALYST_LIVE_COUNT} Assets
                 </div>
@@ -207,14 +207,14 @@ export default function IntelligencePage() {
                   const cfg = { transacted:{ color:'rgba(180,180,200,.72)' as const, label:'Closed' }, active:{ color:'rgba(89,116,154,.88)' as const, label:'Active' }, new:{ color:'rgba(245,158,11,.88)' as const, label:'New' } };
                   return n > 0 ? (
                     <div key={s} style={{ textAlign:'center' }}>
-                      <div style={{ fontFamily:'var(--font-mono)', fontSize:18, fontWeight:700, color:cfg[s].color, letterSpacing:'-.02em', lineHeight:1 }}>{n}</div>
-                      <div style={{ fontSize:11.5, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase', color:cfg[s].color, opacity:.7, marginTop:3 }}>{cfg[s].label}</div>
+                      <div style={{ fontFamily:'var(--font-mono)', fontSize:20, fontWeight:700, color:cfg[s].color, letterSpacing:'-.02em', lineHeight:1 }}>{n}</div>
+                      <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase', color:cfg[s].color, opacity:.7, marginTop:3 }}>{cfg[s].label}</div>
                     </div>
                   ) : null;
                 })}
               </div>
             </div>
-            <div style={{ fontSize:14, fontWeight:700, color:'rgba(166,183,210,.85)', whiteSpace:'nowrap' }}>
+            <div style={{ fontSize:15, fontWeight:700, color:'rgba(166,183,210,.85)', whiteSpace:'nowrap' }}>
               Browse Library &rarr;
             </div>
           </a>
@@ -256,7 +256,7 @@ export default function IntelligencePage() {
                 style={{
                   display:'inline-flex', alignItems:'center',
                   background:'rgba(255,255,255,.95)', color:'#060e1c',
-                  padding:'13px 28px', fontSize:14, fontWeight:700,
+                  padding:'13px 28px', fontSize:15, fontWeight:700,
                   textDecoration:'none', whiteSpace:'nowrap',
                   transition:'all .15s',
                 }}
@@ -271,7 +271,7 @@ export default function IntelligencePage() {
                   display:'inline-flex', alignItems:'center',
                   background:'transparent', color:'rgba(180,210,255,.82)',
                   border:'1px solid rgba(120,144,178,.32)', padding:'13px 28px',
-                  fontSize:14, fontWeight:500, textDecoration:'none', whiteSpace:'nowrap',
+                  fontSize:15, fontWeight:500, textDecoration:'none', whiteSpace:'nowrap',
                   transition:'all .15s',
                 }}
                 onMouseEnter={e=>{const el=e.currentTarget as HTMLElement;el.style.borderColor='rgba(120,144,178,.85)';el.style.background='rgba(120,144,178,.09)';}}

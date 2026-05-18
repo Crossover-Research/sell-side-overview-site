@@ -69,7 +69,7 @@ export function AudienceWithout() {
             }}>
               Evidence changes every outcome in the room.
             </h2>
-            <p style={{ fontSize:14, color:'rgba(255,255,255,.76)', margin:0, maxWidth:340, textAlign:'right', fontStyle:'italic' }}>
+            <p style={{ fontSize:15, color:'rgba(255,255,255,.76)', margin:0, maxWidth:340, textAlign:'right', fontStyle:'italic' }}>
               {d.sub}
             </p>
           </div>
@@ -78,7 +78,7 @@ export function AudienceWithout() {
           <div style={{ display:'flex', gap:4 }}>
             {tabs.map(t => (
               <button key={t.id} onClick={()=>setActive(t.id)} style={{
-                fontSize:14.5, fontWeight:600, padding:'9px 22px', cursor:'pointer',
+                fontSize:15, fontWeight:600, padding:'9px 22px', cursor:'pointer',
                 background: active===t.id ? 'rgba(255,255,255,.08)' : 'transparent',
                 border: `1px solid ${active===t.id ? 'rgba(255,255,255,.22)' : 'rgba(255,255,255,.1)'}`,
                 color: active===t.id ? 'rgba(255,255,255,.97)' : 'rgba(255,255,255,.78)',
@@ -95,11 +95,11 @@ export function AudienceWithout() {
           {/* Header */}
           <div style={{ display:'grid', gridTemplateColumns:'100px 1fr 40px 1fr', background:'rgba(255,255,255,.03)', borderBottom:'1px solid rgba(255,255,255,.08)' }}>
             <div />
-            <div style={{ padding:'10px 18px', fontSize:13, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(255,255,255,.80)' }}>
+            <div style={{ padding:'10px 18px', fontSize:13.5, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(255,255,255,.80)' }}>
               Without Crossover
             </div>
             <div />
-            <div style={{ padding:'10px 18px', fontSize:13, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:d.accent }}>
+            <div style={{ padding:'10px 18px', fontSize:13.5, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:d.accent }}>
               With Crossover
             </div>
           </div>
@@ -112,18 +112,18 @@ export function AudienceWithout() {
             }}>
               <div style={{ padding:'18px 14px', display:'flex', alignItems:'center', borderRight:'1px solid rgba(255,255,255,.05)' }}>
                 <span style={{
-                  fontSize:11.5, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase',
+                  fontSize:12, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase',
                   color:'rgba(255,255,255,.78)', background:'rgba(255,255,255,.05)',
                   padding:'2px 6px', whiteSpace:'nowrap',
                 }}>{row.label}</span>
               </div>
-              <div style={{ padding:'18px 20px', fontSize:14, color:'rgba(255,255,255,.82)', lineHeight:1.7, borderRight:'1px solid rgba(255,255,255,.05)' }}>
+              <div style={{ padding:'18px 20px', fontSize:15, color:'rgba(255,255,255,.82)', lineHeight:1.7, borderRight:'1px solid rgba(255,255,255,.05)' }}>
                 {row.without}
               </div>
               <div style={{ display:'flex', alignItems:'center', justifyContent:'center', borderRight:'1px solid rgba(255,255,255,.05)' }}>
-                <span style={{ fontSize:14.5, color:'rgba(255,255,255,.65)' }}>→</span>
+                <span style={{ fontSize:15, color:'rgba(255,255,255,.65)' }}>→</span>
               </div>
-              <div style={{ padding:'18px 20px', fontSize:14, lineHeight:1.7 }}>
+              <div style={{ padding:'18px 20px', fontSize:15, lineHeight:1.7 }}>
                 <span style={{ color:'rgba(255,255,255,.72)' }}>{row.with} </span>
                 <strong style={{ color:d.accent, fontWeight:600 }}>{row.withBold}</strong>
               </div>
@@ -141,17 +141,17 @@ export function AudienceWithout() {
             <>
               <div style={{ flexShrink:0, textAlign:'center', minWidth:80 }}>
                 <div style={{
-                  fontFamily:'var(--font-mono)', fontSize:28, fontWeight:700,
+                  fontFamily:'var(--font-mono)', fontSize:30, fontWeight:700,
                   color:d.accent, lineHeight:1, letterSpacing:'-.02em', marginBottom:4,
                 }}>{d.outcome.stat}</div>
-                <div style={{ fontSize:11.5, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.80)' }}>
+                <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.80)' }}>
                   {d.outcome.statLabel}
                 </div>
               </div>
               <div style={{ width:1, height:44, background:'rgba(255,255,255,.08)', flexShrink:0 }} />
             </>
           )}
-          <div style={{ fontSize:14, color:'rgba(255,255,255,.84)', lineHeight:1.7 }}>{d.outcome.desc}</div>
+          <div style={{ fontSize:15, color:'rgba(255,255,255,.84)', lineHeight:1.7 }}>{d.outcome.desc}</div>
         </div>
 
       </div>

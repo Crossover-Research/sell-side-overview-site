@@ -13,7 +13,7 @@ export function Footer() {
         <div className="site-footer-links">
           <a href="/intelligence">Intelligence Platform</a>
           <a href="/samples">Case Studies</a>
-          <a href="/qofai">Q of AI</a>
+          <a href="/qofai">Voice of Customer</a>
           <a href={`mailto:${CONTACT.email}`}>Contact</a>
         </div>
         <div className="site-footer-legal">

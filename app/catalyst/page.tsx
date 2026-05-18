@@ -37,10 +37,10 @@ function AssetNameCell({ asset, isFirst }: { asset: CatalystAsset; isFirst?: boo
 
   if (!isTransacted) return (
     <div style={cellStyle}>
-      <div style={{ fontSize:14,fontWeight:700,color:'rgba(166,183,210,.75)',marginBottom:4,display:'flex',alignItems:'center' }}>
+      <div style={{ fontSize:15,fontWeight:700,color:'rgba(166,183,210,.75)',marginBottom:4,display:'flex',alignItems:'center' }}>
         <LockIcon />{asset.code}
       </div>
-      <div style={{ fontSize:11.5,color: 'rgba(255,255,255,.70)',letterSpacing:'.06em',textTransform:'uppercase' }}>Identity locked</div>
+      <div style={{ fontSize:12,color: 'rgba(255,255,255,.70)',letterSpacing:'.06em',textTransform:'uppercase' }}>Identity locked</div>
     </div>
   );
 
@@ -92,17 +92,17 @@ function TeaserModal({ asset, onClose, onRequest }: { asset: CatalystAsset; onCl
         <div style={{ background:'linear-gradient(135deg,#0f1f38,#162d4a)',padding:'22px 26px',borderBottom:'1px solid rgba(255,255,255,.08)',position:'relative' }}>
           <button onClick={onClose} style={{ position:'absolute',top:11,right:11,background:'rgba(255,255,255,.1)',border:'none',color: 'rgba(255,255,255,.7)',width:26,height:26,cursor:'pointer',fontSize:15,lineHeight:'26px',textAlign:'center' }}>x</button>
           <div style={{ display:'flex',alignItems:'center',gap:10,marginBottom:4 }}>
-            <div style={{ fontSize:11.5,fontWeight:700,color:'rgba(166,183,210,.75)',letterSpacing:'.1em',textTransform:'uppercase' }}>{asset.code}</div>
-            {isTransacted&&asset.realName&&<div style={{ fontSize:11.5,fontWeight:700,color:'#5974a0' }}>Unblinded: {asset.realName}</div>}
+            <div style={{ fontSize:12,fontWeight:700,color:'rgba(166,183,210,.75)',letterSpacing:'.1em',textTransform:'uppercase' }}>{asset.code}</div>
+            {isTransacted&&asset.realName&&<div style={{ fontSize:12,fontWeight:700,color:'#5974a0' }}>Unblinded: {asset.realName}</div>}
           </div>
-          <div style={{ fontSize:18,fontWeight:700,color:'#fff',marginBottom:3 }}>{isTransacted&&asset.realName?asset.realName:asset.code} &mdash; {asset.category}</div>
-          <div style={{ fontSize:13,color: 'rgba(255,255,255,.80)',textTransform:'uppercase',letterSpacing:'.06em' }}>{asset.subtitle}{asset.dealNote?` · ${asset.dealNote}`:''}</div>
+          <div style={{ fontSize:20,fontWeight:700,color:'#fff',marginBottom:3 }}>{isTransacted&&asset.realName?asset.realName:asset.code} &mdash; {asset.category}</div>
+          <div style={{ fontSize:13.5,color: 'rgba(255,255,255,.80)',textTransform:'uppercase',letterSpacing:'.06em' }}>{asset.subtitle}{asset.dealNote?` · ${asset.dealNote}`:''}</div>
         </div>
         <div style={{ padding:'20px 26px' }}>
-          {isTransacted&&<div style={{ background:'rgba(89,116,154,.07)',border:'1px solid rgba(89,116,154,.2)',padding:'10px 14px',marginBottom:14,fontSize:14.5,color:'rgba(89,116,154,.85)',lineHeight:1.5 }}>This asset has transacted. Identity unblinded post-close.</div>}
+          {isTransacted&&<div style={{ background:'rgba(89,116,154,.07)',border:'1px solid rgba(89,116,154,.2)',padding:'10px 14px',marginBottom:14,fontSize:15,color:'rgba(89,116,154,.85)',lineHeight:1.5 }}>This asset has transacted. Identity unblinded post-close.</div>}
           <div style={{ background:'rgba(120,144,178,.1)',border:'1px solid rgba(120,144,178,.2)',padding:'13px 16px',marginBottom:16 }}>
             <div style={{ fontSize: 11,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(166,183,210,.85)',marginBottom:6 }}>Investment Hook</div>
-            <p style={{ fontSize:14,color: 'rgba(255,255,255,.85)',lineHeight:1.65,margin:0 }}>{asset.hook}</p>
+            <p style={{ fontSize:15,color: 'rgba(255,255,255,.85)',lineHeight:1.65,margin:0 }}>{asset.hook}</p>
           </div>
           <div className="catalyst-modal-metrics" style={{ display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:7,marginBottom:16 }}>
             {asset.metrics.map((m,i)=>(
@@ -114,11 +114,11 @@ function TeaserModal({ asset, onClose, onRequest }: { asset: CatalystAsset; onCl
             ))}
           </div>
           {asset.quotes.slice(0,2).map((q,i)=>(
-            <div key={i} style={{ borderLeft:'2px solid rgba(120,144,178,.3)',paddingLeft:11,marginBottom:9,fontSize:14,color: 'rgba(255,255,255,.75)',fontStyle:'italic',lineHeight:1.6 }}>"{q}"</div>
+            <div key={i} style={{ borderLeft:'2px solid rgba(120,144,178,.3)',paddingLeft:11,marginBottom:9,fontSize:15,color: 'rgba(255,255,255,.75)',fontStyle:'italic',lineHeight:1.6 }}>"{q}"</div>
           ))}
           <div style={{ display:'flex',gap:9,marginTop:18,justifyContent:'flex-end' }}>
-            {!isTransacted&&<button onClick={onRequest} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 20px',fontSize:14.5,fontWeight:700,cursor:'pointer' }}>Request Full Report &rarr;</button>}
-            <a href={`mailto:${CONTACT.email}`} style={{ background:'transparent',color: 'rgba(255,255,255,.72)',border:'1px solid rgba(255,255,255,.14)',padding:'9px 16px',fontSize:14.5,textDecoration:'none' }}>Email Ian</a>
+            {!isTransacted&&<button onClick={onRequest} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 20px',fontSize:15,fontWeight:700,cursor:'pointer' }}>Request Full Report &rarr;</button>}
+            <a href={`mailto:${CONTACT.email}`} style={{ background:'transparent',color: 'rgba(255,255,255,.72)',border:'1px solid rgba(255,255,255,.14)',padding:'9px 16px',fontSize:15,textDecoration:'none' }}>Email Ian</a>
           </div>
         </div>
       </div>
@@ -138,7 +138,7 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
     'Evercore','Moelis & Company','Jefferies','RBC Capital Markets','Wells Fargo',
     'Other',
   ];
-  const inp: React.CSSProperties = { width:'100%',background:'rgba(255,255,255,.05)',border:'1px solid rgba(255,255,255,.12)',color: 'rgba(255,255,255,.88)',padding:'9px 12px',fontSize:14,outline:'none',boxSizing:'border-box' };
+  const inp: React.CSSProperties = { width:'100%',background:'rgba(255,255,255,.05)',border:'1px solid rgba(255,255,255,.12)',color: 'rgba(255,255,255,.88)',padding:'9px 12px',fontSize:15,outline:'none',boxSizing:'border-box' };
   const set = (k:string,v:string)=>setForm(f=>({...f,[k]:v}));
   const handleFirmSelect = (v:string) => {
     if (v === 'Other') { setFirmOther(true); set('firm',''); }
@@ -156,9 +156,9 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
     <div style={{ position:'fixed',inset:0,zIndex:600,background:'rgba(4,9,18,.92)',display:'flex',alignItems:'center',justifyContent:'center',padding:20 }}>
       <div style={{ background:'#0c1a2e',border:'1px solid rgba(255,255,255,.12)',padding:'40px 32px',maxWidth:380,width:'100%',textAlign:'center' }}>
         <div style={{ fontSize:26,color:'#5974a0',marginBottom:10 }}>&#10003;</div>
-        <div style={{ fontSize:16,fontWeight:700,color:'#fff',marginBottom:7 }}>Request Submitted</div>
-        <p style={{ fontSize:14.5,color: 'rgba(255,255,255,.68)',lineHeight:1.6,marginBottom:20 }}>We&rsquo;ll confirm coverage within 24 hours.</p>
-        <button onClick={onClose} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 24px',fontSize:14.5,fontWeight:700,cursor:'pointer' }}>Done</button>
+        <div style={{ fontSize:17,fontWeight:700,color:'#fff',marginBottom:7 }}>Request Submitted</div>
+        <p style={{ fontSize:15,color: 'rgba(255,255,255,.68)',lineHeight:1.6,marginBottom:20 }}>We&rsquo;ll confirm coverage within 24 hours.</p>
+        <button onClick={onClose} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 24px',fontSize:15,fontWeight:700,cursor:'pointer' }}>Done</button>
       </div>
     </div>
   );
@@ -166,9 +166,9 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
     <div onClick={e=>e.target===e.currentTarget&&onClose()} style={{ position:'fixed',inset:0,zIndex:600,background:'rgba(4,9,18,.92)',backdropFilter:'blur(8px)',display:'flex',alignItems:'center',justifyContent:'center',padding:20 }}>
       <div style={{ background:'#0c1a2e',border:'1px solid rgba(255,255,255,.12)',maxWidth:460,width:'100%',position:'relative' }}>
         <div style={{ background:'linear-gradient(135deg,#0f1f38,#162d4a)',padding:'18px 22px',borderBottom:'1px solid rgba(255,255,255,.08)',position:'relative' }}>
-          <button onClick={onClose} style={{ position:'absolute',top:10,right:10,background:'rgba(255,255,255,.1)',border:'none',color: 'rgba(255,255,255,.7)',width:24,height:24,cursor:'pointer',fontSize:14,lineHeight:'24px',textAlign:'center' }}>x</button>
-          <div style={{ fontSize:14,fontWeight:700,color:'#fff',marginBottom:2 }}>Check Catalyst Coverage</div>
-          <p style={{ fontSize:13,color: 'rgba(255,255,255,.80)',margin:0 }}>Same-day if covered &middot; 14-day custom if not</p>
+          <button onClick={onClose} style={{ position:'absolute',top:10,right:10,background:'rgba(255,255,255,.1)',border:'none',color: 'rgba(255,255,255,.7)',width:24,height:24,cursor:'pointer',fontSize:15,lineHeight:'24px',textAlign:'center' }}>x</button>
+          <div style={{ fontSize:15,fontWeight:700,color:'#fff',marginBottom:2 }}>Check Catalyst Coverage</div>
+          <p style={{ fontSize:13.5,color: 'rgba(255,255,255,.80)',margin:0 }}>Same-day if covered &middot; 14-day custom if not</p>
         </div>
         <form onSubmit={submit} style={{ padding:'18px 22px',display:'flex',flexDirection:'column',gap:11 }}>
           <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:9 }}>
@@ -190,8 +190,8 @@ function RequestModal({ onClose }: { onClose:()=>void }) {
             <SelectField label="Org Type" options={ORG} value={form.orgType} onChange={v=>set('orgType',v)} required />
           </div>
           <div><label style={{ display:'block',fontSize: 11,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.82)',marginBottom:4 }}>Target Company or Mandate</label><input style={inp} placeholder="Company name" onChange={e=>set('mandate',e.target.value)} /></div>
-          {error&&<div style={{ fontSize:14.5,color:'#f87171',background:'rgba(248,113,113,.08)',border:'1px solid rgba(248,113,113,.2)',padding:'8px 12px' }}>{error}</div>}
-          <button type="submit" style={{ width:'100%',background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'10px',fontSize:14,fontWeight:700,cursor:'pointer',marginTop:2 }}>Submit &rarr;</button>
+          {error&&<div style={{ fontSize:15,color:'#f87171',background:'rgba(248,113,113,.08)',border:'1px solid rgba(248,113,113,.2)',padding:'8px 12px' }}>{error}</div>}
+          <button type="submit" style={{ width:'100%',background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'10px',fontSize:15,fontWeight:700,cursor:'pointer',marginTop:2 }}>Submit &rarr;</button>
         </form>
       </div>
     </div>
@@ -306,7 +306,7 @@ export default function CatalystPage() {
                 The only intelligence library that serves both sides of the same deal.
               </h2>
               <div style={{ display:'flex',flexDirection:'column',gap:10,alignItems:'flex-end',flexShrink:0 }}>
-                <button onClick={()=>setRequestOpen(true)} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 22px',fontSize:14.5,fontWeight:700,cursor:'pointer',whiteSpace:'nowrap' }}>
+                <button onClick={()=>setRequestOpen(true)} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 22px',fontSize:15,fontWeight:700,cursor:'pointer',whiteSpace:'nowrap' }}>
                   Check Coverage &rarr;
                 </button>
               </div>
@@ -326,12 +326,12 @@ export default function CatalystPage() {
             <div className="catalyst-proof-grid" style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:48,alignItems:'start' }}>
               <div>
                 <div style={{ fontSize: 11,fontWeight:700,letterSpacing:'.14em',textTransform:'uppercase',color:'rgba(120,144,178,.9)',marginBottom:10 }}>Proof &mdash; Both Sides of One Deal</div>
-                <p style={{ fontSize:14,fontWeight:300,color: 'rgba(255,255,255,.75)',lineHeight:1.75,marginBottom:4,fontStyle:'italic' }}>
+                <p style={{ fontSize:15,fontWeight:300,color: 'rgba(255,255,255,.75)',lineHeight:1.75,marginBottom:4,fontStyle:'italic' }}>
                   &ldquo;The same infrastructure that wins mandates for bankers identifies the next great asset for funds. It only works because the data is never curated for either side.&rdquo;
                 </p>
                 <div style={{ marginTop:16,paddingTop:16,borderTop:'1px solid rgba(120,144,178,.12)' }}>
-                  <div style={{ fontSize:13,fontWeight:700,color: 'rgba(255,255,255,.72)',letterSpacing:'.04em',marginBottom:2 }}>THE NERDIO DEAL</div>
-                  <div style={{ fontSize:13,color: 'rgba(255,255,255,.82)' }}>J.P. Morgan sell-side &middot; General Atlantic buy-side &middot; $500M Series C</div>
+                  <div style={{ fontSize:13.5,fontWeight:700,color: 'rgba(255,255,255,.72)',letterSpacing:'.04em',marginBottom:2 }}>THE NERDIO DEAL</div>
+                  <div style={{ fontSize:13.5,color: 'rgba(255,255,255,.82)' }}>J.P. Morgan sell-side &middot; General Atlantic buy-side &middot; $500M Series C</div>
                 </div>
               </div>
               <FlywheelDiagram />
@@ -342,16 +342,16 @@ export default function CatalystPage() {
           <div style={{ borderTop:'1px solid rgba(255,255,255,.08)',paddingTop:28 }}>
             <div style={{ display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:16,flexWrap:'wrap',gap:10 }}>
               <div>
-                <div style={{ fontSize:14,fontWeight:600,color: 'rgba(255,255,255,.8)',marginBottom:3 }}>{CATALYST_ASSETS.length} assets &mdash; identity locked until access granted</div>
-                <div style={{ fontSize:13,color: 'rgba(255,255,255,.82)' }}>Transacted assets unblinded post-close. Active assets remain code-named.</div>
+                <div style={{ fontSize:15,fontWeight:600,color: 'rgba(255,255,255,.8)',marginBottom:3 }}>{CATALYST_ASSETS.length} assets &mdash; identity locked until access granted</div>
+                <div style={{ fontSize:13.5,color: 'rgba(255,255,255,.82)' }}>Transacted assets unblinded post-close. Active assets remain code-named.</div>
               </div>
               <div style={{ display:'flex',gap:6,alignItems:'center' }}>
                 {(['all','active','new','transacted'] as FilterType[]).map(f=>(
-                  <button key={f} onClick={()=>setFilter(f)} style={{ padding:'5px 13px',fontSize:13,fontWeight:600,background:filter===f?'rgba(255,255,255,.12)':'transparent',border:'1px solid rgba(255,255,255,.12)',color:filter===f?'rgba(255,255,255,.95)':'rgba(255,255,255,.82)',cursor:'pointer',textTransform:'capitalize' }}>
+                  <button key={f} onClick={()=>setFilter(f)} style={{ padding:'5px 13px',fontSize:13.5,fontWeight:600,background:filter===f?'rgba(255,255,255,.12)':'transparent',border:'1px solid rgba(255,255,255,.12)',color:filter===f?'rgba(255,255,255,.95)':'rgba(255,255,255,.82)',cursor:'pointer',textTransform:'capitalize' }}>
                     {f==='all'?`All (${CATALYST_ASSETS.length})`:f==='transacted'?'Transacted':f.charAt(0).toUpperCase()+f.slice(1)}
                   </button>
                 ))}
-                <button onClick={()=>setRequestOpen(true)} style={{ padding:'5px 14px',fontSize:13,fontWeight:700,background:'rgba(255,255,255,.88)',color:'#050d18',border:'none',cursor:'pointer',marginLeft:4 }}>Check Coverage &rarr;</button>
+                <button onClick={()=>setRequestOpen(true)} style={{ padding:'5px 14px',fontSize:13.5,fontWeight:700,background:'rgba(255,255,255,.88)',color:'#050d18',border:'none',cursor:'pointer',marginLeft:4 }}>Check Coverage &rarr;</button>
               </div>
             </div>
             <div className="catalyst-table-wrap">
@@ -375,15 +375,15 @@ export default function CatalystPage() {
                         onMouseLeave={e=>(e.currentTarget.style.background='transparent')}>
                         <td style={{ padding:'12px 14px' }}><AssetNameCell asset={a} isFirst={i===firstTransactedIdx} /></td>
                         <td style={{ padding:'12px 14px' }}>
-                          <div style={{ fontSize:14.5,color: 'rgba(255,255,255,.75)' }}>{a.category}</div>
-                          <div style={{ fontSize:13,color: 'rgba(255,255,255,.72)',fontStyle:'italic' }}>{a.subtitle}</div>
+                          <div style={{ fontSize:15,color: 'rgba(255,255,255,.75)' }}>{a.category}</div>
+                          <div style={{ fontSize:13.5,color: 'rgba(255,255,255,.72)',fontStyle:'italic' }}>{a.subtitle}</div>
                         </td>
-                        <td style={{ padding:'12px 14px',fontSize:14.5,fontWeight:600,color:'rgba(166,183,210,.8)',fontFamily:'JetBrains Mono,monospace' }}>{a.keyMetric}</td>
+                        <td style={{ padding:'12px 14px',fontSize:15,fontWeight:600,color:'rgba(166,183,210,.8)',fontFamily:'JetBrains Mono,monospace' }}>{a.keyMetric}</td>
                         <td style={{ padding:'12px 14px' }}>
                           <span style={{ fontSize: 11,fontWeight:700,color:s.color,background:s.bg,border:`1px solid ${s.border}`,padding:'3px 9px',letterSpacing:'.06em',textTransform:'uppercase',whiteSpace:'nowrap' }}>{s.label}</span>
                         </td>
                         <td style={{ padding:'12px 14px' }}>
-                          <button onClick={e=>{e.stopPropagation();isTransacted?setSelectedAsset(a):setRequestOpen(true);}} style={{ background:'rgba(255,255,255,.07)',border:'1px solid rgba(255,255,255,.12)',color: 'rgba(255,255,255,.75)',padding:'5px 12px',fontSize:13,cursor:'pointer',whiteSpace:'nowrap' }}>
+                          <button onClick={e=>{e.stopPropagation();isTransacted?setSelectedAsset(a):setRequestOpen(true);}} style={{ background:'rgba(255,255,255,.07)',border:'1px solid rgba(255,255,255,.12)',color: 'rgba(255,255,255,.75)',padding:'5px 12px',fontSize:13.5,cursor:'pointer',whiteSpace:'nowrap' }}>
                             {isTransacted?'View Research':'Request Access'}
                           </button>
                         </td>

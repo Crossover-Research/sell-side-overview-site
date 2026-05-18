@@ -153,7 +153,7 @@ export function EvidenceTable() {
           <div className="ib-section-eyebrow" style={{ marginBottom:10 }}>With vs. Without Crossover</div>
           <div style={{ marginBottom:24 }}>
             <h2 style={{ fontSize:'clamp(22px,3vw,34px)', fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.03em', margin:0, lineHeight:1.15 }}>
-              Every party works from a different version<br />of the truth. Evidence fixes that.
+              Every party works from a different version<br />of the truth. Customer Voice fixes that.
             </h2>
           </div>
 
@@ -164,7 +164,7 @@ export function EvidenceTable() {
                 key={a.id}
                 onClick={() => setActive(a.id)}
                 style={{
-                  fontSize:14, fontWeight:600, padding:'10px 26px', cursor:'pointer',
+                  fontSize:15, fontWeight:600, padding:'10px 26px', cursor:'pointer',
                   background: active===a.id ? a.bg : 'rgba(255,255,255,.03)',
                   border: `1px solid ${active===a.id ? a.color : 'rgba(255,255,255,.18)'}`,
                   color: active===a.id ? a.color : 'rgba(255,255,255,.78)',
@@ -181,11 +181,11 @@ export function EvidenceTable() {
           {/* Column headers */}
           <div style={{ display:'grid', gridTemplateColumns:'200px 1fr 36px 1fr', background:'rgba(255,255,255,.04)', borderBottom:'1px solid rgba(255,255,255,.09)' }}>
             <div style={{ padding:'12px 18px' }} />
-            <div style={{ padding:'12px 18px', fontSize:13, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(255,255,255,.78)', borderLeft:'1px solid rgba(255,255,255,.07)' }}>
+            <div style={{ padding:'12px 18px', fontSize:13.5, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(255,255,255,.78)', borderLeft:'1px solid rgba(255,255,255,.07)' }}>
               Without Crossover
             </div>
             <div />
-            <div style={{ padding:'12px 18px', fontSize:13, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:aud.color, borderLeft:'1px solid rgba(255,255,255,.07)', transition:'color .2s' }}>
+            <div style={{ padding:'12px 18px', fontSize:13.5, fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:aud.color, borderLeft:'1px solid rgba(255,255,255,.07)', transition:'color .2s' }}>
               With Crossover
             </div>
           </div>
@@ -202,29 +202,29 @@ export function EvidenceTable() {
             >
               {/* Row label */}
               <div style={{ padding:'20px 14px', display:'flex', alignItems:'center', borderRight:'1px solid rgba(255,255,255,.05)' }}>
-                <span style={{ fontSize:11, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase', color:'rgba(255,255,255,.88)', background:'rgba(255,255,255,.10)', padding:'4px 10px', whiteSpace:'nowrap' }}>
+                <span style={{ fontSize:12, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase', color:'rgba(255,255,255,.88)', background:'rgba(255,255,255,.10)', padding:'4px 10px', whiteSpace:'nowrap' }}>
                   {row.label}
                 </span>
               </div>
 
               {/* Without */}
               <div style={{ padding:'20px 20px', borderRight:'1px solid rgba(255,255,255,.05)' }}>
-                <div style={{ fontSize:14.5, color:'rgba(255,255,255,.85)', lineHeight:1.75, marginBottom:8 }}>
+                <div style={{ fontSize:15, color:'rgba(255,255,255,.85)', lineHeight:1.75, marginBottom:8 }}>
                   {row.without[active]}
                 </div>
-                <div style={{ fontSize:14, fontWeight:600, color:'rgba(245,158,11,.95)', lineHeight:1.5 }}>
+                <div style={{ fontSize:15, fontWeight:600, color:'rgba(245,158,11,.95)', lineHeight:1.5 }}>
                   {row.cost[active]}
                 </div>
               </div>
 
               {/* Arrow */}
               <div style={{ display:'flex', alignItems:'center', justifyContent:'center', borderRight:'1px solid rgba(255,255,255,.05)' }}>
-                <span style={{ fontSize:14, color:aud.color, opacity:.5 }}>→</span>
+                <span style={{ fontSize:15, color:aud.color, opacity:.5 }}>→</span>
               </div>
 
               {/* With */}
               <div style={{ padding:'20px 20px' }}>
-                <div style={{ fontSize:14.5, color:'rgba(255,255,255,.92)', lineHeight:1.75 }}>
+                <div style={{ fontSize:15, color:'rgba(255,255,255,.92)', lineHeight:1.75 }}>
                   {row.withText[active]}{row.withText[active] ? ' ' : ''}
                   <strong style={{ color:aud.color, fontWeight:600 }}>{row.withBold[active]}</strong>
                 </div>
@@ -238,13 +238,13 @@ export function EvidenceTable() {
           {outcome.stat && (
             <>
               <div style={{ flexShrink:0, textAlign:'center', minWidth:80 }}>
-                <div style={{ fontFamily:'var(--font-mono)', fontSize:28, fontWeight:700, color:aud.color, lineHeight:1, letterSpacing:'-.02em', marginBottom:4 }}>{outcome.stat}</div>
-                <div style={{ fontSize:11.5, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.75)' }}>{outcome.statLabel}</div>
+                <div style={{ fontFamily:'var(--font-mono)', fontSize:30, fontWeight:700, color:aud.color, lineHeight:1, letterSpacing:'-.02em', marginBottom:4 }}>{outcome.stat}</div>
+                <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,.75)' }}>{outcome.statLabel}</div>
               </div>
               <div style={{ width:1, height:44, background:'rgba(255,255,255,.08)', flexShrink:0 }} />
             </>
           )}
-          <div style={{ fontSize:14.5, color:'rgba(255,255,255,.88)', lineHeight:1.75 }}>{outcome.desc}</div>
+          <div style={{ fontSize:15, color:'rgba(255,255,255,.88)', lineHeight:1.75 }}>{outcome.desc}</div>
         </div>
 
       </div>

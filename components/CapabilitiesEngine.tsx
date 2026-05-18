@@ -4,30 +4,30 @@ import { useState } from 'react';
 const STAGES = [
   {
     num: '01',
-    name: 'Sector Research',
-    timing: '6–12 months pre-process',
-    headline: 'Convert pipeline before competitors know the process is live.',
-    desc: 'Customer evidence before management has briefed anyone.',
-    tags: ['No management contact', 'Line of sight'],
-    cta: 'Start Sector Research',
+    name: 'Mandate Pitch Deck',
+    timing: 'Mandate pursuit',
+    headline: 'Win the mandate with customer evidence no competing bank can replicate.',
+    desc: 'Independent verbatims delivered in time for the pitch.',
+    tags: ['2–3 weeks', '20–30 customers'],
+    cta: 'Scope a Mandate Pitch',
   },
   {
     num: '02',
-    name: 'Mandate Pitch',
-    timing: 'Pre-process / RFP stage',
-    headline: 'Win RFPs with proof the operator has never seen.',
-    desc: '',
-    tags: ['Independent verbatims', 'Operator-resonant'],
-    cta: 'Prep a Mandate Pitch',
+    name: 'VoC-Enhanced CIM',
+    timing: 'Sell-side process launch',
+    headline: 'Every weak claim pre-validated before buyers find it.',
+    desc: 'Every CIM claim backed by independent customer evidence.',
+    tags: ['4–5 weeks', '30–50 customers'],
+    cta: 'Scope a VoC CIM',
   },
   {
     num: '03',
-    name: 'CIM Enhancement',
-    timing: 'Pre-launch / CIM stage',
-    headline: 'Customer-backed proof points that close the CIM gaps before buyers open them.',
-    desc: 'Every weak claim pre-validated before diligence opens.',
-    tags: ['40+ benchmark studies', 'Buyer-proof narrative'],
-    cta: 'Enhance the CIM',
+    name: 'Customer Diligence Report',
+    timing: 'Pre-process conviction',
+    headline: 'Conviction before the teaser drops.',
+    desc: 'Independent commercial diligence ahead of the formal process.',
+    tags: ['5–7 weeks', '50–100+ customers'],
+    cta: 'Scope a Diligence Report',
   },
 ];
 
@@ -53,7 +53,7 @@ export function CapabilitiesEngine() {
             <a
               href="/intelligence?request=1"
               style={{
-                fontSize:14.5, fontWeight:600, color:'rgba(180,210,255,.85)',
+                fontSize:15, fontWeight:600, color:'rgba(180,210,255,.85)',
                 border:'1px solid rgba(120,144,178,.28)', padding:'8px 18px',
                 textDecoration:'none', whiteSpace:'nowrap', flexShrink:0,
                 transition:'all .15s', background:'rgba(120,144,178,.05)',
@@ -67,7 +67,7 @@ export function CapabilitiesEngine() {
         </div>
 
         {/* Entry point label */}
-        <div style={{ fontSize:13, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(255,255,255,.82)', marginBottom:10 }}>
+        <div style={{ fontSize:13.5, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(255,255,255,.82)', marginBottom:10 }}>
           Entry points
         </div>
 
@@ -92,17 +92,17 @@ export function CapabilitiesEngine() {
                 {/* Stage label */}
                 <div style={{ padding:'22px 20px', borderRight:'1px solid rgba(255,255,255,.06)' }}>
                   <div style={{ fontSize:15, fontWeight:700, color: isActive ? 'rgba(255,255,255,.97)' : 'rgba(255,255,255,.92)', lineHeight:1.3, marginBottom:6 }}>{s.name}</div>
-                  <div style={{ fontSize:13, color:'rgba(166,183,210,.85)', letterSpacing:'.02em' }}>{s.timing}</div>
+                  <div style={{ fontSize:13.5, color:'rgba(166,183,210,.85)', letterSpacing:'.02em' }}>{s.timing}</div>
                 </div>
 
                 {/* Content */}
                 <div style={{ padding:'22px 28px' }}>
                   <div style={{ fontSize:15, fontWeight:600, color:'rgba(255,255,255,.96)', marginBottom:8, lineHeight:1.4 }}>{s.headline}</div>
-                  <div style={{ fontSize:14.5, color:'rgba(255,255,255,.82)', lineHeight:1.7, marginBottom:10 }}>{s.desc}</div>
+                  <div style={{ fontSize:15, color:'rgba(255,255,255,.82)', lineHeight:1.7, marginBottom:10 }}>{s.desc}</div>
                   <div style={{ display:'flex', gap:5, flexWrap:'wrap' }}>
                     {s.tags.map((t, ti) => (
                       <span key={ti} style={{
-                        fontSize:14.5, fontWeight:600,
+                        fontSize:15, fontWeight:600,
                         color: isActive ? 'rgba(190,210,232,.95)' : 'rgba(255,255,255,.78)',
                         background: isActive ? 'rgba(120,144,178,.16)' : 'rgba(255,255,255,.06)',
                         border:`1px solid ${isActive ? 'rgba(120,144,178,.35)' : 'rgba(255,255,255,.12)'}`,
@@ -118,7 +118,7 @@ export function CapabilitiesEngine() {
                     href="/intelligence?request=1"
                     onClick={e => e.stopPropagation()}
                     style={{
-                      fontSize:14, fontWeight:700,
+                      fontSize:15, fontWeight:700,
                       color: isActive ? 'rgba(190,210,232,.97)' : 'rgba(255,255,255,.75)',
                       letterSpacing:'.03em', textDecoration:'none', whiteSpace:'nowrap',
                       transition:'color .15s',

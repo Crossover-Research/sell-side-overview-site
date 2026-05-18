@@ -13,7 +13,7 @@ export function TabNav() {
       <nav className="tab-nav" style={{ alignItems: 'center' }}>
         <a href="/intelligence" className={`tab-btn tab-primary${isIntel ? ' active' : ''}`}>Intelligence Platform</a>
         <div className="tab-nav-divider" />
-        <a href="/qofai"        className={`tab-btn tab-primary${isQofAI ? ' active' : ''}`}>Q of AI</a>
+        <a href="/qofai"        className={`tab-btn tab-primary${isQofAI ? ' active' : ''}`}>Voice of Customer</a>
         <div className="tab-nav-divider" />
         <a href="/catalyst"     className={`tab-btn tab-primary${isCatalyst ? ' active' : ''}`}>Catalyst Library</a>
         <div className="tab-nav-divider" />
