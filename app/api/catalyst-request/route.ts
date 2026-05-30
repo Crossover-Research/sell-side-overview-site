@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
+import { getAdminClient } from '@/lib/supabase/admin';
 
 async function getZohoAccessToken(): Promise<string | null> {
   try {
@@ -58,17 +58,32 @@ async function sendCliqNotification(text: string): Promise<void> {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { firstName, lastName, email, firm, orgType, mandate } = body;
 
-    // ── Supabase write (service role key. bypasses RLS) ────────────────────
+    // ── Input validation ─────────────────────────────────────────────────────
+    const requiredFields = ['firstName', 'lastName', 'email', 'firm', 'orgType'] as const;
+    for (const field of requiredFields) {
+      if (!body[field] || typeof body[field] !== 'string' || !String(body[field]).trim()) {
+        return NextResponse.json({ error: `Missing required field: ${field}` }, { status: 400 });
+      }
+    }
+
+    const firstName = String(body.firstName).trim().slice(0, 100);
+    const lastName  = String(body.lastName).trim().slice(0, 100);
+    const email     = String(body.email).trim().toLowerCase().slice(0, 255);
+    const firm      = String(body.firm).trim().slice(0, 200);
+    const orgType   = String(body.orgType).trim().slice(0, 100);
+    const mandate   = body.mandate ? String(body.mandate).trim().slice(0, 500) : null;
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return NextResponse.json({ error: 'Invalid email format' }, { status: 400 });
+    }
+
+    // ── Supabase write (server-side admin client via shared helper) ───────────
     try {
-      const supabase = createClient(
-        process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.SUPABASE_SERVICE_ROLE_KEY!,
-      );
+      const supabase = getAdminClient();
       const { error } = await supabase.from('catalyst_requests').insert([{
-        first_name: firstName,
-        last_name:  lastName,
+        first_name:   firstName,
+        last_name:    lastName,
         email,
         firm,
         org_type:     orgType,
@@ -81,9 +96,9 @@ export async function POST(request: Request) {
     }
 
     // ── Email + Cliq notification ────────────────────────────────────────────
-    const notifyTo    = process.env.NOTIFY_TO_EMAIL ?? 'ian@crossoverresearch.com';
-    const subject     = `New Catalyst Request. ${firstName} ${lastName} · ${firm}`;
-    const htmlBody    = `
+    const notifyTo = process.env.NOTIFY_TO_EMAIL ?? 'ian@crossoverresearch.com';
+    const subject  = `New Catalyst Request. ${firstName} ${lastName} · ${firm}`;
+    const htmlBody = `
       <div style="font-family:sans-serif;max-width:520px;margin:0 auto;padding:24px">
         <h2 style="margin:0 0 16px">New Catalyst Request</h2>
         <table style="width:100%;border-collapse:collapse;font-size:14px">
@@ -102,7 +117,6 @@ export async function POST(request: Request) {
       emailSent = await sendZohoEmail(accessToken, notifyTo, subject, htmlBody);
     }
 
-    // Always send Cliq. guaranteed channel
     const cliqText = `*New Catalyst Request*\n*Name:* ${firstName} ${lastName}\n*Email:* ${email}\n*Firm:* ${firm} (${orgType})\n*Target:* ${mandate || 'not specified'}${emailSent ? '' : '\n_(email notification failed. check Zoho scopes)_'}`;
     await sendCliqNotification(cliqText);
 
