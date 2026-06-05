@@ -40,6 +40,20 @@ const CONFIGS: Record<string, {
     ],
     reportUrl: 'https://yvkbfmdugujhxerdopcm.supabase.co/storage/v1/object/public/public-assets/bluecat-catalyst.pdf',
   },
+  nerdio: {
+    company: 'Nerdio',
+    logoSrc: '/nerdio-logo.svg',
+    invertLogo: false,
+    product: 'Azure Virtual Desktop Management & Automation',
+    studyId: 'Voice of Customer · 21 verified Enterprise & MSP respondents',
+    color: '#1C9DB9',
+    kpis: [
+      { val: '9.0', lbl: 'Recommend' },
+      { val: '8.3', lbl: 'Mission Criticality' },
+      { val: '8.5', lbl: 'Feature Strength' },
+    ],
+    reportUrl: 'https://yvkbfmdugujhxerdopcm.supabase.co/storage/v1/object/public/public-assets/nerdio-catalyst.pdf',
+  },
 };
 
 interface ResearchHeaderProps { tab: string; }
