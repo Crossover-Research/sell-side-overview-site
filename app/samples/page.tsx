@@ -4,10 +4,10 @@ export default function SamplesPage() {
       <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(166,183,210,.85)', marginBottom: 16 }}>Research Samples</div>
       <h1 style={{ fontSize: 28, fontWeight: 700, color: 'rgba(255,255,255,.92)', marginBottom: 8, lineHeight: 1.2 }}>Live Catalyst Studies</h1>
       <p style={{ fontSize: 14, color: 'rgba(255,255,255,.72)', lineHeight: 1.65, marginBottom: 40 }}>
-        Two live examples of the intelligence your deal team receives. Verbatim evidence, competitive benchmarking, IC-ready data, accessible now.
+        Live examples of the intelligence your deal team receives. Verbatim evidence, competitive benchmarking, IC-ready data, accessible now.
       </p>
 
-      {/* All three cards in the same grid */}
+      {/* All cards in the same grid */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16 }}>
 
         <a href="/redcanary" style={{ display:'flex', flexDirection:'column', background:'rgba(255,255,255,.03)', border:'1px solid rgba(255,255,255,.1)', padding:'28px 32px', textDecoration:'none', minHeight:220 }}>
@@ -26,6 +26,14 @@ export default function SamplesPage() {
           <div style={{ fontSize:15, fontWeight:600, color:'rgba(166,183,210,.8)', marginTop:16 }}>View Study &rarr;</div>
         </a>
 
+        <a href="/nerdio" style={{ display:'flex', flexDirection:'column', background:'rgba(255,255,255,.03)', border:'1px solid rgba(255,255,255,.1)', padding:'28px 32px', textDecoration:'none', minHeight:220 }}>
+          <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(166,183,210,.85)', marginBottom:14 }}>Nerdio &middot; Azure Virtual Desktop Management</div>
+          <div style={{ flex:1, display:'flex', alignItems:'center' }}>
+            <img src="/nerdio-logo.svg" alt="Nerdio" style={{ height:24, width:'auto', maxWidth:200 }} />
+          </div>
+          <div style={{ fontSize:15, fontWeight:600, color:'rgba(166,183,210,.8)', marginTop:16 }}>View Study &rarr;</div>
+        </a>
+
         {/* Battery Ventures card. matches other card structure */}
         <a
           href="https://www.battery.com/blog/first-coding-next-finance-ai-adoption-comes-to-the-cfo-suite/"
@@ -38,6 +46,22 @@ export default function SamplesPage() {
           </div>
           <div style={{ flex:1, display:'flex', alignItems:'center' }}>
             <img src="/battery-ventures-logo.svg" alt="Battery Ventures" style={{ height:28, width:'auto', maxWidth:200 }} />
+          </div>
+          <div style={{ fontSize:15, fontWeight:600, color:'rgba(166,183,210,.8)', marginTop:16 }}>Read Report &rarr;</div>
+        </a>
+
+        {/* Crossover Intelligence VoC report. external link */}
+        <a
+          href="https://sample.crossoverintelligence.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ display:'flex', flexDirection:'column', background:'rgba(255,255,255,.03)', border:'1px solid rgba(255,255,255,.1)', padding:'28px 32px', textDecoration:'none', minHeight:220 }}
+        >
+          <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(166,183,210,.85)', marginBottom:14 }}>
+            VoC Report &middot; Competitive Intelligence &amp; Displacement
+          </div>
+          <div style={{ flex:1, display:'flex', alignItems:'center' }}>
+            <span style={{ fontSize:20, fontWeight:700, color:'rgba(255,255,255,.92)', letterSpacing:'-.01em' }}>Crossover Intelligence</span>
           </div>
           <div style={{ fontSize:15, fontWeight:600, color:'rgba(166,183,210,.8)', marginTop:16 }}>Read Report &rarr;</div>
         </a>
