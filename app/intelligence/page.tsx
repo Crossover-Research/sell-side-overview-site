@@ -1,6 +1,5 @@
 'use client';
 import { HeroSection } from '../../components/HeroSection';
-import { CATALYST_LIVE_COUNT, CATALYST_LIVE_STATUS } from '../../lib/data/catalystAssets';
 import { CONTACT } from '../../lib/config/site';
 import { CapabilitiesEngine } from '../../components/CapabilitiesEngine';
 import { EvidenceTable } from '../../components/EvidenceTable';
@@ -54,8 +53,6 @@ export default function IntelligencePage() {
       {/* SAMPLE STUDIES */}
       <section id="samples" className="ib-section">
         <div className="ib-inner">
-          <h2 className="ib-section-title" style={{ marginBottom:16 }}>See exactly what your client receives</h2>
-
           {/* 4 equal-width sample cards */}
           <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:1, background:'rgba(255,255,255,.07)', marginBottom:1 }}>
             <SampleCard href="/redcanary" type="Cybersecurity MDR" badge="Catalyst" logoSrc="/red-canary-logo.svg" logoAlt="Red Canary" logoInvert={false} cta="View Study" />
@@ -108,23 +105,7 @@ export default function IntelligencePage() {
           >
             <div style={{ display:'flex', alignItems:'center', gap:24 }}>
               <div>
-                <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.72)', marginBottom:4 }}>Catalyst Library</div>
-                <div style={{ fontSize:22, fontWeight:700, color:'rgba(255,255,255,.95)', letterSpacing:'-.02em' }}>
-                  {CATALYST_LIVE_COUNT} Assets
-                </div>
-              </div>
-              <div style={{ width:1, height:36, background:'rgba(255,255,255,.08)' }} />
-              <div style={{ display:'flex', gap:16 }}>
-                {(['transacted','active','new'] as const).map(s => {
-                  const n = CATALYST_LIVE_STATUS[s];
-                  const cfg = { transacted:{ color:'rgba(180,180,200,.72)' as const, label:'Closed' }, active:{ color:'rgba(89,116,154,.88)' as const, label:'Active' }, new:{ color:'rgba(245,158,11,.88)' as const, label:'New' } };
-                  return n > 0 ? (
-                    <div key={s} style={{ textAlign:'center' }}>
-                      <div style={{ fontSize:20, fontWeight:700, color:cfg[s].color, letterSpacing:'-.02em', lineHeight:1 }}>{n}</div>
-                      <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase', color:cfg[s].color, opacity:.7, marginTop:3 }}>{cfg[s].label}</div>
-                    </div>
-                  ) : null;
-                })}
+                <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.72)' }}>Catalyst Library</div>
               </div>
             </div>
             <div style={{ fontSize:15, fontWeight:700, color:'rgba(166,183,210,.85)', whiteSpace:'nowrap' }}>
