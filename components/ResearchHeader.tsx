@@ -104,7 +104,7 @@ export function ResearchHeader({ tab }: ResearchHeaderProps) {
             target="_blank"
             rel="noopener noreferrer"
             download
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 7, padding: '7px 16px', marginLeft: 16, background: `${cfg.color}20`, border: `1px solid ${cfg.color}50`, color: cfg.color, fontSize: 11, fontWeight: 700, textDecoration: 'none', letterSpacing: '.04em', whiteSpace: 'nowrap' as const, transition: 'all .15s' }}
+            style={{ display: 'none', alignItems: 'center', gap: 7, padding: '7px 16px', marginLeft: 16, background: `${cfg.color}20`, border: `1px solid ${cfg.color}50`, color: cfg.color, fontSize: 11, fontWeight: 700, textDecoration: 'none', letterSpacing: '.04em', whiteSpace: 'nowrap' as const, transition: 'all .15s' }}
           >
             <DownloadIcon />
             Download PDF
