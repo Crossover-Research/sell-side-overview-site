@@ -58,21 +58,21 @@ export default function IntelligencePage() {
             <SampleCard href="/redcanary" type="Cybersecurity MDR" badge="Catalyst" logoSrc="/red-canary-logo.svg" logoAlt="Red Canary" logoInvert={false} cta="View Study" />
             <SampleCard href="/bluecat" type="Network Infrastructure" badge="Catalyst" logoSrc="/bluecat-logo.svg" logoAlt="BlueCat Networks" logoInvert={true} cta="View Study" />
 
-            {/* Volie card */}
+            {/* Project Dialtone sample card */}
             <a
-              href="https://volie.crossoverintelligence.com/"
+              href="/automotive-bdc-playbook.html"
               target="_blank" rel="noopener noreferrer"
               className="ib-sample-card"
               style={{ display:'flex', flexDirection:'column', justifyContent:'space-between', textDecoration:'none', position:'relative' }}
             >
               <div style={{ position:'absolute', top:14, right:14, fontSize:12, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(120,144,178,.95)', background:'rgba(120,144,178,.12)', border:'1px solid rgba(120,144,178,.3)', padding:'2px 8px' }}>
-                Live Portal
+                Sample
               </div>
-              <div className="ib-sample-type">Client Proposal</div>
+              <div className="ib-sample-type">Operator Rebuttal Playbook</div>
               <div className="ib-sample-logo-wrap" style={{ display:'flex', alignItems:'center', flex:1 }}>
-                <div style={{ fontSize:20, fontWeight:700, color:'rgba(255,255,255,.92)', letterSpacing:'-.02em' }}>Volie</div>
+                <div style={{ fontSize:20, fontWeight:700, color:'rgba(255,255,255,.92)', letterSpacing:'-.02em' }}>Project Dialtone</div>
               </div>
-              <div className="ib-sample-link">View Live Portal ↗</div>
+              <div className="ib-sample-link">View Sample ↗</div>
             </a>
 
             {/* Intelligence Report card */}
