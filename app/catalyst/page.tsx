@@ -4,7 +4,6 @@ import { ProductArchitecture } from '../../components/ProductArchitecture';
 import { FlywheelDiagram } from '../../components/FlywheelDiagram';
 import { CATALYST_ASSETS, CATALYST_LIVE_COUNT, CATALYST_LIVE_STATUS, type CatalystAsset } from '../../lib/data/catalystAssets';
 import { CONTACT } from '../../lib/config/site';
-import { SelectField } from '../../components/SelectField';
 
 type FilterType = 'all' | 'active' | 'new' | 'transacted';
 
@@ -84,7 +83,7 @@ function AssetNameCell({ asset, isFirst }: { asset: CatalystAsset; isFirst?: boo
   );
 }
 
-function TeaserModal({ asset, onClose, onRequest }: { asset: CatalystAsset; onClose:()=>void; onRequest:()=>void }) {
+function TeaserModal({ asset, onClose }: { asset: CatalystAsset; onClose:()=>void }) {
   const isTransacted = asset.status==='transacted';
   return (
     <div onClick={e=>e.target===e.currentTarget&&onClose()} style={{ position:'fixed',inset:0,zIndex:500,background:'rgba(4,9,18,.88)',backdropFilter:'blur(8px)',display:'flex',alignItems:'center',justifyContent:'center',padding:20 }}>
@@ -117,7 +116,6 @@ function TeaserModal({ asset, onClose, onRequest }: { asset: CatalystAsset; onCl
             <div key={i} style={{ borderLeft:'2px solid rgba(120,144,178,.3)',paddingLeft:11,marginBottom:9,fontSize:15,color: 'rgba(255,255,255,.85)',fontStyle:'italic',lineHeight:1.6 }}>"{q}"</div>
           ))}
           <div style={{ display:'flex',gap:9,marginTop:18,justifyContent:'flex-end' }}>
-            {!isTransacted&&<button onClick={onRequest} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 20px',fontSize:15,fontWeight:700,cursor:'pointer' }}>Request Full Report &rarr;</button>}
             <a href={`mailto:${CONTACT.email}`} style={{ background:'transparent',color: 'rgba(255,255,255,.82)',border:'1px solid rgba(255,255,255,.14)',padding:'9px 16px',fontSize:15,textDecoration:'none' }}>Email Ian</a>
           </div>
         </div>
@@ -125,79 +123,6 @@ function TeaserModal({ asset, onClose, onRequest }: { asset: CatalystAsset; onCl
     </div>
   );
 }
-
-function RequestModal({ onClose }: { onClose:()=>void }) {
-  const [sent, setSent] = useState(false);
-  const [error, setError] = useState('');
-  const [firmOther, setFirmOther] = useState(false);
-  const [form, setForm] = useState({ firstName:'',lastName:'',email:'',firm:'',orgType:'Investment Bank',mandate:'' });
-  const ORG = ['Investment Bank','Private Equity','Growth Equity','Venture Capital','Strategic'];
-  const BANKS = [
-    'Goldman Sachs','J.P. Morgan','Morgan Stanley','Bank of America','Citi',
-    'Barclays','Deutsche Bank','UBS','Credit Suisse','Lazard',
-    'Evercore','Moelis & Company','Jefferies','RBC Capital Markets','Wells Fargo',
-    'Other',
-  ];
-  const inp: React.CSSProperties = { width:'100%',background:'rgba(255,255,255,.05)',border:'1px solid rgba(255,255,255,.12)',color: 'rgba(255,255,255,.88)',padding:'9px 12px',fontSize:15,outline:'none',boxSizing:'border-box' };
-  const set = (k:string,v:string)=>setForm(f=>({...f,[k]:v}));
-  const handleFirmSelect = (v:string) => {
-    if (v === 'Other') { setFirmOther(true); set('firm',''); }
-    else { setFirmOther(false); set('firm', v); }
-  };
-  const submit = async(e:React.FormEvent)=>{
-    e.preventDefault(); setError('');
-    try {
-      const res = await fetch('/api/catalyst-request',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(form)});
-      if(!res.ok) throw new Error('failed');
-      setSent(true);
-    } catch { setError(`Something went wrong. Email ${CONTACT.email} directly.`); }
-  };
-  if(sent) return(
-    <div style={{ position:'fixed',inset:0,zIndex:600,background:'rgba(4,9,18,.92)',display:'flex',alignItems:'center',justifyContent:'center',padding:20 }}>
-      <div style={{ background:'#0c1a2e',border:'1px solid rgba(255,255,255,.12)',padding:'40px 32px',maxWidth:380,width:'100%',textAlign:'center' }}>
-        <div style={{ fontSize:26,color:'#5974a0',marginBottom:10 }}>&#10003;</div>
-        <div style={{ fontSize:17,fontWeight:700,color:'#fff',marginBottom:7 }}>Request Submitted</div>
-        <p style={{ fontSize:15,color: 'rgba(255,255,255,.82)',lineHeight:1.6,marginBottom:20 }}>We&rsquo;ll confirm coverage within 24 hours.</p>
-        <button onClick={onClose} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 24px',fontSize:15,fontWeight:700,cursor:'pointer' }}>Done</button>
-      </div>
-    </div>
-  );
-  return(
-    <div onClick={e=>e.target===e.currentTarget&&onClose()} style={{ position:'fixed',inset:0,zIndex:600,background:'rgba(4,9,18,.92)',backdropFilter:'blur(8px)',display:'flex',alignItems:'center',justifyContent:'center',padding:20 }}>
-      <div style={{ background:'#0c1a2e',border:'1px solid rgba(255,255,255,.12)',maxWidth:460,width:'100%',position:'relative' }}>
-        <div style={{ background:'linear-gradient(135deg,#0f1f38,#162d4a)',padding:'18px 22px',borderBottom:'1px solid rgba(255,255,255,.08)',position:'relative' }}>
-          <button onClick={onClose} style={{ position:'absolute',top:10,right:10,background:'rgba(255,255,255,.1)',border:'none',color: 'rgba(255,255,255,.82)',width:24,height:24,cursor:'pointer',fontSize:15,lineHeight:'24px',textAlign:'center' }}>x</button>
-          <div style={{ fontSize:15,fontWeight:700,color:'#fff',marginBottom:2 }}>Check Catalyst Coverage</div>
-          <p style={{ fontSize:13.5,color: 'rgba(255,255,255,.80)',margin:0 }}>Same-day if covered &middot; 14-day custom if not</p>
-        </div>
-        <form onSubmit={submit} style={{ padding:'18px 22px',display:'flex',flexDirection:'column',gap:11 }}>
-          <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:9 }}>
-            <div><label style={{ display:'block',fontSize: 11,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.82)',marginBottom:4 }}>First Name *</label><input required style={inp} placeholder="Jordan" onChange={e=>set('firstName',e.target.value)} /></div>
-            <div><label style={{ display:'block',fontSize: 11,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.82)',marginBottom:4 }}>Last Name *</label><input required style={inp} placeholder="Keller" onChange={e=>set('lastName',e.target.value)} /></div>
-          </div>
-          <div><label style={{ display:'block',fontSize: 11,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.82)',marginBottom:4 }}>Work Email *</label><input required type="email" style={inp} placeholder="jordan@bank.com" onChange={e=>set('email',e.target.value)} /></div>
-          <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:9 }}>
-            <div>
-              <label style={{ display:'block',fontSize: 11,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.82)',marginBottom:4 }}>Firm *</label>
-              {!firmOther
-                ? <SelectField label="" options={BANKS} value={form.firm} onChange={v=>handleFirmSelect(v)} placeholder="Select firm..." required />
-                : <>
-                    <input required autoFocus style={inp} placeholder="Firm name" onChange={e=>set('firm',e.target.value)} />
-                    <button type="button" onClick={()=>setFirmOther(false)} style={{ fontSize: 11,color: 'rgba(255,255,255,.82)',background:'none',border:'none',cursor:'pointer',marginTop:4,padding:0 }}>← Back to list</button>
-                  </>
-              }
-            </div>
-            <SelectField label="Org Type" options={ORG} value={form.orgType} onChange={v=>set('orgType',v)} required />
-          </div>
-          <div><label style={{ display:'block',fontSize: 11,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color: 'rgba(255,255,255,.82)',marginBottom:4 }}>Target Company or Mandate</label><input style={inp} placeholder="Company name" onChange={e=>set('mandate',e.target.value)} /></div>
-          {error&&<div style={{ fontSize:15,color:'#f87171',background:'rgba(248,113,113,.08)',border:'1px solid rgba(248,113,113,.2)',padding:'8px 12px' }}>{error}</div>}
-          <button type="submit" style={{ width:'100%',background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'10px',fontSize:15,fontWeight:700,cursor:'pointer',marginTop:2 }}>Submit &rarr;</button>
-        </form>
-      </div>
-    </div>
-  );
-}
-
 
 function MobileAssetCard({ asset, statusCfg: s, isFirst, onOpen, onRequest }: {
   asset: CatalystAsset;
@@ -284,7 +209,6 @@ function MobileAssetCard({ asset, statusCfg: s, isFirst, onOpen, onRequest }: {
 
 export default function CatalystPage() {
   const [selectedAsset, setSelectedAsset] = useState<CatalystAsset|null>(null);
-  const [requestOpen, setRequestOpen] = useState(false);
   const [filter, setFilter] = useState<FilterType>('all');
   const filtered = CATALYST_ASSETS
     .filter(a=>filter==='all'||a.status===filter)
@@ -346,7 +270,6 @@ export default function CatalystPage() {
                     {f==='all'?`All (${CATALYST_ASSETS.length})`:f==='transacted'?'Transacted':f.charAt(0).toUpperCase()+f.slice(1)}
                   </button>
                 ))}
-                <button onClick={()=>setRequestOpen(true)} style={{ padding:'5px 14px',fontSize:13.5,fontWeight:700,background:'rgba(255,255,255,.88)',color:'#050d18',border:'none',cursor:'pointer',marginLeft:4 }}>Check Coverage &rarr;</button>
               </div>
             </div>
             <div className="catalyst-table-wrap">
@@ -378,7 +301,7 @@ export default function CatalystPage() {
                           <span style={{ fontSize: 11,fontWeight:700,color:s.color,background:s.bg,border:`1px solid ${s.border}`,padding:'3px 9px',letterSpacing:'.06em',textTransform:'uppercase',whiteSpace:'nowrap' }}>{s.label}</span>
                         </td>
                         <td style={{ padding:'12px 14px' }}>
-                          <button onClick={e=>{e.stopPropagation();isTransacted?setSelectedAsset(a):setRequestOpen(true);}} style={{ background:'rgba(255,255,255,.07)',border:'1px solid rgba(255,255,255,.12)',color: 'rgba(255,255,255,.85)',padding:'5px 12px',fontSize:13.5,cursor:'pointer',whiteSpace:'nowrap' }}>
+                          <button onClick={e=>{e.stopPropagation();if(isTransacted){setSelectedAsset(a);}else{window.open(CONTACT.bookingUrl,'_blank','noopener,noreferrer');}}} style={{ background:'rgba(255,255,255,.07)',border:'1px solid rgba(255,255,255,.12)',color: 'rgba(255,255,255,.85)',padding:'5px 12px',fontSize:13.5,cursor:'pointer',whiteSpace:'nowrap' }}>
                             {isTransacted?'View Research':'Request Access'}
                           </button>
                         </td>
@@ -399,7 +322,7 @@ export default function CatalystPage() {
                       statusCfg={s}
                       isFirst={isFirst}
                       onOpen={()=>setSelectedAsset(a)}
-                      onRequest={()=>setRequestOpen(true)}
+                      onRequest={()=>window.open(CONTACT.bookingUrl,'_blank','noopener,noreferrer')}
                     />
                   );
                 })}
@@ -410,8 +333,7 @@ export default function CatalystPage() {
         </div>
       </section>
 
-      {selectedAsset&&<TeaserModal asset={selectedAsset} onClose={()=>setSelectedAsset(null)} onRequest={()=>{setSelectedAsset(null);setRequestOpen(true);}} />}
-      {requestOpen&&<RequestModal onClose={()=>setRequestOpen(false)} />}
+      {selectedAsset&&<TeaserModal asset={selectedAsset} onClose={()=>setSelectedAsset(null)} />}
     </>
   );
 }
