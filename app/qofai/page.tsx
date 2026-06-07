@@ -95,25 +95,6 @@ const QUESTIONS = [
     why: 'If customers do not understand the strategy, buyers will not either.' },
 ];
 
-const MGMT_FAILURE_REASONS = [
-  {
-    title: 'The operator picks the happy ones',
-    body: 'Reference lists are curated. The customers who would not return calls do not appear. The unhappy customer is precisely the diligence risk buyers will find.',
-  },
-  {
-    title: 'Sophisticated buyers already discount it',
-    body: 'PE diligence teams treat operator-supplied reference calls as marketing input, not evidence. The data is scored down before the call even happens.',
-  },
-  {
-    title: 'The list runs out',
-    body: 'After five reference calls, buyers source their own customers via LinkedIn, expert networks, and ex-employees. They find what the curated list excluded.',
-  },
-  {
-    title: 'The risk lives in what was excluded',
-    body: 'Recent churn, failed pilots, contract downgrades. These are the findings that compress the multiple. Independent sourcing surfaces them first so the operator can address them in the deck.',
-  },
-];
-
 // Crossover Core 9 - the standardized methodology
 const CORE_9 = [
   { num: '01', name: 'Net Promoter Score',           body: 'Customer loyalty benchmarked against 40+ comparable studies in the database.' },
@@ -179,35 +160,6 @@ export default function VoiceOfCustomerPage() {
             <a href="/intelligence" style={{ background:'transparent', color:'rgba(255,255,255,.92)', border:'1px solid rgba(255,255,255,.30)', padding:'12px 22px', fontSize:15, fontWeight:500, textDecoration:'none', borderRadius:2 }}>
               See the Intelligence Suite →
             </a>
-          </div>
-        </div>
-      </section>
-
-      {/* WHY MGMT-SOURCED CUSTOMERS FAIL */}
-      <section style={{ padding:'72px 0', borderBottom:'1px solid rgba(255,255,255,.07)' }}>
-        <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 36px' }}>
-          <div style={{ marginBottom:32 }}>
-            <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase', color:'rgba(166,183,210,.95)', marginBottom:10 }}>
-              The problem
-            </div>
-            <h2 style={{ fontSize:'clamp(26px, 3vw, 34px)', fontWeight:700, color:'rgba(255,255,255,.97)', letterSpacing:'-.025em', lineHeight:1.15, margin:'0 0 14px', maxWidth:880 }}>
-              Why a management-sourced reference list does not survive diligence.
-            </h2>
-            <p style={{ fontSize:15, color:'rgba(255,255,255,.88)', lineHeight:1.7, maxWidth:760, margin:0 }}>
-              Curated references are how most CIMs back their customer claims. Every sophisticated buyer knows it. Here is what actually happens when those references hit the diligence team.
-            </p>
-          </div>
-
-          <div style={{ display:'grid', gridTemplateColumns:'repeat(2, 1fr)', gap:14 }}>
-            {MGMT_FAILURE_REASONS.map((r, i) => (
-              <div key={i} style={{ background:'rgba(6,14,28,.97)', border:'1px solid rgba(255,255,255,.10)', borderLeft:'3px solid rgba(245,158,11,.7)', padding:'22px 26px' }}>
-                <div style={{ display:'flex', alignItems:'baseline', gap:14, marginBottom:10 }}>
-                  <div style={{ fontSize:13, fontWeight:700, color:'rgba(245,158,11,.95)', letterSpacing:'.06em', minWidth:24 }}>0{i + 1}</div>
-                  <div style={{ fontSize:17, fontWeight:700, color:'rgba(255,255,255,.97)' }}>{r.title}</div>
-                </div>
-                <div style={{ fontSize:14.5, color:'rgba(255,255,255,.85)', lineHeight:1.7, paddingLeft:38 }}>{r.body}</div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
