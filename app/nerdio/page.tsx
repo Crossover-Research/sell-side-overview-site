@@ -62,7 +62,7 @@ export default function NerdioPage() {
                 ))}
               </div>
               <div style={{ marginTop: 12, fontSize: 10, color: 'rgba(255,255,255,.78)', fontStyle: 'italic' }}>
-                Displayed as % of 21 verified Enterprise and MSP respondents.
+                Displayed as % of verified Enterprise and MSP respondents.
               </div>
             </div>
 
