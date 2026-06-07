@@ -305,11 +305,6 @@ export default function CatalystPage() {
               <h2 style={{ fontSize:30,fontWeight:700,color:'#fff',lineHeight:1.15,letterSpacing:'-.02em',maxWidth:600,margin:0 }}>
                 The only intelligence library that serves both sides of the same deal.
               </h2>
-              <div style={{ display:'flex',flexDirection:'column',gap:10,alignItems:'flex-end',flexShrink:0 }}>
-                <button onClick={()=>setRequestOpen(true)} style={{ background:'rgba(255,255,255,.9)',color:'#050d18',border:'none',padding:'9px 22px',fontSize:15,fontWeight:700,cursor:'pointer',whiteSpace:'nowrap' }}>
-                  Check Coverage &rarr;
-                </button>
-              </div>
             </div>
           </div>
         </div>
