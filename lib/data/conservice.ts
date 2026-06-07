@@ -25,7 +25,7 @@ export const IC_CARDS_CONSERVICE: ICCard[] = [
     question: 'How strong is customer advocacy and satisfaction?',
     verdict: 'Operational gold standard; top-tier advocacy',
     stat: { num: '8.3', label: '/ 10 likelihood to recommend' },
-    finding: '8.3/10 likelihood to recommend with renewal intent at 8.2 and support rated 8.2 across 29 verified operator respondents. Customers rate satisfaction versus alternatives 7.0/10 — toward the significantly-better end of the scale — and describe Conservice as the industry standard for responsiveness, billing accuracy, and analytical reporting.',
+    finding: '8.3/10 likelihood to recommend with renewal intent at 8.2 and support rated 8.2 across verified operator respondents. Customers rate satisfaction versus alternatives 7.0/10 — toward the significantly-better end of the scale — and describe Conservice as the industry standard for responsiveness, billing accuracy, and analytical reporting.',
     quote: { text: 'They continue to set the standard in the industry with exceptional responsiveness.', cite: 'Managing Director, Asset Management • TruAmerica' },
     pills: [{ label: 'Recommend 8.3', win: true }, { label: 'Renewal intent 8.2' }, { label: 'Support 8.2' }],
   },
