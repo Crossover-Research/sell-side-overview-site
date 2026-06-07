@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect, useCallback } from 'react';
+import { CONTACT } from '../lib/config/site';
 
 const DEALS = [
   {
@@ -279,7 +280,8 @@ export function DealProof() {
             {' '}The same customer evidence that closed these deals is available for your next one.
           </div>
           <a
-            href="/intelligence?request=1"
+            href={CONTACT.bookingUrl}
+            target="_blank" rel="noopener noreferrer"
             style={{
               display:'inline-flex', alignItems:'center',
               background:'rgba(255,255,255,.9)', color:'#060e1c',
@@ -290,7 +292,7 @@ export function DealProof() {
             onMouseEnter={e=>{(e.currentTarget as HTMLElement).style.transform='translateY(-1px)';}}
             onMouseLeave={e=>{(e.currentTarget as HTMLElement).style.transform='translateY(0)';}}
           >
-            Scope a Mandate →
+            Book a Meeting
           </a>
         </div>
 
