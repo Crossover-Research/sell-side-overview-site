@@ -26,12 +26,6 @@ export function Topbar() {
         >
           Book a Meeting
         </a>
-        <a
-          href="/intelligence?request=1"
-          className="topbar-scope-btn"
-        >
-          Scope a Mandate →
-        </a>
       </div>
     </div>
   );
