@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { CONTACT } from '../lib/config/site';
 
 const STAGES = [
   {
@@ -59,19 +60,6 @@ export function CapabilitiesEngine() {
                 You win with evidence no one else has.
               </span>
             </h2>
-            <a
-              href="/intelligence?request=1"
-              style={{
-                fontSize:15, fontWeight:600, color:'rgba(180,210,255,.85)',
-                border:'1px solid rgba(120,144,178,.28)', padding:'8px 18px',
-                textDecoration:'none', whiteSpace:'nowrap', flexShrink:0,
-                transition:'all .15s', background:'rgba(120,144,178,.05)',
-              }}
-              onMouseEnter={e=>{const el=e.currentTarget as HTMLElement;el.style.borderColor='rgba(120,144,178,.55)';el.style.background='rgba(120,144,178,.1)';}}
-              onMouseLeave={e=>{const el=e.currentTarget as HTMLElement;el.style.borderColor='rgba(120,144,178,.28)';el.style.background='rgba(120,144,178,.05)';}}
-            >
-              Scope a Mandate →
-            </a>
           </div>
         </div>
 
@@ -124,7 +112,8 @@ export function CapabilitiesEngine() {
                 {/* CTA */}
                 <div style={{ padding:'22px 28px 22px 24px', display:'flex', alignItems:'center', borderLeft:'1px solid rgba(255,255,255,.06)', boxSizing:'border-box', overflow:'hidden' }}>
                   <a
-                    href="/intelligence?request=1"
+                    href={CONTACT.bookingUrl}
+                    target="_blank" rel="noopener noreferrer"
                     onClick={e => e.stopPropagation()}
                     style={{
                       fontSize:15, fontWeight:700,
