@@ -169,7 +169,7 @@ export default function VoiceOfCustomerPage() {
             <span style={{ display:'block', color:'rgba(166,183,210,.95)' }}>Independent research gets underwritten.</span>
           </h1>
           <p style={{ fontSize:17, color:'rgba(255,255,255,.90)', lineHeight:1.7, maxWidth:820, margin:'0 0 30px' }}>
-            Customers sourced independently. Screened blind to the operator. Scored on a fixed nine-dimension instrument. The only research provider that does all three.
+            Customers sourced independently. Screened blind to the operator. Scored on a fixed nine-dimension instrument.
           </p>
 
           <div style={{ display:'flex', gap:12, flexWrap:'wrap' }}>
