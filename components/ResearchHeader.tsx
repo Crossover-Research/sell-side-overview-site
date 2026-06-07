@@ -52,7 +52,7 @@ const CONFIGS: Record<string, {
       { val: '8.3', lbl: 'Mission Criticality' },
       { val: '8.5', lbl: 'Feature Strength' },
     ],
-    reportUrl: 'https://yvkbfmdugujhxerdopcm.supabase.co/storage/v1/object/public/public-assets/nerdio-catalyst.pdf',
+    reportUrl: '/nerdio-catalyst.pdf',
   },
 };
 
