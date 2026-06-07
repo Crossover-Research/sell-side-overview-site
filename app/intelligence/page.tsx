@@ -68,7 +68,7 @@ export default function IntelligencePage() {
               <div style={{ position:'absolute', top:14, right:14, fontSize:12, fontWeight:700, letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(120,144,178,.95)', background:'rgba(120,144,178,.12)', border:'1px solid rgba(120,144,178,.3)', padding:'2px 8px' }}>
                 Sample
               </div>
-              <div className="ib-sample-type">Operator Rebuttal Playbook</div>
+              <div className="ib-sample-type" style={{ paddingRight: 88 }}>Operator Rebuttal Playbook</div>
               <div className="ib-sample-logo-wrap" style={{ display:'flex', alignItems:'center', flex:1 }}>
                 <div style={{ fontSize:20, fontWeight:700, color:'rgba(255,255,255,.92)', letterSpacing:'-.02em' }}>Project Dialtone</div>
               </div>
