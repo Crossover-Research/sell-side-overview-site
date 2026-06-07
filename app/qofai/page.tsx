@@ -165,8 +165,8 @@ export default function VoiceOfCustomerPage() {
             Voice of Customer &middot; The Methodology
           </div>
           <h1 style={{ fontSize:'clamp(34px, 5vw, 52px)', fontWeight:700, color:'rgba(255,255,255,.98)', lineHeight:1.08, letterSpacing:'-.035em', margin:'0 0 18px', maxWidth:1040 }}>
-            Management references do not survive diligence.
-            <span style={{ display:'block', color:'rgba(166,183,210,.95)' }}>Ours do.</span>
+            Management references get discounted.
+            <span style={{ display:'block', color:'rgba(166,183,210,.95)' }}>Independent research gets underwritten.</span>
           </h1>
           <p style={{ fontSize:17, color:'rgba(255,255,255,.90)', lineHeight:1.7, maxWidth:820, margin:'0 0 30px' }}>
             Customers sourced independently. Screened blind to the operator. Scored on a fixed nine-dimension instrument. The only research provider that does all three.
