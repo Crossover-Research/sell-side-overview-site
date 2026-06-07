@@ -17,7 +17,7 @@ const CONFIGS: Record<string, {
     logoSrc: '/red-canary-logo.svg',
     invertLogo: false,
     product: 'Managed Detection & Response',
-    studyId: 'CR-2024-005 · 9-vendor benchmark · 75+ respondents',
+    studyId: 'CR-2024-005 · 9-vendor benchmark',
     color: '#e05c5c',
     kpis: [
       { val: '9.0', lbl: 'NPS' },
@@ -31,7 +31,7 @@ const CONFIGS: Record<string, {
     logoSrc: '/bluecat-logo.svg',
     invertLogo: true,
     product: 'DNS · DHCP · IPAM',
-    studyId: 'CR-2024-006 · 55 verified enterprise respondents',
+    studyId: 'CR-2024-006 · Verified enterprise respondents',
     color: '#1e90d4',
     kpis: [
       { val: '9.0', lbl: 'Mission Criticality' },
@@ -45,14 +45,14 @@ const CONFIGS: Record<string, {
     logoSrc: '/nerdio-logo.svg',
     invertLogo: false,
     product: 'Azure Virtual Desktop Management & Automation',
-    studyId: 'Voice of Customer · 21 verified Enterprise & MSP respondents',
+    studyId: 'Voice of Customer · Verified Enterprise & MSP respondents',
     color: '#1C9DB9',
     kpis: [
       { val: '9.0', lbl: 'Recommend' },
       { val: '8.3', lbl: 'Mission Criticality' },
       { val: '8.5', lbl: 'Feature Strength' },
     ],
-    reportUrl: '#', }, conservice: { company: 'Conservice', logoSrc: '/conservice-logo-white.png', invertLogo: false, product: 'Utility Management & Billing', studyId: 'Voice of Customer · 29 verified operator respondents', color: '#6CC04A', kpis: [{ val: '8.3', lbl: 'Recommend' }, { val: '8.2', lbl: 'Renewal Intent' }, { val: '72%', lbl: 'Mission Critical' }], reportUrl: '#',
+    reportUrl: '#', }, conservice: { company: 'Conservice', logoSrc: '/conservice-logo-white.png', invertLogo: false, product: 'Utility Management & Billing', studyId: 'Voice of Customer · Verified operator respondents', color: '#6CC04A', kpis: [{ val: '8.3', lbl: 'Recommend' }, { val: '8.2', lbl: 'Renewal Intent' }, { val: '72%', lbl: 'Mission Critical' }], reportUrl: '#',
   },
 };
 
