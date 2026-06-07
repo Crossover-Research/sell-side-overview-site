@@ -61,7 +61,7 @@ export default function SamplesPage() {
             Crossover Intelligence &middot; Redacted Client Sample
           </div>
           <div style={{ flex:1, display:'flex', alignItems:'center' }}>
-            <div><div style={{ fontSize:16, fontWeight:700, color:'rgba(255,255,255,.92)', letterSpacing:'-.01em', lineHeight:1.45, marginBottom:10 }}>Competitive Intelligence, Displacement Strategies &amp; Market Dynamics in Field Operations &amp; Enterprise Asset Management</div><div style={{ fontSize:12, color:'rgba(255,255,255,.6)', lineHeight:1.6 }}>Representative sample of our new interactive deliverable &middot; client redacted</div></div>
+            <div><div style={{ fontSize:16, fontWeight:700, color:'rgba(255,255,255,.92)', letterSpacing:'-.01em', lineHeight:1.45, marginBottom:10 }}>Field Operations &amp; Enterprise Asset Management: Competitive Dynamics</div><div style={{ fontSize:12, color:'rgba(255,255,255,.6)', lineHeight:1.6 }}>Representative sample of our new interactive deliverable &middot; client redacted</div></div>
           </div>
           <div style={{ fontSize:15, fontWeight:600, color:'rgba(166,183,210,.8)', marginTop:16 }}>Read Report &rarr;</div>
         </a>
