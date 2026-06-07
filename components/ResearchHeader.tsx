@@ -52,7 +52,7 @@ const CONFIGS: Record<string, {
       { val: '8.3', lbl: 'Mission Criticality' },
       { val: '8.5', lbl: 'Feature Strength' },
     ],
-    reportUrl: '/nerdio-catalyst.pdf',
+    reportUrl: '#', }, conservice: { company: 'Conservice', logoSrc: '/conservice-logo-white.png', invertLogo: false, product: 'Utility Management & Billing', studyId: 'Voice of Customer · 29 verified operator respondents', color: '#6CC04A', kpis: [{ val: '8.3', lbl: 'Recommend' }, { val: '8.2', lbl: 'Renewal Intent' }, { val: '72%', lbl: 'Mission Critical' }],
   },
 };
 
