@@ -8,7 +8,7 @@ const STAGES = [
     timing: 'Pipeline build · pre-mandate',
     headline: 'Build pipeline before competitors know the market is in play.',
     desc: 'Independent customer evidence across a sector. no management contact required.',
-    tags: ['3–6 weeks', '40–80 customers'],
+    tags: ['3–6 weeks'],
     cta: 'Scope Sector Research',
   },
   {
@@ -17,7 +17,7 @@ const STAGES = [
     timing: 'Mandate pursuit',
     headline: 'Win the mandate with customer evidence no competing bank can replicate.',
     desc: 'Independent verbatims delivered in time for the pitch.',
-    tags: ['2–3 weeks', '20–30 customers'],
+    tags: ['2–3 weeks'],
     cta: 'Scope a Mandate Pitch',
   },
   {
@@ -26,7 +26,7 @@ const STAGES = [
     timing: 'Sell-side process launch',
     headline: 'Every weak claim pre-validated before buyers find it.',
     desc: 'Every CIM claim backed by independent customer evidence.',
-    tags: ['4–5 weeks', '30–50 customers'],
+    tags: ['4–5 weeks'],
     cta: 'Scope a VoC CIM',
   },
   {
@@ -35,7 +35,7 @@ const STAGES = [
     timing: 'Pre-process conviction',
     headline: 'Conviction before the teaser drops.',
     desc: 'Independent commercial diligence ahead of the formal process.',
-    tags: ['5–7 weeks', '50–100+ customers'],
+    tags: ['5–7 weeks'],
     cta: 'Scope a Diligence Report',
   },
 ];
