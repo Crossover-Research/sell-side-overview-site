@@ -50,7 +50,7 @@ export default function SamplesPage() {
           <div style={{ fontSize:15, fontWeight:600, color:'rgba(166,183,210,.8)', marginTop:16 }}>Read Report &rarr;</div>
         </a>
 
-        {/* Crossover Intelligence VoC report. external link */}
+        {/* Conservice JPM VoC report. repo-hosted PDF */}        <a href="/conservice-jpm-june-2025.pdf" target="_blank" rel="noopener noreferrer" style={{ display:'flex', flexDirection:'column', background:'rgba(255,255,255,.03)', border:'1px solid rgba(255,255,255,.1)', padding:'28px 32px', textDecoration:'none', minHeight:220 }}><div style={{ fontSize:12, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(166,183,210,.85)', marginBottom:14 }}>Conservice &middot; Utility Management Software</div><div style={{ flex:1, display:'flex', alignItems:'center' }}><div><div style={{ fontSize:16, fontWeight:700, color:'rgba(255,255,255,.92)', letterSpacing:'-.01em', lineHeight:1.45, marginBottom:10 }}>Voice of Customer Report</div><div style={{ fontSize:12, color:'rgba(255,255,255,.6)', lineHeight:1.6 }}>Prepared for J.P. Morgan &middot; June 2025</div></div></div><div style={{ fontSize:15, fontWeight:600, color:'rgba(166,183,210,.8)', marginTop:16 }}>Read Report &rarr;</div></a>
         <a
           href="https://sample.crossoverintelligence.com/"
           target="_blank"
@@ -58,10 +58,10 @@ export default function SamplesPage() {
           style={{ display:'flex', flexDirection:'column', background:'rgba(255,255,255,.03)', border:'1px solid rgba(255,255,255,.1)', padding:'28px 32px', textDecoration:'none', minHeight:220 }}
         >
           <div style={{ fontSize:12, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(166,183,210,.85)', marginBottom:14 }}>
-            VoC Report &middot; Competitive Intelligence &amp; Displacement
+            Crossover Intelligence &middot; Redacted Client Sample
           </div>
           <div style={{ flex:1, display:'flex', alignItems:'center' }}>
-            <span style={{ fontSize:20, fontWeight:700, color:'rgba(255,255,255,.92)', letterSpacing:'-.01em' }}>Crossover Intelligence</span>
+            <div><div style={{ fontSize:16, fontWeight:700, color:'rgba(255,255,255,.92)', letterSpacing:'-.01em', lineHeight:1.45, marginBottom:10 }}>Competitive Intelligence, Displacement Strategies &amp; Market Dynamics in Field Operations &amp; Enterprise Asset Management</div><div style={{ fontSize:12, color:'rgba(255,255,255,.6)', lineHeight:1.6 }}>Representative sample of our new interactive deliverable &middot; client redacted</div></div>
           </div>
           <div style={{ fontSize:15, fontWeight:600, color:'rgba(166,183,210,.8)', marginTop:16 }}>Read Report &rarr;</div>
         </a>
