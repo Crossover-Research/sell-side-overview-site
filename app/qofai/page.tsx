@@ -147,7 +147,7 @@ const WALKTHROUGH = [
 ];
 
 const ARTIFACTS = [
-  { title: '30+ customer verbatims',         body: 'Independently sourced, attributed, slide-ready. Drop directly into the pitch.' },
+  { title: 'Customer verbatims',         body: 'Independently sourced, attributed, slide-ready. Drop directly into the pitch.' },
   { title: 'Crossover Core 9 scorecard',     body: 'Nine standardized dimensions scored against 40+ comparable studies. Benchmarks every claim.' },
   { title: 'Rebuttal map',                   body: 'Every weak claim in the equity story paired with the customer evidence that defends it.' },
   { title: 'IC-ready data appendix',         body: 'Raw transcripts, segment-level scoring, full audit trail. Survives the toughest buyer diligence.' },
@@ -287,7 +287,7 @@ export default function VoiceOfCustomerPage() {
               Sample Q of AI Scorecard. Anonymised.
             </h2>
             <p style={{ fontSize:14, color:'rgba(255,255,255,.78)' }}>
-              Enterprise SaaS &middot; 27 customer interviews &middot; benchmarked against 41 prior studies. This is what arrives in your inbox.
+              Enterprise SaaS &middot; benchmarked against 41 prior studies. This is what arrives in your inbox.
             </p>
           </div>
 
@@ -474,7 +474,7 @@ export default function VoiceOfCustomerPage() {
               { kind: 'Operator reference list', detail: 'Five to ten curated customers. Buyers know to discount the calls before they happen. The unhappy customer is never on the list.', muted: true },
               { kind: 'Expert networks',         detail: 'What one expert thinks. One voice. One bias. No score, no benchmark. No way to properly screen the right voices. Hours wasted on calls that do not hold up in diligence.', muted: true },
               { kind: 'Desk research',           detail: 'What is already public. The same comps and headlines every other bank is reading. No customer evidence at all.', muted: true },
-              { kind: 'Crossover',               detail: 'What 30+ of the target&rsquo;s actual customers said, sourced independently, scored on a fixed nine-dimension instrument, benchmarked against 40+ prior studies. Attributed, slide-ready, IC-grade.', muted: false },
+              { kind: 'Crossover',               detail: 'What the target&rsquo;s actual customers said, sourced independently, scored on a fixed nine-dimension instrument, benchmarked against 40+ prior studies. Attributed, slide-ready, IC-grade.', muted: false },
             ].map((c, i) => (
               <div key={i} style={{
                 background: c.muted ? 'rgba(6,14,28,.97)' : 'rgba(120,144,178,.10)',
