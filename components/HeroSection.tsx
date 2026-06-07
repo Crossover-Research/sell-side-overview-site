@@ -49,7 +49,7 @@ export function HeroSection({ tab }: HeroSectionProps) {
         </p>
 
 
-        {/* CTAs. Book a Meeting primary, Scope secondary */}
+        {/* CTAs. Book a Meeting primary */}
         <div style={{ display:'flex', gap:12, justifyContent:'center', marginBottom:52, flexWrap:'wrap' }}>
           <a
             href={CONTACT.bookingUrl}
@@ -74,30 +74,6 @@ export function HeroSection({ tab }: HeroSectionProps) {
             }}
           >
             Book a Meeting
-          </a>
-          <a
-            href="/intelligence?request=1"
-            style={{
-              display:'inline-flex', alignItems:'center', gap:8,
-              background:'transparent', color:'rgba(180,210,255,.82)',
-              border:'1px solid rgba(120,144,178,.32)', padding:'13px 26px',
-              fontSize:15, fontWeight:500, textDecoration:'none', whiteSpace:'nowrap',
-              transition:'all .15s',
-            }}
-            onMouseEnter={e=>{
-              const el = e.currentTarget as HTMLElement;
-              el.style.borderColor='rgba(120,144,178,.85)';
-              el.style.background='rgba(120,144,178,.09)';
-              el.style.color='rgba(200,225,255,.95)';
-            }}
-            onMouseLeave={e=>{
-              const el = e.currentTarget as HTMLElement;
-              el.style.borderColor='rgba(120,144,178,.32)';
-              el.style.background='transparent';
-              el.style.color='rgba(180,210,255,.82)';
-            }}
-          >
-            Scope a Mandate →
           </a>
         </div>
 
