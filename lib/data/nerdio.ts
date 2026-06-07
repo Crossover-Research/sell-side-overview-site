@@ -43,7 +43,7 @@ export const IC_CARDS_NERDIO: ICCard[] = [
 // ── Vendor spotlight ──────────────────────────────────────────────────────────
 export const VENDOR_SPOTLIGHT_NERDIO: VendorSpotlightData = {
   name: 'Nerdio',
-  descriptor: 'Azure Virtual Desktop management & automation • 21 verified respondents',
+  descriptor: 'Azure Virtual Desktop management & automation • Verified Enterprise & MSP customers',
   scores: [
     { val: '9.0', lbl: 'Recommend' },
     { val: '8.5', lbl: 'Feature Strength' },
@@ -87,7 +87,7 @@ export const NERDIO_DISCOVERY_DATA = {
   colors: ['#1C9DB9', '#5974a0', '#7890b2', '#6b7280'],
 };
 
-// Respondent mix (17 Enterprise / 4 MSP of 21)
+// Respondent mix (%)
 export const NERDIO_RESPONDENT_MIX = {
   labels: ['Enterprise', 'MSP'],
   data:   [81, 19],
