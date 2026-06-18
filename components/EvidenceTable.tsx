@@ -121,7 +121,7 @@ const ROWS: {
       investors: 'Arrive at IC with answers.',
     },
     withBold: {
-      bankers:   '70% sell-side mandate win rate. Not relationship. Evidence.',
+      bankers:   '75% sell-side mandate win rate. Not relationship. Evidence.',
       operators: "The fund's plan starts from your roadmap.",
       investors: 'Pre-emptive bid wins.',
     },
@@ -134,7 +134,7 @@ const ROWS: {
 ];
 
 const OUTCOME: Record<Audience, { stat: string; statLabel: string; desc: string }> = {
-  bankers:   { stat:'70%',    statLabel:'Win Rate',  desc:'70% sell-side mandate win rate. Not because of better relationships. Pitches built from what customers actually say.' },
+  bankers:   { stat:'75%',    statLabel:'Win Rate',  desc:'75% sell-side mandate win rate. Not because of better relationships. Pitches built from what customers actually say.' },
   operators: { stat:'',       statLabel:'',          desc:"Operators who surface uncomfortable truths early don't just close faster. They set the terms." },
   investors: { stat:'6–12mo', statLabel:'Ahead',     desc:'Customer evidence in hand before the process begins means you arrive at IC with proof, not assumptions.' },
 };
