@@ -2,7 +2,7 @@ export const IB_TRACK_RECORD = {
   mandatesSupported: '30+',
   jpmEngagements: '22+',
   totalTransactionValue: '$25B+',
-  winRateWithCrossover: '70%',
+  winRateWithCrossover: '75%',
   avgDeliveryDays: 'Same day (Catalyst) · 14 days (custom)',
 };
 
