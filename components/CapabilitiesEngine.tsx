@@ -77,7 +77,7 @@ export function CapabilitiesEngine() {
                 key={i}
                 onClick={() => setActiveStage(isActive ? null : i)}
                 style={{
-                  display:'grid', gridTemplateColumns:'180px 1fr 220px',
+                  display:'grid', gridTemplateColumns:'180px 1fr 250px',
                   background: isActive ? 'rgba(120,144,178,.07)' : 'rgba(6,14,28,.97)',
                   cursor:'pointer', transition:'background .15s',
                   borderLeft:`2px solid ${isActive ? 'rgba(120,144,178,.5)' : 'transparent'}`,
@@ -110,7 +110,7 @@ export function CapabilitiesEngine() {
                 </div>
 
                 {/* CTA */}
-                <div style={{ padding:'22px 28px 22px 24px', display:'flex', alignItems:'center', borderLeft:'1px solid rgba(255,255,255,.06)', boxSizing:'border-box', overflow:'hidden' }}>
+                <div style={{ padding:'22px 24px', display:'flex', alignItems:'center', borderLeft:'1px solid rgba(255,255,255,.06)', boxSizing:'border-box', overflow:'visible' }}>
                   <a
                     href={CONTACT.bookingUrl}
                     target="_blank" rel="noopener noreferrer"
