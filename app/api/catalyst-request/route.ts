@@ -45,16 +45,6 @@ async function sendZohoEmail(
   } catch { return false; }
 }
 
-async function sendCliqNotification(text: string): Promise<void> {
-  const url = process.env.CLIQ_LEAD_URL;
-  if (!url) return;
-  await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ text }),
-  }).catch(() => {});
-}
-
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -95,7 +85,7 @@ export async function POST(request: Request) {
       console.error('Supabase error:', e);
     }
 
-    // ── Email + Cliq notification ────────────────────────────────────────────
+    // ── Email notification ─────────────────────────────────────────────────
     const notifyTo = process.env.NOTIFY_TO_EMAIL ?? 'ian@crossoverresearch.com';
     const subject  = `New Catalyst Request. ${firstName} ${lastName} · ${firm}`;
     const htmlBody = `
@@ -111,14 +101,14 @@ export async function POST(request: Request) {
       </div>
     `;
 
-    let emailSent = false;
-    const accessToken = await getZohoAccessToken();
-    if (accessToken) {
-      emailSent = await sendZohoEmail(accessToken, notifyTo, subject, htmlBody);
+    if (await getZohoAccessToken().then((t) => t !== null)) {
+      // token retrieved above via getZohoAccessToken; re-fetch below to send
     }
 
-    const cliqText = `*New Catalyst Request*\n*Name:* ${firstName} ${lastName}\n*Email:* ${email}\n*Firm:* ${firm} (${orgType})\n*Target:* ${mandate || 'not specified'}${emailSent ? '' : '\n_(email notification failed. check Zoho scopes)_'}`;
-    await sendCliqNotification(cliqText);
+    const accessToken = await getZohoAccessToken();
+    if (accessToken) {
+      await sendZohoEmail(accessToken, notifyTo, subject, htmlBody);
+    }
 
     return NextResponse.json({ success: true });
   } catch (e) {
