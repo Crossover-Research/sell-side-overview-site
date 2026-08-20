@@ -101,10 +101,6 @@ export async function POST(request: Request) {
       </div>
     `;
 
-    if (await getZohoAccessToken().then((t) => t !== null)) {
-      // token retrieved above via getZohoAccessToken; re-fetch below to send
-    }
-
     const accessToken = await getZohoAccessToken();
     if (accessToken) {
       await sendZohoEmail(accessToken, notifyTo, subject, htmlBody);
